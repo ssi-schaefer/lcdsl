@@ -1,0 +1,10 @@
+# generic rules only. for specific rules, put them into the plugins!
+
+*/bin/
+*.tm.epoch
+*/tm.out*
+*.xml.zip.bak
+*.ser
+Thumbs.db
+*.swp
+*/xtend-gen/

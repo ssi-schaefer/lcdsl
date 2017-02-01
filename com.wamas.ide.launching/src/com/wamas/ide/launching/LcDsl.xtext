@@ -1,0 +1,137 @@
+grammar com.wamas.ide.launching.LcDsl with org.eclipse.xtext.common.Terminals
+
+generate lcDsl "http://www.wamas.com/ide/launching/LcDsl"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+LCModel:
+	configurations+=LaunchConfig*
+;
+	
+LaunchConfig:
+	((explicit?='explicit')? & (manual?='manual')?) type=LaunchConfigType 'configuration' name=FQName 
+	(':' superConfig=[LaunchConfig|FQName])? '{'
+		( // things that may appear only once
+			(clears=ClearOption ';')?
+			& ('workspace' workspace=AnyPath ';')?
+			& ('working-dir' workingDir=ExistingPath ';')?
+			& (memory=MemoryOption ';')?
+			& ('project' project=Project ';')?
+			& ('main-class' mainClass=JavaType ';')?
+			& (application=ApplicationExtPoint)?
+			& (product=ProductExtPoint)?
+		)
+		( // things that may appear multiple times
+			plugins+=AddPlugin
+			| ignore+=IgnorePlugin
+			| groupMembers+=GroupMember
+			| vmArgs+=VmArgument
+			| progArgs+=ProgramArgument
+			| envVars+=EnvironmentVariable
+		)*
+	'}'
+;
+
+AddPlugin:
+	'plugin' plugin=Plugin ';'
+;
+
+IgnorePlugin:
+	'ignore' plugin=Plugin ';'
+;
+
+VmArgument:
+	{VmArgument} 'vm-arg' (arguments+=STRING)* ';'
+;
+
+ProgramArgument:
+	{ProgramArgument} 'argument' (arguments+=STRING)* ';'
+;
+
+EnvironmentVariable:
+	{EnvironmentVariable} 'environment' name=ID EQ value=STRING ';'
+;
+
+ApplicationExtPoint:
+	'application' name = FQName ';'
+;
+
+ProductExtPoint:
+	'product' name = FQName ';'
+;
+
+Path:
+	ExistingPath|AnyPath
+;
+ExistingPath:
+	name = STRING
+;
+AnyPath:
+	name = STRING
+;
+
+Plugin:
+	name = FQName (version=VERSION)?
+;
+
+Project:
+	name = FQName
+;
+
+JavaType:
+	name = FQName
+;
+
+ClearOption:
+	{ClearOption} 'clear' (((workspace?='workspace' | log?='log') (noAskClear?='!')?)? & (config?='config')?)
+;
+
+MemoryOption:
+	{MemoryOption} 'memory' (('min' EQ min=INT minUnit=MemoryUnit)? & ('max' EQ max=INT maxUnit=MemoryUnit)? & ('perm' EQ perm=INT permUnit=MemoryUnit)?)
+;
+
+GroupMember:
+	((type?=LaunchModeType)? & (adopt?='adopt')?) 'member' member=[LaunchConfig|FQName] (postAction?=GroupPostLaunchAction)? ';'
+;
+
+GroupPostLaunchAction:
+	GroupPostLaunchDelay|GroupPostLaunchRegex|GroupPostLaunchWait
+;
+
+GroupPostLaunchDelay:
+	'delay' delay=INT
+;
+
+GroupPostLaunchRegex:
+	'regex' regex=STRING
+;
+
+GroupPostLaunchWait:
+	{GroupPostLaunchWait} 'wait'
+;
+
+/**
+ * A possibly fully qualified name (separated by '.').
+ */
+FQName:
+	ID ('.' ID)*
+;
+
+enum LaunchConfigType:
+	JAVA = "java" | ECLIPSE = "eclipse" | RAP = "rap" | GROUP = "group"
+;
+
+enum LaunchModeType:
+	RUN = "run" | DEBUG = "debug" | PROFILE = "profile" | COVERAGE = "coverage" | INHERIT = "inherit"
+;
+
+enum MemoryUnit:
+	MB = 'MB' | MB = 'mb' | MB = 'M' | MB = 'm' |
+	GB = 'GB' | GB = 'gb' | GB = 'G' | GB = 'g' 
+;
+
+terminal INT returns ecore::EInt: ('0'..'9')+;
+terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('.'? ('a'..'z'|'A'..'Z'|'^'|'_'|'-'|'0'..'9'))*;
+terminal QUALIFIER: ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9')*;
+terminal VERSION: INT (('.' INT) (('.' INT) ('.' QUALIFIER)?)?)?;
+terminal EQ: '=';

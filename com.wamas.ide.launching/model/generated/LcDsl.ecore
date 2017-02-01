@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="lcDsl" nsURI="http://www.wamas.com/ide/launching/LcDsl" nsPrefix="lcDsl">
+  <eClassifiers xsi:type="ecore:EClass" name="LCModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
+        eType="#//LaunchConfig" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LaunchConfig">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="explicit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="manual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//LaunchConfigType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superConfig" eType="#//LaunchConfig"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clears" eType="#//ClearOption"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workspace" eType="#//AnyPath"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workingDir" eType="#//ExistingPath"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="memory" eType="#//MemoryOption"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="project" eType="#//Project"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainClass" eType="#//JavaType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="application" eType="#//ApplicationExtPoint"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="product" eType="#//ProductExtPoint"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plugins" upperBound="-1"
+        eType="#//AddPlugin" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ignore" upperBound="-1"
+        eType="#//IgnorePlugin" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groupMembers" upperBound="-1"
+        eType="#//GroupMember" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vmArgs" upperBound="-1"
+        eType="#//VmArgument" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="progArgs" upperBound="-1"
+        eType="#//ProgramArgument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddPlugin">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plugin" eType="#//Plugin"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IgnorePlugin">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plugin" eType="#//Plugin"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VmArgument">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arguments" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProgramArgument">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arguments" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationExtPoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductExtPoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Path">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExistingPath" eSuperTypes="#//Path"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AnyPath" eSuperTypes="#//Path"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Plugin">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Project">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClearOption">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="workspace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="log" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="noAskClear" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="config" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MemoryOption">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minUnit" eType="#//MemoryUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxUnit" eType="#//MemoryUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="perm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="permUnit" eType="#//MemoryUnit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GroupMember">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adopt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="#//LaunchConfig"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="postAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GroupPostLaunchAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GroupPostLaunchDelay" eSuperTypes="#//GroupPostLaunchAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="delay" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GroupPostLaunchRegex" eSuperTypes="#//GroupPostLaunchAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="regex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GroupPostLaunchWait" eSuperTypes="#//GroupPostLaunchAction"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="LaunchConfigType">
+    <eLiterals name="JAVA" literal="java"/>
+    <eLiterals name="ECLIPSE" value="1" literal="eclipse"/>
+    <eLiterals name="RAP" value="2" literal="rap"/>
+    <eLiterals name="GROUP" value="3" literal="group"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LaunchModeType">
+    <eLiterals name="RUN" literal="run"/>
+    <eLiterals name="DEBUG" value="1" literal="debug"/>
+    <eLiterals name="PROFILE" value="2" literal="profile"/>
+    <eLiterals name="COVERAGE" value="3" literal="coverage"/>
+    <eLiterals name="INHERIT" value="4" literal="inherit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MemoryUnit">
+    <eLiterals name="MB" literal="MB"/>
+    <eLiterals name="GB" value="1" literal="GB"/>
+  </eClassifiers>
+</ecore:EPackage>
