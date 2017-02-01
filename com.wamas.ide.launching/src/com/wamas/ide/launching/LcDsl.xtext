@@ -4,6 +4,42 @@ generate lcDsl "http://www.wamas.com/ide/launching/LcDsl"
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
+/**
+ * TODO: The language is still missing some things that could be set:
+ * 
+ * Common:
+ *   - Favorites menu support
+ *   - stdout/stderr redirection support, console allocation, ...
+ *   - launch in background
+ * 
+ * Eclipse:
+ *   - support for setting Java runtime environment settings
+ *   - validate plugins automatically prior to launching
+ *   - plugin start level settings (start leven & autostart)
+ *   - config.ini related settings
+ *   - software installation support setting
+ *   - tracing settings
+ *   - environment: append vs. replace setting
+ * 
+ * Java:
+ *   - support for setting JRE
+ *   - main class search settings (system libraries, inheritence)
+ *   - stop in main
+ *   - additional classpath entries (low prio)
+ *   - additional source lookup (low prio)
+ * 
+ * RAP:
+ *   - servlet path, port, context path
+ *   - session timeout
+ *   - open internal, external, not at all
+ *   - RAP development mode
+ *   - plugin/bundle settings same as for Eclipse (but different)
+ *   - JRE settings (same as Java - but different)
+ * 
+ * How to support different launch config types - some generic attribute support?
+ * Or really implement support for each type separately (probably the best experience).
+ */
+
 LCModel:
 	configurations+=LaunchConfig*
 ;
