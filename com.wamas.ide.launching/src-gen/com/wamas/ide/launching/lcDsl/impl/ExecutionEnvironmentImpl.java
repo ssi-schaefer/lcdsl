@@ -3,50 +3,57 @@
  */
 package com.wamas.ide.launching.lcDsl.impl;
 
+import com.wamas.ide.launching.lcDsl.ExecutionEnvironment;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
-import com.wamas.ide.launching.lcDsl.ProgramArgument;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Program Argument</b></em>'.
+ * An implementation of the model object '<em><b>Execution Environment</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.ProgramArgumentImpl#getArguments <em>Arguments</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.ExecutionEnvironmentImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ProgramArgumentImpl extends MinimalEObjectImpl.Container implements ProgramArgument
+public class ExecutionEnvironmentImpl extends MinimalEObjectImpl.Container implements ExecutionEnvironment
 {
   /**
-   * The cached value of the '{@link #getArguments() <em>Arguments</em>}' attribute list.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getArguments()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected EList<String> arguments;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ProgramArgumentImpl()
+  protected ExecutionEnvironmentImpl()
   {
     super();
   }
@@ -59,7 +66,7 @@ public class ProgramArgumentImpl extends MinimalEObjectImpl.Container implements
   @Override
   protected EClass eStaticClass()
   {
-    return LcDslPackage.Literals.PROGRAM_ARGUMENT;
+    return LcDslPackage.Literals.EXECUTION_ENVIRONMENT;
   }
 
   /**
@@ -67,13 +74,22 @@ public class ProgramArgumentImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getArguments()
+  public String getName()
   {
-    if (arguments == null)
-    {
-      arguments = new EDataTypeEList<String>(String.class, this, LcDslPackage.PROGRAM_ARGUMENT__ARGUMENTS);
-    }
-    return arguments;
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.EXECUTION_ENVIRONMENT__NAME, oldName, name));
   }
 
   /**
@@ -86,8 +102,8 @@ public class ProgramArgumentImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case LcDslPackage.PROGRAM_ARGUMENT__ARGUMENTS:
-        return getArguments();
+      case LcDslPackage.EXECUTION_ENVIRONMENT__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -97,15 +113,13 @@ public class ProgramArgumentImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case LcDslPackage.PROGRAM_ARGUMENT__ARGUMENTS:
-        getArguments().clear();
-        getArguments().addAll((Collection<? extends String>)newValue);
+      case LcDslPackage.EXECUTION_ENVIRONMENT__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -121,8 +135,8 @@ public class ProgramArgumentImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case LcDslPackage.PROGRAM_ARGUMENT__ARGUMENTS:
-        getArguments().clear();
+      case LcDslPackage.EXECUTION_ENVIRONMENT__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -138,8 +152,8 @@ public class ProgramArgumentImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case LcDslPackage.PROGRAM_ARGUMENT__ARGUMENTS:
-        return arguments != null && !arguments.isEmpty();
+      case LcDslPackage.EXECUTION_ENVIRONMENT__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -155,10 +169,10 @@ public class ProgramArgumentImpl extends MinimalEObjectImpl.Container implements
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (arguments: ");
-    result.append(arguments);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }
 
-} //ProgramArgumentImpl
+} //ExecutionEnvironmentImpl

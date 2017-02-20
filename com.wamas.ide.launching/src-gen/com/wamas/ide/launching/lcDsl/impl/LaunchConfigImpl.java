@@ -7,7 +7,10 @@ import com.wamas.ide.launching.lcDsl.AddPlugin;
 import com.wamas.ide.launching.lcDsl.AnyPath;
 import com.wamas.ide.launching.lcDsl.ApplicationExtPoint;
 import com.wamas.ide.launching.lcDsl.ClearOption;
+import com.wamas.ide.launching.lcDsl.EnvironmentVariable;
+import com.wamas.ide.launching.lcDsl.ExecutionEnvironment;
 import com.wamas.ide.launching.lcDsl.ExistingPath;
+import com.wamas.ide.launching.lcDsl.Favorites;
 import com.wamas.ide.launching.lcDsl.GroupMember;
 import com.wamas.ide.launching.lcDsl.IgnorePlugin;
 import com.wamas.ide.launching.lcDsl.JavaType;
@@ -18,6 +21,7 @@ import com.wamas.ide.launching.lcDsl.MemoryOption;
 import com.wamas.ide.launching.lcDsl.ProductExtPoint;
 import com.wamas.ide.launching.lcDsl.ProgramArgument;
 import com.wamas.ide.launching.lcDsl.Project;
+import com.wamas.ide.launching.lcDsl.Redirect;
 import com.wamas.ide.launching.lcDsl.VmArgument;
 
 import java.util.Collection;
@@ -46,6 +50,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isExplicit <em>Explicit</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isManual <em>Manual</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isForeground <em>Foreground</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isNoConsole <em>No Console</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getSuperConfig <em>Super Config</em>}</li>
@@ -57,11 +63,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getMainClass <em>Main Class</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getApplication <em>Application</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getProduct <em>Product</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getFavorites <em>Favorites</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getRedirect <em>Redirect</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getExecEnv <em>Exec Env</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getPlugins <em>Plugins</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getIgnore <em>Ignore</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getGroupMembers <em>Group Members</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getVmArgs <em>Vm Args</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getProgArgs <em>Prog Args</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getEnvVars <em>Env Vars</em>}</li>
  * </ul>
  *
  * @generated
@@ -107,6 +117,46 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * @ordered
    */
   protected boolean manual = MANUAL_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isForeground() <em>Foreground</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isForeground()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean FOREGROUND_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isForeground() <em>Foreground</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isForeground()
+   * @generated
+   * @ordered
+   */
+  protected boolean foreground = FOREGROUND_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isNoConsole() <em>No Console</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isNoConsole()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean NO_CONSOLE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isNoConsole() <em>No Console</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isNoConsole()
+   * @generated
+   * @ordered
+   */
+  protected boolean noConsole = NO_CONSOLE_EDEFAULT;
 
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -239,6 +289,36 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
   protected ProductExtPoint product;
 
   /**
+   * The cached value of the '{@link #getFavorites() <em>Favorites</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFavorites()
+   * @generated
+   * @ordered
+   */
+  protected Favorites favorites;
+
+  /**
+   * The cached value of the '{@link #getRedirect() <em>Redirect</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRedirect()
+   * @generated
+   * @ordered
+   */
+  protected Redirect redirect;
+
+  /**
+   * The cached value of the '{@link #getExecEnv() <em>Exec Env</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExecEnv()
+   * @generated
+   * @ordered
+   */
+  protected ExecutionEnvironment execEnv;
+
+  /**
    * The cached value of the '{@link #getPlugins() <em>Plugins</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -287,6 +367,16 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * @ordered
    */
   protected EList<ProgramArgument> progArgs;
+
+  /**
+   * The cached value of the '{@link #getEnvVars() <em>Env Vars</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEnvVars()
+   * @generated
+   * @ordered
+   */
+  protected EList<EnvironmentVariable> envVars;
 
   /**
    * <!-- begin-user-doc -->
@@ -353,6 +443,52 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
     manual = newManual;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__MANUAL, oldManual, manual));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isForeground()
+  {
+    return foreground;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setForeground(boolean newForeground)
+  {
+    boolean oldForeground = foreground;
+    foreground = newForeground;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__FOREGROUND, oldForeground, foreground));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isNoConsole()
+  {
+    return noConsole;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNoConsole(boolean newNoConsole)
+  {
+    boolean oldNoConsole = noConsole;
+    noConsole = newNoConsole;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__NO_CONSOLE, oldNoConsole, noConsole));
   }
 
   /**
@@ -833,6 +969,150 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
+  public Favorites getFavorites()
+  {
+    return favorites;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFavorites(Favorites newFavorites, NotificationChain msgs)
+  {
+    Favorites oldFavorites = favorites;
+    favorites = newFavorites;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__FAVORITES, oldFavorites, newFavorites);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFavorites(Favorites newFavorites)
+  {
+    if (newFavorites != favorites)
+    {
+      NotificationChain msgs = null;
+      if (favorites != null)
+        msgs = ((InternalEObject)favorites).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__FAVORITES, null, msgs);
+      if (newFavorites != null)
+        msgs = ((InternalEObject)newFavorites).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__FAVORITES, null, msgs);
+      msgs = basicSetFavorites(newFavorites, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__FAVORITES, newFavorites, newFavorites));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Redirect getRedirect()
+  {
+    return redirect;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetRedirect(Redirect newRedirect, NotificationChain msgs)
+  {
+    Redirect oldRedirect = redirect;
+    redirect = newRedirect;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__REDIRECT, oldRedirect, newRedirect);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRedirect(Redirect newRedirect)
+  {
+    if (newRedirect != redirect)
+    {
+      NotificationChain msgs = null;
+      if (redirect != null)
+        msgs = ((InternalEObject)redirect).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__REDIRECT, null, msgs);
+      if (newRedirect != null)
+        msgs = ((InternalEObject)newRedirect).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__REDIRECT, null, msgs);
+      msgs = basicSetRedirect(newRedirect, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__REDIRECT, newRedirect, newRedirect));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExecutionEnvironment getExecEnv()
+  {
+    return execEnv;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExecEnv(ExecutionEnvironment newExecEnv, NotificationChain msgs)
+  {
+    ExecutionEnvironment oldExecEnv = execEnv;
+    execEnv = newExecEnv;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__EXEC_ENV, oldExecEnv, newExecEnv);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExecEnv(ExecutionEnvironment newExecEnv)
+  {
+    if (newExecEnv != execEnv)
+    {
+      NotificationChain msgs = null;
+      if (execEnv != null)
+        msgs = ((InternalEObject)execEnv).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__EXEC_ENV, null, msgs);
+      if (newExecEnv != null)
+        msgs = ((InternalEObject)newExecEnv).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__EXEC_ENV, null, msgs);
+      msgs = basicSetExecEnv(newExecEnv, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__EXEC_ENV, newExecEnv, newExecEnv));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<AddPlugin> getPlugins()
   {
     if (plugins == null)
@@ -903,6 +1183,20 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<EnvironmentVariable> getEnvVars()
+  {
+    if (envVars == null)
+    {
+      envVars = new EObjectContainmentEList<EnvironmentVariable>(EnvironmentVariable.class, this, LcDslPackage.LAUNCH_CONFIG__ENV_VARS);
+    }
+    return envVars;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -924,6 +1218,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return basicSetApplication(null, msgs);
       case LcDslPackage.LAUNCH_CONFIG__PRODUCT:
         return basicSetProduct(null, msgs);
+      case LcDslPackage.LAUNCH_CONFIG__FAVORITES:
+        return basicSetFavorites(null, msgs);
+      case LcDslPackage.LAUNCH_CONFIG__REDIRECT:
+        return basicSetRedirect(null, msgs);
+      case LcDslPackage.LAUNCH_CONFIG__EXEC_ENV:
+        return basicSetExecEnv(null, msgs);
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         return ((InternalEList<?>)getPlugins()).basicRemove(otherEnd, msgs);
       case LcDslPackage.LAUNCH_CONFIG__IGNORE:
@@ -934,6 +1234,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return ((InternalEList<?>)getVmArgs()).basicRemove(otherEnd, msgs);
       case LcDslPackage.LAUNCH_CONFIG__PROG_ARGS:
         return ((InternalEList<?>)getProgArgs()).basicRemove(otherEnd, msgs);
+      case LcDslPackage.LAUNCH_CONFIG__ENV_VARS:
+        return ((InternalEList<?>)getEnvVars()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -952,6 +1254,10 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return isExplicit();
       case LcDslPackage.LAUNCH_CONFIG__MANUAL:
         return isManual();
+      case LcDslPackage.LAUNCH_CONFIG__FOREGROUND:
+        return isForeground();
+      case LcDslPackage.LAUNCH_CONFIG__NO_CONSOLE:
+        return isNoConsole();
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         return getType();
       case LcDslPackage.LAUNCH_CONFIG__NAME:
@@ -975,6 +1281,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return getApplication();
       case LcDslPackage.LAUNCH_CONFIG__PRODUCT:
         return getProduct();
+      case LcDslPackage.LAUNCH_CONFIG__FAVORITES:
+        return getFavorites();
+      case LcDslPackage.LAUNCH_CONFIG__REDIRECT:
+        return getRedirect();
+      case LcDslPackage.LAUNCH_CONFIG__EXEC_ENV:
+        return getExecEnv();
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         return getPlugins();
       case LcDslPackage.LAUNCH_CONFIG__IGNORE:
@@ -985,6 +1297,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return getVmArgs();
       case LcDslPackage.LAUNCH_CONFIG__PROG_ARGS:
         return getProgArgs();
+      case LcDslPackage.LAUNCH_CONFIG__ENV_VARS:
+        return getEnvVars();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -1005,6 +1319,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return;
       case LcDslPackage.LAUNCH_CONFIG__MANUAL:
         setManual((Boolean)newValue);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__FOREGROUND:
+        setForeground((Boolean)newValue);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__NO_CONSOLE:
+        setNoConsole((Boolean)newValue);
         return;
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         setType((LaunchConfigType)newValue);
@@ -1039,6 +1359,15 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
       case LcDslPackage.LAUNCH_CONFIG__PRODUCT:
         setProduct((ProductExtPoint)newValue);
         return;
+      case LcDslPackage.LAUNCH_CONFIG__FAVORITES:
+        setFavorites((Favorites)newValue);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__REDIRECT:
+        setRedirect((Redirect)newValue);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__EXEC_ENV:
+        setExecEnv((ExecutionEnvironment)newValue);
+        return;
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         getPlugins().clear();
         getPlugins().addAll((Collection<? extends AddPlugin>)newValue);
@@ -1059,6 +1388,10 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         getProgArgs().clear();
         getProgArgs().addAll((Collection<? extends ProgramArgument>)newValue);
         return;
+      case LcDslPackage.LAUNCH_CONFIG__ENV_VARS:
+        getEnvVars().clear();
+        getEnvVars().addAll((Collection<? extends EnvironmentVariable>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -1078,6 +1411,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return;
       case LcDslPackage.LAUNCH_CONFIG__MANUAL:
         setManual(MANUAL_EDEFAULT);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__FOREGROUND:
+        setForeground(FOREGROUND_EDEFAULT);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__NO_CONSOLE:
+        setNoConsole(NO_CONSOLE_EDEFAULT);
         return;
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         setType(TYPE_EDEFAULT);
@@ -1112,6 +1451,15 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
       case LcDslPackage.LAUNCH_CONFIG__PRODUCT:
         setProduct((ProductExtPoint)null);
         return;
+      case LcDslPackage.LAUNCH_CONFIG__FAVORITES:
+        setFavorites((Favorites)null);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__REDIRECT:
+        setRedirect((Redirect)null);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__EXEC_ENV:
+        setExecEnv((ExecutionEnvironment)null);
+        return;
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         getPlugins().clear();
         return;
@@ -1126,6 +1474,9 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return;
       case LcDslPackage.LAUNCH_CONFIG__PROG_ARGS:
         getProgArgs().clear();
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__ENV_VARS:
+        getEnvVars().clear();
         return;
     }
     super.eUnset(featureID);
@@ -1145,6 +1496,10 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return explicit != EXPLICIT_EDEFAULT;
       case LcDslPackage.LAUNCH_CONFIG__MANUAL:
         return manual != MANUAL_EDEFAULT;
+      case LcDslPackage.LAUNCH_CONFIG__FOREGROUND:
+        return foreground != FOREGROUND_EDEFAULT;
+      case LcDslPackage.LAUNCH_CONFIG__NO_CONSOLE:
+        return noConsole != NO_CONSOLE_EDEFAULT;
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         return type != TYPE_EDEFAULT;
       case LcDslPackage.LAUNCH_CONFIG__NAME:
@@ -1167,6 +1522,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return application != null;
       case LcDslPackage.LAUNCH_CONFIG__PRODUCT:
         return product != null;
+      case LcDslPackage.LAUNCH_CONFIG__FAVORITES:
+        return favorites != null;
+      case LcDslPackage.LAUNCH_CONFIG__REDIRECT:
+        return redirect != null;
+      case LcDslPackage.LAUNCH_CONFIG__EXEC_ENV:
+        return execEnv != null;
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         return plugins != null && !plugins.isEmpty();
       case LcDslPackage.LAUNCH_CONFIG__IGNORE:
@@ -1177,6 +1538,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return vmArgs != null && !vmArgs.isEmpty();
       case LcDslPackage.LAUNCH_CONFIG__PROG_ARGS:
         return progArgs != null && !progArgs.isEmpty();
+      case LcDslPackage.LAUNCH_CONFIG__ENV_VARS:
+        return envVars != null && !envVars.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -1196,6 +1559,10 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
     result.append(explicit);
     result.append(", manual: ");
     result.append(manual);
+    result.append(", foreground: ");
+    result.append(foreground);
+    result.append(", noConsole: ");
+    result.append(noConsole);
     result.append(", type: ");
     result.append(type);
     result.append(", name: ");

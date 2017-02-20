@@ -106,6 +106,11 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
         return createProgramArgumentAdapter();
       }
       @Override
+      public Adapter caseEnvironmentVariable(EnvironmentVariable object)
+      {
+        return createEnvironmentVariableAdapter();
+      }
+      @Override
       public Adapter caseApplicationExtPoint(ApplicationExtPoint object)
       {
         return createApplicationExtPointAdapter();
@@ -114,6 +119,21 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseProductExtPoint(ProductExtPoint object)
       {
         return createProductExtPointAdapter();
+      }
+      @Override
+      public Adapter caseFavorites(Favorites object)
+      {
+        return createFavoritesAdapter();
+      }
+      @Override
+      public Adapter caseRedirect(Redirect object)
+      {
+        return createRedirectAdapter();
+      }
+      @Override
+      public Adapter caseExecutionEnvironment(ExecutionEnvironment object)
+      {
+        return createExecutionEnvironmentAdapter();
       }
       @Override
       public Adapter casePath(Path object)
@@ -293,6 +313,21 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.EnvironmentVariable <em>Environment Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.EnvironmentVariable
+   * @generated
+   */
+  public Adapter createEnvironmentVariableAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.ApplicationExtPoint <em>Application Ext Point</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -318,6 +353,51 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createProductExtPointAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.Favorites <em>Favorites</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.Favorites
+   * @generated
+   */
+  public Adapter createFavoritesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.Redirect <em>Redirect</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.Redirect
+   * @generated
+   */
+  public Adapter createRedirectAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.ExecutionEnvironment <em>Execution Environment</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.ExecutionEnvironment
+   * @generated
+   */
+  public Adapter createExecutionEnvironmentAdapter()
   {
     return null;
   }

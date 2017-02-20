@@ -8,7 +8,10 @@ import com.wamas.ide.launching.lcDsl.AddPlugin;
 import com.wamas.ide.launching.lcDsl.AnyPath;
 import com.wamas.ide.launching.lcDsl.ApplicationExtPoint;
 import com.wamas.ide.launching.lcDsl.ClearOption;
+import com.wamas.ide.launching.lcDsl.EnvironmentVariable;
+import com.wamas.ide.launching.lcDsl.ExecutionEnvironment;
 import com.wamas.ide.launching.lcDsl.ExistingPath;
+import com.wamas.ide.launching.lcDsl.Favorites;
 import com.wamas.ide.launching.lcDsl.GroupMember;
 import com.wamas.ide.launching.lcDsl.GroupPostLaunchDelay;
 import com.wamas.ide.launching.lcDsl.GroupPostLaunchRegex;
@@ -23,6 +26,7 @@ import com.wamas.ide.launching.lcDsl.Plugin;
 import com.wamas.ide.launching.lcDsl.ProductExtPoint;
 import com.wamas.ide.launching.lcDsl.ProgramArgument;
 import com.wamas.ide.launching.lcDsl.Project;
+import com.wamas.ide.launching.lcDsl.Redirect;
 import com.wamas.ide.launching.lcDsl.VmArgument;
 import com.wamas.ide.launching.services.LcDslGrammarAccess;
 import java.util.Set;
@@ -62,8 +66,17 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case LcDslPackage.CLEAR_OPTION:
 				sequence_ClearOption(context, (ClearOption) semanticObject); 
 				return; 
+			case LcDslPackage.ENVIRONMENT_VARIABLE:
+				sequence_EnvironmentVariable(context, (EnvironmentVariable) semanticObject); 
+				return; 
+			case LcDslPackage.EXECUTION_ENVIRONMENT:
+				sequence_ExecutionEnvironment(context, (ExecutionEnvironment) semanticObject); 
+				return; 
 			case LcDslPackage.EXISTING_PATH:
 				sequence_ExistingPath(context, (ExistingPath) semanticObject); 
+				return; 
+			case LcDslPackage.FAVORITES:
+				sequence_Favorites(context, (Favorites) semanticObject); 
 				return; 
 			case LcDslPackage.GROUP_MEMBER:
 				sequence_GroupMember(context, (GroupMember) semanticObject); 
@@ -103,6 +116,9 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case LcDslPackage.PROJECT:
 				sequence_Project(context, (Project) semanticObject); 
+				return; 
+			case LcDslPackage.REDIRECT:
+				sequence_Redirect(context, (Redirect) semanticObject); 
 				return; 
 			case LcDslPackage.VM_ARGUMENT:
 				sequence_VmArgument(context, (VmArgument) semanticObject); 
@@ -181,6 +197,45 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     EnvironmentVariable returns EnvironmentVariable
+	 *
+	 * Constraint:
+	 *     (name=ID value=STRING)
+	 */
+	protected void sequence_EnvironmentVariable(ISerializationContext context, EnvironmentVariable semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, LcDslPackage.Literals.ENVIRONMENT_VARIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LcDslPackage.Literals.ENVIRONMENT_VARIABLE__NAME));
+			if (transientValues.isValueTransient(semanticObject, LcDslPackage.Literals.ENVIRONMENT_VARIABLE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LcDslPackage.Literals.ENVIRONMENT_VARIABLE__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEnvironmentVariableAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getEnvironmentVariableAccess().getValueSTRINGTerminalRuleCall_4_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExecutionEnvironment returns ExecutionEnvironment
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_ExecutionEnvironment(ISerializationContext context, ExecutionEnvironment semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, LcDslPackage.Literals.EXECUTION_ENVIRONMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LcDslPackage.Literals.EXECUTION_ENVIRONMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExecutionEnvironmentAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Path returns ExistingPath
 	 *     ExistingPath returns ExistingPath
 	 *
@@ -195,6 +250,18 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getExistingPathAccess().getNameSTRINGTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Favorites returns Favorites
+	 *
+	 * Constraint:
+	 *     (run?='run' | debug?='debug')*
+	 */
+	protected void sequence_Favorites(ISerializationContext context, Favorites semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -315,7 +382,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *
 	 * Constraint:
 	 *     (
-	 *         (explicit?='explicit' | manual?='manual')* 
+	 *         (explicit?='explicit' | manual?='manual' | foreground?='foreground' | noConsole?='no-console')* 
 	 *         type=LaunchConfigType 
 	 *         name=FQName 
 	 *         superConfig=[LaunchConfig|FQName]? 
@@ -327,10 +394,16 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *             project=Project | 
 	 *             mainClass=JavaType | 
 	 *             application=ApplicationExtPoint | 
-	 *             product=ProductExtPoint
+	 *             product=ProductExtPoint | 
+	 *             favorites=Favorites | 
+	 *             redirect=Redirect | 
+	 *             execEnv=ExecutionEnvironment
 	 *         )* 
 	 *         plugins+=AddPlugin? 
-	 *         ((ignore+=IgnorePlugin | groupMembers+=GroupMember | vmArgs+=VmArgument | progArgs+=ProgramArgument)? plugins+=AddPlugin?)*
+	 *         (
+	 *             (ignore+=IgnorePlugin | groupMembers+=GroupMember | vmArgs+=VmArgument | progArgs+=ProgramArgument | envVars+=EnvironmentVariable)? 
+	 *             plugins+=AddPlugin?
+	 *         )*
 	 *     )
 	 */
 	protected void sequence_LaunchConfig(ISerializationContext context, LaunchConfig semanticObject) {
@@ -407,6 +480,18 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getProjectAccess().getNameFQNameParserRuleCall_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Redirect returns Redirect
+	 *
+	 * Constraint:
+	 *     ((outWhich=OutputStream outFile=AnyPath) | (inWhich=InputStream inFile=ExistingPath))*
+	 */
+	protected void sequence_Redirect(ISerializationContext context, Redirect semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

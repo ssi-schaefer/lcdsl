@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isExplicit <em>Explicit</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isManual <em>Manual</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isForeground <em>Foreground</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isNoConsole <em>No Console</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getType <em>Type</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getName <em>Name</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getSuperConfig <em>Super Config</em>}</li>
@@ -29,11 +31,15 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getMainClass <em>Main Class</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getApplication <em>Application</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getProduct <em>Product</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getFavorites <em>Favorites</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getRedirect <em>Redirect</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getExecEnv <em>Exec Env</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getPlugins <em>Plugins</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getIgnore <em>Ignore</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getGroupMembers <em>Group Members</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getVmArgs <em>Vm Args</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getProgArgs <em>Prog Args</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getEnvVars <em>Env Vars</em>}</li>
  * </ul>
  *
  * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig()
@@ -93,6 +99,58 @@ public interface LaunchConfig extends EObject
    * @generated
    */
   void setManual(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Foreground</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Foreground</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Foreground</em>' attribute.
+   * @see #setForeground(boolean)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_Foreground()
+   * @model
+   * @generated
+   */
+  boolean isForeground();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isForeground <em>Foreground</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Foreground</em>' attribute.
+   * @see #isForeground()
+   * @generated
+   */
+  void setForeground(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>No Console</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>No Console</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>No Console</em>' attribute.
+   * @see #setNoConsole(boolean)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_NoConsole()
+   * @model
+   * @generated
+   */
+  boolean isNoConsole();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isNoConsole <em>No Console</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>No Console</em>' attribute.
+   * @see #isNoConsole()
+   * @generated
+   */
+  void setNoConsole(boolean value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -384,6 +442,84 @@ public interface LaunchConfig extends EObject
   void setProduct(ProductExtPoint value);
 
   /**
+   * Returns the value of the '<em><b>Favorites</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Favorites</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Favorites</em>' containment reference.
+   * @see #setFavorites(Favorites)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_Favorites()
+   * @model containment="true"
+   * @generated
+   */
+  Favorites getFavorites();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getFavorites <em>Favorites</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Favorites</em>' containment reference.
+   * @see #getFavorites()
+   * @generated
+   */
+  void setFavorites(Favorites value);
+
+  /**
+   * Returns the value of the '<em><b>Redirect</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Redirect</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Redirect</em>' containment reference.
+   * @see #setRedirect(Redirect)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_Redirect()
+   * @model containment="true"
+   * @generated
+   */
+  Redirect getRedirect();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getRedirect <em>Redirect</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Redirect</em>' containment reference.
+   * @see #getRedirect()
+   * @generated
+   */
+  void setRedirect(Redirect value);
+
+  /**
+   * Returns the value of the '<em><b>Exec Env</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Exec Env</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Exec Env</em>' containment reference.
+   * @see #setExecEnv(ExecutionEnvironment)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_ExecEnv()
+   * @model containment="true"
+   * @generated
+   */
+  ExecutionEnvironment getExecEnv();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getExecEnv <em>Exec Env</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Exec Env</em>' containment reference.
+   * @see #getExecEnv()
+   * @generated
+   */
+  void setExecEnv(ExecutionEnvironment value);
+
+  /**
    * Returns the value of the '<em><b>Plugins</b></em>' containment reference list.
    * The list contents are of type {@link com.wamas.ide.launching.lcDsl.AddPlugin}.
    * <!-- begin-user-doc -->
@@ -462,5 +598,21 @@ public interface LaunchConfig extends EObject
    * @generated
    */
   EList<ProgramArgument> getProgArgs();
+
+  /**
+   * Returns the value of the '<em><b>Env Vars</b></em>' containment reference list.
+   * The list contents are of type {@link com.wamas.ide.launching.lcDsl.EnvironmentVariable}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Env Vars</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Env Vars</em>' containment reference list.
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_EnvVars()
+   * @model containment="true"
+   * @generated
+   */
+  EList<EnvironmentVariable> getEnvVars();
 
 } // LaunchConfig

@@ -72,8 +72,12 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
       case LcDslPackage.IGNORE_PLUGIN: return createIgnorePlugin();
       case LcDslPackage.VM_ARGUMENT: return createVmArgument();
       case LcDslPackage.PROGRAM_ARGUMENT: return createProgramArgument();
+      case LcDslPackage.ENVIRONMENT_VARIABLE: return createEnvironmentVariable();
       case LcDslPackage.APPLICATION_EXT_POINT: return createApplicationExtPoint();
       case LcDslPackage.PRODUCT_EXT_POINT: return createProductExtPoint();
+      case LcDslPackage.FAVORITES: return createFavorites();
+      case LcDslPackage.REDIRECT: return createRedirect();
+      case LcDslPackage.EXECUTION_ENVIRONMENT: return createExecutionEnvironment();
       case LcDslPackage.PATH: return createPath();
       case LcDslPackage.EXISTING_PATH: return createExistingPath();
       case LcDslPackage.ANY_PATH: return createAnyPath();
@@ -108,6 +112,10 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
         return createLaunchModeTypeFromString(eDataType, initialValue);
       case LcDslPackage.MEMORY_UNIT:
         return createMemoryUnitFromString(eDataType, initialValue);
+      case LcDslPackage.OUTPUT_STREAM:
+        return createOutputStreamFromString(eDataType, initialValue);
+      case LcDslPackage.INPUT_STREAM:
+        return createInputStreamFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -129,6 +137,10 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
         return convertLaunchModeTypeToString(eDataType, instanceValue);
       case LcDslPackage.MEMORY_UNIT:
         return convertMemoryUnitToString(eDataType, instanceValue);
+      case LcDslPackage.OUTPUT_STREAM:
+        return convertOutputStreamToString(eDataType, instanceValue);
+      case LcDslPackage.INPUT_STREAM:
+        return convertInputStreamToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -205,6 +217,17 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public EnvironmentVariable createEnvironmentVariable()
+  {
+    EnvironmentVariableImpl environmentVariable = new EnvironmentVariableImpl();
+    return environmentVariable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ApplicationExtPoint createApplicationExtPoint()
   {
     ApplicationExtPointImpl applicationExtPoint = new ApplicationExtPointImpl();
@@ -220,6 +243,39 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
   {
     ProductExtPointImpl productExtPoint = new ProductExtPointImpl();
     return productExtPoint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Favorites createFavorites()
+  {
+    FavoritesImpl favorites = new FavoritesImpl();
+    return favorites;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Redirect createRedirect()
+  {
+    RedirectImpl redirect = new RedirectImpl();
+    return redirect;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExecutionEnvironment createExecutionEnvironment()
+  {
+    ExecutionEnvironmentImpl executionEnvironment = new ExecutionEnvironmentImpl();
+    return executionEnvironment;
   }
 
   /**
@@ -427,6 +483,50 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
    * @generated
    */
   public String convertMemoryUnitToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OutputStream createOutputStreamFromString(EDataType eDataType, String initialValue)
+  {
+    OutputStream result = OutputStream.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertOutputStreamToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InputStream createInputStreamFromString(EDataType eDataType, String initialValue)
+  {
+    InputStream result = InputStream.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertInputStreamToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

@@ -3,8 +3,8 @@
  */
 package com.wamas.ide.launching.lcDsl.impl;
 
+import com.wamas.ide.launching.lcDsl.EnvironmentVariable;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
-import com.wamas.ide.launching.lcDsl.Project;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -15,18 +15,19 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Project</b></em>'.
+ * An implementation of the model object '<em><b>Environment Variable</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.ProjectImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.EnvironmentVariableImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.EnvironmentVariableImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
+public class EnvironmentVariableImpl extends MinimalEObjectImpl.Container implements EnvironmentVariable
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -49,11 +50,31 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected static final String VALUE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected String value = VALUE_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ProjectImpl()
+  protected EnvironmentVariableImpl()
   {
     super();
   }
@@ -66,7 +87,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
   @Override
   protected EClass eStaticClass()
   {
-    return LcDslPackage.Literals.PROJECT;
+    return LcDslPackage.Literals.ENVIRONMENT_VARIABLE;
   }
 
   /**
@@ -89,7 +110,30 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.PROJECT__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.ENVIRONMENT_VARIABLE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getValue()
+  {
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValue(String newValue)
+  {
+    String oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.ENVIRONMENT_VARIABLE__VALUE, oldValue, value));
   }
 
   /**
@@ -102,8 +146,10 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
   {
     switch (featureID)
     {
-      case LcDslPackage.PROJECT__NAME:
+      case LcDslPackage.ENVIRONMENT_VARIABLE__NAME:
         return getName();
+      case LcDslPackage.ENVIRONMENT_VARIABLE__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +164,11 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
   {
     switch (featureID)
     {
-      case LcDslPackage.PROJECT__NAME:
+      case LcDslPackage.ENVIRONMENT_VARIABLE__NAME:
         setName((String)newValue);
+        return;
+      case LcDslPackage.ENVIRONMENT_VARIABLE__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +184,11 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
   {
     switch (featureID)
     {
-      case LcDslPackage.PROJECT__NAME:
+      case LcDslPackage.ENVIRONMENT_VARIABLE__NAME:
         setName(NAME_EDEFAULT);
+        return;
+      case LcDslPackage.ENVIRONMENT_VARIABLE__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +204,10 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
   {
     switch (featureID)
     {
-      case LcDslPackage.PROJECT__NAME:
+      case LcDslPackage.ENVIRONMENT_VARIABLE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case LcDslPackage.ENVIRONMENT_VARIABLE__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -171,8 +225,10 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }
 
-} //ProjectImpl
+} //EnvironmentVariableImpl

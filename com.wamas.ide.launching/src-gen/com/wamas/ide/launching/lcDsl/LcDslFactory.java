@@ -78,6 +78,15 @@ public interface LcDslFactory extends EFactory
   ProgramArgument createProgramArgument();
 
   /**
+   * Returns a new object of class '<em>Environment Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Environment Variable</em>'.
+   * @generated
+   */
+  EnvironmentVariable createEnvironmentVariable();
+
+  /**
    * Returns a new object of class '<em>Application Ext Point</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,6 +103,33 @@ public interface LcDslFactory extends EFactory
    * @generated
    */
   ProductExtPoint createProductExtPoint();
+
+  /**
+   * Returns a new object of class '<em>Favorites</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Favorites</em>'.
+   * @generated
+   */
+  Favorites createFavorites();
+
+  /**
+   * Returns a new object of class '<em>Redirect</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Redirect</em>'.
+   * @generated
+   */
+  Redirect createRedirect();
+
+  /**
+   * Returns a new object of class '<em>Execution Environment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Execution Environment</em>'.
+   * @generated
+   */
+  ExecutionEnvironment createExecutionEnvironment();
 
   /**
    * Returns a new object of class '<em>Path</em>'.

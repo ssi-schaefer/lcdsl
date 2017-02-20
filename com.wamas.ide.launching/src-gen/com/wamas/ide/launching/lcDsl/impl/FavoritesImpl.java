@@ -3,8 +3,8 @@
  */
 package com.wamas.ide.launching.lcDsl.impl;
 
+import com.wamas.ide.launching.lcDsl.Favorites;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
-import com.wamas.ide.launching.lcDsl.Plugin;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -15,66 +15,66 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Plugin</b></em>'.
+ * An implementation of the model object '<em><b>Favorites</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.PluginImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.PluginImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.FavoritesImpl#isRun <em>Run</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.FavoritesImpl#isDebug <em>Debug</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
+public class FavoritesImpl extends MinimalEObjectImpl.Container implements Favorites
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #isRun() <em>Run</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #isRun()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final boolean RUN_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #isRun() <em>Run</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #isRun()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected boolean run = RUN_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+   * The default value of the '{@link #isDebug() <em>Debug</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVersion()
+   * @see #isDebug()
    * @generated
    * @ordered
    */
-  protected static final String VERSION_EDEFAULT = null;
+  protected static final boolean DEBUG_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+   * The cached value of the '{@link #isDebug() <em>Debug</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVersion()
+   * @see #isDebug()
    * @generated
    * @ordered
    */
-  protected String version = VERSION_EDEFAULT;
+  protected boolean debug = DEBUG_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PluginImpl()
+  protected FavoritesImpl()
   {
     super();
   }
@@ -87,7 +87,7 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
   @Override
   protected EClass eStaticClass()
   {
-    return LcDslPackage.Literals.PLUGIN;
+    return LcDslPackage.Literals.FAVORITES;
   }
 
   /**
@@ -95,9 +95,9 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public boolean isRun()
   {
-    return name;
+    return run;
   }
 
   /**
@@ -105,12 +105,12 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setRun(boolean newRun)
   {
-    String oldName = name;
-    name = newName;
+    boolean oldRun = run;
+    run = newRun;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.PLUGIN__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.FAVORITES__RUN, oldRun, run));
   }
 
   /**
@@ -118,9 +118,9 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getVersion()
+  public boolean isDebug()
   {
-    return version;
+    return debug;
   }
 
   /**
@@ -128,12 +128,12 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setVersion(String newVersion)
+  public void setDebug(boolean newDebug)
   {
-    String oldVersion = version;
-    version = newVersion;
+    boolean oldDebug = debug;
+    debug = newDebug;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.PLUGIN__VERSION, oldVersion, version));
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.FAVORITES__DEBUG, oldDebug, debug));
   }
 
   /**
@@ -146,10 +146,10 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
   {
     switch (featureID)
     {
-      case LcDslPackage.PLUGIN__NAME:
-        return getName();
-      case LcDslPackage.PLUGIN__VERSION:
-        return getVersion();
+      case LcDslPackage.FAVORITES__RUN:
+        return isRun();
+      case LcDslPackage.FAVORITES__DEBUG:
+        return isDebug();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -164,11 +164,11 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
   {
     switch (featureID)
     {
-      case LcDslPackage.PLUGIN__NAME:
-        setName((String)newValue);
+      case LcDslPackage.FAVORITES__RUN:
+        setRun((Boolean)newValue);
         return;
-      case LcDslPackage.PLUGIN__VERSION:
-        setVersion((String)newValue);
+      case LcDslPackage.FAVORITES__DEBUG:
+        setDebug((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -184,11 +184,11 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
   {
     switch (featureID)
     {
-      case LcDslPackage.PLUGIN__NAME:
-        setName(NAME_EDEFAULT);
+      case LcDslPackage.FAVORITES__RUN:
+        setRun(RUN_EDEFAULT);
         return;
-      case LcDslPackage.PLUGIN__VERSION:
-        setVersion(VERSION_EDEFAULT);
+      case LcDslPackage.FAVORITES__DEBUG:
+        setDebug(DEBUG_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -204,10 +204,10 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
   {
     switch (featureID)
     {
-      case LcDslPackage.PLUGIN__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case LcDslPackage.PLUGIN__VERSION:
-        return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+      case LcDslPackage.FAVORITES__RUN:
+        return run != RUN_EDEFAULT;
+      case LcDslPackage.FAVORITES__DEBUG:
+        return debug != DEBUG_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -223,12 +223,12 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", version: ");
-    result.append(version);
+    result.append(" (run: ");
+    result.append(run);
+    result.append(", debug: ");
+    result.append(debug);
     result.append(')');
     return result.toString();
   }
 
-} //PluginImpl
+} //FavoritesImpl

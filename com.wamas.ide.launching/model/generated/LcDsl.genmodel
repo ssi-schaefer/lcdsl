@@ -23,12 +23,22 @@
       <genEnumLiterals ecoreEnumLiteral="LcDsl.ecore#//MemoryUnit/MB"/>
       <genEnumLiterals ecoreEnumLiteral="LcDsl.ecore#//MemoryUnit/GB"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LcDsl.ecore#//OutputStream">
+      <genEnumLiterals ecoreEnumLiteral="LcDsl.ecore#//OutputStream/STDOUT"/>
+      <genEnumLiterals ecoreEnumLiteral="LcDsl.ecore#//OutputStream/STDERR"/>
+      <genEnumLiterals ecoreEnumLiteral="LcDsl.ecore#//OutputStream/BOTH"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LcDsl.ecore#//InputStream">
+      <genEnumLiterals ecoreEnumLiteral="LcDsl.ecore#//InputStream/STDIN"/>
+    </genEnums>
     <genClasses ecoreClass="LcDsl.ecore#//LCModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LCModel/configurations"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//LaunchConfig">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//LaunchConfig/explicit"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//LaunchConfig/manual"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//LaunchConfig/foreground"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//LaunchConfig/noConsole"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//LaunchConfig/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//LaunchConfig/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/superConfig"/>
@@ -40,11 +50,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/mainClass"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/application"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/product"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/favorites"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/redirect"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/execEnv"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/plugins"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/ignore"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/groupMembers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/vmArgs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/progArgs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/envVars"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//AddPlugin">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//AddPlugin/plugin"/>
@@ -58,11 +72,28 @@
     <genClasses ecoreClass="LcDsl.ecore#//ProgramArgument">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//ProgramArgument/arguments"/>
     </genClasses>
+    <genClasses ecoreClass="LcDsl.ecore#//EnvironmentVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//EnvironmentVariable/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//EnvironmentVariable/value"/>
+    </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//ApplicationExtPoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//ApplicationExtPoint/name"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//ProductExtPoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//ProductExtPoint/name"/>
+    </genClasses>
+    <genClasses ecoreClass="LcDsl.ecore#//Favorites">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Favorites/run"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Favorites/debug"/>
+    </genClasses>
+    <genClasses ecoreClass="LcDsl.ecore#//Redirect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Redirect/outWhich"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//Redirect/outFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Redirect/inWhich"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//Redirect/inFile"/>
+    </genClasses>
+    <genClasses ecoreClass="LcDsl.ecore#//ExecutionEnvironment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//ExecutionEnvironment/name"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//Path">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Path/name"/>

@@ -119,7 +119,7 @@ public static val PLUGIN_NOT_ALLOWED = 'plugin.not.allowed'
 		// TODO: variable expansion
 		val f = new File(p.name);
 		if (!f.exists) {
-			error("Path " + p.name + " does not exist", p, LcDslPackage.eINSTANCE.path_Name)
+			warning("Path " + p.name + " does not exist", p, LcDslPackage.eINSTANCE.path_Name)
 		}
 	}
 	

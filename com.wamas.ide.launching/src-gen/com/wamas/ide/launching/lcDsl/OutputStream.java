@@ -11,99 +11,125 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Memory Unit</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Output Stream</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getMemoryUnit()
+ * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getOutputStream()
  * @model
  * @generated
  */
-public enum MemoryUnit implements Enumerator
+public enum OutputStream implements Enumerator
 {
   /**
-   * The '<em><b>MB</b></em>' literal object.
+   * The '<em><b>STDOUT</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #MB_VALUE
+   * @see #STDOUT_VALUE
    * @generated
    * @ordered
    */
-  MB(0, "MB", "MB"),
+  STDOUT(0, "STDOUT", "stdout"),
 
   /**
-   * The '<em><b>GB</b></em>' literal object.
+   * The '<em><b>STDERR</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #GB_VALUE
+   * @see #STDERR_VALUE
    * @generated
    * @ordered
    */
-  GB(1, "GB", "GB");
+  STDERR(1, "STDERR", "stderr"),
 
   /**
-   * The '<em><b>MB</b></em>' literal value.
+   * The '<em><b>BOTH</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #BOTH_VALUE
+   * @generated
+   * @ordered
+   */
+  BOTH(2, "BOTH", "both-out");
+
+  /**
+   * The '<em><b>STDOUT</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>MB</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>STDOUT</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #MB
-   * @model
+   * @see #STDOUT
+   * @model literal="stdout"
    * @generated
    * @ordered
    */
-  public static final int MB_VALUE = 0;
+  public static final int STDOUT_VALUE = 0;
 
   /**
-   * The '<em><b>GB</b></em>' literal value.
+   * The '<em><b>STDERR</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>GB</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>STDERR</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #GB
-   * @model
+   * @see #STDERR
+   * @model literal="stderr"
    * @generated
    * @ordered
    */
-  public static final int GB_VALUE = 1;
+  public static final int STDERR_VALUE = 1;
 
   /**
-   * An array of all the '<em><b>Memory Unit</b></em>' enumerators.
+   * The '<em><b>BOTH</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>BOTH</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #BOTH
+   * @model literal="both-out"
+   * @generated
+   * @ordered
+   */
+  public static final int BOTH_VALUE = 2;
+
+  /**
+   * An array of all the '<em><b>Output Stream</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private static final MemoryUnit[] VALUES_ARRAY =
-    new MemoryUnit[]
+  private static final OutputStream[] VALUES_ARRAY =
+    new OutputStream[]
     {
-      MB,
-      GB,
+      STDOUT,
+      STDERR,
+      BOTH,
     };
 
   /**
-   * A public read-only list of all the '<em><b>Memory Unit</b></em>' enumerators.
+   * A public read-only list of all the '<em><b>Output Stream</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public static final List<MemoryUnit> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+  public static final List<OutputStream> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
   /**
-   * Returns the '<em><b>Memory Unit</b></em>' literal with the specified literal value.
+   * Returns the '<em><b>Output Stream</b></em>' literal with the specified literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param literal the literal.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static MemoryUnit get(String literal)
+  public static OutputStream get(String literal)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      MemoryUnit result = VALUES_ARRAY[i];
+      OutputStream result = VALUES_ARRAY[i];
       if (result.toString().equals(literal))
       {
         return result;
@@ -113,18 +139,18 @@ public enum MemoryUnit implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Memory Unit</b></em>' literal with the specified name.
+   * Returns the '<em><b>Output Stream</b></em>' literal with the specified name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param name the name.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static MemoryUnit getByName(String name)
+  public static OutputStream getByName(String name)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      MemoryUnit result = VALUES_ARRAY[i];
+      OutputStream result = VALUES_ARRAY[i];
       if (result.getName().equals(name))
       {
         return result;
@@ -134,19 +160,20 @@ public enum MemoryUnit implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Memory Unit</b></em>' literal with the specified integer value.
+   * Returns the '<em><b>Output Stream</b></em>' literal with the specified integer value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the integer value.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static MemoryUnit get(int value)
+  public static OutputStream get(int value)
   {
     switch (value)
     {
-      case MB_VALUE: return MB;
-      case GB_VALUE: return GB;
+      case STDOUT_VALUE: return STDOUT;
+      case STDERR_VALUE: return STDERR;
+      case BOTH_VALUE: return BOTH;
     }
     return null;
   }
@@ -178,7 +205,7 @@ public enum MemoryUnit implements Enumerator
    * <!-- end-user-doc -->
    * @generated
    */
-  private MemoryUnit(int value, String name, String literal)
+  private OutputStream(int value, String name, String literal)
   {
     this.value = value;
     this.name = name;
@@ -227,4 +254,4 @@ public enum MemoryUnit implements Enumerator
     return literal;
   }
   
-} //MemoryUnit
+} //OutputStream

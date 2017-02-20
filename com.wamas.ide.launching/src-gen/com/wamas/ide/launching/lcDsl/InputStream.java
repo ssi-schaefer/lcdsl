@@ -11,99 +11,73 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Memory Unit</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Input Stream</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getMemoryUnit()
+ * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getInputStream()
  * @model
  * @generated
  */
-public enum MemoryUnit implements Enumerator
+public enum InputStream implements Enumerator
 {
   /**
-   * The '<em><b>MB</b></em>' literal object.
+   * The '<em><b>STDIN</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #MB_VALUE
+   * @see #STDIN_VALUE
    * @generated
    * @ordered
    */
-  MB(0, "MB", "MB"),
+  STDIN(0, "STDIN", "stdin");
 
   /**
-   * The '<em><b>GB</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #GB_VALUE
-   * @generated
-   * @ordered
-   */
-  GB(1, "GB", "GB");
-
-  /**
-   * The '<em><b>MB</b></em>' literal value.
+   * The '<em><b>STDIN</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>MB</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>STDIN</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #MB
-   * @model
+   * @see #STDIN
+   * @model literal="stdin"
    * @generated
    * @ordered
    */
-  public static final int MB_VALUE = 0;
+  public static final int STDIN_VALUE = 0;
 
   /**
-   * The '<em><b>GB</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>GB</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #GB
-   * @model
-   * @generated
-   * @ordered
-   */
-  public static final int GB_VALUE = 1;
-
-  /**
-   * An array of all the '<em><b>Memory Unit</b></em>' enumerators.
+   * An array of all the '<em><b>Input Stream</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private static final MemoryUnit[] VALUES_ARRAY =
-    new MemoryUnit[]
+  private static final InputStream[] VALUES_ARRAY =
+    new InputStream[]
     {
-      MB,
-      GB,
+      STDIN,
     };
 
   /**
-   * A public read-only list of all the '<em><b>Memory Unit</b></em>' enumerators.
+   * A public read-only list of all the '<em><b>Input Stream</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public static final List<MemoryUnit> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+  public static final List<InputStream> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
   /**
-   * Returns the '<em><b>Memory Unit</b></em>' literal with the specified literal value.
+   * Returns the '<em><b>Input Stream</b></em>' literal with the specified literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param literal the literal.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static MemoryUnit get(String literal)
+  public static InputStream get(String literal)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      MemoryUnit result = VALUES_ARRAY[i];
+      InputStream result = VALUES_ARRAY[i];
       if (result.toString().equals(literal))
       {
         return result;
@@ -113,18 +87,18 @@ public enum MemoryUnit implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Memory Unit</b></em>' literal with the specified name.
+   * Returns the '<em><b>Input Stream</b></em>' literal with the specified name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param name the name.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static MemoryUnit getByName(String name)
+  public static InputStream getByName(String name)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      MemoryUnit result = VALUES_ARRAY[i];
+      InputStream result = VALUES_ARRAY[i];
       if (result.getName().equals(name))
       {
         return result;
@@ -134,19 +108,18 @@ public enum MemoryUnit implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Memory Unit</b></em>' literal with the specified integer value.
+   * Returns the '<em><b>Input Stream</b></em>' literal with the specified integer value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the integer value.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static MemoryUnit get(int value)
+  public static InputStream get(int value)
   {
     switch (value)
     {
-      case MB_VALUE: return MB;
-      case GB_VALUE: return GB;
+      case STDIN_VALUE: return STDIN;
     }
     return null;
   }
@@ -178,7 +151,7 @@ public enum MemoryUnit implements Enumerator
    * <!-- end-user-doc -->
    * @generated
    */
-  private MemoryUnit(int value, String name, String literal)
+  private InputStream(int value, String name, String literal)
   {
     this.value = value;
     this.name = name;
@@ -227,4 +200,4 @@ public enum MemoryUnit implements Enumerator
     return literal;
   }
   
-} //MemoryUnit
+} //InputStream

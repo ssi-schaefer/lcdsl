@@ -7,22 +7,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Plugin</b></em>'.
+ * A representation of the model object '<em><b>Environment Variable</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.wamas.ide.launching.lcDsl.Plugin#getName <em>Name</em>}</li>
- *   <li>{@link com.wamas.ide.launching.lcDsl.Plugin#getVersion <em>Version</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.EnvironmentVariable#getName <em>Name</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.EnvironmentVariable#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getPlugin()
+ * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getEnvironmentVariable()
  * @model
  * @generated
  */
-public interface Plugin extends EObject
+public interface EnvironmentVariable extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -34,14 +34,14 @@ public interface Plugin extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getPlugin_Name()
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getEnvironmentVariable_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.Plugin#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.EnvironmentVariable#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -51,29 +51,29 @@ public interface Plugin extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Version</b></em>' attribute.
+   * Returns the value of the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Version</em>' attribute isn't clear,
+   * If the meaning of the '<em>Value</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Version</em>' attribute.
-   * @see #setVersion(String)
-   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getPlugin_Version()
+   * @return the value of the '<em>Value</em>' attribute.
+   * @see #setValue(String)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getEnvironmentVariable_Value()
    * @model
    * @generated
    */
-  String getVersion();
+  String getValue();
 
   /**
-   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.Plugin#getVersion <em>Version</em>}' attribute.
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.EnvironmentVariable#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Version</em>' attribute.
-   * @see #getVersion()
+   * @param value the new value of the '<em>Value</em>' attribute.
+   * @see #getValue()
    * @generated
    */
-  void setVersion(String value);
+  void setValue(String value);
 
-} // Plugin
+} // EnvironmentVariable

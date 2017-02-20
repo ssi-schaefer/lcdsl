@@ -8,6 +8,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="LaunchConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="explicit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="manual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foreground" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="noConsole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//LaunchConfigType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superConfig" eType="#//LaunchConfig"/>
@@ -27,6 +29,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="product" eType="#//ProductExtPoint"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="favorites" eType="#//Favorites"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="redirect" eType="#//Redirect"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="execEnv" eType="#//ExecutionEnvironment"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="plugins" upperBound="-1"
         eType="#//AddPlugin" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ignore" upperBound="-1"
@@ -37,6 +45,8 @@
         eType="#//VmArgument" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="progArgs" upperBound="-1"
         eType="#//ProgramArgument" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="envVars" upperBound="-1"
+        eType="#//EnvironmentVariable" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddPlugin">
     <eStructuralFeatures xsi:type="ecore:EReference" name="plugin" eType="#//Plugin"
@@ -54,10 +64,29 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="arguments" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnvironmentVariable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationExtPoint">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProductExtPoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Favorites">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="run" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="debug" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Redirect">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outWhich" eType="#//OutputStream"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outFile" eType="#//AnyPath"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inWhich" eType="#//InputStream"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inFile" eType="#//ExistingPath"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecutionEnvironment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Path">
@@ -119,5 +148,13 @@
   <eClassifiers xsi:type="ecore:EEnum" name="MemoryUnit">
     <eLiterals name="MB" literal="MB"/>
     <eLiterals name="GB" value="1" literal="GB"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OutputStream">
+    <eLiterals name="STDOUT" literal="stdout"/>
+    <eLiterals name="STDERR" value="1" literal="stderr"/>
+    <eLiterals name="BOTH" value="2" literal="both-out"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="InputStream">
+    <eLiterals name="STDIN" literal="stdin"/>
   </eClassifiers>
 </ecore:EPackage>

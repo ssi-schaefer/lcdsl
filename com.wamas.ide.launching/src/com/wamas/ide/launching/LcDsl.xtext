@@ -7,10 +7,10 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 /**
  * TODO: The language is still missing some things that could be set:
  * 
+ * General: variable expansion for all paths (string subst, system properties)!
+ * 
  * Common:
- *   - Favorites menu support
  *   - stdout/stderr redirection support, console allocation, ...
- *   - launch in background
  * 
  * Eclipse:
  *   - support for setting Java runtime environment settings
@@ -43,24 +43,37 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 LCModel:
 	configurations+=LaunchConfig*
 ;
-	
+
+/**
+ * explicit = explicitly defined plug-in list. no auto-resolve of plug-ins.
+ * manual = manually generated through context menu only. no automatic build.
+ * foreground = don't launch in background, but rather block
+ * no-console = don't allocate a console (no stdin then)
+ */
 LaunchConfig:
-	((explicit?='explicit')? & (manual?='manual')?) type=LaunchConfigType 'configuration' name=FQName 
+	((explicit?='explicit')? 
+		& (manual?='manual')? 
+		& (foreground?='foreground')? 
+		& (noConsole?='no-console')?
+	) type=LaunchConfigType 'configuration' name=FQName 
 	(':' superConfig=[LaunchConfig|FQName])? '{'
 		( // things that may appear only once
 			(clears=ClearOption ';')?
 			& ('workspace' workspace=AnyPath ';')?
 			& ('working-dir' workingDir=ExistingPath ';')?
 			& (memory=MemoryOption ';')?
-			& ('project' project=Project ';')?
-			& ('main-class' mainClass=JavaType ';')?
-			& (application=ApplicationExtPoint)?
-			& (product=ProductExtPoint)?
+			& ('project' project=Project ';')? // TODO: content assist
+			& ('main-class' mainClass=JavaType ';')? // TODO: content assist
+			& (application=ApplicationExtPoint)? // TODO: content assist, validation
+			& (product=ProductExtPoint)? // TODO: content assist, validation
+			& (favorites=Favorites)?
+			& (redirect=Redirect)?
+			& (execEnv=ExecutionEnvironment)? // TODO: content assist, validation
 		)
 		( // things that may appear multiple times
-			plugins+=AddPlugin
-			| ignore+=IgnorePlugin
-			| groupMembers+=GroupMember
+			plugins+=AddPlugin // TODO: content assist
+			| ignore+=IgnorePlugin // TODO: content assist
+			| groupMembers+=GroupMember // TODO: content assist, validation, update on rename
 			| vmArgs+=VmArgument
 			| progArgs+=ProgramArgument
 			| envVars+=EnvironmentVariable
@@ -94,6 +107,18 @@ ApplicationExtPoint:
 
 ProductExtPoint:
 	'product' name = FQName ';'
+;
+
+Favorites:
+	{Favorites} 'favorite' ((run?='run')? & (debug?='debug')?) ';'
+;
+
+Redirect:
+	{Redirect} 'redirect' ((outWhich = OutputStream 'to' outFile=AnyPath)? & (inWhich=InputStream 'from' inFile=ExistingPath)?) ';'
+;
+
+ExecutionEnvironment:
+	'execution-environment' name=ID ';'
 ;
 
 Path:
@@ -164,6 +189,14 @@ enum LaunchModeType:
 enum MemoryUnit:
 	MB = 'MB' | MB = 'mb' | MB = 'M' | MB = 'm' |
 	GB = 'GB' | GB = 'gb' | GB = 'G' | GB = 'g' 
+;
+
+enum OutputStream:
+	STDOUT = "stdout" | STDERR = "stderr" | BOTH = "both-out"
+;
+
+enum InputStream:
+	STDIN = "stdin"
 ;
 
 terminal INT returns ecore::EInt: ('0'..'9')+;

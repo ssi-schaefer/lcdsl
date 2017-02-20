@@ -115,6 +115,13 @@ public class LcDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case LcDslPackage.ENVIRONMENT_VARIABLE:
+      {
+        EnvironmentVariable environmentVariable = (EnvironmentVariable)theEObject;
+        T result = caseEnvironmentVariable(environmentVariable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case LcDslPackage.APPLICATION_EXT_POINT:
       {
         ApplicationExtPoint applicationExtPoint = (ApplicationExtPoint)theEObject;
@@ -126,6 +133,27 @@ public class LcDslSwitch<T> extends Switch<T>
       {
         ProductExtPoint productExtPoint = (ProductExtPoint)theEObject;
         T result = caseProductExtPoint(productExtPoint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LcDslPackage.FAVORITES:
+      {
+        Favorites favorites = (Favorites)theEObject;
+        T result = caseFavorites(favorites);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LcDslPackage.REDIRECT:
+      {
+        Redirect redirect = (Redirect)theEObject;
+        T result = caseRedirect(redirect);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LcDslPackage.EXECUTION_ENVIRONMENT:
+      {
+        ExecutionEnvironment executionEnvironment = (ExecutionEnvironment)theEObject;
+        T result = caseExecutionEnvironment(executionEnvironment);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -326,6 +354,22 @@ public class LcDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Environment Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Environment Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnvironmentVariable(EnvironmentVariable object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Application Ext Point</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -353,6 +397,54 @@ public class LcDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseProductExtPoint(ProductExtPoint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Favorites</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Favorites</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFavorites(Favorites object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Redirect</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Redirect</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRedirect(Redirect object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Execution Environment</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Execution Environment</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExecutionEnvironment(ExecutionEnvironment object)
   {
     return null;
   }
