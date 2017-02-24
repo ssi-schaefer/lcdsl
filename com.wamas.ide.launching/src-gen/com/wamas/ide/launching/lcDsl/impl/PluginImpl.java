@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,34 +20,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.PluginImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.PluginImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.PluginImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
+public class PluginImpl extends PluginWithVersionImpl implements Plugin
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -70,6 +49,26 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
   protected String version = VERSION_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -88,29 +87,6 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
   protected EClass eStaticClass()
   {
     return LcDslPackage.Literals.PLUGIN;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.PLUGIN__NAME, oldName, name));
   }
 
   /**
@@ -141,15 +117,38 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.PLUGIN__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
-      case LcDslPackage.PLUGIN__NAME:
-        return getName();
       case LcDslPackage.PLUGIN__VERSION:
         return getVersion();
+      case LcDslPackage.PLUGIN__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -164,11 +163,11 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
   {
     switch (featureID)
     {
-      case LcDslPackage.PLUGIN__NAME:
-        setName((String)newValue);
-        return;
       case LcDslPackage.PLUGIN__VERSION:
         setVersion((String)newValue);
+        return;
+      case LcDslPackage.PLUGIN__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -184,11 +183,11 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
   {
     switch (featureID)
     {
-      case LcDslPackage.PLUGIN__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case LcDslPackage.PLUGIN__VERSION:
         setVersion(VERSION_EDEFAULT);
+        return;
+      case LcDslPackage.PLUGIN__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -204,10 +203,10 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
   {
     switch (featureID)
     {
-      case LcDslPackage.PLUGIN__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case LcDslPackage.PLUGIN__VERSION:
         return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+      case LcDslPackage.PLUGIN__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -223,10 +222,10 @@ public class PluginImpl extends MinimalEObjectImpl.Container implements Plugin
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", version: ");
+    result.append(" (version: ");
     result.append(version);
+    result.append(", name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

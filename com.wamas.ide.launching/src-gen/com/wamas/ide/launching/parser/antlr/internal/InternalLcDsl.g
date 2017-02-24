@@ -211,6 +211,75 @@ ruleLaunchConfig returns [EObject current=null]
 						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0());
 					}
 				)
+			)|
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4);
+					}
+								({true}?=>((
+									lv_noValidate_5_0='no-validate'
+									{
+										newLeafNode(lv_noValidate_5_0, grammarAccess.getLaunchConfigAccess().getNoValidateNoValidateKeyword_0_4_0());
+									}
+									{
+										if ($current==null) {
+											$current = createModelElement(grammarAccess.getLaunchConfigRule());
+										}
+										setWithLastConsumed($current, "noValidate", true, "no-validate");
+									}
+								)
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0());
+					}
+				)
+			)|
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5);
+					}
+								({true}?=>((
+									lv_swInstallSupport_6_0='sw-install-allowed'
+									{
+										newLeafNode(lv_swInstallSupport_6_0, grammarAccess.getLaunchConfigAccess().getSwInstallSupportSwInstallAllowedKeyword_0_5_0());
+									}
+									{
+										if ($current==null) {
+											$current = createModelElement(grammarAccess.getLaunchConfigRule());
+										}
+										setWithLastConsumed($current, "swInstallSupport", true, "sw-install-allowed");
+									}
+								)
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0());
+					}
+				)
+			)|
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6);
+					}
+								({true}?=>((
+									lv_replaceEnv_7_0='replace-env'
+									{
+										newLeafNode(lv_replaceEnv_7_0, grammarAccess.getLaunchConfigAccess().getReplaceEnvReplaceEnvKeyword_0_6_0());
+									}
+									{
+										if ($current==null) {
+											$current = createModelElement(grammarAccess.getLaunchConfigRule());
+										}
+										setWithLastConsumed($current, "replaceEnv", true, "replace-env");
+									}
+								)
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0());
+					}
+				)
 			)
 					)*
 				)
@@ -224,7 +293,7 @@ ruleLaunchConfig returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getLaunchConfigAccess().getTypeLaunchConfigTypeEnumRuleCall_1_0());
 				}
-				lv_type_5_0=ruleLaunchConfigType
+				lv_type_8_0=ruleLaunchConfigType
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -232,22 +301,22 @@ ruleLaunchConfig returns [EObject current=null]
 					set(
 						$current,
 						"type",
-						lv_type_5_0,
+						lv_type_8_0,
 						"com.wamas.ide.launching.LcDsl.LaunchConfigType");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_6='configuration'
+		otherlv_9='configuration'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getLaunchConfigAccess().getConfigurationKeyword_2());
+			newLeafNode(otherlv_9, grammarAccess.getLaunchConfigAccess().getConfigurationKeyword_2());
 		}
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getLaunchConfigAccess().getNameFQNameParserRuleCall_3_0());
 				}
-				lv_name_7_0=ruleFQName
+				lv_name_10_0=ruleFQName
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -255,16 +324,16 @@ ruleLaunchConfig returns [EObject current=null]
 					set(
 						$current,
 						"name",
-						lv_name_7_0,
+						lv_name_10_0,
 						"com.wamas.ide.launching.LcDsl.FQName");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_8=':'
+			otherlv_11=':'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getLaunchConfigAccess().getColonKeyword_4_0());
+				newLeafNode(otherlv_11, grammarAccess.getLaunchConfigAccess().getColonKeyword_4_0());
 			}
 			(
 				(
@@ -283,9 +352,9 @@ ruleLaunchConfig returns [EObject current=null]
 				)
 			)
 		)?
-		otherlv_10='{'
+		otherlv_13='{'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getLaunchConfigAccess().getLeftCurlyBracketKeyword_5());
+			newLeafNode(otherlv_13, grammarAccess.getLaunchConfigAccess().getLeftCurlyBracketKeyword_5());
 		}
 		(
 			(
@@ -304,7 +373,7 @@ ruleLaunchConfig returns [EObject current=null]
 										{
 											newCompositeNode(grammarAccess.getLaunchConfigAccess().getClearsClearOptionParserRuleCall_6_0_0_0());
 										}
-										lv_clears_12_0=ruleClearOption
+										lv_clears_15_0=ruleClearOption
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -312,15 +381,15 @@ ruleLaunchConfig returns [EObject current=null]
 											set(
 												$current,
 												"clears",
-												lv_clears_12_0,
+												lv_clears_15_0,
 												"com.wamas.ide.launching.LcDsl.ClearOption");
 											afterParserOrEnumRuleCall();
 										}
 									)
 								)
-								otherlv_13=';'
+								otherlv_16=';'
 								{
-									newLeafNode(otherlv_13, grammarAccess.getLaunchConfigAccess().getSemicolonKeyword_6_0_1());
+									newLeafNode(otherlv_16, grammarAccess.getLaunchConfigAccess().getSemicolonKeyword_6_0_1());
 								}
 								))
 					{ 
@@ -333,16 +402,16 @@ ruleLaunchConfig returns [EObject current=null]
 					{
 						getUnorderedGroupHelper().select(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1);
 					}
-								({true}?=>(otherlv_14='workspace'
+								({true}?=>(otherlv_17='workspace'
 								{
-									newLeafNode(otherlv_14, grammarAccess.getLaunchConfigAccess().getWorkspaceKeyword_6_1_0());
+									newLeafNode(otherlv_17, grammarAccess.getLaunchConfigAccess().getWorkspaceKeyword_6_1_0());
 								}
 								(
 									(
 										{
 											newCompositeNode(grammarAccess.getLaunchConfigAccess().getWorkspaceAnyPathParserRuleCall_6_1_1_0());
 										}
-										lv_workspace_15_0=ruleAnyPath
+										lv_workspace_18_0=ruleAnyPath
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -350,15 +419,15 @@ ruleLaunchConfig returns [EObject current=null]
 											set(
 												$current,
 												"workspace",
-												lv_workspace_15_0,
+												lv_workspace_18_0,
 												"com.wamas.ide.launching.LcDsl.AnyPath");
 											afterParserOrEnumRuleCall();
 										}
 									)
 								)
-								otherlv_16=';'
+								otherlv_19=';'
 								{
-									newLeafNode(otherlv_16, grammarAccess.getLaunchConfigAccess().getSemicolonKeyword_6_1_2());
+									newLeafNode(otherlv_19, grammarAccess.getLaunchConfigAccess().getSemicolonKeyword_6_1_2());
 								}
 								))
 					{ 
@@ -371,16 +440,16 @@ ruleLaunchConfig returns [EObject current=null]
 					{
 						getUnorderedGroupHelper().select(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2);
 					}
-								({true}?=>(otherlv_17='working-dir'
+								({true}?=>(otherlv_20='working-dir'
 								{
-									newLeafNode(otherlv_17, grammarAccess.getLaunchConfigAccess().getWorkingDirKeyword_6_2_0());
+									newLeafNode(otherlv_20, grammarAccess.getLaunchConfigAccess().getWorkingDirKeyword_6_2_0());
 								}
 								(
 									(
 										{
 											newCompositeNode(grammarAccess.getLaunchConfigAccess().getWorkingDirExistingPathParserRuleCall_6_2_1_0());
 										}
-										lv_workingDir_18_0=ruleExistingPath
+										lv_workingDir_21_0=ruleExistingPath
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -388,15 +457,15 @@ ruleLaunchConfig returns [EObject current=null]
 											set(
 												$current,
 												"workingDir",
-												lv_workingDir_18_0,
+												lv_workingDir_21_0,
 												"com.wamas.ide.launching.LcDsl.ExistingPath");
 											afterParserOrEnumRuleCall();
 										}
 									)
 								)
-								otherlv_19=';'
+								otherlv_22=';'
 								{
-									newLeafNode(otherlv_19, grammarAccess.getLaunchConfigAccess().getSemicolonKeyword_6_2_2());
+									newLeafNode(otherlv_22, grammarAccess.getLaunchConfigAccess().getSemicolonKeyword_6_2_2());
 								}
 								))
 					{ 
@@ -414,7 +483,7 @@ ruleLaunchConfig returns [EObject current=null]
 										{
 											newCompositeNode(grammarAccess.getLaunchConfigAccess().getMemoryMemoryOptionParserRuleCall_6_3_0_0());
 										}
-										lv_memory_20_0=ruleMemoryOption
+										lv_memory_23_0=ruleMemoryOption
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -422,15 +491,15 @@ ruleLaunchConfig returns [EObject current=null]
 											set(
 												$current,
 												"memory",
-												lv_memory_20_0,
+												lv_memory_23_0,
 												"com.wamas.ide.launching.LcDsl.MemoryOption");
 											afterParserOrEnumRuleCall();
 										}
 									)
 								)
-								otherlv_21=';'
+								otherlv_24=';'
 								{
-									newLeafNode(otherlv_21, grammarAccess.getLaunchConfigAccess().getSemicolonKeyword_6_3_1());
+									newLeafNode(otherlv_24, grammarAccess.getLaunchConfigAccess().getSemicolonKeyword_6_3_1());
 								}
 								))
 					{ 
@@ -443,16 +512,16 @@ ruleLaunchConfig returns [EObject current=null]
 					{
 						getUnorderedGroupHelper().select(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4);
 					}
-								({true}?=>(otherlv_22='project'
+								({true}?=>(otherlv_25='project'
 								{
-									newLeafNode(otherlv_22, grammarAccess.getLaunchConfigAccess().getProjectKeyword_6_4_0());
+									newLeafNode(otherlv_25, grammarAccess.getLaunchConfigAccess().getProjectKeyword_6_4_0());
 								}
 								(
 									(
 										{
 											newCompositeNode(grammarAccess.getLaunchConfigAccess().getProjectProjectParserRuleCall_6_4_1_0());
 										}
-										lv_project_23_0=ruleProject
+										lv_project_26_0=ruleProject
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -460,15 +529,15 @@ ruleLaunchConfig returns [EObject current=null]
 											set(
 												$current,
 												"project",
-												lv_project_23_0,
+												lv_project_26_0,
 												"com.wamas.ide.launching.LcDsl.Project");
 											afterParserOrEnumRuleCall();
 										}
 									)
 								)
-								otherlv_24=';'
+								otherlv_27=';'
 								{
-									newLeafNode(otherlv_24, grammarAccess.getLaunchConfigAccess().getSemicolonKeyword_6_4_2());
+									newLeafNode(otherlv_27, grammarAccess.getLaunchConfigAccess().getSemicolonKeyword_6_4_2());
 								}
 								))
 					{ 
@@ -481,16 +550,16 @@ ruleLaunchConfig returns [EObject current=null]
 					{
 						getUnorderedGroupHelper().select(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5);
 					}
-								({true}?=>(otherlv_25='main-class'
+								({true}?=>(otherlv_28='main-class'
 								{
-									newLeafNode(otherlv_25, grammarAccess.getLaunchConfigAccess().getMainClassKeyword_6_5_0());
+									newLeafNode(otherlv_28, grammarAccess.getLaunchConfigAccess().getMainClassKeyword_6_5_0());
 								}
 								(
 									(
 										{
 											newCompositeNode(grammarAccess.getLaunchConfigAccess().getMainClassJavaTypeParserRuleCall_6_5_1_0());
 										}
-										lv_mainClass_26_0=ruleJavaType
+										lv_mainClass_29_0=ruleJavaType
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -498,15 +567,15 @@ ruleLaunchConfig returns [EObject current=null]
 											set(
 												$current,
 												"mainClass",
-												lv_mainClass_26_0,
+												lv_mainClass_29_0,
 												"com.wamas.ide.launching.LcDsl.JavaType");
 											afterParserOrEnumRuleCall();
 										}
 									)
 								)
-								otherlv_27=';'
+								otherlv_30=';'
 								{
-									newLeafNode(otherlv_27, grammarAccess.getLaunchConfigAccess().getSemicolonKeyword_6_5_2());
+									newLeafNode(otherlv_30, grammarAccess.getLaunchConfigAccess().getSemicolonKeyword_6_5_2());
 								}
 								))
 					{ 
@@ -523,7 +592,7 @@ ruleLaunchConfig returns [EObject current=null]
 									{
 										newCompositeNode(grammarAccess.getLaunchConfigAccess().getApplicationApplicationExtPointParserRuleCall_6_6_0());
 									}
-									lv_application_28_0=ruleApplicationExtPoint
+									lv_application_31_0=ruleApplicationExtPoint
 									{
 										if ($current==null) {
 											$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -531,7 +600,7 @@ ruleLaunchConfig returns [EObject current=null]
 										set(
 											$current,
 											"application",
-											lv_application_28_0,
+											lv_application_31_0,
 											"com.wamas.ide.launching.LcDsl.ApplicationExtPoint");
 										afterParserOrEnumRuleCall();
 									}
@@ -551,7 +620,7 @@ ruleLaunchConfig returns [EObject current=null]
 									{
 										newCompositeNode(grammarAccess.getLaunchConfigAccess().getProductProductExtPointParserRuleCall_6_7_0());
 									}
-									lv_product_29_0=ruleProductExtPoint
+									lv_product_32_0=ruleProductExtPoint
 									{
 										if ($current==null) {
 											$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -559,7 +628,7 @@ ruleLaunchConfig returns [EObject current=null]
 										set(
 											$current,
 											"product",
-											lv_product_29_0,
+											lv_product_32_0,
 											"com.wamas.ide.launching.LcDsl.ProductExtPoint");
 										afterParserOrEnumRuleCall();
 									}
@@ -579,7 +648,7 @@ ruleLaunchConfig returns [EObject current=null]
 									{
 										newCompositeNode(grammarAccess.getLaunchConfigAccess().getFavoritesFavoritesParserRuleCall_6_8_0());
 									}
-									lv_favorites_30_0=ruleFavorites
+									lv_favorites_33_0=ruleFavorites
 									{
 										if ($current==null) {
 											$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -587,7 +656,7 @@ ruleLaunchConfig returns [EObject current=null]
 										set(
 											$current,
 											"favorites",
-											lv_favorites_30_0,
+											lv_favorites_33_0,
 											"com.wamas.ide.launching.LcDsl.Favorites");
 										afterParserOrEnumRuleCall();
 									}
@@ -607,7 +676,7 @@ ruleLaunchConfig returns [EObject current=null]
 									{
 										newCompositeNode(grammarAccess.getLaunchConfigAccess().getRedirectRedirectParserRuleCall_6_9_0());
 									}
-									lv_redirect_31_0=ruleRedirect
+									lv_redirect_34_0=ruleRedirect
 									{
 										if ($current==null) {
 											$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -615,7 +684,7 @@ ruleLaunchConfig returns [EObject current=null]
 										set(
 											$current,
 											"redirect",
-											lv_redirect_31_0,
+											lv_redirect_34_0,
 											"com.wamas.ide.launching.LcDsl.Redirect");
 										afterParserOrEnumRuleCall();
 									}
@@ -635,7 +704,7 @@ ruleLaunchConfig returns [EObject current=null]
 									{
 										newCompositeNode(grammarAccess.getLaunchConfigAccess().getExecEnvExecutionEnvironmentParserRuleCall_6_10_0());
 									}
-									lv_execEnv_32_0=ruleExecutionEnvironment
+									lv_execEnv_35_0=ruleExecutionEnvironment
 									{
 										if ($current==null) {
 											$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -643,8 +712,36 @@ ruleLaunchConfig returns [EObject current=null]
 										set(
 											$current,
 											"execEnv",
-											lv_execEnv_32_0,
+											lv_execEnv_35_0,
 											"com.wamas.ide.launching.LcDsl.ExecutionEnvironment");
+										afterParserOrEnumRuleCall();
+									}
+								)
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6());
+					}
+				)
+			)|
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11);
+					}
+								({true}?=>((
+									{
+										newCompositeNode(grammarAccess.getLaunchConfigAccess().getConfigIniTemplateConfigIniTemplateParserRuleCall_6_11_0());
+									}
+									lv_configIniTemplate_36_0=ruleConfigIniTemplate
+									{
+										if ($current==null) {
+											$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
+										}
+										set(
+											$current,
+											"configIniTemplate",
+											lv_configIniTemplate_36_0,
+											"com.wamas.ide.launching.LcDsl.ConfigIniTemplate");
 										afterParserOrEnumRuleCall();
 									}
 								)
@@ -667,7 +764,7 @@ ruleLaunchConfig returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getLaunchConfigAccess().getPluginsAddPluginParserRuleCall_7_0_0());
 					}
-					lv_plugins_33_0=ruleAddPlugin
+					lv_plugins_37_0=ruleAddPlugin
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -675,7 +772,7 @@ ruleLaunchConfig returns [EObject current=null]
 						add(
 							$current,
 							"plugins",
-							lv_plugins_33_0,
+							lv_plugins_37_0,
 							"com.wamas.ide.launching.LcDsl.AddPlugin");
 						afterParserOrEnumRuleCall();
 					}
@@ -687,7 +784,7 @@ ruleLaunchConfig returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getLaunchConfigAccess().getIgnoreIgnorePluginParserRuleCall_7_1_0());
 					}
-					lv_ignore_34_0=ruleIgnorePlugin
+					lv_ignore_38_0=ruleIgnorePlugin
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -695,7 +792,7 @@ ruleLaunchConfig returns [EObject current=null]
 						add(
 							$current,
 							"ignore",
-							lv_ignore_34_0,
+							lv_ignore_38_0,
 							"com.wamas.ide.launching.LcDsl.IgnorePlugin");
 						afterParserOrEnumRuleCall();
 					}
@@ -707,7 +804,7 @@ ruleLaunchConfig returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getLaunchConfigAccess().getGroupMembersGroupMemberParserRuleCall_7_2_0());
 					}
-					lv_groupMembers_35_0=ruleGroupMember
+					lv_groupMembers_39_0=ruleGroupMember
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -715,7 +812,7 @@ ruleLaunchConfig returns [EObject current=null]
 						add(
 							$current,
 							"groupMembers",
-							lv_groupMembers_35_0,
+							lv_groupMembers_39_0,
 							"com.wamas.ide.launching.LcDsl.GroupMember");
 						afterParserOrEnumRuleCall();
 					}
@@ -727,7 +824,7 @@ ruleLaunchConfig returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getLaunchConfigAccess().getVmArgsVmArgumentParserRuleCall_7_3_0());
 					}
-					lv_vmArgs_36_0=ruleVmArgument
+					lv_vmArgs_40_0=ruleVmArgument
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -735,7 +832,7 @@ ruleLaunchConfig returns [EObject current=null]
 						add(
 							$current,
 							"vmArgs",
-							lv_vmArgs_36_0,
+							lv_vmArgs_40_0,
 							"com.wamas.ide.launching.LcDsl.VmArgument");
 						afterParserOrEnumRuleCall();
 					}
@@ -747,7 +844,7 @@ ruleLaunchConfig returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getLaunchConfigAccess().getProgArgsProgramArgumentParserRuleCall_7_4_0());
 					}
-					lv_progArgs_37_0=ruleProgramArgument
+					lv_progArgs_41_0=ruleProgramArgument
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -755,7 +852,7 @@ ruleLaunchConfig returns [EObject current=null]
 						add(
 							$current,
 							"progArgs",
-							lv_progArgs_37_0,
+							lv_progArgs_41_0,
 							"com.wamas.ide.launching.LcDsl.ProgramArgument");
 						afterParserOrEnumRuleCall();
 					}
@@ -767,7 +864,7 @@ ruleLaunchConfig returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getLaunchConfigAccess().getEnvVarsEnvironmentVariableParserRuleCall_7_5_0());
 					}
-					lv_envVars_38_0=ruleEnvironmentVariable
+					lv_envVars_42_0=ruleEnvironmentVariable
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -775,16 +872,36 @@ ruleLaunchConfig returns [EObject current=null]
 						add(
 							$current,
 							"envVars",
-							lv_envVars_38_0,
+							lv_envVars_42_0,
 							"com.wamas.ide.launching.LcDsl.EnvironmentVariable");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLaunchConfigAccess().getTracesTraceEnablementParserRuleCall_7_6_0());
+					}
+					lv_traces_43_0=ruleTraceEnablement
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
+						}
+						add(
+							$current,
+							"traces",
+							lv_traces_43_0,
+							"com.wamas.ide.launching.LcDsl.TraceEnablement");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 		)*
-		otherlv_39='}'
+		otherlv_44='}'
 		{
-			newLeafNode(otherlv_39, grammarAccess.getLaunchConfigAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_44, grammarAccess.getLaunchConfigAccess().getRightCurlyBracketKeyword_8());
 		}
 	)
 ;
@@ -812,9 +929,9 @@ ruleAddPlugin returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAddPluginAccess().getPluginPluginParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getAddPluginAccess().getPluginPluginWithVersionAndStartLevelParserRuleCall_1_0());
 				}
-				lv_plugin_1_0=rulePlugin
+				lv_plugin_1_0=rulePluginWithVersionAndStartLevel
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAddPluginRule());
@@ -823,7 +940,7 @@ ruleAddPlugin returns [EObject current=null]
 						$current,
 						"plugin",
 						lv_plugin_1_0,
-						"com.wamas.ide.launching.LcDsl.Plugin");
+						"com.wamas.ide.launching.LcDsl.PluginWithVersionAndStartLevel");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -858,9 +975,9 @@ ruleIgnorePlugin returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getIgnorePluginAccess().getPluginPluginParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getIgnorePluginAccess().getPluginPluginWithVersionParserRuleCall_1_0());
 				}
-				lv_plugin_1_0=rulePlugin
+				lv_plugin_1_0=rulePluginWithVersion
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getIgnorePluginRule());
@@ -869,7 +986,7 @@ ruleIgnorePlugin returns [EObject current=null]
 						$current,
 						"plugin",
 						lv_plugin_1_0,
-						"com.wamas.ide.launching.LcDsl.Plugin");
+						"com.wamas.ide.launching.LcDsl.PluginWithVersion");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1444,6 +1561,116 @@ ruleExecutionEnvironment returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleConfigIniTemplate
+entryRuleConfigIniTemplate returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getConfigIniTemplateRule()); }
+	iv_ruleConfigIniTemplate=ruleConfigIniTemplate
+	{ $current=$iv_ruleConfigIniTemplate.current; }
+	EOF;
+
+// Rule ConfigIniTemplate
+ruleConfigIniTemplate returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='config-ini-template'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getConfigIniTemplateAccess().getConfigIniTemplateKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getConfigIniTemplateAccess().getPathExistingPathParserRuleCall_1_0());
+				}
+				lv_path_1_0=ruleExistingPath
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getConfigIniTemplateRule());
+					}
+					set(
+						$current,
+						"path",
+						lv_path_1_0,
+						"com.wamas.ide.launching.LcDsl.ExistingPath");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2=';'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getConfigIniTemplateAccess().getSemicolonKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleTraceEnablement
+entryRuleTraceEnablement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTraceEnablementRule()); }
+	iv_ruleTraceEnablement=ruleTraceEnablement
+	{ $current=$iv_ruleTraceEnablement.current; }
+	EOF;
+
+// Rule TraceEnablement
+ruleTraceEnablement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='trace'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getTraceEnablementAccess().getTraceKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTraceEnablementAccess().getPluginPluginWithVersionParserRuleCall_1_0());
+				}
+				lv_plugin_1_0=rulePluginWithVersion
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTraceEnablementRule());
+					}
+					set(
+						$current,
+						"plugin",
+						lv_plugin_1_0,
+						"com.wamas.ide.launching.LcDsl.PluginWithVersion");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				lv_what_2_0=RULE_ID
+				{
+					newLeafNode(lv_what_2_0, grammarAccess.getTraceEnablementAccess().getWhatIDTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTraceEnablementRule());
+					}
+					addWithLastConsumed(
+						$current,
+						"what",
+						lv_what_2_0,
+						"com.wamas.ide.launching.LcDsl.ID");
+				}
+			)
+		)*
+		otherlv_3=';'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getTraceEnablementAccess().getSemicolonKeyword_3());
+		}
+	)
+;
+
 // Entry rule entryRuleExistingPath
 entryRuleExistingPath returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getExistingPathRule()); }
@@ -1514,6 +1741,159 @@ ruleAnyPath returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRulePluginWithVersionAndStartLevel
+entryRulePluginWithVersionAndStartLevel returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPluginWithVersionAndStartLevelRule()); }
+	iv_rulePluginWithVersionAndStartLevel=rulePluginWithVersionAndStartLevel
+	{ $current=$iv_rulePluginWithVersionAndStartLevel.current; }
+	EOF;
+
+// Rule PluginWithVersionAndStartLevel
+rulePluginWithVersionAndStartLevel returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPluginWithVersionAndStartLevelAccess().getPluginPluginWithVersionParserRuleCall_0_0());
+				}
+				lv_plugin_0_0=rulePluginWithVersion
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPluginWithVersionAndStartLevelRule());
+					}
+					set(
+						$current,
+						"plugin",
+						lv_plugin_0_0,
+						"com.wamas.ide.launching.LcDsl.PluginWithVersion");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{ 
+				  getUnorderedGroupHelper().enter(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1());
+				}
+				(
+					(
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 0)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 0);
+					}
+								({true}?=>((
+									lv_autoStart_2_0='autostart'
+									{
+										newLeafNode(lv_autoStart_2_0, grammarAccess.getPluginWithVersionAndStartLevelAccess().getAutoStartAutostartKeyword_1_0_0());
+									}
+									{
+										if ($current==null) {
+											$current = createModelElement(grammarAccess.getPluginWithVersionAndStartLevelRule());
+										}
+										setWithLastConsumed($current, "autoStart", true, "autostart");
+									}
+								)
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1());
+					}
+				)
+			)|
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 1)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 1);
+					}
+								({true}?=>(otherlv_3='startlevel'
+								{
+									newLeafNode(otherlv_3, grammarAccess.getPluginWithVersionAndStartLevelAccess().getStartlevelKeyword_1_1_0());
+								}
+								(
+									(
+										lv_startLevel_4_0=RULE_INT
+										{
+											newLeafNode(lv_startLevel_4_0, grammarAccess.getPluginWithVersionAndStartLevelAccess().getStartLevelINTTerminalRuleCall_1_1_1_0());
+										}
+										{
+											if ($current==null) {
+												$current = createModelElement(grammarAccess.getPluginWithVersionAndStartLevelRule());
+											}
+											setWithLastConsumed(
+												$current,
+												"startLevel",
+												lv_startLevel_4_0,
+												"com.wamas.ide.launching.LcDsl.INT");
+										}
+									)
+								)
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1());
+					}
+				)
+			)
+					)*
+				)
+			)
+				{ 
+				  getUnorderedGroupHelper().leave(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1());
+				}
+		)
+	)
+;
+
+// Entry rule entryRulePluginWithVersion
+entryRulePluginWithVersion returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPluginWithVersionRule()); }
+	iv_rulePluginWithVersion=rulePluginWithVersion
+	{ $current=$iv_rulePluginWithVersion.current; }
+	EOF;
+
+// Rule PluginWithVersion
+rulePluginWithVersion returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getPluginWithVersionAccess().getPluginParserRuleCall_0());
+		}
+		this_Plugin_0=rulePlugin
+		{
+			$current = $this_Plugin_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				lv_version_1_0=RULE_VERSION
+				{
+					newLeafNode(lv_version_1_0, grammarAccess.getPluginWithVersionAccess().getVersionVERSIONTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPluginWithVersionRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"version",
+						lv_version_1_0,
+						"com.wamas.ide.launching.LcDsl.VERSION");
+				}
+			)
+		)?
+	)
+;
+
 // Entry rule entryRulePlugin
 entryRulePlugin returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getPluginRule()); }
@@ -1531,42 +1911,22 @@ rulePlugin returns [EObject current=null]
 }:
 	(
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getPluginAccess().getNameFQNameParserRuleCall_0_0());
+			{
+				newCompositeNode(grammarAccess.getPluginAccess().getNameFQNameParserRuleCall_0());
+			}
+			lv_name_0_0=ruleFQName
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getPluginRule());
 				}
-				lv_name_0_0=ruleFQName
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPluginRule());
-					}
-					set(
-						$current,
-						"name",
-						lv_name_0_0,
-						"com.wamas.ide.launching.LcDsl.FQName");
-					afterParserOrEnumRuleCall();
-				}
-			)
+				set(
+					$current,
+					"name",
+					lv_name_0_0,
+					"com.wamas.ide.launching.LcDsl.FQName");
+				afterParserOrEnumRuleCall();
+			}
 		)
-		(
-			(
-				lv_version_1_0=RULE_VERSION
-				{
-					newLeafNode(lv_version_1_0, grammarAccess.getPluginAccess().getVersionVERSIONTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getPluginRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"version",
-						lv_version_1_0,
-						"com.wamas.ide.launching.LcDsl.VERSION");
-				}
-			)
-		)?
 	)
 ;
 

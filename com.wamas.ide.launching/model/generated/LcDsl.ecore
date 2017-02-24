@@ -10,6 +10,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="manual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="foreground" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="noConsole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="noValidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="swInstallSupport" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="replaceEnv" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//LaunchConfigType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superConfig" eType="#//LaunchConfig"/>
@@ -35,6 +38,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="execEnv" eType="#//ExecutionEnvironment"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configIniTemplate" eType="#//ConfigIniTemplate"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="plugins" upperBound="-1"
         eType="#//AddPlugin" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ignore" upperBound="-1"
@@ -47,13 +52,15 @@
         eType="#//ProgramArgument" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="envVars" upperBound="-1"
         eType="#//EnvironmentVariable" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traces" upperBound="-1"
+        eType="#//TraceEnablement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddPlugin">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="plugin" eType="#//Plugin"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plugin" eType="#//PluginWithVersionAndStartLevel"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IgnorePlugin">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="plugin" eType="#//Plugin"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plugin" eType="#//PluginWithVersion"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VmArgument">
@@ -89,14 +96,31 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExecutionEnvironment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigIniTemplate">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//ExistingPath"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TraceEnablement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plugin" eType="#//PluginWithVersion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="what" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Path">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExistingPath" eSuperTypes="#//Path"/>
   <eClassifiers xsi:type="ecore:EClass" name="AnyPath" eSuperTypes="#//Path"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Plugin">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PluginWithVersionAndStartLevel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plugin" eType="#//PluginWithVersion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PluginWithVersion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Plugin" eSuperTypes="#//PluginWithVersion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Project">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -32,12 +32,12 @@ public interface IgnorePlugin extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Plugin</em>' containment reference.
-   * @see #setPlugin(Plugin)
+   * @see #setPlugin(PluginWithVersion)
    * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getIgnorePlugin_Plugin()
    * @model containment="true"
    * @generated
    */
-  Plugin getPlugin();
+  PluginWithVersion getPlugin();
 
   /**
    * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.IgnorePlugin#getPlugin <em>Plugin</em>}' containment reference.
@@ -47,6 +47,6 @@ public interface IgnorePlugin extends EObject
    * @see #getPlugin()
    * @generated
    */
-  void setPlugin(Plugin value);
+  void setPlugin(PluginWithVersion value);
 
 } // IgnorePlugin

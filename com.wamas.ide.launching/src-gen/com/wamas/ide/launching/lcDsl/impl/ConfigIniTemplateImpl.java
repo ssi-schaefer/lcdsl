@@ -3,9 +3,9 @@
  */
 package com.wamas.ide.launching.lcDsl.impl;
 
-import com.wamas.ide.launching.lcDsl.AddPlugin;
+import com.wamas.ide.launching.lcDsl.ConfigIniTemplate;
+import com.wamas.ide.launching.lcDsl.ExistingPath;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
-import com.wamas.ide.launching.lcDsl.PluginWithVersionAndStartLevel;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -18,35 +18,35 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Add Plugin</b></em>'.
+ * An implementation of the model object '<em><b>Config Ini Template</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.AddPluginImpl#getPlugin <em>Plugin</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.ConfigIniTemplateImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPlugin
+public class ConfigIniTemplateImpl extends MinimalEObjectImpl.Container implements ConfigIniTemplate
 {
   /**
-   * The cached value of the '{@link #getPlugin() <em>Plugin</em>}' containment reference.
+   * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPlugin()
+   * @see #getPath()
    * @generated
    * @ordered
    */
-  protected PluginWithVersionAndStartLevel plugin;
+  protected ExistingPath path;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AddPluginImpl()
+  protected ConfigIniTemplateImpl()
   {
     super();
   }
@@ -59,7 +59,7 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
   @Override
   protected EClass eStaticClass()
   {
-    return LcDslPackage.Literals.ADD_PLUGIN;
+    return LcDslPackage.Literals.CONFIG_INI_TEMPLATE;
   }
 
   /**
@@ -67,9 +67,9 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
    * <!-- end-user-doc -->
    * @generated
    */
-  public PluginWithVersionAndStartLevel getPlugin()
+  public ExistingPath getPath()
   {
-    return plugin;
+    return path;
   }
 
   /**
@@ -77,13 +77,13 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPlugin(PluginWithVersionAndStartLevel newPlugin, NotificationChain msgs)
+  public NotificationChain basicSetPath(ExistingPath newPath, NotificationChain msgs)
   {
-    PluginWithVersionAndStartLevel oldPlugin = plugin;
-    plugin = newPlugin;
+    ExistingPath oldPath = path;
+    path = newPath;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.ADD_PLUGIN__PLUGIN, oldPlugin, newPlugin);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.CONFIG_INI_TEMPLATE__PATH, oldPath, newPath);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -94,20 +94,20 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPlugin(PluginWithVersionAndStartLevel newPlugin)
+  public void setPath(ExistingPath newPath)
   {
-    if (newPlugin != plugin)
+    if (newPath != path)
     {
       NotificationChain msgs = null;
-      if (plugin != null)
-        msgs = ((InternalEObject)plugin).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.ADD_PLUGIN__PLUGIN, null, msgs);
-      if (newPlugin != null)
-        msgs = ((InternalEObject)newPlugin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.ADD_PLUGIN__PLUGIN, null, msgs);
-      msgs = basicSetPlugin(newPlugin, msgs);
+      if (path != null)
+        msgs = ((InternalEObject)path).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.CONFIG_INI_TEMPLATE__PATH, null, msgs);
+      if (newPath != null)
+        msgs = ((InternalEObject)newPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.CONFIG_INI_TEMPLATE__PATH, null, msgs);
+      msgs = basicSetPath(newPath, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.ADD_PLUGIN__PLUGIN, newPlugin, newPlugin));
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.CONFIG_INI_TEMPLATE__PATH, newPath, newPath));
   }
 
   /**
@@ -120,8 +120,8 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
   {
     switch (featureID)
     {
-      case LcDslPackage.ADD_PLUGIN__PLUGIN:
-        return basicSetPlugin(null, msgs);
+      case LcDslPackage.CONFIG_INI_TEMPLATE__PATH:
+        return basicSetPath(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,8 +136,8 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
   {
     switch (featureID)
     {
-      case LcDslPackage.ADD_PLUGIN__PLUGIN:
-        return getPlugin();
+      case LcDslPackage.CONFIG_INI_TEMPLATE__PATH:
+        return getPath();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,8 +152,8 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
   {
     switch (featureID)
     {
-      case LcDslPackage.ADD_PLUGIN__PLUGIN:
-        setPlugin((PluginWithVersionAndStartLevel)newValue);
+      case LcDslPackage.CONFIG_INI_TEMPLATE__PATH:
+        setPath((ExistingPath)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,8 +169,8 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
   {
     switch (featureID)
     {
-      case LcDslPackage.ADD_PLUGIN__PLUGIN:
-        setPlugin((PluginWithVersionAndStartLevel)null);
+      case LcDslPackage.CONFIG_INI_TEMPLATE__PATH:
+        setPath((ExistingPath)null);
         return;
     }
     super.eUnset(featureID);
@@ -186,10 +186,10 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
   {
     switch (featureID)
     {
-      case LcDslPackage.ADD_PLUGIN__PLUGIN:
-        return plugin != null;
+      case LcDslPackage.CONFIG_INI_TEMPLATE__PATH:
+        return path != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //AddPluginImpl
+} //ConfigIniTemplateImpl

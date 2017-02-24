@@ -3,12 +3,16 @@
  */
 package com.wamas.ide.launching.lcDsl.impl;
 
-import com.wamas.ide.launching.lcDsl.IgnorePlugin;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
 import com.wamas.ide.launching.lcDsl.PluginWithVersion;
+import com.wamas.ide.launching.lcDsl.TraceEnablement;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -16,20 +20,23 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Ignore Plugin</b></em>'.
+ * An implementation of the model object '<em><b>Trace Enablement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.IgnorePluginImpl#getPlugin <em>Plugin</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.TraceEnablementImpl#getPlugin <em>Plugin</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.TraceEnablementImpl#getWhat <em>What</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class IgnorePluginImpl extends MinimalEObjectImpl.Container implements IgnorePlugin
+public class TraceEnablementImpl extends MinimalEObjectImpl.Container implements TraceEnablement
 {
   /**
    * The cached value of the '{@link #getPlugin() <em>Plugin</em>}' containment reference.
@@ -42,11 +49,21 @@ public class IgnorePluginImpl extends MinimalEObjectImpl.Container implements Ig
   protected PluginWithVersion plugin;
 
   /**
+   * The cached value of the '{@link #getWhat() <em>What</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWhat()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> what;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IgnorePluginImpl()
+  protected TraceEnablementImpl()
   {
     super();
   }
@@ -59,7 +76,7 @@ public class IgnorePluginImpl extends MinimalEObjectImpl.Container implements Ig
   @Override
   protected EClass eStaticClass()
   {
-    return LcDslPackage.Literals.IGNORE_PLUGIN;
+    return LcDslPackage.Literals.TRACE_ENABLEMENT;
   }
 
   /**
@@ -83,7 +100,7 @@ public class IgnorePluginImpl extends MinimalEObjectImpl.Container implements Ig
     plugin = newPlugin;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.IGNORE_PLUGIN__PLUGIN, oldPlugin, newPlugin);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.TRACE_ENABLEMENT__PLUGIN, oldPlugin, newPlugin);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -100,14 +117,28 @@ public class IgnorePluginImpl extends MinimalEObjectImpl.Container implements Ig
     {
       NotificationChain msgs = null;
       if (plugin != null)
-        msgs = ((InternalEObject)plugin).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.IGNORE_PLUGIN__PLUGIN, null, msgs);
+        msgs = ((InternalEObject)plugin).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.TRACE_ENABLEMENT__PLUGIN, null, msgs);
       if (newPlugin != null)
-        msgs = ((InternalEObject)newPlugin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.IGNORE_PLUGIN__PLUGIN, null, msgs);
+        msgs = ((InternalEObject)newPlugin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.TRACE_ENABLEMENT__PLUGIN, null, msgs);
       msgs = basicSetPlugin(newPlugin, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.IGNORE_PLUGIN__PLUGIN, newPlugin, newPlugin));
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.TRACE_ENABLEMENT__PLUGIN, newPlugin, newPlugin));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getWhat()
+  {
+    if (what == null)
+    {
+      what = new EDataTypeEList<String>(String.class, this, LcDslPackage.TRACE_ENABLEMENT__WHAT);
+    }
+    return what;
   }
 
   /**
@@ -120,7 +151,7 @@ public class IgnorePluginImpl extends MinimalEObjectImpl.Container implements Ig
   {
     switch (featureID)
     {
-      case LcDslPackage.IGNORE_PLUGIN__PLUGIN:
+      case LcDslPackage.TRACE_ENABLEMENT__PLUGIN:
         return basicSetPlugin(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -136,8 +167,10 @@ public class IgnorePluginImpl extends MinimalEObjectImpl.Container implements Ig
   {
     switch (featureID)
     {
-      case LcDslPackage.IGNORE_PLUGIN__PLUGIN:
+      case LcDslPackage.TRACE_ENABLEMENT__PLUGIN:
         return getPlugin();
+      case LcDslPackage.TRACE_ENABLEMENT__WHAT:
+        return getWhat();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -147,13 +180,18 @@ public class IgnorePluginImpl extends MinimalEObjectImpl.Container implements Ig
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case LcDslPackage.IGNORE_PLUGIN__PLUGIN:
+      case LcDslPackage.TRACE_ENABLEMENT__PLUGIN:
         setPlugin((PluginWithVersion)newValue);
+        return;
+      case LcDslPackage.TRACE_ENABLEMENT__WHAT:
+        getWhat().clear();
+        getWhat().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,8 +207,11 @@ public class IgnorePluginImpl extends MinimalEObjectImpl.Container implements Ig
   {
     switch (featureID)
     {
-      case LcDslPackage.IGNORE_PLUGIN__PLUGIN:
+      case LcDslPackage.TRACE_ENABLEMENT__PLUGIN:
         setPlugin((PluginWithVersion)null);
+        return;
+      case LcDslPackage.TRACE_ENABLEMENT__WHAT:
+        getWhat().clear();
         return;
     }
     super.eUnset(featureID);
@@ -186,10 +227,29 @@ public class IgnorePluginImpl extends MinimalEObjectImpl.Container implements Ig
   {
     switch (featureID)
     {
-      case LcDslPackage.IGNORE_PLUGIN__PLUGIN:
+      case LcDslPackage.TRACE_ENABLEMENT__PLUGIN:
         return plugin != null;
+      case LcDslPackage.TRACE_ENABLEMENT__WHAT:
+        return what != null && !what.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //IgnorePluginImpl
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (what: ");
+    result.append(what);
+    result.append(')');
+    return result.toString();
+  }
+
+} //TraceEnablementImpl

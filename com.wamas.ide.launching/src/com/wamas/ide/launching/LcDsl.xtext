@@ -9,18 +9,6 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
  * 
  * General: variable expansion for all paths (string subst, system properties)!
  * 
- * Common:
- *   - stdout/stderr redirection support, console allocation, ...
- * 
- * Eclipse:
- *   - support for setting Java runtime environment settings
- *   - validate plugins automatically prior to launching
- *   - plugin start level settings (start leven & autostart)
- *   - config.ini related settings
- *   - software installation support setting
- *   - tracing settings
- *   - environment: append vs. replace setting
- * 
  * Java:
  *   - support for setting JRE
  *   - main class search settings (system libraries, inheritence)
@@ -33,7 +21,6 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
  *   - session timeout
  *   - open internal, external, not at all
  *   - RAP development mode
- *   - plugin/bundle settings same as for Eclipse (but different)
  *   - JRE settings (same as Java - but different)
  * 
  * How to support different launch config types - some generic attribute support?
@@ -49,12 +36,18 @@ LCModel:
  * manual = manually generated through context menu only. no automatic build.
  * foreground = don't launch in background, but rather block
  * no-console = don't allocate a console (no stdin then)
+ * no-validate = don't validate plugins prior to launch
+ * sw-install-allowed = allow software installation in eclipse config
+ * replace-env = replace environment instead of appending variables
  */
 LaunchConfig:
 	((explicit?='explicit')? 
 		& (manual?='manual')? 
 		& (foreground?='foreground')? 
 		& (noConsole?='no-console')?
+		& (noValidate?='no-validate')?
+		& (swInstallSupport?='sw-install-allowed')?
+		& (replaceEnv?='replace-env')?
 	) type=LaunchConfigType 'configuration' name=FQName 
 	(':' superConfig=[LaunchConfig|FQName])? '{'
 		( // things that may appear only once
@@ -69,6 +62,7 @@ LaunchConfig:
 			& (favorites=Favorites)?
 			& (redirect=Redirect)?
 			& (execEnv=ExecutionEnvironment)? // TODO: content assist, validation
+			& (configIniTemplate=ConfigIniTemplate)?
 		)
 		( // things that may appear multiple times
 			plugins+=AddPlugin // TODO: content assist
@@ -77,16 +71,17 @@ LaunchConfig:
 			| vmArgs+=VmArgument
 			| progArgs+=ProgramArgument
 			| envVars+=EnvironmentVariable
+			| traces+=TraceEnablement // TODO: content assist, validation
 		)*
 	'}'
 ;
 
 AddPlugin:
-	'plugin' plugin=Plugin ';'
+	'plugin' plugin=PluginWithVersionAndStartLevel ';'
 ;
 
 IgnorePlugin:
-	'ignore' plugin=Plugin ';'
+	'ignore' plugin=PluginWithVersion ';'
 ;
 
 VmArgument:
@@ -121,6 +116,14 @@ ExecutionEnvironment:
 	'execution-environment' name=ID ';'
 ;
 
+ConfigIniTemplate:
+	'config-ini-template' path=ExistingPath ';'
+;
+
+TraceEnablement:
+	'trace' plugin=PluginWithVersion (what+=ID)* ';'
+;
+
 Path:
 	ExistingPath|AnyPath
 ;
@@ -131,8 +134,16 @@ AnyPath:
 	name = STRING
 ;
 
+PluginWithVersionAndStartLevel:
+	plugin = PluginWithVersion ((autoStart?='autostart')? & ('startlevel' startLevel=INT)?)
+;
+
+PluginWithVersion:
+	Plugin (version=VERSION)?
+;
+
 Plugin:
-	name = FQName (version=VERSION)?
+	name = FQName
 ;
 
 Project:

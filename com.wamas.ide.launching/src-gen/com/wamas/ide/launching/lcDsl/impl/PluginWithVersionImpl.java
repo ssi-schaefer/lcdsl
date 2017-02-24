@@ -3,26 +3,28 @@
  */
 package com.wamas.ide.launching.lcDsl.impl;
 
-import com.wamas.ide.launching.lcDsl.ExistingPath;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
+import com.wamas.ide.launching.lcDsl.PluginWithVersion;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Existing Path</b></em>'.
+ * An implementation of the model object '<em><b>Plugin With Version</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class ExistingPathImpl extends PathImpl implements ExistingPath
+public class PluginWithVersionImpl extends MinimalEObjectImpl.Container implements PluginWithVersion
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExistingPathImpl()
+  protected PluginWithVersionImpl()
   {
     super();
   }
@@ -35,7 +37,7 @@ public class ExistingPathImpl extends PathImpl implements ExistingPath
   @Override
   protected EClass eStaticClass()
   {
-    return LcDslPackage.Literals.EXISTING_PATH;
+    return LcDslPackage.Literals.PLUGIN_WITH_VERSION;
   }
 
-} //ExistingPathImpl
+} //PluginWithVersionImpl

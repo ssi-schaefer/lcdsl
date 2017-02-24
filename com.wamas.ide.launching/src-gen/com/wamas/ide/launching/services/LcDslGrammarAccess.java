@@ -38,18 +38,6 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		// * 
 		// * General: variable expansion for all paths (string subst, system properties)!
 		// * 
-		// * Common:
-		// *   - stdout/stderr redirection support, console allocation, ...
-		// * 
-		// * Eclipse:
-		// *   - support for setting Java runtime environment settings
-		// *   - validate plugins automatically prior to launching
-		// *   - plugin start level settings (start leven & autostart)
-		// *   - config.ini related settings
-		// *   - software installation support setting
-		// *   - tracing settings
-		// *   - environment: append vs. replace setting
-		// * 
 		// * Java:
 		// *   - support for setting JRE
 		// *   - main class search settings (system libraries, inheritence)
@@ -62,13 +50,11 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		// *   - session timeout
 		// *   - open internal, external, not at all
 		// *   - RAP development mode
-		// *   - plugin/bundle settings same as for Eclipse (but different)
 		// *   - JRE settings (same as Java - but different)
 		// * 
 		// * How to support different launch config types - some generic attribute support?
 		// * Or really implement support for each type separately (probably the best experience).
-		// * /
-		//LCModel:
+		// * / LCModel:
 		//	configurations+=LaunchConfig*;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -90,6 +76,12 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cForegroundForegroundKeyword_0_2_0 = (Keyword)cForegroundAssignment_0_2.eContents().get(0);
 		private final Assignment cNoConsoleAssignment_0_3 = (Assignment)cUnorderedGroup_0.eContents().get(3);
 		private final Keyword cNoConsoleNoConsoleKeyword_0_3_0 = (Keyword)cNoConsoleAssignment_0_3.eContents().get(0);
+		private final Assignment cNoValidateAssignment_0_4 = (Assignment)cUnorderedGroup_0.eContents().get(4);
+		private final Keyword cNoValidateNoValidateKeyword_0_4_0 = (Keyword)cNoValidateAssignment_0_4.eContents().get(0);
+		private final Assignment cSwInstallSupportAssignment_0_5 = (Assignment)cUnorderedGroup_0.eContents().get(5);
+		private final Keyword cSwInstallSupportSwInstallAllowedKeyword_0_5_0 = (Keyword)cSwInstallSupportAssignment_0_5.eContents().get(0);
+		private final Assignment cReplaceEnvAssignment_0_6 = (Assignment)cUnorderedGroup_0.eContents().get(6);
+		private final Keyword cReplaceEnvReplaceEnvKeyword_0_6_0 = (Keyword)cReplaceEnvAssignment_0_6.eContents().get(0);
 		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cTypeLaunchConfigTypeEnumRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
 		private final Keyword cConfigurationKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -140,6 +132,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRedirectRedirectParserRuleCall_6_9_0 = (RuleCall)cRedirectAssignment_6_9.eContents().get(0);
 		private final Assignment cExecEnvAssignment_6_10 = (Assignment)cUnorderedGroup_6.eContents().get(10);
 		private final RuleCall cExecEnvExecutionEnvironmentParserRuleCall_6_10_0 = (RuleCall)cExecEnvAssignment_6_10.eContents().get(0);
+		private final Assignment cConfigIniTemplateAssignment_6_11 = (Assignment)cUnorderedGroup_6.eContents().get(11);
+		private final RuleCall cConfigIniTemplateConfigIniTemplateParserRuleCall_6_11_0 = (RuleCall)cConfigIniTemplateAssignment_6_11.eContents().get(0);
 		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
 		private final Assignment cPluginsAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
 		private final RuleCall cPluginsAddPluginParserRuleCall_7_0_0 = (RuleCall)cPluginsAssignment_7_0.eContents().get(0);
@@ -153,6 +147,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cProgArgsProgramArgumentParserRuleCall_7_4_0 = (RuleCall)cProgArgsAssignment_7_4.eContents().get(0);
 		private final Assignment cEnvVarsAssignment_7_5 = (Assignment)cAlternatives_7.eContents().get(5);
 		private final RuleCall cEnvVarsEnvironmentVariableParserRuleCall_7_5_0 = (RuleCall)cEnvVarsAssignment_7_5.eContents().get(0);
+		private final Assignment cTracesAssignment_7_6 = (Assignment)cAlternatives_7.eContents().get(6);
+		private final RuleCall cTracesTraceEnablementParserRuleCall_7_6_0 = (RuleCall)cTracesAssignment_7_6.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		/// **
@@ -160,48 +156,57 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		// * manual = manually generated through context menu only. no automatic build.
 		// * foreground = don't launch in background, but rather block
 		// * no-console = don't allocate a console (no stdin then)
-		// * /
-		//LaunchConfig:
-		//	(explicit?='explicit'? & manual?='manual'? & foreground?='foreground'? & noConsole?='no-console'?)
-		//	type=LaunchConfigType 'configuration' name=FQName (':' superConfig=[LaunchConfig|FQName])? '{' ((clears=ClearOption
-		//	';')? & ('workspace' workspace=AnyPath ';')? & ('working-dir' workingDir=ExistingPath ';')? & (memory=MemoryOption
-		//	';')? & ('project' project=Project ';')? // TODO: content assist
-		// & ('main-class' mainClass=JavaType ';')?
-		//	// TODO: content assist
-		// & application=ApplicationExtPoint? // TODO: content assist, validation
-		// &
-		//	product=ProductExtPoint? // TODO: content assist, validation
-		// & favorites=Favorites? & redirect=Redirect? &
-		//	execEnv=ExecutionEnvironment? // TODO: content assist, validation
-		//) (plugins+=AddPlugin // TODO: content assist
-		// |
-		//	ignore+=IgnorePlugin // TODO: content assist
-		// | groupMembers+=GroupMember
-		//	// TODO: content assist, validation, update on rename
-		// | vmArgs+=VmArgument | progArgs+=ProgramArgument |
-		//	envVars+=EnvironmentVariable)* '}';
+		// * no-validate = don't validate plugins prior to launch
+		// * sw-install-allowed = allow software installation in eclipse config
+		// * replace-env = replace environment instead of appending variables
+		// * / LaunchConfig:
+		//	(explicit?='explicit'?
+		//	& manual?='manual'?
+		//	& foreground?='foreground'?
+		//	& noConsole?='no-console'?
+		//	& noValidate?='no-validate'?
+		//	& swInstallSupport?='sw-install-allowed'?
+		//	& replaceEnv?='replace-env'?) type=LaunchConfigType 'configuration' name=FQName (':'
+		//	superConfig=[LaunchConfig|FQName])? '{' ((clears=ClearOption ';')?
+		//	& ('workspace' workspace=AnyPath ';')?
+		//	& ('working-dir' workingDir=ExistingPath ';')?
+		//	& (memory=MemoryOption ';')?
+		//	& ('project' project=Project ';')? // TODO: content assist
+		//	& ('main-class' mainClass=JavaType ';')? // TODO: content assist
+		//	& application=ApplicationExtPoint? // TODO: content assist, validation
+		//	& product=ProductExtPoint? // TODO: content assist, validation
+		//	& favorites=Favorites?
+		//	& redirect=Redirect?
+		//	& execEnv=ExecutionEnvironment? // TODO: content assist, validation
+		//	& configIniTemplate=ConfigIniTemplate?) (plugins+=AddPlugin // TODO: content assist
+		//	| ignore+=IgnorePlugin // TODO: content assist
+		//	| groupMembers+=GroupMember // TODO: content assist, validation, update on rename
+		//	| vmArgs+=VmArgument
+		//	| progArgs+=ProgramArgument
+		//	| envVars+=EnvironmentVariable
+		//	| traces+=TraceEnablement // TODO: content assist, validation
+		//)*
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(explicit?='explicit'? & manual?='manual'? & foreground?='foreground'? & noConsole?='no-console'?) type=LaunchConfigType
-		//'configuration' name=FQName (':' superConfig=[LaunchConfig|FQName])? '{' ((clears=ClearOption ';')? & ('workspace'
-		//workspace=AnyPath ';')? & ('working-dir' workingDir=ExistingPath ';')? & (memory=MemoryOption ';')? & ('project'
-		//project=Project ';')? // TODO: content assist
-		// & ('main-class' mainClass=JavaType ';')? // TODO: content assist
-		// &
-		//application=ApplicationExtPoint? // TODO: content assist, validation
-		// & product=ProductExtPoint?
-		//// TODO: content assist, validation
-		// & favorites=Favorites? & redirect=Redirect? & execEnv=ExecutionEnvironment?
-		//// TODO: content assist, validation
-		//) (plugins+=AddPlugin // TODO: content assist
-		// | ignore+=IgnorePlugin
-		//// TODO: content assist
-		// | groupMembers+=GroupMember // TODO: content assist, validation, update on rename
-		// |
-		//vmArgs+=VmArgument | progArgs+=ProgramArgument | envVars+=EnvironmentVariable)* '}'
+		//(explicit?='explicit'? & manual?='manual'? & foreground?='foreground'? & noConsole?='no-console'? &
+		//noValidate?='no-validate'? & swInstallSupport?='sw-install-allowed'? & replaceEnv?='replace-env'?)
+		//type=LaunchConfigType 'configuration' name=FQName (':' superConfig=[LaunchConfig|FQName])? '{' ((clears=ClearOption
+		//';')? & ('workspace' workspace=AnyPath ';')? & ('working-dir' workingDir=ExistingPath ';')? & (memory=MemoryOption
+		//';')? & ('project' project=Project ';')? // TODO: content assist
+		//& ('main-class' mainClass=JavaType ';')? // TODO: content assist
+		//& application=ApplicationExtPoint? // TODO: content assist, validation
+		//& product=ProductExtPoint? // TODO: content assist, validation
+		//& favorites=Favorites? & redirect=Redirect? & execEnv=ExecutionEnvironment? // TODO: content assist, validation
+		//& configIniTemplate=ConfigIniTemplate?) (plugins+=AddPlugin // TODO: content assist
+		//| ignore+=IgnorePlugin // TODO: content assist
+		//| groupMembers+=GroupMember // TODO: content assist, validation, update on rename
+		//| vmArgs+=VmArgument | progArgs+=ProgramArgument | envVars+=EnvironmentVariable | traces+=TraceEnablement // TODO: content assist, validation
+		//)* '}'
 		public Group getGroup() { return cGroup; }
 		
-		//(explicit?='explicit'? & manual?='manual'? & foreground?='foreground'? & noConsole?='no-console'?)
+		//(explicit?='explicit'? & manual?='manual'? & foreground?='foreground'? & noConsole?='no-console'? &
+		//noValidate?='no-validate'? & swInstallSupport?='sw-install-allowed'? & replaceEnv?='replace-env'?)
 		public UnorderedGroup getUnorderedGroup_0() { return cUnorderedGroup_0; }
 		
 		//explicit?='explicit'?
@@ -227,6 +232,24 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'no-console'
 		public Keyword getNoConsoleNoConsoleKeyword_0_3_0() { return cNoConsoleNoConsoleKeyword_0_3_0; }
+		
+		//noValidate?='no-validate'?
+		public Assignment getNoValidateAssignment_0_4() { return cNoValidateAssignment_0_4; }
+		
+		//'no-validate'
+		public Keyword getNoValidateNoValidateKeyword_0_4_0() { return cNoValidateNoValidateKeyword_0_4_0; }
+		
+		//swInstallSupport?='sw-install-allowed'?
+		public Assignment getSwInstallSupportAssignment_0_5() { return cSwInstallSupportAssignment_0_5; }
+		
+		//'sw-install-allowed'
+		public Keyword getSwInstallSupportSwInstallAllowedKeyword_0_5_0() { return cSwInstallSupportSwInstallAllowedKeyword_0_5_0; }
+		
+		//replaceEnv?='replace-env'?
+		public Assignment getReplaceEnvAssignment_0_6() { return cReplaceEnvAssignment_0_6; }
+		
+		//'replace-env'
+		public Keyword getReplaceEnvReplaceEnvKeyword_0_6_0() { return cReplaceEnvReplaceEnvKeyword_0_6_0; }
 		
 		//type=LaunchConfigType
 		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
@@ -263,14 +286,11 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//((clears=ClearOption ';')? & ('workspace' workspace=AnyPath ';')? & ('working-dir' workingDir=ExistingPath ';')? &
 		//(memory=MemoryOption ';')? & ('project' project=Project ';')? // TODO: content assist
-		// & ('main-class'
-		//mainClass=JavaType ';')? // TODO: content assist
-		// & application=ApplicationExtPoint?
-		//// TODO: content assist, validation
-		// & product=ProductExtPoint? // TODO: content assist, validation
-		// &
-		//favorites=Favorites? & redirect=Redirect? & execEnv=ExecutionEnvironment? // TODO: content assist, validation
-		//)
+		//& ('main-class' mainClass=JavaType ';')? // TODO: content assist
+		//& application=ApplicationExtPoint? // TODO: content assist, validation
+		//& product=ProductExtPoint? // TODO: content assist, validation
+		//& favorites=Favorites? & redirect=Redirect? & execEnv=ExecutionEnvironment? // TODO: content assist, validation
+		//& configIniTemplate=ConfigIniTemplate?)
 		public UnorderedGroup getUnorderedGroup_6() { return cUnorderedGroup_6; }
 		
 		//(clears=ClearOption ';')?
@@ -387,16 +407,21 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ExecutionEnvironment
 		public RuleCall getExecEnvExecutionEnvironmentParserRuleCall_6_10_0() { return cExecEnvExecutionEnvironmentParserRuleCall_6_10_0; }
 		
+		//configIniTemplate=ConfigIniTemplate?
+		public Assignment getConfigIniTemplateAssignment_6_11() { return cConfigIniTemplateAssignment_6_11; }
+		
+		//ConfigIniTemplate
+		public RuleCall getConfigIniTemplateConfigIniTemplateParserRuleCall_6_11_0() { return cConfigIniTemplateConfigIniTemplateParserRuleCall_6_11_0; }
+		
 		//(plugins+=AddPlugin // TODO: content assist
-		// | ignore+=IgnorePlugin // TODO: content assist
-		// | groupMembers+=GroupMember
-		//// TODO: content assist, validation, update on rename
-		// | vmArgs+=VmArgument | progArgs+=ProgramArgument |
-		//envVars+=EnvironmentVariable)*
+		//| ignore+=IgnorePlugin // TODO: content assist
+		//| groupMembers+=GroupMember // TODO: content assist, validation, update on rename
+		//| vmArgs+=VmArgument | progArgs+=ProgramArgument | envVars+=EnvironmentVariable | traces+=TraceEnablement // TODO: content assist, validation
+		//)*
 		public Alternatives getAlternatives_7() { return cAlternatives_7; }
 		
 		//// things that may appear multiple times
-		// plugins+=AddPlugin
+		//plugins+=AddPlugin
 		public Assignment getPluginsAssignment_7_0() { return cPluginsAssignment_7_0; }
 		
 		//AddPlugin
@@ -432,6 +457,12 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EnvironmentVariable
 		public RuleCall getEnvVarsEnvironmentVariableParserRuleCall_7_5_0() { return cEnvVarsEnvironmentVariableParserRuleCall_7_5_0; }
 		
+		//traces+=TraceEnablement
+		public Assignment getTracesAssignment_7_6() { return cTracesAssignment_7_6; }
+		
+		//TraceEnablement
+		public RuleCall getTracesTraceEnablementParserRuleCall_7_6_0() { return cTracesTraceEnablementParserRuleCall_7_6_0; }
+		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
@@ -440,24 +471,24 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPluginKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cPluginAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPluginPluginParserRuleCall_1_0 = (RuleCall)cPluginAssignment_1.eContents().get(0);
+		private final RuleCall cPluginPluginWithVersionAndStartLevelParserRuleCall_1_0 = (RuleCall)cPluginAssignment_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//AddPlugin:
-		//	'plugin' plugin=Plugin ';';
+		//	'plugin' plugin=PluginWithVersionAndStartLevel ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'plugin' plugin=Plugin ';'
+		//'plugin' plugin=PluginWithVersionAndStartLevel ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'plugin'
 		public Keyword getPluginKeyword_0() { return cPluginKeyword_0; }
 		
-		//plugin=Plugin
+		//plugin=PluginWithVersionAndStartLevel
 		public Assignment getPluginAssignment_1() { return cPluginAssignment_1; }
 		
-		//Plugin
-		public RuleCall getPluginPluginParserRuleCall_1_0() { return cPluginPluginParserRuleCall_1_0; }
+		//PluginWithVersionAndStartLevel
+		public RuleCall getPluginPluginWithVersionAndStartLevelParserRuleCall_1_0() { return cPluginPluginWithVersionAndStartLevelParserRuleCall_1_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
@@ -467,24 +498,24 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cIgnoreKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cPluginAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPluginPluginParserRuleCall_1_0 = (RuleCall)cPluginAssignment_1.eContents().get(0);
+		private final RuleCall cPluginPluginWithVersionParserRuleCall_1_0 = (RuleCall)cPluginAssignment_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//IgnorePlugin:
-		//	'ignore' plugin=Plugin ';';
+		//	'ignore' plugin=PluginWithVersion ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ignore' plugin=Plugin ';'
+		//'ignore' plugin=PluginWithVersion ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'ignore'
 		public Keyword getIgnoreKeyword_0() { return cIgnoreKeyword_0; }
 		
-		//plugin=Plugin
+		//plugin=PluginWithVersion
 		public Assignment getPluginAssignment_1() { return cPluginAssignment_1; }
 		
-		//Plugin
-		public RuleCall getPluginPluginParserRuleCall_1_0() { return cPluginPluginParserRuleCall_1_0; }
+		//PluginWithVersion
+		public RuleCall getPluginPluginWithVersionParserRuleCall_1_0() { return cPluginPluginWithVersionParserRuleCall_1_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
@@ -795,6 +826,68 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//';'
 		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
+	public class ConfigIniTemplateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.ConfigIniTemplate");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cConfigIniTemplateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cPathAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPathExistingPathParserRuleCall_1_0 = (RuleCall)cPathAssignment_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//ConfigIniTemplate:
+		//	'config-ini-template' path=ExistingPath ';';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'config-ini-template' path=ExistingPath ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'config-ini-template'
+		public Keyword getConfigIniTemplateKeyword_0() { return cConfigIniTemplateKeyword_0; }
+		
+		//path=ExistingPath
+		public Assignment getPathAssignment_1() { return cPathAssignment_1; }
+		
+		//ExistingPath
+		public RuleCall getPathExistingPathParserRuleCall_1_0() { return cPathExistingPathParserRuleCall_1_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
+	}
+	public class TraceEnablementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.TraceEnablement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTraceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cPluginAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPluginPluginWithVersionParserRuleCall_1_0 = (RuleCall)cPluginAssignment_1.eContents().get(0);
+		private final Assignment cWhatAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cWhatIDTerminalRuleCall_2_0 = (RuleCall)cWhatAssignment_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//TraceEnablement:
+		//	'trace' plugin=PluginWithVersion what+=ID* ';';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'trace' plugin=PluginWithVersion what+=ID* ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'trace'
+		public Keyword getTraceKeyword_0() { return cTraceKeyword_0; }
+		
+		//plugin=PluginWithVersion
+		public Assignment getPluginAssignment_1() { return cPluginAssignment_1; }
+		
+		//PluginWithVersion
+		public RuleCall getPluginPluginWithVersionParserRuleCall_1_0() { return cPluginPluginWithVersionParserRuleCall_1_0; }
+		
+		//what+=ID*
+		public Assignment getWhatAssignment_2() { return cWhatAssignment_2; }
+		
+		//ID
+		public RuleCall getWhatIDTerminalRuleCall_2_0() { return cWhatIDTerminalRuleCall_2_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
 	public class PathElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.Path");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -844,32 +937,90 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getNameSTRINGTerminalRuleCall_0() { return cNameSTRINGTerminalRuleCall_0; }
 	}
-	public class PluginElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.Plugin");
+	public class PluginWithVersionAndStartLevelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.PluginWithVersionAndStartLevel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameFQNameParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Assignment cPluginAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cPluginPluginWithVersionParserRuleCall_0_0 = (RuleCall)cPluginAssignment_0.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_1 = (UnorderedGroup)cGroup.eContents().get(1);
+		private final Assignment cAutoStartAssignment_1_0 = (Assignment)cUnorderedGroup_1.eContents().get(0);
+		private final Keyword cAutoStartAutostartKeyword_1_0_0 = (Keyword)cAutoStartAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cUnorderedGroup_1.eContents().get(1);
+		private final Keyword cStartlevelKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cStartLevelAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cStartLevelINTTerminalRuleCall_1_1_1_0 = (RuleCall)cStartLevelAssignment_1_1_1.eContents().get(0);
+		
+		//PluginWithVersionAndStartLevel:
+		//	plugin=PluginWithVersion (autoStart?='autostart'? & ('startlevel' startLevel=INT)?);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//plugin=PluginWithVersion (autoStart?='autostart'? & ('startlevel' startLevel=INT)?)
+		public Group getGroup() { return cGroup; }
+		
+		//plugin=PluginWithVersion
+		public Assignment getPluginAssignment_0() { return cPluginAssignment_0; }
+		
+		//PluginWithVersion
+		public RuleCall getPluginPluginWithVersionParserRuleCall_0_0() { return cPluginPluginWithVersionParserRuleCall_0_0; }
+		
+		//(autoStart?='autostart'? & ('startlevel' startLevel=INT)?)
+		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
+		
+		//autoStart?='autostart'?
+		public Assignment getAutoStartAssignment_1_0() { return cAutoStartAssignment_1_0; }
+		
+		//'autostart'
+		public Keyword getAutoStartAutostartKeyword_1_0_0() { return cAutoStartAutostartKeyword_1_0_0; }
+		
+		//('startlevel' startLevel=INT)?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//'startlevel'
+		public Keyword getStartlevelKeyword_1_1_0() { return cStartlevelKeyword_1_1_0; }
+		
+		//startLevel=INT
+		public Assignment getStartLevelAssignment_1_1_1() { return cStartLevelAssignment_1_1_1; }
+		
+		//INT
+		public RuleCall getStartLevelINTTerminalRuleCall_1_1_1_0() { return cStartLevelINTTerminalRuleCall_1_1_1_0; }
+	}
+	public class PluginWithVersionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.PluginWithVersion");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPluginParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cVersionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cVersionVERSIONTerminalRuleCall_1_0 = (RuleCall)cVersionAssignment_1.eContents().get(0);
 		
-		//Plugin:
-		//	name=FQName version=VERSION?;
+		//PluginWithVersion:
+		//	Plugin version=VERSION?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=FQName version=VERSION?
+		//Plugin version=VERSION?
 		public Group getGroup() { return cGroup; }
 		
-		//name=FQName
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
-		
-		//FQName
-		public RuleCall getNameFQNameParserRuleCall_0_0() { return cNameFQNameParserRuleCall_0_0; }
+		//Plugin
+		public RuleCall getPluginParserRuleCall_0() { return cPluginParserRuleCall_0; }
 		
 		//version=VERSION?
 		public Assignment getVersionAssignment_1() { return cVersionAssignment_1; }
 		
 		//VERSION
 		public RuleCall getVersionVERSIONTerminalRuleCall_1_0() { return cVersionVERSIONTerminalRuleCall_1_0; }
+	}
+	public class PluginElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.Plugin");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameFQNameParserRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//Plugin:
+		//	name=FQName;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=FQName
+		public Assignment getNameAssignment() { return cNameAssignment; }
+		
+		//FQName
+		public RuleCall getNameFQNameParserRuleCall_0() { return cNameFQNameParserRuleCall_0; }
 	}
 	public class ProjectElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.Project");
@@ -1367,7 +1518,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cGBGKeyword_7_0 = (Keyword)cGBEnumLiteralDeclaration_7.eContents().get(0);
 		
 		//enum MemoryUnit:
-		//	MB | MB='mb' | MB='M' | MB='m' | GB | GB='gb' | GB='G' | GB='g';
+		//	MB | MB='mb' | MB='M' | MB='m' |
+		//	GB | GB='gb' | GB='G' | GB='g';
 		public EnumRule getRule() { return rule; }
 		
 		//MB | MB='mb' | MB='M' | MB='m' | GB | GB='gb' | GB='G' | GB='g'
@@ -1484,9 +1636,13 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final FavoritesElements pFavorites;
 	private final RedirectElements pRedirect;
 	private final ExecutionEnvironmentElements pExecutionEnvironment;
+	private final ConfigIniTemplateElements pConfigIniTemplate;
+	private final TraceEnablementElements pTraceEnablement;
 	private final PathElements pPath;
 	private final ExistingPathElements pExistingPath;
 	private final AnyPathElements pAnyPath;
+	private final PluginWithVersionAndStartLevelElements pPluginWithVersionAndStartLevel;
+	private final PluginWithVersionElements pPluginWithVersion;
 	private final PluginElements pPlugin;
 	private final ProjectElements pProject;
 	private final JavaTypeElements pJavaType;
@@ -1530,9 +1686,13 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pFavorites = new FavoritesElements();
 		this.pRedirect = new RedirectElements();
 		this.pExecutionEnvironment = new ExecutionEnvironmentElements();
+		this.pConfigIniTemplate = new ConfigIniTemplateElements();
+		this.pTraceEnablement = new TraceEnablementElements();
 		this.pPath = new PathElements();
 		this.pExistingPath = new ExistingPathElements();
 		this.pAnyPath = new AnyPathElements();
+		this.pPluginWithVersionAndStartLevel = new PluginWithVersionAndStartLevelElements();
+		this.pPluginWithVersion = new PluginWithVersionElements();
 		this.pPlugin = new PluginElements();
 		this.pProject = new ProjectElements();
 		this.pJavaType = new JavaTypeElements();
@@ -1588,18 +1748,6 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	// * 
 	// * General: variable expansion for all paths (string subst, system properties)!
 	// * 
-	// * Common:
-	// *   - stdout/stderr redirection support, console allocation, ...
-	// * 
-	// * Eclipse:
-	// *   - support for setting Java runtime environment settings
-	// *   - validate plugins automatically prior to launching
-	// *   - plugin start level settings (start leven & autostart)
-	// *   - config.ini related settings
-	// *   - software installation support setting
-	// *   - tracing settings
-	// *   - environment: append vs. replace setting
-	// * 
 	// * Java:
 	// *   - support for setting JRE
 	// *   - main class search settings (system libraries, inheritence)
@@ -1612,13 +1760,11 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	// *   - session timeout
 	// *   - open internal, external, not at all
 	// *   - RAP development mode
-	// *   - plugin/bundle settings same as for Eclipse (but different)
 	// *   - JRE settings (same as Java - but different)
 	// * 
 	// * How to support different launch config types - some generic attribute support?
 	// * Or really implement support for each type separately (probably the best experience).
-	// * /
-	//LCModel:
+	// * / LCModel:
 	//	configurations+=LaunchConfig*;
 	public LCModelElements getLCModelAccess() {
 		return pLCModel;
@@ -1633,26 +1779,37 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	// * manual = manually generated through context menu only. no automatic build.
 	// * foreground = don't launch in background, but rather block
 	// * no-console = don't allocate a console (no stdin then)
-	// * /
-	//LaunchConfig:
-	//	(explicit?='explicit'? & manual?='manual'? & foreground?='foreground'? & noConsole?='no-console'?)
-	//	type=LaunchConfigType 'configuration' name=FQName (':' superConfig=[LaunchConfig|FQName])? '{' ((clears=ClearOption
-	//	';')? & ('workspace' workspace=AnyPath ';')? & ('working-dir' workingDir=ExistingPath ';')? & (memory=MemoryOption
-	//	';')? & ('project' project=Project ';')? // TODO: content assist
-	// & ('main-class' mainClass=JavaType ';')?
-	//	// TODO: content assist
-	// & application=ApplicationExtPoint? // TODO: content assist, validation
-	// &
-	//	product=ProductExtPoint? // TODO: content assist, validation
-	// & favorites=Favorites? & redirect=Redirect? &
-	//	execEnv=ExecutionEnvironment? // TODO: content assist, validation
-	//) (plugins+=AddPlugin // TODO: content assist
-	// |
-	//	ignore+=IgnorePlugin // TODO: content assist
-	// | groupMembers+=GroupMember
-	//	// TODO: content assist, validation, update on rename
-	// | vmArgs+=VmArgument | progArgs+=ProgramArgument |
-	//	envVars+=EnvironmentVariable)* '}';
+	// * no-validate = don't validate plugins prior to launch
+	// * sw-install-allowed = allow software installation in eclipse config
+	// * replace-env = replace environment instead of appending variables
+	// * / LaunchConfig:
+	//	(explicit?='explicit'?
+	//	& manual?='manual'?
+	//	& foreground?='foreground'?
+	//	& noConsole?='no-console'?
+	//	& noValidate?='no-validate'?
+	//	& swInstallSupport?='sw-install-allowed'?
+	//	& replaceEnv?='replace-env'?) type=LaunchConfigType 'configuration' name=FQName (':'
+	//	superConfig=[LaunchConfig|FQName])? '{' ((clears=ClearOption ';')?
+	//	& ('workspace' workspace=AnyPath ';')?
+	//	& ('working-dir' workingDir=ExistingPath ';')?
+	//	& (memory=MemoryOption ';')?
+	//	& ('project' project=Project ';')? // TODO: content assist
+	//	& ('main-class' mainClass=JavaType ';')? // TODO: content assist
+	//	& application=ApplicationExtPoint? // TODO: content assist, validation
+	//	& product=ProductExtPoint? // TODO: content assist, validation
+	//	& favorites=Favorites?
+	//	& redirect=Redirect?
+	//	& execEnv=ExecutionEnvironment? // TODO: content assist, validation
+	//	& configIniTemplate=ConfigIniTemplate?) (plugins+=AddPlugin // TODO: content assist
+	//	| ignore+=IgnorePlugin // TODO: content assist
+	//	| groupMembers+=GroupMember // TODO: content assist, validation, update on rename
+	//	| vmArgs+=VmArgument
+	//	| progArgs+=ProgramArgument
+	//	| envVars+=EnvironmentVariable
+	//	| traces+=TraceEnablement // TODO: content assist, validation
+	//)*
+	//	'}';
 	public LaunchConfigElements getLaunchConfigAccess() {
 		return pLaunchConfig;
 	}
@@ -1662,7 +1819,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AddPlugin:
-	//	'plugin' plugin=Plugin ';';
+	//	'plugin' plugin=PluginWithVersionAndStartLevel ';';
 	public AddPluginElements getAddPluginAccess() {
 		return pAddPlugin;
 	}
@@ -1672,7 +1829,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IgnorePlugin:
-	//	'ignore' plugin=Plugin ';';
+	//	'ignore' plugin=PluginWithVersion ';';
 	public IgnorePluginElements getIgnorePluginAccess() {
 		return pIgnorePlugin;
 	}
@@ -1762,6 +1919,26 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getExecutionEnvironmentAccess().getRule();
 	}
 	
+	//ConfigIniTemplate:
+	//	'config-ini-template' path=ExistingPath ';';
+	public ConfigIniTemplateElements getConfigIniTemplateAccess() {
+		return pConfigIniTemplate;
+	}
+	
+	public ParserRule getConfigIniTemplateRule() {
+		return getConfigIniTemplateAccess().getRule();
+	}
+	
+	//TraceEnablement:
+	//	'trace' plugin=PluginWithVersion what+=ID* ';';
+	public TraceEnablementElements getTraceEnablementAccess() {
+		return pTraceEnablement;
+	}
+	
+	public ParserRule getTraceEnablementRule() {
+		return getTraceEnablementAccess().getRule();
+	}
+	
 	//Path:
 	//	ExistingPath | AnyPath;
 	public PathElements getPathAccess() {
@@ -1792,8 +1969,28 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnyPathAccess().getRule();
 	}
 	
+	//PluginWithVersionAndStartLevel:
+	//	plugin=PluginWithVersion (autoStart?='autostart'? & ('startlevel' startLevel=INT)?);
+	public PluginWithVersionAndStartLevelElements getPluginWithVersionAndStartLevelAccess() {
+		return pPluginWithVersionAndStartLevel;
+	}
+	
+	public ParserRule getPluginWithVersionAndStartLevelRule() {
+		return getPluginWithVersionAndStartLevelAccess().getRule();
+	}
+	
+	//PluginWithVersion:
+	//	Plugin version=VERSION?;
+	public PluginWithVersionElements getPluginWithVersionAccess() {
+		return pPluginWithVersion;
+	}
+	
+	public ParserRule getPluginWithVersionRule() {
+		return getPluginWithVersionAccess().getRule();
+	}
+	
 	//Plugin:
-	//	name=FQName version=VERSION?;
+	//	name=FQName;
 	public PluginElements getPluginAccess() {
 		return pPlugin;
 	}
@@ -1927,7 +2124,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum MemoryUnit:
-	//	MB | MB='mb' | MB='M' | MB='m' | GB | GB='gb' | GB='G' | GB='g';
+	//	MB | MB='mb' | MB='M' | MB='m' |
+	//	GB | GB='gb' | GB='G' | GB='g';
 	public MemoryUnitElements getMemoryUnitAccess() {
 		return eMemoryUnit;
 	}
@@ -1987,7 +2185,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal STRING:
-	//	'"' ('\\' . | !('\\' | '"'))* '"' | "'" ('\\' . | !('\\' | "'"))* "'";
+	//	'"' ('\\' . | !('\\' | '"'))* '"' |
+	//	"'" ('\\' . | !('\\' | "'"))* "'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	}

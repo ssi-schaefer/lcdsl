@@ -7,6 +7,7 @@ import com.wamas.ide.launching.lcDsl.AddPlugin;
 import com.wamas.ide.launching.lcDsl.AnyPath;
 import com.wamas.ide.launching.lcDsl.ApplicationExtPoint;
 import com.wamas.ide.launching.lcDsl.ClearOption;
+import com.wamas.ide.launching.lcDsl.ConfigIniTemplate;
 import com.wamas.ide.launching.lcDsl.EnvironmentVariable;
 import com.wamas.ide.launching.lcDsl.ExecutionEnvironment;
 import com.wamas.ide.launching.lcDsl.ExistingPath;
@@ -22,6 +23,7 @@ import com.wamas.ide.launching.lcDsl.ProductExtPoint;
 import com.wamas.ide.launching.lcDsl.ProgramArgument;
 import com.wamas.ide.launching.lcDsl.Project;
 import com.wamas.ide.launching.lcDsl.Redirect;
+import com.wamas.ide.launching.lcDsl.TraceEnablement;
 import com.wamas.ide.launching.lcDsl.VmArgument;
 
 import java.util.Collection;
@@ -52,6 +54,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isManual <em>Manual</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isNoConsole <em>No Console</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isNoValidate <em>No Validate</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isSwInstallSupport <em>Sw Install Support</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isReplaceEnv <em>Replace Env</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getSuperConfig <em>Super Config</em>}</li>
@@ -66,12 +71,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getFavorites <em>Favorites</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getRedirect <em>Redirect</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getExecEnv <em>Exec Env</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getConfigIniTemplate <em>Config Ini Template</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getPlugins <em>Plugins</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getIgnore <em>Ignore</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getGroupMembers <em>Group Members</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getVmArgs <em>Vm Args</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getProgArgs <em>Prog Args</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getEnvVars <em>Env Vars</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getTraces <em>Traces</em>}</li>
  * </ul>
  *
  * @generated
@@ -157,6 +164,66 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * @ordered
    */
   protected boolean noConsole = NO_CONSOLE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isNoValidate() <em>No Validate</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isNoValidate()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean NO_VALIDATE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isNoValidate() <em>No Validate</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isNoValidate()
+   * @generated
+   * @ordered
+   */
+  protected boolean noValidate = NO_VALIDATE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isSwInstallSupport() <em>Sw Install Support</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isSwInstallSupport()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean SW_INSTALL_SUPPORT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isSwInstallSupport() <em>Sw Install Support</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isSwInstallSupport()
+   * @generated
+   * @ordered
+   */
+  protected boolean swInstallSupport = SW_INSTALL_SUPPORT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isReplaceEnv() <em>Replace Env</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isReplaceEnv()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean REPLACE_ENV_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isReplaceEnv() <em>Replace Env</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isReplaceEnv()
+   * @generated
+   * @ordered
+   */
+  protected boolean replaceEnv = REPLACE_ENV_EDEFAULT;
 
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -319,6 +386,16 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
   protected ExecutionEnvironment execEnv;
 
   /**
+   * The cached value of the '{@link #getConfigIniTemplate() <em>Config Ini Template</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConfigIniTemplate()
+   * @generated
+   * @ordered
+   */
+  protected ConfigIniTemplate configIniTemplate;
+
+  /**
    * The cached value of the '{@link #getPlugins() <em>Plugins</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -377,6 +454,16 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * @ordered
    */
   protected EList<EnvironmentVariable> envVars;
+
+  /**
+   * The cached value of the '{@link #getTraces() <em>Traces</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTraces()
+   * @generated
+   * @ordered
+   */
+  protected EList<TraceEnablement> traces;
 
   /**
    * <!-- begin-user-doc -->
@@ -489,6 +576,75 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
     noConsole = newNoConsole;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__NO_CONSOLE, oldNoConsole, noConsole));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isNoValidate()
+  {
+    return noValidate;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNoValidate(boolean newNoValidate)
+  {
+    boolean oldNoValidate = noValidate;
+    noValidate = newNoValidate;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__NO_VALIDATE, oldNoValidate, noValidate));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isSwInstallSupport()
+  {
+    return swInstallSupport;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSwInstallSupport(boolean newSwInstallSupport)
+  {
+    boolean oldSwInstallSupport = swInstallSupport;
+    swInstallSupport = newSwInstallSupport;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__SW_INSTALL_SUPPORT, oldSwInstallSupport, swInstallSupport));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isReplaceEnv()
+  {
+    return replaceEnv;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setReplaceEnv(boolean newReplaceEnv)
+  {
+    boolean oldReplaceEnv = replaceEnv;
+    replaceEnv = newReplaceEnv;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__REPLACE_ENV, oldReplaceEnv, replaceEnv));
   }
 
   /**
@@ -1113,6 +1269,54 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
+  public ConfigIniTemplate getConfigIniTemplate()
+  {
+    return configIniTemplate;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConfigIniTemplate(ConfigIniTemplate newConfigIniTemplate, NotificationChain msgs)
+  {
+    ConfigIniTemplate oldConfigIniTemplate = configIniTemplate;
+    configIniTemplate = newConfigIniTemplate;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__CONFIG_INI_TEMPLATE, oldConfigIniTemplate, newConfigIniTemplate);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setConfigIniTemplate(ConfigIniTemplate newConfigIniTemplate)
+  {
+    if (newConfigIniTemplate != configIniTemplate)
+    {
+      NotificationChain msgs = null;
+      if (configIniTemplate != null)
+        msgs = ((InternalEObject)configIniTemplate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__CONFIG_INI_TEMPLATE, null, msgs);
+      if (newConfigIniTemplate != null)
+        msgs = ((InternalEObject)newConfigIniTemplate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__CONFIG_INI_TEMPLATE, null, msgs);
+      msgs = basicSetConfigIniTemplate(newConfigIniTemplate, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__CONFIG_INI_TEMPLATE, newConfigIniTemplate, newConfigIniTemplate));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<AddPlugin> getPlugins()
   {
     if (plugins == null)
@@ -1197,6 +1401,20 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<TraceEnablement> getTraces()
+  {
+    if (traces == null)
+    {
+      traces = new EObjectContainmentEList<TraceEnablement>(TraceEnablement.class, this, LcDslPackage.LAUNCH_CONFIG__TRACES);
+    }
+    return traces;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -1224,6 +1442,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return basicSetRedirect(null, msgs);
       case LcDslPackage.LAUNCH_CONFIG__EXEC_ENV:
         return basicSetExecEnv(null, msgs);
+      case LcDslPackage.LAUNCH_CONFIG__CONFIG_INI_TEMPLATE:
+        return basicSetConfigIniTemplate(null, msgs);
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         return ((InternalEList<?>)getPlugins()).basicRemove(otherEnd, msgs);
       case LcDslPackage.LAUNCH_CONFIG__IGNORE:
@@ -1236,6 +1456,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return ((InternalEList<?>)getProgArgs()).basicRemove(otherEnd, msgs);
       case LcDslPackage.LAUNCH_CONFIG__ENV_VARS:
         return ((InternalEList<?>)getEnvVars()).basicRemove(otherEnd, msgs);
+      case LcDslPackage.LAUNCH_CONFIG__TRACES:
+        return ((InternalEList<?>)getTraces()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -1258,6 +1480,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return isForeground();
       case LcDslPackage.LAUNCH_CONFIG__NO_CONSOLE:
         return isNoConsole();
+      case LcDslPackage.LAUNCH_CONFIG__NO_VALIDATE:
+        return isNoValidate();
+      case LcDslPackage.LAUNCH_CONFIG__SW_INSTALL_SUPPORT:
+        return isSwInstallSupport();
+      case LcDslPackage.LAUNCH_CONFIG__REPLACE_ENV:
+        return isReplaceEnv();
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         return getType();
       case LcDslPackage.LAUNCH_CONFIG__NAME:
@@ -1287,6 +1515,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return getRedirect();
       case LcDslPackage.LAUNCH_CONFIG__EXEC_ENV:
         return getExecEnv();
+      case LcDslPackage.LAUNCH_CONFIG__CONFIG_INI_TEMPLATE:
+        return getConfigIniTemplate();
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         return getPlugins();
       case LcDslPackage.LAUNCH_CONFIG__IGNORE:
@@ -1299,6 +1529,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return getProgArgs();
       case LcDslPackage.LAUNCH_CONFIG__ENV_VARS:
         return getEnvVars();
+      case LcDslPackage.LAUNCH_CONFIG__TRACES:
+        return getTraces();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -1325,6 +1557,15 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return;
       case LcDslPackage.LAUNCH_CONFIG__NO_CONSOLE:
         setNoConsole((Boolean)newValue);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__NO_VALIDATE:
+        setNoValidate((Boolean)newValue);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__SW_INSTALL_SUPPORT:
+        setSwInstallSupport((Boolean)newValue);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__REPLACE_ENV:
+        setReplaceEnv((Boolean)newValue);
         return;
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         setType((LaunchConfigType)newValue);
@@ -1368,6 +1609,9 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
       case LcDslPackage.LAUNCH_CONFIG__EXEC_ENV:
         setExecEnv((ExecutionEnvironment)newValue);
         return;
+      case LcDslPackage.LAUNCH_CONFIG__CONFIG_INI_TEMPLATE:
+        setConfigIniTemplate((ConfigIniTemplate)newValue);
+        return;
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         getPlugins().clear();
         getPlugins().addAll((Collection<? extends AddPlugin>)newValue);
@@ -1391,6 +1635,10 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
       case LcDslPackage.LAUNCH_CONFIG__ENV_VARS:
         getEnvVars().clear();
         getEnvVars().addAll((Collection<? extends EnvironmentVariable>)newValue);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__TRACES:
+        getTraces().clear();
+        getTraces().addAll((Collection<? extends TraceEnablement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -1417,6 +1665,15 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return;
       case LcDslPackage.LAUNCH_CONFIG__NO_CONSOLE:
         setNoConsole(NO_CONSOLE_EDEFAULT);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__NO_VALIDATE:
+        setNoValidate(NO_VALIDATE_EDEFAULT);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__SW_INSTALL_SUPPORT:
+        setSwInstallSupport(SW_INSTALL_SUPPORT_EDEFAULT);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__REPLACE_ENV:
+        setReplaceEnv(REPLACE_ENV_EDEFAULT);
         return;
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         setType(TYPE_EDEFAULT);
@@ -1460,6 +1717,9 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
       case LcDslPackage.LAUNCH_CONFIG__EXEC_ENV:
         setExecEnv((ExecutionEnvironment)null);
         return;
+      case LcDslPackage.LAUNCH_CONFIG__CONFIG_INI_TEMPLATE:
+        setConfigIniTemplate((ConfigIniTemplate)null);
+        return;
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         getPlugins().clear();
         return;
@@ -1477,6 +1737,9 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return;
       case LcDslPackage.LAUNCH_CONFIG__ENV_VARS:
         getEnvVars().clear();
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__TRACES:
+        getTraces().clear();
         return;
     }
     super.eUnset(featureID);
@@ -1500,6 +1763,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return foreground != FOREGROUND_EDEFAULT;
       case LcDslPackage.LAUNCH_CONFIG__NO_CONSOLE:
         return noConsole != NO_CONSOLE_EDEFAULT;
+      case LcDslPackage.LAUNCH_CONFIG__NO_VALIDATE:
+        return noValidate != NO_VALIDATE_EDEFAULT;
+      case LcDslPackage.LAUNCH_CONFIG__SW_INSTALL_SUPPORT:
+        return swInstallSupport != SW_INSTALL_SUPPORT_EDEFAULT;
+      case LcDslPackage.LAUNCH_CONFIG__REPLACE_ENV:
+        return replaceEnv != REPLACE_ENV_EDEFAULT;
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         return type != TYPE_EDEFAULT;
       case LcDslPackage.LAUNCH_CONFIG__NAME:
@@ -1528,6 +1797,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return redirect != null;
       case LcDslPackage.LAUNCH_CONFIG__EXEC_ENV:
         return execEnv != null;
+      case LcDslPackage.LAUNCH_CONFIG__CONFIG_INI_TEMPLATE:
+        return configIniTemplate != null;
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         return plugins != null && !plugins.isEmpty();
       case LcDslPackage.LAUNCH_CONFIG__IGNORE:
@@ -1540,6 +1811,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return progArgs != null && !progArgs.isEmpty();
       case LcDslPackage.LAUNCH_CONFIG__ENV_VARS:
         return envVars != null && !envVars.isEmpty();
+      case LcDslPackage.LAUNCH_CONFIG__TRACES:
+        return traces != null && !traces.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -1563,6 +1836,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
     result.append(foreground);
     result.append(", noConsole: ");
     result.append(noConsole);
+    result.append(", noValidate: ");
+    result.append(noValidate);
+    result.append(", swInstallSupport: ");
+    result.append(swInstallSupport);
+    result.append(", replaceEnv: ");
+    result.append(replaceEnv);
     result.append(", type: ");
     result.append(type);
     result.append(", name: ");

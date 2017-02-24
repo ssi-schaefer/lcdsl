@@ -78,9 +78,13 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
       case LcDslPackage.FAVORITES: return createFavorites();
       case LcDslPackage.REDIRECT: return createRedirect();
       case LcDslPackage.EXECUTION_ENVIRONMENT: return createExecutionEnvironment();
+      case LcDslPackage.CONFIG_INI_TEMPLATE: return createConfigIniTemplate();
+      case LcDslPackage.TRACE_ENABLEMENT: return createTraceEnablement();
       case LcDslPackage.PATH: return createPath();
       case LcDslPackage.EXISTING_PATH: return createExistingPath();
       case LcDslPackage.ANY_PATH: return createAnyPath();
+      case LcDslPackage.PLUGIN_WITH_VERSION_AND_START_LEVEL: return createPluginWithVersionAndStartLevel();
+      case LcDslPackage.PLUGIN_WITH_VERSION: return createPluginWithVersion();
       case LcDslPackage.PLUGIN: return createPlugin();
       case LcDslPackage.PROJECT: return createProject();
       case LcDslPackage.JAVA_TYPE: return createJavaType();
@@ -283,6 +287,28 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public ConfigIniTemplate createConfigIniTemplate()
+  {
+    ConfigIniTemplateImpl configIniTemplate = new ConfigIniTemplateImpl();
+    return configIniTemplate;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TraceEnablement createTraceEnablement()
+  {
+    TraceEnablementImpl traceEnablement = new TraceEnablementImpl();
+    return traceEnablement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Path createPath()
   {
     PathImpl path = new PathImpl();
@@ -309,6 +335,28 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
   {
     AnyPathImpl anyPath = new AnyPathImpl();
     return anyPath;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PluginWithVersionAndStartLevel createPluginWithVersionAndStartLevel()
+  {
+    PluginWithVersionAndStartLevelImpl pluginWithVersionAndStartLevel = new PluginWithVersionAndStartLevelImpl();
+    return pluginWithVersionAndStartLevel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PluginWithVersion createPluginWithVersion()
+  {
+    PluginWithVersionImpl pluginWithVersion = new PluginWithVersionImpl();
+    return pluginWithVersion;
   }
 
   /**

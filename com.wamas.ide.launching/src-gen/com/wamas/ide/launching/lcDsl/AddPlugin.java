@@ -32,12 +32,12 @@ public interface AddPlugin extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Plugin</em>' containment reference.
-   * @see #setPlugin(Plugin)
+   * @see #setPlugin(PluginWithVersionAndStartLevel)
    * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getAddPlugin_Plugin()
    * @model containment="true"
    * @generated
    */
-  Plugin getPlugin();
+  PluginWithVersionAndStartLevel getPlugin();
 
   /**
    * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.AddPlugin#getPlugin <em>Plugin</em>}' containment reference.
@@ -47,6 +47,6 @@ public interface AddPlugin extends EObject
    * @see #getPlugin()
    * @generated
    */
-  void setPlugin(Plugin value);
+  void setPlugin(PluginWithVersionAndStartLevel value);
 
 } // AddPlugin

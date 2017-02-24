@@ -157,6 +157,20 @@ public class LcDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case LcDslPackage.CONFIG_INI_TEMPLATE:
+      {
+        ConfigIniTemplate configIniTemplate = (ConfigIniTemplate)theEObject;
+        T result = caseConfigIniTemplate(configIniTemplate);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LcDslPackage.TRACE_ENABLEMENT:
+      {
+        TraceEnablement traceEnablement = (TraceEnablement)theEObject;
+        T result = caseTraceEnablement(traceEnablement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case LcDslPackage.PATH:
       {
         Path path = (Path)theEObject;
@@ -180,10 +194,25 @@ public class LcDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case LcDslPackage.PLUGIN_WITH_VERSION_AND_START_LEVEL:
+      {
+        PluginWithVersionAndStartLevel pluginWithVersionAndStartLevel = (PluginWithVersionAndStartLevel)theEObject;
+        T result = casePluginWithVersionAndStartLevel(pluginWithVersionAndStartLevel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LcDslPackage.PLUGIN_WITH_VERSION:
+      {
+        PluginWithVersion pluginWithVersion = (PluginWithVersion)theEObject;
+        T result = casePluginWithVersion(pluginWithVersion);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case LcDslPackage.PLUGIN:
       {
         Plugin plugin = (Plugin)theEObject;
         T result = casePlugin(plugin);
+        if (result == null) result = casePluginWithVersion(plugin);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -450,6 +479,38 @@ public class LcDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Config Ini Template</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Config Ini Template</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConfigIniTemplate(ConfigIniTemplate object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Trace Enablement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Trace Enablement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTraceEnablement(TraceEnablement object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Path</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -493,6 +554,38 @@ public class LcDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAnyPath(AnyPath object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Plugin With Version And Start Level</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Plugin With Version And Start Level</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePluginWithVersionAndStartLevel(PluginWithVersionAndStartLevel object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Plugin With Version</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Plugin With Version</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePluginWithVersion(PluginWithVersion object)
   {
     return null;
   }

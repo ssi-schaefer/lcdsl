@@ -20,6 +20,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isManual <em>Manual</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isNoConsole <em>No Console</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isNoValidate <em>No Validate</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isSwInstallSupport <em>Sw Install Support</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isReplaceEnv <em>Replace Env</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getType <em>Type</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getName <em>Name</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getSuperConfig <em>Super Config</em>}</li>
@@ -34,12 +37,14 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getFavorites <em>Favorites</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getRedirect <em>Redirect</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getExecEnv <em>Exec Env</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getConfigIniTemplate <em>Config Ini Template</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getPlugins <em>Plugins</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getIgnore <em>Ignore</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getGroupMembers <em>Group Members</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getVmArgs <em>Vm Args</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getProgArgs <em>Prog Args</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getEnvVars <em>Env Vars</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getTraces <em>Traces</em>}</li>
  * </ul>
  *
  * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig()
@@ -151,6 +156,84 @@ public interface LaunchConfig extends EObject
    * @generated
    */
   void setNoConsole(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>No Validate</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>No Validate</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>No Validate</em>' attribute.
+   * @see #setNoValidate(boolean)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_NoValidate()
+   * @model
+   * @generated
+   */
+  boolean isNoValidate();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isNoValidate <em>No Validate</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>No Validate</em>' attribute.
+   * @see #isNoValidate()
+   * @generated
+   */
+  void setNoValidate(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Sw Install Support</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Sw Install Support</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Sw Install Support</em>' attribute.
+   * @see #setSwInstallSupport(boolean)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_SwInstallSupport()
+   * @model
+   * @generated
+   */
+  boolean isSwInstallSupport();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isSwInstallSupport <em>Sw Install Support</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Sw Install Support</em>' attribute.
+   * @see #isSwInstallSupport()
+   * @generated
+   */
+  void setSwInstallSupport(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Replace Env</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Replace Env</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Replace Env</em>' attribute.
+   * @see #setReplaceEnv(boolean)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_ReplaceEnv()
+   * @model
+   * @generated
+   */
+  boolean isReplaceEnv();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isReplaceEnv <em>Replace Env</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Replace Env</em>' attribute.
+   * @see #isReplaceEnv()
+   * @generated
+   */
+  void setReplaceEnv(boolean value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -520,6 +603,32 @@ public interface LaunchConfig extends EObject
   void setExecEnv(ExecutionEnvironment value);
 
   /**
+   * Returns the value of the '<em><b>Config Ini Template</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Config Ini Template</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Config Ini Template</em>' containment reference.
+   * @see #setConfigIniTemplate(ConfigIniTemplate)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_ConfigIniTemplate()
+   * @model containment="true"
+   * @generated
+   */
+  ConfigIniTemplate getConfigIniTemplate();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getConfigIniTemplate <em>Config Ini Template</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Config Ini Template</em>' containment reference.
+   * @see #getConfigIniTemplate()
+   * @generated
+   */
+  void setConfigIniTemplate(ConfigIniTemplate value);
+
+  /**
    * Returns the value of the '<em><b>Plugins</b></em>' containment reference list.
    * The list contents are of type {@link com.wamas.ide.launching.lcDsl.AddPlugin}.
    * <!-- begin-user-doc -->
@@ -614,5 +723,21 @@ public interface LaunchConfig extends EObject
    * @generated
    */
   EList<EnvironmentVariable> getEnvVars();
+
+  /**
+   * Returns the value of the '<em><b>Traces</b></em>' containment reference list.
+   * The list contents are of type {@link com.wamas.ide.launching.lcDsl.TraceEnablement}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Traces</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Traces</em>' containment reference list.
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_Traces()
+   * @model containment="true"
+   * @generated
+   */
+  EList<TraceEnablement> getTraces();
 
 } // LaunchConfig

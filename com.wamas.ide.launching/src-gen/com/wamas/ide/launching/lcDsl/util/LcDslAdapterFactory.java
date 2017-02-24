@@ -136,6 +136,16 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
         return createExecutionEnvironmentAdapter();
       }
       @Override
+      public Adapter caseConfigIniTemplate(ConfigIniTemplate object)
+      {
+        return createConfigIniTemplateAdapter();
+      }
+      @Override
+      public Adapter caseTraceEnablement(TraceEnablement object)
+      {
+        return createTraceEnablementAdapter();
+      }
+      @Override
       public Adapter casePath(Path object)
       {
         return createPathAdapter();
@@ -149,6 +159,16 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseAnyPath(AnyPath object)
       {
         return createAnyPathAdapter();
+      }
+      @Override
+      public Adapter casePluginWithVersionAndStartLevel(PluginWithVersionAndStartLevel object)
+      {
+        return createPluginWithVersionAndStartLevelAdapter();
+      }
+      @Override
+      public Adapter casePluginWithVersion(PluginWithVersion object)
+      {
+        return createPluginWithVersionAdapter();
       }
       @Override
       public Adapter casePlugin(Plugin object)
@@ -403,6 +423,36 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.ConfigIniTemplate <em>Config Ini Template</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.ConfigIniTemplate
+   * @generated
+   */
+  public Adapter createConfigIniTemplateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.TraceEnablement <em>Trace Enablement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.TraceEnablement
+   * @generated
+   */
+  public Adapter createTraceEnablementAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.Path <em>Path</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -443,6 +493,36 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAnyPathAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.PluginWithVersionAndStartLevel <em>Plugin With Version And Start Level</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.PluginWithVersionAndStartLevel
+   * @generated
+   */
+  public Adapter createPluginWithVersionAndStartLevelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.PluginWithVersion <em>Plugin With Version</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.PluginWithVersion
+   * @generated
+   */
+  public Adapter createPluginWithVersionAdapter()
   {
     return null;
   }

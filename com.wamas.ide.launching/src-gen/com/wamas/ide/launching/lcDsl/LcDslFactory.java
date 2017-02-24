@@ -132,6 +132,24 @@ public interface LcDslFactory extends EFactory
   ExecutionEnvironment createExecutionEnvironment();
 
   /**
+   * Returns a new object of class '<em>Config Ini Template</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Config Ini Template</em>'.
+   * @generated
+   */
+  ConfigIniTemplate createConfigIniTemplate();
+
+  /**
+   * Returns a new object of class '<em>Trace Enablement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Trace Enablement</em>'.
+   * @generated
+   */
+  TraceEnablement createTraceEnablement();
+
+  /**
    * Returns a new object of class '<em>Path</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -157,6 +175,24 @@ public interface LcDslFactory extends EFactory
    * @generated
    */
   AnyPath createAnyPath();
+
+  /**
+   * Returns a new object of class '<em>Plugin With Version And Start Level</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Plugin With Version And Start Level</em>'.
+   * @generated
+   */
+  PluginWithVersionAndStartLevel createPluginWithVersionAndStartLevel();
+
+  /**
+   * Returns a new object of class '<em>Plugin With Version</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Plugin With Version</em>'.
+   * @generated
+   */
+  PluginWithVersion createPluginWithVersion();
 
   /**
    * Returns a new object of class '<em>Plugin</em>'.
