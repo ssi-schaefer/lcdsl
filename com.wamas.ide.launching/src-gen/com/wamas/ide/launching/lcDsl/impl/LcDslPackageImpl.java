@@ -32,7 +32,6 @@ import com.wamas.ide.launching.lcDsl.MemoryOption;
 import com.wamas.ide.launching.lcDsl.MemoryUnit;
 import com.wamas.ide.launching.lcDsl.OutputStream;
 import com.wamas.ide.launching.lcDsl.Path;
-import com.wamas.ide.launching.lcDsl.Plugin;
 import com.wamas.ide.launching.lcDsl.PluginWithVersion;
 import com.wamas.ide.launching.lcDsl.PluginWithVersionAndStartLevel;
 import com.wamas.ide.launching.lcDsl.ProductExtPoint;
@@ -205,13 +204,6 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * @generated
    */
   private EClass pluginWithVersionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass pluginEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1226,9 +1218,9 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPlugin()
+  public EAttribute getPluginWithVersion_Name()
   {
-    return pluginEClass;
+    return (EAttribute)pluginWithVersionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1236,19 +1228,9 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPlugin_Version()
+  public EAttribute getPluginWithVersion_Version()
   {
-    return (EAttribute)pluginEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getPlugin_Name()
-  {
-    return (EAttribute)pluginEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)pluginWithVersionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1715,10 +1697,8 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     createEAttribute(pluginWithVersionAndStartLevelEClass, PLUGIN_WITH_VERSION_AND_START_LEVEL__START_LEVEL);
 
     pluginWithVersionEClass = createEClass(PLUGIN_WITH_VERSION);
-
-    pluginEClass = createEClass(PLUGIN);
-    createEAttribute(pluginEClass, PLUGIN__VERSION);
-    createEAttribute(pluginEClass, PLUGIN__NAME);
+    createEAttribute(pluginWithVersionEClass, PLUGIN_WITH_VERSION__NAME);
+    createEAttribute(pluginWithVersionEClass, PLUGIN_WITH_VERSION__VERSION);
 
     projectEClass = createEClass(PROJECT);
     createEAttribute(projectEClass, PROJECT__NAME);
@@ -1796,7 +1776,6 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     // Add supertypes to classes
     existingPathEClass.getESuperTypes().add(this.getPath());
     anyPathEClass.getESuperTypes().add(this.getPath());
-    pluginEClass.getESuperTypes().add(this.getPluginWithVersion());
     groupPostLaunchDelayEClass.getESuperTypes().add(this.getGroupPostLaunchAction());
     groupPostLaunchRegexEClass.getESuperTypes().add(this.getGroupPostLaunchAction());
     groupPostLaunchWaitEClass.getESuperTypes().add(this.getGroupPostLaunchAction());
@@ -1906,10 +1885,8 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     initEAttribute(getPluginWithVersionAndStartLevel_StartLevel(), ecorePackage.getEInt(), "startLevel", null, 0, 1, PluginWithVersionAndStartLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pluginWithVersionEClass, PluginWithVersion.class, "PluginWithVersion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(pluginEClass, Plugin.class, "Plugin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPlugin_Version(), ecorePackage.getEString(), "version", null, 0, 1, Plugin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPlugin_Name(), ecorePackage.getEString(), "name", null, 0, 1, Plugin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPluginWithVersion_Name(), ecorePackage.getEString(), "name", null, 0, 1, PluginWithVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPluginWithVersion_Version(), ecorePackage.getEString(), "version", null, 0, 1, PluginWithVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProject_Name(), ecorePackage.getEString(), "name", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

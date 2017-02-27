@@ -24,7 +24,7 @@ import com.wamas.ide.launching.lcDsl.LCModel;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
 import com.wamas.ide.launching.lcDsl.MemoryOption;
-import com.wamas.ide.launching.lcDsl.Plugin;
+import com.wamas.ide.launching.lcDsl.PluginWithVersion;
 import com.wamas.ide.launching.lcDsl.PluginWithVersionAndStartLevel;
 import com.wamas.ide.launching.lcDsl.ProductExtPoint;
 import com.wamas.ide.launching.lcDsl.ProgramArgument;
@@ -116,16 +116,9 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case LcDslPackage.MEMORY_OPTION:
 				sequence_MemoryOption(context, (MemoryOption) semanticObject); 
 				return; 
-			case LcDslPackage.PLUGIN:
-				if (rule == grammarAccess.getPluginRule()) {
-					sequence_Plugin(context, (Plugin) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getPluginWithVersionRule()) {
-					sequence_Plugin_PluginWithVersion(context, (Plugin) semanticObject); 
-					return; 
-				}
-				else break;
+			case LcDslPackage.PLUGIN_WITH_VERSION:
+				sequence_PluginWithVersion(context, (PluginWithVersion) semanticObject); 
+				return; 
 			case LcDslPackage.PLUGIN_WITH_VERSION_AND_START_LEVEL:
 				sequence_PluginWithVersionAndStartLevel(context, (PluginWithVersionAndStartLevel) semanticObject); 
 				return; 
@@ -513,30 +506,12 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Plugin returns Plugin
-	 *
-	 * Constraint:
-	 *     name=FQName
-	 */
-	protected void sequence_Plugin(ISerializationContext context, Plugin semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, LcDslPackage.Literals.PLUGIN__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LcDslPackage.Literals.PLUGIN__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPluginAccess().getNameFQNameParserRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PluginWithVersion returns Plugin
+	 *     PluginWithVersion returns PluginWithVersion
 	 *
 	 * Constraint:
 	 *     (name=FQName version=VERSION?)
 	 */
-	protected void sequence_Plugin_PluginWithVersion(ISerializationContext context, Plugin semanticObject) {
+	protected void sequence_PluginWithVersion(ISerializationContext context, PluginWithVersion semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

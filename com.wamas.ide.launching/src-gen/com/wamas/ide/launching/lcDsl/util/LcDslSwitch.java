@@ -222,14 +222,6 @@ public class LcDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LcDslPackage.PLUGIN:
-      {
-        Plugin plugin = (Plugin)theEObject;
-        T result = casePlugin(plugin);
-        if (result == null) result = casePluginWithVersion(plugin);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case LcDslPackage.PROJECT:
       {
         Project project = (Project)theEObject;
@@ -632,22 +624,6 @@ public class LcDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePluginWithVersion(PluginWithVersion object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Plugin</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Plugin</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePlugin(Plugin object)
   {
     return null;
   }

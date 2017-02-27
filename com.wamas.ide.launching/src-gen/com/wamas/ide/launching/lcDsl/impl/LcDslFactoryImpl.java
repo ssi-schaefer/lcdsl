@@ -87,7 +87,6 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
       case LcDslPackage.ANY_PATH: return createAnyPath();
       case LcDslPackage.PLUGIN_WITH_VERSION_AND_START_LEVEL: return createPluginWithVersionAndStartLevel();
       case LcDslPackage.PLUGIN_WITH_VERSION: return createPluginWithVersion();
-      case LcDslPackage.PLUGIN: return createPlugin();
       case LcDslPackage.PROJECT: return createProject();
       case LcDslPackage.JAVA_TYPE: return createJavaType();
       case LcDslPackage.CLEAR_OPTION: return createClearOption();
@@ -385,17 +384,6 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
   {
     PluginWithVersionImpl pluginWithVersion = new PluginWithVersionImpl();
     return pluginWithVersion;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Plugin createPlugin()
-  {
-    PluginImpl plugin = new PluginImpl();
-    return plugin;
   }
 
   /**

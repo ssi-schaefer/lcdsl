@@ -549,31 +549,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRulePlugin
-entryRulePlugin
-:
-{ before(grammarAccess.getPluginRule()); }
-	 rulePlugin
-{ after(grammarAccess.getPluginRule()); } 
-	 EOF 
-;
-
-// Rule Plugin
-rulePlugin 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getPluginAccess().getNameAssignment()); }
-		(rule__Plugin__NameAssignment)
-		{ after(grammarAccess.getPluginAccess().getNameAssignment()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 // Entry rule entryRuleProject
 entryRuleProject
 :
@@ -4109,9 +4084,9 @@ rule__PluginWithVersion__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getPluginWithVersionAccess().getPluginParserRuleCall_0()); }
-	rulePlugin
-	{ after(grammarAccess.getPluginWithVersionAccess().getPluginParserRuleCall_0()); }
+	{ before(grammarAccess.getPluginWithVersionAccess().getNameAssignment_0()); }
+	(rule__PluginWithVersion__NameAssignment_0)
+	{ after(grammarAccess.getPluginWithVersionAccess().getNameAssignment_0()); }
 )
 ;
 finally {
@@ -7557,6 +7532,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__PluginWithVersion__NameAssignment_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPluginWithVersionAccess().getNameFQNameParserRuleCall_0_0()); }
+		ruleFQName
+		{ after(grammarAccess.getPluginWithVersionAccess().getNameFQNameParserRuleCall_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__PluginWithVersion__VersionAssignment_1
 	@init {
 		int stackSize = keepStackSize();
@@ -7566,21 +7556,6 @@ rule__PluginWithVersion__VersionAssignment_1
 		{ before(grammarAccess.getPluginWithVersionAccess().getVersionVERSIONTerminalRuleCall_1_0()); }
 		RULE_VERSION
 		{ after(grammarAccess.getPluginWithVersionAccess().getVersionVERSIONTerminalRuleCall_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Plugin__NameAssignment
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getPluginAccess().getNameFQNameParserRuleCall_0()); }
-		ruleFQName
-		{ after(grammarAccess.getPluginAccess().getNameFQNameParserRuleCall_0()); }
 	)
 ;
 finally {

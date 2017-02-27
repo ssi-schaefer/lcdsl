@@ -3,79 +3,157 @@
  */
 package com.wamas.ide.launching.validation
 
-import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator
+import com.google.inject.Inject
+import com.wamas.ide.launching.generator.LcDslGenerator
 import com.wamas.ide.launching.lcDsl.ExistingPath
 import com.wamas.ide.launching.lcDsl.LaunchConfig
-import com.wamas.ide.launching.lcDsl.LaunchConfigType
 import com.wamas.ide.launching.lcDsl.LcDslPackage
-import com.wamas.ide.launching.lcDsl.Plugin
+import com.wamas.ide.launching.lcDsl.PluginWithVersion
 import com.wamas.ide.launching.lcDsl.Project
+import com.wamas.ide.launching.services.LcDslGrammarAccess
 import java.io.File
 import org.eclipse.core.resources.ResourcesPlugin
-import org.eclipse.debug.core.DebugPlugin
+import org.eclipse.emf.common.util.EList
 import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.xtext.validation.Check
 import org.osgi.framework.Version
 
+import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
+import java.util.List
+import org.eclipse.emf.ecore.EStructuralFeature
+import java.util.Set
+
 /**
  * This class contains custom validation rules. 
- *
+ * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class LcDslValidator extends AbstractLcDslValidator {
-	
-public static val PLUGIN_NOT_ALLOWED = 'plugin.not.allowed'
+
+	public static val PLUGIN_NOT_ALLOWED = 'plugin.not.allowed'
 	public static val INHERITANCE_TYPE_MISMATCH = 'inheritance.type.mismatch'
+
+	@Inject
+	private LcDslGrammarAccess ga
+	private LcDslPackage LC = LcDslPackage.eINSTANCE
+
+	// map config features to types where this feature is allowed. not mentioned features are allowed on all types.
+	private val allowedFeatures = newHashMap(
+		// modifiers on config
+		LC.launchConfig_NoConsole -> #{ECLIPSE, RAP, JAVA},
+		LC.launchConfig_NoValidate -> #{ECLIPSE, RAP},
+		LC.launchConfig_SwInstallSupport -> #{ECLIPSE},
+		LC.launchConfig_ReplaceEnv -> #{ECLIPSE, RAP, JAVA},
+		LC.launchConfig_StopInMain -> #{JAVA},
+		// single appearance features
+		LC.launchConfig_Clears -> #{ECLIPSE, RAP},
+		LC.launchConfig_Workspace -> #{ECLIPSE, RAP},
+		LC.launchConfig_WorkingDir -> #{ECLIPSE, RAP, JAVA},
+		LC.launchConfig_Memory -> #{ECLIPSE, RAP, JAVA},
+		LC.launchConfig_Project -> #{JAVA},
+		LC.launchConfig_MainClass -> #{JAVA},
+		LC.launchConfig_Application -> #{ECLIPSE},
+		LC.launchConfig_Product -> #{ECLIPSE},
+		LC.launchConfig_Redirect -> #{ECLIPSE, RAP, JAVA},
+		LC.launchConfig_ExecEnv -> #{ECLIPSE, RAP, JAVA},
+		LC.launchConfig_ConfigIniTemplate -> #{ECLIPSE},
+		LC.launchConfig_JavaMainSearch -> #{JAVA},
+		LC.launchConfig_ServletConfig -> #{RAP},
+		// multi appearance features
+		LC.launchConfig_Plugins -> #{ECLIPSE, RAP},
+		LC.launchConfig_Ignore -> #{ECLIPSE, RAP},
+		LC.launchConfig_GroupMembers -> #{GROUP},
+		LC.launchConfig_VmArgs -> #{ECLIPSE, RAP, JAVA},
+		LC.launchConfig_ProgArgs -> #{ECLIPSE, RAP, JAVA},
+		LC.launchConfig_EnvVars -> #{ECLIPSE, RAP, JAVA},
+		LC.launchConfig_Traces -> #{ECLIPSE, RAP}
+	)
 	
-	val launchMgr = DebugPlugin.^default.launchManager
+	private val requiredFeatures = newHashMap(
+		ECLIPSE -> #{
+			#{LC.launchConfig_Application, LC.launchConfig_Product},
+			#{LC.launchConfig_Workspace},
+			#{LC.launchConfig_Plugins}
+		},
+		RAP -> #{
+			#{LC.launchConfig_ServletConfig},
+			#{LC.launchConfig_Plugins}
+		},
+		JAVA -> #{
+			#{LC.launchConfig_MainClass},
+			#{LC.launchConfig_Project}
+		},
+		GROUP -> #{
+			#{LC.launchConfig_GroupMembers}
+		}
+	)
 
 	@Check
-	def checkEclipseAndRapSpecific(LaunchConfig lc) {
-		// check if plugin is used in plain java config
-		if (lc.type == LaunchConfigType.ECLIPSE || lc.type == LaunchConfigType.RAP) {
-			return;
-		}
+	def checkSpecifics(LaunchConfig lc) {
+		// validate supported attributes
+		for (entry : allowedFeatures.entrySet) {
+			val feature = entry.key
+			val types = entry.value
 
-		if (!lc.plugins.empty) {
-			error("Plugins not allowed for plain Java applications", LcDslPackage.eINSTANCE.launchConfig_Plugins)
+			if (!types.contains(lc.type)) {
+				// not allowed to have it, check
+				val e = lc.eGet(feature)
+				
+				if(e != null) {
+					// it is set, check for empty collection
+					if(e instanceof EList<?>) {
+						if(!e.empty) {
+							error("unsupported attribute for type " + lc.type, feature)
+						}
+					} else if(e instanceof Boolean) {
+						if(e.equals(Boolean.TRUE))
+							error("unsupported attribute for type " + lc.type, feature)
+					} else {
+						error("unsupported attribute for type " + lc.type, feature)
+					}
+				}
+			}
 		}
-
-		if (!lc.ignore.empty) {
-			error("Ignores not allowed for plain Java applications", LcDslPackage.eINSTANCE.launchConfig_Ignore)
-		}
-
-		if (lc.workspace != null) {
-			error("Workspace is only valid for Eclipse and RAP launches", LcDslPackage.eINSTANCE.launchConfig_Workspace)
+		
+		val required = requiredFeatures.get(lc.type)
+		if(required == null) {
+			error("unsupported launch configuration type - validation not implemented", LC.launchConfig_Type)
+		} else {
+			for(alternatives : required) {
+				var anySet = false 
+				for(feature : alternatives) {
+					val e = lc.eGet(feature)
+					if(e != null) {
+						if(e instanceof EList<?>) {
+							if(!e.empty)
+								anySet = true
+						} else {
+							anySet = true
+						}
+					}
+				}
+				
+				if(!anySet) {
+					// missing required feature.
+					error("missing required attribute: " + alternatives.simpleNames, LC.launchConfig_Name)
+				}
+			}
 		}
 	}
-
-	@Check
-	def checkGroupSpecific(LaunchConfig lc) {
-		if (lc.type == LaunchConfigType.GROUP) {
-			return;
-		}
-
-		if (!lc.groupMembers.empty) {
-			error("Group members is only allowed for group launches", LcDslPackage.eINSTANCE.launchConfig_GroupMembers)
-		}
-	}
-
-	@Check
-	def checkJavaSpecific(LaunchConfig lc) {
-		if (lc.type == LaunchConfigType.JAVA) {
-			return;
-		}
-
-		if (lc.project != null) {
-			error("Project may only be specified for java launches", LcDslPackage.eINSTANCE.launchConfig_Project)
-		}
+	
+	def List<String> simpleNames(Set<? extends EStructuralFeature> features) {
+		val names = newArrayList()
+		
+		features.forEach[f|names.add(f.name)]
+		
+		return names
 	}
 
 	@Check
 	def checkInheritance(LaunchConfig lc) {
 		// check that inheriting from another config of same type only
 		if (lc.superConfig != null && lc.superConfig.type != lc.type) {
-			error("Super launch configuration has a different type", LcDslPackage.eINSTANCE.launchConfig_SuperConfig)
+			error("Super launch configuration has a different type", LC.launchConfig_SuperConfig)
 		}
 	}
 
@@ -83,14 +161,14 @@ public static val PLUGIN_NOT_ALLOWED = 'plugin.not.allowed'
 	def checkProjectExists(Project p) {
 		val prj = ResourcesPlugin.workspace.root.getProject(p.name);
 		if (prj == null || !prj.exists) {
-			warning("Project " + p.name + " does not exist in the workspace", p, LcDslPackage.eINSTANCE.project_Name)
+			warning("Project " + p.name + " does not exist in the workspace", p, LC.project_Name)
 		} else if (!prj.open) {
-			warning("Project " + p.name + " is closed", p, LcDslPackage.eINSTANCE.project_Name)
+			warning("Project " + p.name + " is closed", p, LC.project_Name)
 		}
 	}
 
 	@Check
-	def checkPluginExists(Plugin p) {
+	def checkPluginExists(PluginWithVersion p) {
 		if (p.name == null)
 			return;
 
@@ -106,10 +184,11 @@ public static val PLUGIN_NOT_ALLOWED = 'plugin.not.allowed'
 		val bundle = state.getBundle(p.name, ver);
 		if (bundle == null) {
 			if (state.getBundle(p.name, null) != null) {
-				warning("Bundle " + p.name + " does not exist in version " + ver, p, LcDslPackage.eINSTANCE.plugin_Version);
+				warning("Bundle " + p.name + " does not exist in version " + ver, p,
+					LC.pluginWithVersion_Version);
 			} else {
 				warning("Bundle " + p.name + " does not exist in the workspace or the current target platform", p,
-					LcDslPackage.eINSTANCE.plugin_Name);
+					LC.pluginWithVersion_Name);
 			}
 		}
 	}
@@ -119,15 +198,16 @@ public static val PLUGIN_NOT_ALLOWED = 'plugin.not.allowed'
 		// TODO: variable expansion
 		val f = new File(p.name);
 		if (!f.exists) {
-			warning("Path " + p.name + " does not exist", p, LcDslPackage.eINSTANCE.path_Name)
+			warning("Path " + p.name + " does not exist", p, LC.path_Name)
 		}
 	}
-	
+
 	@Check
 	def checkSupportedType(LaunchConfig cfg) {
-		if(StandaloneLaunchConfigGenerator.getType(launchMgr, cfg.type) == null) {
-			warning("Unsupported configuration type in current setup: " + cfg.type.getName, LcDslPackage.eINSTANCE.launchConfig_Type)
+		if (!LcDslGenerator.isTypeSupported(cfg)) {
+			warning("Unsupported configuration type in current setup: " + cfg.type.getName,
+				LC.launchConfig_Type)
 		}
 	}
-	
+
 }

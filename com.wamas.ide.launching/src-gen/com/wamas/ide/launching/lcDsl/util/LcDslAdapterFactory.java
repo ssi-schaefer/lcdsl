@@ -181,11 +181,6 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
         return createPluginWithVersionAdapter();
       }
       @Override
-      public Adapter casePlugin(Plugin object)
-      {
-        return createPluginAdapter();
-      }
-      @Override
       public Adapter caseProject(Project object)
       {
         return createProjectAdapter();
@@ -563,21 +558,6 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPluginWithVersionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.Plugin <em>Plugin</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.wamas.ide.launching.lcDsl.Plugin
-   * @generated
-   */
-  public Adapter createPluginAdapter()
   {
     return null;
   }

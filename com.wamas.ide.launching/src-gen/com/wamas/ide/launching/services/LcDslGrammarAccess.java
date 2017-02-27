@@ -39,7 +39,6 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		// * General: variable expansion for all paths (string subst, system properties)!
 		// * 
 		// * Java:
-		// *   - stop in main
 		// *   - additional classpath entries (low prio)
 		// *   - additional source lookup (low prio)
 		// * 
@@ -175,7 +174,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//	& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 		//	& favorites=Favorites? // All
-		//	& redirect=Redirect? // All
+		//	& redirect=Redirect? // All but Groups
 		//	& execEnv=ExecutionEnvironment? // All but Groups 	// TODO: content assist, validation
 		//	& configIniTemplate=ConfigIniTemplate? // Eclipse
 		//	& javaMainSearch=JavaMainSearch? // Java
@@ -209,7 +208,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 		//& favorites=Favorites? // All
-		//& redirect=Redirect? // All
+		//& redirect=Redirect? // All but Groups
 		//& execEnv=ExecutionEnvironment? // All but Groups 	// TODO: content assist, validation
 		//& configIniTemplate=ConfigIniTemplate? // Eclipse
 		//& javaMainSearch=JavaMainSearch? // Java
@@ -325,7 +324,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 		//& favorites=Favorites? // All
-		//& redirect=Redirect? // All
+		//& redirect=Redirect? // All but Groups
 		//& execEnv=ExecutionEnvironment? // All but Groups 	// TODO: content assist, validation
 		//& configIniTemplate=ConfigIniTemplate? // Eclipse
 		//& javaMainSearch=JavaMainSearch? // Java
@@ -1240,40 +1239,29 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class PluginWithVersionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.PluginWithVersion");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cPluginParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameFQNameParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Assignment cVersionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cVersionVERSIONTerminalRuleCall_1_0 = (RuleCall)cVersionAssignment_1.eContents().get(0);
 		
 		//PluginWithVersion:
-		//	Plugin version=VERSION?;
+		//	name=FQName version=VERSION?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Plugin version=VERSION?
+		//name=FQName version=VERSION?
 		public Group getGroup() { return cGroup; }
 		
-		//Plugin
-		public RuleCall getPluginParserRuleCall_0() { return cPluginParserRuleCall_0; }
+		//name=FQName
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//FQName
+		public RuleCall getNameFQNameParserRuleCall_0_0() { return cNameFQNameParserRuleCall_0_0; }
 		
 		//version=VERSION?
 		public Assignment getVersionAssignment_1() { return cVersionAssignment_1; }
 		
 		//VERSION
 		public RuleCall getVersionVERSIONTerminalRuleCall_1_0() { return cVersionVERSIONTerminalRuleCall_1_0; }
-	}
-	public class PluginElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.Plugin");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameFQNameParserRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
-		
-		//Plugin:
-		//	name=FQName;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//name=FQName
-		public Assignment getNameAssignment() { return cNameAssignment; }
-		
-		//FQName
-		public RuleCall getNameFQNameParserRuleCall_0() { return cNameFQNameParserRuleCall_0; }
 	}
 	public class ProjectElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.Project");
@@ -1933,7 +1921,6 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final AnyPathElements pAnyPath;
 	private final PluginWithVersionAndStartLevelElements pPluginWithVersionAndStartLevel;
 	private final PluginWithVersionElements pPluginWithVersion;
-	private final PluginElements pPlugin;
 	private final ProjectElements pProject;
 	private final JavaTypeElements pJavaType;
 	private final ClearOptionElements pClearOption;
@@ -1989,7 +1976,6 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAnyPath = new AnyPathElements();
 		this.pPluginWithVersionAndStartLevel = new PluginWithVersionAndStartLevelElements();
 		this.pPluginWithVersion = new PluginWithVersionElements();
-		this.pPlugin = new PluginElements();
 		this.pProject = new ProjectElements();
 		this.pJavaType = new JavaTypeElements();
 		this.pClearOption = new ClearOptionElements();
@@ -2049,7 +2035,6 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	// * General: variable expansion for all paths (string subst, system properties)!
 	// * 
 	// * Java:
-	// *   - stop in main
 	// *   - additional classpath entries (low prio)
 	// *   - additional source lookup (low prio)
 	// * 
@@ -2092,7 +2077,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 	//	& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 	//	& favorites=Favorites? // All
-	//	& redirect=Redirect? // All
+	//	& redirect=Redirect? // All but Groups
 	//	& execEnv=ExecutionEnvironment? // All but Groups 	// TODO: content assist, validation
 	//	& configIniTemplate=ConfigIniTemplate? // Eclipse
 	//	& javaMainSearch=JavaMainSearch? // Java
@@ -2300,23 +2285,13 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PluginWithVersion:
-	//	Plugin version=VERSION?;
+	//	name=FQName version=VERSION?;
 	public PluginWithVersionElements getPluginWithVersionAccess() {
 		return pPluginWithVersion;
 	}
 	
 	public ParserRule getPluginWithVersionRule() {
 		return getPluginWithVersionAccess().getRule();
-	}
-	
-	//Plugin:
-	//	name=FQName;
-	public PluginElements getPluginAccess() {
-		return pPlugin;
-	}
-	
-	public ParserRule getPluginRule() {
-		return getPluginAccess().getRule();
 	}
 	
 	//Project:

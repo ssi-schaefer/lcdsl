@@ -137,10 +137,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//PluginWithVersionAndStartLevel/autoStart"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//PluginWithVersionAndStartLevel/startLevel"/>
     </genClasses>
-    <genClasses ecoreClass="LcDsl.ecore#//PluginWithVersion"/>
-    <genClasses ecoreClass="LcDsl.ecore#//Plugin">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Plugin/version"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Plugin/name"/>
+    <genClasses ecoreClass="LcDsl.ecore#//PluginWithVersion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//PluginWithVersion/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//PluginWithVersion/version"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//Project">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Project/name"/>

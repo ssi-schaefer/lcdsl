@@ -10,7 +10,6 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
  * General: variable expansion for all paths (string subst, system properties)!
  * 
  * Java:
- *   - stop in main
  *   - additional classpath entries (low prio)
  *   - additional source lookup (low prio)
  * 
@@ -52,7 +51,7 @@ LaunchConfig:
 			& (application=ApplicationExtPoint)? // Eclipse 		// TODO: content assist, validation
 			& (product=ProductExtPoint)? // Eclipse 				// TODO: content assist, validation
 			& (favorites=Favorites)? // All
-			& (redirect=Redirect)? // All
+			& (redirect=Redirect)? // All but Groups
 			& (execEnv=ExecutionEnvironment)? // All but Groups 	// TODO: content assist, validation
 			& (configIniTemplate=ConfigIniTemplate)? // Eclipse
 			& (javaMainSearch=JavaMainSearch)? // Java
@@ -150,11 +149,7 @@ PluginWithVersionAndStartLevel:
 ;
 
 PluginWithVersion:
-	Plugin (version=VERSION)?
-;
-
-Plugin:
-	name = FQName
+	name = FQName (version=VERSION)?
 ;
 
 Project:

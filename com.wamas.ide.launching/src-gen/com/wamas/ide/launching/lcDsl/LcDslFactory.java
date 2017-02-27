@@ -213,15 +213,6 @@ public interface LcDslFactory extends EFactory
   PluginWithVersion createPluginWithVersion();
 
   /**
-   * Returns a new object of class '<em>Plugin</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Plugin</em>'.
-   * @generated
-   */
-  Plugin createPlugin();
-
-  /**
    * Returns a new object of class '<em>Project</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

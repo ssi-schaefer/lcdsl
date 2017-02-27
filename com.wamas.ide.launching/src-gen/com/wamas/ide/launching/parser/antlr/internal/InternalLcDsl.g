@@ -2307,14 +2307,25 @@ rulePluginWithVersion returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getPluginWithVersionAccess().getPluginParserRuleCall_0());
-		}
-		this_Plugin_0=rulePlugin
-		{
-			$current = $this_Plugin_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPluginWithVersionAccess().getNameFQNameParserRuleCall_0_0());
+				}
+				lv_name_0_0=ruleFQName
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPluginWithVersionRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_0_0,
+						"com.wamas.ide.launching.LcDsl.FQName");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		(
 			(
 				lv_version_1_0=RULE_VERSION
@@ -2333,42 +2344,6 @@ rulePluginWithVersion returns [EObject current=null]
 				}
 			)
 		)?
-	)
-;
-
-// Entry rule entryRulePlugin
-entryRulePlugin returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getPluginRule()); }
-	iv_rulePlugin=rulePlugin
-	{ $current=$iv_rulePlugin.current; }
-	EOF;
-
-// Rule Plugin
-rulePlugin returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				newCompositeNode(grammarAccess.getPluginAccess().getNameFQNameParserRuleCall_0());
-			}
-			lv_name_0_0=ruleFQName
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getPluginRule());
-				}
-				set(
-					$current,
-					"name",
-					lv_name_0_0,
-					"com.wamas.ide.launching.LcDsl.FQName");
-				afterParserOrEnumRuleCall();
-			}
-		)
 	)
 ;
 

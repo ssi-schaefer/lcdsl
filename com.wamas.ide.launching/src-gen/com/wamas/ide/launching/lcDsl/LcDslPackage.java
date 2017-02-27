@@ -1034,23 +1034,13 @@ public interface LcDslPackage extends EPackage
   int PLUGIN_WITH_VERSION = 20;
 
   /**
-   * The number of structural features of the '<em>Plugin With Version</em>' class.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PLUGIN_WITH_VERSION_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.PluginImpl <em>Plugin</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.wamas.ide.launching.lcDsl.impl.PluginImpl
-   * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getPlugin()
-   * @generated
-   */
-  int PLUGIN = 21;
+  int PLUGIN_WITH_VERSION__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -1059,25 +1049,16 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PLUGIN__VERSION = PLUGIN_WITH_VERSION_FEATURE_COUNT + 0;
+  int PLUGIN_WITH_VERSION__VERSION = 1;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The number of structural features of the '<em>Plugin With Version</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PLUGIN__NAME = PLUGIN_WITH_VERSION_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Plugin</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUGIN_FEATURE_COUNT = PLUGIN_WITH_VERSION_FEATURE_COUNT + 2;
+  int PLUGIN_WITH_VERSION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.ProjectImpl <em>Project</em>}' class.
@@ -1087,7 +1068,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getProject()
    * @generated
    */
-  int PROJECT = 22;
+  int PROJECT = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1115,7 +1096,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getJavaType()
    * @generated
    */
-  int JAVA_TYPE = 23;
+  int JAVA_TYPE = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1143,7 +1124,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getClearOption()
    * @generated
    */
-  int CLEAR_OPTION = 24;
+  int CLEAR_OPTION = 23;
 
   /**
    * The feature id for the '<em><b>Workspace</b></em>' attribute.
@@ -1198,7 +1179,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getMemoryOption()
    * @generated
    */
-  int MEMORY_OPTION = 25;
+  int MEMORY_OPTION = 24;
 
   /**
    * The feature id for the '<em><b>Min</b></em>' attribute.
@@ -1271,7 +1252,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupMember()
    * @generated
    */
-  int GROUP_MEMBER = 26;
+  int GROUP_MEMBER = 25;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1326,7 +1307,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupPostLaunchAction()
    * @generated
    */
-  int GROUP_POST_LAUNCH_ACTION = 27;
+  int GROUP_POST_LAUNCH_ACTION = 26;
 
   /**
    * The number of structural features of the '<em>Group Post Launch Action</em>' class.
@@ -1345,7 +1326,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupPostLaunchDelay()
    * @generated
    */
-  int GROUP_POST_LAUNCH_DELAY = 28;
+  int GROUP_POST_LAUNCH_DELAY = 27;
 
   /**
    * The feature id for the '<em><b>Delay</b></em>' attribute.
@@ -1373,7 +1354,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupPostLaunchRegex()
    * @generated
    */
-  int GROUP_POST_LAUNCH_REGEX = 29;
+  int GROUP_POST_LAUNCH_REGEX = 28;
 
   /**
    * The feature id for the '<em><b>Regex</b></em>' attribute.
@@ -1401,7 +1382,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupPostLaunchWait()
    * @generated
    */
-  int GROUP_POST_LAUNCH_WAIT = 30;
+  int GROUP_POST_LAUNCH_WAIT = 29;
 
   /**
    * The number of structural features of the '<em>Group Post Launch Wait</em>' class.
@@ -1420,7 +1401,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getBrowserLaunchMode()
    * @generated
    */
-  int BROWSER_LAUNCH_MODE = 31;
+  int BROWSER_LAUNCH_MODE = 30;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.LaunchConfigType <em>Launch Config Type</em>}' enum.
@@ -1430,7 +1411,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getLaunchConfigType()
    * @generated
    */
-  int LAUNCH_CONFIG_TYPE = 32;
+  int LAUNCH_CONFIG_TYPE = 31;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.LaunchModeType <em>Launch Mode Type</em>}' enum.
@@ -1440,7 +1421,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getLaunchModeType()
    * @generated
    */
-  int LAUNCH_MODE_TYPE = 33;
+  int LAUNCH_MODE_TYPE = 32;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.MemoryUnit <em>Memory Unit</em>}' enum.
@@ -1450,7 +1431,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getMemoryUnit()
    * @generated
    */
-  int MEMORY_UNIT = 34;
+  int MEMORY_UNIT = 33;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.OutputStream <em>Output Stream</em>}' enum.
@@ -1460,7 +1441,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getOutputStream()
    * @generated
    */
-  int OUTPUT_STREAM = 35;
+  int OUTPUT_STREAM = 34;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.InputStream <em>Input Stream</em>}' enum.
@@ -1470,7 +1451,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getInputStream()
    * @generated
    */
-  int INPUT_STREAM = 36;
+  int INPUT_STREAM = 35;
 
 
   /**
@@ -2377,36 +2358,26 @@ public interface LcDslPackage extends EPackage
   EClass getPluginWithVersion();
 
   /**
-   * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.Plugin <em>Plugin</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Plugin</em>'.
-   * @see com.wamas.ide.launching.lcDsl.Plugin
-   * @generated
-   */
-  EClass getPlugin();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.Plugin#getVersion <em>Version</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Version</em>'.
-   * @see com.wamas.ide.launching.lcDsl.Plugin#getVersion()
-   * @see #getPlugin()
-   * @generated
-   */
-  EAttribute getPlugin_Version();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.Plugin#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.PluginWithVersion#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.wamas.ide.launching.lcDsl.Plugin#getName()
-   * @see #getPlugin()
+   * @see com.wamas.ide.launching.lcDsl.PluginWithVersion#getName()
+   * @see #getPluginWithVersion()
    * @generated
    */
-  EAttribute getPlugin_Name();
+  EAttribute getPluginWithVersion_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.PluginWithVersion#getVersion <em>Version</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Version</em>'.
+   * @see com.wamas.ide.launching.lcDsl.PluginWithVersion#getVersion()
+   * @see #getPluginWithVersion()
+   * @generated
+   */
+  EAttribute getPluginWithVersion_Version();
 
   /**
    * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.Project <em>Project</em>}'.
@@ -3494,14 +3465,12 @@ public interface LcDslPackage extends EPackage
     EClass PLUGIN_WITH_VERSION = eINSTANCE.getPluginWithVersion();
 
     /**
-     * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.PluginImpl <em>Plugin</em>}' class.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.wamas.ide.launching.lcDsl.impl.PluginImpl
-     * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getPlugin()
      * @generated
      */
-    EClass PLUGIN = eINSTANCE.getPlugin();
+    EAttribute PLUGIN_WITH_VERSION__NAME = eINSTANCE.getPluginWithVersion_Name();
 
     /**
      * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
@@ -3509,15 +3478,7 @@ public interface LcDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PLUGIN__VERSION = eINSTANCE.getPlugin_Version();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PLUGIN__NAME = eINSTANCE.getPlugin_Name();
+    EAttribute PLUGIN_WITH_VERSION__VERSION = eINSTANCE.getPluginWithVersion_Version();
 
     /**
      * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.ProjectImpl <em>Project</em>}' class.

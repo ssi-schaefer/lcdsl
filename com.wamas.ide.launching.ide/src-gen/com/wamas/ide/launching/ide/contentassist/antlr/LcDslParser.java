@@ -153,8 +153,8 @@ public class LcDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPluginWithVersionAndStartLevelAccess().getPluginAssignment_0(), "rule__PluginWithVersionAndStartLevel__PluginAssignment_0");
 					put(grammarAccess.getPluginWithVersionAndStartLevelAccess().getAutoStartAssignment_1_0(), "rule__PluginWithVersionAndStartLevel__AutoStartAssignment_1_0");
 					put(grammarAccess.getPluginWithVersionAndStartLevelAccess().getStartLevelAssignment_1_1_1(), "rule__PluginWithVersionAndStartLevel__StartLevelAssignment_1_1_1");
+					put(grammarAccess.getPluginWithVersionAccess().getNameAssignment_0(), "rule__PluginWithVersion__NameAssignment_0");
 					put(grammarAccess.getPluginWithVersionAccess().getVersionAssignment_1(), "rule__PluginWithVersion__VersionAssignment_1");
-					put(grammarAccess.getPluginAccess().getNameAssignment(), "rule__Plugin__NameAssignment");
 					put(grammarAccess.getProjectAccess().getNameAssignment(), "rule__Project__NameAssignment");
 					put(grammarAccess.getJavaTypeAccess().getNameAssignment(), "rule__JavaType__NameAssignment");
 					put(grammarAccess.getClearOptionAccess().getWorkspaceAssignment_2_0_0_0(), "rule__ClearOption__WorkspaceAssignment_2_0_0_0");
