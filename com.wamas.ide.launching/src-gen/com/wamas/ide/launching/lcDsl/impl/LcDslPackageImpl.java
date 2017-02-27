@@ -21,7 +21,7 @@ import com.wamas.ide.launching.lcDsl.GroupPostLaunchWait;
 import com.wamas.ide.launching.lcDsl.IgnorePlugin;
 import com.wamas.ide.launching.lcDsl.InputStream;
 import com.wamas.ide.launching.lcDsl.JavaMainSearch;
-import com.wamas.ide.launching.lcDsl.JavaType;
+import com.wamas.ide.launching.lcDsl.JavaMainType;
 import com.wamas.ide.launching.lcDsl.LCModel;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.lcDsl.LaunchConfigType;
@@ -217,7 +217,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass javaTypeEClass = null;
+  private EClass javaMainTypeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1258,9 +1258,9 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getJavaType()
+  public EClass getJavaMainType()
   {
-    return javaTypeEClass;
+    return javaMainTypeEClass;
   }
 
   /**
@@ -1268,9 +1268,9 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getJavaType_Name()
+  public EAttribute getJavaMainType_Name()
   {
-    return (EAttribute)javaTypeEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)javaMainTypeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1703,8 +1703,8 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     projectEClass = createEClass(PROJECT);
     createEAttribute(projectEClass, PROJECT__NAME);
 
-    javaTypeEClass = createEClass(JAVA_TYPE);
-    createEAttribute(javaTypeEClass, JAVA_TYPE__NAME);
+    javaMainTypeEClass = createEClass(JAVA_MAIN_TYPE);
+    createEAttribute(javaMainTypeEClass, JAVA_MAIN_TYPE__NAME);
 
     clearOptionEClass = createEClass(CLEAR_OPTION);
     createEAttribute(clearOptionEClass, CLEAR_OPTION__WORKSPACE);
@@ -1801,7 +1801,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     initEReference(getLaunchConfig_WorkingDir(), this.getExistingPath(), null, "workingDir", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLaunchConfig_Memory(), this.getMemoryOption(), null, "memory", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLaunchConfig_Project(), this.getProject(), null, "project", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLaunchConfig_MainClass(), this.getJavaType(), null, "mainClass", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLaunchConfig_MainClass(), this.getJavaMainType(), null, "mainClass", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLaunchConfig_Application(), this.getApplicationExtPoint(), null, "application", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLaunchConfig_Product(), this.getProductExtPoint(), null, "product", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLaunchConfig_Favorites(), this.getFavorites(), null, "favorites", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1891,8 +1891,8 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProject_Name(), ecorePackage.getEString(), "name", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(javaTypeEClass, JavaType.class, "JavaType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getJavaType_Name(), ecorePackage.getEString(), "name", null, 0, 1, JavaType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(javaMainTypeEClass, JavaMainType.class, "JavaMainType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getJavaMainType_Name(), ecorePackage.getEString(), "name", null, 0, 1, JavaMainType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(clearOptionEClass, ClearOption.class, "ClearOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClearOption_Workspace(), ecorePackage.getEBoolean(), "workspace", null, 0, 1, ClearOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -574,25 +574,25 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleJavaType
-entryRuleJavaType
+// Entry rule entryRuleJavaMainType
+entryRuleJavaMainType
 :
-{ before(grammarAccess.getJavaTypeRule()); }
-	 ruleJavaType
-{ after(grammarAccess.getJavaTypeRule()); } 
+{ before(grammarAccess.getJavaMainTypeRule()); }
+	 ruleJavaMainType
+{ after(grammarAccess.getJavaMainTypeRule()); } 
 	 EOF 
 ;
 
-// Rule JavaType
-ruleJavaType 
+// Rule JavaMainType
+ruleJavaMainType 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getJavaTypeAccess().getNameAssignment()); }
-		(rule__JavaType__NameAssignment)
-		{ after(grammarAccess.getJavaTypeAccess().getNameAssignment()); }
+		{ before(grammarAccess.getJavaMainTypeAccess().getNameAssignment()); }
+		(rule__JavaMainType__NameAssignment)
+		{ after(grammarAccess.getJavaMainTypeAccess().getNameAssignment()); }
 	)
 ;
 finally {
@@ -3571,9 +3571,9 @@ rule__RapServletConfig__Group_2_1__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getRapServletConfigAccess().getOpenKeyword_2_1_0()); }
-	'open'
-	{ after(grammarAccess.getRapServletConfigAccess().getOpenKeyword_2_1_0()); }
+	{ before(grammarAccess.getRapServletConfigAccess().getBrowserKeyword_2_1_0()); }
+	'browser'
+	{ after(grammarAccess.getRapServletConfigAccess().getBrowserKeyword_2_1_0()); }
 )
 ;
 finally {
@@ -6813,9 +6813,9 @@ rule__LaunchConfig__MainClassAssignment_6_5_1
 	}
 :
 	(
-		{ before(grammarAccess.getLaunchConfigAccess().getMainClassJavaTypeParserRuleCall_6_5_1_0()); }
-		ruleJavaType
-		{ after(grammarAccess.getLaunchConfigAccess().getMainClassJavaTypeParserRuleCall_6_5_1_0()); }
+		{ before(grammarAccess.getLaunchConfigAccess().getMainClassJavaMainTypeParserRuleCall_6_5_1_0()); }
+		ruleJavaMainType
+		{ after(grammarAccess.getLaunchConfigAccess().getMainClassJavaMainTypeParserRuleCall_6_5_1_0()); }
 	)
 ;
 finally {
@@ -7577,15 +7577,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__JavaType__NameAssignment
+rule__JavaMainType__NameAssignment
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getJavaTypeAccess().getNameFQNameParserRuleCall_0()); }
+		{ before(grammarAccess.getJavaMainTypeAccess().getNameFQNameParserRuleCall_0()); }
 		ruleFQName
-		{ after(grammarAccess.getJavaTypeAccess().getNameFQNameParserRuleCall_0()); }
+		{ after(grammarAccess.getJavaMainTypeAccess().getNameFQNameParserRuleCall_0()); }
 	)
 ;
 finally {

@@ -27,7 +27,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="project" eType="#//Project"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mainClass" eType="#//JavaType"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainClass" eType="#//JavaMainType"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="application" eType="#//ApplicationExtPoint"
         containment="true"/>
@@ -141,7 +141,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Project">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JavaType">
+  <eClassifiers xsi:type="ecore:EClass" name="JavaMainType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClearOption">

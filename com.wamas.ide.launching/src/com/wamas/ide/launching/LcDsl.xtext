@@ -47,7 +47,7 @@ LaunchConfig:
 			& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
 			& (memory=MemoryOption ';')? // All but Groups
 			& ('project' project=Project ';')? // Java 				// TODO: content assist
-			& ('main-class' mainClass=JavaType ';')? // Java 		// TODO: content assist
+			& ('main-class' mainClass=JavaMainType ';')? // Java 		// TODO: content assist, validation
 			& (application=ApplicationExtPoint)? // Eclipse 		// TODO: content assist, validation
 			& (product=ProductExtPoint)? // Eclipse 				// TODO: content assist, validation
 			& (favorites=Favorites)? // All
@@ -125,7 +125,7 @@ RapServletConfig:
 	'servlet' BLOCK_BEGIN
 		(
 			('path' servletPath=STRING ';')
-			& ('open' browserMode=BrowserLaunchMode ';')?
+			& ('browser' browserMode=BrowserLaunchMode ';')?
 			& ('port' serverPort=INT ';')?
 			& ('session-timeout' sessionTimeout=INT ';')?
 			& ('context-path' contextPath=STRING ';')?
@@ -156,7 +156,7 @@ Project:
 	name = FQName
 ;
 
-JavaType:
+JavaMainType:
 	name = FQName
 ;
 

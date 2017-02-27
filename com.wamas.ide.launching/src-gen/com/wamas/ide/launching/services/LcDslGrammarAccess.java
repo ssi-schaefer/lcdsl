@@ -112,7 +112,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6_5 = (Group)cUnorderedGroup_6.eContents().get(5);
 		private final Keyword cMainClassKeyword_6_5_0 = (Keyword)cGroup_6_5.eContents().get(0);
 		private final Assignment cMainClassAssignment_6_5_1 = (Assignment)cGroup_6_5.eContents().get(1);
-		private final RuleCall cMainClassJavaTypeParserRuleCall_6_5_1_0 = (RuleCall)cMainClassAssignment_6_5_1.eContents().get(0);
+		private final RuleCall cMainClassJavaMainTypeParserRuleCall_6_5_1_0 = (RuleCall)cMainClassAssignment_6_5_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_6_5_2 = (Keyword)cGroup_6_5.eContents().get(2);
 		private final Assignment cApplicationAssignment_6_6 = (Assignment)cUnorderedGroup_6.eContents().get(6);
 		private final RuleCall cApplicationApplicationExtPointParserRuleCall_6_6_0 = (RuleCall)cApplicationAssignment_6_6.eContents().get(0);
@@ -170,7 +170,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
 		//	& (memory=MemoryOption ';')? // All but Groups
 		//	& ('project' project=Project ';')? // Java 				// TODO: content assist
-		//	& ('main-class' mainClass=JavaType ';')? // Java 		// TODO: content assist
+		//	& ('main-class' mainClass=JavaMainType ';')? // Java 		// TODO: content assist, validation
 		//	& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//	& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 		//	& favorites=Favorites? // All
@@ -204,7 +204,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
 		//& (memory=MemoryOption ';')? // All but Groups
 		//& ('project' project=Project ';')? // Java 				// TODO: content assist
-		//& ('main-class' mainClass=JavaType ';')? // Java 		// TODO: content assist
+		//& ('main-class' mainClass=JavaMainType ';')? // Java 		// TODO: content assist, validation
 		//& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 		//& favorites=Favorites? // All
@@ -320,7 +320,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
 		//& (memory=MemoryOption ';')? // All but Groups
 		//& ('project' project=Project ';')? // Java 				// TODO: content assist
-		//& ('main-class' mainClass=JavaType ';')? // Java 		// TODO: content assist
+		//& ('main-class' mainClass=JavaMainType ';')? // Java 		// TODO: content assist, validation
 		//& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 		//& favorites=Favorites? // All
@@ -401,17 +401,17 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//';'
 		public Keyword getSemicolonKeyword_6_4_2() { return cSemicolonKeyword_6_4_2; }
 		
-		//('main-class' mainClass=JavaType ';')?
+		//('main-class' mainClass=JavaMainType ';')?
 		public Group getGroup_6_5() { return cGroup_6_5; }
 		
 		//'main-class'
 		public Keyword getMainClassKeyword_6_5_0() { return cMainClassKeyword_6_5_0; }
 		
-		//mainClass=JavaType
+		//mainClass=JavaMainType
 		public Assignment getMainClassAssignment_6_5_1() { return cMainClassAssignment_6_5_1; }
 		
-		//JavaType
-		public RuleCall getMainClassJavaTypeParserRuleCall_6_5_1_0() { return cMainClassJavaTypeParserRuleCall_6_5_1_0; }
+		//JavaMainType
+		public RuleCall getMainClassJavaMainTypeParserRuleCall_6_5_1_0() { return cMainClassJavaMainTypeParserRuleCall_6_5_1_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_6_5_2() { return cSemicolonKeyword_6_5_2; }
@@ -997,7 +997,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cServletPathSTRINGTerminalRuleCall_2_0_1_0 = (RuleCall)cServletPathAssignment_2_0_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_2_0_2 = (Keyword)cGroup_2_0.eContents().get(2);
 		private final Group cGroup_2_1 = (Group)cUnorderedGroup_2.eContents().get(1);
-		private final Keyword cOpenKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Keyword cBrowserKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
 		private final Assignment cBrowserModeAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
 		private final RuleCall cBrowserModeBrowserLaunchModeEnumRuleCall_2_1_1_0 = (RuleCall)cBrowserModeAssignment_2_1_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_2_1_2 = (Keyword)cGroup_2_1.eContents().get(2);
@@ -1024,14 +1024,14 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBLOCK_ENDTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
 		//RapServletConfig:
-		//	'servlet' BLOCK_BEGIN ('path' servletPath=STRING ';' & ('open' browserMode=BrowserLaunchMode ';')?
+		//	'servlet' BLOCK_BEGIN ('path' servletPath=STRING ';' & ('browser' browserMode=BrowserLaunchMode ';')?
 		//	& ('port' serverPort=INT ';')?
 		//	& ('session-timeout' sessionTimeout=INT ';')?
 		//	& ('context-path' contextPath=STRING ';')?
 		//	& ('dev-mode' devMode=BOOLEAN ';')?) BLOCK_END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'servlet' BLOCK_BEGIN ('path' servletPath=STRING ';' & ('open' browserMode=BrowserLaunchMode ';')? & ('port'
+		//'servlet' BLOCK_BEGIN ('path' servletPath=STRING ';' & ('browser' browserMode=BrowserLaunchMode ';')? & ('port'
 		//serverPort=INT ';')? & ('session-timeout' sessionTimeout=INT ';')? & ('context-path' contextPath=STRING ';')? &
 		//('dev-mode' devMode=BOOLEAN ';')?) BLOCK_END
 		public Group getGroup() { return cGroup; }
@@ -1042,7 +1042,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//BLOCK_BEGIN
 		public RuleCall getBLOCK_BEGINTerminalRuleCall_1() { return cBLOCK_BEGINTerminalRuleCall_1; }
 		
-		//('path' servletPath=STRING ';' & ('open' browserMode=BrowserLaunchMode ';')? & ('port' serverPort=INT ';')? &
+		//('path' servletPath=STRING ';' & ('browser' browserMode=BrowserLaunchMode ';')? & ('port' serverPort=INT ';')? &
 		//('session-timeout' sessionTimeout=INT ';')? & ('context-path' contextPath=STRING ';')? & ('dev-mode' devMode=BOOLEAN
 		//';')?)
 		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
@@ -1062,11 +1062,11 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//';'
 		public Keyword getSemicolonKeyword_2_0_2() { return cSemicolonKeyword_2_0_2; }
 		
-		//('open' browserMode=BrowserLaunchMode ';')?
+		//('browser' browserMode=BrowserLaunchMode ';')?
 		public Group getGroup_2_1() { return cGroup_2_1; }
 		
-		//'open'
-		public Keyword getOpenKeyword_2_1_0() { return cOpenKeyword_2_1_0; }
+		//'browser'
+		public Keyword getBrowserKeyword_2_1_0() { return cBrowserKeyword_2_1_0; }
 		
 		//browserMode=BrowserLaunchMode
 		public Assignment getBrowserModeAssignment_2_1_1() { return cBrowserModeAssignment_2_1_1; }
@@ -1278,12 +1278,12 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//FQName
 		public RuleCall getNameFQNameParserRuleCall_0() { return cNameFQNameParserRuleCall_0; }
 	}
-	public class JavaTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.JavaType");
+	public class JavaMainTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.JavaMainType");
 		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cNameFQNameParserRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
-		//JavaType:
+		//JavaMainType:
 		//	name=FQName;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1922,7 +1922,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final PluginWithVersionAndStartLevelElements pPluginWithVersionAndStartLevel;
 	private final PluginWithVersionElements pPluginWithVersion;
 	private final ProjectElements pProject;
-	private final JavaTypeElements pJavaType;
+	private final JavaMainTypeElements pJavaMainType;
 	private final ClearOptionElements pClearOption;
 	private final MemoryOptionElements pMemoryOption;
 	private final GroupMemberElements pGroupMember;
@@ -1977,7 +1977,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPluginWithVersionAndStartLevel = new PluginWithVersionAndStartLevelElements();
 		this.pPluginWithVersion = new PluginWithVersionElements();
 		this.pProject = new ProjectElements();
-		this.pJavaType = new JavaTypeElements();
+		this.pJavaMainType = new JavaMainTypeElements();
 		this.pClearOption = new ClearOptionElements();
 		this.pMemoryOption = new MemoryOptionElements();
 		this.pGroupMember = new GroupMemberElements();
@@ -2073,7 +2073,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
 	//	& (memory=MemoryOption ';')? // All but Groups
 	//	& ('project' project=Project ';')? // Java 				// TODO: content assist
-	//	& ('main-class' mainClass=JavaType ';')? // Java 		// TODO: content assist
+	//	& ('main-class' mainClass=JavaMainType ';')? // Java 		// TODO: content assist, validation
 	//	& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 	//	& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 	//	& favorites=Favorites? // All
@@ -2231,7 +2231,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//RapServletConfig:
-	//	'servlet' BLOCK_BEGIN ('path' servletPath=STRING ';' & ('open' browserMode=BrowserLaunchMode ';')?
+	//	'servlet' BLOCK_BEGIN ('path' servletPath=STRING ';' & ('browser' browserMode=BrowserLaunchMode ';')?
 	//	& ('port' serverPort=INT ';')?
 	//	& ('session-timeout' sessionTimeout=INT ';')?
 	//	& ('context-path' contextPath=STRING ';')?
@@ -2304,14 +2304,14 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getProjectAccess().getRule();
 	}
 	
-	//JavaType:
+	//JavaMainType:
 	//	name=FQName;
-	public JavaTypeElements getJavaTypeAccess() {
-		return pJavaType;
+	public JavaMainTypeElements getJavaMainTypeAccess() {
+		return pJavaMainType;
 	}
 	
-	public ParserRule getJavaTypeRule() {
-		return getJavaTypeAccess().getRule();
+	public ParserRule getJavaMainTypeRule() {
+		return getJavaMainTypeAccess().getRule();
 	}
 	
 	//ClearOption:

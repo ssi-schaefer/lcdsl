@@ -7,21 +7,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Java Type</b></em>'.
+ * A representation of the model object '<em><b>Java Main Type</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.wamas.ide.launching.lcDsl.JavaType#getName <em>Name</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.JavaMainType#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getJavaType()
+ * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getJavaMainType()
  * @model
  * @generated
  */
-public interface JavaType extends EObject
+public interface JavaMainType extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -33,14 +33,14 @@ public interface JavaType extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getJavaType_Name()
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getJavaMainType_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.JavaType#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.JavaMainType#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -49,4 +49,4 @@ public interface JavaType extends EObject
    */
   void setName(String value);
 
-} // JavaType
+} // JavaMainType

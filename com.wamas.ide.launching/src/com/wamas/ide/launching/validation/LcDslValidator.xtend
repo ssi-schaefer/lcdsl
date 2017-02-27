@@ -3,25 +3,23 @@
  */
 package com.wamas.ide.launching.validation
 
-import com.google.inject.Inject
 import com.wamas.ide.launching.generator.LcDslGenerator
 import com.wamas.ide.launching.lcDsl.ExistingPath
 import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.LcDslPackage
 import com.wamas.ide.launching.lcDsl.PluginWithVersion
 import com.wamas.ide.launching.lcDsl.Project
-import com.wamas.ide.launching.services.LcDslGrammarAccess
 import java.io.File
+import java.util.List
+import java.util.Set
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.emf.common.util.EList
-import org.eclipse.pde.internal.core.PDECore
+import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.pde.core.plugin.IMatchRules
+import org.eclipse.pde.core.plugin.PluginRegistry
 import org.eclipse.xtext.validation.Check
-import org.osgi.framework.Version
 
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
-import java.util.List
-import org.eclipse.emf.ecore.EStructuralFeature
-import java.util.Set
 
 /**
  * This class contains custom validation rules. 
@@ -33,8 +31,6 @@ class LcDslValidator extends AbstractLcDslValidator {
 	public static val PLUGIN_NOT_ALLOWED = 'plugin.not.allowed'
 	public static val INHERITANCE_TYPE_MISMATCH = 'inheritance.type.mismatch'
 
-	@Inject
-	private LcDslGrammarAccess ga
 	private LcDslPackage LC = LcDslPackage.eINSTANCE
 
 	// map config features to types where this feature is allowed. not mentioned features are allowed on all types.
@@ -172,19 +168,11 @@ class LcDslValidator extends AbstractLcDslValidator {
 		if (p.name == null)
 			return;
 
-		// check current PDE state
-		val state = PDECore.getDefault().getModelManager().getState().getState();
-		state.resolve(true);
+		val bundle = PluginRegistry.findModel(p.name, p.version, IMatchRules.PERFECT, null)
 
-		var ver = null as Version;
-		if (p.version != null && !p.version.empty) {
-			ver = new Version(p.version);
-		}
-
-		val bundle = state.getBundle(p.name, ver);
 		if (bundle == null) {
-			if (state.getBundle(p.name, null) != null) {
-				warning("Bundle " + p.name + " does not exist in version " + ver, p,
+			if (PluginRegistry.findModel(p.name, null, IMatchRules.NONE, null) != null) {
+				warning("Bundle " + p.name + " does not exist in version " + p.version, p,
 					LC.pluginWithVersion_Version);
 			} else {
 				warning("Bundle " + p.name + " does not exist in the workspace or the current target platform", p,
@@ -205,7 +193,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 	@Check
 	def checkSupportedType(LaunchConfig cfg) {
 		if (!LcDslGenerator.isTypeSupported(cfg)) {
-			warning("Unsupported configuration type in current setup: " + cfg.type.getName,
+			warning("Unsupported configuration type in current setup, can not generate launch configuration",
 				LC.launchConfig_Type)
 		}
 	}

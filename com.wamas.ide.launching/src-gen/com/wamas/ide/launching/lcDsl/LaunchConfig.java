@@ -484,12 +484,12 @@ public interface LaunchConfig extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Main Class</em>' containment reference.
-   * @see #setMainClass(JavaType)
+   * @see #setMainClass(JavaMainType)
    * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_MainClass()
    * @model containment="true"
    * @generated
    */
-  JavaType getMainClass();
+  JavaMainType getMainClass();
 
   /**
    * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getMainClass <em>Main Class</em>}' containment reference.
@@ -499,7 +499,7 @@ public interface LaunchConfig extends EObject
    * @see #getMainClass()
    * @generated
    */
-  void setMainClass(JavaType value);
+  void setMainClass(JavaMainType value);
 
   /**
    * Returns the value of the '<em><b>Application</b></em>' containment reference.

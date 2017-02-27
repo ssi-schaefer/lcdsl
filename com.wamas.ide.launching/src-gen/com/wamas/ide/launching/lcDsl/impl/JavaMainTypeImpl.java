@@ -3,7 +3,7 @@
  */
 package com.wamas.ide.launching.lcDsl.impl;
 
-import com.wamas.ide.launching.lcDsl.JavaType;
+import com.wamas.ide.launching.lcDsl.JavaMainType;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -15,18 +15,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Java Type</b></em>'.
+ * An implementation of the model object '<em><b>Java Main Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.JavaTypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.JavaMainTypeImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class JavaTypeImpl extends MinimalEObjectImpl.Container implements JavaType
+public class JavaMainTypeImpl extends MinimalEObjectImpl.Container implements JavaMainType
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -53,7 +53,7 @@ public class JavaTypeImpl extends MinimalEObjectImpl.Container implements JavaTy
    * <!-- end-user-doc -->
    * @generated
    */
-  protected JavaTypeImpl()
+  protected JavaMainTypeImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class JavaTypeImpl extends MinimalEObjectImpl.Container implements JavaTy
   @Override
   protected EClass eStaticClass()
   {
-    return LcDslPackage.Literals.JAVA_TYPE;
+    return LcDslPackage.Literals.JAVA_MAIN_TYPE;
   }
 
   /**
@@ -89,7 +89,7 @@ public class JavaTypeImpl extends MinimalEObjectImpl.Container implements JavaTy
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.JAVA_TYPE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.JAVA_MAIN_TYPE__NAME, oldName, name));
   }
 
   /**
@@ -102,7 +102,7 @@ public class JavaTypeImpl extends MinimalEObjectImpl.Container implements JavaTy
   {
     switch (featureID)
     {
-      case LcDslPackage.JAVA_TYPE__NAME:
+      case LcDslPackage.JAVA_MAIN_TYPE__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -118,7 +118,7 @@ public class JavaTypeImpl extends MinimalEObjectImpl.Container implements JavaTy
   {
     switch (featureID)
     {
-      case LcDslPackage.JAVA_TYPE__NAME:
+      case LcDslPackage.JAVA_MAIN_TYPE__NAME:
         setName((String)newValue);
         return;
     }
@@ -135,7 +135,7 @@ public class JavaTypeImpl extends MinimalEObjectImpl.Container implements JavaTy
   {
     switch (featureID)
     {
-      case LcDslPackage.JAVA_TYPE__NAME:
+      case LcDslPackage.JAVA_MAIN_TYPE__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -152,7 +152,7 @@ public class JavaTypeImpl extends MinimalEObjectImpl.Container implements JavaTy
   {
     switch (featureID)
     {
-      case LcDslPackage.JAVA_TYPE__NAME:
+      case LcDslPackage.JAVA_MAIN_TYPE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
@@ -175,4 +175,4 @@ public class JavaTypeImpl extends MinimalEObjectImpl.Container implements JavaTy
     return result.toString();
   }
 
-} //JavaTypeImpl
+} //JavaMainTypeImpl

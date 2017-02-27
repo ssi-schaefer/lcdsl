@@ -11,6 +11,7 @@
 'argument'=35
 'autostart'=58
 'both-out'=94
+'browser'=53
 'clear'=60
 'config'=63
 'config-ini-template'=46
@@ -48,7 +49,6 @@
 'no-console'=20
 'no-validate'=21
 'none'=76
-'open'=53
 'path'=52
 'perm'=67
 'plugin'=32

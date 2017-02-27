@@ -144,8 +144,8 @@
     <genClasses ecoreClass="LcDsl.ecore#//Project">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Project/name"/>
     </genClasses>
-    <genClasses ecoreClass="LcDsl.ecore#//JavaType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//JavaType/name"/>
+    <genClasses ecoreClass="LcDsl.ecore#//JavaMainType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//JavaMainType/name"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//ClearOption">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//ClearOption/workspace"/>

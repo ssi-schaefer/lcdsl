@@ -580,9 +580,9 @@ ruleLaunchConfig returns [EObject current=null]
 								(
 									(
 										{
-											newCompositeNode(grammarAccess.getLaunchConfigAccess().getMainClassJavaTypeParserRuleCall_6_5_1_0());
+											newCompositeNode(grammarAccess.getLaunchConfigAccess().getMainClassJavaMainTypeParserRuleCall_6_5_1_0());
 										}
-										lv_mainClass_30_0=ruleJavaType
+										lv_mainClass_30_0=ruleJavaMainType
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getLaunchConfigRule());
@@ -591,7 +591,7 @@ ruleLaunchConfig returns [EObject current=null]
 												$current,
 												"mainClass",
 												lv_mainClass_30_0,
-												"com.wamas.ide.launching.LcDsl.JavaType");
+												"com.wamas.ide.launching.LcDsl.JavaMainType");
 											afterParserOrEnumRuleCall();
 										}
 									)
@@ -1917,9 +1917,9 @@ ruleRapServletConfig returns [EObject current=null]
 					{
 						getUnorderedGroupHelper().select(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 1);
 					}
-								({true}?=>(otherlv_6='open'
+								({true}?=>(otherlv_6='browser'
 								{
-									newLeafNode(otherlv_6, grammarAccess.getRapServletConfigAccess().getOpenKeyword_2_1_0());
+									newLeafNode(otherlv_6, grammarAccess.getRapServletConfigAccess().getBrowserKeyword_2_1_0());
 								}
 								(
 									(
@@ -2383,15 +2383,15 @@ ruleProject returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleJavaType
-entryRuleJavaType returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getJavaTypeRule()); }
-	iv_ruleJavaType=ruleJavaType
-	{ $current=$iv_ruleJavaType.current; }
+// Entry rule entryRuleJavaMainType
+entryRuleJavaMainType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getJavaMainTypeRule()); }
+	iv_ruleJavaMainType=ruleJavaMainType
+	{ $current=$iv_ruleJavaMainType.current; }
 	EOF;
 
-// Rule JavaType
-ruleJavaType returns [EObject current=null]
+// Rule JavaMainType
+ruleJavaMainType returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -2401,12 +2401,12 @@ ruleJavaType returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getJavaTypeAccess().getNameFQNameParserRuleCall_0());
+				newCompositeNode(grammarAccess.getJavaMainTypeAccess().getNameFQNameParserRuleCall_0());
 			}
 			lv_name_0_0=ruleFQName
 			{
 				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getJavaTypeRule());
+					$current = createModelElementForParent(grammarAccess.getJavaMainTypeRule());
 				}
 				set(
 					$current,

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_EQ", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'stdin'", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'run'", "'debug'", "'profile'", "'coverage'", "'inherit'", "'MB'", "'mb'", "'M'", "'m'", "'GB'", "'gb'", "'G'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'configuration'", "':'", "';'", "'workspace'", "'working-dir'", "'project'", "'main-class'", "'plugin'", "'ignore'", "'vm-arg'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'servlet'", "'path'", "'open'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'startlevel'", "'clear'", "'memory'", "'min'", "'max'", "'perm'", "'member'", "'delay'", "'regex'", "'wait'", "'.'", "'explicit'", "'manual'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'system'", "'inherited'", "'autostart'", "'log'", "'!'", "'config'", "'adopt'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_EQ", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'stdin'", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'run'", "'debug'", "'profile'", "'coverage'", "'inherit'", "'MB'", "'mb'", "'M'", "'m'", "'GB'", "'gb'", "'G'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'configuration'", "':'", "';'", "'workspace'", "'working-dir'", "'project'", "'main-class'", "'plugin'", "'ignore'", "'vm-arg'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'startlevel'", "'clear'", "'memory'", "'min'", "'max'", "'perm'", "'member'", "'delay'", "'regex'", "'wait'", "'.'", "'explicit'", "'manual'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'system'", "'inherited'", "'autostart'", "'log'", "'!'", "'config'", "'adopt'"
     };
     public static final int T__50=50;
     public static final int RULE_VERSION=11;
@@ -1788,20 +1788,20 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleProject"
 
 
-    // $ANTLR start "entryRuleJavaType"
-    // InternalLcDsl.g:578:1: entryRuleJavaType : ruleJavaType EOF ;
-    public final void entryRuleJavaType() throws RecognitionException {
+    // $ANTLR start "entryRuleJavaMainType"
+    // InternalLcDsl.g:578:1: entryRuleJavaMainType : ruleJavaMainType EOF ;
+    public final void entryRuleJavaMainType() throws RecognitionException {
         try {
-            // InternalLcDsl.g:579:1: ( ruleJavaType EOF )
-            // InternalLcDsl.g:580:1: ruleJavaType EOF
+            // InternalLcDsl.g:579:1: ( ruleJavaMainType EOF )
+            // InternalLcDsl.g:580:1: ruleJavaMainType EOF
             {
-             before(grammarAccess.getJavaTypeRule()); 
+             before(grammarAccess.getJavaMainTypeRule()); 
             pushFollow(FOLLOW_1);
-            ruleJavaType();
+            ruleJavaMainType();
 
             state._fsp--;
 
-             after(grammarAccess.getJavaTypeRule()); 
+             after(grammarAccess.getJavaMainTypeRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1815,35 +1815,35 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleJavaType"
+    // $ANTLR end "entryRuleJavaMainType"
 
 
-    // $ANTLR start "ruleJavaType"
-    // InternalLcDsl.g:587:1: ruleJavaType : ( ( rule__JavaType__NameAssignment ) ) ;
-    public final void ruleJavaType() throws RecognitionException {
+    // $ANTLR start "ruleJavaMainType"
+    // InternalLcDsl.g:587:1: ruleJavaMainType : ( ( rule__JavaMainType__NameAssignment ) ) ;
+    public final void ruleJavaMainType() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLcDsl.g:591:2: ( ( ( rule__JavaType__NameAssignment ) ) )
-            // InternalLcDsl.g:592:2: ( ( rule__JavaType__NameAssignment ) )
+            // InternalLcDsl.g:591:2: ( ( ( rule__JavaMainType__NameAssignment ) ) )
+            // InternalLcDsl.g:592:2: ( ( rule__JavaMainType__NameAssignment ) )
             {
-            // InternalLcDsl.g:592:2: ( ( rule__JavaType__NameAssignment ) )
-            // InternalLcDsl.g:593:3: ( rule__JavaType__NameAssignment )
+            // InternalLcDsl.g:592:2: ( ( rule__JavaMainType__NameAssignment ) )
+            // InternalLcDsl.g:593:3: ( rule__JavaMainType__NameAssignment )
             {
-             before(grammarAccess.getJavaTypeAccess().getNameAssignment()); 
-            // InternalLcDsl.g:594:3: ( rule__JavaType__NameAssignment )
-            // InternalLcDsl.g:594:4: rule__JavaType__NameAssignment
+             before(grammarAccess.getJavaMainTypeAccess().getNameAssignment()); 
+            // InternalLcDsl.g:594:3: ( rule__JavaMainType__NameAssignment )
+            // InternalLcDsl.g:594:4: rule__JavaMainType__NameAssignment
             {
             pushFollow(FOLLOW_2);
-            rule__JavaType__NameAssignment();
+            rule__JavaMainType__NameAssignment();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getJavaTypeAccess().getNameAssignment()); 
+             after(grammarAccess.getJavaMainTypeAccess().getNameAssignment()); 
 
             }
 
@@ -1862,7 +1862,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleJavaType"
+    // $ANTLR end "ruleJavaMainType"
 
 
     // $ANTLR start "entryRuleClearOption"
@@ -10918,21 +10918,21 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RapServletConfig__Group_2_1__0__Impl"
-    // InternalLcDsl.g:3568:1: rule__RapServletConfig__Group_2_1__0__Impl : ( 'open' ) ;
+    // InternalLcDsl.g:3568:1: rule__RapServletConfig__Group_2_1__0__Impl : ( 'browser' ) ;
     public final void rule__RapServletConfig__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLcDsl.g:3572:1: ( ( 'open' ) )
-            // InternalLcDsl.g:3573:1: ( 'open' )
+            // InternalLcDsl.g:3572:1: ( ( 'browser' ) )
+            // InternalLcDsl.g:3573:1: ( 'browser' )
             {
-            // InternalLcDsl.g:3573:1: ( 'open' )
-            // InternalLcDsl.g:3574:2: 'open'
+            // InternalLcDsl.g:3573:1: ( 'browser' )
+            // InternalLcDsl.g:3574:2: 'browser'
             {
-             before(grammarAccess.getRapServletConfigAccess().getOpenKeyword_2_1_0()); 
+             before(grammarAccess.getRapServletConfigAccess().getBrowserKeyword_2_1_0()); 
             match(input,65,FOLLOW_2); 
-             after(grammarAccess.getRapServletConfigAccess().getOpenKeyword_2_1_0()); 
+             after(grammarAccess.getRapServletConfigAccess().getBrowserKeyword_2_1_0()); 
 
             }
 
@@ -21228,25 +21228,25 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LaunchConfig__MainClassAssignment_6_5_1"
-    // InternalLcDsl.g:6810:1: rule__LaunchConfig__MainClassAssignment_6_5_1 : ( ruleJavaType ) ;
+    // InternalLcDsl.g:6810:1: rule__LaunchConfig__MainClassAssignment_6_5_1 : ( ruleJavaMainType ) ;
     public final void rule__LaunchConfig__MainClassAssignment_6_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLcDsl.g:6814:1: ( ( ruleJavaType ) )
-            // InternalLcDsl.g:6815:2: ( ruleJavaType )
+            // InternalLcDsl.g:6814:1: ( ( ruleJavaMainType ) )
+            // InternalLcDsl.g:6815:2: ( ruleJavaMainType )
             {
-            // InternalLcDsl.g:6815:2: ( ruleJavaType )
-            // InternalLcDsl.g:6816:3: ruleJavaType
+            // InternalLcDsl.g:6815:2: ( ruleJavaMainType )
+            // InternalLcDsl.g:6816:3: ruleJavaMainType
             {
-             before(grammarAccess.getLaunchConfigAccess().getMainClassJavaTypeParserRuleCall_6_5_1_0()); 
+             before(grammarAccess.getLaunchConfigAccess().getMainClassJavaMainTypeParserRuleCall_6_5_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleJavaType();
+            ruleJavaMainType();
 
             state._fsp--;
 
-             after(grammarAccess.getLaunchConfigAccess().getMainClassJavaTypeParserRuleCall_6_5_1_0()); 
+             after(grammarAccess.getLaunchConfigAccess().getMainClassJavaMainTypeParserRuleCall_6_5_1_0()); 
 
             }
 
@@ -23237,9 +23237,9 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Project__NameAssignment"
 
 
-    // $ANTLR start "rule__JavaType__NameAssignment"
-    // InternalLcDsl.g:7580:1: rule__JavaType__NameAssignment : ( ruleFQName ) ;
-    public final void rule__JavaType__NameAssignment() throws RecognitionException {
+    // $ANTLR start "rule__JavaMainType__NameAssignment"
+    // InternalLcDsl.g:7580:1: rule__JavaMainType__NameAssignment : ( ruleFQName ) ;
+    public final void rule__JavaMainType__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -23250,13 +23250,13 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:7585:2: ( ruleFQName )
             // InternalLcDsl.g:7586:3: ruleFQName
             {
-             before(grammarAccess.getJavaTypeAccess().getNameFQNameParserRuleCall_0()); 
+             before(grammarAccess.getJavaMainTypeAccess().getNameFQNameParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
             ruleFQName();
 
             state._fsp--;
 
-             after(grammarAccess.getJavaTypeAccess().getNameFQNameParserRuleCall_0()); 
+             after(grammarAccess.getJavaMainTypeAccess().getNameFQNameParserRuleCall_0()); 
 
             }
 
@@ -23275,7 +23275,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__JavaType__NameAssignment"
+    // $ANTLR end "rule__JavaMainType__NameAssignment"
 
 
     // $ANTLR start "rule__ClearOption__WorkspaceAssignment_2_0_0_0"

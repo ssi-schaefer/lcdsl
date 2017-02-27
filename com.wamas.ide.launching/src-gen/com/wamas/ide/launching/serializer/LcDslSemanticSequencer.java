@@ -19,7 +19,7 @@ import com.wamas.ide.launching.lcDsl.GroupPostLaunchRegex;
 import com.wamas.ide.launching.lcDsl.GroupPostLaunchWait;
 import com.wamas.ide.launching.lcDsl.IgnorePlugin;
 import com.wamas.ide.launching.lcDsl.JavaMainSearch;
-import com.wamas.ide.launching.lcDsl.JavaType;
+import com.wamas.ide.launching.lcDsl.JavaMainType;
 import com.wamas.ide.launching.lcDsl.LCModel;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
@@ -104,8 +104,8 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case LcDslPackage.JAVA_MAIN_SEARCH:
 				sequence_JavaMainSearch(context, (JavaMainSearch) semanticObject); 
 				return; 
-			case LcDslPackage.JAVA_TYPE:
-				sequence_JavaType(context, (JavaType) semanticObject); 
+			case LcDslPackage.JAVA_MAIN_TYPE:
+				sequence_JavaMainType(context, (JavaMainType) semanticObject); 
 				return; 
 			case LcDslPackage.LC_MODEL:
 				sequence_LCModel(context, (LCModel) semanticObject); 
@@ -398,18 +398,18 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     JavaType returns JavaType
+	 *     JavaMainType returns JavaMainType
 	 *
 	 * Constraint:
 	 *     name=FQName
 	 */
-	protected void sequence_JavaType(ISerializationContext context, JavaType semanticObject) {
+	protected void sequence_JavaMainType(ISerializationContext context, JavaMainType semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, LcDslPackage.Literals.JAVA_TYPE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LcDslPackage.Literals.JAVA_TYPE__NAME));
+			if (transientValues.isValueTransient(semanticObject, LcDslPackage.Literals.JAVA_MAIN_TYPE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LcDslPackage.Literals.JAVA_MAIN_TYPE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getJavaTypeAccess().getNameFQNameParserRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getJavaMainTypeAccess().getNameFQNameParserRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -451,7 +451,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *             workingDir=ExistingPath | 
 	 *             memory=MemoryOption | 
 	 *             project=Project | 
-	 *             mainClass=JavaType | 
+	 *             mainClass=JavaMainType | 
 	 *             application=ApplicationExtPoint | 
 	 *             product=ProductExtPoint | 
 	 *             favorites=Favorites | 

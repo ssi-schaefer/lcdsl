@@ -222,13 +222,13 @@ public interface LcDslFactory extends EFactory
   Project createProject();
 
   /**
-   * Returns a new object of class '<em>Java Type</em>'.
+   * Returns a new object of class '<em>Java Main Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Java Type</em>'.
+   * @return a new object of class '<em>Java Main Type</em>'.
    * @generated
    */
-  JavaType createJavaType();
+  JavaMainType createJavaMainType();
 
   /**
    * Returns a new object of class '<em>Clear Option</em>'.

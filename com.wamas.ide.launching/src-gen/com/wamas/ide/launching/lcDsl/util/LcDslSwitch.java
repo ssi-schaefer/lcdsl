@@ -229,10 +229,10 @@ public class LcDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LcDslPackage.JAVA_TYPE:
+      case LcDslPackage.JAVA_MAIN_TYPE:
       {
-        JavaType javaType = (JavaType)theEObject;
-        T result = caseJavaType(javaType);
+        JavaMainType javaMainType = (JavaMainType)theEObject;
+        T result = caseJavaMainType(javaMainType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -645,17 +645,17 @@ public class LcDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Java Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Java Main Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Java Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Java Main Type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseJavaType(JavaType object)
+  public T caseJavaMainType(JavaMainType object)
   {
     return null;
   }

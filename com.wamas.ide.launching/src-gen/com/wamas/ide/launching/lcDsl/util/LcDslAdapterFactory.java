@@ -186,9 +186,9 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
         return createProjectAdapter();
       }
       @Override
-      public Adapter caseJavaType(JavaType object)
+      public Adapter caseJavaMainType(JavaMainType object)
       {
-        return createJavaTypeAdapter();
+        return createJavaMainTypeAdapter();
       }
       @Override
       public Adapter caseClearOption(ClearOption object)
@@ -578,16 +578,16 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.JavaType <em>Java Type</em>}'.
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.JavaMainType <em>Java Main Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.wamas.ide.launching.lcDsl.JavaType
+   * @see com.wamas.ide.launching.lcDsl.JavaMainType
    * @generated
    */
-  public Adapter createJavaTypeAdapter()
+  public Adapter createJavaMainTypeAdapter()
   {
     return null;
   }

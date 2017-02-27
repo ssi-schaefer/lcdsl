@@ -15,7 +15,7 @@ import com.wamas.ide.launching.lcDsl.Favorites;
 import com.wamas.ide.launching.lcDsl.GroupMember;
 import com.wamas.ide.launching.lcDsl.IgnorePlugin;
 import com.wamas.ide.launching.lcDsl.JavaMainSearch;
-import com.wamas.ide.launching.lcDsl.JavaType;
+import com.wamas.ide.launching.lcDsl.JavaMainType;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.lcDsl.LaunchConfigType;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
@@ -358,7 +358,7 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * @generated
    * @ordered
    */
-  protected JavaType mainClass;
+  protected JavaMainType mainClass;
 
   /**
    * The cached value of the '{@link #getApplication() <em>Application</em>}' containment reference.
@@ -1049,7 +1049,7 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public JavaType getMainClass()
+  public JavaMainType getMainClass()
   {
     return mainClass;
   }
@@ -1059,9 +1059,9 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMainClass(JavaType newMainClass, NotificationChain msgs)
+  public NotificationChain basicSetMainClass(JavaMainType newMainClass, NotificationChain msgs)
   {
-    JavaType oldMainClass = mainClass;
+    JavaMainType oldMainClass = mainClass;
     mainClass = newMainClass;
     if (eNotificationRequired())
     {
@@ -1076,7 +1076,7 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMainClass(JavaType newMainClass)
+  public void setMainClass(JavaMainType newMainClass)
   {
     if (newMainClass != mainClass)
     {
@@ -1769,7 +1769,7 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         setProject((Project)newValue);
         return;
       case LcDslPackage.LAUNCH_CONFIG__MAIN_CLASS:
-        setMainClass((JavaType)newValue);
+        setMainClass((JavaMainType)newValue);
         return;
       case LcDslPackage.LAUNCH_CONFIG__APPLICATION:
         setApplication((ApplicationExtPoint)newValue);
@@ -1886,7 +1886,7 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         setProject((Project)null);
         return;
       case LcDslPackage.LAUNCH_CONFIG__MAIN_CLASS:
-        setMainClass((JavaType)null);
+        setMainClass((JavaMainType)null);
         return;
       case LcDslPackage.LAUNCH_CONFIG__APPLICATION:
         setApplication((ApplicationExtPoint)null);

@@ -1089,14 +1089,14 @@ public interface LcDslPackage extends EPackage
   int PROJECT_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.JavaTypeImpl <em>Java Type</em>}' class.
+   * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.JavaMainTypeImpl <em>Java Main Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.wamas.ide.launching.lcDsl.impl.JavaTypeImpl
-   * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getJavaType()
+   * @see com.wamas.ide.launching.lcDsl.impl.JavaMainTypeImpl
+   * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getJavaMainType()
    * @generated
    */
-  int JAVA_TYPE = 22;
+  int JAVA_MAIN_TYPE = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1105,16 +1105,16 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JAVA_TYPE__NAME = 0;
+  int JAVA_MAIN_TYPE__NAME = 0;
 
   /**
-   * The number of structural features of the '<em>Java Type</em>' class.
+   * The number of structural features of the '<em>Java Main Type</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int JAVA_TYPE_FEATURE_COUNT = 1;
+  int JAVA_MAIN_TYPE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.ClearOptionImpl <em>Clear Option</em>}' class.
@@ -2401,25 +2401,25 @@ public interface LcDslPackage extends EPackage
   EAttribute getProject_Name();
 
   /**
-   * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.JavaType <em>Java Type</em>}'.
+   * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.JavaMainType <em>Java Main Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Java Type</em>'.
-   * @see com.wamas.ide.launching.lcDsl.JavaType
+   * @return the meta object for class '<em>Java Main Type</em>'.
+   * @see com.wamas.ide.launching.lcDsl.JavaMainType
    * @generated
    */
-  EClass getJavaType();
+  EClass getJavaMainType();
 
   /**
-   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.JavaType#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.JavaMainType#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.wamas.ide.launching.lcDsl.JavaType#getName()
-   * @see #getJavaType()
+   * @see com.wamas.ide.launching.lcDsl.JavaMainType#getName()
+   * @see #getJavaMainType()
    * @generated
    */
-  EAttribute getJavaType_Name();
+  EAttribute getJavaMainType_Name();
 
   /**
    * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.ClearOption <em>Clear Option</em>}'.
@@ -3499,14 +3499,14 @@ public interface LcDslPackage extends EPackage
     EAttribute PROJECT__NAME = eINSTANCE.getProject_Name();
 
     /**
-     * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.JavaTypeImpl <em>Java Type</em>}' class.
+     * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.JavaMainTypeImpl <em>Java Main Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.wamas.ide.launching.lcDsl.impl.JavaTypeImpl
-     * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getJavaType()
+     * @see com.wamas.ide.launching.lcDsl.impl.JavaMainTypeImpl
+     * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getJavaMainType()
      * @generated
      */
-    EClass JAVA_TYPE = eINSTANCE.getJavaType();
+    EClass JAVA_MAIN_TYPE = eINSTANCE.getJavaMainType();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -3514,7 +3514,7 @@ public interface LcDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute JAVA_TYPE__NAME = eINSTANCE.getJavaType_Name();
+    EAttribute JAVA_MAIN_TYPE__NAME = eINSTANCE.getJavaMainType_Name();
 
     /**
      * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.ClearOptionImpl <em>Clear Option</em>}' class.

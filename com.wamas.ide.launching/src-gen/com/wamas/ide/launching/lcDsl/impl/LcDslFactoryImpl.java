@@ -88,7 +88,7 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
       case LcDslPackage.PLUGIN_WITH_VERSION_AND_START_LEVEL: return createPluginWithVersionAndStartLevel();
       case LcDslPackage.PLUGIN_WITH_VERSION: return createPluginWithVersion();
       case LcDslPackage.PROJECT: return createProject();
-      case LcDslPackage.JAVA_TYPE: return createJavaType();
+      case LcDslPackage.JAVA_MAIN_TYPE: return createJavaMainType();
       case LcDslPackage.CLEAR_OPTION: return createClearOption();
       case LcDslPackage.MEMORY_OPTION: return createMemoryOption();
       case LcDslPackage.GROUP_MEMBER: return createGroupMember();
@@ -402,10 +402,10 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public JavaType createJavaType()
+  public JavaMainType createJavaMainType()
   {
-    JavaTypeImpl javaType = new JavaTypeImpl();
-    return javaType;
+    JavaMainTypeImpl javaMainType = new JavaMainTypeImpl();
+    return javaMainType;
   }
 
   /**
