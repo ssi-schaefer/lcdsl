@@ -150,6 +150,24 @@ public interface LcDslFactory extends EFactory
   TraceEnablement createTraceEnablement();
 
   /**
+   * Returns a new object of class '<em>Java Main Search</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Java Main Search</em>'.
+   * @generated
+   */
+  JavaMainSearch createJavaMainSearch();
+
+  /**
+   * Returns a new object of class '<em>Rap Servlet Config</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Rap Servlet Config</em>'.
+   * @generated
+   */
+  RapServletConfig createRapServletConfig();
+
+  /**
    * Returns a new object of class '<em>Path</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

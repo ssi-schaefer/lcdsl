@@ -171,6 +171,20 @@ public class LcDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case LcDslPackage.JAVA_MAIN_SEARCH:
+      {
+        JavaMainSearch javaMainSearch = (JavaMainSearch)theEObject;
+        T result = caseJavaMainSearch(javaMainSearch);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LcDslPackage.RAP_SERVLET_CONFIG:
+      {
+        RapServletConfig rapServletConfig = (RapServletConfig)theEObject;
+        T result = caseRapServletConfig(rapServletConfig);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case LcDslPackage.PATH:
       {
         Path path = (Path)theEObject;
@@ -506,6 +520,38 @@ public class LcDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTraceEnablement(TraceEnablement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Java Main Search</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Java Main Search</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJavaMainSearch(JavaMainSearch object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Rap Servlet Config</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Rap Servlet Config</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRapServletConfig(RapServletConfig object)
   {
     return null;
   }

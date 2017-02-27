@@ -13,6 +13,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="noValidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="swInstallSupport" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="replaceEnv" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stopInMain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//LaunchConfigType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superConfig" eType="#//LaunchConfig"/>
@@ -39,6 +40,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="execEnv" eType="#//ExecutionEnvironment"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configIniTemplate" eType="#//ConfigIniTemplate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="javaMainSearch" eType="#//JavaMainSearch"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="servletConfig" eType="#//RapServletConfig"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="plugins" upperBound="-1"
         eType="#//AddPlugin" containment="true"/>
@@ -106,6 +111,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="what" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaMainSearch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="system" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inherited" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RapServletConfig">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="servletPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="browserMode" eType="#//BrowserLaunchMode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serverPort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sessionTimeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="devMode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Path">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -156,6 +173,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="regex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GroupPostLaunchWait" eSuperTypes="#//GroupPostLaunchAction"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="BrowserLaunchMode">
+    <eLiterals name="INTERNAL" literal="internal"/>
+    <eLiterals name="EXTERNAL" value="1" literal="external"/>
+    <eLiterals name="NONE" value="2" literal="none"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="LaunchConfigType">
     <eLiterals name="JAVA" literal="java"/>
     <eLiterals name="ECLIPSE" value="1" literal="eclipse"/>

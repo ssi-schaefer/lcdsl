@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isNoValidate <em>No Validate</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isSwInstallSupport <em>Sw Install Support</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isReplaceEnv <em>Replace Env</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isStopInMain <em>Stop In Main</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getType <em>Type</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getName <em>Name</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getSuperConfig <em>Super Config</em>}</li>
@@ -38,6 +39,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getRedirect <em>Redirect</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getExecEnv <em>Exec Env</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getConfigIniTemplate <em>Config Ini Template</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getJavaMainSearch <em>Java Main Search</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getServletConfig <em>Servlet Config</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getPlugins <em>Plugins</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getIgnore <em>Ignore</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getGroupMembers <em>Group Members</em>}</li>
@@ -234,6 +237,32 @@ public interface LaunchConfig extends EObject
    * @generated
    */
   void setReplaceEnv(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Stop In Main</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Stop In Main</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Stop In Main</em>' attribute.
+   * @see #setStopInMain(boolean)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_StopInMain()
+   * @model
+   * @generated
+   */
+  boolean isStopInMain();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isStopInMain <em>Stop In Main</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Stop In Main</em>' attribute.
+   * @see #isStopInMain()
+   * @generated
+   */
+  void setStopInMain(boolean value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -627,6 +656,58 @@ public interface LaunchConfig extends EObject
    * @generated
    */
   void setConfigIniTemplate(ConfigIniTemplate value);
+
+  /**
+   * Returns the value of the '<em><b>Java Main Search</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Java Main Search</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Java Main Search</em>' containment reference.
+   * @see #setJavaMainSearch(JavaMainSearch)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_JavaMainSearch()
+   * @model containment="true"
+   * @generated
+   */
+  JavaMainSearch getJavaMainSearch();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getJavaMainSearch <em>Java Main Search</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Java Main Search</em>' containment reference.
+   * @see #getJavaMainSearch()
+   * @generated
+   */
+  void setJavaMainSearch(JavaMainSearch value);
+
+  /**
+   * Returns the value of the '<em><b>Servlet Config</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Servlet Config</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Servlet Config</em>' containment reference.
+   * @see #setServletConfig(RapServletConfig)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_ServletConfig()
+   * @model containment="true"
+   * @generated
+   */
+  RapServletConfig getServletConfig();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getServletConfig <em>Servlet Config</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Servlet Config</em>' containment reference.
+   * @see #getServletConfig()
+   * @generated
+   */
+  void setServletConfig(RapServletConfig value);
 
   /**
    * Returns the value of the '<em><b>Plugins</b></em>' containment reference list.

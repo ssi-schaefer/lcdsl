@@ -146,6 +146,16 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
         return createTraceEnablementAdapter();
       }
       @Override
+      public Adapter caseJavaMainSearch(JavaMainSearch object)
+      {
+        return createJavaMainSearchAdapter();
+      }
+      @Override
+      public Adapter caseRapServletConfig(RapServletConfig object)
+      {
+        return createRapServletConfigAdapter();
+      }
+      @Override
       public Adapter casePath(Path object)
       {
         return createPathAdapter();
@@ -448,6 +458,36 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTraceEnablementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.JavaMainSearch <em>Java Main Search</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.JavaMainSearch
+   * @generated
+   */
+  public Adapter createJavaMainSearchAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.RapServletConfig <em>Rap Servlet Config</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.RapServletConfig
+   * @generated
+   */
+  public Adapter createRapServletConfigAdapter()
   {
     return null;
   }

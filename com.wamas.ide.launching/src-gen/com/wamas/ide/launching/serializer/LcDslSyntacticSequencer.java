@@ -26,11 +26,33 @@ public class LcDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getEQRule())
+		if (ruleCall.getRule() == grammarAccess.getBLOCK_BEGINRule())
+			return getBLOCK_BEGINToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getBLOCK_ENDRule())
+			return getBLOCK_ENDToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getEQRule())
 			return getEQToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getLaunchModeTypeRule())
 			return getLaunchModeTypeToken(semanticObject, ruleCall, node);
 		return "";
+	}
+	
+	/**
+	 * terminal BLOCK_BEGIN: '{';
+	 */
+	protected String getBLOCK_BEGINToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "{";
+	}
+	
+	/**
+	 * terminal BLOCK_END: '}';
+	 */
+	protected String getBLOCK_ENDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "}";
 	}
 	
 	/**

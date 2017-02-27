@@ -160,13 +160,22 @@ public interface LcDslPackage extends EPackage
   int LAUNCH_CONFIG__REPLACE_ENV = 6;
 
   /**
+   * The feature id for the '<em><b>Stop In Main</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAUNCH_CONFIG__STOP_IN_MAIN = 7;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__TYPE = 7;
+  int LAUNCH_CONFIG__TYPE = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -175,7 +184,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__NAME = 8;
+  int LAUNCH_CONFIG__NAME = 9;
 
   /**
    * The feature id for the '<em><b>Super Config</b></em>' reference.
@@ -184,7 +193,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__SUPER_CONFIG = 9;
+  int LAUNCH_CONFIG__SUPER_CONFIG = 10;
 
   /**
    * The feature id for the '<em><b>Clears</b></em>' containment reference.
@@ -193,7 +202,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__CLEARS = 10;
+  int LAUNCH_CONFIG__CLEARS = 11;
 
   /**
    * The feature id for the '<em><b>Workspace</b></em>' containment reference.
@@ -202,7 +211,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__WORKSPACE = 11;
+  int LAUNCH_CONFIG__WORKSPACE = 12;
 
   /**
    * The feature id for the '<em><b>Working Dir</b></em>' containment reference.
@@ -211,7 +220,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__WORKING_DIR = 12;
+  int LAUNCH_CONFIG__WORKING_DIR = 13;
 
   /**
    * The feature id for the '<em><b>Memory</b></em>' containment reference.
@@ -220,7 +229,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__MEMORY = 13;
+  int LAUNCH_CONFIG__MEMORY = 14;
 
   /**
    * The feature id for the '<em><b>Project</b></em>' containment reference.
@@ -229,7 +238,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__PROJECT = 14;
+  int LAUNCH_CONFIG__PROJECT = 15;
 
   /**
    * The feature id for the '<em><b>Main Class</b></em>' containment reference.
@@ -238,7 +247,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__MAIN_CLASS = 15;
+  int LAUNCH_CONFIG__MAIN_CLASS = 16;
 
   /**
    * The feature id for the '<em><b>Application</b></em>' containment reference.
@@ -247,7 +256,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__APPLICATION = 16;
+  int LAUNCH_CONFIG__APPLICATION = 17;
 
   /**
    * The feature id for the '<em><b>Product</b></em>' containment reference.
@@ -256,7 +265,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__PRODUCT = 17;
+  int LAUNCH_CONFIG__PRODUCT = 18;
 
   /**
    * The feature id for the '<em><b>Favorites</b></em>' containment reference.
@@ -265,7 +274,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__FAVORITES = 18;
+  int LAUNCH_CONFIG__FAVORITES = 19;
 
   /**
    * The feature id for the '<em><b>Redirect</b></em>' containment reference.
@@ -274,7 +283,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__REDIRECT = 19;
+  int LAUNCH_CONFIG__REDIRECT = 20;
 
   /**
    * The feature id for the '<em><b>Exec Env</b></em>' containment reference.
@@ -283,7 +292,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__EXEC_ENV = 20;
+  int LAUNCH_CONFIG__EXEC_ENV = 21;
 
   /**
    * The feature id for the '<em><b>Config Ini Template</b></em>' containment reference.
@@ -292,7 +301,25 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__CONFIG_INI_TEMPLATE = 21;
+  int LAUNCH_CONFIG__CONFIG_INI_TEMPLATE = 22;
+
+  /**
+   * The feature id for the '<em><b>Java Main Search</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAUNCH_CONFIG__JAVA_MAIN_SEARCH = 23;
+
+  /**
+   * The feature id for the '<em><b>Servlet Config</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAUNCH_CONFIG__SERVLET_CONFIG = 24;
 
   /**
    * The feature id for the '<em><b>Plugins</b></em>' containment reference list.
@@ -301,7 +328,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__PLUGINS = 22;
+  int LAUNCH_CONFIG__PLUGINS = 25;
 
   /**
    * The feature id for the '<em><b>Ignore</b></em>' containment reference list.
@@ -310,7 +337,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__IGNORE = 23;
+  int LAUNCH_CONFIG__IGNORE = 26;
 
   /**
    * The feature id for the '<em><b>Group Members</b></em>' containment reference list.
@@ -319,7 +346,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__GROUP_MEMBERS = 24;
+  int LAUNCH_CONFIG__GROUP_MEMBERS = 27;
 
   /**
    * The feature id for the '<em><b>Vm Args</b></em>' containment reference list.
@@ -328,7 +355,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__VM_ARGS = 25;
+  int LAUNCH_CONFIG__VM_ARGS = 28;
 
   /**
    * The feature id for the '<em><b>Prog Args</b></em>' containment reference list.
@@ -337,7 +364,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__PROG_ARGS = 26;
+  int LAUNCH_CONFIG__PROG_ARGS = 29;
 
   /**
    * The feature id for the '<em><b>Env Vars</b></em>' containment reference list.
@@ -346,7 +373,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__ENV_VARS = 27;
+  int LAUNCH_CONFIG__ENV_VARS = 30;
 
   /**
    * The feature id for the '<em><b>Traces</b></em>' containment reference list.
@@ -355,7 +382,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__TRACES = 28;
+  int LAUNCH_CONFIG__TRACES = 31;
 
   /**
    * The number of structural features of the '<em>Launch Config</em>' class.
@@ -364,7 +391,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG_FEATURE_COUNT = 29;
+  int LAUNCH_CONFIG_FEATURE_COUNT = 32;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.AddPluginImpl <em>Add Plugin</em>}' class.
@@ -757,6 +784,116 @@ public interface LcDslPackage extends EPackage
   int TRACE_ENABLEMENT_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.JavaMainSearchImpl <em>Java Main Search</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.wamas.ide.launching.lcDsl.impl.JavaMainSearchImpl
+   * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getJavaMainSearch()
+   * @generated
+   */
+  int JAVA_MAIN_SEARCH = 14;
+
+  /**
+   * The feature id for the '<em><b>System</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAIN_SEARCH__SYSTEM = 0;
+
+  /**
+   * The feature id for the '<em><b>Inherited</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAIN_SEARCH__INHERITED = 1;
+
+  /**
+   * The number of structural features of the '<em>Java Main Search</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JAVA_MAIN_SEARCH_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.RapServletConfigImpl <em>Rap Servlet Config</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.wamas.ide.launching.lcDsl.impl.RapServletConfigImpl
+   * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getRapServletConfig()
+   * @generated
+   */
+  int RAP_SERVLET_CONFIG = 15;
+
+  /**
+   * The feature id for the '<em><b>Servlet Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RAP_SERVLET_CONFIG__SERVLET_PATH = 0;
+
+  /**
+   * The feature id for the '<em><b>Browser Mode</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RAP_SERVLET_CONFIG__BROWSER_MODE = 1;
+
+  /**
+   * The feature id for the '<em><b>Server Port</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RAP_SERVLET_CONFIG__SERVER_PORT = 2;
+
+  /**
+   * The feature id for the '<em><b>Session Timeout</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RAP_SERVLET_CONFIG__SESSION_TIMEOUT = 3;
+
+  /**
+   * The feature id for the '<em><b>Context Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RAP_SERVLET_CONFIG__CONTEXT_PATH = 4;
+
+  /**
+   * The feature id for the '<em><b>Dev Mode</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RAP_SERVLET_CONFIG__DEV_MODE = 5;
+
+  /**
+   * The number of structural features of the '<em>Rap Servlet Config</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RAP_SERVLET_CONFIG_FEATURE_COUNT = 6;
+
+  /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.PathImpl <em>Path</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -764,7 +901,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getPath()
    * @generated
    */
-  int PATH = 14;
+  int PATH = 16;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -792,7 +929,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getExistingPath()
    * @generated
    */
-  int EXISTING_PATH = 15;
+  int EXISTING_PATH = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -820,7 +957,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getAnyPath()
    * @generated
    */
-  int ANY_PATH = 16;
+  int ANY_PATH = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -848,7 +985,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getPluginWithVersionAndStartLevel()
    * @generated
    */
-  int PLUGIN_WITH_VERSION_AND_START_LEVEL = 17;
+  int PLUGIN_WITH_VERSION_AND_START_LEVEL = 19;
 
   /**
    * The feature id for the '<em><b>Plugin</b></em>' containment reference.
@@ -894,7 +1031,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getPluginWithVersion()
    * @generated
    */
-  int PLUGIN_WITH_VERSION = 18;
+  int PLUGIN_WITH_VERSION = 20;
 
   /**
    * The number of structural features of the '<em>Plugin With Version</em>' class.
@@ -913,7 +1050,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getPlugin()
    * @generated
    */
-  int PLUGIN = 19;
+  int PLUGIN = 21;
 
   /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -950,7 +1087,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getProject()
    * @generated
    */
-  int PROJECT = 20;
+  int PROJECT = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -978,7 +1115,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getJavaType()
    * @generated
    */
-  int JAVA_TYPE = 21;
+  int JAVA_TYPE = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1006,7 +1143,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getClearOption()
    * @generated
    */
-  int CLEAR_OPTION = 22;
+  int CLEAR_OPTION = 24;
 
   /**
    * The feature id for the '<em><b>Workspace</b></em>' attribute.
@@ -1061,7 +1198,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getMemoryOption()
    * @generated
    */
-  int MEMORY_OPTION = 23;
+  int MEMORY_OPTION = 25;
 
   /**
    * The feature id for the '<em><b>Min</b></em>' attribute.
@@ -1134,7 +1271,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupMember()
    * @generated
    */
-  int GROUP_MEMBER = 24;
+  int GROUP_MEMBER = 26;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1189,7 +1326,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupPostLaunchAction()
    * @generated
    */
-  int GROUP_POST_LAUNCH_ACTION = 25;
+  int GROUP_POST_LAUNCH_ACTION = 27;
 
   /**
    * The number of structural features of the '<em>Group Post Launch Action</em>' class.
@@ -1208,7 +1345,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupPostLaunchDelay()
    * @generated
    */
-  int GROUP_POST_LAUNCH_DELAY = 26;
+  int GROUP_POST_LAUNCH_DELAY = 28;
 
   /**
    * The feature id for the '<em><b>Delay</b></em>' attribute.
@@ -1236,7 +1373,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupPostLaunchRegex()
    * @generated
    */
-  int GROUP_POST_LAUNCH_REGEX = 27;
+  int GROUP_POST_LAUNCH_REGEX = 29;
 
   /**
    * The feature id for the '<em><b>Regex</b></em>' attribute.
@@ -1264,7 +1401,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupPostLaunchWait()
    * @generated
    */
-  int GROUP_POST_LAUNCH_WAIT = 28;
+  int GROUP_POST_LAUNCH_WAIT = 30;
 
   /**
    * The number of structural features of the '<em>Group Post Launch Wait</em>' class.
@@ -1276,6 +1413,16 @@ public interface LcDslPackage extends EPackage
   int GROUP_POST_LAUNCH_WAIT_FEATURE_COUNT = GROUP_POST_LAUNCH_ACTION_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.BrowserLaunchMode <em>Browser Launch Mode</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.wamas.ide.launching.lcDsl.BrowserLaunchMode
+   * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getBrowserLaunchMode()
+   * @generated
+   */
+  int BROWSER_LAUNCH_MODE = 31;
+
+  /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.LaunchConfigType <em>Launch Config Type</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1283,7 +1430,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getLaunchConfigType()
    * @generated
    */
-  int LAUNCH_CONFIG_TYPE = 29;
+  int LAUNCH_CONFIG_TYPE = 32;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.LaunchModeType <em>Launch Mode Type</em>}' enum.
@@ -1293,7 +1440,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getLaunchModeType()
    * @generated
    */
-  int LAUNCH_MODE_TYPE = 30;
+  int LAUNCH_MODE_TYPE = 33;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.MemoryUnit <em>Memory Unit</em>}' enum.
@@ -1303,7 +1450,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getMemoryUnit()
    * @generated
    */
-  int MEMORY_UNIT = 31;
+  int MEMORY_UNIT = 34;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.OutputStream <em>Output Stream</em>}' enum.
@@ -1313,7 +1460,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getOutputStream()
    * @generated
    */
-  int OUTPUT_STREAM = 32;
+  int OUTPUT_STREAM = 35;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.InputStream <em>Input Stream</em>}' enum.
@@ -1323,7 +1470,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getInputStream()
    * @generated
    */
-  int INPUT_STREAM = 33;
+  int INPUT_STREAM = 36;
 
 
   /**
@@ -1433,6 +1580,17 @@ public interface LcDslPackage extends EPackage
    * @generated
    */
   EAttribute getLaunchConfig_ReplaceEnv();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isStopInMain <em>Stop In Main</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Stop In Main</em>'.
+   * @see com.wamas.ide.launching.lcDsl.LaunchConfig#isStopInMain()
+   * @see #getLaunchConfig()
+   * @generated
+   */
+  EAttribute getLaunchConfig_StopInMain();
 
   /**
    * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getType <em>Type</em>}'.
@@ -1598,6 +1756,28 @@ public interface LcDslPackage extends EPackage
    * @generated
    */
   EReference getLaunchConfig_ConfigIniTemplate();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getJavaMainSearch <em>Java Main Search</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Java Main Search</em>'.
+   * @see com.wamas.ide.launching.lcDsl.LaunchConfig#getJavaMainSearch()
+   * @see #getLaunchConfig()
+   * @generated
+   */
+  EReference getLaunchConfig_JavaMainSearch();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getServletConfig <em>Servlet Config</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Servlet Config</em>'.
+   * @see com.wamas.ide.launching.lcDsl.LaunchConfig#getServletConfig()
+   * @see #getLaunchConfig()
+   * @generated
+   */
+  EReference getLaunchConfig_ServletConfig();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getPlugins <em>Plugins</em>}'.
@@ -1993,6 +2173,114 @@ public interface LcDslPackage extends EPackage
    * @generated
    */
   EAttribute getTraceEnablement_What();
+
+  /**
+   * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.JavaMainSearch <em>Java Main Search</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Java Main Search</em>'.
+   * @see com.wamas.ide.launching.lcDsl.JavaMainSearch
+   * @generated
+   */
+  EClass getJavaMainSearch();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.JavaMainSearch#isSystem <em>System</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>System</em>'.
+   * @see com.wamas.ide.launching.lcDsl.JavaMainSearch#isSystem()
+   * @see #getJavaMainSearch()
+   * @generated
+   */
+  EAttribute getJavaMainSearch_System();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.JavaMainSearch#isInherited <em>Inherited</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Inherited</em>'.
+   * @see com.wamas.ide.launching.lcDsl.JavaMainSearch#isInherited()
+   * @see #getJavaMainSearch()
+   * @generated
+   */
+  EAttribute getJavaMainSearch_Inherited();
+
+  /**
+   * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.RapServletConfig <em>Rap Servlet Config</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Rap Servlet Config</em>'.
+   * @see com.wamas.ide.launching.lcDsl.RapServletConfig
+   * @generated
+   */
+  EClass getRapServletConfig();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.RapServletConfig#getServletPath <em>Servlet Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Servlet Path</em>'.
+   * @see com.wamas.ide.launching.lcDsl.RapServletConfig#getServletPath()
+   * @see #getRapServletConfig()
+   * @generated
+   */
+  EAttribute getRapServletConfig_ServletPath();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.RapServletConfig#getBrowserMode <em>Browser Mode</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Browser Mode</em>'.
+   * @see com.wamas.ide.launching.lcDsl.RapServletConfig#getBrowserMode()
+   * @see #getRapServletConfig()
+   * @generated
+   */
+  EAttribute getRapServletConfig_BrowserMode();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.RapServletConfig#getServerPort <em>Server Port</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Server Port</em>'.
+   * @see com.wamas.ide.launching.lcDsl.RapServletConfig#getServerPort()
+   * @see #getRapServletConfig()
+   * @generated
+   */
+  EAttribute getRapServletConfig_ServerPort();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.RapServletConfig#getSessionTimeout <em>Session Timeout</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Session Timeout</em>'.
+   * @see com.wamas.ide.launching.lcDsl.RapServletConfig#getSessionTimeout()
+   * @see #getRapServletConfig()
+   * @generated
+   */
+  EAttribute getRapServletConfig_SessionTimeout();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.RapServletConfig#getContextPath <em>Context Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Context Path</em>'.
+   * @see com.wamas.ide.launching.lcDsl.RapServletConfig#getContextPath()
+   * @see #getRapServletConfig()
+   * @generated
+   */
+  EAttribute getRapServletConfig_ContextPath();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.RapServletConfig#isDevMode <em>Dev Mode</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Dev Mode</em>'.
+   * @see com.wamas.ide.launching.lcDsl.RapServletConfig#isDevMode()
+   * @see #getRapServletConfig()
+   * @generated
+   */
+  EAttribute getRapServletConfig_DevMode();
 
   /**
    * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.Path <em>Path</em>}'.
@@ -2409,6 +2697,16 @@ public interface LcDslPackage extends EPackage
   EClass getGroupPostLaunchWait();
 
   /**
+   * Returns the meta object for enum '{@link com.wamas.ide.launching.lcDsl.BrowserLaunchMode <em>Browser Launch Mode</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Browser Launch Mode</em>'.
+   * @see com.wamas.ide.launching.lcDsl.BrowserLaunchMode
+   * @generated
+   */
+  EEnum getBrowserLaunchMode();
+
+  /**
    * Returns the meta object for enum '{@link com.wamas.ide.launching.lcDsl.LaunchConfigType <em>Launch Config Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2566,6 +2864,14 @@ public interface LcDslPackage extends EPackage
     EAttribute LAUNCH_CONFIG__REPLACE_ENV = eINSTANCE.getLaunchConfig_ReplaceEnv();
 
     /**
+     * The meta object literal for the '<em><b>Stop In Main</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LAUNCH_CONFIG__STOP_IN_MAIN = eINSTANCE.getLaunchConfig_StopInMain();
+
+    /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2684,6 +2990,22 @@ public interface LcDslPackage extends EPackage
      * @generated
      */
     EReference LAUNCH_CONFIG__CONFIG_INI_TEMPLATE = eINSTANCE.getLaunchConfig_ConfigIniTemplate();
+
+    /**
+     * The meta object literal for the '<em><b>Java Main Search</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAUNCH_CONFIG__JAVA_MAIN_SEARCH = eINSTANCE.getLaunchConfig_JavaMainSearch();
+
+    /**
+     * The meta object literal for the '<em><b>Servlet Config</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAUNCH_CONFIG__SERVLET_CONFIG = eINSTANCE.getLaunchConfig_ServletConfig();
 
     /**
      * The meta object literal for the '<em><b>Plugins</b></em>' containment reference list feature.
@@ -3004,6 +3326,90 @@ public interface LcDslPackage extends EPackage
      * @generated
      */
     EAttribute TRACE_ENABLEMENT__WHAT = eINSTANCE.getTraceEnablement_What();
+
+    /**
+     * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.JavaMainSearchImpl <em>Java Main Search</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.wamas.ide.launching.lcDsl.impl.JavaMainSearchImpl
+     * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getJavaMainSearch()
+     * @generated
+     */
+    EClass JAVA_MAIN_SEARCH = eINSTANCE.getJavaMainSearch();
+
+    /**
+     * The meta object literal for the '<em><b>System</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JAVA_MAIN_SEARCH__SYSTEM = eINSTANCE.getJavaMainSearch_System();
+
+    /**
+     * The meta object literal for the '<em><b>Inherited</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JAVA_MAIN_SEARCH__INHERITED = eINSTANCE.getJavaMainSearch_Inherited();
+
+    /**
+     * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.RapServletConfigImpl <em>Rap Servlet Config</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.wamas.ide.launching.lcDsl.impl.RapServletConfigImpl
+     * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getRapServletConfig()
+     * @generated
+     */
+    EClass RAP_SERVLET_CONFIG = eINSTANCE.getRapServletConfig();
+
+    /**
+     * The meta object literal for the '<em><b>Servlet Path</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RAP_SERVLET_CONFIG__SERVLET_PATH = eINSTANCE.getRapServletConfig_ServletPath();
+
+    /**
+     * The meta object literal for the '<em><b>Browser Mode</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RAP_SERVLET_CONFIG__BROWSER_MODE = eINSTANCE.getRapServletConfig_BrowserMode();
+
+    /**
+     * The meta object literal for the '<em><b>Server Port</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RAP_SERVLET_CONFIG__SERVER_PORT = eINSTANCE.getRapServletConfig_ServerPort();
+
+    /**
+     * The meta object literal for the '<em><b>Session Timeout</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RAP_SERVLET_CONFIG__SESSION_TIMEOUT = eINSTANCE.getRapServletConfig_SessionTimeout();
+
+    /**
+     * The meta object literal for the '<em><b>Context Path</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RAP_SERVLET_CONFIG__CONTEXT_PATH = eINSTANCE.getRapServletConfig_ContextPath();
+
+    /**
+     * The meta object literal for the '<em><b>Dev Mode</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RAP_SERVLET_CONFIG__DEV_MODE = eINSTANCE.getRapServletConfig_DevMode();
 
     /**
      * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.PathImpl <em>Path</em>}' class.
@@ -3346,6 +3752,16 @@ public interface LcDslPackage extends EPackage
      * @generated
      */
     EClass GROUP_POST_LAUNCH_WAIT = eINSTANCE.getGroupPostLaunchWait();
+
+    /**
+     * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.BrowserLaunchMode <em>Browser Launch Mode</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.wamas.ide.launching.lcDsl.BrowserLaunchMode
+     * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getBrowserLaunchMode()
+     * @generated
+     */
+    EEnum BROWSER_LAUNCH_MODE = eINSTANCE.getBrowserLaunchMode();
 
     /**
      * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.LaunchConfigType <em>Launch Config Type</em>}' enum.

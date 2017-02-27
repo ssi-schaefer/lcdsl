@@ -14,6 +14,7 @@ import com.wamas.ide.launching.lcDsl.ExistingPath;
 import com.wamas.ide.launching.lcDsl.Favorites;
 import com.wamas.ide.launching.lcDsl.GroupMember;
 import com.wamas.ide.launching.lcDsl.IgnorePlugin;
+import com.wamas.ide.launching.lcDsl.JavaMainSearch;
 import com.wamas.ide.launching.lcDsl.JavaType;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.lcDsl.LaunchConfigType;
@@ -22,6 +23,7 @@ import com.wamas.ide.launching.lcDsl.MemoryOption;
 import com.wamas.ide.launching.lcDsl.ProductExtPoint;
 import com.wamas.ide.launching.lcDsl.ProgramArgument;
 import com.wamas.ide.launching.lcDsl.Project;
+import com.wamas.ide.launching.lcDsl.RapServletConfig;
 import com.wamas.ide.launching.lcDsl.Redirect;
 import com.wamas.ide.launching.lcDsl.TraceEnablement;
 import com.wamas.ide.launching.lcDsl.VmArgument;
@@ -57,6 +59,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isNoValidate <em>No Validate</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isSwInstallSupport <em>Sw Install Support</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isReplaceEnv <em>Replace Env</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isStopInMain <em>Stop In Main</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getSuperConfig <em>Super Config</em>}</li>
@@ -72,6 +75,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getRedirect <em>Redirect</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getExecEnv <em>Exec Env</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getConfigIniTemplate <em>Config Ini Template</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getJavaMainSearch <em>Java Main Search</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getServletConfig <em>Servlet Config</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getPlugins <em>Plugins</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getIgnore <em>Ignore</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getGroupMembers <em>Group Members</em>}</li>
@@ -224,6 +229,26 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * @ordered
    */
   protected boolean replaceEnv = REPLACE_ENV_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isStopInMain() <em>Stop In Main</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isStopInMain()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean STOP_IN_MAIN_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isStopInMain() <em>Stop In Main</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isStopInMain()
+   * @generated
+   * @ordered
+   */
+  protected boolean stopInMain = STOP_IN_MAIN_EDEFAULT;
 
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -394,6 +419,26 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * @ordered
    */
   protected ConfigIniTemplate configIniTemplate;
+
+  /**
+   * The cached value of the '{@link #getJavaMainSearch() <em>Java Main Search</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getJavaMainSearch()
+   * @generated
+   * @ordered
+   */
+  protected JavaMainSearch javaMainSearch;
+
+  /**
+   * The cached value of the '{@link #getServletConfig() <em>Servlet Config</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getServletConfig()
+   * @generated
+   * @ordered
+   */
+  protected RapServletConfig servletConfig;
 
   /**
    * The cached value of the '{@link #getPlugins() <em>Plugins</em>}' containment reference list.
@@ -645,6 +690,29 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
     replaceEnv = newReplaceEnv;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__REPLACE_ENV, oldReplaceEnv, replaceEnv));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isStopInMain()
+  {
+    return stopInMain;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStopInMain(boolean newStopInMain)
+  {
+    boolean oldStopInMain = stopInMain;
+    stopInMain = newStopInMain;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__STOP_IN_MAIN, oldStopInMain, stopInMain));
   }
 
   /**
@@ -1317,6 +1385,102 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
+  public JavaMainSearch getJavaMainSearch()
+  {
+    return javaMainSearch;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetJavaMainSearch(JavaMainSearch newJavaMainSearch, NotificationChain msgs)
+  {
+    JavaMainSearch oldJavaMainSearch = javaMainSearch;
+    javaMainSearch = newJavaMainSearch;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__JAVA_MAIN_SEARCH, oldJavaMainSearch, newJavaMainSearch);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setJavaMainSearch(JavaMainSearch newJavaMainSearch)
+  {
+    if (newJavaMainSearch != javaMainSearch)
+    {
+      NotificationChain msgs = null;
+      if (javaMainSearch != null)
+        msgs = ((InternalEObject)javaMainSearch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__JAVA_MAIN_SEARCH, null, msgs);
+      if (newJavaMainSearch != null)
+        msgs = ((InternalEObject)newJavaMainSearch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__JAVA_MAIN_SEARCH, null, msgs);
+      msgs = basicSetJavaMainSearch(newJavaMainSearch, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__JAVA_MAIN_SEARCH, newJavaMainSearch, newJavaMainSearch));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RapServletConfig getServletConfig()
+  {
+    return servletConfig;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetServletConfig(RapServletConfig newServletConfig, NotificationChain msgs)
+  {
+    RapServletConfig oldServletConfig = servletConfig;
+    servletConfig = newServletConfig;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__SERVLET_CONFIG, oldServletConfig, newServletConfig);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setServletConfig(RapServletConfig newServletConfig)
+  {
+    if (newServletConfig != servletConfig)
+    {
+      NotificationChain msgs = null;
+      if (servletConfig != null)
+        msgs = ((InternalEObject)servletConfig).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__SERVLET_CONFIG, null, msgs);
+      if (newServletConfig != null)
+        msgs = ((InternalEObject)newServletConfig).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__SERVLET_CONFIG, null, msgs);
+      msgs = basicSetServletConfig(newServletConfig, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__SERVLET_CONFIG, newServletConfig, newServletConfig));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<AddPlugin> getPlugins()
   {
     if (plugins == null)
@@ -1444,6 +1608,10 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return basicSetExecEnv(null, msgs);
       case LcDslPackage.LAUNCH_CONFIG__CONFIG_INI_TEMPLATE:
         return basicSetConfigIniTemplate(null, msgs);
+      case LcDslPackage.LAUNCH_CONFIG__JAVA_MAIN_SEARCH:
+        return basicSetJavaMainSearch(null, msgs);
+      case LcDslPackage.LAUNCH_CONFIG__SERVLET_CONFIG:
+        return basicSetServletConfig(null, msgs);
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         return ((InternalEList<?>)getPlugins()).basicRemove(otherEnd, msgs);
       case LcDslPackage.LAUNCH_CONFIG__IGNORE:
@@ -1486,6 +1654,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return isSwInstallSupport();
       case LcDslPackage.LAUNCH_CONFIG__REPLACE_ENV:
         return isReplaceEnv();
+      case LcDslPackage.LAUNCH_CONFIG__STOP_IN_MAIN:
+        return isStopInMain();
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         return getType();
       case LcDslPackage.LAUNCH_CONFIG__NAME:
@@ -1517,6 +1687,10 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return getExecEnv();
       case LcDslPackage.LAUNCH_CONFIG__CONFIG_INI_TEMPLATE:
         return getConfigIniTemplate();
+      case LcDslPackage.LAUNCH_CONFIG__JAVA_MAIN_SEARCH:
+        return getJavaMainSearch();
+      case LcDslPackage.LAUNCH_CONFIG__SERVLET_CONFIG:
+        return getServletConfig();
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         return getPlugins();
       case LcDslPackage.LAUNCH_CONFIG__IGNORE:
@@ -1567,6 +1741,9 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
       case LcDslPackage.LAUNCH_CONFIG__REPLACE_ENV:
         setReplaceEnv((Boolean)newValue);
         return;
+      case LcDslPackage.LAUNCH_CONFIG__STOP_IN_MAIN:
+        setStopInMain((Boolean)newValue);
+        return;
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         setType((LaunchConfigType)newValue);
         return;
@@ -1611,6 +1788,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return;
       case LcDslPackage.LAUNCH_CONFIG__CONFIG_INI_TEMPLATE:
         setConfigIniTemplate((ConfigIniTemplate)newValue);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__JAVA_MAIN_SEARCH:
+        setJavaMainSearch((JavaMainSearch)newValue);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__SERVLET_CONFIG:
+        setServletConfig((RapServletConfig)newValue);
         return;
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         getPlugins().clear();
@@ -1675,6 +1858,9 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
       case LcDslPackage.LAUNCH_CONFIG__REPLACE_ENV:
         setReplaceEnv(REPLACE_ENV_EDEFAULT);
         return;
+      case LcDslPackage.LAUNCH_CONFIG__STOP_IN_MAIN:
+        setStopInMain(STOP_IN_MAIN_EDEFAULT);
+        return;
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         setType(TYPE_EDEFAULT);
         return;
@@ -1719,6 +1905,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return;
       case LcDslPackage.LAUNCH_CONFIG__CONFIG_INI_TEMPLATE:
         setConfigIniTemplate((ConfigIniTemplate)null);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__JAVA_MAIN_SEARCH:
+        setJavaMainSearch((JavaMainSearch)null);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__SERVLET_CONFIG:
+        setServletConfig((RapServletConfig)null);
         return;
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         getPlugins().clear();
@@ -1769,6 +1961,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return swInstallSupport != SW_INSTALL_SUPPORT_EDEFAULT;
       case LcDslPackage.LAUNCH_CONFIG__REPLACE_ENV:
         return replaceEnv != REPLACE_ENV_EDEFAULT;
+      case LcDslPackage.LAUNCH_CONFIG__STOP_IN_MAIN:
+        return stopInMain != STOP_IN_MAIN_EDEFAULT;
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         return type != TYPE_EDEFAULT;
       case LcDslPackage.LAUNCH_CONFIG__NAME:
@@ -1799,6 +1993,10 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return execEnv != null;
       case LcDslPackage.LAUNCH_CONFIG__CONFIG_INI_TEMPLATE:
         return configIniTemplate != null;
+      case LcDslPackage.LAUNCH_CONFIG__JAVA_MAIN_SEARCH:
+        return javaMainSearch != null;
+      case LcDslPackage.LAUNCH_CONFIG__SERVLET_CONFIG:
+        return servletConfig != null;
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         return plugins != null && !plugins.isEmpty();
       case LcDslPackage.LAUNCH_CONFIG__IGNORE:
@@ -1842,6 +2040,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
     result.append(swInstallSupport);
     result.append(", replaceEnv: ");
     result.append(replaceEnv);
+    result.append(", stopInMain: ");
+    result.append(stopInMain);
     result.append(", type: ");
     result.append(type);
     result.append(", name: ");

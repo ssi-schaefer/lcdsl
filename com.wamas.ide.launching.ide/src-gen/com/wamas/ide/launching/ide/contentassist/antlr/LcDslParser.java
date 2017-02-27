@@ -39,6 +39,7 @@ public class LcDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPathAccess().getAlternatives(), "rule__Path__Alternatives");
 					put(grammarAccess.getClearOptionAccess().getAlternatives_2_0_0(), "rule__ClearOption__Alternatives_2_0_0");
 					put(grammarAccess.getGroupPostLaunchActionAccess().getAlternatives(), "rule__GroupPostLaunchAction__Alternatives");
+					put(grammarAccess.getBrowserLaunchModeAccess().getAlternatives(), "rule__BrowserLaunchMode__Alternatives");
 					put(grammarAccess.getLaunchConfigTypeAccess().getAlternatives(), "rule__LaunchConfigType__Alternatives");
 					put(grammarAccess.getLaunchModeTypeAccess().getAlternatives(), "rule__LaunchModeType__Alternatives");
 					put(grammarAccess.getMemoryUnitAccess().getAlternatives(), "rule__MemoryUnit__Alternatives");
@@ -65,6 +66,14 @@ public class LcDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExecutionEnvironmentAccess().getGroup(), "rule__ExecutionEnvironment__Group__0");
 					put(grammarAccess.getConfigIniTemplateAccess().getGroup(), "rule__ConfigIniTemplate__Group__0");
 					put(grammarAccess.getTraceEnablementAccess().getGroup(), "rule__TraceEnablement__Group__0");
+					put(grammarAccess.getJavaMainSearchAccess().getGroup(), "rule__JavaMainSearch__Group__0");
+					put(grammarAccess.getRapServletConfigAccess().getGroup(), "rule__RapServletConfig__Group__0");
+					put(grammarAccess.getRapServletConfigAccess().getGroup_2_0(), "rule__RapServletConfig__Group_2_0__0");
+					put(grammarAccess.getRapServletConfigAccess().getGroup_2_1(), "rule__RapServletConfig__Group_2_1__0");
+					put(grammarAccess.getRapServletConfigAccess().getGroup_2_2(), "rule__RapServletConfig__Group_2_2__0");
+					put(grammarAccess.getRapServletConfigAccess().getGroup_2_3(), "rule__RapServletConfig__Group_2_3__0");
+					put(grammarAccess.getRapServletConfigAccess().getGroup_2_4(), "rule__RapServletConfig__Group_2_4__0");
+					put(grammarAccess.getRapServletConfigAccess().getGroup_2_5(), "rule__RapServletConfig__Group_2_5__0");
 					put(grammarAccess.getPluginWithVersionAndStartLevelAccess().getGroup(), "rule__PluginWithVersionAndStartLevel__Group__0");
 					put(grammarAccess.getPluginWithVersionAndStartLevelAccess().getGroup_1_1(), "rule__PluginWithVersionAndStartLevel__Group_1_1__0");
 					put(grammarAccess.getPluginWithVersionAccess().getGroup(), "rule__PluginWithVersion__Group__0");
@@ -88,6 +97,7 @@ public class LcDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLaunchConfigAccess().getNoValidateAssignment_0_4(), "rule__LaunchConfig__NoValidateAssignment_0_4");
 					put(grammarAccess.getLaunchConfigAccess().getSwInstallSupportAssignment_0_5(), "rule__LaunchConfig__SwInstallSupportAssignment_0_5");
 					put(grammarAccess.getLaunchConfigAccess().getReplaceEnvAssignment_0_6(), "rule__LaunchConfig__ReplaceEnvAssignment_0_6");
+					put(grammarAccess.getLaunchConfigAccess().getStopInMainAssignment_0_7(), "rule__LaunchConfig__StopInMainAssignment_0_7");
 					put(grammarAccess.getLaunchConfigAccess().getTypeAssignment_1(), "rule__LaunchConfig__TypeAssignment_1");
 					put(grammarAccess.getLaunchConfigAccess().getNameAssignment_3(), "rule__LaunchConfig__NameAssignment_3");
 					put(grammarAccess.getLaunchConfigAccess().getSuperConfigAssignment_4_1(), "rule__LaunchConfig__SuperConfigAssignment_4_1");
@@ -103,6 +113,8 @@ public class LcDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLaunchConfigAccess().getRedirectAssignment_6_9(), "rule__LaunchConfig__RedirectAssignment_6_9");
 					put(grammarAccess.getLaunchConfigAccess().getExecEnvAssignment_6_10(), "rule__LaunchConfig__ExecEnvAssignment_6_10");
 					put(grammarAccess.getLaunchConfigAccess().getConfigIniTemplateAssignment_6_11(), "rule__LaunchConfig__ConfigIniTemplateAssignment_6_11");
+					put(grammarAccess.getLaunchConfigAccess().getJavaMainSearchAssignment_6_12(), "rule__LaunchConfig__JavaMainSearchAssignment_6_12");
+					put(grammarAccess.getLaunchConfigAccess().getServletConfigAssignment_6_13(), "rule__LaunchConfig__ServletConfigAssignment_6_13");
 					put(grammarAccess.getLaunchConfigAccess().getPluginsAssignment_7_0(), "rule__LaunchConfig__PluginsAssignment_7_0");
 					put(grammarAccess.getLaunchConfigAccess().getIgnoreAssignment_7_1(), "rule__LaunchConfig__IgnoreAssignment_7_1");
 					put(grammarAccess.getLaunchConfigAccess().getGroupMembersAssignment_7_2(), "rule__LaunchConfig__GroupMembersAssignment_7_2");
@@ -128,6 +140,14 @@ public class LcDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConfigIniTemplateAccess().getPathAssignment_1(), "rule__ConfigIniTemplate__PathAssignment_1");
 					put(grammarAccess.getTraceEnablementAccess().getPluginAssignment_1(), "rule__TraceEnablement__PluginAssignment_1");
 					put(grammarAccess.getTraceEnablementAccess().getWhatAssignment_2(), "rule__TraceEnablement__WhatAssignment_2");
+					put(grammarAccess.getJavaMainSearchAccess().getSystemAssignment_2_0(), "rule__JavaMainSearch__SystemAssignment_2_0");
+					put(grammarAccess.getJavaMainSearchAccess().getInheritedAssignment_2_1(), "rule__JavaMainSearch__InheritedAssignment_2_1");
+					put(grammarAccess.getRapServletConfigAccess().getServletPathAssignment_2_0_1(), "rule__RapServletConfig__ServletPathAssignment_2_0_1");
+					put(grammarAccess.getRapServletConfigAccess().getBrowserModeAssignment_2_1_1(), "rule__RapServletConfig__BrowserModeAssignment_2_1_1");
+					put(grammarAccess.getRapServletConfigAccess().getServerPortAssignment_2_2_1(), "rule__RapServletConfig__ServerPortAssignment_2_2_1");
+					put(grammarAccess.getRapServletConfigAccess().getSessionTimeoutAssignment_2_3_1(), "rule__RapServletConfig__SessionTimeoutAssignment_2_3_1");
+					put(grammarAccess.getRapServletConfigAccess().getContextPathAssignment_2_4_1(), "rule__RapServletConfig__ContextPathAssignment_2_4_1");
+					put(grammarAccess.getRapServletConfigAccess().getDevModeAssignment_2_5_1(), "rule__RapServletConfig__DevModeAssignment_2_5_1");
 					put(grammarAccess.getExistingPathAccess().getNameAssignment(), "rule__ExistingPath__NameAssignment");
 					put(grammarAccess.getAnyPathAccess().getNameAssignment(), "rule__AnyPath__NameAssignment");
 					put(grammarAccess.getPluginWithVersionAndStartLevelAccess().getPluginAssignment_0(), "rule__PluginWithVersionAndStartLevel__PluginAssignment_0");
@@ -157,6 +177,8 @@ public class LcDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), "rule__LaunchConfig__UnorderedGroup_6");
 					put(grammarAccess.getFavoritesAccess().getUnorderedGroup_2(), "rule__Favorites__UnorderedGroup_2");
 					put(grammarAccess.getRedirectAccess().getUnorderedGroup_2(), "rule__Redirect__UnorderedGroup_2");
+					put(grammarAccess.getJavaMainSearchAccess().getUnorderedGroup_2(), "rule__JavaMainSearch__UnorderedGroup_2");
+					put(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), "rule__RapServletConfig__UnorderedGroup_2");
 					put(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), "rule__PluginWithVersionAndStartLevel__UnorderedGroup_1");
 					put(grammarAccess.getClearOptionAccess().getUnorderedGroup_2(), "rule__ClearOption__UnorderedGroup_2");
 					put(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), "rule__MemoryOption__UnorderedGroup_2");

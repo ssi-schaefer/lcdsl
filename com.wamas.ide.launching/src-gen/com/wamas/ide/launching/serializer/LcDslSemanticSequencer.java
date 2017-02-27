@@ -18,6 +18,7 @@ import com.wamas.ide.launching.lcDsl.GroupPostLaunchDelay;
 import com.wamas.ide.launching.lcDsl.GroupPostLaunchRegex;
 import com.wamas.ide.launching.lcDsl.GroupPostLaunchWait;
 import com.wamas.ide.launching.lcDsl.IgnorePlugin;
+import com.wamas.ide.launching.lcDsl.JavaMainSearch;
 import com.wamas.ide.launching.lcDsl.JavaType;
 import com.wamas.ide.launching.lcDsl.LCModel;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
@@ -28,6 +29,7 @@ import com.wamas.ide.launching.lcDsl.PluginWithVersionAndStartLevel;
 import com.wamas.ide.launching.lcDsl.ProductExtPoint;
 import com.wamas.ide.launching.lcDsl.ProgramArgument;
 import com.wamas.ide.launching.lcDsl.Project;
+import com.wamas.ide.launching.lcDsl.RapServletConfig;
 import com.wamas.ide.launching.lcDsl.Redirect;
 import com.wamas.ide.launching.lcDsl.TraceEnablement;
 import com.wamas.ide.launching.lcDsl.VmArgument;
@@ -99,6 +101,9 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case LcDslPackage.IGNORE_PLUGIN:
 				sequence_IgnorePlugin(context, (IgnorePlugin) semanticObject); 
 				return; 
+			case LcDslPackage.JAVA_MAIN_SEARCH:
+				sequence_JavaMainSearch(context, (JavaMainSearch) semanticObject); 
+				return; 
 			case LcDslPackage.JAVA_TYPE:
 				sequence_JavaType(context, (JavaType) semanticObject); 
 				return; 
@@ -132,6 +137,9 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case LcDslPackage.PROJECT:
 				sequence_Project(context, (Project) semanticObject); 
+				return; 
+			case LcDslPackage.RAP_SERVLET_CONFIG:
+				sequence_RapServletConfig(context, (RapServletConfig) semanticObject); 
 				return; 
 			case LcDslPackage.REDIRECT:
 				sequence_Redirect(context, (Redirect) semanticObject); 
@@ -385,6 +393,18 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     JavaMainSearch returns JavaMainSearch
+	 *
+	 * Constraint:
+	 *     (system?='system' | inherited?='inherited')*
+	 */
+	protected void sequence_JavaMainSearch(ISerializationContext context, JavaMainSearch semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     JavaType returns JavaType
 	 *
 	 * Constraint:
@@ -426,7 +446,8 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *             noConsole?='no-console' | 
 	 *             noValidate?='no-validate' | 
 	 *             swInstallSupport?='sw-install-allowed' | 
-	 *             replaceEnv?='replace-env'
+	 *             replaceEnv?='replace-env' | 
+	 *             stopInMain?='stop-in-main'
 	 *         )* 
 	 *         type=LaunchConfigType 
 	 *         name=FQName 
@@ -443,7 +464,9 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *             favorites=Favorites | 
 	 *             redirect=Redirect | 
 	 *             execEnv=ExecutionEnvironment | 
-	 *             configIniTemplate=ConfigIniTemplate
+	 *             configIniTemplate=ConfigIniTemplate | 
+	 *             javaMainSearch=JavaMainSearch | 
+	 *             servletConfig=RapServletConfig
 	 *         )* 
 	 *         plugins+=AddPlugin? 
 	 *         (
@@ -563,6 +586,25 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getProjectAccess().getNameFQNameParserRuleCall_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     RapServletConfig returns RapServletConfig
+	 *
+	 * Constraint:
+	 *     (
+	 *         servletPath=STRING | 
+	 *         browserMode=BrowserLaunchMode | 
+	 *         serverPort=INT | 
+	 *         sessionTimeout=INT | 
+	 *         contextPath=STRING | 
+	 *         devMode=BOOLEAN
+	 *     )+
+	 */
+	protected void sequence_RapServletConfig(ISerializationContext context, RapServletConfig semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

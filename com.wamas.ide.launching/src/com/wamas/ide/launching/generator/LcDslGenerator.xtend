@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.debug.core.DebugPlugin
 
 /**
  * Generates code from your model files on save.
@@ -18,13 +19,23 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class LcDslGenerator extends AbstractGenerator {
 
 	@Inject
-	StandaloneLaunchConfigGenerator generator
+	extension StandaloneLaunchConfigGenerator generator
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for (x : resource.allContents.filter(typeof(LaunchConfig)).toIterable) {
-			if(!x.manual)
-				generator.generate(x)
+			if(x.needsGeneration)
+				x.generate
 		}
+	}
+	
+	def boolean needsGeneration(LaunchConfig config) {
+		// always generate if the launch config is already there to update it, regardless of 'manual' mode.
+		for(lc : DebugPlugin.^default.launchManager.launchConfigurations) {
+			if(lc.name.equals(config.name))
+				return true
+		}
+		
+		!config.manual
 	}
 	
 }

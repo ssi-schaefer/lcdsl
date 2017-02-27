@@ -6,6 +6,7 @@ package com.wamas.ide.launching.lcDsl.impl;
 import com.wamas.ide.launching.lcDsl.AddPlugin;
 import com.wamas.ide.launching.lcDsl.AnyPath;
 import com.wamas.ide.launching.lcDsl.ApplicationExtPoint;
+import com.wamas.ide.launching.lcDsl.BrowserLaunchMode;
 import com.wamas.ide.launching.lcDsl.ClearOption;
 import com.wamas.ide.launching.lcDsl.ConfigIniTemplate;
 import com.wamas.ide.launching.lcDsl.EnvironmentVariable;
@@ -19,6 +20,7 @@ import com.wamas.ide.launching.lcDsl.GroupPostLaunchRegex;
 import com.wamas.ide.launching.lcDsl.GroupPostLaunchWait;
 import com.wamas.ide.launching.lcDsl.IgnorePlugin;
 import com.wamas.ide.launching.lcDsl.InputStream;
+import com.wamas.ide.launching.lcDsl.JavaMainSearch;
 import com.wamas.ide.launching.lcDsl.JavaType;
 import com.wamas.ide.launching.lcDsl.LCModel;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
@@ -36,6 +38,7 @@ import com.wamas.ide.launching.lcDsl.PluginWithVersionAndStartLevel;
 import com.wamas.ide.launching.lcDsl.ProductExtPoint;
 import com.wamas.ide.launching.lcDsl.ProgramArgument;
 import com.wamas.ide.launching.lcDsl.Project;
+import com.wamas.ide.launching.lcDsl.RapServletConfig;
 import com.wamas.ide.launching.lcDsl.Redirect;
 import com.wamas.ide.launching.lcDsl.TraceEnablement;
 import com.wamas.ide.launching.lcDsl.VmArgument;
@@ -159,6 +162,20 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass javaMainSearchEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rapServletConfigEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass pathEClass = null;
 
   /**
@@ -258,6 +275,13 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * @generated
    */
   private EClass groupPostLaunchWaitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum browserLaunchModeEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -462,7 +486,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLaunchConfig_Type()
+  public EAttribute getLaunchConfig_StopInMain()
   {
     return (EAttribute)launchConfigEClass.getEStructuralFeatures().get(7);
   }
@@ -472,7 +496,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLaunchConfig_Name()
+  public EAttribute getLaunchConfig_Type()
   {
     return (EAttribute)launchConfigEClass.getEStructuralFeatures().get(8);
   }
@@ -482,9 +506,9 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_SuperConfig()
+  public EAttribute getLaunchConfig_Name()
   {
-    return (EReference)launchConfigEClass.getEStructuralFeatures().get(9);
+    return (EAttribute)launchConfigEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -492,7 +516,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_Clears()
+  public EReference getLaunchConfig_SuperConfig()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(10);
   }
@@ -502,7 +526,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_Workspace()
+  public EReference getLaunchConfig_Clears()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(11);
   }
@@ -512,7 +536,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_WorkingDir()
+  public EReference getLaunchConfig_Workspace()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(12);
   }
@@ -522,7 +546,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_Memory()
+  public EReference getLaunchConfig_WorkingDir()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(13);
   }
@@ -532,7 +556,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_Project()
+  public EReference getLaunchConfig_Memory()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(14);
   }
@@ -542,7 +566,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_MainClass()
+  public EReference getLaunchConfig_Project()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(15);
   }
@@ -552,7 +576,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_Application()
+  public EReference getLaunchConfig_MainClass()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(16);
   }
@@ -562,7 +586,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_Product()
+  public EReference getLaunchConfig_Application()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(17);
   }
@@ -572,7 +596,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_Favorites()
+  public EReference getLaunchConfig_Product()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(18);
   }
@@ -582,7 +606,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_Redirect()
+  public EReference getLaunchConfig_Favorites()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(19);
   }
@@ -592,7 +616,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_ExecEnv()
+  public EReference getLaunchConfig_Redirect()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(20);
   }
@@ -602,7 +626,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_ConfigIniTemplate()
+  public EReference getLaunchConfig_ExecEnv()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(21);
   }
@@ -612,7 +636,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_Plugins()
+  public EReference getLaunchConfig_ConfigIniTemplate()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(22);
   }
@@ -622,7 +646,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_Ignore()
+  public EReference getLaunchConfig_JavaMainSearch()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(23);
   }
@@ -632,7 +656,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_GroupMembers()
+  public EReference getLaunchConfig_ServletConfig()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(24);
   }
@@ -642,7 +666,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_VmArgs()
+  public EReference getLaunchConfig_Plugins()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(25);
   }
@@ -652,7 +676,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_ProgArgs()
+  public EReference getLaunchConfig_Ignore()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(26);
   }
@@ -662,7 +686,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_EnvVars()
+  public EReference getLaunchConfig_GroupMembers()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(27);
   }
@@ -672,9 +696,39 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLaunchConfig_Traces()
+  public EReference getLaunchConfig_VmArgs()
   {
     return (EReference)launchConfigEClass.getEStructuralFeatures().get(28);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLaunchConfig_ProgArgs()
+  {
+    return (EReference)launchConfigEClass.getEStructuralFeatures().get(29);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLaunchConfig_EnvVars()
+  {
+    return (EReference)launchConfigEClass.getEStructuralFeatures().get(30);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLaunchConfig_Traces()
+  {
+    return (EReference)launchConfigEClass.getEStructuralFeatures().get(31);
   }
 
   /**
@@ -975,6 +1029,106 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
   public EAttribute getTraceEnablement_What()
   {
     return (EAttribute)traceEnablementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getJavaMainSearch()
+  {
+    return javaMainSearchEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getJavaMainSearch_System()
+  {
+    return (EAttribute)javaMainSearchEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getJavaMainSearch_Inherited()
+  {
+    return (EAttribute)javaMainSearchEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRapServletConfig()
+  {
+    return rapServletConfigEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRapServletConfig_ServletPath()
+  {
+    return (EAttribute)rapServletConfigEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRapServletConfig_BrowserMode()
+  {
+    return (EAttribute)rapServletConfigEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRapServletConfig_ServerPort()
+  {
+    return (EAttribute)rapServletConfigEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRapServletConfig_SessionTimeout()
+  {
+    return (EAttribute)rapServletConfigEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRapServletConfig_ContextPath()
+  {
+    return (EAttribute)rapServletConfigEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRapServletConfig_DevMode()
+  {
+    return (EAttribute)rapServletConfigEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1372,6 +1526,16 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getBrowserLaunchMode()
+  {
+    return browserLaunchModeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getLaunchConfigType()
   {
     return launchConfigTypeEEnum;
@@ -1458,6 +1622,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     createEAttribute(launchConfigEClass, LAUNCH_CONFIG__NO_VALIDATE);
     createEAttribute(launchConfigEClass, LAUNCH_CONFIG__SW_INSTALL_SUPPORT);
     createEAttribute(launchConfigEClass, LAUNCH_CONFIG__REPLACE_ENV);
+    createEAttribute(launchConfigEClass, LAUNCH_CONFIG__STOP_IN_MAIN);
     createEAttribute(launchConfigEClass, LAUNCH_CONFIG__TYPE);
     createEAttribute(launchConfigEClass, LAUNCH_CONFIG__NAME);
     createEReference(launchConfigEClass, LAUNCH_CONFIG__SUPER_CONFIG);
@@ -1473,6 +1638,8 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     createEReference(launchConfigEClass, LAUNCH_CONFIG__REDIRECT);
     createEReference(launchConfigEClass, LAUNCH_CONFIG__EXEC_ENV);
     createEReference(launchConfigEClass, LAUNCH_CONFIG__CONFIG_INI_TEMPLATE);
+    createEReference(launchConfigEClass, LAUNCH_CONFIG__JAVA_MAIN_SEARCH);
+    createEReference(launchConfigEClass, LAUNCH_CONFIG__SERVLET_CONFIG);
     createEReference(launchConfigEClass, LAUNCH_CONFIG__PLUGINS);
     createEReference(launchConfigEClass, LAUNCH_CONFIG__IGNORE);
     createEReference(launchConfigEClass, LAUNCH_CONFIG__GROUP_MEMBERS);
@@ -1522,6 +1689,18 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     traceEnablementEClass = createEClass(TRACE_ENABLEMENT);
     createEReference(traceEnablementEClass, TRACE_ENABLEMENT__PLUGIN);
     createEAttribute(traceEnablementEClass, TRACE_ENABLEMENT__WHAT);
+
+    javaMainSearchEClass = createEClass(JAVA_MAIN_SEARCH);
+    createEAttribute(javaMainSearchEClass, JAVA_MAIN_SEARCH__SYSTEM);
+    createEAttribute(javaMainSearchEClass, JAVA_MAIN_SEARCH__INHERITED);
+
+    rapServletConfigEClass = createEClass(RAP_SERVLET_CONFIG);
+    createEAttribute(rapServletConfigEClass, RAP_SERVLET_CONFIG__SERVLET_PATH);
+    createEAttribute(rapServletConfigEClass, RAP_SERVLET_CONFIG__BROWSER_MODE);
+    createEAttribute(rapServletConfigEClass, RAP_SERVLET_CONFIG__SERVER_PORT);
+    createEAttribute(rapServletConfigEClass, RAP_SERVLET_CONFIG__SESSION_TIMEOUT);
+    createEAttribute(rapServletConfigEClass, RAP_SERVLET_CONFIG__CONTEXT_PATH);
+    createEAttribute(rapServletConfigEClass, RAP_SERVLET_CONFIG__DEV_MODE);
 
     pathEClass = createEClass(PATH);
     createEAttribute(pathEClass, PATH__NAME);
@@ -1578,6 +1757,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     groupPostLaunchWaitEClass = createEClass(GROUP_POST_LAUNCH_WAIT);
 
     // Create enums
+    browserLaunchModeEEnum = createEEnum(BROWSER_LAUNCH_MODE);
     launchConfigTypeEEnum = createEEnum(LAUNCH_CONFIG_TYPE);
     launchModeTypeEEnum = createEEnum(LAUNCH_MODE_TYPE);
     memoryUnitEEnum = createEEnum(MEMORY_UNIT);
@@ -1633,6 +1813,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     initEAttribute(getLaunchConfig_NoValidate(), ecorePackage.getEBoolean(), "noValidate", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLaunchConfig_SwInstallSupport(), ecorePackage.getEBoolean(), "swInstallSupport", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLaunchConfig_ReplaceEnv(), ecorePackage.getEBoolean(), "replaceEnv", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLaunchConfig_StopInMain(), ecorePackage.getEBoolean(), "stopInMain", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLaunchConfig_Type(), this.getLaunchConfigType(), "type", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLaunchConfig_Name(), ecorePackage.getEString(), "name", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLaunchConfig_SuperConfig(), this.getLaunchConfig(), null, "superConfig", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1648,6 +1829,8 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     initEReference(getLaunchConfig_Redirect(), this.getRedirect(), null, "redirect", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLaunchConfig_ExecEnv(), this.getExecutionEnvironment(), null, "execEnv", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLaunchConfig_ConfigIniTemplate(), this.getConfigIniTemplate(), null, "configIniTemplate", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLaunchConfig_JavaMainSearch(), this.getJavaMainSearch(), null, "javaMainSearch", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLaunchConfig_ServletConfig(), this.getRapServletConfig(), null, "servletConfig", null, 0, 1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLaunchConfig_Plugins(), this.getAddPlugin(), null, "plugins", null, 0, -1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLaunchConfig_Ignore(), this.getIgnorePlugin(), null, "ignore", null, 0, -1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLaunchConfig_GroupMembers(), this.getGroupMember(), null, "groupMembers", null, 0, -1, LaunchConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1697,6 +1880,18 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     initEClass(traceEnablementEClass, TraceEnablement.class, "TraceEnablement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTraceEnablement_Plugin(), this.getPluginWithVersion(), null, "plugin", null, 0, 1, TraceEnablement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTraceEnablement_What(), ecorePackage.getEString(), "what", null, 0, -1, TraceEnablement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(javaMainSearchEClass, JavaMainSearch.class, "JavaMainSearch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getJavaMainSearch_System(), ecorePackage.getEBoolean(), "system", null, 0, 1, JavaMainSearch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getJavaMainSearch_Inherited(), ecorePackage.getEBoolean(), "inherited", null, 0, 1, JavaMainSearch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rapServletConfigEClass, RapServletConfig.class, "RapServletConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRapServletConfig_ServletPath(), ecorePackage.getEString(), "servletPath", null, 0, 1, RapServletConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRapServletConfig_BrowserMode(), this.getBrowserLaunchMode(), "browserMode", null, 0, 1, RapServletConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRapServletConfig_ServerPort(), ecorePackage.getEInt(), "serverPort", null, 0, 1, RapServletConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRapServletConfig_SessionTimeout(), ecorePackage.getEInt(), "sessionTimeout", null, 0, 1, RapServletConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRapServletConfig_ContextPath(), ecorePackage.getEString(), "contextPath", null, 0, 1, RapServletConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRapServletConfig_DevMode(), ecorePackage.getEBoolean(), "devMode", null, 0, 1, RapServletConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pathEClass, Path.class, "Path", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPath_Name(), ecorePackage.getEString(), "name", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1753,6 +1948,11 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     initEClass(groupPostLaunchWaitEClass, GroupPostLaunchWait.class, "GroupPostLaunchWait", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Initialize enums and add enum literals
+    initEEnum(browserLaunchModeEEnum, BrowserLaunchMode.class, "BrowserLaunchMode");
+    addEEnumLiteral(browserLaunchModeEEnum, BrowserLaunchMode.INTERNAL);
+    addEEnumLiteral(browserLaunchModeEEnum, BrowserLaunchMode.EXTERNAL);
+    addEEnumLiteral(browserLaunchModeEEnum, BrowserLaunchMode.NONE);
+
     initEEnum(launchConfigTypeEEnum, LaunchConfigType.class, "LaunchConfigType");
     addEEnumLiteral(launchConfigTypeEEnum, LaunchConfigType.JAVA);
     addEEnumLiteral(launchConfigTypeEEnum, LaunchConfigType.ECLIPSE);

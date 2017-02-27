@@ -80,6 +80,8 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
       case LcDslPackage.EXECUTION_ENVIRONMENT: return createExecutionEnvironment();
       case LcDslPackage.CONFIG_INI_TEMPLATE: return createConfigIniTemplate();
       case LcDslPackage.TRACE_ENABLEMENT: return createTraceEnablement();
+      case LcDslPackage.JAVA_MAIN_SEARCH: return createJavaMainSearch();
+      case LcDslPackage.RAP_SERVLET_CONFIG: return createRapServletConfig();
       case LcDslPackage.PATH: return createPath();
       case LcDslPackage.EXISTING_PATH: return createExistingPath();
       case LcDslPackage.ANY_PATH: return createAnyPath();
@@ -110,6 +112,8 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
   {
     switch (eDataType.getClassifierID())
     {
+      case LcDslPackage.BROWSER_LAUNCH_MODE:
+        return createBrowserLaunchModeFromString(eDataType, initialValue);
       case LcDslPackage.LAUNCH_CONFIG_TYPE:
         return createLaunchConfigTypeFromString(eDataType, initialValue);
       case LcDslPackage.LAUNCH_MODE_TYPE:
@@ -135,6 +139,8 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
   {
     switch (eDataType.getClassifierID())
     {
+      case LcDslPackage.BROWSER_LAUNCH_MODE:
+        return convertBrowserLaunchModeToString(eDataType, instanceValue);
       case LcDslPackage.LAUNCH_CONFIG_TYPE:
         return convertLaunchConfigTypeToString(eDataType, instanceValue);
       case LcDslPackage.LAUNCH_MODE_TYPE:
@@ -309,6 +315,28 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public JavaMainSearch createJavaMainSearch()
+  {
+    JavaMainSearchImpl javaMainSearch = new JavaMainSearchImpl();
+    return javaMainSearch;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RapServletConfig createRapServletConfig()
+  {
+    RapServletConfigImpl rapServletConfig = new RapServletConfigImpl();
+    return rapServletConfig;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Path createPath()
   {
     PathImpl path = new PathImpl();
@@ -467,6 +495,28 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
   {
     GroupPostLaunchWaitImpl groupPostLaunchWait = new GroupPostLaunchWaitImpl();
     return groupPostLaunchWait;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BrowserLaunchMode createBrowserLaunchModeFromString(EDataType eDataType, String initialValue)
+  {
+    BrowserLaunchMode result = BrowserLaunchMode.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertBrowserLaunchModeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

@@ -10,18 +10,9 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
  * General: variable expansion for all paths (string subst, system properties)!
  * 
  * Java:
- *   - support for setting JRE
- *   - main class search settings (system libraries, inheritence)
  *   - stop in main
  *   - additional classpath entries (low prio)
  *   - additional source lookup (low prio)
- * 
- * RAP:
- *   - servlet path, port, context path
- *   - session timeout
- *   - open internal, external, not at all
- *   - RAP development mode
- *   - JRE settings (same as Java - but different)
  * 
  * How to support different launch config types - some generic attribute support?
  * Or really implement support for each type separately (probably the best experience).
@@ -41,39 +32,42 @@ LCModel:
  * replace-env = replace environment instead of appending variables
  */
 LaunchConfig:
-	((explicit?='explicit')? 
-		& (manual?='manual')? 
-		& (foreground?='foreground')? 
-		& (noConsole?='no-console')?
-		& (noValidate?='no-validate')?
-		& (swInstallSupport?='sw-install-allowed')?
-		& (replaceEnv?='replace-env')?
+	((explicit?='explicit')? // All
+		& (manual?='manual')? // All
+		& (foreground?='foreground')? // All  
+		& (noConsole?='no-console')? // All but Groups
+		& (noValidate?='no-validate')? // Eclipse, RAP
+		& (swInstallSupport?='sw-install-allowed')? // Eclipse
+		& (replaceEnv?='replace-env')? // All but Groups
+		& (stopInMain?='stop-in-main')? // Java
 	) type=LaunchConfigType 'configuration' name=FQName 
-	(':' superConfig=[LaunchConfig|FQName])? '{'
+	(':' superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN
 		( // things that may appear only once
-			(clears=ClearOption ';')?
-			& ('workspace' workspace=AnyPath ';')?
-			& ('working-dir' workingDir=ExistingPath ';')?
-			& (memory=MemoryOption ';')?
-			& ('project' project=Project ';')? // TODO: content assist
-			& ('main-class' mainClass=JavaType ';')? // TODO: content assist
-			& (application=ApplicationExtPoint)? // TODO: content assist, validation
-			& (product=ProductExtPoint)? // TODO: content assist, validation
-			& (favorites=Favorites)?
-			& (redirect=Redirect)?
-			& (execEnv=ExecutionEnvironment)? // TODO: content assist, validation
-			& (configIniTemplate=ConfigIniTemplate)?
+			(clears=ClearOption ';')? // Eclipse, RAP (partial)
+			& ('workspace' workspace=AnyPath ';')? // Eclipse, RAP
+			& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
+			& (memory=MemoryOption ';')? // All but Groups
+			& ('project' project=Project ';')? // Java 				// TODO: content assist
+			& ('main-class' mainClass=JavaType ';')? // Java 		// TODO: content assist
+			& (application=ApplicationExtPoint)? // Eclipse 		// TODO: content assist, validation
+			& (product=ProductExtPoint)? // Eclipse 				// TODO: content assist, validation
+			& (favorites=Favorites)? // All
+			& (redirect=Redirect)? // All
+			& (execEnv=ExecutionEnvironment)? // All but Groups 	// TODO: content assist, validation
+			& (configIniTemplate=ConfigIniTemplate)? // Eclipse
+			& (javaMainSearch=JavaMainSearch)? // Java
+			& (servletConfig=RapServletConfig)? // RAP
 		)
 		( // things that may appear multiple times
-			plugins+=AddPlugin // TODO: content assist
-			| ignore+=IgnorePlugin // TODO: content assist
-			| groupMembers+=GroupMember // TODO: content assist, validation, update on rename
-			| vmArgs+=VmArgument
-			| progArgs+=ProgramArgument
-			| envVars+=EnvironmentVariable
-			| traces+=TraceEnablement // TODO: content assist, validation
+			plugins+=AddPlugin // Eclipse, RAP 						// TODO: content assist
+			| ignore+=IgnorePlugin // Eclipse, RAP 					// TODO: content assist
+			| groupMembers+=GroupMember // Groups 					// TODO: content assist, validation, update on rename
+			| vmArgs+=VmArgument // All but Groups
+			| progArgs+=ProgramArgument // All but Groups
+			| envVars+=EnvironmentVariable // All but Groups
+			| traces+=TraceEnablement // Eclipse, RAP 				// TODO: content assist, validation
 		)*
-	'}'
+	BLOCK_END
 ;
 
 AddPlugin:
@@ -122,6 +116,23 @@ ConfigIniTemplate:
 
 TraceEnablement:
 	'trace' plugin=PluginWithVersion (what+=ID)* ';'
+;
+
+JavaMainSearch:
+	{JavaMainSearch} 'search-main' ((system?='system')? & (inherited?='inherited')?) ';'
+;
+
+RapServletConfig:
+	'servlet' BLOCK_BEGIN
+		(
+			('path' servletPath=STRING ';')
+			& ('open' browserMode=BrowserLaunchMode ';')?
+			& ('port' serverPort=INT ';')?
+			& ('session-timeout' sessionTimeout=INT ';')?
+			& ('context-path' contextPath=STRING ';')?
+			& ('dev-mode' devMode=BOOLEAN ';')?
+		)
+	BLOCK_END
 ;
 
 Path:
@@ -189,6 +200,10 @@ FQName:
 	ID ('.' ID)*
 ;
 
+enum BrowserLaunchMode:
+	INTERNAL='internal' | EXTERNAL = 'external' | NONE = 'none'
+;
+
 enum LaunchConfigType:
 	JAVA = "java" | ECLIPSE = "eclipse" | RAP = "rap" | GROUP = "group"
 ;
@@ -210,8 +225,12 @@ enum InputStream:
 	STDIN = "stdin"
 ;
 
+
 terminal INT returns ecore::EInt: ('0'..'9')+;
+terminal BOOLEAN returns ecore::EBoolean: ('true' | 'false');
 terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('.'? ('a'..'z'|'A'..'Z'|'^'|'_'|'-'|'0'..'9'))*;
 terminal QUALIFIER: ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9')*;
 terminal VERSION: INT (('.' INT) (('.' INT) ('.' QUALIFIER)?)?)?;
 terminal EQ: '=';
+terminal BLOCK_BEGIN: '{';
+terminal BLOCK_END: '}';
