@@ -294,6 +294,15 @@ public interface LcDslFactory extends EFactory
   GroupPostLaunchWait createGroupPostLaunchWait();
 
   /**
+   * Returns a new object of class '<em>String With Variables</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String With Variables</em>'.
+   * @generated
+   */
+  StringWithVariables createStringWithVariables();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

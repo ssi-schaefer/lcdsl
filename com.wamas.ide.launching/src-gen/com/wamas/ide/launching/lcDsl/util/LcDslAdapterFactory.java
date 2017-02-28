@@ -226,6 +226,11 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
         return createGroupPostLaunchWaitAdapter();
       }
       @Override
+      public Adapter caseStringWithVariables(StringWithVariables object)
+      {
+        return createStringWithVariablesAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -693,6 +698,21 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createGroupPostLaunchWaitAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.StringWithVariables <em>String With Variables</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.StringWithVariables
+   * @generated
+   */
+  public Adapter createStringWithVariablesAdapter()
   {
     return null;
   }

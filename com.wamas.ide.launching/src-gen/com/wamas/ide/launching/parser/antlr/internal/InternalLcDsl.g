@@ -1106,19 +1106,20 @@ ruleVmArgument returns [EObject current=null]
 		}
 		(
 			(
-				lv_arguments_2_0=RULE_STRING
 				{
-					newLeafNode(lv_arguments_2_0, grammarAccess.getVmArgumentAccess().getArgumentsSTRINGTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getVmArgumentAccess().getArgumentsStringWithVariablesParserRuleCall_2_0());
 				}
+				lv_arguments_2_0=ruleStringWithVariables
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getVmArgumentRule());
+						$current = createModelElementForParent(grammarAccess.getVmArgumentRule());
 					}
-					addWithLastConsumed(
+					add(
 						$current,
 						"arguments",
 						lv_arguments_2_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"com.wamas.ide.launching.LcDsl.StringWithVariables");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
@@ -1158,19 +1159,20 @@ ruleProgramArgument returns [EObject current=null]
 		}
 		(
 			(
-				lv_arguments_2_0=RULE_STRING
 				{
-					newLeafNode(lv_arguments_2_0, grammarAccess.getProgramArgumentAccess().getArgumentsSTRINGTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getProgramArgumentAccess().getArgumentsStringWithVariablesParserRuleCall_2_0());
 				}
+				lv_arguments_2_0=ruleStringWithVariables
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getProgramArgumentRule());
+						$current = createModelElementForParent(grammarAccess.getProgramArgumentRule());
 					}
-					addWithLastConsumed(
+					add(
 						$current,
 						"arguments",
 						lv_arguments_2_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"com.wamas.ide.launching.LcDsl.StringWithVariables");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
@@ -1232,19 +1234,20 @@ ruleEnvironmentVariable returns [EObject current=null]
 		}
 		(
 			(
-				lv_value_4_0=RULE_STRING
 				{
-					newLeafNode(lv_value_4_0, grammarAccess.getEnvironmentVariableAccess().getValueSTRINGTerminalRuleCall_4_0());
+					newCompositeNode(grammarAccess.getEnvironmentVariableAccess().getValueStringWithVariablesParserRuleCall_4_0());
 				}
+				lv_value_4_0=ruleStringWithVariables
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEnvironmentVariableRule());
+						$current = createModelElementForParent(grammarAccess.getEnvironmentVariableRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"value",
 						lv_value_4_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"com.wamas.ide.launching.LcDsl.StringWithVariables");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -2130,19 +2133,20 @@ ruleExistingPath returns [EObject current=null]
 }:
 	(
 		(
-			lv_name_0_0=RULE_STRING
 			{
-				newLeafNode(lv_name_0_0, grammarAccess.getExistingPathAccess().getNameSTRINGTerminalRuleCall_0());
+				newCompositeNode(grammarAccess.getExistingPathAccess().getNameStringWithVariablesParserRuleCall_0());
 			}
+			lv_name_0_0=ruleStringWithVariables
 			{
 				if ($current==null) {
-					$current = createModelElement(grammarAccess.getExistingPathRule());
+					$current = createModelElementForParent(grammarAccess.getExistingPathRule());
 				}
-				setWithLastConsumed(
+				set(
 					$current,
 					"name",
 					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.STRING");
+					"com.wamas.ide.launching.LcDsl.StringWithVariables");
+				afterParserOrEnumRuleCall();
 			}
 		)
 	)
@@ -2165,19 +2169,20 @@ ruleAnyPath returns [EObject current=null]
 }:
 	(
 		(
-			lv_name_0_0=RULE_STRING
 			{
-				newLeafNode(lv_name_0_0, grammarAccess.getAnyPathAccess().getNameSTRINGTerminalRuleCall_0());
+				newCompositeNode(grammarAccess.getAnyPathAccess().getNameStringWithVariablesParserRuleCall_0());
 			}
+			lv_name_0_0=ruleStringWithVariables
 			{
 				if ($current==null) {
-					$current = createModelElement(grammarAccess.getAnyPathRule());
+					$current = createModelElementForParent(grammarAccess.getAnyPathRule());
 				}
-				setWithLastConsumed(
+				set(
 					$current,
 					"name",
 					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.STRING");
+					"com.wamas.ide.launching.LcDsl.StringWithVariables");
+				afterParserOrEnumRuleCall();
 			}
 		)
 	)
@@ -3035,6 +3040,41 @@ ruleGroupPostLaunchWait returns [EObject current=null]
 		{
 			newLeafNode(otherlv_1, grammarAccess.getGroupPostLaunchWaitAccess().getWaitKeyword_1());
 		}
+	)
+;
+
+// Entry rule entryRuleStringWithVariables
+entryRuleStringWithVariables returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getStringWithVariablesRule()); }
+	iv_ruleStringWithVariables=ruleStringWithVariables
+	{ $current=$iv_ruleStringWithVariables.current; }
+	EOF;
+
+// Rule StringWithVariables
+ruleStringWithVariables returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_value_0_0=RULE_STRING
+			{
+				newLeafNode(lv_value_0_0, grammarAccess.getStringWithVariablesAccess().getValueSTRINGTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getStringWithVariablesRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"value",
+					lv_value_0_0,
+					"org.eclipse.xtext.common.Terminals.STRING");
+			}
+		)
 	)
 ;
 

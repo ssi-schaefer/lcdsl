@@ -7,7 +7,8 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 /**
  * TODO: The language is still missing some things that could be set:
  * 
- * General: variable expansion for all paths (string subst, system properties)!
+ * General: 
+ *   - variable expansion for all STRING_WITH_VARIABLES (paths, vm-args and prog-args) (string subst, system properties)!
  * 
  * Java:
  *   - additional classpath entries (low prio)
@@ -47,12 +48,12 @@ LaunchConfig:
 			& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
 			& (memory=MemoryOption ';')? // All but Groups
 			& ('project' project=Project ';')? // Java
-			& ('main-class' mainClass=JavaMainType ';')? // Java 		// TODO: content assist, validation
+			& ('main-class' mainClass=JavaMainType ';')? // Java
 			& (application=ApplicationExtPoint)? // Eclipse 		// TODO: content assist, validation
 			& (product=ProductExtPoint)? // Eclipse 				// TODO: content assist, validation
 			& (favorites=Favorites)? // All
 			& (redirect=Redirect)? // All but Groups
-			& (execEnv=ExecutionEnvironment)? // All but Groups 	// TODO: content assist, validation
+			& (execEnv=ExecutionEnvironment)? // All but Groups
 			& (configIniTemplate=ConfigIniTemplate)? // Eclipse
 			& (javaMainSearch=JavaMainSearch)? // Java
 			& (servletConfig=RapServletConfig)? // RAP
@@ -78,15 +79,15 @@ IgnorePlugin:
 ;
 
 VmArgument:
-	{VmArgument} 'vm-arg' (arguments+=STRING)* ';'
+	{VmArgument} 'vm-arg' (arguments+=StringWithVariables)* ';'
 ;
 
 ProgramArgument:
-	{ProgramArgument} 'argument' (arguments+=STRING)* ';'
+	{ProgramArgument} 'argument' (arguments+=StringWithVariables)* ';'
 ;
 
 EnvironmentVariable:
-	{EnvironmentVariable} 'environment' name=ID EQ value=STRING ';'
+	{EnvironmentVariable} 'environment' name=ID EQ value=StringWithVariables ';'
 ;
 
 ApplicationExtPoint:
@@ -138,10 +139,10 @@ Path:
 	ExistingPath|AnyPath // TODO: content assist? is it possible?
 ;
 ExistingPath:
-	name = STRING
+	name = StringWithVariables
 ;
 AnyPath:
-	name = STRING
+	name = StringWithVariables
 ;
 
 PluginWithVersionAndStartLevel:
@@ -188,6 +189,10 @@ GroupPostLaunchWait:
 	{GroupPostLaunchWait} 'wait'
 ;
 
+StringWithVariables:
+	value=STRING
+;
+
 /**
  * A possibly fully qualified name (separated by '.').
  */
@@ -219,7 +224,6 @@ enum OutputStream:
 enum InputStream:
 	STDIN = "stdin"
 ;
-
 
 terminal INT returns ecore::EInt: ('0'..'9')+;
 terminal BOOLEAN returns ecore::EBoolean: ('true' | 'false');

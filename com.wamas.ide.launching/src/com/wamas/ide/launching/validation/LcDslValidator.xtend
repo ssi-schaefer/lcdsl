@@ -4,25 +4,29 @@
 package com.wamas.ide.launching.validation
 
 import com.wamas.ide.launching.generator.LcDslGenerator
+import com.wamas.ide.launching.lcDsl.ExecutionEnvironment
 import com.wamas.ide.launching.lcDsl.ExistingPath
 import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.LcDslPackage
 import com.wamas.ide.launching.lcDsl.PluginWithVersion
 import com.wamas.ide.launching.lcDsl.Project
+import com.wamas.ide.launching.lcDsl.StringWithVariables
 import java.io.File
 import java.util.List
 import java.util.Set
+import org.eclipse.core.internal.variables.StringVariableManager
 import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.core.runtime.CoreException
+import org.eclipse.core.runtime.NullProgressMonitor
 import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.jdt.core.JavaCore
+import org.eclipse.jdt.launching.JavaRuntime
 import org.eclipse.pde.core.plugin.IMatchRules
 import org.eclipse.pde.core.plugin.PluginRegistry
 import org.eclipse.xtext.validation.Check
 
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
-import com.wamas.ide.launching.lcDsl.JavaMainType
-import org.eclipse.jdt.core.JavaCore
-import org.eclipse.core.runtime.NullProgressMonitor
 
 /**
  * This class contains custom validation rules. 
@@ -191,19 +195,19 @@ class LcDslValidator extends AbstractLcDslValidator {
 			val prj = ResourcesPlugin.workspace.root.getProject(cfg.project.name);
 			if (prj != null && prj.exists && prj.open) {
 				val jp = JavaCore.create(prj)
-				if(!jp.exists) {
+				if (!jp.exists) {
 					error("project " + cfg.project.name + " is not a java project", LC.launchConfig_Project)
 					return
 				}
-				
+
 				val type = jp.findType(cfg.mainClass.name, new NullProgressMonitor)
 				if (type == null || !type.exists) {
 					error("main type " + cfg.mainClass.name + " not found in class-path of " + cfg.project.name,
 						LC.launchConfig_MainClass)
 					return
 				}
-				
-				if(!type.methods.exists[mainMethod]) {
+
+				if (!type.methods.exists[mainMethod]) {
 					error("type " + cfg.mainClass.name + " does not contain a main method", LC.launchConfig_MainClass)
 					return
 				}
@@ -213,10 +217,13 @@ class LcDslValidator extends AbstractLcDslValidator {
 
 	@Check
 	def checkPathExists(ExistingPath p) {
-		// TODO: variable expansion
-		val f = new File(p.name);
-		if (!f.exists) {
-			warning("Path " + p.name + " does not exist", p, LC.path_Name)
+		try {
+			val f = new File(p.name.expanded);
+			if (!f.exists) {
+				warning("Path " + p.name + " does not exist", p, LC.path_Name)
+			}
+		} catch(CoreException e) {
+			warning(e.message, LC.path_Name)
 		}
 	}
 
@@ -228,4 +235,25 @@ class LcDslValidator extends AbstractLcDslValidator {
 		}
 	}
 
+	@Check
+	def checkExecutionEnvironment(ExecutionEnvironment e) {
+		if (e.name == null || e.name.empty)
+			return
+
+		val exe = JavaRuntime.getExecutionEnvironmentsManager().getEnvironment(e.name);
+		if (exe == null) {
+			error("cannot find execution environment " + e.name, LC.executionEnvironment_Name)
+		} else if (exe.compatibleVMs.empty) {
+			error("no compatible VMs available in the current configuration for " + e.name,
+				LC.executionEnvironment_Name)
+		} else if (exe.defaultVM == null) {
+			warning("no default VM configured for execution environment " + e.name, LC.executionEnvironment_Name)
+		}
+	}
+	
+	/** only required for validation. raw value must be written into launch configurations to allow expansion at launch time */
+	static def getExpanded(StringWithVariables original) {
+		return StringVariableManager.^default.performStringSubstitution(original.value, true)
+	}
+	
 }

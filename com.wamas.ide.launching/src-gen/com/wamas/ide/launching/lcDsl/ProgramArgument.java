@@ -26,19 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface ProgramArgument extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Arguments</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Arguments</b></em>' containment reference list.
+   * The list contents are of type {@link com.wamas.ide.launching.lcDsl.StringWithVariables}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Arguments</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Arguments</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Arguments</em>' attribute list.
+   * @return the value of the '<em>Arguments</em>' containment reference list.
    * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getProgramArgument_Arguments()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getArguments();
+  EList<StringWithVariables> getArguments();
 
 } // ProgramArgument

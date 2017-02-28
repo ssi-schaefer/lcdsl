@@ -460,7 +460,7 @@ public interface LcDslPackage extends EPackage
   int VM_ARGUMENT = 4;
 
   /**
-   * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -488,7 +488,7 @@ public interface LcDslPackage extends EPackage
   int PROGRAM_ARGUMENT = 5;
 
   /**
-   * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -525,7 +525,7 @@ public interface LcDslPackage extends EPackage
   int ENVIRONMENT_VARIABLE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -904,7 +904,7 @@ public interface LcDslPackage extends EPackage
   int PATH = 16;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -932,7 +932,7 @@ public interface LcDslPackage extends EPackage
   int EXISTING_PATH = 17;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -960,7 +960,7 @@ public interface LcDslPackage extends EPackage
   int ANY_PATH = 18;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1394,6 +1394,34 @@ public interface LcDslPackage extends EPackage
   int GROUP_POST_LAUNCH_WAIT_FEATURE_COUNT = GROUP_POST_LAUNCH_ACTION_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.StringWithVariablesImpl <em>String With Variables</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.wamas.ide.launching.lcDsl.impl.StringWithVariablesImpl
+   * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getStringWithVariables()
+   * @generated
+   */
+  int STRING_WITH_VARIABLES = 30;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_WITH_VARIABLES__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>String With Variables</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_WITH_VARIABLES_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.BrowserLaunchMode <em>Browser Launch Mode</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1401,7 +1429,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getBrowserLaunchMode()
    * @generated
    */
-  int BROWSER_LAUNCH_MODE = 30;
+  int BROWSER_LAUNCH_MODE = 31;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.LaunchConfigType <em>Launch Config Type</em>}' enum.
@@ -1411,7 +1439,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getLaunchConfigType()
    * @generated
    */
-  int LAUNCH_CONFIG_TYPE = 31;
+  int LAUNCH_CONFIG_TYPE = 32;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.LaunchModeType <em>Launch Mode Type</em>}' enum.
@@ -1421,7 +1449,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getLaunchModeType()
    * @generated
    */
-  int LAUNCH_MODE_TYPE = 32;
+  int LAUNCH_MODE_TYPE = 33;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.MemoryUnit <em>Memory Unit</em>}' enum.
@@ -1431,7 +1459,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getMemoryUnit()
    * @generated
    */
-  int MEMORY_UNIT = 33;
+  int MEMORY_UNIT = 34;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.OutputStream <em>Output Stream</em>}' enum.
@@ -1441,7 +1469,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getOutputStream()
    * @generated
    */
-  int OUTPUT_STREAM = 34;
+  int OUTPUT_STREAM = 35;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.InputStream <em>Input Stream</em>}' enum.
@@ -1451,7 +1479,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getInputStream()
    * @generated
    */
-  int INPUT_STREAM = 35;
+  int INPUT_STREAM = 36;
 
 
   /**
@@ -1890,15 +1918,15 @@ public interface LcDslPackage extends EPackage
   EClass getVmArgument();
 
   /**
-   * Returns the meta object for the attribute list '{@link com.wamas.ide.launching.lcDsl.VmArgument#getArguments <em>Arguments</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.wamas.ide.launching.lcDsl.VmArgument#getArguments <em>Arguments</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Arguments</em>'.
+   * @return the meta object for the containment reference list '<em>Arguments</em>'.
    * @see com.wamas.ide.launching.lcDsl.VmArgument#getArguments()
    * @see #getVmArgument()
    * @generated
    */
-  EAttribute getVmArgument_Arguments();
+  EReference getVmArgument_Arguments();
 
   /**
    * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.ProgramArgument <em>Program Argument</em>}'.
@@ -1911,15 +1939,15 @@ public interface LcDslPackage extends EPackage
   EClass getProgramArgument();
 
   /**
-   * Returns the meta object for the attribute list '{@link com.wamas.ide.launching.lcDsl.ProgramArgument#getArguments <em>Arguments</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.wamas.ide.launching.lcDsl.ProgramArgument#getArguments <em>Arguments</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Arguments</em>'.
+   * @return the meta object for the containment reference list '<em>Arguments</em>'.
    * @see com.wamas.ide.launching.lcDsl.ProgramArgument#getArguments()
    * @see #getProgramArgument()
    * @generated
    */
-  EAttribute getProgramArgument_Arguments();
+  EReference getProgramArgument_Arguments();
 
   /**
    * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.EnvironmentVariable <em>Environment Variable</em>}'.
@@ -1943,15 +1971,15 @@ public interface LcDslPackage extends EPackage
   EAttribute getEnvironmentVariable_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.EnvironmentVariable#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.EnvironmentVariable#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
+   * @return the meta object for the containment reference '<em>Value</em>'.
    * @see com.wamas.ide.launching.lcDsl.EnvironmentVariable#getValue()
    * @see #getEnvironmentVariable()
    * @generated
    */
-  EAttribute getEnvironmentVariable_Value();
+  EReference getEnvironmentVariable_Value();
 
   /**
    * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.ApplicationExtPoint <em>Application Ext Point</em>}'.
@@ -2274,15 +2302,15 @@ public interface LcDslPackage extends EPackage
   EClass getPath();
 
   /**
-   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.Path#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.Path#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the containment reference '<em>Name</em>'.
    * @see com.wamas.ide.launching.lcDsl.Path#getName()
    * @see #getPath()
    * @generated
    */
-  EAttribute getPath_Name();
+  EReference getPath_Name();
 
   /**
    * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.ExistingPath <em>Existing Path</em>}'.
@@ -2666,6 +2694,27 @@ public interface LcDslPackage extends EPackage
    * @generated
    */
   EClass getGroupPostLaunchWait();
+
+  /**
+   * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.StringWithVariables <em>String With Variables</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String With Variables</em>'.
+   * @see com.wamas.ide.launching.lcDsl.StringWithVariables
+   * @generated
+   */
+  EClass getStringWithVariables();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.StringWithVariables#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see com.wamas.ide.launching.lcDsl.StringWithVariables#getValue()
+   * @see #getStringWithVariables()
+   * @generated
+   */
+  EAttribute getStringWithVariables_Value();
 
   /**
    * Returns the meta object for enum '{@link com.wamas.ide.launching.lcDsl.BrowserLaunchMode <em>Browser Launch Mode</em>}'.
@@ -3081,12 +3130,12 @@ public interface LcDslPackage extends EPackage
     EClass VM_ARGUMENT = eINSTANCE.getVmArgument();
 
     /**
-     * The meta object literal for the '<em><b>Arguments</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VM_ARGUMENT__ARGUMENTS = eINSTANCE.getVmArgument_Arguments();
+    EReference VM_ARGUMENT__ARGUMENTS = eINSTANCE.getVmArgument_Arguments();
 
     /**
      * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.ProgramArgumentImpl <em>Program Argument</em>}' class.
@@ -3099,12 +3148,12 @@ public interface LcDslPackage extends EPackage
     EClass PROGRAM_ARGUMENT = eINSTANCE.getProgramArgument();
 
     /**
-     * The meta object literal for the '<em><b>Arguments</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROGRAM_ARGUMENT__ARGUMENTS = eINSTANCE.getProgramArgument_Arguments();
+    EReference PROGRAM_ARGUMENT__ARGUMENTS = eINSTANCE.getProgramArgument_Arguments();
 
     /**
      * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.EnvironmentVariableImpl <em>Environment Variable</em>}' class.
@@ -3125,12 +3174,12 @@ public interface LcDslPackage extends EPackage
     EAttribute ENVIRONMENT_VARIABLE__NAME = eINSTANCE.getEnvironmentVariable_Name();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ENVIRONMENT_VARIABLE__VALUE = eINSTANCE.getEnvironmentVariable_Value();
+    EReference ENVIRONMENT_VARIABLE__VALUE = eINSTANCE.getEnvironmentVariable_Value();
 
     /**
      * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.ApplicationExtPointImpl <em>Application Ext Point</em>}' class.
@@ -3393,12 +3442,12 @@ public interface LcDslPackage extends EPackage
     EClass PATH = eINSTANCE.getPath();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PATH__NAME = eINSTANCE.getPath_Name();
+    EReference PATH__NAME = eINSTANCE.getPath_Name();
 
     /**
      * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.ExistingPathImpl <em>Existing Path</em>}' class.
@@ -3713,6 +3762,24 @@ public interface LcDslPackage extends EPackage
      * @generated
      */
     EClass GROUP_POST_LAUNCH_WAIT = eINSTANCE.getGroupPostLaunchWait();
+
+    /**
+     * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.StringWithVariablesImpl <em>String With Variables</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.wamas.ide.launching.lcDsl.impl.StringWithVariablesImpl
+     * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getStringWithVariables()
+     * @generated
+     */
+    EClass STRING_WITH_VARIABLES = eINSTANCE.getStringWithVariables();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_WITH_VARIABLES__VALUE = eINSTANCE.getStringWithVariables_Value();
 
     /**
      * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.BrowserLaunchMode <em>Browser Launch Mode</em>}' enum.

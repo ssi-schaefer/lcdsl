@@ -66,7 +66,7 @@ class StandaloneLaunchConfigGenerator {
 
 		for (ProgramArgument pa : config.progArgs) {
 			// multiple arguments per entry supported.
-			result.addAll(pa.arguments)
+			result.addAll(pa.arguments.map[value])
 		}
 
 		return result;

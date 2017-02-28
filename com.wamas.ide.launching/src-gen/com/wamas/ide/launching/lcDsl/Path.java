@@ -24,29 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Path extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
+   * @return the value of the '<em>Name</em>' containment reference.
+   * @see #setName(StringWithVariables)
    * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getPath_Name()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getName();
+  StringWithVariables getName();
 
   /**
-   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.Path#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.Path#getName <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
+   * @param value the new value of the '<em>Name</em>' containment reference.
    * @see #getName()
    * @generated
    */
-  void setName(String value);
+  void setName(StringWithVariables value);
 
 } // Path

@@ -31,6 +31,7 @@ import com.wamas.ide.launching.lcDsl.ProgramArgument;
 import com.wamas.ide.launching.lcDsl.Project;
 import com.wamas.ide.launching.lcDsl.RapServletConfig;
 import com.wamas.ide.launching.lcDsl.Redirect;
+import com.wamas.ide.launching.lcDsl.StringWithVariables;
 import com.wamas.ide.launching.lcDsl.TraceEnablement;
 import com.wamas.ide.launching.lcDsl.VmArgument;
 import com.wamas.ide.launching.services.LcDslGrammarAccess;
@@ -137,6 +138,9 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case LcDslPackage.REDIRECT:
 				sequence_Redirect(context, (Redirect) semanticObject); 
 				return; 
+			case LcDslPackage.STRING_WITH_VARIABLES:
+				sequence_StringWithVariables(context, (StringWithVariables) semanticObject); 
+				return; 
 			case LcDslPackage.TRACE_ENABLEMENT:
 				sequence_TraceEnablement(context, (TraceEnablement) semanticObject); 
 				return; 
@@ -172,7 +176,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     AnyPath returns AnyPath
 	 *
 	 * Constraint:
-	 *     name=STRING
+	 *     name=StringWithVariables
 	 */
 	protected void sequence_AnyPath(ISerializationContext context, AnyPath semanticObject) {
 		if (errorAcceptor != null) {
@@ -180,7 +184,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LcDslPackage.Literals.PATH__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAnyPathAccess().getNameSTRINGTerminalRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getAnyPathAccess().getNameStringWithVariablesParserRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -238,7 +242,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     EnvironmentVariable returns EnvironmentVariable
 	 *
 	 * Constraint:
-	 *     (name=ID value=STRING)
+	 *     (name=ID value=StringWithVariables)
 	 */
 	protected void sequence_EnvironmentVariable(ISerializationContext context, EnvironmentVariable semanticObject) {
 		if (errorAcceptor != null) {
@@ -249,7 +253,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getEnvironmentVariableAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getEnvironmentVariableAccess().getValueSTRINGTerminalRuleCall_4_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getEnvironmentVariableAccess().getValueStringWithVariablesParserRuleCall_4_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -278,7 +282,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ExistingPath returns ExistingPath
 	 *
 	 * Constraint:
-	 *     name=STRING
+	 *     name=StringWithVariables
 	 */
 	protected void sequence_ExistingPath(ISerializationContext context, ExistingPath semanticObject) {
 		if (errorAcceptor != null) {
@@ -286,7 +290,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LcDslPackage.Literals.PATH__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExistingPathAccess().getNameSTRINGTerminalRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getExistingPathAccess().getNameStringWithVariablesParserRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -539,7 +543,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ProgramArgument returns ProgramArgument
 	 *
 	 * Constraint:
-	 *     arguments+=STRING*
+	 *     arguments+=StringWithVariables*
 	 */
 	protected void sequence_ProgramArgument(ISerializationContext context, ProgramArgument semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -597,6 +601,24 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     StringWithVariables returns StringWithVariables
+	 *
+	 * Constraint:
+	 *     value=STRING
+	 */
+	protected void sequence_StringWithVariables(ISerializationContext context, StringWithVariables semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, LcDslPackage.Literals.STRING_WITH_VARIABLES__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LcDslPackage.Literals.STRING_WITH_VARIABLES__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getStringWithVariablesAccess().getValueSTRINGTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     TraceEnablement returns TraceEnablement
 	 *
 	 * Constraint:
@@ -612,7 +634,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     VmArgument returns VmArgument
 	 *
 	 * Constraint:
-	 *     arguments+=STRING*
+	 *     arguments+=StringWithVariables*
 	 */
 	protected void sequence_VmArgument(ISerializationContext context, VmArgument semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -288,6 +288,13 @@ public class LcDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case LcDslPackage.STRING_WITH_VARIABLES:
+      {
+        StringWithVariables stringWithVariables = (StringWithVariables)theEObject;
+        T result = caseStringWithVariables(stringWithVariables);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -768,6 +775,22 @@ public class LcDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseGroupPostLaunchWait(GroupPostLaunchWait object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>String With Variables</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>String With Variables</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStringWithVariables(StringWithVariables object)
   {
     return null;
   }

@@ -39,6 +39,7 @@ import com.wamas.ide.launching.lcDsl.ProgramArgument;
 import com.wamas.ide.launching.lcDsl.Project;
 import com.wamas.ide.launching.lcDsl.RapServletConfig;
 import com.wamas.ide.launching.lcDsl.Redirect;
+import com.wamas.ide.launching.lcDsl.StringWithVariables;
 import com.wamas.ide.launching.lcDsl.TraceEnablement;
 import com.wamas.ide.launching.lcDsl.VmArgument;
 
@@ -267,6 +268,13 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * @generated
    */
   private EClass groupPostLaunchWaitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stringWithVariablesEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -778,9 +786,9 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVmArgument_Arguments()
+  public EReference getVmArgument_Arguments()
   {
-    return (EAttribute)vmArgumentEClass.getEStructuralFeatures().get(0);
+    return (EReference)vmArgumentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -798,9 +806,9 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getProgramArgument_Arguments()
+  public EReference getProgramArgument_Arguments()
   {
-    return (EAttribute)programArgumentEClass.getEStructuralFeatures().get(0);
+    return (EReference)programArgumentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -828,9 +836,9 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEnvironmentVariable_Value()
+  public EReference getEnvironmentVariable_Value()
   {
-    return (EAttribute)environmentVariableEClass.getEStructuralFeatures().get(1);
+    return (EReference)environmentVariableEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1138,9 +1146,9 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPath_Name()
+  public EReference getPath_Name()
   {
-    return (EAttribute)pathEClass.getEStructuralFeatures().get(0);
+    return (EReference)pathEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1508,6 +1516,26 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getStringWithVariables()
+  {
+    return stringWithVariablesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStringWithVariables_Value()
+  {
+    return (EAttribute)stringWithVariablesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getBrowserLaunchMode()
   {
     return browserLaunchModeEEnum;
@@ -1637,14 +1665,14 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     createEReference(ignorePluginEClass, IGNORE_PLUGIN__PLUGIN);
 
     vmArgumentEClass = createEClass(VM_ARGUMENT);
-    createEAttribute(vmArgumentEClass, VM_ARGUMENT__ARGUMENTS);
+    createEReference(vmArgumentEClass, VM_ARGUMENT__ARGUMENTS);
 
     programArgumentEClass = createEClass(PROGRAM_ARGUMENT);
-    createEAttribute(programArgumentEClass, PROGRAM_ARGUMENT__ARGUMENTS);
+    createEReference(programArgumentEClass, PROGRAM_ARGUMENT__ARGUMENTS);
 
     environmentVariableEClass = createEClass(ENVIRONMENT_VARIABLE);
     createEAttribute(environmentVariableEClass, ENVIRONMENT_VARIABLE__NAME);
-    createEAttribute(environmentVariableEClass, ENVIRONMENT_VARIABLE__VALUE);
+    createEReference(environmentVariableEClass, ENVIRONMENT_VARIABLE__VALUE);
 
     applicationExtPointEClass = createEClass(APPLICATION_EXT_POINT);
     createEAttribute(applicationExtPointEClass, APPLICATION_EXT_POINT__NAME);
@@ -1685,7 +1713,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     createEAttribute(rapServletConfigEClass, RAP_SERVLET_CONFIG__DEV_MODE);
 
     pathEClass = createEClass(PATH);
-    createEAttribute(pathEClass, PATH__NAME);
+    createEReference(pathEClass, PATH__NAME);
 
     existingPathEClass = createEClass(EXISTING_PATH);
 
@@ -1735,6 +1763,9 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     createEAttribute(groupPostLaunchRegexEClass, GROUP_POST_LAUNCH_REGEX__REGEX);
 
     groupPostLaunchWaitEClass = createEClass(GROUP_POST_LAUNCH_WAIT);
+
+    stringWithVariablesEClass = createEClass(STRING_WITH_VARIABLES);
+    createEAttribute(stringWithVariablesEClass, STRING_WITH_VARIABLES__VALUE);
 
     // Create enums
     browserLaunchModeEEnum = createEEnum(BROWSER_LAUNCH_MODE);
@@ -1825,14 +1856,14 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     initEReference(getIgnorePlugin_Plugin(), this.getPluginWithVersion(), null, "plugin", null, 0, 1, IgnorePlugin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(vmArgumentEClass, VmArgument.class, "VmArgument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVmArgument_Arguments(), ecorePackage.getEString(), "arguments", null, 0, -1, VmArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVmArgument_Arguments(), this.getStringWithVariables(), null, "arguments", null, 0, -1, VmArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(programArgumentEClass, ProgramArgument.class, "ProgramArgument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getProgramArgument_Arguments(), ecorePackage.getEString(), "arguments", null, 0, -1, ProgramArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProgramArgument_Arguments(), this.getStringWithVariables(), null, "arguments", null, 0, -1, ProgramArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(environmentVariableEClass, EnvironmentVariable.class, "EnvironmentVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnvironmentVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnvironmentVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEnvironmentVariable_Value(), ecorePackage.getEString(), "value", null, 0, 1, EnvironmentVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEnvironmentVariable_Value(), this.getStringWithVariables(), null, "value", null, 0, 1, EnvironmentVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(applicationExtPointEClass, ApplicationExtPoint.class, "ApplicationExtPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getApplicationExtPoint_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApplicationExtPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1873,7 +1904,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     initEAttribute(getRapServletConfig_DevMode(), ecorePackage.getEBoolean(), "devMode", null, 0, 1, RapServletConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pathEClass, Path.class, "Path", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPath_Name(), ecorePackage.getEString(), "name", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPath_Name(), this.getStringWithVariables(), null, "name", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(existingPathEClass, ExistingPath.class, "ExistingPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1923,6 +1954,9 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     initEAttribute(getGroupPostLaunchRegex_Regex(), ecorePackage.getEString(), "regex", null, 0, 1, GroupPostLaunchRegex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(groupPostLaunchWaitEClass, GroupPostLaunchWait.class, "GroupPostLaunchWait", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(stringWithVariablesEClass, StringWithVariables.class, "StringWithVariables", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStringWithVariables_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringWithVariables.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(browserLaunchModeEEnum, BrowserLaunchMode.class, "BrowserLaunchMode");

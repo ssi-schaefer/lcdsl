@@ -774,6 +774,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleStringWithVariables
+entryRuleStringWithVariables
+:
+{ before(grammarAccess.getStringWithVariablesRule()); }
+	 ruleStringWithVariables
+{ after(grammarAccess.getStringWithVariablesRule()); } 
+	 EOF 
+;
+
+// Rule StringWithVariables
+ruleStringWithVariables 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getStringWithVariablesAccess().getValueAssignment()); }
+		(rule__StringWithVariables__ValueAssignment)
+		{ after(grammarAccess.getStringWithVariablesAccess().getValueAssignment()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleFQName
 entryRuleFQName
 :
@@ -7083,9 +7108,9 @@ rule__VmArgument__ArgumentsAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getVmArgumentAccess().getArgumentsSTRINGTerminalRuleCall_2_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getVmArgumentAccess().getArgumentsSTRINGTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getVmArgumentAccess().getArgumentsStringWithVariablesParserRuleCall_2_0()); }
+		ruleStringWithVariables
+		{ after(grammarAccess.getVmArgumentAccess().getArgumentsStringWithVariablesParserRuleCall_2_0()); }
 	)
 ;
 finally {
@@ -7098,9 +7123,9 @@ rule__ProgramArgument__ArgumentsAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getProgramArgumentAccess().getArgumentsSTRINGTerminalRuleCall_2_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getProgramArgumentAccess().getArgumentsSTRINGTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getProgramArgumentAccess().getArgumentsStringWithVariablesParserRuleCall_2_0()); }
+		ruleStringWithVariables
+		{ after(grammarAccess.getProgramArgumentAccess().getArgumentsStringWithVariablesParserRuleCall_2_0()); }
 	)
 ;
 finally {
@@ -7128,9 +7153,9 @@ rule__EnvironmentVariable__ValueAssignment_4
 	}
 :
 	(
-		{ before(grammarAccess.getEnvironmentVariableAccess().getValueSTRINGTerminalRuleCall_4_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getEnvironmentVariableAccess().getValueSTRINGTerminalRuleCall_4_0()); }
+		{ before(grammarAccess.getEnvironmentVariableAccess().getValueStringWithVariablesParserRuleCall_4_0()); }
+		ruleStringWithVariables
+		{ after(grammarAccess.getEnvironmentVariableAccess().getValueStringWithVariablesParserRuleCall_4_0()); }
 	)
 ;
 finally {
@@ -7459,9 +7484,9 @@ rule__ExistingPath__NameAssignment
 	}
 :
 	(
-		{ before(grammarAccess.getExistingPathAccess().getNameSTRINGTerminalRuleCall_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getExistingPathAccess().getNameSTRINGTerminalRuleCall_0()); }
+		{ before(grammarAccess.getExistingPathAccess().getNameStringWithVariablesParserRuleCall_0()); }
+		ruleStringWithVariables
+		{ after(grammarAccess.getExistingPathAccess().getNameStringWithVariablesParserRuleCall_0()); }
 	)
 ;
 finally {
@@ -7474,9 +7499,9 @@ rule__AnyPath__NameAssignment
 	}
 :
 	(
-		{ before(grammarAccess.getAnyPathAccess().getNameSTRINGTerminalRuleCall_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getAnyPathAccess().getNameSTRINGTerminalRuleCall_0()); }
+		{ before(grammarAccess.getAnyPathAccess().getNameStringWithVariablesParserRuleCall_0()); }
+		ruleStringWithVariables
+		{ after(grammarAccess.getAnyPathAccess().getNameStringWithVariablesParserRuleCall_0()); }
 	)
 ;
 finally {
@@ -7850,6 +7875,21 @@ rule__GroupPostLaunchRegex__RegexAssignment_1
 		{ before(grammarAccess.getGroupPostLaunchRegexAccess().getRegexSTRINGTerminalRuleCall_1_0()); }
 		RULE_STRING
 		{ after(grammarAccess.getGroupPostLaunchRegexAccess().getRegexSTRINGTerminalRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__StringWithVariables__ValueAssignment
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getStringWithVariablesAccess().getValueSTRINGTerminalRuleCall_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getStringWithVariablesAccess().getValueSTRINGTerminalRuleCall_0()); }
 	)
 ;
 finally {

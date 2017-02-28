@@ -22,6 +22,8 @@ import org.eclipse.jdt.core.search.IJavaSearchScope
 import org.eclipse.jdt.core.search.SearchPattern
 import org.eclipse.jdt.core.search.IJavaSearchConstants
 import org.eclipse.jdt.core.IMethod
+import org.eclipse.jdt.internal.core.JavaProject
+import org.eclipse.jdt.launching.JavaRuntime
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -35,7 +37,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 	override complete_Project(EObject model, RuleCall ruleCall, ContentAssistContext context,
 		ICompletionProposalAcceptor acceptor) {
 		for (prj : ResourcesPlugin.workspace.root.projects) {
-			if (prj != null && prj.exists && prj.open) {
+			if (prj != null && prj.exists && prj.open && JavaProject.hasJavaNature(prj)) {
 				acceptor.accept(
 					createCompletionProposal(prj.name, new StyledString(prj.name), ih.getImage("showprojects.gif"),
 						context))
@@ -104,16 +106,23 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 						if (ele.mainMethod) {
 							val fullName = ele.declaringType.fullyQualifiedName
 							acceptor.accept(
-								createCompletionProposal(fullName, new StyledString(fullName), ih.getImage("java_launch.gif"),
-									context))
-							}
+								createCompletionProposal(fullName, new StyledString(fullName),
+									ih.getImage("java_launch.gif"), context))
 						}
-					], null)
-				}
+					}
+				], null)
 			}
-
-			super.complete_JavaMainType(model, ruleCall, context, acceptor)
 		}
 
+		super.complete_JavaMainType(model, ruleCall, context, acceptor)
+	}
+
+	override completeExecutionEnvironment_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		JavaRuntime.getExecutionEnvironmentsManager().getExecutionEnvironments().forEach[
+			acceptor.accept(createCompletionProposal(id, new StyledString(id), ih.getImage("library_obj.png"), context))
+		]
+		
+		super.completeExecutionEnvironment_Name(model, assignment, context, acceptor)
 	}
 	
+}

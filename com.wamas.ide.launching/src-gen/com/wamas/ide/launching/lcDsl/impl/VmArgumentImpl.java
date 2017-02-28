@@ -4,17 +4,22 @@
 package com.wamas.ide.launching.lcDsl.impl;
 
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
+import com.wamas.ide.launching.lcDsl.StringWithVariables;
 import com.wamas.ide.launching.lcDsl.VmArgument;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,14 +37,14 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 public class VmArgumentImpl extends MinimalEObjectImpl.Container implements VmArgument
 {
   /**
-   * The cached value of the '{@link #getArguments() <em>Arguments</em>}' attribute list.
+   * The cached value of the '{@link #getArguments() <em>Arguments</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getArguments()
    * @generated
    * @ordered
    */
-  protected EList<String> arguments;
+  protected EList<StringWithVariables> arguments;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,13 +72,29 @@ public class VmArgumentImpl extends MinimalEObjectImpl.Container implements VmAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getArguments()
+  public EList<StringWithVariables> getArguments()
   {
     if (arguments == null)
     {
-      arguments = new EDataTypeEList<String>(String.class, this, LcDslPackage.VM_ARGUMENT__ARGUMENTS);
+      arguments = new EObjectContainmentEList<StringWithVariables>(StringWithVariables.class, this, LcDslPackage.VM_ARGUMENT__ARGUMENTS);
     }
     return arguments;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case LcDslPackage.VM_ARGUMENT__ARGUMENTS:
+        return ((InternalEList<?>)getArguments()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -105,7 +126,7 @@ public class VmArgumentImpl extends MinimalEObjectImpl.Container implements VmAr
     {
       case LcDslPackage.VM_ARGUMENT__ARGUMENTS:
         getArguments().clear();
-        getArguments().addAll((Collection<? extends String>)newValue);
+        getArguments().addAll((Collection<? extends StringWithVariables>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,23 +163,6 @@ public class VmArgumentImpl extends MinimalEObjectImpl.Container implements VmAr
         return arguments != null && !arguments.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (arguments: ");
-    result.append(arguments);
-    result.append(')');
-    return result.toString();
   }
 
 } //VmArgumentImpl

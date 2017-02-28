@@ -5,10 +5,13 @@ package com.wamas.ide.launching.lcDsl.impl;
 
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
 import com.wamas.ide.launching.lcDsl.Path;
+import com.wamas.ide.launching.lcDsl.StringWithVariables;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -29,24 +32,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class PathImpl extends MinimalEObjectImpl.Container implements Path
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected StringWithVariables name;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,7 +67,7 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public StringWithVariables getName()
   {
     return name;
   }
@@ -84,12 +77,53 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public NotificationChain basicSetName(StringWithVariables newName, NotificationChain msgs)
   {
-    String oldName = name;
+    StringWithVariables oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.PATH__NAME, oldName, name));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.PATH__NAME, oldName, newName);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(StringWithVariables newName)
+  {
+    if (newName != name)
+    {
+      NotificationChain msgs = null;
+      if (name != null)
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.PATH__NAME, null, msgs);
+      if (newName != null)
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.PATH__NAME, null, msgs);
+      msgs = basicSetName(newName, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.PATH__NAME, newName, newName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case LcDslPackage.PATH__NAME:
+        return basicSetName(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -119,7 +153,7 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path
     switch (featureID)
     {
       case LcDslPackage.PATH__NAME:
-        setName((String)newValue);
+        setName((StringWithVariables)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,7 +170,7 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path
     switch (featureID)
     {
       case LcDslPackage.PATH__NAME:
-        setName(NAME_EDEFAULT);
+        setName((StringWithVariables)null);
         return;
     }
     super.eUnset(featureID);
@@ -153,26 +187,9 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path
     switch (featureID)
     {
       case LcDslPackage.PATH__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+        return name != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //PathImpl

@@ -173,6 +173,7 @@ public class LcDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGroupMemberAccess().getPostActionAssignment_3(), "rule__GroupMember__PostActionAssignment_3");
 					put(grammarAccess.getGroupPostLaunchDelayAccess().getDelayAssignment_1(), "rule__GroupPostLaunchDelay__DelayAssignment_1");
 					put(grammarAccess.getGroupPostLaunchRegexAccess().getRegexAssignment_1(), "rule__GroupPostLaunchRegex__RegexAssignment_1");
+					put(grammarAccess.getStringWithVariablesAccess().getValueAssignment(), "rule__StringWithVariables__ValueAssignment");
 					put(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), "rule__LaunchConfig__UnorderedGroup_0");
 					put(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), "rule__LaunchConfig__UnorderedGroup_6");
 					put(grammarAccess.getFavoritesAccess().getUnorderedGroup_2(), "rule__Favorites__UnorderedGroup_2");

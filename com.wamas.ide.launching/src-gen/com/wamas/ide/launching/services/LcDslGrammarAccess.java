@@ -36,7 +36,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		/// **
 		// * TODO: The language is still missing some things that could be set:
 		// * 
-		// * General: variable expansion for all paths (string subst, system properties)!
+		// * General: 
+		// *   - variable expansion for all STRING_WITH_VARIABLES (paths, vm-args and prog-args) (string subst, system properties)!
 		// * 
 		// * Java:
 		// *   - additional classpath entries (low prio)
@@ -170,7 +171,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
 		//	& (memory=MemoryOption ';')? // All but Groups
 		//	& ('project' project=Project ';')? // Java
-		//	& ('main-class' mainClass=JavaMainType ';')? // Java 		// TODO: content assist, validation
+		//	& ('main-class' mainClass=JavaMainType ';')? // Java
 		//	& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//	& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 		//	& favorites=Favorites? // All
@@ -204,7 +205,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
 		//& (memory=MemoryOption ';')? // All but Groups
 		//& ('project' project=Project ';')? // Java
-		//& ('main-class' mainClass=JavaMainType ';')? // Java 		// TODO: content assist, validation
+		//& ('main-class' mainClass=JavaMainType ';')? // Java
 		//& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 		//& favorites=Favorites? // All
@@ -320,7 +321,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
 		//& (memory=MemoryOption ';')? // All but Groups
 		//& ('project' project=Project ';')? // Java
-		//& ('main-class' mainClass=JavaMainType ';')? // Java 		// TODO: content assist, validation
+		//& ('main-class' mainClass=JavaMainType ';')? // Java
 		//& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 		//& favorites=Favorites? // All
@@ -580,14 +581,14 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cVmArgumentAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cVmArgKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cArgumentsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cArgumentsSTRINGTerminalRuleCall_2_0 = (RuleCall)cArgumentsAssignment_2.eContents().get(0);
+		private final RuleCall cArgumentsStringWithVariablesParserRuleCall_2_0 = (RuleCall)cArgumentsAssignment_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//VmArgument:
-		//	{VmArgument} 'vm-arg' arguments+=STRING* ';';
+		//	{VmArgument} 'vm-arg' arguments+=StringWithVariables* ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{VmArgument} 'vm-arg' arguments+=STRING* ';'
+		//{VmArgument} 'vm-arg' arguments+=StringWithVariables* ';'
 		public Group getGroup() { return cGroup; }
 		
 		//{VmArgument}
@@ -596,11 +597,11 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'vm-arg'
 		public Keyword getVmArgKeyword_1() { return cVmArgKeyword_1; }
 		
-		//arguments+=STRING*
+		//arguments+=StringWithVariables*
 		public Assignment getArgumentsAssignment_2() { return cArgumentsAssignment_2; }
 		
-		//STRING
-		public RuleCall getArgumentsSTRINGTerminalRuleCall_2_0() { return cArgumentsSTRINGTerminalRuleCall_2_0; }
+		//StringWithVariables
+		public RuleCall getArgumentsStringWithVariablesParserRuleCall_2_0() { return cArgumentsStringWithVariablesParserRuleCall_2_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -611,14 +612,14 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cProgramArgumentAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cArgumentKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cArgumentsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cArgumentsSTRINGTerminalRuleCall_2_0 = (RuleCall)cArgumentsAssignment_2.eContents().get(0);
+		private final RuleCall cArgumentsStringWithVariablesParserRuleCall_2_0 = (RuleCall)cArgumentsAssignment_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//ProgramArgument:
-		//	{ProgramArgument} 'argument' arguments+=STRING* ';';
+		//	{ProgramArgument} 'argument' arguments+=StringWithVariables* ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ProgramArgument} 'argument' arguments+=STRING* ';'
+		//{ProgramArgument} 'argument' arguments+=StringWithVariables* ';'
 		public Group getGroup() { return cGroup; }
 		
 		//{ProgramArgument}
@@ -627,11 +628,11 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'argument'
 		public Keyword getArgumentKeyword_1() { return cArgumentKeyword_1; }
 		
-		//arguments+=STRING*
+		//arguments+=StringWithVariables*
 		public Assignment getArgumentsAssignment_2() { return cArgumentsAssignment_2; }
 		
-		//STRING
-		public RuleCall getArgumentsSTRINGTerminalRuleCall_2_0() { return cArgumentsSTRINGTerminalRuleCall_2_0; }
+		//StringWithVariables
+		public RuleCall getArgumentsStringWithVariablesParserRuleCall_2_0() { return cArgumentsStringWithVariablesParserRuleCall_2_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -645,14 +646,14 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final RuleCall cEQTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Assignment cValueAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cValueSTRINGTerminalRuleCall_4_0 = (RuleCall)cValueAssignment_4.eContents().get(0);
+		private final RuleCall cValueStringWithVariablesParserRuleCall_4_0 = (RuleCall)cValueAssignment_4.eContents().get(0);
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//EnvironmentVariable:
-		//	{EnvironmentVariable} 'environment' name=ID EQ value=STRING ';';
+		//	{EnvironmentVariable} 'environment' name=ID EQ value=StringWithVariables ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{EnvironmentVariable} 'environment' name=ID EQ value=STRING ';'
+		//{EnvironmentVariable} 'environment' name=ID EQ value=StringWithVariables ';'
 		public Group getGroup() { return cGroup; }
 		
 		//{EnvironmentVariable}
@@ -670,11 +671,11 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EQ
 		public RuleCall getEQTerminalRuleCall_3() { return cEQTerminalRuleCall_3; }
 		
-		//value=STRING
+		//value=StringWithVariables
 		public Assignment getValueAssignment_4() { return cValueAssignment_4; }
 		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_4_0() { return cValueSTRINGTerminalRuleCall_4_0; }
+		//StringWithVariables
+		public RuleCall getValueStringWithVariablesParserRuleCall_4_0() { return cValueStringWithVariablesParserRuleCall_4_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
@@ -1163,32 +1164,32 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class ExistingPathElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.ExistingPath");
 		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameSTRINGTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		private final RuleCall cNameStringWithVariablesParserRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
 		//ExistingPath:
-		//	name=STRING;
+		//	name=StringWithVariables;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=STRING
+		//name=StringWithVariables
 		public Assignment getNameAssignment() { return cNameAssignment; }
 		
-		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_0() { return cNameSTRINGTerminalRuleCall_0; }
+		//StringWithVariables
+		public RuleCall getNameStringWithVariablesParserRuleCall_0() { return cNameStringWithVariablesParserRuleCall_0; }
 	}
 	public class AnyPathElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.AnyPath");
 		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameSTRINGTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		private final RuleCall cNameStringWithVariablesParserRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
 		//AnyPath:
-		//	name=STRING;
+		//	name=StringWithVariables;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=STRING
+		//name=StringWithVariables
 		public Assignment getNameAssignment() { return cNameAssignment; }
 		
-		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_0() { return cNameSTRINGTerminalRuleCall_0; }
+		//StringWithVariables
+		public RuleCall getNameStringWithVariablesParserRuleCall_0() { return cNameStringWithVariablesParserRuleCall_0; }
 	}
 	public class PluginWithVersionAndStartLevelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.PluginWithVersionAndStartLevel");
@@ -1615,6 +1616,21 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'wait'
 		public Keyword getWaitKeyword_1() { return cWaitKeyword_1; }
 	}
+	public class StringWithVariablesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.StringWithVariables");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		
+		//StringWithVariables:
+		//	value=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//value=STRING
+		public Assignment getValueAssignment() { return cValueAssignment; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_0() { return cValueSTRINGTerminalRuleCall_0; }
+	}
 	public class FQNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.FQName");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1931,6 +1947,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final GroupPostLaunchDelayElements pGroupPostLaunchDelay;
 	private final GroupPostLaunchRegexElements pGroupPostLaunchRegex;
 	private final GroupPostLaunchWaitElements pGroupPostLaunchWait;
+	private final StringWithVariablesElements pStringWithVariables;
 	private final FQNameElements pFQName;
 	private final BrowserLaunchModeElements eBrowserLaunchMode;
 	private final LaunchConfigTypeElements eLaunchConfigType;
@@ -1986,6 +2003,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pGroupPostLaunchDelay = new GroupPostLaunchDelayElements();
 		this.pGroupPostLaunchRegex = new GroupPostLaunchRegexElements();
 		this.pGroupPostLaunchWait = new GroupPostLaunchWaitElements();
+		this.pStringWithVariables = new StringWithVariablesElements();
 		this.pFQName = new FQNameElements();
 		this.eBrowserLaunchMode = new BrowserLaunchModeElements();
 		this.eLaunchConfigType = new LaunchConfigTypeElements();
@@ -2033,7 +2051,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	/// **
 	// * TODO: The language is still missing some things that could be set:
 	// * 
-	// * General: variable expansion for all paths (string subst, system properties)!
+	// * General: 
+	// *   - variable expansion for all STRING_WITH_VARIABLES (paths, vm-args and prog-args) (string subst, system properties)!
 	// * 
 	// * Java:
 	// *   - additional classpath entries (low prio)
@@ -2074,7 +2093,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
 	//	& (memory=MemoryOption ';')? // All but Groups
 	//	& ('project' project=Project ';')? // Java
-	//	& ('main-class' mainClass=JavaMainType ';')? // Java 		// TODO: content assist, validation
+	//	& ('main-class' mainClass=JavaMainType ';')? // Java
 	//	& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 	//	& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 	//	& favorites=Favorites? // All
@@ -2121,7 +2140,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//VmArgument:
-	//	{VmArgument} 'vm-arg' arguments+=STRING* ';';
+	//	{VmArgument} 'vm-arg' arguments+=StringWithVariables* ';';
 	public VmArgumentElements getVmArgumentAccess() {
 		return pVmArgument;
 	}
@@ -2131,7 +2150,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ProgramArgument:
-	//	{ProgramArgument} 'argument' arguments+=STRING* ';';
+	//	{ProgramArgument} 'argument' arguments+=StringWithVariables* ';';
 	public ProgramArgumentElements getProgramArgumentAccess() {
 		return pProgramArgument;
 	}
@@ -2141,7 +2160,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EnvironmentVariable:
-	//	{EnvironmentVariable} 'environment' name=ID EQ value=STRING ';';
+	//	{EnvironmentVariable} 'environment' name=ID EQ value=StringWithVariables ';';
 	public EnvironmentVariableElements getEnvironmentVariableAccess() {
 		return pEnvironmentVariable;
 	}
@@ -2257,7 +2276,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ExistingPath:
-	//	name=STRING;
+	//	name=StringWithVariables;
 	public ExistingPathElements getExistingPathAccess() {
 		return pExistingPath;
 	}
@@ -2267,7 +2286,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AnyPath:
-	//	name=STRING;
+	//	name=StringWithVariables;
 	public AnyPathElements getAnyPathAccess() {
 		return pAnyPath;
 	}
@@ -2386,6 +2405,16 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getGroupPostLaunchWaitRule() {
 		return getGroupPostLaunchWaitAccess().getRule();
+	}
+	
+	//StringWithVariables:
+	//	value=STRING;
+	public StringWithVariablesElements getStringWithVariablesAccess() {
+		return pStringWithVariables;
+	}
+	
+	public ParserRule getStringWithVariablesRule() {
+		return getStringWithVariablesAccess().getRule();
 	}
 	
 	/// **

@@ -80,14 +80,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//IgnorePlugin/plugin"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//VmArgument">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//VmArgument/arguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//VmArgument/arguments"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//ProgramArgument">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//ProgramArgument/arguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//ProgramArgument/arguments"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//EnvironmentVariable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//EnvironmentVariable/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//EnvironmentVariable/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//EnvironmentVariable/value"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//ApplicationExtPoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//ApplicationExtPoint/name"/>
@@ -128,7 +128,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//RapServletConfig/devMode"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//Path">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Path/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//Path/name"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//ExistingPath"/>
     <genClasses ecoreClass="LcDsl.ecore#//AnyPath"/>
@@ -175,5 +175,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//GroupPostLaunchRegex/regex"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//GroupPostLaunchWait"/>
+    <genClasses ecoreClass="LcDsl.ecore#//StringWithVariables">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//StringWithVariables/value"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

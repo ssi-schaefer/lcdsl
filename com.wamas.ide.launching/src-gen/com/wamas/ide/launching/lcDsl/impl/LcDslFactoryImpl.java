@@ -96,6 +96,7 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
       case LcDslPackage.GROUP_POST_LAUNCH_DELAY: return createGroupPostLaunchDelay();
       case LcDslPackage.GROUP_POST_LAUNCH_REGEX: return createGroupPostLaunchRegex();
       case LcDslPackage.GROUP_POST_LAUNCH_WAIT: return createGroupPostLaunchWait();
+      case LcDslPackage.STRING_WITH_VARIABLES: return createStringWithVariables();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -483,6 +484,17 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
   {
     GroupPostLaunchWaitImpl groupPostLaunchWait = new GroupPostLaunchWaitImpl();
     return groupPostLaunchWait;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringWithVariables createStringWithVariables()
+  {
+    StringWithVariablesImpl stringWithVariables = new StringWithVariablesImpl();
+    return stringWithVariables;
   }
 
   /**
