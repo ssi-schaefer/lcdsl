@@ -169,7 +169,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	& ('workspace' workspace=AnyPath ';')? // Eclipse, RAP
 		//	& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
 		//	& (memory=MemoryOption ';')? // All but Groups
-		//	& ('project' project=Project ';')? // Java 				// TODO: content assist
+		//	& ('project' project=Project ';')? // Java
 		//	& ('main-class' mainClass=JavaMainType ';')? // Java 		// TODO: content assist, validation
 		//	& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//	& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
@@ -179,8 +179,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	& configIniTemplate=ConfigIniTemplate? // Eclipse
 		//	& javaMainSearch=JavaMainSearch? // Java
 		//	& servletConfig=RapServletConfig? // RAP
-		//) (plugins+=AddPlugin // Eclipse, RAP 						// TODO: content assist
-		//	| ignore+=IgnorePlugin // Eclipse, RAP 					// TODO: content assist
+		//) (plugins+=AddPlugin // Eclipse, RAP
+		//	| ignore+=IgnorePlugin // Eclipse, RAP
 		//	| groupMembers+=GroupMember // Groups 					// TODO: content assist, validation, update on rename
 		//	| vmArgs+=VmArgument // All but Groups
 		//	| progArgs+=ProgramArgument // All but Groups
@@ -203,7 +203,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//& ('workspace' workspace=AnyPath ';')? // Eclipse, RAP
 		//& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
 		//& (memory=MemoryOption ';')? // All but Groups
-		//& ('project' project=Project ';')? // Java 				// TODO: content assist
+		//& ('project' project=Project ';')? // Java
 		//& ('main-class' mainClass=JavaMainType ';')? // Java 		// TODO: content assist, validation
 		//& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
@@ -213,8 +213,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//& configIniTemplate=ConfigIniTemplate? // Eclipse
 		//& javaMainSearch=JavaMainSearch? // Java
 		//& servletConfig=RapServletConfig? // RAP
-		//) (plugins+=AddPlugin // Eclipse, RAP 						// TODO: content assist
-		//| ignore+=IgnorePlugin // Eclipse, RAP 					// TODO: content assist
+		//) (plugins+=AddPlugin // Eclipse, RAP
+		//| ignore+=IgnorePlugin // Eclipse, RAP
 		//| groupMembers+=GroupMember // Groups 					// TODO: content assist, validation, update on rename
 		//| vmArgs+=VmArgument // All but Groups
 		//| progArgs+=ProgramArgument // All but Groups
@@ -319,7 +319,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//& ('workspace' workspace=AnyPath ';')? // Eclipse, RAP
 		//& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
 		//& (memory=MemoryOption ';')? // All but Groups
-		//& ('project' project=Project ';')? // Java 				// TODO: content assist
+		//& ('project' project=Project ';')? // Java
 		//& ('main-class' mainClass=JavaMainType ';')? // Java 		// TODO: content assist, validation
 		//& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
@@ -464,8 +464,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//RapServletConfig
 		public RuleCall getServletConfigRapServletConfigParserRuleCall_6_13_0() { return cServletConfigRapServletConfigParserRuleCall_6_13_0; }
 		
-		//(plugins+=AddPlugin // Eclipse, RAP 						// TODO: content assist
-		//| ignore+=IgnorePlugin // Eclipse, RAP 					// TODO: content assist
+		//(plugins+=AddPlugin // Eclipse, RAP
+		//| ignore+=IgnorePlugin // Eclipse, RAP
 		//| groupMembers+=GroupMember // Groups 					// TODO: content assist, validation, update on rename
 		//| vmArgs+=VmArgument // All but Groups
 		//| progArgs+=ProgramArgument // All but Groups
@@ -1147,7 +1147,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAnyPathParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Path:
-		//	ExistingPath | AnyPath;
+		//	ExistingPath | AnyPath // TODO: content assist? is it possible?
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//ExistingPath | AnyPath
@@ -2072,7 +2073,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	& ('workspace' workspace=AnyPath ';')? // Eclipse, RAP
 	//	& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
 	//	& (memory=MemoryOption ';')? // All but Groups
-	//	& ('project' project=Project ';')? // Java 				// TODO: content assist
+	//	& ('project' project=Project ';')? // Java
 	//	& ('main-class' mainClass=JavaMainType ';')? // Java 		// TODO: content assist, validation
 	//	& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 	//	& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
@@ -2082,8 +2083,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	& configIniTemplate=ConfigIniTemplate? // Eclipse
 	//	& javaMainSearch=JavaMainSearch? // Java
 	//	& servletConfig=RapServletConfig? // RAP
-	//) (plugins+=AddPlugin // Eclipse, RAP 						// TODO: content assist
-	//	| ignore+=IgnorePlugin // Eclipse, RAP 					// TODO: content assist
+	//) (plugins+=AddPlugin // Eclipse, RAP
+	//	| ignore+=IgnorePlugin // Eclipse, RAP
 	//	| groupMembers+=GroupMember // Groups 					// TODO: content assist, validation, update on rename
 	//	| vmArgs+=VmArgument // All but Groups
 	//	| progArgs+=ProgramArgument // All but Groups
@@ -2245,7 +2246,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Path:
-	//	ExistingPath | AnyPath;
+	//	ExistingPath | AnyPath // TODO: content assist? is it possible?
+	//;
 	public PathElements getPathAccess() {
 		return pPath;
 	}

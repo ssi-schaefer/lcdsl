@@ -20,6 +20,9 @@ import org.eclipse.pde.core.plugin.PluginRegistry
 import org.eclipse.xtext.validation.Check
 
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
+import com.wamas.ide.launching.lcDsl.JavaMainType
+import org.eclipse.jdt.core.JavaCore
+import org.eclipse.core.runtime.NullProgressMonitor
 
 /**
  * This class contains custom validation rules. 
@@ -64,7 +67,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 		LC.launchConfig_EnvVars -> #{ECLIPSE, RAP, JAVA},
 		LC.launchConfig_Traces -> #{ECLIPSE, RAP}
 	)
-	
+
 	private val requiredFeatures = newHashMap(
 		ECLIPSE -> #{
 			#{LC.launchConfig_Application, LC.launchConfig_Product},
@@ -94,15 +97,15 @@ class LcDslValidator extends AbstractLcDslValidator {
 			if (!types.contains(lc.type)) {
 				// not allowed to have it, check
 				val e = lc.eGet(feature)
-				
-				if(e != null) {
+
+				if (e != null) {
 					// it is set, check for empty collection
-					if(e instanceof EList<?>) {
-						if(!e.empty) {
+					if (e instanceof EList<?>) {
+						if (!e.empty) {
 							error("unsupported attribute for type " + lc.type, feature)
 						}
-					} else if(e instanceof Boolean) {
-						if(e.equals(Boolean.TRUE))
+					} else if (e instanceof Boolean) {
+						if (e.equals(Boolean.TRUE))
 							error("unsupported attribute for type " + lc.type, feature)
 					} else {
 						error("unsupported attribute for type " + lc.type, feature)
@@ -110,38 +113,38 @@ class LcDslValidator extends AbstractLcDslValidator {
 				}
 			}
 		}
-		
+
 		val required = requiredFeatures.get(lc.type)
-		if(required == null) {
+		if (required == null) {
 			error("unsupported launch configuration type - validation not implemented", LC.launchConfig_Type)
 		} else {
-			for(alternatives : required) {
-				var anySet = false 
-				for(feature : alternatives) {
+			for (alternatives : required) {
+				var anySet = false
+				for (feature : alternatives) {
 					val e = lc.eGet(feature)
-					if(e != null) {
-						if(e instanceof EList<?>) {
-							if(!e.empty)
+					if (e != null) {
+						if (e instanceof EList<?>) {
+							if (!e.empty)
 								anySet = true
 						} else {
 							anySet = true
 						}
 					}
 				}
-				
-				if(!anySet) {
+
+				if (!anySet) {
 					// missing required feature.
 					error("missing required attribute: " + alternatives.simpleNames, LC.launchConfig_Name)
 				}
 			}
 		}
 	}
-	
+
 	def List<String> simpleNames(Set<? extends EStructuralFeature> features) {
 		val names = newArrayList()
-		
+
 		features.forEach[f|names.add(f.name)]
-		
+
 		return names
 	}
 
@@ -177,6 +180,33 @@ class LcDslValidator extends AbstractLcDslValidator {
 			} else {
 				warning("Bundle " + p.name + " does not exist in the workspace or the current target platform", p,
 					LC.pluginWithVersion_Name);
+			}
+		}
+	}
+
+	@Check
+	def checkMainType(LaunchConfig cfg) {
+		if (cfg.type == JAVA && cfg.project != null && !cfg.project.name.empty && cfg.mainClass != null &&
+			!cfg.mainClass.name.empty) {
+			val prj = ResourcesPlugin.workspace.root.getProject(cfg.project.name);
+			if (prj != null && prj.exists && prj.open) {
+				val jp = JavaCore.create(prj)
+				if(!jp.exists) {
+					error("project " + cfg.project.name + " is not a java project", LC.launchConfig_Project)
+					return
+				}
+				
+				val type = jp.findType(cfg.mainClass.name, new NullProgressMonitor)
+				if (type == null || !type.exists) {
+					error("main type " + cfg.mainClass.name + " not found in class-path of " + cfg.project.name,
+						LC.launchConfig_MainClass)
+					return
+				}
+				
+				if(!type.methods.exists[mainMethod]) {
+					error("type " + cfg.mainClass.name + " does not contain a main method", LC.launchConfig_MainClass)
+					return
+				}
 			}
 		}
 	}

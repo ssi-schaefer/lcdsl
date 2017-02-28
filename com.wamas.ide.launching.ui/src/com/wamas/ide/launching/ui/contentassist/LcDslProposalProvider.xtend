@@ -3,10 +3,117 @@
  */
 package com.wamas.ide.launching.ui.contentassist
 
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.RuleCall
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.jface.viewers.StyledString
+import org.eclipse.xtext.ui.IImageHelper
+import com.google.inject.Inject
+import org.eclipse.pde.core.plugin.PluginRegistry
+import org.eclipse.xtext.Assignment
+import com.wamas.ide.launching.lcDsl.PluginWithVersion
+import org.eclipse.pde.core.plugin.IMatchRules
+import com.wamas.ide.launching.lcDsl.LaunchConfig
+import org.eclipse.jdt.core.JavaCore
+import org.eclipse.jdt.core.search.SearchEngine
+import org.eclipse.jdt.core.search.IJavaSearchScope
+import org.eclipse.jdt.core.search.SearchPattern
+import org.eclipse.jdt.core.search.IJavaSearchConstants
+import org.eclipse.jdt.core.IMethod
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 class LcDslProposalProvider extends AbstractLcDslProposalProvider {
-}
+
+	@Inject
+	private IImageHelper ih
+
+	override complete_Project(EObject model, RuleCall ruleCall, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		for (prj : ResourcesPlugin.workspace.root.projects) {
+			if (prj != null && prj.exists && prj.open) {
+				acceptor.accept(
+					createCompletionProposal(prj.name, new StyledString(prj.name), ih.getImage("showprojects.gif"),
+						context))
+			}
+		}
+
+		super.complete_Project(model, ruleCall, context, acceptor)
+	}
+
+	override completePluginWithVersion_Name(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		for (wsm : PluginRegistry.workspaceModels) {
+			val name = wsm.bundleDescription.name
+			acceptor.accept(
+				createCompletionProposal(name, new StyledString(name), ih.getImage("showprojects.gif"), context))
+		}
+
+		for (tpm : PluginRegistry.externalModels) {
+			val name = tpm.bundleDescription.name
+			val ver = tpm.bundleDescription.version
+
+			acceptor.accept(
+				createCompletionProposal(name,
+					new StyledString(name + " ").append(ver.toString, StyledString.QUALIFIER_STYLER),
+					ih.getImage("plugin_mf_obj.gif"), context))
+		}
+		super.completePluginWithVersion_Name(model, assignment, context, acceptor)
+	}
+
+	override completePluginWithVersion_Version(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		val pv = model as PluginWithVersion
+		val models = PluginRegistry.findModels(pv.name, null, IMatchRules.NONE, null)
+
+		if (models != null && !models.empty) {
+			for (m : models) {
+				val ver = m.bundleDescription.version.toString
+				acceptor.accept(
+					createCompletionProposal(ver, new StyledString(ver), ih.getImage("plugin_mf_obj.gif"), context))
+			}
+		}
+
+		super.completePluginWithVersion_Version(model, assignment, context, acceptor)
+	}
+
+	override complete_JavaMainType(EObject model, RuleCall ruleCall, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		val lc = model as LaunchConfig
+
+		if (lc.project != null && lc.project.name != null && !lc.project.name.empty) {
+			// project is set, lookup main types.
+			val prj = ResourcesPlugin.workspace.root.getProject(lc.project.name)
+			if (prj != null && prj.exists && prj.open) {
+				val jp = JavaCore.create(prj)
+
+				// source scope for the relevant project
+				val scope = SearchEngine.createJavaSearchScope(#{jp}, IJavaSearchScope.SOURCES)
+				val pattern = SearchPattern.createPattern("main", IJavaSearchConstants.METHOD,
+					IJavaSearchConstants.DECLARATIONS, SearchPattern.R_EXACT_MATCH)
+				val engine = new SearchEngine()
+
+				engine.search(pattern, #{SearchEngine.defaultSearchParticipant}, scope, [ m |
+					System.err.println(m.element)
+					if (m.element != null && m.element instanceof IMethod) {
+						val ele = m.element as IMethod
+						if (ele.mainMethod) {
+							val fullName = ele.declaringType.fullyQualifiedName
+							acceptor.accept(
+								createCompletionProposal(fullName, new StyledString(fullName), ih.getImage("java_launch.gif"),
+									context))
+							}
+						}
+					], null)
+				}
+			}
+
+			super.complete_JavaMainType(model, ruleCall, context, acceptor)
+		}
+
+	}
+	

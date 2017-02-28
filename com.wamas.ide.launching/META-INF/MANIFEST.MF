@@ -19,7 +19,8 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.osgi,
  org.eclipse.debug.core,
  org.eclipse.jdt.launching,
- org.eclipse.pde.ui
+ org.eclipse.pde.ui,
+ org.eclipse.jdt.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.wamas.ide.launching.lcDsl,
  com.wamas.ide.launching.services,
