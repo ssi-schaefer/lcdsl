@@ -229,8 +229,8 @@ enum LaunchModeType:
 ;
 
 enum MemoryUnit:
-	MB = 'MB' | MB = 'mb' | MB = 'M' | MB = 'm' |
-	GB = 'GB' | GB = 'gb' | GB = 'G' | GB = 'g' 
+	MB = 'M' | MB = 'mb' | MB = 'MB' | MB = 'm' |
+	GB = 'G' | GB = 'gb' | GB = 'GB' | GB = 'g' 
 ;
 
 enum OutputStream:

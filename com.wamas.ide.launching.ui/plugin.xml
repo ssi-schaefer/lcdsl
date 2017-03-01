@@ -4,12 +4,13 @@
 	<extension
 		point="org.eclipse.ui.editors">
 		<editor
-			class="com.wamas.ide.launching.ui.LcDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
-			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-			default="true"
-			extensions="lc"
-			id="com.wamas.ide.launching.LcDsl"
-			name="LcDsl Editor">
+        class="com.wamas.ide.launching.ui.LcDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+        contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+        default="true"
+        extensions="lc"
+        icon="icons/launch_run.gif"
+        id="com.wamas.ide.launching.LcDsl"
+        name="LcDsl Editor">
 		</editor>
 	</extension>
 	<extension
@@ -406,5 +407,58 @@
 			extension="lc"
 			type="text">
 		</fileTypes>
+	</extension>
+	
+	
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?after=copy">
+			<command commandId="com.wamas.ide.launching.ui.EditorGenerateCmd" 
+				style="push" tooltip="Generate Launch Configuration">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="com.wamas.ide.launching.LcDsl.Editor.opened" />
+				</visibleWhen>
+			</command>
+		</menuContribution>
+		<menuContribution locationURI="menu:edit?after=copy">
+			<command commandId="com.wamas.ide.launching.ui.EditorGenerateCmd"
+				style="push" tooltip="Generate Launch Configuration">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="com.wamas.ide.launching.LcDsl.Editor.opened" />
+				</visibleWhen>
+			</command>
+		</menuContribution>
+		<menuContribution locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
+			<command commandId="com.wamas.ide.launching.ui.OutlineGenerateCmd" 
+				style="push" tooltip="Generate Launch Configuration">
+				<visibleWhen checkEnabled="false">
+					<and>
+						<reference definitionId="com.wamas.ide.launching.LcDsl.XtextEditor.opened" />
+						<iterate>
+							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
+						</iterate>
+					</and>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.commands">
+		<command
+			categoryId="org.eclipse.ui.category.edit"
+			description="Generate the actual launch configuration from this model"
+			id="com.wamas.ide.launching.ui.EditorGenerateCmd"
+			name="Generate Launch Configuration"/>
+		<command
+			categoryId="org.eclipse.ui.category.edit"
+			description="Generate the actual launch configuration from this model"
+			id="com.wamas.ide.launching.ui.OutlineGenerateCmd"
+			name="Generate Launch Configuration"/>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+		<handler
+			class="com.wamas.ide.launching.ui.LcDslExecutableExtensionFactory:com.wamas.ide.launching.ui.handlers.EditorGenerateCmd"
+			commandId="com.wamas.ide.launching.ui.EditorGenerateCmd"/>
+		<handler
+			class="com.wamas.ide.launching.ui.LcDslExecutableExtensionFactory:com.wamas.ide.launching.ui.handlers.OutlineGenerateCmd"
+			commandId="com.wamas.ide.launching.ui.OutlineGenerateCmd"/>
 	</extension>
 </plugin>
