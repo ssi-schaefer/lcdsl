@@ -87,6 +87,34 @@ public class LcDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case LcDslPackage.WORKSPACE:
+      {
+        Workspace workspace = (Workspace)theEObject;
+        T result = caseWorkspace(workspace);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LcDslPackage.WORKING_DIR:
+      {
+        WorkingDir workingDir = (WorkingDir)theEObject;
+        T result = caseWorkingDir(workingDir);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LcDslPackage.MAIN_PROJECT:
+      {
+        MainProject mainProject = (MainProject)theEObject;
+        T result = caseMainProject(mainProject);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LcDslPackage.MAIN_TYPE:
+      {
+        MainType mainType = (MainType)theEObject;
+        T result = caseMainType(mainType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case LcDslPackage.ADD_PLUGIN:
       {
         AddPlugin addPlugin = (AddPlugin)theEObject;
@@ -327,6 +355,70 @@ public class LcDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLaunchConfig(LaunchConfig object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Workspace</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Workspace</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWorkspace(Workspace object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Working Dir</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Working Dir</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWorkingDir(WorkingDir object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Main Project</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Main Project</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMainProject(MainProject object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Main Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Main Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMainType(MainType object)
   {
     return null;
   }

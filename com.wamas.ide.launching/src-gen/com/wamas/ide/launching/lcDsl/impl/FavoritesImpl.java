@@ -4,14 +4,18 @@
 package com.wamas.ide.launching.lcDsl.impl;
 
 import com.wamas.ide.launching.lcDsl.Favorites;
+import com.wamas.ide.launching.lcDsl.LaunchModeType;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,8 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.FavoritesImpl#isRun <em>Run</em>}</li>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.FavoritesImpl#isDebug <em>Debug</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.FavoritesImpl#getTypes <em>Types</em>}</li>
  * </ul>
  *
  * @generated
@@ -30,44 +33,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class FavoritesImpl extends MinimalEObjectImpl.Container implements Favorites
 {
   /**
-   * The default value of the '{@link #isRun() <em>Run</em>}' attribute.
+   * The cached value of the '{@link #getTypes() <em>Types</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isRun()
+   * @see #getTypes()
    * @generated
    * @ordered
    */
-  protected static final boolean RUN_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isRun() <em>Run</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isRun()
-   * @generated
-   * @ordered
-   */
-  protected boolean run = RUN_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #isDebug() <em>Debug</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isDebug()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean DEBUG_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isDebug() <em>Debug</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isDebug()
-   * @generated
-   * @ordered
-   */
-  protected boolean debug = DEBUG_EDEFAULT;
+  protected EList<LaunchModeType> types;
 
   /**
    * <!-- begin-user-doc -->
@@ -95,45 +68,13 @@ public class FavoritesImpl extends MinimalEObjectImpl.Container implements Favor
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isRun()
+  public EList<LaunchModeType> getTypes()
   {
-    return run;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRun(boolean newRun)
-  {
-    boolean oldRun = run;
-    run = newRun;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.FAVORITES__RUN, oldRun, run));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isDebug()
-  {
-    return debug;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDebug(boolean newDebug)
-  {
-    boolean oldDebug = debug;
-    debug = newDebug;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.FAVORITES__DEBUG, oldDebug, debug));
+    if (types == null)
+    {
+      types = new EDataTypeEList<LaunchModeType>(LaunchModeType.class, this, LcDslPackage.FAVORITES__TYPES);
+    }
+    return types;
   }
 
   /**
@@ -146,10 +87,8 @@ public class FavoritesImpl extends MinimalEObjectImpl.Container implements Favor
   {
     switch (featureID)
     {
-      case LcDslPackage.FAVORITES__RUN:
-        return isRun();
-      case LcDslPackage.FAVORITES__DEBUG:
-        return isDebug();
+      case LcDslPackage.FAVORITES__TYPES:
+        return getTypes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -159,16 +98,15 @@ public class FavoritesImpl extends MinimalEObjectImpl.Container implements Favor
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case LcDslPackage.FAVORITES__RUN:
-        setRun((Boolean)newValue);
-        return;
-      case LcDslPackage.FAVORITES__DEBUG:
-        setDebug((Boolean)newValue);
+      case LcDslPackage.FAVORITES__TYPES:
+        getTypes().clear();
+        getTypes().addAll((Collection<? extends LaunchModeType>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -184,11 +122,8 @@ public class FavoritesImpl extends MinimalEObjectImpl.Container implements Favor
   {
     switch (featureID)
     {
-      case LcDslPackage.FAVORITES__RUN:
-        setRun(RUN_EDEFAULT);
-        return;
-      case LcDslPackage.FAVORITES__DEBUG:
-        setDebug(DEBUG_EDEFAULT);
+      case LcDslPackage.FAVORITES__TYPES:
+        getTypes().clear();
         return;
     }
     super.eUnset(featureID);
@@ -204,10 +139,8 @@ public class FavoritesImpl extends MinimalEObjectImpl.Container implements Favor
   {
     switch (featureID)
     {
-      case LcDslPackage.FAVORITES__RUN:
-        return run != RUN_EDEFAULT;
-      case LcDslPackage.FAVORITES__DEBUG:
-        return debug != DEBUG_EDEFAULT;
+      case LcDslPackage.FAVORITES__TYPES:
+        return types != null && !types.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -223,10 +156,8 @@ public class FavoritesImpl extends MinimalEObjectImpl.Container implements Favor
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (run: ");
-    result.append(run);
-    result.append(", debug: ");
-    result.append(debug);
+    result.append(" (types: ");
+    result.append(types);
     result.append(')');
     return result.toString();
   }

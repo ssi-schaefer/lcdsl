@@ -86,6 +86,26 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
         return createLaunchConfigAdapter();
       }
       @Override
+      public Adapter caseWorkspace(Workspace object)
+      {
+        return createWorkspaceAdapter();
+      }
+      @Override
+      public Adapter caseWorkingDir(WorkingDir object)
+      {
+        return createWorkingDirAdapter();
+      }
+      @Override
+      public Adapter caseMainProject(MainProject object)
+      {
+        return createMainProjectAdapter();
+      }
+      @Override
+      public Adapter caseMainType(MainType object)
+      {
+        return createMainTypeAdapter();
+      }
+      @Override
       public Adapter caseAddPlugin(AddPlugin object)
       {
         return createAddPluginAdapter();
@@ -278,6 +298,66 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLaunchConfigAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.Workspace <em>Workspace</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.Workspace
+   * @generated
+   */
+  public Adapter createWorkspaceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.WorkingDir <em>Working Dir</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.WorkingDir
+   * @generated
+   */
+  public Adapter createWorkingDirAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.MainProject <em>Main Project</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.MainProject
+   * @generated
+   */
+  public Adapter createMainProjectAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.MainType <em>Main Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.MainType
+   * @generated
+   */
+  public Adapter createMainTypeAdapter()
   {
     return null;
   }

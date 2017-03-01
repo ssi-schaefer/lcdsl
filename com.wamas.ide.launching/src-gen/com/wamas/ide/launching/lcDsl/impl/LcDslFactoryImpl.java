@@ -68,6 +68,10 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
     {
       case LcDslPackage.LC_MODEL: return createLCModel();
       case LcDslPackage.LAUNCH_CONFIG: return createLaunchConfig();
+      case LcDslPackage.WORKSPACE: return createWorkspace();
+      case LcDslPackage.WORKING_DIR: return createWorkingDir();
+      case LcDslPackage.MAIN_PROJECT: return createMainProject();
+      case LcDslPackage.MAIN_TYPE: return createMainType();
       case LcDslPackage.ADD_PLUGIN: return createAddPlugin();
       case LcDslPackage.IGNORE_PLUGIN: return createIgnorePlugin();
       case LcDslPackage.VM_ARGUMENT: return createVmArgument();
@@ -176,6 +180,50 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
   {
     LaunchConfigImpl launchConfig = new LaunchConfigImpl();
     return launchConfig;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Workspace createWorkspace()
+  {
+    WorkspaceImpl workspace = new WorkspaceImpl();
+    return workspace;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WorkingDir createWorkingDir()
+  {
+    WorkingDirImpl workingDir = new WorkingDirImpl();
+    return workingDir;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MainProject createMainProject()
+  {
+    MainProjectImpl mainProject = new MainProjectImpl();
+    return mainProject;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MainType createMainType()
+  {
+    MainTypeImpl mainType = new MainTypeImpl();
+    return mainType;
   }
 
   /**

@@ -43,12 +43,12 @@ LaunchConfig:
 	) type=LaunchConfigType 'configuration' name=FQName 
 	(':' superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN
 		( // things that may appear only once
-			(clears=ClearOption ';')? // Eclipse, RAP (partial)
-			& ('workspace' workspace=AnyPath ';')? // Eclipse, RAP
-			& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
-			& (memory=MemoryOption ';')? // All but Groups
-			& ('project' project=Project ';')? // Java
-			& ('main-class' mainClass=JavaMainType ';')? // Java
+			(clears=ClearOption)? // Eclipse, RAP (partial)
+			& (workspace=Workspace)? // Eclipse, RAP
+			& (workingDir=WorkingDir)? // All but Groups
+			& (memory=MemoryOption)? // All but Groups
+			& (mainProject=MainProject)? // Java
+			& (mainType=MainType)? // Java
 			& (application=ApplicationExtPoint)? // Eclipse 		// TODO: content assist, validation
 			& (product=ProductExtPoint)? // Eclipse 				// TODO: content assist, validation
 			& (favorites=Favorites)? // All
@@ -68,6 +68,22 @@ LaunchConfig:
 			| traces+=TraceEnablement // Eclipse, RAP 				// TODO: content assist, validation
 		)*
 	BLOCK_END
+;
+
+Workspace:
+	'workspace' workspace=AnyPath ';'
+;
+
+WorkingDir:
+	'working-dir' workingDir=ExistingPath ';'
+;
+
+MainProject:
+	'project' project=Project ';'
+;
+
+MainType:
+	'main-class' mainClass=JavaMainType ';'
 ;
 
 AddPlugin:
@@ -99,7 +115,7 @@ ProductExtPoint:
 ;
 
 Favorites:
-	{Favorites} 'favorite' ((run?='run')? & (debug?='debug')?) ';'
+	{Favorites} 'favorite' (types+=LaunchModeType)* ';'
 ;
 
 Redirect:
@@ -162,15 +178,15 @@ JavaMainType:
 ;
 
 ClearOption:
-	{ClearOption} 'clear' (((workspace?='workspace' | log?='log') (noAskClear?='!')?)? & (config?='config')?)
+	{ClearOption} 'clear' (((workspace?='workspace' | log?='log') (noAskClear?='!')?)? & (config?='config')?) ';'
 ;
 
 MemoryOption:
-	{MemoryOption} 'memory' (('min' EQ min=INT minUnit=MemoryUnit)? & ('max' EQ max=INT maxUnit=MemoryUnit)? & ('perm' EQ perm=INT permUnit=MemoryUnit)?)
+	{MemoryOption} 'memory' (('min' EQ min=INT minUnit=MemoryUnit)? & ('max' EQ max=INT maxUnit=MemoryUnit)? & ('perm' EQ perm=INT permUnit=MemoryUnit)?) ';'
 ;
 
 GroupMember:
-	((type?=LaunchModeType)? & (adopt?='adopt')?) 'member' member=[LaunchConfig|FQName] (postAction?=GroupPostLaunchAction)? ';'
+	((type=LaunchModeType)? & (adopt?='adopt')?) 'member' member=[LaunchConfig|FQName] (postAction=GroupPostLaunchAction)? ';'
 ;
 
 GroupPostLaunchAction:

@@ -4,29 +4,29 @@
 package com.wamas.ide.launching.lcDsl.impl;
 
 import com.wamas.ide.launching.lcDsl.AddPlugin;
-import com.wamas.ide.launching.lcDsl.AnyPath;
 import com.wamas.ide.launching.lcDsl.ApplicationExtPoint;
 import com.wamas.ide.launching.lcDsl.ClearOption;
 import com.wamas.ide.launching.lcDsl.ConfigIniTemplate;
 import com.wamas.ide.launching.lcDsl.EnvironmentVariable;
 import com.wamas.ide.launching.lcDsl.ExecutionEnvironment;
-import com.wamas.ide.launching.lcDsl.ExistingPath;
 import com.wamas.ide.launching.lcDsl.Favorites;
 import com.wamas.ide.launching.lcDsl.GroupMember;
 import com.wamas.ide.launching.lcDsl.IgnorePlugin;
 import com.wamas.ide.launching.lcDsl.JavaMainSearch;
-import com.wamas.ide.launching.lcDsl.JavaMainType;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.lcDsl.LaunchConfigType;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
+import com.wamas.ide.launching.lcDsl.MainProject;
+import com.wamas.ide.launching.lcDsl.MainType;
 import com.wamas.ide.launching.lcDsl.MemoryOption;
 import com.wamas.ide.launching.lcDsl.ProductExtPoint;
 import com.wamas.ide.launching.lcDsl.ProgramArgument;
-import com.wamas.ide.launching.lcDsl.Project;
 import com.wamas.ide.launching.lcDsl.RapServletConfig;
 import com.wamas.ide.launching.lcDsl.Redirect;
 import com.wamas.ide.launching.lcDsl.TraceEnablement;
 import com.wamas.ide.launching.lcDsl.VmArgument;
+import com.wamas.ide.launching.lcDsl.WorkingDir;
+import com.wamas.ide.launching.lcDsl.Workspace;
 
 import java.util.Collection;
 
@@ -67,8 +67,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getWorkspace <em>Workspace</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getWorkingDir <em>Working Dir</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getMemory <em>Memory</em>}</li>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getProject <em>Project</em>}</li>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getMainClass <em>Main Class</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getMainProject <em>Main Project</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getMainType <em>Main Type</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getApplication <em>Application</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getProduct <em>Product</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getFavorites <em>Favorites</em>}</li>
@@ -318,7 +318,7 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * @generated
    * @ordered
    */
-  protected AnyPath workspace;
+  protected Workspace workspace;
 
   /**
    * The cached value of the '{@link #getWorkingDir() <em>Working Dir</em>}' containment reference.
@@ -328,7 +328,7 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * @generated
    * @ordered
    */
-  protected ExistingPath workingDir;
+  protected WorkingDir workingDir;
 
   /**
    * The cached value of the '{@link #getMemory() <em>Memory</em>}' containment reference.
@@ -341,24 +341,24 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
   protected MemoryOption memory;
 
   /**
-   * The cached value of the '{@link #getProject() <em>Project</em>}' containment reference.
+   * The cached value of the '{@link #getMainProject() <em>Main Project</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProject()
+   * @see #getMainProject()
    * @generated
    * @ordered
    */
-  protected Project project;
+  protected MainProject mainProject;
 
   /**
-   * The cached value of the '{@link #getMainClass() <em>Main Class</em>}' containment reference.
+   * The cached value of the '{@link #getMainType() <em>Main Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMainClass()
+   * @see #getMainType()
    * @generated
    * @ordered
    */
-  protected JavaMainType mainClass;
+  protected MainType mainType;
 
   /**
    * The cached value of the '{@link #getApplication() <em>Application</em>}' containment reference.
@@ -857,7 +857,7 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public AnyPath getWorkspace()
+  public Workspace getWorkspace()
   {
     return workspace;
   }
@@ -867,9 +867,9 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetWorkspace(AnyPath newWorkspace, NotificationChain msgs)
+  public NotificationChain basicSetWorkspace(Workspace newWorkspace, NotificationChain msgs)
   {
-    AnyPath oldWorkspace = workspace;
+    Workspace oldWorkspace = workspace;
     workspace = newWorkspace;
     if (eNotificationRequired())
     {
@@ -884,7 +884,7 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setWorkspace(AnyPath newWorkspace)
+  public void setWorkspace(Workspace newWorkspace)
   {
     if (newWorkspace != workspace)
     {
@@ -905,7 +905,7 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExistingPath getWorkingDir()
+  public WorkingDir getWorkingDir()
   {
     return workingDir;
   }
@@ -915,9 +915,9 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetWorkingDir(ExistingPath newWorkingDir, NotificationChain msgs)
+  public NotificationChain basicSetWorkingDir(WorkingDir newWorkingDir, NotificationChain msgs)
   {
-    ExistingPath oldWorkingDir = workingDir;
+    WorkingDir oldWorkingDir = workingDir;
     workingDir = newWorkingDir;
     if (eNotificationRequired())
     {
@@ -932,7 +932,7 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setWorkingDir(ExistingPath newWorkingDir)
+  public void setWorkingDir(WorkingDir newWorkingDir)
   {
     if (newWorkingDir != workingDir)
     {
@@ -1001,9 +1001,9 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public Project getProject()
+  public MainProject getMainProject()
   {
-    return project;
+    return mainProject;
   }
 
   /**
@@ -1011,13 +1011,13 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetProject(Project newProject, NotificationChain msgs)
+  public NotificationChain basicSetMainProject(MainProject newMainProject, NotificationChain msgs)
   {
-    Project oldProject = project;
-    project = newProject;
+    MainProject oldMainProject = mainProject;
+    mainProject = newMainProject;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__PROJECT, oldProject, newProject);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__MAIN_PROJECT, oldMainProject, newMainProject);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -1028,20 +1028,20 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setProject(Project newProject)
+  public void setMainProject(MainProject newMainProject)
   {
-    if (newProject != project)
+    if (newMainProject != mainProject)
     {
       NotificationChain msgs = null;
-      if (project != null)
-        msgs = ((InternalEObject)project).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__PROJECT, null, msgs);
-      if (newProject != null)
-        msgs = ((InternalEObject)newProject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__PROJECT, null, msgs);
-      msgs = basicSetProject(newProject, msgs);
+      if (mainProject != null)
+        msgs = ((InternalEObject)mainProject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__MAIN_PROJECT, null, msgs);
+      if (newMainProject != null)
+        msgs = ((InternalEObject)newMainProject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__MAIN_PROJECT, null, msgs);
+      msgs = basicSetMainProject(newMainProject, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__PROJECT, newProject, newProject));
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__MAIN_PROJECT, newMainProject, newMainProject));
   }
 
   /**
@@ -1049,9 +1049,9 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public JavaMainType getMainClass()
+  public MainType getMainType()
   {
-    return mainClass;
+    return mainType;
   }
 
   /**
@@ -1059,13 +1059,13 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMainClass(JavaMainType newMainClass, NotificationChain msgs)
+  public NotificationChain basicSetMainType(MainType newMainType, NotificationChain msgs)
   {
-    JavaMainType oldMainClass = mainClass;
-    mainClass = newMainClass;
+    MainType oldMainType = mainType;
+    mainType = newMainType;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__MAIN_CLASS, oldMainClass, newMainClass);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__MAIN_TYPE, oldMainType, newMainType);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -1076,20 +1076,20 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMainClass(JavaMainType newMainClass)
+  public void setMainType(MainType newMainType)
   {
-    if (newMainClass != mainClass)
+    if (newMainType != mainType)
     {
       NotificationChain msgs = null;
-      if (mainClass != null)
-        msgs = ((InternalEObject)mainClass).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__MAIN_CLASS, null, msgs);
-      if (newMainClass != null)
-        msgs = ((InternalEObject)newMainClass).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__MAIN_CLASS, null, msgs);
-      msgs = basicSetMainClass(newMainClass, msgs);
+      if (mainType != null)
+        msgs = ((InternalEObject)mainType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__MAIN_TYPE, null, msgs);
+      if (newMainType != null)
+        msgs = ((InternalEObject)newMainType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__MAIN_TYPE, null, msgs);
+      msgs = basicSetMainType(newMainType, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__MAIN_CLASS, newMainClass, newMainClass));
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__MAIN_TYPE, newMainType, newMainType));
   }
 
   /**
@@ -1592,10 +1592,10 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return basicSetWorkingDir(null, msgs);
       case LcDslPackage.LAUNCH_CONFIG__MEMORY:
         return basicSetMemory(null, msgs);
-      case LcDslPackage.LAUNCH_CONFIG__PROJECT:
-        return basicSetProject(null, msgs);
-      case LcDslPackage.LAUNCH_CONFIG__MAIN_CLASS:
-        return basicSetMainClass(null, msgs);
+      case LcDslPackage.LAUNCH_CONFIG__MAIN_PROJECT:
+        return basicSetMainProject(null, msgs);
+      case LcDslPackage.LAUNCH_CONFIG__MAIN_TYPE:
+        return basicSetMainType(null, msgs);
       case LcDslPackage.LAUNCH_CONFIG__APPLICATION:
         return basicSetApplication(null, msgs);
       case LcDslPackage.LAUNCH_CONFIG__PRODUCT:
@@ -1671,10 +1671,10 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return getWorkingDir();
       case LcDslPackage.LAUNCH_CONFIG__MEMORY:
         return getMemory();
-      case LcDslPackage.LAUNCH_CONFIG__PROJECT:
-        return getProject();
-      case LcDslPackage.LAUNCH_CONFIG__MAIN_CLASS:
-        return getMainClass();
+      case LcDslPackage.LAUNCH_CONFIG__MAIN_PROJECT:
+        return getMainProject();
+      case LcDslPackage.LAUNCH_CONFIG__MAIN_TYPE:
+        return getMainType();
       case LcDslPackage.LAUNCH_CONFIG__APPLICATION:
         return getApplication();
       case LcDslPackage.LAUNCH_CONFIG__PRODUCT:
@@ -1757,19 +1757,19 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         setClears((ClearOption)newValue);
         return;
       case LcDslPackage.LAUNCH_CONFIG__WORKSPACE:
-        setWorkspace((AnyPath)newValue);
+        setWorkspace((Workspace)newValue);
         return;
       case LcDslPackage.LAUNCH_CONFIG__WORKING_DIR:
-        setWorkingDir((ExistingPath)newValue);
+        setWorkingDir((WorkingDir)newValue);
         return;
       case LcDslPackage.LAUNCH_CONFIG__MEMORY:
         setMemory((MemoryOption)newValue);
         return;
-      case LcDslPackage.LAUNCH_CONFIG__PROJECT:
-        setProject((Project)newValue);
+      case LcDslPackage.LAUNCH_CONFIG__MAIN_PROJECT:
+        setMainProject((MainProject)newValue);
         return;
-      case LcDslPackage.LAUNCH_CONFIG__MAIN_CLASS:
-        setMainClass((JavaMainType)newValue);
+      case LcDslPackage.LAUNCH_CONFIG__MAIN_TYPE:
+        setMainType((MainType)newValue);
         return;
       case LcDslPackage.LAUNCH_CONFIG__APPLICATION:
         setApplication((ApplicationExtPoint)newValue);
@@ -1874,19 +1874,19 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         setClears((ClearOption)null);
         return;
       case LcDslPackage.LAUNCH_CONFIG__WORKSPACE:
-        setWorkspace((AnyPath)null);
+        setWorkspace((Workspace)null);
         return;
       case LcDslPackage.LAUNCH_CONFIG__WORKING_DIR:
-        setWorkingDir((ExistingPath)null);
+        setWorkingDir((WorkingDir)null);
         return;
       case LcDslPackage.LAUNCH_CONFIG__MEMORY:
         setMemory((MemoryOption)null);
         return;
-      case LcDslPackage.LAUNCH_CONFIG__PROJECT:
-        setProject((Project)null);
+      case LcDslPackage.LAUNCH_CONFIG__MAIN_PROJECT:
+        setMainProject((MainProject)null);
         return;
-      case LcDslPackage.LAUNCH_CONFIG__MAIN_CLASS:
-        setMainClass((JavaMainType)null);
+      case LcDslPackage.LAUNCH_CONFIG__MAIN_TYPE:
+        setMainType((MainType)null);
         return;
       case LcDslPackage.LAUNCH_CONFIG__APPLICATION:
         setApplication((ApplicationExtPoint)null);
@@ -1977,10 +1977,10 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return workingDir != null;
       case LcDslPackage.LAUNCH_CONFIG__MEMORY:
         return memory != null;
-      case LcDslPackage.LAUNCH_CONFIG__PROJECT:
-        return project != null;
-      case LcDslPackage.LAUNCH_CONFIG__MAIN_CLASS:
-        return mainClass != null;
+      case LcDslPackage.LAUNCH_CONFIG__MAIN_PROJECT:
+        return mainProject != null;
+      case LcDslPackage.LAUNCH_CONFIG__MAIN_TYPE:
+        return mainType != null;
       case LcDslPackage.LAUNCH_CONFIG__APPLICATION:
         return application != null;
       case LcDslPackage.LAUNCH_CONFIG__PRODUCT:

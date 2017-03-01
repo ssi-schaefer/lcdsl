@@ -31,8 +31,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getWorkspace <em>Workspace</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getWorkingDir <em>Working Dir</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getMemory <em>Memory</em>}</li>
- *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getProject <em>Project</em>}</li>
- *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getMainClass <em>Main Class</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getMainProject <em>Main Project</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getMainType <em>Main Type</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getApplication <em>Application</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getProduct <em>Product</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getFavorites <em>Favorites</em>}</li>
@@ -380,12 +380,12 @@ public interface LaunchConfig extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Workspace</em>' containment reference.
-   * @see #setWorkspace(AnyPath)
+   * @see #setWorkspace(Workspace)
    * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_Workspace()
    * @model containment="true"
    * @generated
    */
-  AnyPath getWorkspace();
+  Workspace getWorkspace();
 
   /**
    * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getWorkspace <em>Workspace</em>}' containment reference.
@@ -395,7 +395,7 @@ public interface LaunchConfig extends EObject
    * @see #getWorkspace()
    * @generated
    */
-  void setWorkspace(AnyPath value);
+  void setWorkspace(Workspace value);
 
   /**
    * Returns the value of the '<em><b>Working Dir</b></em>' containment reference.
@@ -406,12 +406,12 @@ public interface LaunchConfig extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Working Dir</em>' containment reference.
-   * @see #setWorkingDir(ExistingPath)
+   * @see #setWorkingDir(WorkingDir)
    * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_WorkingDir()
    * @model containment="true"
    * @generated
    */
-  ExistingPath getWorkingDir();
+  WorkingDir getWorkingDir();
 
   /**
    * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getWorkingDir <em>Working Dir</em>}' containment reference.
@@ -421,7 +421,7 @@ public interface LaunchConfig extends EObject
    * @see #getWorkingDir()
    * @generated
    */
-  void setWorkingDir(ExistingPath value);
+  void setWorkingDir(WorkingDir value);
 
   /**
    * Returns the value of the '<em><b>Memory</b></em>' containment reference.
@@ -450,56 +450,56 @@ public interface LaunchConfig extends EObject
   void setMemory(MemoryOption value);
 
   /**
-   * Returns the value of the '<em><b>Project</b></em>' containment reference.
+   * Returns the value of the '<em><b>Main Project</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Project</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Main Project</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Project</em>' containment reference.
-   * @see #setProject(Project)
-   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_Project()
+   * @return the value of the '<em>Main Project</em>' containment reference.
+   * @see #setMainProject(MainProject)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_MainProject()
    * @model containment="true"
    * @generated
    */
-  Project getProject();
+  MainProject getMainProject();
 
   /**
-   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getProject <em>Project</em>}' containment reference.
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getMainProject <em>Main Project</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Project</em>' containment reference.
-   * @see #getProject()
+   * @param value the new value of the '<em>Main Project</em>' containment reference.
+   * @see #getMainProject()
    * @generated
    */
-  void setProject(Project value);
+  void setMainProject(MainProject value);
 
   /**
-   * Returns the value of the '<em><b>Main Class</b></em>' containment reference.
+   * Returns the value of the '<em><b>Main Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Main Class</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Main Type</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Main Class</em>' containment reference.
-   * @see #setMainClass(JavaMainType)
-   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_MainClass()
+   * @return the value of the '<em>Main Type</em>' containment reference.
+   * @see #setMainType(MainType)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_MainType()
    * @model containment="true"
    * @generated
    */
-  JavaMainType getMainClass();
+  MainType getMainType();
 
   /**
-   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getMainClass <em>Main Class</em>}' containment reference.
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getMainType <em>Main Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Main Class</em>' containment reference.
-   * @see #getMainClass()
+   * @param value the new value of the '<em>Main Type</em>' containment reference.
+   * @see #getMainType()
    * @generated
    */
-  void setMainClass(JavaMainType value);
+  void setMainType(MainType value);
 
   /**
    * Returns the value of the '<em><b>Application</b></em>' containment reference.

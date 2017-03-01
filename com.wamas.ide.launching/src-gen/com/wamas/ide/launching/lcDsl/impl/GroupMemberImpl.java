@@ -4,10 +4,13 @@
 package com.wamas.ide.launching.lcDsl.impl;
 
 import com.wamas.ide.launching.lcDsl.GroupMember;
+import com.wamas.ide.launching.lcDsl.GroupPostLaunchAction;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
+import com.wamas.ide.launching.lcDsl.LaunchModeType;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -23,10 +26,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.GroupMemberImpl#isType <em>Type</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.GroupMemberImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.GroupMemberImpl#isAdopt <em>Adopt</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.GroupMemberImpl#getMember <em>Member</em>}</li>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.GroupMemberImpl#isPostAction <em>Post Action</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.GroupMemberImpl#getPostAction <em>Post Action</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,24 +37,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class GroupMemberImpl extends MinimalEObjectImpl.Container implements GroupMember
 {
   /**
-   * The default value of the '{@link #isType() <em>Type</em>}' attribute.
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isType()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected static final boolean TYPE_EDEFAULT = false;
+  protected static final LaunchModeType TYPE_EDEFAULT = LaunchModeType.RUN;
 
   /**
-   * The cached value of the '{@link #isType() <em>Type</em>}' attribute.
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isType()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected boolean type = TYPE_EDEFAULT;
+  protected LaunchModeType type = TYPE_EDEFAULT;
 
   /**
    * The default value of the '{@link #isAdopt() <em>Adopt</em>}' attribute.
@@ -84,24 +87,14 @@ public class GroupMemberImpl extends MinimalEObjectImpl.Container implements Gro
   protected LaunchConfig member;
 
   /**
-   * The default value of the '{@link #isPostAction() <em>Post Action</em>}' attribute.
+   * The cached value of the '{@link #getPostAction() <em>Post Action</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isPostAction()
+   * @see #getPostAction()
    * @generated
    * @ordered
    */
-  protected static final boolean POST_ACTION_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isPostAction() <em>Post Action</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isPostAction()
-   * @generated
-   * @ordered
-   */
-  protected boolean postAction = POST_ACTION_EDEFAULT;
+  protected GroupPostLaunchAction postAction;
 
   /**
    * <!-- begin-user-doc -->
@@ -129,7 +122,7 @@ public class GroupMemberImpl extends MinimalEObjectImpl.Container implements Gro
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isType()
+  public LaunchModeType getType()
   {
     return type;
   }
@@ -139,10 +132,10 @@ public class GroupMemberImpl extends MinimalEObjectImpl.Container implements Gro
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(boolean newType)
+  public void setType(LaunchModeType newType)
   {
-    boolean oldType = type;
-    type = newType;
+    LaunchModeType oldType = type;
+    type = newType == null ? TYPE_EDEFAULT : newType;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.GROUP_MEMBER__TYPE, oldType, type));
   }
@@ -218,7 +211,7 @@ public class GroupMemberImpl extends MinimalEObjectImpl.Container implements Gro
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isPostAction()
+  public GroupPostLaunchAction getPostAction()
   {
     return postAction;
   }
@@ -228,12 +221,53 @@ public class GroupMemberImpl extends MinimalEObjectImpl.Container implements Gro
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPostAction(boolean newPostAction)
+  public NotificationChain basicSetPostAction(GroupPostLaunchAction newPostAction, NotificationChain msgs)
   {
-    boolean oldPostAction = postAction;
+    GroupPostLaunchAction oldPostAction = postAction;
     postAction = newPostAction;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.GROUP_MEMBER__POST_ACTION, oldPostAction, postAction));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.GROUP_MEMBER__POST_ACTION, oldPostAction, newPostAction);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPostAction(GroupPostLaunchAction newPostAction)
+  {
+    if (newPostAction != postAction)
+    {
+      NotificationChain msgs = null;
+      if (postAction != null)
+        msgs = ((InternalEObject)postAction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.GROUP_MEMBER__POST_ACTION, null, msgs);
+      if (newPostAction != null)
+        msgs = ((InternalEObject)newPostAction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.GROUP_MEMBER__POST_ACTION, null, msgs);
+      msgs = basicSetPostAction(newPostAction, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.GROUP_MEMBER__POST_ACTION, newPostAction, newPostAction));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case LcDslPackage.GROUP_MEMBER__POST_ACTION:
+        return basicSetPostAction(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -247,14 +281,14 @@ public class GroupMemberImpl extends MinimalEObjectImpl.Container implements Gro
     switch (featureID)
     {
       case LcDslPackage.GROUP_MEMBER__TYPE:
-        return isType();
+        return getType();
       case LcDslPackage.GROUP_MEMBER__ADOPT:
         return isAdopt();
       case LcDslPackage.GROUP_MEMBER__MEMBER:
         if (resolve) return getMember();
         return basicGetMember();
       case LcDslPackage.GROUP_MEMBER__POST_ACTION:
-        return isPostAction();
+        return getPostAction();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -270,7 +304,7 @@ public class GroupMemberImpl extends MinimalEObjectImpl.Container implements Gro
     switch (featureID)
     {
       case LcDslPackage.GROUP_MEMBER__TYPE:
-        setType((Boolean)newValue);
+        setType((LaunchModeType)newValue);
         return;
       case LcDslPackage.GROUP_MEMBER__ADOPT:
         setAdopt((Boolean)newValue);
@@ -279,7 +313,7 @@ public class GroupMemberImpl extends MinimalEObjectImpl.Container implements Gro
         setMember((LaunchConfig)newValue);
         return;
       case LcDslPackage.GROUP_MEMBER__POST_ACTION:
-        setPostAction((Boolean)newValue);
+        setPostAction((GroupPostLaunchAction)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -305,7 +339,7 @@ public class GroupMemberImpl extends MinimalEObjectImpl.Container implements Gro
         setMember((LaunchConfig)null);
         return;
       case LcDslPackage.GROUP_MEMBER__POST_ACTION:
-        setPostAction(POST_ACTION_EDEFAULT);
+        setPostAction((GroupPostLaunchAction)null);
         return;
     }
     super.eUnset(featureID);
@@ -328,7 +362,7 @@ public class GroupMemberImpl extends MinimalEObjectImpl.Container implements Gro
       case LcDslPackage.GROUP_MEMBER__MEMBER:
         return member != null;
       case LcDslPackage.GROUP_MEMBER__POST_ACTION:
-        return postAction != POST_ACTION_EDEFAULT;
+        return postAction != null;
     }
     return super.eIsSet(featureID);
   }
@@ -348,8 +382,6 @@ public class GroupMemberImpl extends MinimalEObjectImpl.Container implements Gro
     result.append(type);
     result.append(", adopt: ");
     result.append(adopt);
-    result.append(", postAction: ");
-    result.append(postAction);
     result.append(')');
     return result.toString();
   }

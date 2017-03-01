@@ -87,34 +87,18 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSuperConfigLaunchConfigFQNameParserRuleCall_4_1_0_1 = (RuleCall)cSuperConfigLaunchConfigCrossReference_4_1_0.eContents().get(1);
 		private final RuleCall cBLOCK_BEGINTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final UnorderedGroup cUnorderedGroup_6 = (UnorderedGroup)cGroup.eContents().get(6);
-		private final Group cGroup_6_0 = (Group)cUnorderedGroup_6.eContents().get(0);
-		private final Assignment cClearsAssignment_6_0_0 = (Assignment)cGroup_6_0.eContents().get(0);
-		private final RuleCall cClearsClearOptionParserRuleCall_6_0_0_0 = (RuleCall)cClearsAssignment_6_0_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_6_0_1 = (Keyword)cGroup_6_0.eContents().get(1);
-		private final Group cGroup_6_1 = (Group)cUnorderedGroup_6.eContents().get(1);
-		private final Keyword cWorkspaceKeyword_6_1_0 = (Keyword)cGroup_6_1.eContents().get(0);
-		private final Assignment cWorkspaceAssignment_6_1_1 = (Assignment)cGroup_6_1.eContents().get(1);
-		private final RuleCall cWorkspaceAnyPathParserRuleCall_6_1_1_0 = (RuleCall)cWorkspaceAssignment_6_1_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_6_1_2 = (Keyword)cGroup_6_1.eContents().get(2);
-		private final Group cGroup_6_2 = (Group)cUnorderedGroup_6.eContents().get(2);
-		private final Keyword cWorkingDirKeyword_6_2_0 = (Keyword)cGroup_6_2.eContents().get(0);
-		private final Assignment cWorkingDirAssignment_6_2_1 = (Assignment)cGroup_6_2.eContents().get(1);
-		private final RuleCall cWorkingDirExistingPathParserRuleCall_6_2_1_0 = (RuleCall)cWorkingDirAssignment_6_2_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_6_2_2 = (Keyword)cGroup_6_2.eContents().get(2);
-		private final Group cGroup_6_3 = (Group)cUnorderedGroup_6.eContents().get(3);
-		private final Assignment cMemoryAssignment_6_3_0 = (Assignment)cGroup_6_3.eContents().get(0);
-		private final RuleCall cMemoryMemoryOptionParserRuleCall_6_3_0_0 = (RuleCall)cMemoryAssignment_6_3_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_6_3_1 = (Keyword)cGroup_6_3.eContents().get(1);
-		private final Group cGroup_6_4 = (Group)cUnorderedGroup_6.eContents().get(4);
-		private final Keyword cProjectKeyword_6_4_0 = (Keyword)cGroup_6_4.eContents().get(0);
-		private final Assignment cProjectAssignment_6_4_1 = (Assignment)cGroup_6_4.eContents().get(1);
-		private final RuleCall cProjectProjectParserRuleCall_6_4_1_0 = (RuleCall)cProjectAssignment_6_4_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_6_4_2 = (Keyword)cGroup_6_4.eContents().get(2);
-		private final Group cGroup_6_5 = (Group)cUnorderedGroup_6.eContents().get(5);
-		private final Keyword cMainClassKeyword_6_5_0 = (Keyword)cGroup_6_5.eContents().get(0);
-		private final Assignment cMainClassAssignment_6_5_1 = (Assignment)cGroup_6_5.eContents().get(1);
-		private final RuleCall cMainClassJavaMainTypeParserRuleCall_6_5_1_0 = (RuleCall)cMainClassAssignment_6_5_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_6_5_2 = (Keyword)cGroup_6_5.eContents().get(2);
+		private final Assignment cClearsAssignment_6_0 = (Assignment)cUnorderedGroup_6.eContents().get(0);
+		private final RuleCall cClearsClearOptionParserRuleCall_6_0_0 = (RuleCall)cClearsAssignment_6_0.eContents().get(0);
+		private final Assignment cWorkspaceAssignment_6_1 = (Assignment)cUnorderedGroup_6.eContents().get(1);
+		private final RuleCall cWorkspaceWorkspaceParserRuleCall_6_1_0 = (RuleCall)cWorkspaceAssignment_6_1.eContents().get(0);
+		private final Assignment cWorkingDirAssignment_6_2 = (Assignment)cUnorderedGroup_6.eContents().get(2);
+		private final RuleCall cWorkingDirWorkingDirParserRuleCall_6_2_0 = (RuleCall)cWorkingDirAssignment_6_2.eContents().get(0);
+		private final Assignment cMemoryAssignment_6_3 = (Assignment)cUnorderedGroup_6.eContents().get(3);
+		private final RuleCall cMemoryMemoryOptionParserRuleCall_6_3_0 = (RuleCall)cMemoryAssignment_6_3.eContents().get(0);
+		private final Assignment cMainProjectAssignment_6_4 = (Assignment)cUnorderedGroup_6.eContents().get(4);
+		private final RuleCall cMainProjectMainProjectParserRuleCall_6_4_0 = (RuleCall)cMainProjectAssignment_6_4.eContents().get(0);
+		private final Assignment cMainTypeAssignment_6_5 = (Assignment)cUnorderedGroup_6.eContents().get(5);
+		private final RuleCall cMainTypeMainTypeParserRuleCall_6_5_0 = (RuleCall)cMainTypeAssignment_6_5.eContents().get(0);
 		private final Assignment cApplicationAssignment_6_6 = (Assignment)cUnorderedGroup_6.eContents().get(6);
 		private final RuleCall cApplicationApplicationExtPointParserRuleCall_6_6_0 = (RuleCall)cApplicationAssignment_6_6.eContents().get(0);
 		private final Assignment cProductAssignment_6_7 = (Assignment)cUnorderedGroup_6.eContents().get(7);
@@ -166,17 +150,17 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	& replaceEnv?='replace-env'? // All but Groups
 		//	& stopInMain?='stop-in-main'? // Java
 		//) type=LaunchConfigType 'configuration' name=FQName (':' superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN
-		//	((clears=ClearOption ';')? // Eclipse, RAP (partial)
-		//	& ('workspace' workspace=AnyPath ';')? // Eclipse, RAP
-		//	& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
-		//	& (memory=MemoryOption ';')? // All but Groups
-		//	& ('project' project=Project ';')? // Java
-		//	& ('main-class' mainClass=JavaMainType ';')? // Java
+		//	(clears=ClearOption? // Eclipse, RAP (partial)
+		//	& workspace=Workspace? // Eclipse, RAP
+		//	& workingDir=WorkingDir? // All but Groups
+		//	& memory=MemoryOption? // All but Groups
+		//	& mainProject=MainProject? // Java
+		//	& mainType=MainType? // Java
 		//	& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//	& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 		//	& favorites=Favorites? // All
 		//	& redirect=Redirect? // All but Groups
-		//	& execEnv=ExecutionEnvironment? // All but Groups 	// TODO: content assist, validation
+		//	& execEnv=ExecutionEnvironment? // All but Groups
 		//	& configIniTemplate=ConfigIniTemplate? // Eclipse
 		//	& javaMainSearch=JavaMainSearch? // Java
 		//	& servletConfig=RapServletConfig? // RAP
@@ -200,17 +184,17 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//& replaceEnv?='replace-env'? // All but Groups
 		//& stopInMain?='stop-in-main'? // Java
 		//) type=LaunchConfigType 'configuration' name=FQName (':' superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN
-		//((clears=ClearOption ';')? // Eclipse, RAP (partial)
-		//& ('workspace' workspace=AnyPath ';')? // Eclipse, RAP
-		//& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
-		//& (memory=MemoryOption ';')? // All but Groups
-		//& ('project' project=Project ';')? // Java
-		//& ('main-class' mainClass=JavaMainType ';')? // Java
+		//(clears=ClearOption? // Eclipse, RAP (partial)
+		//& workspace=Workspace? // Eclipse, RAP
+		//& workingDir=WorkingDir? // All but Groups
+		//& memory=MemoryOption? // All but Groups
+		//& mainProject=MainProject? // Java
+		//& mainType=MainType? // Java
 		//& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 		//& favorites=Favorites? // All
 		//& redirect=Redirect? // All but Groups
-		//& execEnv=ExecutionEnvironment? // All but Groups 	// TODO: content assist, validation
+		//& execEnv=ExecutionEnvironment? // All but Groups
 		//& configIniTemplate=ConfigIniTemplate? // Eclipse
 		//& javaMainSearch=JavaMainSearch? // Java
 		//& servletConfig=RapServletConfig? // RAP
@@ -316,106 +300,59 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//BLOCK_BEGIN
 		public RuleCall getBLOCK_BEGINTerminalRuleCall_5() { return cBLOCK_BEGINTerminalRuleCall_5; }
 		
-		//((clears=ClearOption ';')? // Eclipse, RAP (partial)
-		//& ('workspace' workspace=AnyPath ';')? // Eclipse, RAP
-		//& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
-		//& (memory=MemoryOption ';')? // All but Groups
-		//& ('project' project=Project ';')? // Java
-		//& ('main-class' mainClass=JavaMainType ';')? // Java
+		//(clears=ClearOption? // Eclipse, RAP (partial)
+		//& workspace=Workspace? // Eclipse, RAP
+		//& workingDir=WorkingDir? // All but Groups
+		//& memory=MemoryOption? // All but Groups
+		//& mainProject=MainProject? // Java
+		//& mainType=MainType? // Java
 		//& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 		//& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 		//& favorites=Favorites? // All
 		//& redirect=Redirect? // All but Groups
-		//& execEnv=ExecutionEnvironment? // All but Groups 	// TODO: content assist, validation
+		//& execEnv=ExecutionEnvironment? // All but Groups
 		//& configIniTemplate=ConfigIniTemplate? // Eclipse
 		//& javaMainSearch=JavaMainSearch? // Java
 		//& servletConfig=RapServletConfig? // RAP
 		//)
 		public UnorderedGroup getUnorderedGroup_6() { return cUnorderedGroup_6; }
 		
-		//(clears=ClearOption ';')?
-		public Group getGroup_6_0() { return cGroup_6_0; }
-		
-		//clears=ClearOption
-		public Assignment getClearsAssignment_6_0_0() { return cClearsAssignment_6_0_0; }
+		//// things that may appear only once
+		//clears=ClearOption?
+		public Assignment getClearsAssignment_6_0() { return cClearsAssignment_6_0; }
 		
 		//ClearOption
-		public RuleCall getClearsClearOptionParserRuleCall_6_0_0_0() { return cClearsClearOptionParserRuleCall_6_0_0_0; }
+		public RuleCall getClearsClearOptionParserRuleCall_6_0_0() { return cClearsClearOptionParserRuleCall_6_0_0; }
 		
-		//';'
-		public Keyword getSemicolonKeyword_6_0_1() { return cSemicolonKeyword_6_0_1; }
+		//workspace=Workspace?
+		public Assignment getWorkspaceAssignment_6_1() { return cWorkspaceAssignment_6_1; }
 		
-		//('workspace' workspace=AnyPath ';')?
-		public Group getGroup_6_1() { return cGroup_6_1; }
+		//Workspace
+		public RuleCall getWorkspaceWorkspaceParserRuleCall_6_1_0() { return cWorkspaceWorkspaceParserRuleCall_6_1_0; }
 		
-		//'workspace'
-		public Keyword getWorkspaceKeyword_6_1_0() { return cWorkspaceKeyword_6_1_0; }
+		//workingDir=WorkingDir?
+		public Assignment getWorkingDirAssignment_6_2() { return cWorkingDirAssignment_6_2; }
 		
-		//workspace=AnyPath
-		public Assignment getWorkspaceAssignment_6_1_1() { return cWorkspaceAssignment_6_1_1; }
+		//WorkingDir
+		public RuleCall getWorkingDirWorkingDirParserRuleCall_6_2_0() { return cWorkingDirWorkingDirParserRuleCall_6_2_0; }
 		
-		//AnyPath
-		public RuleCall getWorkspaceAnyPathParserRuleCall_6_1_1_0() { return cWorkspaceAnyPathParserRuleCall_6_1_1_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_6_1_2() { return cSemicolonKeyword_6_1_2; }
-		
-		//('working-dir' workingDir=ExistingPath ';')?
-		public Group getGroup_6_2() { return cGroup_6_2; }
-		
-		//'working-dir'
-		public Keyword getWorkingDirKeyword_6_2_0() { return cWorkingDirKeyword_6_2_0; }
-		
-		//workingDir=ExistingPath
-		public Assignment getWorkingDirAssignment_6_2_1() { return cWorkingDirAssignment_6_2_1; }
-		
-		//ExistingPath
-		public RuleCall getWorkingDirExistingPathParserRuleCall_6_2_1_0() { return cWorkingDirExistingPathParserRuleCall_6_2_1_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_6_2_2() { return cSemicolonKeyword_6_2_2; }
-		
-		//(memory=MemoryOption ';')?
-		public Group getGroup_6_3() { return cGroup_6_3; }
-		
-		//memory=MemoryOption
-		public Assignment getMemoryAssignment_6_3_0() { return cMemoryAssignment_6_3_0; }
+		//memory=MemoryOption?
+		public Assignment getMemoryAssignment_6_3() { return cMemoryAssignment_6_3; }
 		
 		//MemoryOption
-		public RuleCall getMemoryMemoryOptionParserRuleCall_6_3_0_0() { return cMemoryMemoryOptionParserRuleCall_6_3_0_0; }
+		public RuleCall getMemoryMemoryOptionParserRuleCall_6_3_0() { return cMemoryMemoryOptionParserRuleCall_6_3_0; }
 		
-		//';'
-		public Keyword getSemicolonKeyword_6_3_1() { return cSemicolonKeyword_6_3_1; }
+		//mainProject=MainProject?
+		public Assignment getMainProjectAssignment_6_4() { return cMainProjectAssignment_6_4; }
 		
-		//('project' project=Project ';')?
-		public Group getGroup_6_4() { return cGroup_6_4; }
+		//MainProject
+		public RuleCall getMainProjectMainProjectParserRuleCall_6_4_0() { return cMainProjectMainProjectParserRuleCall_6_4_0; }
 		
-		//'project'
-		public Keyword getProjectKeyword_6_4_0() { return cProjectKeyword_6_4_0; }
+		//mainType=MainType?
+		public Assignment getMainTypeAssignment_6_5() { return cMainTypeAssignment_6_5; }
 		
-		//project=Project
-		public Assignment getProjectAssignment_6_4_1() { return cProjectAssignment_6_4_1; }
-		
-		//Project
-		public RuleCall getProjectProjectParserRuleCall_6_4_1_0() { return cProjectProjectParserRuleCall_6_4_1_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_6_4_2() { return cSemicolonKeyword_6_4_2; }
-		
-		//('main-class' mainClass=JavaMainType ';')?
-		public Group getGroup_6_5() { return cGroup_6_5; }
-		
-		//'main-class'
-		public Keyword getMainClassKeyword_6_5_0() { return cMainClassKeyword_6_5_0; }
-		
-		//mainClass=JavaMainType
-		public Assignment getMainClassAssignment_6_5_1() { return cMainClassAssignment_6_5_1; }
-		
-		//JavaMainType
-		public RuleCall getMainClassJavaMainTypeParserRuleCall_6_5_1_0() { return cMainClassJavaMainTypeParserRuleCall_6_5_1_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_6_5_2() { return cSemicolonKeyword_6_5_2; }
+		//MainType
+		public RuleCall getMainTypeMainTypeParserRuleCall_6_5_0() { return cMainTypeMainTypeParserRuleCall_6_5_0; }
 		
 		//application=ApplicationExtPoint?
 		public Assignment getApplicationAssignment_6_6() { return cApplicationAssignment_6_6; }
@@ -520,6 +457,114 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//BLOCK_END
 		public RuleCall getBLOCK_ENDTerminalRuleCall_8() { return cBLOCK_ENDTerminalRuleCall_8; }
+	}
+	public class WorkspaceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.Workspace");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cWorkspaceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cWorkspaceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cWorkspaceAnyPathParserRuleCall_1_0 = (RuleCall)cWorkspaceAssignment_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//Workspace:
+		//	'workspace' workspace=AnyPath ';';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'workspace' workspace=AnyPath ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'workspace'
+		public Keyword getWorkspaceKeyword_0() { return cWorkspaceKeyword_0; }
+		
+		//workspace=AnyPath
+		public Assignment getWorkspaceAssignment_1() { return cWorkspaceAssignment_1; }
+		
+		//AnyPath
+		public RuleCall getWorkspaceAnyPathParserRuleCall_1_0() { return cWorkspaceAnyPathParserRuleCall_1_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
+	}
+	public class WorkingDirElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.WorkingDir");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cWorkingDirKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cWorkingDirAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cWorkingDirExistingPathParserRuleCall_1_0 = (RuleCall)cWorkingDirAssignment_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//WorkingDir:
+		//	'working-dir' workingDir=ExistingPath ';';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'working-dir' workingDir=ExistingPath ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'working-dir'
+		public Keyword getWorkingDirKeyword_0() { return cWorkingDirKeyword_0; }
+		
+		//workingDir=ExistingPath
+		public Assignment getWorkingDirAssignment_1() { return cWorkingDirAssignment_1; }
+		
+		//ExistingPath
+		public RuleCall getWorkingDirExistingPathParserRuleCall_1_0() { return cWorkingDirExistingPathParserRuleCall_1_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
+	}
+	public class MainProjectElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.MainProject");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cProjectKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cProjectAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cProjectProjectParserRuleCall_1_0 = (RuleCall)cProjectAssignment_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//MainProject:
+		//	'project' project=Project ';';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'project' project=Project ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'project'
+		public Keyword getProjectKeyword_0() { return cProjectKeyword_0; }
+		
+		//project=Project
+		public Assignment getProjectAssignment_1() { return cProjectAssignment_1; }
+		
+		//Project
+		public RuleCall getProjectProjectParserRuleCall_1_0() { return cProjectProjectParserRuleCall_1_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
+	}
+	public class MainTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.MainType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMainClassKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cMainClassAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cMainClassJavaMainTypeParserRuleCall_1_0 = (RuleCall)cMainClassAssignment_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//MainType:
+		//	'main-class' mainClass=JavaMainType ';';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'main-class' mainClass=JavaMainType ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'main-class'
+		public Keyword getMainClassKeyword_0() { return cMainClassKeyword_0; }
+		
+		//mainClass=JavaMainType
+		public Assignment getMainClassAssignment_1() { return cMainClassAssignment_1; }
+		
+		//JavaMainType
+		public RuleCall getMainClassJavaMainTypeParserRuleCall_1_0() { return cMainClassJavaMainTypeParserRuleCall_1_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class AddPluginElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.AddPlugin");
@@ -739,18 +784,15 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cFavoritesAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cFavoriteKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final UnorderedGroup cUnorderedGroup_2 = (UnorderedGroup)cGroup.eContents().get(2);
-		private final Assignment cRunAssignment_2_0 = (Assignment)cUnorderedGroup_2.eContents().get(0);
-		private final Keyword cRunRunKeyword_2_0_0 = (Keyword)cRunAssignment_2_0.eContents().get(0);
-		private final Assignment cDebugAssignment_2_1 = (Assignment)cUnorderedGroup_2.eContents().get(1);
-		private final Keyword cDebugDebugKeyword_2_1_0 = (Keyword)cDebugAssignment_2_1.eContents().get(0);
+		private final Assignment cTypesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTypesLaunchModeTypeEnumRuleCall_2_0 = (RuleCall)cTypesAssignment_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Favorites:
-		//	{Favorites} 'favorite' (run?='run'? & debug?='debug'?) ';';
+		//	{Favorites} 'favorite' types+=LaunchModeType* ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Favorites} 'favorite' (run?='run'? & debug?='debug'?) ';'
+		//{Favorites} 'favorite' types+=LaunchModeType* ';'
 		public Group getGroup() { return cGroup; }
 		
 		//{Favorites}
@@ -759,20 +801,11 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'favorite'
 		public Keyword getFavoriteKeyword_1() { return cFavoriteKeyword_1; }
 		
-		//(run?='run'? & debug?='debug'?)
-		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
+		//types+=LaunchModeType*
+		public Assignment getTypesAssignment_2() { return cTypesAssignment_2; }
 		
-		//run?='run'?
-		public Assignment getRunAssignment_2_0() { return cRunAssignment_2_0; }
-		
-		//'run'
-		public Keyword getRunRunKeyword_2_0_0() { return cRunRunKeyword_2_0_0; }
-		
-		//debug?='debug'?
-		public Assignment getDebugAssignment_2_1() { return cDebugAssignment_2_1; }
-		
-		//'debug'
-		public Keyword getDebugDebugKeyword_2_1_0() { return cDebugDebugKeyword_2_1_0; }
+		//LaunchModeType
+		public RuleCall getTypesLaunchModeTypeEnumRuleCall_2_0() { return cTypesLaunchModeTypeEnumRuleCall_2_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -1311,12 +1344,13 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNoAskClearExclamationMarkKeyword_2_0_1_0 = (Keyword)cNoAskClearAssignment_2_0_1.eContents().get(0);
 		private final Assignment cConfigAssignment_2_1 = (Assignment)cUnorderedGroup_2.eContents().get(1);
 		private final Keyword cConfigConfigKeyword_2_1_0 = (Keyword)cConfigAssignment_2_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//ClearOption:
-		//	{ClearOption} 'clear' (((workspace?='workspace' | log?='log') noAskClear?='!'?)? & config?='config'?);
+		//	{ClearOption} 'clear' (((workspace?='workspace' | log?='log') noAskClear?='!'?)? & config?='config'?) ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ClearOption} 'clear' (((workspace?='workspace' | log?='log') noAskClear?='!'?)? & config?='config'?)
+		//{ClearOption} 'clear' (((workspace?='workspace' | log?='log') noAskClear?='!'?)? & config?='config'?) ';'
 		public Group getGroup() { return cGroup; }
 		
 		//{ClearOption}
@@ -1357,6 +1391,9 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'config'
 		public Keyword getConfigConfigKeyword_2_1_0() { return cConfigConfigKeyword_2_1_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
 	public class MemoryOptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.MemoryOption");
@@ -1385,14 +1422,15 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPermINTTerminalRuleCall_2_2_2_0 = (RuleCall)cPermAssignment_2_2_2.eContents().get(0);
 		private final Assignment cPermUnitAssignment_2_2_3 = (Assignment)cGroup_2_2.eContents().get(3);
 		private final RuleCall cPermUnitMemoryUnitEnumRuleCall_2_2_3_0 = (RuleCall)cPermUnitAssignment_2_2_3.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//MemoryOption:
 		//	{MemoryOption} 'memory' (('min' EQ min=INT minUnit=MemoryUnit)? & ('max' EQ max=INT maxUnit=MemoryUnit)? & ('perm' EQ
-		//	perm=INT permUnit=MemoryUnit)?);
+		//	perm=INT permUnit=MemoryUnit)?) ';';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{MemoryOption} 'memory' (('min' EQ min=INT minUnit=MemoryUnit)? & ('max' EQ max=INT maxUnit=MemoryUnit)? & ('perm' EQ
-		//perm=INT permUnit=MemoryUnit)?)
+		//perm=INT permUnit=MemoryUnit)?) ';'
 		public Group getGroup() { return cGroup; }
 		
 		//{MemoryOption}
@@ -1467,6 +1505,9 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//MemoryUnit
 		public RuleCall getPermUnitMemoryUnitEnumRuleCall_2_2_3_0() { return cPermUnitMemoryUnitEnumRuleCall_2_2_3_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
 	public class GroupMemberElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.GroupMember");
@@ -1485,17 +1526,16 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//GroupMember:
-		//	(type?=LaunchModeType? & adopt?='adopt'?) 'member' member=[LaunchConfig|FQName] postAction?=GroupPostLaunchAction?
-		//	';';
+		//	(type=LaunchModeType? & adopt?='adopt'?) 'member' member=[LaunchConfig|FQName] postAction=GroupPostLaunchAction? ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(type?=LaunchModeType? & adopt?='adopt'?) 'member' member=[LaunchConfig|FQName] postAction?=GroupPostLaunchAction? ';'
+		//(type=LaunchModeType? & adopt?='adopt'?) 'member' member=[LaunchConfig|FQName] postAction=GroupPostLaunchAction? ';'
 		public Group getGroup() { return cGroup; }
 		
-		//(type?=LaunchModeType? & adopt?='adopt'?)
+		//(type=LaunchModeType? & adopt?='adopt'?)
 		public UnorderedGroup getUnorderedGroup_0() { return cUnorderedGroup_0; }
 		
-		//type?=LaunchModeType?
+		//type=LaunchModeType?
 		public Assignment getTypeAssignment_0_0() { return cTypeAssignment_0_0; }
 		
 		//LaunchModeType
@@ -1519,7 +1559,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//FQName
 		public RuleCall getMemberLaunchConfigFQNameParserRuleCall_2_0_1() { return cMemberLaunchConfigFQNameParserRuleCall_2_0_1; }
 		
-		//postAction?=GroupPostLaunchAction?
+		//postAction=GroupPostLaunchAction?
 		public Assignment getPostActionAssignment_3() { return cPostActionAssignment_3; }
 		
 		//GroupPostLaunchAction
@@ -1919,6 +1959,10 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final LCModelElements pLCModel;
 	private final LaunchConfigElements pLaunchConfig;
+	private final WorkspaceElements pWorkspace;
+	private final WorkingDirElements pWorkingDir;
+	private final MainProjectElements pMainProject;
+	private final MainTypeElements pMainType;
 	private final AddPluginElements pAddPlugin;
 	private final IgnorePluginElements pIgnorePlugin;
 	private final VmArgumentElements pVmArgument;
@@ -1975,6 +2019,10 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pLCModel = new LCModelElements();
 		this.pLaunchConfig = new LaunchConfigElements();
+		this.pWorkspace = new WorkspaceElements();
+		this.pWorkingDir = new WorkingDirElements();
+		this.pMainProject = new MainProjectElements();
+		this.pMainType = new MainTypeElements();
 		this.pAddPlugin = new AddPluginElements();
 		this.pIgnorePlugin = new IgnorePluginElements();
 		this.pVmArgument = new VmArgumentElements();
@@ -2088,17 +2136,17 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	& replaceEnv?='replace-env'? // All but Groups
 	//	& stopInMain?='stop-in-main'? // Java
 	//) type=LaunchConfigType 'configuration' name=FQName (':' superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN
-	//	((clears=ClearOption ';')? // Eclipse, RAP (partial)
-	//	& ('workspace' workspace=AnyPath ';')? // Eclipse, RAP
-	//	& ('working-dir' workingDir=ExistingPath ';')? // All but Groups
-	//	& (memory=MemoryOption ';')? // All but Groups
-	//	& ('project' project=Project ';')? // Java
-	//	& ('main-class' mainClass=JavaMainType ';')? // Java
+	//	(clears=ClearOption? // Eclipse, RAP (partial)
+	//	& workspace=Workspace? // Eclipse, RAP
+	//	& workingDir=WorkingDir? // All but Groups
+	//	& memory=MemoryOption? // All but Groups
+	//	& mainProject=MainProject? // Java
+	//	& mainType=MainType? // Java
 	//	& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
 	//	& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
 	//	& favorites=Favorites? // All
 	//	& redirect=Redirect? // All but Groups
-	//	& execEnv=ExecutionEnvironment? // All but Groups 	// TODO: content assist, validation
+	//	& execEnv=ExecutionEnvironment? // All but Groups
 	//	& configIniTemplate=ConfigIniTemplate? // Eclipse
 	//	& javaMainSearch=JavaMainSearch? // Java
 	//	& servletConfig=RapServletConfig? // RAP
@@ -2117,6 +2165,46 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getLaunchConfigRule() {
 		return getLaunchConfigAccess().getRule();
+	}
+	
+	//Workspace:
+	//	'workspace' workspace=AnyPath ';';
+	public WorkspaceElements getWorkspaceAccess() {
+		return pWorkspace;
+	}
+	
+	public ParserRule getWorkspaceRule() {
+		return getWorkspaceAccess().getRule();
+	}
+	
+	//WorkingDir:
+	//	'working-dir' workingDir=ExistingPath ';';
+	public WorkingDirElements getWorkingDirAccess() {
+		return pWorkingDir;
+	}
+	
+	public ParserRule getWorkingDirRule() {
+		return getWorkingDirAccess().getRule();
+	}
+	
+	//MainProject:
+	//	'project' project=Project ';';
+	public MainProjectElements getMainProjectAccess() {
+		return pMainProject;
+	}
+	
+	public ParserRule getMainProjectRule() {
+		return getMainProjectAccess().getRule();
+	}
+	
+	//MainType:
+	//	'main-class' mainClass=JavaMainType ';';
+	public MainTypeElements getMainTypeAccess() {
+		return pMainType;
+	}
+	
+	public ParserRule getMainTypeRule() {
+		return getMainTypeAccess().getRule();
 	}
 	
 	//AddPlugin:
@@ -2190,7 +2278,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Favorites:
-	//	{Favorites} 'favorite' (run?='run'? & debug?='debug'?) ';';
+	//	{Favorites} 'favorite' types+=LaunchModeType* ';';
 	public FavoritesElements getFavoritesAccess() {
 		return pFavorites;
 	}
@@ -2336,7 +2424,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ClearOption:
-	//	{ClearOption} 'clear' (((workspace?='workspace' | log?='log') noAskClear?='!'?)? & config?='config'?);
+	//	{ClearOption} 'clear' (((workspace?='workspace' | log?='log') noAskClear?='!'?)? & config?='config'?) ';';
 	public ClearOptionElements getClearOptionAccess() {
 		return pClearOption;
 	}
@@ -2347,7 +2435,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//MemoryOption:
 	//	{MemoryOption} 'memory' (('min' EQ min=INT minUnit=MemoryUnit)? & ('max' EQ max=INT maxUnit=MemoryUnit)? & ('perm' EQ
-	//	perm=INT permUnit=MemoryUnit)?);
+	//	perm=INT permUnit=MemoryUnit)?) ';';
 	public MemoryOptionElements getMemoryOptionAccess() {
 		return pMemoryOption;
 	}
@@ -2357,8 +2445,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//GroupMember:
-	//	(type?=LaunchModeType? & adopt?='adopt'?) 'member' member=[LaunchConfig|FQName] postAction?=GroupPostLaunchAction?
-	//	';';
+	//	(type=LaunchModeType? & adopt?='adopt'?) 'member' member=[LaunchConfig|FQName] postAction=GroupPostLaunchAction? ';';
 	public GroupMemberElements getGroupMemberAccess() {
 		return pGroupMember;
 	}

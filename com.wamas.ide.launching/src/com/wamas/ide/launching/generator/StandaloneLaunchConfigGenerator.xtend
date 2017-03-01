@@ -31,6 +31,10 @@ class StandaloneLaunchConfigGenerator {
 	static def getType(ILaunchManager mgr, LaunchConfigType type) {
 		mgr.getLaunchConfigurationType(TYPE_MAP.get(type))
 	}
+	
+	static def getTypeName(LaunchConfigType type) {
+		TYPE_MAP.get(type)
+	}
 
 	def generate(LaunchConfig config) {
 		System.err.println("generating " + config.name)

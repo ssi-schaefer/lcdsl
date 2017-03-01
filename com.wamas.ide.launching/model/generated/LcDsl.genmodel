@@ -55,8 +55,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/workspace"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/workingDir"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/memory"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/project"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/mainClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/mainProject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/mainType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/application"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/product"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/favorites"/>
@@ -72,6 +72,18 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/progArgs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/envVars"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/traces"/>
+    </genClasses>
+    <genClasses ecoreClass="LcDsl.ecore#//Workspace">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//Workspace/workspace"/>
+    </genClasses>
+    <genClasses ecoreClass="LcDsl.ecore#//WorkingDir">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//WorkingDir/workingDir"/>
+    </genClasses>
+    <genClasses ecoreClass="LcDsl.ecore#//MainProject">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//MainProject/project"/>
+    </genClasses>
+    <genClasses ecoreClass="LcDsl.ecore#//MainType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//MainType/mainClass"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//AddPlugin">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//AddPlugin/plugin"/>
@@ -96,8 +108,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//ProductExtPoint/name"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//Favorites">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Favorites/run"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Favorites/debug"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Favorites/types"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//Redirect">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Redirect/outWhich"/>
@@ -165,7 +176,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//GroupMember/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//GroupMember/adopt"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LcDsl.ecore#//GroupMember/member"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//GroupMember/postAction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//GroupMember/postAction"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//GroupPostLaunchAction"/>
     <genClasses ecoreClass="LcDsl.ecore#//GroupPostLaunchDelay">

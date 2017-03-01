@@ -27,6 +27,8 @@ import org.eclipse.pde.core.plugin.PluginRegistry
 import org.eclipse.xtext.validation.Check
 
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
+import com.wamas.ide.launching.lcDsl.Favorites
+import com.wamas.ide.launching.lcDsl.LaunchModeType
 
 /**
  * This class contains custom validation rules. 
@@ -53,8 +55,8 @@ class LcDslValidator extends AbstractLcDslValidator {
 		LC.launchConfig_Workspace -> #{ECLIPSE, RAP},
 		LC.launchConfig_WorkingDir -> #{ECLIPSE, RAP, JAVA},
 		LC.launchConfig_Memory -> #{ECLIPSE, RAP, JAVA},
-		LC.launchConfig_Project -> #{JAVA},
-		LC.launchConfig_MainClass -> #{JAVA},
+		LC.launchConfig_MainProject -> #{JAVA},
+		LC.launchConfig_MainType -> #{JAVA},
 		LC.launchConfig_Application -> #{ECLIPSE},
 		LC.launchConfig_Product -> #{ECLIPSE},
 		LC.launchConfig_Redirect -> #{ECLIPSE, RAP, JAVA},
@@ -83,8 +85,8 @@ class LcDslValidator extends AbstractLcDslValidator {
 			#{LC.launchConfig_Plugins}
 		},
 		JAVA -> #{
-			#{LC.launchConfig_MainClass},
-			#{LC.launchConfig_Project}
+			#{LC.launchConfig_MainType},
+			#{LC.launchConfig_MainProject}
 		},
 		GROUP -> #{
 			#{LC.launchConfig_GroupMembers}
@@ -190,25 +192,27 @@ class LcDslValidator extends AbstractLcDslValidator {
 
 	@Check
 	def checkMainType(LaunchConfig cfg) {
-		if (cfg.type == JAVA && cfg.project != null && !cfg.project.name.empty && cfg.mainClass != null &&
-			!cfg.mainClass.name.empty) {
-			val prj = ResourcesPlugin.workspace.root.getProject(cfg.project.name);
+		if (cfg.type == JAVA && cfg.mainProject?.project?.name != null && !cfg.mainProject.project.name.empty &&
+			cfg.mainType?.mainClass != null && !cfg.mainType.mainClass.name.empty) {
+			val prj = ResourcesPlugin.workspace.root.getProject(cfg.mainProject.project.name);
 			if (prj != null && prj.exists && prj.open) {
 				val jp = JavaCore.create(prj)
 				if (!jp.exists) {
-					error("project " + cfg.project.name + " is not a java project", LC.launchConfig_Project)
+					error("project " + cfg.mainProject.project.name + " is not a java project",
+						LC.launchConfig_MainProject)
 					return
 				}
 
-				val type = jp.findType(cfg.mainClass.name, new NullProgressMonitor)
+				val type = jp.findType(cfg.mainType.mainClass.name, new NullProgressMonitor)
 				if (type == null || !type.exists) {
-					error("main type " + cfg.mainClass.name + " not found in class-path of " + cfg.project.name,
-						LC.launchConfig_MainClass)
+					error("main type " + cfg.mainType.mainClass.name + " not found in class-path of " +
+						cfg.mainProject.project.name, LC.launchConfig_MainType)
 					return
 				}
 
 				if (!type.methods.exists[mainMethod]) {
-					error("type " + cfg.mainClass.name + " does not contain a main method", LC.launchConfig_MainClass)
+					error("type " + cfg.mainType.mainClass.name + " does not contain a main method",
+						LC.launchConfig_MainType)
 					return
 				}
 			}
@@ -222,7 +226,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 			if (!f.exists) {
 				warning("Path " + p.name + " does not exist", p, LC.path_Name)
 			}
-		} catch(CoreException e) {
+		} catch (CoreException e) {
 			warning(e.message, LC.path_Name)
 		}
 	}
@@ -251,9 +255,18 @@ class LcDslValidator extends AbstractLcDslValidator {
 		}
 	}
 	
-	/** only required for validation. raw value must be written into launch configurations to allow expansion at launch time */
+	@Check
+	def checkFavorites(Favorites f) {
+		for(t : f.types) {
+			if(t.equals(LaunchModeType.INHERIT)) {
+				error(t.literal + " is not a valid favorite type", LC.favorites_Types)
+			}
+		}
+	}
+
+	/** only required for validation/label. raw value must be written into launch configurations to allow expansion at launch time */
 	static def getExpanded(StringWithVariables original) {
 		return StringVariableManager.^default.performStringSubstitution(original.value, true)
 	}
-	
+
 }

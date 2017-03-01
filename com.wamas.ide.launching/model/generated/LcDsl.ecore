@@ -19,15 +19,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="superConfig" eType="#//LaunchConfig"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="clears" eType="#//ClearOption"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="workspace" eType="#//AnyPath"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workspace" eType="#//Workspace"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="workingDir" eType="#//ExistingPath"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workingDir" eType="#//WorkingDir"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="memory" eType="#//MemoryOption"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="project" eType="#//Project"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainProject" eType="#//MainProject"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mainClass" eType="#//JavaMainType"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainType" eType="#//MainType"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="application" eType="#//ApplicationExtPoint"
         containment="true"/>
@@ -60,6 +60,22 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="traces" upperBound="-1"
         eType="#//TraceEnablement" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Workspace">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workspace" eType="#//AnyPath"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WorkingDir">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workingDir" eType="#//ExistingPath"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MainProject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="project" eType="#//Project"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MainType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainClass" eType="#//JavaMainType"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddPlugin">
     <eStructuralFeatures xsi:type="ecore:EReference" name="plugin" eType="#//PluginWithVersionAndStartLevel"
         containment="true"/>
@@ -88,8 +104,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Favorites">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="run" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="debug" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="types" unique="false" upperBound="-1"
+        eType="#//LaunchModeType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Redirect">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outWhich" eType="#//OutputStream"/>
@@ -161,10 +177,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="permUnit" eType="#//MemoryUnit"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GroupMember">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//LaunchModeType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="adopt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="#//LaunchConfig"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="postAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postAction" eType="#//GroupPostLaunchAction"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GroupPostLaunchAction"/>
   <eClassifiers xsi:type="ecore:EClass" name="GroupPostLaunchDelay" eSuperTypes="#//GroupPostLaunchAction">

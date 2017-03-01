@@ -232,22 +232,22 @@ public interface LcDslPackage extends EPackage
   int LAUNCH_CONFIG__MEMORY = 14;
 
   /**
-   * The feature id for the '<em><b>Project</b></em>' containment reference.
+   * The feature id for the '<em><b>Main Project</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__PROJECT = 15;
+  int LAUNCH_CONFIG__MAIN_PROJECT = 15;
 
   /**
-   * The feature id for the '<em><b>Main Class</b></em>' containment reference.
+   * The feature id for the '<em><b>Main Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__MAIN_CLASS = 16;
+  int LAUNCH_CONFIG__MAIN_TYPE = 16;
 
   /**
    * The feature id for the '<em><b>Application</b></em>' containment reference.
@@ -394,6 +394,118 @@ public interface LcDslPackage extends EPackage
   int LAUNCH_CONFIG_FEATURE_COUNT = 32;
 
   /**
+   * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.WorkspaceImpl <em>Workspace</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.wamas.ide.launching.lcDsl.impl.WorkspaceImpl
+   * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getWorkspace()
+   * @generated
+   */
+  int WORKSPACE = 2;
+
+  /**
+   * The feature id for the '<em><b>Workspace</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORKSPACE__WORKSPACE = 0;
+
+  /**
+   * The number of structural features of the '<em>Workspace</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORKSPACE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.WorkingDirImpl <em>Working Dir</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.wamas.ide.launching.lcDsl.impl.WorkingDirImpl
+   * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getWorkingDir()
+   * @generated
+   */
+  int WORKING_DIR = 3;
+
+  /**
+   * The feature id for the '<em><b>Working Dir</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORKING_DIR__WORKING_DIR = 0;
+
+  /**
+   * The number of structural features of the '<em>Working Dir</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORKING_DIR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.MainProjectImpl <em>Main Project</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.wamas.ide.launching.lcDsl.impl.MainProjectImpl
+   * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getMainProject()
+   * @generated
+   */
+  int MAIN_PROJECT = 4;
+
+  /**
+   * The feature id for the '<em><b>Project</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAIN_PROJECT__PROJECT = 0;
+
+  /**
+   * The number of structural features of the '<em>Main Project</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAIN_PROJECT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.MainTypeImpl <em>Main Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.wamas.ide.launching.lcDsl.impl.MainTypeImpl
+   * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getMainType()
+   * @generated
+   */
+  int MAIN_TYPE = 5;
+
+  /**
+   * The feature id for the '<em><b>Main Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAIN_TYPE__MAIN_CLASS = 0;
+
+  /**
+   * The number of structural features of the '<em>Main Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAIN_TYPE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.AddPluginImpl <em>Add Plugin</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -401,7 +513,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getAddPlugin()
    * @generated
    */
-  int ADD_PLUGIN = 2;
+  int ADD_PLUGIN = 6;
 
   /**
    * The feature id for the '<em><b>Plugin</b></em>' containment reference.
@@ -429,7 +541,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getIgnorePlugin()
    * @generated
    */
-  int IGNORE_PLUGIN = 3;
+  int IGNORE_PLUGIN = 7;
 
   /**
    * The feature id for the '<em><b>Plugin</b></em>' containment reference.
@@ -457,7 +569,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getVmArgument()
    * @generated
    */
-  int VM_ARGUMENT = 4;
+  int VM_ARGUMENT = 8;
 
   /**
    * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
@@ -485,7 +597,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getProgramArgument()
    * @generated
    */
-  int PROGRAM_ARGUMENT = 5;
+  int PROGRAM_ARGUMENT = 9;
 
   /**
    * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
@@ -513,7 +625,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getEnvironmentVariable()
    * @generated
    */
-  int ENVIRONMENT_VARIABLE = 6;
+  int ENVIRONMENT_VARIABLE = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -550,7 +662,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getApplicationExtPoint()
    * @generated
    */
-  int APPLICATION_EXT_POINT = 7;
+  int APPLICATION_EXT_POINT = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -578,7 +690,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getProductExtPoint()
    * @generated
    */
-  int PRODUCT_EXT_POINT = 8;
+  int PRODUCT_EXT_POINT = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -606,25 +718,16 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getFavorites()
    * @generated
    */
-  int FAVORITES = 9;
+  int FAVORITES = 13;
 
   /**
-   * The feature id for the '<em><b>Run</b></em>' attribute.
+   * The feature id for the '<em><b>Types</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FAVORITES__RUN = 0;
-
-  /**
-   * The feature id for the '<em><b>Debug</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FAVORITES__DEBUG = 1;
+  int FAVORITES__TYPES = 0;
 
   /**
    * The number of structural features of the '<em>Favorites</em>' class.
@@ -633,7 +736,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FAVORITES_FEATURE_COUNT = 2;
+  int FAVORITES_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.RedirectImpl <em>Redirect</em>}' class.
@@ -643,7 +746,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getRedirect()
    * @generated
    */
-  int REDIRECT = 10;
+  int REDIRECT = 14;
 
   /**
    * The feature id for the '<em><b>Out Which</b></em>' attribute.
@@ -698,7 +801,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getExecutionEnvironment()
    * @generated
    */
-  int EXECUTION_ENVIRONMENT = 11;
+  int EXECUTION_ENVIRONMENT = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -726,7 +829,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getConfigIniTemplate()
    * @generated
    */
-  int CONFIG_INI_TEMPLATE = 12;
+  int CONFIG_INI_TEMPLATE = 16;
 
   /**
    * The feature id for the '<em><b>Path</b></em>' containment reference.
@@ -754,7 +857,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getTraceEnablement()
    * @generated
    */
-  int TRACE_ENABLEMENT = 13;
+  int TRACE_ENABLEMENT = 17;
 
   /**
    * The feature id for the '<em><b>Plugin</b></em>' containment reference.
@@ -791,7 +894,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getJavaMainSearch()
    * @generated
    */
-  int JAVA_MAIN_SEARCH = 14;
+  int JAVA_MAIN_SEARCH = 18;
 
   /**
    * The feature id for the '<em><b>System</b></em>' attribute.
@@ -828,7 +931,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getRapServletConfig()
    * @generated
    */
-  int RAP_SERVLET_CONFIG = 15;
+  int RAP_SERVLET_CONFIG = 19;
 
   /**
    * The feature id for the '<em><b>Servlet Path</b></em>' attribute.
@@ -901,7 +1004,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getPath()
    * @generated
    */
-  int PATH = 16;
+  int PATH = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -929,7 +1032,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getExistingPath()
    * @generated
    */
-  int EXISTING_PATH = 17;
+  int EXISTING_PATH = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -957,7 +1060,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getAnyPath()
    * @generated
    */
-  int ANY_PATH = 18;
+  int ANY_PATH = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -985,7 +1088,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getPluginWithVersionAndStartLevel()
    * @generated
    */
-  int PLUGIN_WITH_VERSION_AND_START_LEVEL = 19;
+  int PLUGIN_WITH_VERSION_AND_START_LEVEL = 23;
 
   /**
    * The feature id for the '<em><b>Plugin</b></em>' containment reference.
@@ -1031,7 +1134,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getPluginWithVersion()
    * @generated
    */
-  int PLUGIN_WITH_VERSION = 20;
+  int PLUGIN_WITH_VERSION = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1068,7 +1171,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getProject()
    * @generated
    */
-  int PROJECT = 21;
+  int PROJECT = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1096,7 +1199,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getJavaMainType()
    * @generated
    */
-  int JAVA_MAIN_TYPE = 22;
+  int JAVA_MAIN_TYPE = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1124,7 +1227,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getClearOption()
    * @generated
    */
-  int CLEAR_OPTION = 23;
+  int CLEAR_OPTION = 27;
 
   /**
    * The feature id for the '<em><b>Workspace</b></em>' attribute.
@@ -1179,7 +1282,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getMemoryOption()
    * @generated
    */
-  int MEMORY_OPTION = 24;
+  int MEMORY_OPTION = 28;
 
   /**
    * The feature id for the '<em><b>Min</b></em>' attribute.
@@ -1252,7 +1355,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupMember()
    * @generated
    */
-  int GROUP_MEMBER = 25;
+  int GROUP_MEMBER = 29;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1282,7 +1385,7 @@ public interface LcDslPackage extends EPackage
   int GROUP_MEMBER__MEMBER = 2;
 
   /**
-   * The feature id for the '<em><b>Post Action</b></em>' attribute.
+   * The feature id for the '<em><b>Post Action</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1307,7 +1410,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupPostLaunchAction()
    * @generated
    */
-  int GROUP_POST_LAUNCH_ACTION = 26;
+  int GROUP_POST_LAUNCH_ACTION = 30;
 
   /**
    * The number of structural features of the '<em>Group Post Launch Action</em>' class.
@@ -1326,7 +1429,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupPostLaunchDelay()
    * @generated
    */
-  int GROUP_POST_LAUNCH_DELAY = 27;
+  int GROUP_POST_LAUNCH_DELAY = 31;
 
   /**
    * The feature id for the '<em><b>Delay</b></em>' attribute.
@@ -1354,7 +1457,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupPostLaunchRegex()
    * @generated
    */
-  int GROUP_POST_LAUNCH_REGEX = 28;
+  int GROUP_POST_LAUNCH_REGEX = 32;
 
   /**
    * The feature id for the '<em><b>Regex</b></em>' attribute.
@@ -1382,7 +1485,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getGroupPostLaunchWait()
    * @generated
    */
-  int GROUP_POST_LAUNCH_WAIT = 29;
+  int GROUP_POST_LAUNCH_WAIT = 33;
 
   /**
    * The number of structural features of the '<em>Group Post Launch Wait</em>' class.
@@ -1401,7 +1504,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getStringWithVariables()
    * @generated
    */
-  int STRING_WITH_VARIABLES = 30;
+  int STRING_WITH_VARIABLES = 34;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1429,7 +1532,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getBrowserLaunchMode()
    * @generated
    */
-  int BROWSER_LAUNCH_MODE = 31;
+  int BROWSER_LAUNCH_MODE = 35;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.LaunchConfigType <em>Launch Config Type</em>}' enum.
@@ -1439,7 +1542,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getLaunchConfigType()
    * @generated
    */
-  int LAUNCH_CONFIG_TYPE = 32;
+  int LAUNCH_CONFIG_TYPE = 36;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.LaunchModeType <em>Launch Mode Type</em>}' enum.
@@ -1449,7 +1552,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getLaunchModeType()
    * @generated
    */
-  int LAUNCH_MODE_TYPE = 33;
+  int LAUNCH_MODE_TYPE = 37;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.MemoryUnit <em>Memory Unit</em>}' enum.
@@ -1459,7 +1562,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getMemoryUnit()
    * @generated
    */
-  int MEMORY_UNIT = 34;
+  int MEMORY_UNIT = 38;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.OutputStream <em>Output Stream</em>}' enum.
@@ -1469,7 +1572,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getOutputStream()
    * @generated
    */
-  int OUTPUT_STREAM = 35;
+  int OUTPUT_STREAM = 39;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.InputStream <em>Input Stream</em>}' enum.
@@ -1479,7 +1582,7 @@ public interface LcDslPackage extends EPackage
    * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getInputStream()
    * @generated
    */
-  int INPUT_STREAM = 36;
+  int INPUT_STREAM = 40;
 
 
   /**
@@ -1679,26 +1782,26 @@ public interface LcDslPackage extends EPackage
   EReference getLaunchConfig_Memory();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getProject <em>Project</em>}'.
+   * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getMainProject <em>Main Project</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Project</em>'.
-   * @see com.wamas.ide.launching.lcDsl.LaunchConfig#getProject()
+   * @return the meta object for the containment reference '<em>Main Project</em>'.
+   * @see com.wamas.ide.launching.lcDsl.LaunchConfig#getMainProject()
    * @see #getLaunchConfig()
    * @generated
    */
-  EReference getLaunchConfig_Project();
+  EReference getLaunchConfig_MainProject();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getMainClass <em>Main Class</em>}'.
+   * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getMainType <em>Main Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Main Class</em>'.
-   * @see com.wamas.ide.launching.lcDsl.LaunchConfig#getMainClass()
+   * @return the meta object for the containment reference '<em>Main Type</em>'.
+   * @see com.wamas.ide.launching.lcDsl.LaunchConfig#getMainType()
    * @see #getLaunchConfig()
    * @generated
    */
-  EReference getLaunchConfig_MainClass();
+  EReference getLaunchConfig_MainType();
 
   /**
    * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getApplication <em>Application</em>}'.
@@ -1864,6 +1967,90 @@ public interface LcDslPackage extends EPackage
    * @generated
    */
   EReference getLaunchConfig_Traces();
+
+  /**
+   * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.Workspace <em>Workspace</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Workspace</em>'.
+   * @see com.wamas.ide.launching.lcDsl.Workspace
+   * @generated
+   */
+  EClass getWorkspace();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.Workspace#getWorkspace <em>Workspace</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Workspace</em>'.
+   * @see com.wamas.ide.launching.lcDsl.Workspace#getWorkspace()
+   * @see #getWorkspace()
+   * @generated
+   */
+  EReference getWorkspace_Workspace();
+
+  /**
+   * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.WorkingDir <em>Working Dir</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Working Dir</em>'.
+   * @see com.wamas.ide.launching.lcDsl.WorkingDir
+   * @generated
+   */
+  EClass getWorkingDir();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.WorkingDir#getWorkingDir <em>Working Dir</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Working Dir</em>'.
+   * @see com.wamas.ide.launching.lcDsl.WorkingDir#getWorkingDir()
+   * @see #getWorkingDir()
+   * @generated
+   */
+  EReference getWorkingDir_WorkingDir();
+
+  /**
+   * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.MainProject <em>Main Project</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Main Project</em>'.
+   * @see com.wamas.ide.launching.lcDsl.MainProject
+   * @generated
+   */
+  EClass getMainProject();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.MainProject#getProject <em>Project</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Project</em>'.
+   * @see com.wamas.ide.launching.lcDsl.MainProject#getProject()
+   * @see #getMainProject()
+   * @generated
+   */
+  EReference getMainProject_Project();
+
+  /**
+   * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.MainType <em>Main Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Main Type</em>'.
+   * @see com.wamas.ide.launching.lcDsl.MainType
+   * @generated
+   */
+  EClass getMainType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.MainType#getMainClass <em>Main Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Main Class</em>'.
+   * @see com.wamas.ide.launching.lcDsl.MainType#getMainClass()
+   * @see #getMainType()
+   * @generated
+   */
+  EReference getMainType_MainClass();
 
   /**
    * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.AddPlugin <em>Add Plugin</em>}'.
@@ -2034,26 +2221,15 @@ public interface LcDslPackage extends EPackage
   EClass getFavorites();
 
   /**
-   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.Favorites#isRun <em>Run</em>}'.
+   * Returns the meta object for the attribute list '{@link com.wamas.ide.launching.lcDsl.Favorites#getTypes <em>Types</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Run</em>'.
-   * @see com.wamas.ide.launching.lcDsl.Favorites#isRun()
+   * @return the meta object for the attribute list '<em>Types</em>'.
+   * @see com.wamas.ide.launching.lcDsl.Favorites#getTypes()
    * @see #getFavorites()
    * @generated
    */
-  EAttribute getFavorites_Run();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.Favorites#isDebug <em>Debug</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Debug</em>'.
-   * @see com.wamas.ide.launching.lcDsl.Favorites#isDebug()
-   * @see #getFavorites()
-   * @generated
-   */
-  EAttribute getFavorites_Debug();
+  EAttribute getFavorites_Types();
 
   /**
    * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.Redirect <em>Redirect</em>}'.
@@ -2590,11 +2766,11 @@ public interface LcDslPackage extends EPackage
   EClass getGroupMember();
 
   /**
-   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.GroupMember#isType <em>Type</em>}'.
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.GroupMember#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Type</em>'.
-   * @see com.wamas.ide.launching.lcDsl.GroupMember#isType()
+   * @see com.wamas.ide.launching.lcDsl.GroupMember#getType()
    * @see #getGroupMember()
    * @generated
    */
@@ -2623,15 +2799,15 @@ public interface LcDslPackage extends EPackage
   EReference getGroupMember_Member();
 
   /**
-   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.GroupMember#isPostAction <em>Post Action</em>}'.
+   * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.GroupMember#getPostAction <em>Post Action</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Post Action</em>'.
-   * @see com.wamas.ide.launching.lcDsl.GroupMember#isPostAction()
+   * @return the meta object for the containment reference '<em>Post Action</em>'.
+   * @see com.wamas.ide.launching.lcDsl.GroupMember#getPostAction()
    * @see #getGroupMember()
    * @generated
    */
-  EAttribute getGroupMember_PostAction();
+  EReference getGroupMember_PostAction();
 
   /**
    * Returns the meta object for class '{@link com.wamas.ide.launching.lcDsl.GroupPostLaunchAction <em>Group Post Launch Action</em>}'.
@@ -2948,20 +3124,20 @@ public interface LcDslPackage extends EPackage
     EReference LAUNCH_CONFIG__MEMORY = eINSTANCE.getLaunchConfig_Memory();
 
     /**
-     * The meta object literal for the '<em><b>Project</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Main Project</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LAUNCH_CONFIG__PROJECT = eINSTANCE.getLaunchConfig_Project();
+    EReference LAUNCH_CONFIG__MAIN_PROJECT = eINSTANCE.getLaunchConfig_MainProject();
 
     /**
-     * The meta object literal for the '<em><b>Main Class</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Main Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LAUNCH_CONFIG__MAIN_CLASS = eINSTANCE.getLaunchConfig_MainClass();
+    EReference LAUNCH_CONFIG__MAIN_TYPE = eINSTANCE.getLaunchConfig_MainType();
 
     /**
      * The meta object literal for the '<em><b>Application</b></em>' containment reference feature.
@@ -3082,6 +3258,78 @@ public interface LcDslPackage extends EPackage
      * @generated
      */
     EReference LAUNCH_CONFIG__TRACES = eINSTANCE.getLaunchConfig_Traces();
+
+    /**
+     * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.WorkspaceImpl <em>Workspace</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.wamas.ide.launching.lcDsl.impl.WorkspaceImpl
+     * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getWorkspace()
+     * @generated
+     */
+    EClass WORKSPACE = eINSTANCE.getWorkspace();
+
+    /**
+     * The meta object literal for the '<em><b>Workspace</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORKSPACE__WORKSPACE = eINSTANCE.getWorkspace_Workspace();
+
+    /**
+     * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.WorkingDirImpl <em>Working Dir</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.wamas.ide.launching.lcDsl.impl.WorkingDirImpl
+     * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getWorkingDir()
+     * @generated
+     */
+    EClass WORKING_DIR = eINSTANCE.getWorkingDir();
+
+    /**
+     * The meta object literal for the '<em><b>Working Dir</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORKING_DIR__WORKING_DIR = eINSTANCE.getWorkingDir_WorkingDir();
+
+    /**
+     * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.MainProjectImpl <em>Main Project</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.wamas.ide.launching.lcDsl.impl.MainProjectImpl
+     * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getMainProject()
+     * @generated
+     */
+    EClass MAIN_PROJECT = eINSTANCE.getMainProject();
+
+    /**
+     * The meta object literal for the '<em><b>Project</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAIN_PROJECT__PROJECT = eINSTANCE.getMainProject_Project();
+
+    /**
+     * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.MainTypeImpl <em>Main Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.wamas.ide.launching.lcDsl.impl.MainTypeImpl
+     * @see com.wamas.ide.launching.lcDsl.impl.LcDslPackageImpl#getMainType()
+     * @generated
+     */
+    EClass MAIN_TYPE = eINSTANCE.getMainType();
+
+    /**
+     * The meta object literal for the '<em><b>Main Class</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAIN_TYPE__MAIN_CLASS = eINSTANCE.getMainType_MainClass();
 
     /**
      * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.AddPluginImpl <em>Add Plugin</em>}' class.
@@ -3228,20 +3476,12 @@ public interface LcDslPackage extends EPackage
     EClass FAVORITES = eINSTANCE.getFavorites();
 
     /**
-     * The meta object literal for the '<em><b>Run</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Types</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FAVORITES__RUN = eINSTANCE.getFavorites_Run();
-
-    /**
-     * The meta object literal for the '<em><b>Debug</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FAVORITES__DEBUG = eINSTANCE.getFavorites_Debug();
+    EAttribute FAVORITES__TYPES = eINSTANCE.getFavorites_Types();
 
     /**
      * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.RedirectImpl <em>Redirect</em>}' class.
@@ -3700,12 +3940,12 @@ public interface LcDslPackage extends EPackage
     EReference GROUP_MEMBER__MEMBER = eINSTANCE.getGroupMember_Member();
 
     /**
-     * The meta object literal for the '<em><b>Post Action</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Post Action</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GROUP_MEMBER__POST_ACTION = eINSTANCE.getGroupMember_PostAction();
+    EReference GROUP_MEMBER__POST_ACTION = eINSTANCE.getGroupMember_PostAction();
 
     /**
      * The meta object literal for the '{@link com.wamas.ide.launching.lcDsl.impl.GroupPostLaunchActionImpl <em>Group Post Launch Action</em>}' class.

@@ -42,6 +42,42 @@ public interface LcDslFactory extends EFactory
   LaunchConfig createLaunchConfig();
 
   /**
+   * Returns a new object of class '<em>Workspace</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Workspace</em>'.
+   * @generated
+   */
+  Workspace createWorkspace();
+
+  /**
+   * Returns a new object of class '<em>Working Dir</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Working Dir</em>'.
+   * @generated
+   */
+  WorkingDir createWorkingDir();
+
+  /**
+   * Returns a new object of class '<em>Main Project</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Main Project</em>'.
+   * @generated
+   */
+  MainProject createMainProject();
+
+  /**
+   * Returns a new object of class '<em>Main Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Main Type</em>'.
+   * @generated
+   */
+  MainType createMainType();
+
+  /**
    * Returns a new object of class '<em>Add Plugin</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

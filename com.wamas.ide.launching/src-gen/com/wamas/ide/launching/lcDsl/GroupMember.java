@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.wamas.ide.launching.lcDsl.GroupMember#isType <em>Type</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.GroupMember#getType <em>Type</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.GroupMember#isAdopt <em>Adopt</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.GroupMember#getMember <em>Member</em>}</li>
- *   <li>{@link com.wamas.ide.launching.lcDsl.GroupMember#isPostAction <em>Post Action</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.GroupMember#getPostAction <em>Post Action</em>}</li>
  * </ul>
  *
  * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getGroupMember()
@@ -28,6 +28,7 @@ public interface GroupMember extends EObject
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.
+   * The literals are from the enumeration {@link com.wamas.ide.launching.lcDsl.LaunchModeType}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Type</em>' attribute isn't clear,
@@ -35,22 +36,24 @@ public interface GroupMember extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' attribute.
-   * @see #setType(boolean)
+   * @see com.wamas.ide.launching.lcDsl.LaunchModeType
+   * @see #setType(LaunchModeType)
    * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getGroupMember_Type()
    * @model
    * @generated
    */
-  boolean isType();
+  LaunchModeType getType();
 
   /**
-   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.GroupMember#isType <em>Type</em>}' attribute.
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.GroupMember#getType <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Type</em>' attribute.
-   * @see #isType()
+   * @see com.wamas.ide.launching.lcDsl.LaunchModeType
+   * @see #getType()
    * @generated
    */
-  void setType(boolean value);
+  void setType(LaunchModeType value);
 
   /**
    * Returns the value of the '<em><b>Adopt</b></em>' attribute.
@@ -105,29 +108,29 @@ public interface GroupMember extends EObject
   void setMember(LaunchConfig value);
 
   /**
-   * Returns the value of the '<em><b>Post Action</b></em>' attribute.
+   * Returns the value of the '<em><b>Post Action</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Post Action</em>' attribute isn't clear,
+   * If the meaning of the '<em>Post Action</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Post Action</em>' attribute.
-   * @see #setPostAction(boolean)
+   * @return the value of the '<em>Post Action</em>' containment reference.
+   * @see #setPostAction(GroupPostLaunchAction)
    * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getGroupMember_PostAction()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  boolean isPostAction();
+  GroupPostLaunchAction getPostAction();
 
   /**
-   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.GroupMember#isPostAction <em>Post Action</em>}' attribute.
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.GroupMember#getPostAction <em>Post Action</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Post Action</em>' attribute.
-   * @see #isPostAction()
+   * @param value the new value of the '<em>Post Action</em>' containment reference.
+   * @see #getPostAction()
    * @generated
    */
-  void setPostAction(boolean value);
+  void setPostAction(GroupPostLaunchAction value);
 
 } // GroupMember

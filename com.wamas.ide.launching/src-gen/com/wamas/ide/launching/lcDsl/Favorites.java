@@ -3,6 +3,8 @@
  */
 package com.wamas.ide.launching.lcDsl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,8 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.wamas.ide.launching.lcDsl.Favorites#isRun <em>Run</em>}</li>
- *   <li>{@link com.wamas.ide.launching.lcDsl.Favorites#isDebug <em>Debug</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.Favorites#getTypes <em>Types</em>}</li>
  * </ul>
  *
  * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getFavorites()
@@ -25,55 +26,21 @@ import org.eclipse.emf.ecore.EObject;
 public interface Favorites extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Run</b></em>' attribute.
+   * Returns the value of the '<em><b>Types</b></em>' attribute list.
+   * The list contents are of type {@link com.wamas.ide.launching.lcDsl.LaunchModeType}.
+   * The literals are from the enumeration {@link com.wamas.ide.launching.lcDsl.LaunchModeType}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Run</em>' attribute isn't clear,
+   * If the meaning of the '<em>Types</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Run</em>' attribute.
-   * @see #setRun(boolean)
-   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getFavorites_Run()
-   * @model
+   * @return the value of the '<em>Types</em>' attribute list.
+   * @see com.wamas.ide.launching.lcDsl.LaunchModeType
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getFavorites_Types()
+   * @model unique="false"
    * @generated
    */
-  boolean isRun();
-
-  /**
-   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.Favorites#isRun <em>Run</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Run</em>' attribute.
-   * @see #isRun()
-   * @generated
-   */
-  void setRun(boolean value);
-
-  /**
-   * Returns the value of the '<em><b>Debug</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Debug</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Debug</em>' attribute.
-   * @see #setDebug(boolean)
-   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getFavorites_Debug()
-   * @model
-   * @generated
-   */
-  boolean isDebug();
-
-  /**
-   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.Favorites#isDebug <em>Debug</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Debug</em>' attribute.
-   * @see #isDebug()
-   * @generated
-   */
-  void setDebug(boolean value);
+  EList<LaunchModeType> getTypes();
 
 } // Favorites

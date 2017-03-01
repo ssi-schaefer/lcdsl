@@ -62,7 +62,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 			acceptor.accept(
 				createCompletionProposal(name,
 					new StyledString(name + " ").append(ver.toString, StyledString.QUALIFIER_STYLER),
-					ih.getImage("plugin_mf_obj.gif"), context))
+					ih.getImage("plugin_obj.png"), context))
 		}
 		super.completePluginWithVersion_Name(model, assignment, context, acceptor)
 	}
@@ -76,7 +76,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 			for (m : models) {
 				val ver = m.bundleDescription.version.toString
 				acceptor.accept(
-					createCompletionProposal(ver, new StyledString(ver), ih.getImage("plugin_mf_obj.gif"), context))
+					createCompletionProposal(ver, new StyledString(ver), ih.getImage("plugin_obj.png"), context))
 			}
 		}
 
@@ -87,9 +87,9 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 		ICompletionProposalAcceptor acceptor) {
 		val lc = model as LaunchConfig
 
-		if (lc.project != null && lc.project.name != null && !lc.project.name.empty) {
+		if (lc.mainProject?.project?.name != null && !lc.mainProject.project.name.empty) {
 			// project is set, lookup main types.
-			val prj = ResourcesPlugin.workspace.root.getProject(lc.project.name)
+			val prj = ResourcesPlugin.workspace.root.getProject(lc.mainProject.project.name)
 			if (prj != null && prj.exists && prj.open) {
 				val jp = JavaCore.create(prj)
 

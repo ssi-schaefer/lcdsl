@@ -1,7 +1,7 @@
 '!'=93
 '.'=80
 ':'=42
-';'=43
+';'=44
 'G'=36
 'GB'=34
 'M'=32
@@ -76,7 +76,7 @@
 'vm-arg'=50
 'wait'=79
 'working-dir'=45
-'workspace'=44
+'workspace'=43
 RULE_ANY_OTHER=16
 RULE_BLOCK_BEGIN=4
 RULE_BLOCK_END=5

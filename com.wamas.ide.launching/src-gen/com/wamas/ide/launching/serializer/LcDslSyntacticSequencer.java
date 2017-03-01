@@ -32,8 +32,6 @@ public class LcDslSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getBLOCK_ENDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getEQRule())
 			return getEQToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getLaunchModeTypeRule())
-			return getLaunchModeTypeToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -62,17 +60,6 @@ public class LcDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "=";
-	}
-	
-	/**
-	 * enum LaunchModeType:
-	 * 	RUN = "run" | DEBUG = "debug" | PROFILE = "profile" | COVERAGE = "coverage" | INHERIT = "inherit"
-	 * ;
-	 */
-	protected String getLaunchModeTypeToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
 	}
 	
 	@Override
