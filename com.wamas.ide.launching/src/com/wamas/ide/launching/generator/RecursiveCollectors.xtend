@@ -42,7 +42,7 @@ class RecursiveCollectors {
 	}
 	
 	static def collectJavaStopInMain(LaunchConfig config) {
-		collectFlatObject(config, [stopInMain])
+		collectFlatObject(config, [stopInMain]) // TODO: not ok for boolean!
 	}
 
 	/**
