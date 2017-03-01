@@ -40,6 +40,10 @@ class RecursiveCollectors {
 	static def collectJavaMainProject(LaunchConfig config) {
 		collectFlatObject(config, [mainProject.project.name])
 	}
+	
+	static def collectJavaStopInMain(LaunchConfig config) {
+		collectFlatObject(config, [stopInMain])
+	}
 
 	/**
 	 * Collects a single attribute from a launch configuration model, traversing supertypes if necessary 

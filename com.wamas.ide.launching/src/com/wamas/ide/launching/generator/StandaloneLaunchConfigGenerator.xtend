@@ -108,8 +108,9 @@ class StandaloneLaunchConfigGenerator {
 				config.collectJavaMainType)
 		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_PROJECT_NAME,
 				config.collectJavaMainProject)
+		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_STOP_IN_MAIN,
+				config.collectJavaStopInMain)
 		
-		// TODO: stop in main
 		// TODO: main type search
 	}
 
