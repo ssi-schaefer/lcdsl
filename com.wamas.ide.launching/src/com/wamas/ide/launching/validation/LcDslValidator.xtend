@@ -278,7 +278,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 		try {
 			val f = new File(p.name.expanded);
 			if (!f.exists) {
-				warning("Path " + p.name + " does not exist", p, LC.path_Name)
+				warning("Path " + p.name.expanded + " does not exist", p, LC.path_Name)
 			}
 		} catch (CoreException e) {
 			warning(e.message, LC.path_Name)

@@ -176,8 +176,14 @@ class StandaloneLaunchConfigGenerator {
 		copy.setIfAvailable(IPDELauncherConstants.APPLICATION, config.collectApplication)
 		copy.setIfAvailable(IPDELauncherConstants.PRODUCT, config.collectProduct)
 		
-		// TODO: sw-install-allowed
-		// TODO: config.ini
+		copy.setAttribute(IPDELauncherConstants.GENERATE_PROFILE, config.collectSwInstall)
+		
+		val cfg = config.collectConfigIniTemplate
+		if(cfg != null && !cfg.empty) {
+			copy.setAttribute(IPDELauncherConstants.CONFIG_TEMPLATE_LOCATION, cfg)
+			copy.setAttribute(IPDELauncherConstants.CONFIG_GENERATE_DEFAULT, false)
+		}
+		
 		// TODO: add plugin / explicit
 		// TODO: add feature
 		// TODO: add content-provider (product)

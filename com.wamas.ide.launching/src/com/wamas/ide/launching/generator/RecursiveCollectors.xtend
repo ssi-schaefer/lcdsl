@@ -125,6 +125,14 @@ class RecursiveCollectors {
 		collectFlatObject(config, [product?.name])
 	}
 	
+	static def collectSwInstall(LaunchConfig config) {
+		collectFlatBoolean(config, true, [swInstallSupport])
+	}
+	
+	static def collectConfigIniTemplate(LaunchConfig config) {
+		collectFlatObject(config, [configIniTemplate?.path?.name?.value])
+	}
+	
 	static def collectExecEnvPath(LaunchConfig config) {
 		val e = collectFlatObject(config, [execEnv?.name])
 		if(e != null && !e.empty) {
