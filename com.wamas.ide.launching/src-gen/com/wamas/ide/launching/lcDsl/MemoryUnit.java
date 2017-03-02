@@ -28,7 +28,7 @@ public enum MemoryUnit implements Enumerator
    * @generated
    * @ordered
    */
-  MB(0, "MB", "MB"),
+  MB(0, "MB", "M"),
 
   /**
    * The '<em><b>GB</b></em>' literal object.
@@ -38,7 +38,7 @@ public enum MemoryUnit implements Enumerator
    * @generated
    * @ordered
    */
-  GB(1, "GB", "GB");
+  GB(1, "GB", "G");
 
   /**
    * The '<em><b>MB</b></em>' literal value.
@@ -49,7 +49,7 @@ public enum MemoryUnit implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #MB
-   * @model
+   * @model literal="M"
    * @generated
    * @ordered
    */
@@ -64,7 +64,7 @@ public enum MemoryUnit implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #GB
-   * @model
+   * @model literal="G"
    * @generated
    * @ordered
    */

@@ -111,6 +111,16 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
         return createAddPluginAdapter();
       }
       @Override
+      public Adapter caseAddFeature(AddFeature object)
+      {
+        return createAddFeatureAdapter();
+      }
+      @Override
+      public Adapter caseContentProviderProduct(ContentProviderProduct object)
+      {
+        return createContentProviderProductAdapter();
+      }
+      @Override
       public Adapter caseIgnorePlugin(IgnorePlugin object)
       {
         return createIgnorePluginAdapter();
@@ -199,6 +209,11 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
       public Adapter casePluginWithVersion(PluginWithVersion object)
       {
         return createPluginWithVersionAdapter();
+      }
+      @Override
+      public Adapter caseFeatureWithVersion(FeatureWithVersion object)
+      {
+        return createFeatureWithVersionAdapter();
       }
       @Override
       public Adapter caseProject(Project object)
@@ -373,6 +388,36 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAddPluginAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.AddFeature <em>Add Feature</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.AddFeature
+   * @generated
+   */
+  public Adapter createAddFeatureAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.ContentProviderProduct <em>Content Provider Product</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.ContentProviderProduct
+   * @generated
+   */
+  public Adapter createContentProviderProductAdapter()
   {
     return null;
   }
@@ -643,6 +688,21 @@ public class LcDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPluginWithVersionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wamas.ide.launching.lcDsl.FeatureWithVersion <em>Feature With Version</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wamas.ide.launching.lcDsl.FeatureWithVersion
+   * @generated
+   */
+  public Adapter createFeatureWithVersionAdapter()
   {
     return null;
   }

@@ -31,6 +31,9 @@ class LcDslGenerator extends AbstractGenerator {
 	def boolean needsGeneration(LaunchConfig config) {
 		if(!isTypeSupported(config))
 			return false
+			
+		if(config.abstract)
+			return false
 		
 		// always generate if the launch config is already there to update it, regardless of 'manual' mode.
 		for(lc : DebugPlugin.^default.launchManager.launchConfigurations) {

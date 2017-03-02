@@ -122,6 +122,20 @@ public class LcDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case LcDslPackage.ADD_FEATURE:
+      {
+        AddFeature addFeature = (AddFeature)theEObject;
+        T result = caseAddFeature(addFeature);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LcDslPackage.CONTENT_PROVIDER_PRODUCT:
+      {
+        ContentProviderProduct contentProviderProduct = (ContentProviderProduct)theEObject;
+        T result = caseContentProviderProduct(contentProviderProduct);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case LcDslPackage.IGNORE_PLUGIN:
       {
         IgnorePlugin ignorePlugin = (IgnorePlugin)theEObject;
@@ -247,6 +261,13 @@ public class LcDslSwitch<T> extends Switch<T>
       {
         PluginWithVersion pluginWithVersion = (PluginWithVersion)theEObject;
         T result = casePluginWithVersion(pluginWithVersion);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LcDslPackage.FEATURE_WITH_VERSION:
+      {
+        FeatureWithVersion featureWithVersion = (FeatureWithVersion)theEObject;
+        T result = caseFeatureWithVersion(featureWithVersion);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -435,6 +456,38 @@ public class LcDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAddPlugin(AddPlugin object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Add Feature</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Add Feature</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAddFeature(AddFeature object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Content Provider Product</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Content Provider Product</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContentProviderProduct(ContentProviderProduct object)
   {
     return null;
   }
@@ -723,6 +776,22 @@ public class LcDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePluginWithVersion(PluginWithVersion object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Feature With Version</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Feature With Version</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFeatureWithVersion(FeatureWithVersion object)
   {
     return null;
   }

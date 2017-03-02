@@ -73,6 +73,8 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
       case LcDslPackage.MAIN_PROJECT: return createMainProject();
       case LcDslPackage.MAIN_TYPE: return createMainType();
       case LcDslPackage.ADD_PLUGIN: return createAddPlugin();
+      case LcDslPackage.ADD_FEATURE: return createAddFeature();
+      case LcDslPackage.CONTENT_PROVIDER_PRODUCT: return createContentProviderProduct();
       case LcDslPackage.IGNORE_PLUGIN: return createIgnorePlugin();
       case LcDslPackage.VM_ARGUMENT: return createVmArgument();
       case LcDslPackage.PROGRAM_ARGUMENT: return createProgramArgument();
@@ -91,6 +93,7 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
       case LcDslPackage.ANY_PATH: return createAnyPath();
       case LcDslPackage.PLUGIN_WITH_VERSION_AND_START_LEVEL: return createPluginWithVersionAndStartLevel();
       case LcDslPackage.PLUGIN_WITH_VERSION: return createPluginWithVersion();
+      case LcDslPackage.FEATURE_WITH_VERSION: return createFeatureWithVersion();
       case LcDslPackage.PROJECT: return createProject();
       case LcDslPackage.JAVA_MAIN_TYPE: return createJavaMainType();
       case LcDslPackage.CLEAR_OPTION: return createClearOption();
@@ -235,6 +238,28 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
   {
     AddPluginImpl addPlugin = new AddPluginImpl();
     return addPlugin;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AddFeature createAddFeature()
+  {
+    AddFeatureImpl addFeature = new AddFeatureImpl();
+    return addFeature;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ContentProviderProduct createContentProviderProduct()
+  {
+    ContentProviderProductImpl contentProviderProduct = new ContentProviderProductImpl();
+    return contentProviderProduct;
   }
 
   /**
@@ -433,6 +458,17 @@ public class LcDslFactoryImpl extends EFactoryImpl implements LcDslFactory
   {
     PluginWithVersionImpl pluginWithVersion = new PluginWithVersionImpl();
     return pluginWithVersion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FeatureWithVersion createFeatureWithVersion()
+  {
+    FeatureWithVersionImpl featureWithVersion = new FeatureWithVersionImpl();
+    return featureWithVersion;
   }
 
   /**

@@ -3,27 +3,32 @@
  */
 package com.wamas.ide.launching.ui.contentassist
 
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.xtext.RuleCall
-import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
-import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
-import org.eclipse.core.resources.ResourcesPlugin
-import org.eclipse.jface.viewers.StyledString
-import org.eclipse.xtext.ui.IImageHelper
 import com.google.inject.Inject
-import org.eclipse.pde.core.plugin.PluginRegistry
-import org.eclipse.xtext.Assignment
-import com.wamas.ide.launching.lcDsl.PluginWithVersion
-import org.eclipse.pde.core.plugin.IMatchRules
+import com.wamas.ide.launching.lcDsl.FeatureWithVersion
 import com.wamas.ide.launching.lcDsl.LaunchConfig
-import org.eclipse.jdt.core.JavaCore
-import org.eclipse.jdt.core.search.SearchEngine
-import org.eclipse.jdt.core.search.IJavaSearchScope
-import org.eclipse.jdt.core.search.SearchPattern
-import org.eclipse.jdt.core.search.IJavaSearchConstants
+import com.wamas.ide.launching.lcDsl.PluginWithVersion
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.jdt.core.IMethod
+import org.eclipse.jdt.core.JavaCore
+import org.eclipse.jdt.core.search.IJavaSearchConstants
+import org.eclipse.jdt.core.search.IJavaSearchScope
+import org.eclipse.jdt.core.search.SearchEngine
+import org.eclipse.jdt.core.search.SearchPattern
 import org.eclipse.jdt.internal.core.JavaProject
 import org.eclipse.jdt.launching.JavaRuntime
+import org.eclipse.jface.viewers.StyledString
+import org.eclipse.pde.core.plugin.IMatchRules
+import org.eclipse.pde.core.plugin.PluginRegistry
+import org.eclipse.pde.internal.core.PDECore
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.RuleCall
+import org.eclipse.xtext.ui.IImageHelper
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
+import com.wamas.ide.launching.validation.LcDslValidator
+import org.eclipse.pde.internal.core.TracingOptionsManager
+import com.wamas.ide.launching.lcDsl.TraceEnablement
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -83,6 +88,86 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 		super.completePluginWithVersion_Version(model, assignment, context, acceptor)
 	}
 
+	override completeFeatureWithVersion_Name(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		for (wsm : PDECore.^default.featureModelManager.workspaceModels) {
+			val name = wsm.feature.id
+			acceptor.accept(
+				createCompletionProposal(name, new StyledString(name), ih.getImage("showprojects.gif"), context))
+		}
+
+		for (tpm : PDECore.^default.featureModelManager.externalModels) {
+			val name = tpm.feature.id
+			val ver = tpm.feature.version
+
+			acceptor.accept(
+				createCompletionProposal(name,
+					new StyledString(name + " ").append(ver.toString, StyledString.QUALIFIER_STYLER),
+					ih.getImage("feature_obj.png"), context))
+		}
+
+		super.completeFeatureWithVersion_Name(model, assignment, context, acceptor)
+	}
+
+	override completeFeatureWithVersion_Version(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		val f = model as FeatureWithVersion
+		val models = PDECore.^default.featureModelManager.findFeatureModels(f.name)
+
+		if (models != null && !models.empty) {
+			for (m : models) {
+				val ver = m.feature.version
+				acceptor.accept(
+					createCompletionProposal(ver, new StyledString(ver), ih.getImage("feature_obj.png"), context))
+			}
+		}
+
+		super.completeFeatureWithVersion_Version(model, assignment, context, acceptor)
+	}
+
+	override completeProductExtPoint_Name(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		for (e : LcDslValidator.getAllExtensionsOf(model, LcDslValidator.EXT_PRODUCTS)) {
+			acceptor.accept(
+				createCompletionProposal(e, new StyledString(e), ih.getImage("product_xml_obj.png"), context))
+		}
+
+		super.completeProductExtPoint_Name(model, assignment, context, acceptor)
+	}
+
+	override completeApplicationExtPoint_Name(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		for (e : LcDslValidator.getAllExtensionsOf(model, LcDslValidator.EXT_APPLICATIONS)) {
+			acceptor.accept(
+				createCompletionProposal(e, new StyledString(e), ih.getImage("start_application.png"), context))
+		}
+		super.completeApplicationExtPoint_Name(model, assignment, context, acceptor)
+	}
+
+	override completeTraceEnablement_Plugin(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		for (n : PluginRegistry.activeModels.filter[TracingOptionsManager.isTraceable(it)].map [
+			bundleDescription.symbolicName
+		]) {
+			acceptor.accept(createCompletionProposal(n, new StyledString(n), ih.getImage("plugin_obj.png"), context))
+		}
+		super.completeTraceEnablement_Plugin(model, assignment, context, acceptor)
+	}
+
+	override completeTraceEnablement_What(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		val te = model as TraceEnablement
+		val name = te.plugin.name
+
+		for (s : PDECore.^default.tracingOptionsManager.getTemplateTable(name).keySet) {
+			val n = s.substring(s.indexOf('/') + 1)
+			acceptor.accept(
+				createCompletionProposal(n, new StyledString(n), ih.getImage("doc_section_obj.png"), context))
+		}
+
+		super.completeTraceEnablement_What(model, assignment, context, acceptor)
+	}
+
 	override complete_JavaMainType(EObject model, RuleCall ruleCall, ContentAssistContext context,
 		ICompletionProposalAcceptor acceptor) {
 		val lc = model as LaunchConfig
@@ -117,12 +202,13 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 		super.complete_JavaMainType(model, ruleCall, context, acceptor)
 	}
 
-	override completeExecutionEnvironment_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		JavaRuntime.getExecutionEnvironmentsManager().getExecutionEnvironments().forEach[
+	override completeExecutionEnvironment_Name(EObject model, Assignment assignment, ContentAssistContext context,
+		ICompletionProposalAcceptor acceptor) {
+		JavaRuntime.getExecutionEnvironmentsManager().getExecutionEnvironments().forEach [
 			acceptor.accept(createCompletionProposal(id, new StyledString(id), ih.getImage("library_obj.png"), context))
 		]
-		
+
 		super.completeExecutionEnvironment_Name(model, assignment, context, acceptor)
 	}
-	
+
 }

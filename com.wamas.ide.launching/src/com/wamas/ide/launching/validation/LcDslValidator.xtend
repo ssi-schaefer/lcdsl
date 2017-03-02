@@ -4,8 +4,13 @@
 package com.wamas.ide.launching.validation
 
 import com.wamas.ide.launching.generator.LcDslGenerator
+import com.wamas.ide.launching.generator.RecursiveCollectors
+import com.wamas.ide.launching.lcDsl.AddFeature
+import com.wamas.ide.launching.lcDsl.AddPlugin
 import com.wamas.ide.launching.lcDsl.ExecutionEnvironment
 import com.wamas.ide.launching.lcDsl.ExistingPath
+import com.wamas.ide.launching.lcDsl.Favorites
+import com.wamas.ide.launching.lcDsl.FeatureWithVersion
 import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.LcDslPackage
 import com.wamas.ide.launching.lcDsl.PluginWithVersion
@@ -19,16 +24,19 @@ import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.core.runtime.CoreException
 import org.eclipse.core.runtime.NullProgressMonitor
 import org.eclipse.emf.common.util.EList
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.jdt.core.JavaCore
 import org.eclipse.jdt.launching.JavaRuntime
 import org.eclipse.pde.core.plugin.IMatchRules
 import org.eclipse.pde.core.plugin.PluginRegistry
+import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.xtext.validation.Check
 
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
-import com.wamas.ide.launching.lcDsl.Favorites
-import com.wamas.ide.launching.lcDsl.LaunchModeType
+import com.wamas.ide.launching.lcDsl.ApplicationExtPoint
+import com.wamas.ide.launching.lcDsl.ProductExtPoint
+import com.wamas.ide.launching.lcDsl.ContentProviderProduct
 
 /**
  * This class contains custom validation rules. 
@@ -37,8 +45,8 @@ import com.wamas.ide.launching.lcDsl.LaunchModeType
  */
 class LcDslValidator extends AbstractLcDslValidator {
 
-	public static val PLUGIN_NOT_ALLOWED = 'plugin.not.allowed'
-	public static val INHERITANCE_TYPE_MISMATCH = 'inheritance.type.mismatch'
+	public static final val EXT_APPLICATIONS = "org.eclipse.core.runtime.applications"
+	public static final val EXT_PRODUCTS = "org.eclipse.core.runtime.products"
 
 	private LcDslPackage LC = LcDslPackage.eINSTANCE
 
@@ -64,8 +72,10 @@ class LcDslValidator extends AbstractLcDslValidator {
 		LC.launchConfig_ConfigIniTemplate -> #{ECLIPSE},
 		LC.launchConfig_JavaMainSearch -> #{JAVA},
 		LC.launchConfig_ServletConfig -> #{RAP},
+		LC.launchConfig_ContentProviderProduct -> #{ECLIPSE, RAP},
 		// multi appearance features
 		LC.launchConfig_Plugins -> #{ECLIPSE, RAP},
+		LC.launchConfig_Features -> #{ECLIPSE, RAP},
 		LC.launchConfig_Ignore -> #{ECLIPSE, RAP},
 		LC.launchConfig_GroupMembers -> #{GROUP},
 		LC.launchConfig_VmArgs -> #{ECLIPSE, RAP, JAVA},
@@ -78,15 +88,15 @@ class LcDslValidator extends AbstractLcDslValidator {
 		ECLIPSE -> #{
 			#{LC.launchConfig_Application, LC.launchConfig_Product},
 			#{LC.launchConfig_Workspace},
-			#{LC.launchConfig_Plugins}
+			#{LC.launchConfig_Plugins, LC.launchConfig_Features, LC.launchConfig_ContentProviderProduct}
 		},
 		RAP -> #{
 			#{LC.launchConfig_ServletConfig},
-			#{LC.launchConfig_Plugins}
+			#{LC.launchConfig_Plugins, LC.launchConfig_Features, LC.launchConfig_ContentProviderProduct}
 		},
 		JAVA -> #{
 			#{LC.launchConfig_MainType},
-			#{LC.launchConfig_MainProject}
+			#{LC.launchConfig_MainProject} // TODO: maybe default to project containing file?
 		},
 		GROUP -> #{
 			#{LC.launchConfig_GroupMembers}
@@ -120,6 +130,9 @@ class LcDslValidator extends AbstractLcDslValidator {
 			}
 		}
 
+		if (lc.abstract)
+			return
+
 		val required = requiredFeatures.get(lc.type)
 		if (required == null) {
 			error("unsupported launch configuration type - validation not implemented", LC.launchConfig_Type)
@@ -127,15 +140,8 @@ class LcDslValidator extends AbstractLcDslValidator {
 			for (alternatives : required) {
 				var anySet = false
 				for (feature : alternatives) {
-					val e = lc.eGet(feature)
-					if (e != null) {
-						if (e instanceof EList<?>) {
-							if (!e.empty)
-								anySet = true
-						} else {
-							anySet = true
-						}
-					}
+					if (lc.isFeatureSetRecursive(feature))
+						anySet = true
 				}
 
 				if (!anySet) {
@@ -144,6 +150,23 @@ class LcDslValidator extends AbstractLcDslValidator {
 				}
 			}
 		}
+	}
+
+	def boolean isFeatureSetRecursive(LaunchConfig lc, EStructuralFeature feature) {
+		val e = lc.eGet(feature)
+		if (e != null) {
+			if (e instanceof EList<?>) {
+				if (!e.empty)
+					return true
+			} else {
+				return true
+			}
+		}
+
+		if (lc.superConfig == null)
+			return false
+
+		return lc.superConfig.isFeatureSetRecursive(feature)
 	}
 
 	def List<String> simpleNames(Set<? extends EStructuralFeature> features) {
@@ -177,6 +200,13 @@ class LcDslValidator extends AbstractLcDslValidator {
 		if (p.name == null)
 			return;
 
+		// used in PluginWithVersionAndStartlevel -> AddPlugin
+		val container = p.eContainer.eContainer
+		if (container instanceof AddPlugin) {
+			if (container.optional)
+				return;
+		}
+
 		val bundle = PluginRegistry.findModel(p.name, p.version, IMatchRules.PERFECT, null)
 
 		if (bundle == null) {
@@ -184,8 +214,32 @@ class LcDslValidator extends AbstractLcDslValidator {
 				warning("Bundle " + p.name + " does not exist in version " + p.version, p,
 					LC.pluginWithVersion_Version);
 			} else {
-				warning("Bundle " + p.name + " does not exist in the workspace or the current target platform", p,
+				error("Bundle " + p.name + " does not exist in the workspace or the current target platform", p,
 					LC.pluginWithVersion_Name);
+			}
+		}
+	}
+
+	@Check
+	def checkFeatureExists(FeatureWithVersion f) {
+		if (f.name == null)
+			return;
+
+		// feature used directly (different to plugin)
+		val container = f.eContainer
+		if (container instanceof AddFeature)
+			if (container.optional)
+				return;
+
+		val mgr = PDECore.^default.featureModelManager
+		val feature = mgr.findFeatureModel(f.name, f.version)
+		if (feature == null) {
+			if (mgr.findFeatureModel(f.name) != null) {
+				warning("Feature " + f.name + " does not exists in version " + f.version, f,
+					LC.featureWithVersion_Version)
+			} else {
+				error("Feature " + f.name + " does not exist in the workspace or the current target platform", f,
+					LC.featureWithVersion_Name)
 			}
 		}
 	}
@@ -254,19 +308,54 @@ class LcDslValidator extends AbstractLcDslValidator {
 			warning("no default VM configured for execution environment " + e.name, LC.executionEnvironment_Name)
 		}
 	}
-	
+
 	@Check
 	def checkFavorites(Favorites f) {
-		for(t : f.types) {
-			if(t.equals(LaunchModeType.INHERIT)) {
+		for (t : f.types) {
+			if (RecursiveCollectors.mapToFavoriteType(t) == null) {
 				error(t.literal + " is not a valid favorite type", LC.favorites_Types)
 			}
+		}
+	}
+	
+	@Check
+	def checkApplication(ApplicationExtPoint e) {
+		if(!getAllExtensionsOf(e, EXT_APPLICATIONS).toSet.contains(e.name)) {
+			error("application " + e.name + " does not exist", LC.applicationExtPoint_Name)
+		}
+	}
+	
+	@Check
+	def checkProduct(ProductExtPoint e) {
+		if(!getAllExtensionsOf(e, EXT_PRODUCTS).toSet.contains(e.name)) {
+			error("product " + e.name + " does not exist", LC.productExtPoint_Name)
+		}
+	}
+	
+	@Check
+	def checkApplicationProductXor(LaunchConfig c) {
+		if(c.application != null && c.product != null) {
+			error("either application or product can be set, not both", LC.launchConfig_Application)
+		}
+	}
+	
+	@Check
+	def checkContentProviderProductFile(ContentProviderProduct p) {
+		if(!p.product.name.expanded.endsWith(".product")) {
+			warning("content provider should reference a .product file", LC.contentProviderProduct_Product)
 		}
 	}
 
 	/** only required for validation/label. raw value must be written into launch configurations to allow expansion at launch time */
 	static def getExpanded(StringWithVariables original) {
 		return StringVariableManager.^default.performStringSubstitution(original.value, true)
+	}
+	
+	static def getAllExtensionsOf(EObject model, String ext) {
+		// TODO: possibly filter to plugins that are actually included in the launch configuration...?
+		PluginRegistry.activeModels.map[extensions.extensions.toList].flatten.filter [
+			point.equals(ext)
+		].map[pluginModel.bundleDescription.symbolicName + "." + id]
 	}
 
 }

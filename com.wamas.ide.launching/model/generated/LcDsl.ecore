@@ -8,6 +8,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="LaunchConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="explicit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="manual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="foreground" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="noConsole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="noValidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -45,8 +46,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="servletConfig" eType="#//RapServletConfig"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contentProviderProduct"
+        eType="#//ContentProviderProduct" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="plugins" upperBound="-1"
         eType="#//AddPlugin" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+        eType="#//AddFeature" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ignore" upperBound="-1"
         eType="#//IgnorePlugin" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="groupMembers" upperBound="-1"
@@ -77,7 +82,17 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddPlugin">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="plugin" eType="#//PluginWithVersionAndStartLevel"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddFeature">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="#//FeatureWithVersion"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContentProviderProduct">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="product" eType="#//ExistingPath"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IgnorePlugin">
@@ -111,6 +126,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outWhich" eType="#//OutputStream"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outFile" eType="#//AnyPath"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="noAppend" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inWhich" eType="#//InputStream"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inFile" eType="#//ExistingPath"
         containment="true"/>
@@ -153,6 +169,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="startLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PluginWithVersion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureWithVersion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -213,8 +233,8 @@
     <eLiterals name="INHERIT" value="4" literal="inherit"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MemoryUnit">
-    <eLiterals name="MB" literal="MB"/>
-    <eLiterals name="GB" value="1" literal="GB"/>
+    <eLiterals name="MB" literal="M"/>
+    <eLiterals name="GB" value="1" literal="G"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="OutputStream">
     <eLiterals name="STDOUT" literal="stdout"/>

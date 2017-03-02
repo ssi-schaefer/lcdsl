@@ -3,9 +3,9 @@
  */
 package com.wamas.ide.launching.lcDsl.impl;
 
-import com.wamas.ide.launching.lcDsl.AddPlugin;
+import com.wamas.ide.launching.lcDsl.AddFeature;
+import com.wamas.ide.launching.lcDsl.FeatureWithVersion;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
-import com.wamas.ide.launching.lcDsl.PluginWithVersionAndStartLevel;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -18,19 +18,19 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Add Plugin</b></em>'.
+ * An implementation of the model object '<em><b>Add Feature</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.AddPluginImpl#isOptional <em>Optional</em>}</li>
- *   <li>{@link com.wamas.ide.launching.lcDsl.impl.AddPluginImpl#getPlugin <em>Plugin</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.AddFeatureImpl#isOptional <em>Optional</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.AddFeatureImpl#getFeature <em>Feature</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPlugin
+public class AddFeatureImpl extends MinimalEObjectImpl.Container implements AddFeature
 {
   /**
    * The default value of the '{@link #isOptional() <em>Optional</em>}' attribute.
@@ -53,21 +53,21 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
   protected boolean optional = OPTIONAL_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getPlugin() <em>Plugin</em>}' containment reference.
+   * The cached value of the '{@link #getFeature() <em>Feature</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPlugin()
+   * @see #getFeature()
    * @generated
    * @ordered
    */
-  protected PluginWithVersionAndStartLevel plugin;
+  protected FeatureWithVersion feature;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AddPluginImpl()
+  protected AddFeatureImpl()
   {
     super();
   }
@@ -80,7 +80,7 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
   @Override
   protected EClass eStaticClass()
   {
-    return LcDslPackage.Literals.ADD_PLUGIN;
+    return LcDslPackage.Literals.ADD_FEATURE;
   }
 
   /**
@@ -103,7 +103,7 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
     boolean oldOptional = optional;
     optional = newOptional;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.ADD_PLUGIN__OPTIONAL, oldOptional, optional));
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.ADD_FEATURE__OPTIONAL, oldOptional, optional));
   }
 
   /**
@@ -111,9 +111,9 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
    * <!-- end-user-doc -->
    * @generated
    */
-  public PluginWithVersionAndStartLevel getPlugin()
+  public FeatureWithVersion getFeature()
   {
-    return plugin;
+    return feature;
   }
 
   /**
@@ -121,13 +121,13 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPlugin(PluginWithVersionAndStartLevel newPlugin, NotificationChain msgs)
+  public NotificationChain basicSetFeature(FeatureWithVersion newFeature, NotificationChain msgs)
   {
-    PluginWithVersionAndStartLevel oldPlugin = plugin;
-    plugin = newPlugin;
+    FeatureWithVersion oldFeature = feature;
+    feature = newFeature;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.ADD_PLUGIN__PLUGIN, oldPlugin, newPlugin);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.ADD_FEATURE__FEATURE, oldFeature, newFeature);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -138,20 +138,20 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPlugin(PluginWithVersionAndStartLevel newPlugin)
+  public void setFeature(FeatureWithVersion newFeature)
   {
-    if (newPlugin != plugin)
+    if (newFeature != feature)
     {
       NotificationChain msgs = null;
-      if (plugin != null)
-        msgs = ((InternalEObject)plugin).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.ADD_PLUGIN__PLUGIN, null, msgs);
-      if (newPlugin != null)
-        msgs = ((InternalEObject)newPlugin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.ADD_PLUGIN__PLUGIN, null, msgs);
-      msgs = basicSetPlugin(newPlugin, msgs);
+      if (feature != null)
+        msgs = ((InternalEObject)feature).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.ADD_FEATURE__FEATURE, null, msgs);
+      if (newFeature != null)
+        msgs = ((InternalEObject)newFeature).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.ADD_FEATURE__FEATURE, null, msgs);
+      msgs = basicSetFeature(newFeature, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.ADD_PLUGIN__PLUGIN, newPlugin, newPlugin));
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.ADD_FEATURE__FEATURE, newFeature, newFeature));
   }
 
   /**
@@ -164,8 +164,8 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
   {
     switch (featureID)
     {
-      case LcDslPackage.ADD_PLUGIN__PLUGIN:
-        return basicSetPlugin(null, msgs);
+      case LcDslPackage.ADD_FEATURE__FEATURE:
+        return basicSetFeature(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -180,10 +180,10 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
   {
     switch (featureID)
     {
-      case LcDslPackage.ADD_PLUGIN__OPTIONAL:
+      case LcDslPackage.ADD_FEATURE__OPTIONAL:
         return isOptional();
-      case LcDslPackage.ADD_PLUGIN__PLUGIN:
-        return getPlugin();
+      case LcDslPackage.ADD_FEATURE__FEATURE:
+        return getFeature();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -198,11 +198,11 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
   {
     switch (featureID)
     {
-      case LcDslPackage.ADD_PLUGIN__OPTIONAL:
+      case LcDslPackage.ADD_FEATURE__OPTIONAL:
         setOptional((Boolean)newValue);
         return;
-      case LcDslPackage.ADD_PLUGIN__PLUGIN:
-        setPlugin((PluginWithVersionAndStartLevel)newValue);
+      case LcDslPackage.ADD_FEATURE__FEATURE:
+        setFeature((FeatureWithVersion)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -218,11 +218,11 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
   {
     switch (featureID)
     {
-      case LcDslPackage.ADD_PLUGIN__OPTIONAL:
+      case LcDslPackage.ADD_FEATURE__OPTIONAL:
         setOptional(OPTIONAL_EDEFAULT);
         return;
-      case LcDslPackage.ADD_PLUGIN__PLUGIN:
-        setPlugin((PluginWithVersionAndStartLevel)null);
+      case LcDslPackage.ADD_FEATURE__FEATURE:
+        setFeature((FeatureWithVersion)null);
         return;
     }
     super.eUnset(featureID);
@@ -238,10 +238,10 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
   {
     switch (featureID)
     {
-      case LcDslPackage.ADD_PLUGIN__OPTIONAL:
+      case LcDslPackage.ADD_FEATURE__OPTIONAL:
         return optional != OPTIONAL_EDEFAULT;
-      case LcDslPackage.ADD_PLUGIN__PLUGIN:
-        return plugin != null;
+      case LcDslPackage.ADD_FEATURE__FEATURE:
+        return feature != null;
     }
     return super.eIsSet(featureID);
   }
@@ -263,4 +263,4 @@ public class AddPluginImpl extends MinimalEObjectImpl.Container implements AddPl
     return result.toString();
   }
 
-} //AddPluginImpl
+} //AddFeatureImpl

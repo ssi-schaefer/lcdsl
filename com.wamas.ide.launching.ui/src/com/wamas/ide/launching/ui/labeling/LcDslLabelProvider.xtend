@@ -39,6 +39,8 @@ import com.wamas.ide.launching.lcDsl.GroupPostLaunchAction
 import com.wamas.ide.launching.lcDsl.GroupPostLaunchWait
 import com.wamas.ide.launching.lcDsl.GroupPostLaunchDelay
 import com.wamas.ide.launching.lcDsl.GroupPostLaunchRegex
+import com.wamas.ide.launching.lcDsl.AddFeature
+import com.wamas.ide.launching.lcDsl.ContentProviderProduct
 
 /**
  * Provides labels for EObjects.
@@ -127,19 +129,45 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 		if (p.startLevel != 0)
 			ss.append(' ').append("[lvl=" + p.startLevel + "]", StyledString.DECORATIONS_STYLER)
 
-		ss.toString
+		ss
 	}
 	
 	def image(AddPlugin a) {
-		"plugin_obj.png"
+		if(a.optional)
+			"plugin_obj_opt.png"
+		else
+			"plugin_obj.png"
 	}
-
+	
+	def text(AddFeature a) {
+		val ss = new StyledString("feature " + a.feature.name)
+		if(a.feature.version != null)
+			ss.append(' ').append(a.feature.version, StyledString.QUALIFIER_STYLER)
+		
+		ss
+	}
+	
+	def image(AddFeature a) {
+		if(a.optional)
+			"feature_obj_opt.png"
+		else
+			"feature_obj.png"
+	}
+	
+	def text(ContentProviderProduct p) {
+		"expand content from " + p.product.name.expanded
+	}
+	
+	def image(ContentProviderProduct p) {
+		"product_xml_obj.png"
+	}
+	
 	def text(IgnorePlugin i) {
-		val builder = new StringBuilder
-		builder.append("ignore ").append(i.plugin.name)
+		val ss = new StyledString
+		ss.append("ignore ").append(i.plugin.name)
 		if (i.plugin.version != null)
-			builder.append(' ').append(i.plugin.version) // could be styled
-		builder.toString
+			ss.append(' ').append(i.plugin.version, StyledString.QUALIFIER_STYLER)
+		ss
 	}
 	
 	def image(IgnorePlugin i) {

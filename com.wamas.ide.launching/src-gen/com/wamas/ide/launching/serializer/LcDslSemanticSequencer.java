@@ -4,15 +4,18 @@
 package com.wamas.ide.launching.serializer;
 
 import com.google.inject.Inject;
+import com.wamas.ide.launching.lcDsl.AddFeature;
 import com.wamas.ide.launching.lcDsl.AddPlugin;
 import com.wamas.ide.launching.lcDsl.AnyPath;
 import com.wamas.ide.launching.lcDsl.ApplicationExtPoint;
 import com.wamas.ide.launching.lcDsl.ClearOption;
 import com.wamas.ide.launching.lcDsl.ConfigIniTemplate;
+import com.wamas.ide.launching.lcDsl.ContentProviderProduct;
 import com.wamas.ide.launching.lcDsl.EnvironmentVariable;
 import com.wamas.ide.launching.lcDsl.ExecutionEnvironment;
 import com.wamas.ide.launching.lcDsl.ExistingPath;
 import com.wamas.ide.launching.lcDsl.Favorites;
+import com.wamas.ide.launching.lcDsl.FeatureWithVersion;
 import com.wamas.ide.launching.lcDsl.GroupMember;
 import com.wamas.ide.launching.lcDsl.GroupPostLaunchDelay;
 import com.wamas.ide.launching.lcDsl.GroupPostLaunchRegex;
@@ -64,6 +67,9 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == LcDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case LcDslPackage.ADD_FEATURE:
+				sequence_AddFeature(context, (AddFeature) semanticObject); 
+				return; 
 			case LcDslPackage.ADD_PLUGIN:
 				sequence_AddPlugin(context, (AddPlugin) semanticObject); 
 				return; 
@@ -79,6 +85,9 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case LcDslPackage.CONFIG_INI_TEMPLATE:
 				sequence_ConfigIniTemplate(context, (ConfigIniTemplate) semanticObject); 
 				return; 
+			case LcDslPackage.CONTENT_PROVIDER_PRODUCT:
+				sequence_ContentProviderProduct(context, (ContentProviderProduct) semanticObject); 
+				return; 
 			case LcDslPackage.ENVIRONMENT_VARIABLE:
 				sequence_EnvironmentVariable(context, (EnvironmentVariable) semanticObject); 
 				return; 
@@ -90,6 +99,9 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case LcDslPackage.FAVORITES:
 				sequence_Favorites(context, (Favorites) semanticObject); 
+				return; 
+			case LcDslPackage.FEATURE_WITH_VERSION:
+				sequence_FeatureWithVersion(context, (FeatureWithVersion) semanticObject); 
 				return; 
 			case LcDslPackage.GROUP_MEMBER:
 				sequence_GroupMember(context, (GroupMember) semanticObject); 
@@ -170,19 +182,25 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     AddFeature returns AddFeature
+	 *
+	 * Constraint:
+	 *     (optional?='optional'? feature=FeatureWithVersion)
+	 */
+	protected void sequence_AddFeature(ISerializationContext context, AddFeature semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     AddPlugin returns AddPlugin
 	 *
 	 * Constraint:
-	 *     plugin=PluginWithVersionAndStartLevel
+	 *     (optional?='optional'? plugin=PluginWithVersionAndStartLevel)
 	 */
 	protected void sequence_AddPlugin(ISerializationContext context, AddPlugin semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, LcDslPackage.Literals.ADD_PLUGIN__PLUGIN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LcDslPackage.Literals.ADD_PLUGIN__PLUGIN));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAddPluginAccess().getPluginPluginWithVersionAndStartLevelParserRuleCall_1_0(), semanticObject.getPlugin());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -255,6 +273,24 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     ContentProviderProduct returns ContentProviderProduct
+	 *
+	 * Constraint:
+	 *     product=ExistingPath
+	 */
+	protected void sequence_ContentProviderProduct(ISerializationContext context, ContentProviderProduct semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, LcDslPackage.Literals.CONTENT_PROVIDER_PRODUCT__PRODUCT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LcDslPackage.Literals.CONTENT_PROVIDER_PRODUCT__PRODUCT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getContentProviderProductAccess().getProductExistingPathParserRuleCall_1_0(), semanticObject.getProduct());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     EnvironmentVariable returns EnvironmentVariable
 	 *
 	 * Constraint:
@@ -319,6 +355,18 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     types+=LaunchModeType*
 	 */
 	protected void sequence_Favorites(ISerializationContext context, Favorites semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     FeatureWithVersion returns FeatureWithVersion
+	 *
+	 * Constraint:
+	 *     (name=FQName version=VERSION?)
+	 */
+	protected void sequence_FeatureWithVersion(ISerializationContext context, FeatureWithVersion semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -455,6 +503,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         (
 	 *             explicit?='explicit' | 
 	 *             manual?='manual' | 
+	 *             abstract?='abstract' | 
 	 *             foreground?='foreground' | 
 	 *             noConsole?='no-console' | 
 	 *             noValidate?='no-validate' | 
@@ -479,11 +528,13 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *             execEnv=ExecutionEnvironment | 
 	 *             configIniTemplate=ConfigIniTemplate | 
 	 *             javaMainSearch=JavaMainSearch | 
-	 *             servletConfig=RapServletConfig
+	 *             servletConfig=RapServletConfig | 
+	 *             contentProviderProduct=ContentProviderProduct
 	 *         )* 
 	 *         plugins+=AddPlugin? 
 	 *         (
 	 *             (
+	 *                 features+=AddFeature | 
 	 *                 ignore+=IgnorePlugin | 
 	 *                 groupMembers+=GroupMember | 
 	 *                 vmArgs+=VmArgument | 
@@ -644,7 +695,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Redirect returns Redirect
 	 *
 	 * Constraint:
-	 *     ((outWhich=OutputStream outFile=AnyPath) | (inWhich=InputStream inFile=ExistingPath))*
+	 *     ((inWhich=InputStream inFile=ExistingPath)? (outWhich=OutputStream outFile=AnyPath noAppend?='!'?)?)+
 	 */
 	protected void sequence_Redirect(ISerializationContext context, Redirect semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -674,7 +725,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     TraceEnablement returns TraceEnablement
 	 *
 	 * Constraint:
-	 *     (plugin=PluginWithVersion what+=ID*)
+	 *     (plugin=PluginWithVersion what+=TRACE_ID*)
 	 */
 	protected void sequence_TraceEnablement(ISerializationContext context, TraceEnablement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

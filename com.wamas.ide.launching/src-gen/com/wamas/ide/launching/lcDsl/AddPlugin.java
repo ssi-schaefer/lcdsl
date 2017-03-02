@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.AddPlugin#isOptional <em>Optional</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.AddPlugin#getPlugin <em>Plugin</em>}</li>
  * </ul>
  *
@@ -23,6 +24,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AddPlugin extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Optional</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Optional</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Optional</em>' attribute.
+   * @see #setOptional(boolean)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getAddPlugin_Optional()
+   * @model
+   * @generated
+   */
+  boolean isOptional();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.AddPlugin#isOptional <em>Optional</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Optional</em>' attribute.
+   * @see #isOptional()
+   * @generated
+   */
+  void setOptional(boolean value);
+
   /**
    * Returns the value of the '<em><b>Plugin</b></em>' containment reference.
    * <!-- begin-user-doc -->

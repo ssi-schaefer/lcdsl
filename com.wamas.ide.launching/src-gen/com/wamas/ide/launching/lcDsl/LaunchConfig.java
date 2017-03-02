@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isExplicit <em>Explicit</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isManual <em>Manual</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isNoConsole <em>No Console</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isNoValidate <em>No Validate</em>}</li>
@@ -41,7 +42,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getConfigIniTemplate <em>Config Ini Template</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getJavaMainSearch <em>Java Main Search</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getServletConfig <em>Servlet Config</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getContentProviderProduct <em>Content Provider Product</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getPlugins <em>Plugins</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getFeatures <em>Features</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getIgnore <em>Ignore</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getGroupMembers <em>Group Members</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getVmArgs <em>Vm Args</em>}</li>
@@ -107,6 +110,32 @@ public interface LaunchConfig extends EObject
    * @generated
    */
   void setManual(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Abstract</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Abstract</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Abstract</em>' attribute.
+   * @see #setAbstract(boolean)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_Abstract()
+   * @model
+   * @generated
+   */
+  boolean isAbstract();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isAbstract <em>Abstract</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Abstract</em>' attribute.
+   * @see #isAbstract()
+   * @generated
+   */
+  void setAbstract(boolean value);
 
   /**
    * Returns the value of the '<em><b>Foreground</b></em>' attribute.
@@ -710,6 +739,32 @@ public interface LaunchConfig extends EObject
   void setServletConfig(RapServletConfig value);
 
   /**
+   * Returns the value of the '<em><b>Content Provider Product</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Content Provider Product</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Content Provider Product</em>' containment reference.
+   * @see #setContentProviderProduct(ContentProviderProduct)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_ContentProviderProduct()
+   * @model containment="true"
+   * @generated
+   */
+  ContentProviderProduct getContentProviderProduct();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getContentProviderProduct <em>Content Provider Product</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Content Provider Product</em>' containment reference.
+   * @see #getContentProviderProduct()
+   * @generated
+   */
+  void setContentProviderProduct(ContentProviderProduct value);
+
+  /**
    * Returns the value of the '<em><b>Plugins</b></em>' containment reference list.
    * The list contents are of type {@link com.wamas.ide.launching.lcDsl.AddPlugin}.
    * <!-- begin-user-doc -->
@@ -724,6 +779,22 @@ public interface LaunchConfig extends EObject
    * @generated
    */
   EList<AddPlugin> getPlugins();
+
+  /**
+   * Returns the value of the '<em><b>Features</b></em>' containment reference list.
+   * The list contents are of type {@link com.wamas.ide.launching.lcDsl.AddFeature}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Features</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Features</em>' containment reference list.
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_Features()
+   * @model containment="true"
+   * @generated
+   */
+  EList<AddFeature> getFeatures();
 
   /**
    * Returns the value of the '<em><b>Ignore</b></em>' containment reference list.

@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.RedirectImpl#getOutWhich <em>Out Which</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.RedirectImpl#getOutFile <em>Out File</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.RedirectImpl#isNoAppend <em>No Append</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.RedirectImpl#getInWhich <em>In Which</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.RedirectImpl#getInFile <em>In File</em>}</li>
  * </ul>
@@ -66,6 +67,26 @@ public class RedirectImpl extends MinimalEObjectImpl.Container implements Redire
    * @ordered
    */
   protected AnyPath outFile;
+
+  /**
+   * The default value of the '{@link #isNoAppend() <em>No Append</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isNoAppend()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean NO_APPEND_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isNoAppend() <em>No Append</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isNoAppend()
+   * @generated
+   * @ordered
+   */
+  protected boolean noAppend = NO_APPEND_EDEFAULT;
 
   /**
    * The default value of the '{@link #getInWhich() <em>In Which</em>}' attribute.
@@ -194,6 +215,29 @@ public class RedirectImpl extends MinimalEObjectImpl.Container implements Redire
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isNoAppend()
+  {
+    return noAppend;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNoAppend(boolean newNoAppend)
+  {
+    boolean oldNoAppend = noAppend;
+    noAppend = newNoAppend;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.REDIRECT__NO_APPEND, oldNoAppend, noAppend));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public InputStream getInWhich()
   {
     return inWhich;
@@ -292,6 +336,8 @@ public class RedirectImpl extends MinimalEObjectImpl.Container implements Redire
         return getOutWhich();
       case LcDslPackage.REDIRECT__OUT_FILE:
         return getOutFile();
+      case LcDslPackage.REDIRECT__NO_APPEND:
+        return isNoAppend();
       case LcDslPackage.REDIRECT__IN_WHICH:
         return getInWhich();
       case LcDslPackage.REDIRECT__IN_FILE:
@@ -315,6 +361,9 @@ public class RedirectImpl extends MinimalEObjectImpl.Container implements Redire
         return;
       case LcDslPackage.REDIRECT__OUT_FILE:
         setOutFile((AnyPath)newValue);
+        return;
+      case LcDslPackage.REDIRECT__NO_APPEND:
+        setNoAppend((Boolean)newValue);
         return;
       case LcDslPackage.REDIRECT__IN_WHICH:
         setInWhich((InputStream)newValue);
@@ -342,6 +391,9 @@ public class RedirectImpl extends MinimalEObjectImpl.Container implements Redire
       case LcDslPackage.REDIRECT__OUT_FILE:
         setOutFile((AnyPath)null);
         return;
+      case LcDslPackage.REDIRECT__NO_APPEND:
+        setNoAppend(NO_APPEND_EDEFAULT);
+        return;
       case LcDslPackage.REDIRECT__IN_WHICH:
         setInWhich(IN_WHICH_EDEFAULT);
         return;
@@ -366,6 +418,8 @@ public class RedirectImpl extends MinimalEObjectImpl.Container implements Redire
         return outWhich != OUT_WHICH_EDEFAULT;
       case LcDslPackage.REDIRECT__OUT_FILE:
         return outFile != null;
+      case LcDslPackage.REDIRECT__NO_APPEND:
+        return noAppend != NO_APPEND_EDEFAULT;
       case LcDslPackage.REDIRECT__IN_WHICH:
         return inWhich != IN_WHICH_EDEFAULT;
       case LcDslPackage.REDIRECT__IN_FILE:
@@ -387,6 +441,8 @@ public class RedirectImpl extends MinimalEObjectImpl.Container implements Redire
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (outWhich: ");
     result.append(outWhich);
+    result.append(", noAppend: ");
+    result.append(noAppend);
     result.append(", inWhich: ");
     result.append(inWhich);
     result.append(')');

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.wamas.ide.launching.lcDsl.Redirect#getOutWhich <em>Out Which</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.Redirect#getOutFile <em>Out File</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.Redirect#isNoAppend <em>No Append</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.Redirect#getInWhich <em>In Which</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.Redirect#getInFile <em>In File</em>}</li>
  * </ul>
@@ -80,6 +81,32 @@ public interface Redirect extends EObject
    * @generated
    */
   void setOutFile(AnyPath value);
+
+  /**
+   * Returns the value of the '<em><b>No Append</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>No Append</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>No Append</em>' attribute.
+   * @see #setNoAppend(boolean)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getRedirect_NoAppend()
+   * @model
+   * @generated
+   */
+  boolean isNoAppend();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.Redirect#isNoAppend <em>No Append</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>No Append</em>' attribute.
+   * @see #isNoAppend()
+   * @generated
+   */
+  void setNoAppend(boolean value);
 
   /**
    * Returns the value of the '<em><b>In Which</b></em>' attribute.

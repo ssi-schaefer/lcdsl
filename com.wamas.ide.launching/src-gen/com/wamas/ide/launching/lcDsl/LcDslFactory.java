@@ -87,6 +87,24 @@ public interface LcDslFactory extends EFactory
   AddPlugin createAddPlugin();
 
   /**
+   * Returns a new object of class '<em>Add Feature</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Add Feature</em>'.
+   * @generated
+   */
+  AddFeature createAddFeature();
+
+  /**
+   * Returns a new object of class '<em>Content Provider Product</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Content Provider Product</em>'.
+   * @generated
+   */
+  ContentProviderProduct createContentProviderProduct();
+
+  /**
    * Returns a new object of class '<em>Ignore Plugin</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -247,6 +265,15 @@ public interface LcDslFactory extends EFactory
    * @generated
    */
   PluginWithVersion createPluginWithVersion();
+
+  /**
+   * Returns a new object of class '<em>Feature With Version</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Feature With Version</em>'.
+   * @generated
+   */
+  FeatureWithVersion createFeatureWithVersion();
 
   /**
    * Returns a new object of class '<em>Project</em>'.

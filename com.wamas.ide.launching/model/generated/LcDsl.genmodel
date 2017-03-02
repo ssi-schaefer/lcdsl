@@ -42,6 +42,7 @@
     <genClasses ecoreClass="LcDsl.ecore#//LaunchConfig">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//LaunchConfig/explicit"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//LaunchConfig/manual"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//LaunchConfig/abstract"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//LaunchConfig/foreground"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//LaunchConfig/noConsole"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//LaunchConfig/noValidate"/>
@@ -65,7 +66,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/configIniTemplate"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/javaMainSearch"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/servletConfig"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/contentProviderProduct"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/plugins"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/features"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/ignore"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/groupMembers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//LaunchConfig/vmArgs"/>
@@ -86,7 +89,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//MainType/mainClass"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//AddPlugin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//AddPlugin/optional"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//AddPlugin/plugin"/>
+    </genClasses>
+    <genClasses ecoreClass="LcDsl.ecore#//AddFeature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//AddFeature/optional"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//AddFeature/feature"/>
+    </genClasses>
+    <genClasses ecoreClass="LcDsl.ecore#//ContentProviderProduct">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//ContentProviderProduct/product"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//IgnorePlugin">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//IgnorePlugin/plugin"/>
@@ -113,6 +124,7 @@
     <genClasses ecoreClass="LcDsl.ecore#//Redirect">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Redirect/outWhich"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//Redirect/outFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Redirect/noAppend"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Redirect/inWhich"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//Redirect/inFile"/>
     </genClasses>
@@ -151,6 +163,10 @@
     <genClasses ecoreClass="LcDsl.ecore#//PluginWithVersion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//PluginWithVersion/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//PluginWithVersion/version"/>
+    </genClasses>
+    <genClasses ecoreClass="LcDsl.ecore#//FeatureWithVersion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//FeatureWithVersion/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//FeatureWithVersion/version"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//Project">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//Project/name"/>

@@ -17,6 +17,9 @@ import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants
 import org.eclipse.pde.ui.launcher.EclipseLaunchShortcut
 
 import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
+import org.eclipse.debug.ui.IDebugUIConstants
+import org.eclipse.pde.launching.IPDELauncherConstants
+import java.util.Map
 
 class StandaloneLaunchConfigGenerator {
 
@@ -41,7 +44,7 @@ class StandaloneLaunchConfigGenerator {
 	}
 
 	def generate(LaunchConfig config) {
-		if (config == null)
+		if (config == null || config.abstract)
 			return;
 
 		if (config.hasError) {
@@ -55,19 +58,35 @@ class StandaloneLaunchConfigGenerator {
 		}
 
 		if (config.type != LaunchConfigType.GROUP) {
-			copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_PROGRAM_ARGUMENTS,
+			copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_PROGRAM_ARGUMENTS,
 				Joiner.on(' ').join(config.collectArguments))
-			copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_VM_ARGUMENTS,
+			copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_VM_ARGUMENTS,
 				Joiner.on(' ').join(config.collectVmArguments))
-			// TODO: no-console (!groups)
-			// TODO: redirect (!groups)
-			// TODO: replace-env (!groups)
-			// TODO: env-vars (!groups)
+			
+			val out = config.collectRedirectOutFile
+			if(out != null && !out.trim.empty) {
+				copy.setAttribute(IDebugUIConstants.ATTR_APPEND_TO_FILE, config.collectRedirectOutAppend)
+				copy.setAttribute(IDebugUIConstants.ATTR_CAPTURE_IN_FILE, out)
+			}
+			copy.setIfAvailable(IDebugUIConstants.ATTR_CAPTURE_STDIN_FILE, config.collectRedirectInFile)
+			copy.setAttribute(IDebugUIConstants.ATTR_CAPTURE_IN_CONSOLE, !config.collectNoConsole)
+			copy.setAttribute("org.eclipse.debug.core.appendEnvironmentVariables", !config.collectReplaceEnv)
+			
+			val env = config.collectEnvMap
+			if(env != null && !env.empty) {
+				copy.setAttribute("org.eclipse.debug.core.environmentVariables", env)
+			}
+			
+			copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_JRE_CONTAINER_PATH, config.collectExecEnvPath)
 		}
 
-		// TODO: foreground
-		// TODO: workingDir
-		// TODO: favorites
+		copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_WORKING_DIRECTORY, config.collectWorkingDir)
+		copy.setAttribute(IDebugUIConstants.ATTR_LAUNCH_IN_BACKGROUND, !config.collectForeground)
+		
+		val favGroups = config.collectFavoriteGroups
+		if(favGroups != null && !favGroups.empty) {
+			copy.setAttribute(IDebugUIConstants.ATTR_FAVORITE_GROUPS, favGroups)
+		}
 		
 		switch (config.type) {
 			case LaunchConfigType.JAVA:
@@ -81,6 +100,12 @@ class StandaloneLaunchConfigGenerator {
 		}
 
 		copy.doSave
+	}
+
+	def setIfAvailable(ILaunchConfigurationWorkingCopy l, String attr, String value) {
+		if (value != null && !value.trim.empty) {
+			l.setAttribute(attr, value.trim)
+		}
 	}
 
 	def hasError(LaunchConfig config) {
@@ -104,41 +129,74 @@ class StandaloneLaunchConfigGenerator {
 	}
 
 	def generateJava(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
-		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME,
-				config.collectJavaMainType)
-		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_PROJECT_NAME,
-				config.collectJavaMainProject)
-		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_STOP_IN_MAIN,
-				config.collectJavaStopInMain)
+		copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, config.collectJavaMainType)
+		copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_PROJECT_NAME, config.collectJavaMainProject)
+		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_STOP_IN_MAIN, config.collectJavaStopInMain)
+
+		copy.setAttribute("org.eclipse.jdt.debug.ui.CONSIDER_INHERITED_MAIN", config.collectJavaMainSearchInherited)
+		copy.setAttribute("org.eclipse.jdt.debug.ui.INCLUDE_EXTERNAL_JARS", config.collectJavaMainSearchSystem)
+	}
+	
+	def generateCommonEclipseRap(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
+		copy.setAttribute(IPDELauncherConstants.AUTOMATIC_VALIDATE, !config.collectNoValidate)
 		
-		// TODO: main type search
+		val clear = config.collectClearOptions
+		if(clear != null) {
+			copy.setAttribute(IPDELauncherConstants.CONFIG_CLEAR_AREA, clear.config)
+			copy.setAttribute(IPDELauncherConstants.ASKCLEAR, !clear.noAskClear)
+			copy.setAttribute(IPDELauncherConstants.DOCLEAR, clear.workspace)
+			copy.setAttribute(IPDELauncherConstants.DOCLEAR + "log", clear.log)
+		}
+		
+		val traces = config.collectTracing
+		if(traces != null) {
+			copy.setAttribute(IPDELauncherConstants.TRACING, true)
+			copy.setAttribute(IPDELauncherConstants.TRACING_CHECKED, Joiner.on(',').join(traces.keySet))
+			copy.setAttribute(IPDELauncherConstants.TRACING_OPTIONS, traces.mapTraceOptions)
+		}
+	}
+	
+	private def mapTraceOptions(Map<String, Iterable<String>> tracing) {
+		val opts = newHashMap
+		
+		for(e : tracing.entrySet) {
+			for(o : e.value) {
+				opts.put(e.key + "/" + o, Boolean.TRUE.toString)
+			}
+		}
+		
+		opts
 	}
 
 	def generateEclipse(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
-		// TODO: no validate
+		generateCommonEclipseRap(config, copy)
+		
+		copy.setIfAvailable(IPDELauncherConstants.LOCATION, config.collectWorkspace)
+		
 		// TODO: sw-install-allowed
-		// TODO: clear options
-		// TODO: workspace
 		// TODO: application
 		// TODO: product
 		// TODO: config.ini
 		// TODO: add plugin / explicit
+		// TODO: add feature
+		// TODO: add content-provider (product)
 		// TODO: ignore plugin
-		// TODO: traces
 	}
 
 	def generateRAP(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
-		// TODO: no validate (check eclipse share)
-		// TODO: clear options (check eclipse share)
-		// TODO: workspace (check eclipse share)
-		// TODO: traces (check eclipse share)
+		generateCommonEclipseRap(config, copy)
+		
+		copy.setIfAvailable("org.eclipse.rap.launch.dataLocation", config.collectWorkspace)
+		
 		// TODO: servlet config
 		// TODO: add plugin / explicit
+		// TODO: add feature
+		// TODO: add content-provider (product)
 		// TODO: ignore plugin
 	}
 
 	def generateGroup(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
-		// members
+		// TODO: members
 	}
 
 }

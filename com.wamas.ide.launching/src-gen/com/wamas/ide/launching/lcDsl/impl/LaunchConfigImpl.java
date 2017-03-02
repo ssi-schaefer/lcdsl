@@ -3,10 +3,12 @@
  */
 package com.wamas.ide.launching.lcDsl.impl;
 
+import com.wamas.ide.launching.lcDsl.AddFeature;
 import com.wamas.ide.launching.lcDsl.AddPlugin;
 import com.wamas.ide.launching.lcDsl.ApplicationExtPoint;
 import com.wamas.ide.launching.lcDsl.ClearOption;
 import com.wamas.ide.launching.lcDsl.ConfigIniTemplate;
+import com.wamas.ide.launching.lcDsl.ContentProviderProduct;
 import com.wamas.ide.launching.lcDsl.EnvironmentVariable;
 import com.wamas.ide.launching.lcDsl.ExecutionEnvironment;
 import com.wamas.ide.launching.lcDsl.Favorites;
@@ -54,6 +56,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isExplicit <em>Explicit</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isManual <em>Manual</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isNoConsole <em>No Console</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isNoValidate <em>No Validate</em>}</li>
@@ -77,7 +80,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getConfigIniTemplate <em>Config Ini Template</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getJavaMainSearch <em>Java Main Search</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getServletConfig <em>Servlet Config</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getContentProviderProduct <em>Content Provider Product</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getPlugins <em>Plugins</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getIgnore <em>Ignore</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getGroupMembers <em>Group Members</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getVmArgs <em>Vm Args</em>}</li>
@@ -129,6 +134,26 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * @ordered
    */
   protected boolean manual = MANUAL_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAbstract()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean ABSTRACT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAbstract()
+   * @generated
+   * @ordered
+   */
+  protected boolean abstract_ = ABSTRACT_EDEFAULT;
 
   /**
    * The default value of the '{@link #isForeground() <em>Foreground</em>}' attribute.
@@ -441,6 +466,16 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
   protected RapServletConfig servletConfig;
 
   /**
+   * The cached value of the '{@link #getContentProviderProduct() <em>Content Provider Product</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContentProviderProduct()
+   * @generated
+   * @ordered
+   */
+  protected ContentProviderProduct contentProviderProduct;
+
+  /**
    * The cached value of the '{@link #getPlugins() <em>Plugins</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -449,6 +484,16 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * @ordered
    */
   protected EList<AddPlugin> plugins;
+
+  /**
+   * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFeatures()
+   * @generated
+   * @ordered
+   */
+  protected EList<AddFeature> features;
 
   /**
    * The cached value of the '{@link #getIgnore() <em>Ignore</em>}' containment reference list.
@@ -575,6 +620,29 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
     manual = newManual;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__MANUAL, oldManual, manual));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isAbstract()
+  {
+    return abstract_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAbstract(boolean newAbstract)
+  {
+    boolean oldAbstract = abstract_;
+    abstract_ = newAbstract;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__ABSTRACT, oldAbstract, abstract_));
   }
 
   /**
@@ -1481,6 +1549,54 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * <!-- end-user-doc -->
    * @generated
    */
+  public ContentProviderProduct getContentProviderProduct()
+  {
+    return contentProviderProduct;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetContentProviderProduct(ContentProviderProduct newContentProviderProduct, NotificationChain msgs)
+  {
+    ContentProviderProduct oldContentProviderProduct = contentProviderProduct;
+    contentProviderProduct = newContentProviderProduct;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__CONTENT_PROVIDER_PRODUCT, oldContentProviderProduct, newContentProviderProduct);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setContentProviderProduct(ContentProviderProduct newContentProviderProduct)
+  {
+    if (newContentProviderProduct != contentProviderProduct)
+    {
+      NotificationChain msgs = null;
+      if (contentProviderProduct != null)
+        msgs = ((InternalEObject)contentProviderProduct).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__CONTENT_PROVIDER_PRODUCT, null, msgs);
+      if (newContentProviderProduct != null)
+        msgs = ((InternalEObject)newContentProviderProduct).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.LAUNCH_CONFIG__CONTENT_PROVIDER_PRODUCT, null, msgs);
+      msgs = basicSetContentProviderProduct(newContentProviderProduct, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__CONTENT_PROVIDER_PRODUCT, newContentProviderProduct, newContentProviderProduct));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<AddPlugin> getPlugins()
   {
     if (plugins == null)
@@ -1488,6 +1604,20 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
       plugins = new EObjectContainmentEList<AddPlugin>(AddPlugin.class, this, LcDslPackage.LAUNCH_CONFIG__PLUGINS);
     }
     return plugins;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<AddFeature> getFeatures()
+  {
+    if (features == null)
+    {
+      features = new EObjectContainmentEList<AddFeature>(AddFeature.class, this, LcDslPackage.LAUNCH_CONFIG__FEATURES);
+    }
+    return features;
   }
 
   /**
@@ -1612,8 +1742,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return basicSetJavaMainSearch(null, msgs);
       case LcDslPackage.LAUNCH_CONFIG__SERVLET_CONFIG:
         return basicSetServletConfig(null, msgs);
+      case LcDslPackage.LAUNCH_CONFIG__CONTENT_PROVIDER_PRODUCT:
+        return basicSetContentProviderProduct(null, msgs);
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         return ((InternalEList<?>)getPlugins()).basicRemove(otherEnd, msgs);
+      case LcDslPackage.LAUNCH_CONFIG__FEATURES:
+        return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
       case LcDslPackage.LAUNCH_CONFIG__IGNORE:
         return ((InternalEList<?>)getIgnore()).basicRemove(otherEnd, msgs);
       case LcDslPackage.LAUNCH_CONFIG__GROUP_MEMBERS:
@@ -1644,6 +1778,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return isExplicit();
       case LcDslPackage.LAUNCH_CONFIG__MANUAL:
         return isManual();
+      case LcDslPackage.LAUNCH_CONFIG__ABSTRACT:
+        return isAbstract();
       case LcDslPackage.LAUNCH_CONFIG__FOREGROUND:
         return isForeground();
       case LcDslPackage.LAUNCH_CONFIG__NO_CONSOLE:
@@ -1691,8 +1827,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return getJavaMainSearch();
       case LcDslPackage.LAUNCH_CONFIG__SERVLET_CONFIG:
         return getServletConfig();
+      case LcDslPackage.LAUNCH_CONFIG__CONTENT_PROVIDER_PRODUCT:
+        return getContentProviderProduct();
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         return getPlugins();
+      case LcDslPackage.LAUNCH_CONFIG__FEATURES:
+        return getFeatures();
       case LcDslPackage.LAUNCH_CONFIG__IGNORE:
         return getIgnore();
       case LcDslPackage.LAUNCH_CONFIG__GROUP_MEMBERS:
@@ -1725,6 +1865,9 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return;
       case LcDslPackage.LAUNCH_CONFIG__MANUAL:
         setManual((Boolean)newValue);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__ABSTRACT:
+        setAbstract((Boolean)newValue);
         return;
       case LcDslPackage.LAUNCH_CONFIG__FOREGROUND:
         setForeground((Boolean)newValue);
@@ -1795,9 +1938,16 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
       case LcDslPackage.LAUNCH_CONFIG__SERVLET_CONFIG:
         setServletConfig((RapServletConfig)newValue);
         return;
+      case LcDslPackage.LAUNCH_CONFIG__CONTENT_PROVIDER_PRODUCT:
+        setContentProviderProduct((ContentProviderProduct)newValue);
+        return;
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         getPlugins().clear();
         getPlugins().addAll((Collection<? extends AddPlugin>)newValue);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__FEATURES:
+        getFeatures().clear();
+        getFeatures().addAll((Collection<? extends AddFeature>)newValue);
         return;
       case LcDslPackage.LAUNCH_CONFIG__IGNORE:
         getIgnore().clear();
@@ -1842,6 +1992,9 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return;
       case LcDslPackage.LAUNCH_CONFIG__MANUAL:
         setManual(MANUAL_EDEFAULT);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__ABSTRACT:
+        setAbstract(ABSTRACT_EDEFAULT);
         return;
       case LcDslPackage.LAUNCH_CONFIG__FOREGROUND:
         setForeground(FOREGROUND_EDEFAULT);
@@ -1912,8 +2065,14 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
       case LcDslPackage.LAUNCH_CONFIG__SERVLET_CONFIG:
         setServletConfig((RapServletConfig)null);
         return;
+      case LcDslPackage.LAUNCH_CONFIG__CONTENT_PROVIDER_PRODUCT:
+        setContentProviderProduct((ContentProviderProduct)null);
+        return;
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         getPlugins().clear();
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__FEATURES:
+        getFeatures().clear();
         return;
       case LcDslPackage.LAUNCH_CONFIG__IGNORE:
         getIgnore().clear();
@@ -1951,6 +2110,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return explicit != EXPLICIT_EDEFAULT;
       case LcDslPackage.LAUNCH_CONFIG__MANUAL:
         return manual != MANUAL_EDEFAULT;
+      case LcDslPackage.LAUNCH_CONFIG__ABSTRACT:
+        return abstract_ != ABSTRACT_EDEFAULT;
       case LcDslPackage.LAUNCH_CONFIG__FOREGROUND:
         return foreground != FOREGROUND_EDEFAULT;
       case LcDslPackage.LAUNCH_CONFIG__NO_CONSOLE:
@@ -1997,8 +2158,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return javaMainSearch != null;
       case LcDslPackage.LAUNCH_CONFIG__SERVLET_CONFIG:
         return servletConfig != null;
+      case LcDslPackage.LAUNCH_CONFIG__CONTENT_PROVIDER_PRODUCT:
+        return contentProviderProduct != null;
       case LcDslPackage.LAUNCH_CONFIG__PLUGINS:
         return plugins != null && !plugins.isEmpty();
+      case LcDslPackage.LAUNCH_CONFIG__FEATURES:
+        return features != null && !features.isEmpty();
       case LcDslPackage.LAUNCH_CONFIG__IGNORE:
         return ignore != null && !ignore.isEmpty();
       case LcDslPackage.LAUNCH_CONFIG__GROUP_MEMBERS:
@@ -2030,6 +2195,8 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
     result.append(explicit);
     result.append(", manual: ");
     result.append(manual);
+    result.append(", abstract: ");
+    result.append(abstract_);
     result.append(", foreground: ");
     result.append(foreground);
     result.append(", noConsole: ");
