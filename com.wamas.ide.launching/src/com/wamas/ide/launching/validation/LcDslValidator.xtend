@@ -37,6 +37,7 @@ import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
 import com.wamas.ide.launching.lcDsl.ApplicationExtPoint
 import com.wamas.ide.launching.lcDsl.ProductExtPoint
 import com.wamas.ide.launching.lcDsl.ContentProviderProduct
+import com.wamas.ide.launching.lcDsl.TraceEnablement
 
 /**
  * This class contains custom validation rules. 
@@ -87,7 +88,6 @@ class LcDslValidator extends AbstractLcDslValidator {
 	private val requiredFeatures = newHashMap(
 		ECLIPSE -> #{
 			#{LC.launchConfig_Application, LC.launchConfig_Product},
-			#{LC.launchConfig_Workspace},
 			#{LC.launchConfig_Plugins, LC.launchConfig_Features, LC.launchConfig_ContentProviderProduct}
 		},
 		RAP -> #{
@@ -344,6 +344,18 @@ class LcDslValidator extends AbstractLcDslValidator {
 		if(!p.product.name.expanded.endsWith(".product")) {
 			warning("content provider should reference a .product file", LC.contentProviderProduct_Product)
 		}
+	}
+	
+	@Check
+	def checkTracingOptions(TraceEnablement e) {
+		val ok = PDECore.^default.tracingOptionsManager.getTemplateTable(e.plugin).keySet
+		var idx = 0;
+		for(w : e.what) {
+			if(!ok.contains(e.plugin + "/" + w)) {
+				error("unsupported trace option for " + e.plugin + ": " + w, LC.traceEnablement_What, idx)
+			}
+			idx++;
+		} 
 	}
 
 	/** only required for validation/label. raw value must be written into launch configurations to allow expansion at launch time */

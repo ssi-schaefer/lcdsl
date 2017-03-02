@@ -7909,9 +7909,9 @@ rule__TraceEnablement__WhatAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getTraceEnablementAccess().getWhatTRACE_IDTerminalRuleCall_2_0()); }
-		RULE_TRACE_ID
-		{ after(grammarAccess.getTraceEnablementAccess().getWhatTRACE_IDTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getTraceEnablementAccess().getWhatSTRINGTerminalRuleCall_2_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getTraceEnablementAccess().getWhatSTRINGTerminalRuleCall_2_0()); }
 	)
 ;
 finally {
@@ -8503,8 +8503,6 @@ RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('.'? ('a'..'z'|'A'..'Z'|'^'|'_'|'-'|'0'.
 fragment RULE_QUALIFIER : ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9')*;
 
 RULE_VERSION : RULE_INT ('.' RULE_INT ('.' RULE_INT ('.' RULE_QUALIFIER)?)?)?;
-
-RULE_TRACE_ID : RULE_ID ('/' RULE_ID)*;
 
 RULE_EQ : '=';
 

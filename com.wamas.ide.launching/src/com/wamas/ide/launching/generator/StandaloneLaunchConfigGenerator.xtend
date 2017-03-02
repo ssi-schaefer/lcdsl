@@ -48,7 +48,8 @@ class StandaloneLaunchConfigGenerator {
 			return;
 
 		if (config.hasError) {
-			Activator.log(IStatus.ERROR, "launch configuration has errors, not generating " + config.name, null);
+			Activator.log(IStatus.ERROR, "launch configuration has errors, not generating " + config.name, null)
+			return
 		}
 
 		val copy = reCreateConfig(config)
@@ -172,10 +173,10 @@ class StandaloneLaunchConfigGenerator {
 		generateCommonEclipseRap(config, copy)
 		
 		copy.setIfAvailable(IPDELauncherConstants.LOCATION, config.collectWorkspace)
+		copy.setIfAvailable(IPDELauncherConstants.APPLICATION, config.collectApplication)
+		copy.setIfAvailable(IPDELauncherConstants.PRODUCT, config.collectProduct)
 		
 		// TODO: sw-install-allowed
-		// TODO: application
-		// TODO: product
 		// TODO: config.ini
 		// TODO: add plugin / explicit
 		// TODO: add feature

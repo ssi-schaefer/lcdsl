@@ -142,7 +142,7 @@ ConfigIniTemplate:
 ;
 
 TraceEnablement:
-	'trace' plugin=FQName (what+=TRACE_ID)* ';'
+	'trace' plugin=FQName (what+=STRING)* ';'
 ;
 
 JavaMainSearch:
@@ -261,7 +261,6 @@ terminal BOOLEAN returns ecore::EBoolean: ('true' | 'false');
 terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('.'? ('a'..'z'|'A'..'Z'|'^'|'_'|'-'|'0'..'9'))*;
 terminal QUALIFIER: ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9')*;
 terminal VERSION: INT (('.' INT) (('.' INT) ('.' QUALIFIER)?)?)?;
-terminal TRACE_ID: ID('/'ID)*;
 terminal EQ: '=';
 terminal BLOCK_BEGIN: '{';
 terminal BLOCK_END: '}';

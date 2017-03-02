@@ -117,6 +117,14 @@ class RecursiveCollectors {
 		collectFlatList(config, [traces])?.groupBy[plugin].mapValues[map[what].flatten]
 	}
 	
+	static def collectApplication(LaunchConfig config) {
+		collectFlatObject(config, [application?.name])
+	}
+	
+	static def collectProduct(LaunchConfig config) {
+		collectFlatObject(config, [product?.name])
+	}
+	
 	static def collectExecEnvPath(LaunchConfig config) {
 		val e = collectFlatObject(config, [execEnv?.name])
 		if(e != null && !e.empty) {

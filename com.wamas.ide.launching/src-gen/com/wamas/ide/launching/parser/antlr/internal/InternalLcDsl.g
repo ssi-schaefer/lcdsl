@@ -2026,9 +2026,9 @@ ruleTraceEnablement returns [EObject current=null]
 		)
 		(
 			(
-				lv_what_2_0=RULE_TRACE_ID
+				lv_what_2_0=RULE_STRING
 				{
-					newLeafNode(lv_what_2_0, grammarAccess.getTraceEnablementAccess().getWhatTRACE_IDTerminalRuleCall_2_0());
+					newLeafNode(lv_what_2_0, grammarAccess.getTraceEnablementAccess().getWhatSTRINGTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -2038,7 +2038,7 @@ ruleTraceEnablement returns [EObject current=null]
 						$current,
 						"what",
 						lv_what_2_0,
-						"com.wamas.ide.launching.LcDsl.TRACE_ID");
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)*
@@ -3743,8 +3743,6 @@ RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('.'? ('a'..'z'|'A'..'Z'|'^'|'_'|'-'|'0'.
 fragment RULE_QUALIFIER : ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9')*;
 
 RULE_VERSION : RULE_INT ('.' RULE_INT ('.' RULE_INT ('.' RULE_QUALIFIER)?)?)?;
-
-RULE_TRACE_ID : RULE_ID ('/' RULE_ID)*;
 
 RULE_EQ : '=';
 

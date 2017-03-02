@@ -22,10 +22,10 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_EQ", "RULE_ID", "RULE_TRACE_ID", "RULE_STRING", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'stdin'", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'run'", "'debug'", "'profile'", "'coverage'", "'inherit'", "'M'", "'mb'", "'MB'", "'m'", "'G'", "'gb'", "'GB'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'configuration'", "':'", "'workspace'", "';'", "'working-dir'", "'project'", "'main-class'", "'plugin'", "'feature'", "'content-provider'", "'ignore'", "'vm-arg'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'startlevel'", "'clear'", "'memory'", "'min'", "'max'", "'perm'", "'member'", "'delay'", "'regex'", "'wait'", "'.'", "'explicit'", "'manual'", "'abstract'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'optional'", "'!'", "'system'", "'inherited'", "'autostart'", "'log'", "'config'", "'adopt'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_EQ", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'stdin'", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'run'", "'debug'", "'profile'", "'coverage'", "'inherit'", "'M'", "'mb'", "'MB'", "'m'", "'G'", "'gb'", "'GB'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'configuration'", "':'", "'workspace'", "';'", "'working-dir'", "'project'", "'main-class'", "'plugin'", "'feature'", "'content-provider'", "'ignore'", "'vm-arg'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'startlevel'", "'clear'", "'memory'", "'min'", "'max'", "'perm'", "'member'", "'delay'", "'regex'", "'wait'", "'.'", "'explicit'", "'manual'", "'abstract'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'optional'", "'!'", "'system'", "'inherited'", "'autostart'", "'log'", "'config'", "'adopt'"
     };
     public static final int T__50=50;
-    public static final int RULE_VERSION=12;
+    public static final int RULE_VERSION=11;
     public static final int T__59=59;
     public static final int T__55=55;
     public static final int T__56=56;
@@ -38,9 +38,9 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     public static final int T__60=60;
     public static final int T__61=61;
     public static final int RULE_ID=7;
-    public static final int RULE_INT=10;
+    public static final int RULE_INT=9;
     public static final int T__66=66;
-    public static final int RULE_ML_COMMENT=14;
+    public static final int RULE_ML_COMMENT=13;
     public static final int T__67=67;
     public static final int T__68=68;
     public static final int T__69=69;
@@ -49,7 +49,6 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     public static final int T__63=63;
     public static final int T__64=64;
     public static final int T__65=65;
-    public static final int RULE_TRACE_ID=8;
     public static final int T__37=37;
     public static final int T__38=38;
     public static final int T__39=39;
@@ -71,13 +70,13 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     public static final int T__42=42;
     public static final int T__43=43;
     public static final int T__91=91;
-    public static final int T__100=100;
     public static final int T__92=92;
     public static final int T__93=93;
     public static final int T__94=94;
     public static final int T__90=90;
-    public static final int RULE_BOOLEAN=11;
+    public static final int RULE_BOOLEAN=10;
     public static final int T__19=19;
+    public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__99=99;
     public static final int T__95=95;
@@ -98,8 +97,8 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     public static final int T__70=70;
     public static final int T__71=71;
     public static final int T__72=72;
-    public static final int RULE_STRING=9;
-    public static final int RULE_SL_COMMENT=15;
+    public static final int RULE_STRING=8;
+    public static final int RULE_SL_COMMENT=14;
     public static final int RULE_EQ=6;
     public static final int T__77=77;
     public static final int T__78=78;
@@ -113,9 +112,9 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     public static final int T__81=81;
     public static final int T__82=82;
     public static final int T__83=83;
-    public static final int RULE_QUALIFIER=13;
-    public static final int RULE_WS=16;
-    public static final int RULE_ANY_OTHER=17;
+    public static final int RULE_QUALIFIER=12;
+    public static final int RULE_WS=15;
+    public static final int RULE_ANY_OTHER=16;
     public static final int T__88=88;
     public static final int T__89=89;
     public static final int T__84=84;
@@ -208,7 +207,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>=22 && LA1_0<=25)||(LA1_0>=84 && LA1_0<=92)) ) {
+                if ( ((LA1_0>=21 && LA1_0<=24)||(LA1_0>=83 && LA1_0<=91)) ) {
                     alt1=1;
                 }
 
@@ -3354,7 +3353,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1090:3: ( 'stdin' )
             // InternalLcDsl.g:1090:4: 'stdin'
             {
-            match(input,18,FOLLOW_2); 
+            match(input,17,FOLLOW_2); 
 
             }
 
@@ -3619,10 +3618,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==44) ) {
+            if ( (LA3_0==43) ) {
                 alt3=1;
             }
-            else if ( (LA3_0==98) ) {
+            else if ( (LA3_0==97) ) {
                 alt3=2;
             }
             else {
@@ -3709,17 +3708,17 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1180:1: ( ( ruleGroupPostLaunchDelay ) | ( ruleGroupPostLaunchRegex ) | ( ruleGroupPostLaunchWait ) )
             int alt4=3;
             switch ( input.LA(1) ) {
-            case 80:
+            case 79:
                 {
                 alt4=1;
                 }
                 break;
-            case 81:
+            case 80:
                 {
                 alt4=2;
                 }
                 break;
-            case 82:
+            case 81:
                 {
                 alt4=3;
                 }
@@ -3816,17 +3815,17 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1207:1: ( ( ( 'internal' ) ) | ( ( 'external' ) ) | ( ( 'none' ) ) )
             int alt5=3;
             switch ( input.LA(1) ) {
-            case 19:
+            case 18:
                 {
                 alt5=1;
                 }
                 break;
-            case 20:
+            case 19:
                 {
                 alt5=2;
                 }
                 break;
-            case 21:
+            case 20:
                 {
                 alt5=3;
                 }
@@ -3849,7 +3848,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1210:3: ( 'internal' )
                     // InternalLcDsl.g:1210:4: 'internal'
                     {
-                    match(input,19,FOLLOW_2); 
+                    match(input,18,FOLLOW_2); 
 
                     }
 
@@ -3870,7 +3869,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1216:3: ( 'external' )
                     // InternalLcDsl.g:1216:4: 'external'
                     {
-                    match(input,20,FOLLOW_2); 
+                    match(input,19,FOLLOW_2); 
 
                     }
 
@@ -3891,7 +3890,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1222:3: ( 'none' )
                     // InternalLcDsl.g:1222:4: 'none'
                     {
-                    match(input,21,FOLLOW_2); 
+                    match(input,20,FOLLOW_2); 
 
                     }
 
@@ -3929,22 +3928,22 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1234:1: ( ( ( 'java' ) ) | ( ( 'eclipse' ) ) | ( ( 'rap' ) ) | ( ( 'group' ) ) )
             int alt6=4;
             switch ( input.LA(1) ) {
-            case 22:
+            case 21:
                 {
                 alt6=1;
                 }
                 break;
-            case 23:
+            case 22:
                 {
                 alt6=2;
                 }
                 break;
-            case 24:
+            case 23:
                 {
                 alt6=3;
                 }
                 break;
-            case 25:
+            case 24:
                 {
                 alt6=4;
                 }
@@ -3967,7 +3966,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1237:3: ( 'java' )
                     // InternalLcDsl.g:1237:4: 'java'
                     {
-                    match(input,22,FOLLOW_2); 
+                    match(input,21,FOLLOW_2); 
 
                     }
 
@@ -3988,7 +3987,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1243:3: ( 'eclipse' )
                     // InternalLcDsl.g:1243:4: 'eclipse'
                     {
-                    match(input,23,FOLLOW_2); 
+                    match(input,22,FOLLOW_2); 
 
                     }
 
@@ -4009,7 +4008,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1249:3: ( 'rap' )
                     // InternalLcDsl.g:1249:4: 'rap'
                     {
-                    match(input,24,FOLLOW_2); 
+                    match(input,23,FOLLOW_2); 
 
                     }
 
@@ -4030,7 +4029,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1255:3: ( 'group' )
                     // InternalLcDsl.g:1255:4: 'group'
                     {
-                    match(input,25,FOLLOW_2); 
+                    match(input,24,FOLLOW_2); 
 
                     }
 
@@ -4068,27 +4067,27 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1267:1: ( ( ( 'run' ) ) | ( ( 'debug' ) ) | ( ( 'profile' ) ) | ( ( 'coverage' ) ) | ( ( 'inherit' ) ) )
             int alt7=5;
             switch ( input.LA(1) ) {
-            case 26:
+            case 25:
                 {
                 alt7=1;
                 }
                 break;
-            case 27:
+            case 26:
                 {
                 alt7=2;
                 }
                 break;
-            case 28:
+            case 27:
                 {
                 alt7=3;
                 }
                 break;
-            case 29:
+            case 28:
                 {
                 alt7=4;
                 }
                 break;
-            case 30:
+            case 29:
                 {
                 alt7=5;
                 }
@@ -4111,7 +4110,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1270:3: ( 'run' )
                     // InternalLcDsl.g:1270:4: 'run'
                     {
-                    match(input,26,FOLLOW_2); 
+                    match(input,25,FOLLOW_2); 
 
                     }
 
@@ -4132,7 +4131,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1276:3: ( 'debug' )
                     // InternalLcDsl.g:1276:4: 'debug'
                     {
-                    match(input,27,FOLLOW_2); 
+                    match(input,26,FOLLOW_2); 
 
                     }
 
@@ -4153,7 +4152,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1282:3: ( 'profile' )
                     // InternalLcDsl.g:1282:4: 'profile'
                     {
-                    match(input,28,FOLLOW_2); 
+                    match(input,27,FOLLOW_2); 
 
                     }
 
@@ -4174,7 +4173,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1288:3: ( 'coverage' )
                     // InternalLcDsl.g:1288:4: 'coverage'
                     {
-                    match(input,29,FOLLOW_2); 
+                    match(input,28,FOLLOW_2); 
 
                     }
 
@@ -4195,7 +4194,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1294:3: ( 'inherit' )
                     // InternalLcDsl.g:1294:4: 'inherit'
                     {
-                    match(input,30,FOLLOW_2); 
+                    match(input,29,FOLLOW_2); 
 
                     }
 
@@ -4233,42 +4232,42 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1306:1: ( ( ( 'M' ) ) | ( ( 'mb' ) ) | ( ( 'MB' ) ) | ( ( 'm' ) ) | ( ( 'G' ) ) | ( ( 'gb' ) ) | ( ( 'GB' ) ) | ( ( 'g' ) ) )
             int alt8=8;
             switch ( input.LA(1) ) {
-            case 31:
+            case 30:
                 {
                 alt8=1;
                 }
                 break;
-            case 32:
+            case 31:
                 {
                 alt8=2;
                 }
                 break;
-            case 33:
+            case 32:
                 {
                 alt8=3;
                 }
                 break;
-            case 34:
+            case 33:
                 {
                 alt8=4;
                 }
                 break;
-            case 35:
+            case 34:
                 {
                 alt8=5;
                 }
                 break;
-            case 36:
+            case 35:
                 {
                 alt8=6;
                 }
                 break;
-            case 37:
+            case 36:
                 {
                 alt8=7;
                 }
                 break;
-            case 38:
+            case 37:
                 {
                 alt8=8;
                 }
@@ -4291,7 +4290,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1309:3: ( 'M' )
                     // InternalLcDsl.g:1309:4: 'M'
                     {
-                    match(input,31,FOLLOW_2); 
+                    match(input,30,FOLLOW_2); 
 
                     }
 
@@ -4312,7 +4311,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1315:3: ( 'mb' )
                     // InternalLcDsl.g:1315:4: 'mb'
                     {
-                    match(input,32,FOLLOW_2); 
+                    match(input,31,FOLLOW_2); 
 
                     }
 
@@ -4333,7 +4332,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1321:3: ( 'MB' )
                     // InternalLcDsl.g:1321:4: 'MB'
                     {
-                    match(input,33,FOLLOW_2); 
+                    match(input,32,FOLLOW_2); 
 
                     }
 
@@ -4354,7 +4353,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1327:3: ( 'm' )
                     // InternalLcDsl.g:1327:4: 'm'
                     {
-                    match(input,34,FOLLOW_2); 
+                    match(input,33,FOLLOW_2); 
 
                     }
 
@@ -4375,7 +4374,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1333:3: ( 'G' )
                     // InternalLcDsl.g:1333:4: 'G'
                     {
-                    match(input,35,FOLLOW_2); 
+                    match(input,34,FOLLOW_2); 
 
                     }
 
@@ -4396,7 +4395,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1339:3: ( 'gb' )
                     // InternalLcDsl.g:1339:4: 'gb'
                     {
-                    match(input,36,FOLLOW_2); 
+                    match(input,35,FOLLOW_2); 
 
                     }
 
@@ -4417,7 +4416,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1345:3: ( 'GB' )
                     // InternalLcDsl.g:1345:4: 'GB'
                     {
-                    match(input,37,FOLLOW_2); 
+                    match(input,36,FOLLOW_2); 
 
                     }
 
@@ -4438,7 +4437,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1351:3: ( 'g' )
                     // InternalLcDsl.g:1351:4: 'g'
                     {
-                    match(input,38,FOLLOW_2); 
+                    match(input,37,FOLLOW_2); 
 
                     }
 
@@ -4476,17 +4475,17 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1363:1: ( ( ( 'stdout' ) ) | ( ( 'stderr' ) ) | ( ( 'both-out' ) ) )
             int alt9=3;
             switch ( input.LA(1) ) {
-            case 39:
+            case 38:
                 {
                 alt9=1;
                 }
                 break;
-            case 40:
+            case 39:
                 {
                 alt9=2;
                 }
                 break;
-            case 41:
+            case 40:
                 {
                 alt9=3;
                 }
@@ -4509,7 +4508,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1366:3: ( 'stdout' )
                     // InternalLcDsl.g:1366:4: 'stdout'
                     {
-                    match(input,39,FOLLOW_2); 
+                    match(input,38,FOLLOW_2); 
 
                     }
 
@@ -4530,7 +4529,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1372:3: ( 'stderr' )
                     // InternalLcDsl.g:1372:4: 'stderr'
                     {
-                    match(input,40,FOLLOW_2); 
+                    match(input,39,FOLLOW_2); 
 
                     }
 
@@ -4551,7 +4550,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     // InternalLcDsl.g:1378:3: ( 'both-out' )
                     // InternalLcDsl.g:1378:4: 'both-out'
                     {
-                    match(input,41,FOLLOW_2); 
+                    match(input,40,FOLLOW_2); 
 
                     }
 
@@ -4801,7 +4800,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1458:2: 'configuration'
             {
              before(grammarAccess.getLaunchConfigAccess().getConfigurationKeyword_2()); 
-            match(input,42,FOLLOW_2); 
+            match(input,41,FOLLOW_2); 
              after(grammarAccess.getLaunchConfigAccess().getConfigurationKeyword_2()); 
 
             }
@@ -4965,7 +4964,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==43) ) {
+            if ( (LA10_0==42) ) {
                 alt10=1;
             }
             switch (alt10) {
@@ -5223,7 +5222,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                 int alt11=2;
                 int LA11_0 = input.LA(1);
 
-                if ( ((LA11_0>=26 && LA11_0<=30)||(LA11_0>=49 && LA11_0<=50)||(LA11_0>=52 && LA11_0<=55)||LA11_0==64||LA11_0==79||LA11_0==93||LA11_0==100) ) {
+                if ( ((LA11_0>=25 && LA11_0<=29)||(LA11_0>=48 && LA11_0<=49)||(LA11_0>=51 && LA11_0<=54)||LA11_0==63||LA11_0==78||LA11_0==92||LA11_0==99) ) {
                     alt11=1;
                 }
 
@@ -5390,7 +5389,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1647:2: ':'
             {
              before(grammarAccess.getLaunchConfigAccess().getColonKeyword_4_0()); 
-            match(input,43,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getLaunchConfigAccess().getColonKeyword_4_0()); 
 
             }
@@ -5545,7 +5544,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1701:2: 'workspace'
             {
              before(grammarAccess.getWorkspaceAccess().getWorkspaceKeyword_0()); 
-            match(input,44,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getWorkspaceAccess().getWorkspaceKeyword_0()); 
 
             }
@@ -5700,7 +5699,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1754:2: ';'
             {
              before(grammarAccess.getWorkspaceAccess().getSemicolonKeyword_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getWorkspaceAccess().getSemicolonKeyword_2()); 
 
             }
@@ -5775,7 +5774,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1782:2: 'working-dir'
             {
              before(grammarAccess.getWorkingDirAccess().getWorkingDirKeyword_0()); 
-            match(input,46,FOLLOW_2); 
+            match(input,45,FOLLOW_2); 
              after(grammarAccess.getWorkingDirAccess().getWorkingDirKeyword_0()); 
 
             }
@@ -5930,7 +5929,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1835:2: ';'
             {
              before(grammarAccess.getWorkingDirAccess().getSemicolonKeyword_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getWorkingDirAccess().getSemicolonKeyword_2()); 
 
             }
@@ -6005,7 +6004,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1863:2: 'project'
             {
              before(grammarAccess.getMainProjectAccess().getProjectKeyword_0()); 
-            match(input,47,FOLLOW_2); 
+            match(input,46,FOLLOW_2); 
              after(grammarAccess.getMainProjectAccess().getProjectKeyword_0()); 
 
             }
@@ -6160,7 +6159,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1916:2: ';'
             {
              before(grammarAccess.getMainProjectAccess().getSemicolonKeyword_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getMainProjectAccess().getSemicolonKeyword_2()); 
 
             }
@@ -6235,7 +6234,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1944:2: 'main-class'
             {
              before(grammarAccess.getMainTypeAccess().getMainClassKeyword_0()); 
-            match(input,48,FOLLOW_2); 
+            match(input,47,FOLLOW_2); 
              after(grammarAccess.getMainTypeAccess().getMainClassKeyword_0()); 
 
             }
@@ -6390,7 +6389,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:1997:2: ';'
             {
              before(grammarAccess.getMainTypeAccess().getSemicolonKeyword_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getMainTypeAccess().getSemicolonKeyword_2()); 
 
             }
@@ -6469,7 +6468,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt12=2;
             int LA12_0 = input.LA(1);
 
-            if ( (LA12_0==93) ) {
+            if ( (LA12_0==92) ) {
                 alt12=1;
             }
             switch (alt12) {
@@ -6561,7 +6560,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2052:2: 'plugin'
             {
              before(grammarAccess.getAddPluginAccess().getPluginKeyword_1()); 
-            match(input,49,FOLLOW_2); 
+            match(input,48,FOLLOW_2); 
              after(grammarAccess.getAddPluginAccess().getPluginKeyword_1()); 
 
             }
@@ -6716,7 +6715,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2105:2: ';'
             {
              before(grammarAccess.getAddPluginAccess().getSemicolonKeyword_3()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getAddPluginAccess().getSemicolonKeyword_3()); 
 
             }
@@ -6795,7 +6794,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==93) ) {
+            if ( (LA13_0==92) ) {
                 alt13=1;
             }
             switch (alt13) {
@@ -6887,7 +6886,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2160:2: 'feature'
             {
              before(grammarAccess.getAddFeatureAccess().getFeatureKeyword_1()); 
-            match(input,50,FOLLOW_2); 
+            match(input,49,FOLLOW_2); 
              after(grammarAccess.getAddFeatureAccess().getFeatureKeyword_1()); 
 
             }
@@ -7042,7 +7041,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2213:2: ';'
             {
              before(grammarAccess.getAddFeatureAccess().getSemicolonKeyword_3()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getAddFeatureAccess().getSemicolonKeyword_3()); 
 
             }
@@ -7117,7 +7116,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2241:2: 'content-provider'
             {
              before(grammarAccess.getContentProviderProductAccess().getContentProviderKeyword_0()); 
-            match(input,51,FOLLOW_2); 
+            match(input,50,FOLLOW_2); 
              after(grammarAccess.getContentProviderProductAccess().getContentProviderKeyword_0()); 
 
             }
@@ -7272,7 +7271,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2294:2: ';'
             {
              before(grammarAccess.getContentProviderProductAccess().getSemicolonKeyword_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getContentProviderProductAccess().getSemicolonKeyword_2()); 
 
             }
@@ -7347,7 +7346,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2322:2: 'ignore'
             {
              before(grammarAccess.getIgnorePluginAccess().getIgnoreKeyword_0()); 
-            match(input,52,FOLLOW_2); 
+            match(input,51,FOLLOW_2); 
              after(grammarAccess.getIgnorePluginAccess().getIgnoreKeyword_0()); 
 
             }
@@ -7502,7 +7501,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2375:2: ';'
             {
              before(grammarAccess.getIgnorePluginAccess().getSemicolonKeyword_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getIgnorePluginAccess().getSemicolonKeyword_2()); 
 
             }
@@ -7652,7 +7651,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2430:2: 'vm-arg'
             {
              before(grammarAccess.getVmArgumentAccess().getVmArgKeyword_1()); 
-            match(input,53,FOLLOW_2); 
+            match(input,52,FOLLOW_2); 
              after(grammarAccess.getVmArgumentAccess().getVmArgKeyword_1()); 
 
             }
@@ -7825,7 +7824,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2483:2: ';'
             {
              before(grammarAccess.getVmArgumentAccess().getSemicolonKeyword_3()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getVmArgumentAccess().getSemicolonKeyword_3()); 
 
             }
@@ -7975,7 +7974,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2538:2: 'argument'
             {
              before(grammarAccess.getProgramArgumentAccess().getArgumentKeyword_1()); 
-            match(input,54,FOLLOW_2); 
+            match(input,53,FOLLOW_2); 
              after(grammarAccess.getProgramArgumentAccess().getArgumentKeyword_1()); 
 
             }
@@ -8148,7 +8147,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2591:2: ';'
             {
              before(grammarAccess.getProgramArgumentAccess().getSemicolonKeyword_3()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getProgramArgumentAccess().getSemicolonKeyword_3()); 
 
             }
@@ -8298,7 +8297,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2646:2: 'environment'
             {
              before(grammarAccess.getEnvironmentVariableAccess().getEnvironmentKeyword_1()); 
-            match(input,55,FOLLOW_2); 
+            match(input,54,FOLLOW_2); 
              after(grammarAccess.getEnvironmentVariableAccess().getEnvironmentKeyword_1()); 
 
             }
@@ -8613,7 +8612,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2753:2: ';'
             {
              before(grammarAccess.getEnvironmentVariableAccess().getSemicolonKeyword_5()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getEnvironmentVariableAccess().getSemicolonKeyword_5()); 
 
             }
@@ -8688,7 +8687,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2781:2: 'application'
             {
              before(grammarAccess.getApplicationExtPointAccess().getApplicationKeyword_0()); 
-            match(input,56,FOLLOW_2); 
+            match(input,55,FOLLOW_2); 
              after(grammarAccess.getApplicationExtPointAccess().getApplicationKeyword_0()); 
 
             }
@@ -8843,7 +8842,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2834:2: ';'
             {
              before(grammarAccess.getApplicationExtPointAccess().getSemicolonKeyword_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getApplicationExtPointAccess().getSemicolonKeyword_2()); 
 
             }
@@ -8918,7 +8917,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2862:2: 'product'
             {
              before(grammarAccess.getProductExtPointAccess().getProductKeyword_0()); 
-            match(input,57,FOLLOW_2); 
+            match(input,56,FOLLOW_2); 
              after(grammarAccess.getProductExtPointAccess().getProductKeyword_0()); 
 
             }
@@ -9073,7 +9072,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2915:2: ';'
             {
              before(grammarAccess.getProductExtPointAccess().getSemicolonKeyword_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getProductExtPointAccess().getSemicolonKeyword_2()); 
 
             }
@@ -9223,7 +9222,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:2970:2: 'favorite'
             {
              before(grammarAccess.getFavoritesAccess().getFavoriteKeyword_1()); 
-            match(input,58,FOLLOW_2); 
+            match(input,57,FOLLOW_2); 
              after(grammarAccess.getFavoritesAccess().getFavoriteKeyword_1()); 
 
             }
@@ -9304,7 +9303,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                 int alt16=2;
                 int LA16_0 = input.LA(1);
 
-                if ( ((LA16_0>=26 && LA16_0<=30)) ) {
+                if ( ((LA16_0>=25 && LA16_0<=29)) ) {
                     alt16=1;
                 }
 
@@ -9396,7 +9395,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3023:2: ';'
             {
              before(grammarAccess.getFavoritesAccess().getSemicolonKeyword_3()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getFavoritesAccess().getSemicolonKeyword_3()); 
 
             }
@@ -9546,7 +9545,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3078:2: 'redirect'
             {
              before(grammarAccess.getRedirectAccess().getRedirectKeyword_1()); 
-            match(input,59,FOLLOW_2); 
+            match(input,58,FOLLOW_2); 
              after(grammarAccess.getRedirectAccess().getRedirectKeyword_1()); 
 
             }
@@ -9701,7 +9700,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3131:2: ';'
             {
              before(grammarAccess.getRedirectAccess().getSemicolonKeyword_3()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getRedirectAccess().getSemicolonKeyword_3()); 
 
             }
@@ -9861,7 +9860,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3186:2: 'to'
             {
              before(grammarAccess.getRedirectAccess().getToKeyword_2_0_1()); 
-            match(input,60,FOLLOW_2); 
+            match(input,59,FOLLOW_2); 
              after(grammarAccess.getRedirectAccess().getToKeyword_2_0_1()); 
 
             }
@@ -10020,7 +10019,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt17=2;
             int LA17_0 = input.LA(1);
 
-            if ( (LA17_0==94) ) {
+            if ( (LA17_0==93) ) {
                 alt17=1;
             }
             switch (alt17) {
@@ -10197,7 +10196,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3294:2: 'from'
             {
              before(grammarAccess.getRedirectAccess().getFromKeyword_2_1_1()); 
-            match(input,61,FOLLOW_2); 
+            match(input,60,FOLLOW_2); 
              after(grammarAccess.getRedirectAccess().getFromKeyword_2_1_1()); 
 
             }
@@ -10352,7 +10351,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3348:2: 'execution-environment'
             {
              before(grammarAccess.getExecutionEnvironmentAccess().getExecutionEnvironmentKeyword_0()); 
-            match(input,62,FOLLOW_2); 
+            match(input,61,FOLLOW_2); 
              after(grammarAccess.getExecutionEnvironmentAccess().getExecutionEnvironmentKeyword_0()); 
 
             }
@@ -10507,7 +10506,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3401:2: ';'
             {
              before(grammarAccess.getExecutionEnvironmentAccess().getSemicolonKeyword_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getExecutionEnvironmentAccess().getSemicolonKeyword_2()); 
 
             }
@@ -10582,7 +10581,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3429:2: 'config-ini-template'
             {
              before(grammarAccess.getConfigIniTemplateAccess().getConfigIniTemplateKeyword_0()); 
-            match(input,63,FOLLOW_2); 
+            match(input,62,FOLLOW_2); 
              after(grammarAccess.getConfigIniTemplateAccess().getConfigIniTemplateKeyword_0()); 
 
             }
@@ -10737,7 +10736,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3482:2: ';'
             {
              before(grammarAccess.getConfigIniTemplateAccess().getSemicolonKeyword_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getConfigIniTemplateAccess().getSemicolonKeyword_2()); 
 
             }
@@ -10812,7 +10811,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3510:2: 'trace'
             {
              before(grammarAccess.getTraceEnablementAccess().getTraceKeyword_0()); 
-            match(input,64,FOLLOW_2); 
+            match(input,63,FOLLOW_2); 
              after(grammarAccess.getTraceEnablementAccess().getTraceKeyword_0()); 
 
             }
@@ -10845,7 +10844,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3523:1: ( rule__TraceEnablement__Group__1__Impl rule__TraceEnablement__Group__2 )
             // InternalLcDsl.g:3524:2: rule__TraceEnablement__Group__1__Impl rule__TraceEnablement__Group__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_16);
             rule__TraceEnablement__Group__1__Impl();
 
             state._fsp--;
@@ -10930,7 +10929,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3550:1: ( rule__TraceEnablement__Group__2__Impl rule__TraceEnablement__Group__3 )
             // InternalLcDsl.g:3551:2: rule__TraceEnablement__Group__2__Impl rule__TraceEnablement__Group__3
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_16);
             rule__TraceEnablement__Group__2__Impl();
 
             state._fsp--;
@@ -10978,7 +10977,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                 int alt18=2;
                 int LA18_0 = input.LA(1);
 
-                if ( (LA18_0==RULE_TRACE_ID) ) {
+                if ( (LA18_0==RULE_STRING) ) {
                     alt18=1;
                 }
 
@@ -10987,7 +10986,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalLcDsl.g:3565:3: rule__TraceEnablement__WhatAssignment_2
             	    {
-            	    pushFollow(FOLLOW_30);
+            	    pushFollow(FOLLOW_17);
             	    rule__TraceEnablement__WhatAssignment_2();
 
             	    state._fsp--;
@@ -11070,7 +11069,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3590:2: ';'
             {
              before(grammarAccess.getTraceEnablementAccess().getSemicolonKeyword_3()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getTraceEnablementAccess().getSemicolonKeyword_3()); 
 
             }
@@ -11103,7 +11102,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3604:1: ( rule__JavaMainSearch__Group__0__Impl rule__JavaMainSearch__Group__1 )
             // InternalLcDsl.g:3605:2: rule__JavaMainSearch__Group__0__Impl rule__JavaMainSearch__Group__1
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_29);
             rule__JavaMainSearch__Group__0__Impl();
 
             state._fsp--;
@@ -11178,7 +11177,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3631:1: ( rule__JavaMainSearch__Group__1__Impl rule__JavaMainSearch__Group__2 )
             // InternalLcDsl.g:3632:2: rule__JavaMainSearch__Group__1__Impl rule__JavaMainSearch__Group__2
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_30);
             rule__JavaMainSearch__Group__1__Impl();
 
             state._fsp--;
@@ -11220,7 +11219,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3645:2: 'search-main'
             {
              before(grammarAccess.getJavaMainSearchAccess().getSearchMainKeyword_1()); 
-            match(input,65,FOLLOW_2); 
+            match(input,64,FOLLOW_2); 
              after(grammarAccess.getJavaMainSearchAccess().getSearchMainKeyword_1()); 
 
             }
@@ -11375,7 +11374,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3698:2: ';'
             {
              before(grammarAccess.getJavaMainSearchAccess().getSemicolonKeyword_3()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getJavaMainSearchAccess().getSemicolonKeyword_3()); 
 
             }
@@ -11408,7 +11407,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3712:1: ( rule__RapServletConfig__Group__0__Impl rule__RapServletConfig__Group__1 )
             // InternalLcDsl.g:3713:2: rule__RapServletConfig__Group__0__Impl rule__RapServletConfig__Group__1
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_31);
             rule__RapServletConfig__Group__0__Impl();
 
             state._fsp--;
@@ -11450,7 +11449,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3726:2: 'servlet'
             {
              before(grammarAccess.getRapServletConfigAccess().getServletKeyword_0()); 
-            match(input,66,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getRapServletConfigAccess().getServletKeyword_0()); 
 
             }
@@ -11483,7 +11482,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3739:1: ( rule__RapServletConfig__Group__1__Impl rule__RapServletConfig__Group__2 )
             // InternalLcDsl.g:3740:2: rule__RapServletConfig__Group__1__Impl rule__RapServletConfig__Group__2
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_32);
             rule__RapServletConfig__Group__1__Impl();
 
             state._fsp--;
@@ -11558,7 +11557,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3766:1: ( rule__RapServletConfig__Group__2__Impl rule__RapServletConfig__Group__3 )
             // InternalLcDsl.g:3767:2: rule__RapServletConfig__Group__2__Impl rule__RapServletConfig__Group__3
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_33);
             rule__RapServletConfig__Group__2__Impl();
 
             state._fsp--;
@@ -11755,7 +11754,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3834:2: 'path'
             {
              before(grammarAccess.getRapServletConfigAccess().getPathKeyword_2_0_0()); 
-            match(input,67,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getRapServletConfigAccess().getPathKeyword_2_0_0()); 
 
             }
@@ -11910,7 +11909,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3887:2: ';'
             {
              before(grammarAccess.getRapServletConfigAccess().getSemicolonKeyword_2_0_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getRapServletConfigAccess().getSemicolonKeyword_2_0_2()); 
 
             }
@@ -11943,7 +11942,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3901:1: ( rule__RapServletConfig__Group_2_1__0__Impl rule__RapServletConfig__Group_2_1__1 )
             // InternalLcDsl.g:3902:2: rule__RapServletConfig__Group_2_1__0__Impl rule__RapServletConfig__Group_2_1__1
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_34);
             rule__RapServletConfig__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -11985,7 +11984,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3915:2: 'browser'
             {
              before(grammarAccess.getRapServletConfigAccess().getBrowserKeyword_2_1_0()); 
-            match(input,68,FOLLOW_2); 
+            match(input,67,FOLLOW_2); 
              after(grammarAccess.getRapServletConfigAccess().getBrowserKeyword_2_1_0()); 
 
             }
@@ -12140,7 +12139,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3968:2: ';'
             {
              before(grammarAccess.getRapServletConfigAccess().getSemicolonKeyword_2_1_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getRapServletConfigAccess().getSemicolonKeyword_2_1_2()); 
 
             }
@@ -12173,7 +12172,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3982:1: ( rule__RapServletConfig__Group_2_2__0__Impl rule__RapServletConfig__Group_2_2__1 )
             // InternalLcDsl.g:3983:2: rule__RapServletConfig__Group_2_2__0__Impl rule__RapServletConfig__Group_2_2__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_35);
             rule__RapServletConfig__Group_2_2__0__Impl();
 
             state._fsp--;
@@ -12215,7 +12214,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3996:2: 'port'
             {
              before(grammarAccess.getRapServletConfigAccess().getPortKeyword_2_2_0()); 
-            match(input,69,FOLLOW_2); 
+            match(input,68,FOLLOW_2); 
              after(grammarAccess.getRapServletConfigAccess().getPortKeyword_2_2_0()); 
 
             }
@@ -12370,7 +12369,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4049:2: ';'
             {
              before(grammarAccess.getRapServletConfigAccess().getSemicolonKeyword_2_2_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getRapServletConfigAccess().getSemicolonKeyword_2_2_2()); 
 
             }
@@ -12403,7 +12402,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4063:1: ( rule__RapServletConfig__Group_2_3__0__Impl rule__RapServletConfig__Group_2_3__1 )
             // InternalLcDsl.g:4064:2: rule__RapServletConfig__Group_2_3__0__Impl rule__RapServletConfig__Group_2_3__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_35);
             rule__RapServletConfig__Group_2_3__0__Impl();
 
             state._fsp--;
@@ -12445,7 +12444,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4077:2: 'session-timeout'
             {
              before(grammarAccess.getRapServletConfigAccess().getSessionTimeoutKeyword_2_3_0()); 
-            match(input,70,FOLLOW_2); 
+            match(input,69,FOLLOW_2); 
              after(grammarAccess.getRapServletConfigAccess().getSessionTimeoutKeyword_2_3_0()); 
 
             }
@@ -12600,7 +12599,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4130:2: ';'
             {
              before(grammarAccess.getRapServletConfigAccess().getSemicolonKeyword_2_3_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getRapServletConfigAccess().getSemicolonKeyword_2_3_2()); 
 
             }
@@ -12675,7 +12674,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4158:2: 'context-path'
             {
              before(grammarAccess.getRapServletConfigAccess().getContextPathKeyword_2_4_0()); 
-            match(input,71,FOLLOW_2); 
+            match(input,70,FOLLOW_2); 
              after(grammarAccess.getRapServletConfigAccess().getContextPathKeyword_2_4_0()); 
 
             }
@@ -12830,7 +12829,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4211:2: ';'
             {
              before(grammarAccess.getRapServletConfigAccess().getSemicolonKeyword_2_4_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getRapServletConfigAccess().getSemicolonKeyword_2_4_2()); 
 
             }
@@ -12863,7 +12862,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4225:1: ( rule__RapServletConfig__Group_2_5__0__Impl rule__RapServletConfig__Group_2_5__1 )
             // InternalLcDsl.g:4226:2: rule__RapServletConfig__Group_2_5__0__Impl rule__RapServletConfig__Group_2_5__1
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_36);
             rule__RapServletConfig__Group_2_5__0__Impl();
 
             state._fsp--;
@@ -12905,7 +12904,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4239:2: 'dev-mode'
             {
              before(grammarAccess.getRapServletConfigAccess().getDevModeKeyword_2_5_0()); 
-            match(input,72,FOLLOW_2); 
+            match(input,71,FOLLOW_2); 
              after(grammarAccess.getRapServletConfigAccess().getDevModeKeyword_2_5_0()); 
 
             }
@@ -13060,7 +13059,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4292:2: ';'
             {
              before(grammarAccess.getRapServletConfigAccess().getSemicolonKeyword_2_5_2()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getRapServletConfigAccess().getSemicolonKeyword_2_5_2()); 
 
             }
@@ -13093,7 +13092,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4306:1: ( rule__PluginWithVersionAndStartLevel__Group__0__Impl rule__PluginWithVersionAndStartLevel__Group__1 )
             // InternalLcDsl.g:4307:2: rule__PluginWithVersionAndStartLevel__Group__0__Impl rule__PluginWithVersionAndStartLevel__Group__1
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_37);
             rule__PluginWithVersionAndStartLevel__Group__0__Impl();
 
             state._fsp--;
@@ -13258,7 +13257,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4360:1: ( rule__PluginWithVersionAndStartLevel__Group_1_1__0__Impl rule__PluginWithVersionAndStartLevel__Group_1_1__1 )
             // InternalLcDsl.g:4361:2: rule__PluginWithVersionAndStartLevel__Group_1_1__0__Impl rule__PluginWithVersionAndStartLevel__Group_1_1__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_35);
             rule__PluginWithVersionAndStartLevel__Group_1_1__0__Impl();
 
             state._fsp--;
@@ -13300,7 +13299,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4374:2: 'startlevel'
             {
              before(grammarAccess.getPluginWithVersionAndStartLevelAccess().getStartlevelKeyword_1_1_0()); 
-            match(input,73,FOLLOW_2); 
+            match(input,72,FOLLOW_2); 
              after(grammarAccess.getPluginWithVersionAndStartLevelAccess().getStartlevelKeyword_1_1_0()); 
 
             }
@@ -13413,7 +13412,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4414:1: ( rule__PluginWithVersion__Group__0__Impl rule__PluginWithVersion__Group__1 )
             // InternalLcDsl.g:4415:2: rule__PluginWithVersion__Group__0__Impl rule__PluginWithVersion__Group__1
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_38);
             rule__PluginWithVersion__Group__0__Impl();
 
             state._fsp--;
@@ -13589,7 +13588,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4468:1: ( rule__FeatureWithVersion__Group__0__Impl rule__FeatureWithVersion__Group__1 )
             // InternalLcDsl.g:4469:2: rule__FeatureWithVersion__Group__0__Impl rule__FeatureWithVersion__Group__1
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_38);
             rule__FeatureWithVersion__Group__0__Impl();
 
             state._fsp--;
@@ -13765,7 +13764,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4522:1: ( rule__ClearOption__Group__0__Impl rule__ClearOption__Group__1 )
             // InternalLcDsl.g:4523:2: rule__ClearOption__Group__0__Impl rule__ClearOption__Group__1
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_39);
             rule__ClearOption__Group__0__Impl();
 
             state._fsp--;
@@ -13840,7 +13839,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4549:1: ( rule__ClearOption__Group__1__Impl rule__ClearOption__Group__2 )
             // InternalLcDsl.g:4550:2: rule__ClearOption__Group__1__Impl rule__ClearOption__Group__2
             {
-            pushFollow(FOLLOW_42);
+            pushFollow(FOLLOW_40);
             rule__ClearOption__Group__1__Impl();
 
             state._fsp--;
@@ -13882,7 +13881,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4563:2: 'clear'
             {
              before(grammarAccess.getClearOptionAccess().getClearKeyword_1()); 
-            match(input,74,FOLLOW_2); 
+            match(input,73,FOLLOW_2); 
              after(grammarAccess.getClearOptionAccess().getClearKeyword_1()); 
 
             }
@@ -14037,7 +14036,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4616:2: ';'
             {
              before(grammarAccess.getClearOptionAccess().getSemicolonKeyword_3()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getClearOptionAccess().getSemicolonKeyword_3()); 
 
             }
@@ -14196,7 +14195,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt21=2;
             int LA21_0 = input.LA(1);
 
-            if ( (LA21_0==94) ) {
+            if ( (LA21_0==93) ) {
                 alt21=1;
             }
             switch (alt21) {
@@ -14246,7 +14245,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4684:1: ( rule__MemoryOption__Group__0__Impl rule__MemoryOption__Group__1 )
             // InternalLcDsl.g:4685:2: rule__MemoryOption__Group__0__Impl rule__MemoryOption__Group__1
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_41);
             rule__MemoryOption__Group__0__Impl();
 
             state._fsp--;
@@ -14321,7 +14320,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4711:1: ( rule__MemoryOption__Group__1__Impl rule__MemoryOption__Group__2 )
             // InternalLcDsl.g:4712:2: rule__MemoryOption__Group__1__Impl rule__MemoryOption__Group__2
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_42);
             rule__MemoryOption__Group__1__Impl();
 
             state._fsp--;
@@ -14363,7 +14362,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4725:2: 'memory'
             {
              before(grammarAccess.getMemoryOptionAccess().getMemoryKeyword_1()); 
-            match(input,75,FOLLOW_2); 
+            match(input,74,FOLLOW_2); 
              after(grammarAccess.getMemoryOptionAccess().getMemoryKeyword_1()); 
 
             }
@@ -14518,7 +14517,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4778:2: ';'
             {
              before(grammarAccess.getMemoryOptionAccess().getSemicolonKeyword_3()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getMemoryOptionAccess().getSemicolonKeyword_3()); 
 
             }
@@ -14593,7 +14592,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4806:2: 'min'
             {
              before(grammarAccess.getMemoryOptionAccess().getMinKeyword_2_0_0()); 
-            match(input,76,FOLLOW_2); 
+            match(input,75,FOLLOW_2); 
              after(grammarAccess.getMemoryOptionAccess().getMinKeyword_2_0_0()); 
 
             }
@@ -14626,7 +14625,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4819:1: ( rule__MemoryOption__Group_2_0__1__Impl rule__MemoryOption__Group_2_0__2 )
             // InternalLcDsl.g:4820:2: rule__MemoryOption__Group_2_0__1__Impl rule__MemoryOption__Group_2_0__2
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_35);
             rule__MemoryOption__Group_2_0__1__Impl();
 
             state._fsp--;
@@ -14701,7 +14700,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4846:1: ( rule__MemoryOption__Group_2_0__2__Impl rule__MemoryOption__Group_2_0__3 )
             // InternalLcDsl.g:4847:2: rule__MemoryOption__Group_2_0__2__Impl rule__MemoryOption__Group_2_0__3
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_43);
             rule__MemoryOption__Group_2_0__2__Impl();
 
             state._fsp--;
@@ -14908,7 +14907,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4914:2: 'max'
             {
              before(grammarAccess.getMemoryOptionAccess().getMaxKeyword_2_1_0()); 
-            match(input,77,FOLLOW_2); 
+            match(input,76,FOLLOW_2); 
              after(grammarAccess.getMemoryOptionAccess().getMaxKeyword_2_1_0()); 
 
             }
@@ -14941,7 +14940,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4927:1: ( rule__MemoryOption__Group_2_1__1__Impl rule__MemoryOption__Group_2_1__2 )
             // InternalLcDsl.g:4928:2: rule__MemoryOption__Group_2_1__1__Impl rule__MemoryOption__Group_2_1__2
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_35);
             rule__MemoryOption__Group_2_1__1__Impl();
 
             state._fsp--;
@@ -15016,7 +15015,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:4954:1: ( rule__MemoryOption__Group_2_1__2__Impl rule__MemoryOption__Group_2_1__3 )
             // InternalLcDsl.g:4955:2: rule__MemoryOption__Group_2_1__2__Impl rule__MemoryOption__Group_2_1__3
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_43);
             rule__MemoryOption__Group_2_1__2__Impl();
 
             state._fsp--;
@@ -15223,7 +15222,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5022:2: 'perm'
             {
              before(grammarAccess.getMemoryOptionAccess().getPermKeyword_2_2_0()); 
-            match(input,78,FOLLOW_2); 
+            match(input,77,FOLLOW_2); 
              after(grammarAccess.getMemoryOptionAccess().getPermKeyword_2_2_0()); 
 
             }
@@ -15256,7 +15255,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5035:1: ( rule__MemoryOption__Group_2_2__1__Impl rule__MemoryOption__Group_2_2__2 )
             // InternalLcDsl.g:5036:2: rule__MemoryOption__Group_2_2__1__Impl rule__MemoryOption__Group_2_2__2
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_35);
             rule__MemoryOption__Group_2_2__1__Impl();
 
             state._fsp--;
@@ -15331,7 +15330,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5062:1: ( rule__MemoryOption__Group_2_2__2__Impl rule__MemoryOption__Group_2_2__3 )
             // InternalLcDsl.g:5063:2: rule__MemoryOption__Group_2_2__2__Impl rule__MemoryOption__Group_2_2__3
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_43);
             rule__MemoryOption__Group_2_2__2__Impl();
 
             state._fsp--;
@@ -15496,7 +15495,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5116:1: ( rule__GroupMember__Group__0__Impl rule__GroupMember__Group__1 )
             // InternalLcDsl.g:5117:2: rule__GroupMember__Group__0__Impl rule__GroupMember__Group__1
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_44);
             rule__GroupMember__Group__0__Impl();
 
             state._fsp--;
@@ -15623,7 +15622,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5157:2: 'member'
             {
              before(grammarAccess.getGroupMemberAccess().getMemberKeyword_1()); 
-            match(input,79,FOLLOW_2); 
+            match(input,78,FOLLOW_2); 
              after(grammarAccess.getGroupMemberAccess().getMemberKeyword_1()); 
 
             }
@@ -15656,7 +15655,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5170:1: ( rule__GroupMember__Group__2__Impl rule__GroupMember__Group__3 )
             // InternalLcDsl.g:5171:2: rule__GroupMember__Group__2__Impl rule__GroupMember__Group__3
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_45);
             rule__GroupMember__Group__2__Impl();
 
             state._fsp--;
@@ -15741,7 +15740,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5197:1: ( rule__GroupMember__Group__3__Impl rule__GroupMember__Group__4 )
             // InternalLcDsl.g:5198:2: rule__GroupMember__Group__3__Impl rule__GroupMember__Group__4
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_45);
             rule__GroupMember__Group__3__Impl();
 
             state._fsp--;
@@ -15787,7 +15786,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt22=2;
             int LA22_0 = input.LA(1);
 
-            if ( ((LA22_0>=80 && LA22_0<=82)) ) {
+            if ( ((LA22_0>=79 && LA22_0<=81)) ) {
                 alt22=1;
             }
             switch (alt22) {
@@ -15874,7 +15873,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5237:2: ';'
             {
              before(grammarAccess.getGroupMemberAccess().getSemicolonKeyword_4()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getGroupMemberAccess().getSemicolonKeyword_4()); 
 
             }
@@ -15907,7 +15906,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5251:1: ( rule__GroupPostLaunchDelay__Group__0__Impl rule__GroupPostLaunchDelay__Group__1 )
             // InternalLcDsl.g:5252:2: rule__GroupPostLaunchDelay__Group__0__Impl rule__GroupPostLaunchDelay__Group__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_35);
             rule__GroupPostLaunchDelay__Group__0__Impl();
 
             state._fsp--;
@@ -15949,7 +15948,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5265:2: 'delay'
             {
              before(grammarAccess.getGroupPostLaunchDelayAccess().getDelayKeyword_0()); 
-            match(input,80,FOLLOW_2); 
+            match(input,79,FOLLOW_2); 
              after(grammarAccess.getGroupPostLaunchDelayAccess().getDelayKeyword_0()); 
 
             }
@@ -16104,7 +16103,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5319:2: 'regex'
             {
              before(grammarAccess.getGroupPostLaunchRegexAccess().getRegexKeyword_0()); 
-            match(input,81,FOLLOW_2); 
+            match(input,80,FOLLOW_2); 
              after(grammarAccess.getGroupPostLaunchRegexAccess().getRegexKeyword_0()); 
 
             }
@@ -16217,7 +16216,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5359:1: ( rule__GroupPostLaunchWait__Group__0__Impl rule__GroupPostLaunchWait__Group__1 )
             // InternalLcDsl.g:5360:2: rule__GroupPostLaunchWait__Group__0__Impl rule__GroupPostLaunchWait__Group__1
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_46);
             rule__GroupPostLaunchWait__Group__0__Impl();
 
             state._fsp--;
@@ -16329,7 +16328,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5399:2: 'wait'
             {
              before(grammarAccess.getGroupPostLaunchWaitAccess().getWaitKeyword_1()); 
-            match(input,82,FOLLOW_2); 
+            match(input,81,FOLLOW_2); 
              after(grammarAccess.getGroupPostLaunchWaitAccess().getWaitKeyword_1()); 
 
             }
@@ -16362,7 +16361,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5413:1: ( rule__FQName__Group__0__Impl rule__FQName__Group__1 )
             // InternalLcDsl.g:5414:2: rule__FQName__Group__0__Impl rule__FQName__Group__1
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_47);
             rule__FQName__Group__0__Impl();
 
             state._fsp--;
@@ -16480,7 +16479,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                 int alt23=2;
                 int LA23_0 = input.LA(1);
 
-                if ( (LA23_0==83) ) {
+                if ( (LA23_0==82) ) {
                     alt23=1;
                 }
 
@@ -16489,7 +16488,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalLcDsl.g:5454:3: rule__FQName__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_50);
+            	    pushFollow(FOLLOW_48);
             	    rule__FQName__Group_1__0();
 
             	    state._fsp--;
@@ -16577,7 +16576,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:5481:2: '.'
             {
              before(grammarAccess.getFQNameAccess().getFullStopKeyword_1_0()); 
-            match(input,83,FOLLOW_2); 
+            match(input,82,FOLLOW_2); 
              after(grammarAccess.getFQNameAccess().getFullStopKeyword_1_0()); 
 
             }
@@ -18397,7 +18396,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6047:1: ( rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__1 )? )
             // InternalLcDsl.g:6048:2: rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__1 )?
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_49);
             rule__LaunchConfig__UnorderedGroup_6__Impl();
 
             state._fsp--;
@@ -18448,7 +18447,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6059:1: ( rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__2 )? )
             // InternalLcDsl.g:6060:2: rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__2 )?
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_49);
             rule__LaunchConfig__UnorderedGroup_6__Impl();
 
             state._fsp--;
@@ -18499,7 +18498,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6071:1: ( rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__3 )? )
             // InternalLcDsl.g:6072:2: rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__3 )?
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_49);
             rule__LaunchConfig__UnorderedGroup_6__Impl();
 
             state._fsp--;
@@ -18550,7 +18549,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6083:1: ( rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__4 )? )
             // InternalLcDsl.g:6084:2: rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__4 )?
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_49);
             rule__LaunchConfig__UnorderedGroup_6__Impl();
 
             state._fsp--;
@@ -18601,7 +18600,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6095:1: ( rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__5 )? )
             // InternalLcDsl.g:6096:2: rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__5 )?
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_49);
             rule__LaunchConfig__UnorderedGroup_6__Impl();
 
             state._fsp--;
@@ -18652,7 +18651,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6107:1: ( rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__6 )? )
             // InternalLcDsl.g:6108:2: rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__6 )?
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_49);
             rule__LaunchConfig__UnorderedGroup_6__Impl();
 
             state._fsp--;
@@ -18703,7 +18702,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6119:1: ( rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__7 )? )
             // InternalLcDsl.g:6120:2: rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__7 )?
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_49);
             rule__LaunchConfig__UnorderedGroup_6__Impl();
 
             state._fsp--;
@@ -18754,7 +18753,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6131:1: ( rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__8 )? )
             // InternalLcDsl.g:6132:2: rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__8 )?
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_49);
             rule__LaunchConfig__UnorderedGroup_6__Impl();
 
             state._fsp--;
@@ -18805,7 +18804,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6143:1: ( rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__9 )? )
             // InternalLcDsl.g:6144:2: rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__9 )?
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_49);
             rule__LaunchConfig__UnorderedGroup_6__Impl();
 
             state._fsp--;
@@ -18856,7 +18855,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6155:1: ( rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__10 )? )
             // InternalLcDsl.g:6156:2: rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__10 )?
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_49);
             rule__LaunchConfig__UnorderedGroup_6__Impl();
 
             state._fsp--;
@@ -18907,7 +18906,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6167:1: ( rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__11 )? )
             // InternalLcDsl.g:6168:2: rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__11 )?
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_49);
             rule__LaunchConfig__UnorderedGroup_6__Impl();
 
             state._fsp--;
@@ -18958,7 +18957,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6179:1: ( rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__12 )? )
             // InternalLcDsl.g:6180:2: rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__12 )?
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_49);
             rule__LaunchConfig__UnorderedGroup_6__Impl();
 
             state._fsp--;
@@ -19009,7 +19008,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6191:1: ( rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__13 )? )
             // InternalLcDsl.g:6192:2: rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__13 )?
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_49);
             rule__LaunchConfig__UnorderedGroup_6__Impl();
 
             state._fsp--;
@@ -19060,7 +19059,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6203:1: ( rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__14 )? )
             // InternalLcDsl.g:6204:2: rule__LaunchConfig__UnorderedGroup_6__Impl ( rule__LaunchConfig__UnorderedGroup_6__14 )?
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_49);
             rule__LaunchConfig__UnorderedGroup_6__Impl();
 
             state._fsp--;
@@ -19149,10 +19148,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt50=2;
             int LA50_0 = input.LA(1);
 
-            if ( LA50_0 >= 39 && LA50_0 <= 41 && getUnorderedGroupHelper().canSelect(grammarAccess.getRedirectAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA50_0 >= 38 && LA50_0 <= 40 && getUnorderedGroupHelper().canSelect(grammarAccess.getRedirectAccess().getUnorderedGroup_2(), 0) ) {
                 alt50=1;
             }
-            else if ( LA50_0 == 18 && getUnorderedGroupHelper().canSelect(grammarAccess.getRedirectAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA50_0 == 17 && getUnorderedGroupHelper().canSelect(grammarAccess.getRedirectAccess().getUnorderedGroup_2(), 1) ) {
                 alt50=1;
             }
             switch (alt50) {
@@ -19204,10 +19203,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt51=2;
             int LA51_0 = input.LA(1);
 
-            if ( LA51_0 >= 39 && LA51_0 <= 41 && getUnorderedGroupHelper().canSelect(grammarAccess.getRedirectAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA51_0 >= 38 && LA51_0 <= 40 && getUnorderedGroupHelper().canSelect(grammarAccess.getRedirectAccess().getUnorderedGroup_2(), 0) ) {
                 alt51=1;
             }
-            else if ( LA51_0 == 18 && getUnorderedGroupHelper().canSelect(grammarAccess.getRedirectAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA51_0 == 17 && getUnorderedGroupHelper().canSelect(grammarAccess.getRedirectAccess().getUnorderedGroup_2(), 1) ) {
                 alt51=2;
             }
             else {
@@ -19342,7 +19341,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6286:1: ( rule__Redirect__UnorderedGroup_2__Impl ( rule__Redirect__UnorderedGroup_2__1 )? )
             // InternalLcDsl.g:6287:2: rule__Redirect__UnorderedGroup_2__Impl ( rule__Redirect__UnorderedGroup_2__1 )?
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_50);
             rule__Redirect__UnorderedGroup_2__Impl();
 
             state._fsp--;
@@ -19351,10 +19350,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt52=2;
             int LA52_0 = input.LA(1);
 
-            if ( LA52_0 >= 39 && LA52_0 <= 41 && getUnorderedGroupHelper().canSelect(grammarAccess.getRedirectAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA52_0 >= 38 && LA52_0 <= 40 && getUnorderedGroupHelper().canSelect(grammarAccess.getRedirectAccess().getUnorderedGroup_2(), 0) ) {
                 alt52=1;
             }
-            else if ( LA52_0 == 18 && getUnorderedGroupHelper().canSelect(grammarAccess.getRedirectAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA52_0 == 17 && getUnorderedGroupHelper().canSelect(grammarAccess.getRedirectAccess().getUnorderedGroup_2(), 1) ) {
                 alt52=1;
             }
             switch (alt52) {
@@ -19438,10 +19437,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt53=2;
             int LA53_0 = input.LA(1);
 
-            if ( LA53_0 == 95 && getUnorderedGroupHelper().canSelect(grammarAccess.getJavaMainSearchAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA53_0 == 94 && getUnorderedGroupHelper().canSelect(grammarAccess.getJavaMainSearchAccess().getUnorderedGroup_2(), 0) ) {
                 alt53=1;
             }
-            else if ( LA53_0 == 96 && getUnorderedGroupHelper().canSelect(grammarAccess.getJavaMainSearchAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA53_0 == 95 && getUnorderedGroupHelper().canSelect(grammarAccess.getJavaMainSearchAccess().getUnorderedGroup_2(), 1) ) {
                 alt53=1;
             }
             switch (alt53) {
@@ -19493,10 +19492,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt54=2;
             int LA54_0 = input.LA(1);
 
-            if ( LA54_0 == 95 && getUnorderedGroupHelper().canSelect(grammarAccess.getJavaMainSearchAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA54_0 == 94 && getUnorderedGroupHelper().canSelect(grammarAccess.getJavaMainSearchAccess().getUnorderedGroup_2(), 0) ) {
                 alt54=1;
             }
-            else if ( LA54_0 == 96 && getUnorderedGroupHelper().canSelect(grammarAccess.getJavaMainSearchAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA54_0 == 95 && getUnorderedGroupHelper().canSelect(grammarAccess.getJavaMainSearchAccess().getUnorderedGroup_2(), 1) ) {
                 alt54=2;
             }
             else {
@@ -19631,7 +19630,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6369:1: ( rule__JavaMainSearch__UnorderedGroup_2__Impl ( rule__JavaMainSearch__UnorderedGroup_2__1 )? )
             // InternalLcDsl.g:6370:2: rule__JavaMainSearch__UnorderedGroup_2__Impl ( rule__JavaMainSearch__UnorderedGroup_2__1 )?
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_51);
             rule__JavaMainSearch__UnorderedGroup_2__Impl();
 
             state._fsp--;
@@ -19640,10 +19639,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt55=2;
             int LA55_0 = input.LA(1);
 
-            if ( LA55_0 == 95 && getUnorderedGroupHelper().canSelect(grammarAccess.getJavaMainSearchAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA55_0 == 94 && getUnorderedGroupHelper().canSelect(grammarAccess.getJavaMainSearchAccess().getUnorderedGroup_2(), 0) ) {
                 alt55=1;
             }
-            else if ( LA55_0 == 96 && getUnorderedGroupHelper().canSelect(grammarAccess.getJavaMainSearchAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA55_0 == 95 && getUnorderedGroupHelper().canSelect(grammarAccess.getJavaMainSearchAccess().getUnorderedGroup_2(), 1) ) {
                 alt55=1;
             }
             switch (alt55) {
@@ -19765,22 +19764,22 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt56=6;
             int LA56_0 = input.LA(1);
 
-            if ( LA56_0 == 67 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA56_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 0) ) {
                 alt56=1;
             }
-            else if ( LA56_0 == 68 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA56_0 == 67 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 1) ) {
                 alt56=2;
             }
-            else if ( LA56_0 == 69 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 2) ) {
+            else if ( LA56_0 == 68 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 2) ) {
                 alt56=3;
             }
-            else if ( LA56_0 == 70 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 3) ) {
+            else if ( LA56_0 == 69 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 3) ) {
                 alt56=4;
             }
-            else if ( LA56_0 == 71 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 4) ) {
+            else if ( LA56_0 == 70 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 4) ) {
                 alt56=5;
             }
-            else if ( LA56_0 == 72 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 5) ) {
+            else if ( LA56_0 == 71 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 5) ) {
                 alt56=6;
             }
             else {
@@ -20099,7 +20098,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6512:1: ( rule__RapServletConfig__UnorderedGroup_2__Impl ( rule__RapServletConfig__UnorderedGroup_2__1 )? )
             // InternalLcDsl.g:6513:2: rule__RapServletConfig__UnorderedGroup_2__Impl ( rule__RapServletConfig__UnorderedGroup_2__1 )?
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_52);
             rule__RapServletConfig__UnorderedGroup_2__Impl();
 
             state._fsp--;
@@ -20108,22 +20107,22 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt57=2;
             int LA57_0 = input.LA(1);
 
-            if ( LA57_0 == 67 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA57_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 0) ) {
                 alt57=1;
             }
-            else if ( LA57_0 == 68 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA57_0 == 67 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 1) ) {
                 alt57=1;
             }
-            else if ( LA57_0 == 69 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 2) ) {
+            else if ( LA57_0 == 68 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 2) ) {
                 alt57=1;
             }
-            else if ( LA57_0 == 70 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 3) ) {
+            else if ( LA57_0 == 69 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 3) ) {
                 alt57=1;
             }
-            else if ( LA57_0 == 71 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 4) ) {
+            else if ( LA57_0 == 70 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 4) ) {
                 alt57=1;
             }
-            else if ( LA57_0 == 72 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 5) ) {
+            else if ( LA57_0 == 71 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 5) ) {
                 alt57=1;
             }
             switch (alt57) {
@@ -20169,7 +20168,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6524:1: ( rule__RapServletConfig__UnorderedGroup_2__Impl ( rule__RapServletConfig__UnorderedGroup_2__2 )? )
             // InternalLcDsl.g:6525:2: rule__RapServletConfig__UnorderedGroup_2__Impl ( rule__RapServletConfig__UnorderedGroup_2__2 )?
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_52);
             rule__RapServletConfig__UnorderedGroup_2__Impl();
 
             state._fsp--;
@@ -20178,22 +20177,22 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt58=2;
             int LA58_0 = input.LA(1);
 
-            if ( LA58_0 == 67 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA58_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 0) ) {
                 alt58=1;
             }
-            else if ( LA58_0 == 68 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA58_0 == 67 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 1) ) {
                 alt58=1;
             }
-            else if ( LA58_0 == 69 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 2) ) {
+            else if ( LA58_0 == 68 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 2) ) {
                 alt58=1;
             }
-            else if ( LA58_0 == 70 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 3) ) {
+            else if ( LA58_0 == 69 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 3) ) {
                 alt58=1;
             }
-            else if ( LA58_0 == 71 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 4) ) {
+            else if ( LA58_0 == 70 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 4) ) {
                 alt58=1;
             }
-            else if ( LA58_0 == 72 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 5) ) {
+            else if ( LA58_0 == 71 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 5) ) {
                 alt58=1;
             }
             switch (alt58) {
@@ -20239,7 +20238,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6536:1: ( rule__RapServletConfig__UnorderedGroup_2__Impl ( rule__RapServletConfig__UnorderedGroup_2__3 )? )
             // InternalLcDsl.g:6537:2: rule__RapServletConfig__UnorderedGroup_2__Impl ( rule__RapServletConfig__UnorderedGroup_2__3 )?
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_52);
             rule__RapServletConfig__UnorderedGroup_2__Impl();
 
             state._fsp--;
@@ -20248,22 +20247,22 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt59=2;
             int LA59_0 = input.LA(1);
 
-            if ( LA59_0 == 67 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA59_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 0) ) {
                 alt59=1;
             }
-            else if ( LA59_0 == 68 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA59_0 == 67 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 1) ) {
                 alt59=1;
             }
-            else if ( LA59_0 == 69 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 2) ) {
+            else if ( LA59_0 == 68 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 2) ) {
                 alt59=1;
             }
-            else if ( LA59_0 == 70 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 3) ) {
+            else if ( LA59_0 == 69 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 3) ) {
                 alt59=1;
             }
-            else if ( LA59_0 == 71 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 4) ) {
+            else if ( LA59_0 == 70 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 4) ) {
                 alt59=1;
             }
-            else if ( LA59_0 == 72 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 5) ) {
+            else if ( LA59_0 == 71 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 5) ) {
                 alt59=1;
             }
             switch (alt59) {
@@ -20309,7 +20308,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6548:1: ( rule__RapServletConfig__UnorderedGroup_2__Impl ( rule__RapServletConfig__UnorderedGroup_2__4 )? )
             // InternalLcDsl.g:6549:2: rule__RapServletConfig__UnorderedGroup_2__Impl ( rule__RapServletConfig__UnorderedGroup_2__4 )?
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_52);
             rule__RapServletConfig__UnorderedGroup_2__Impl();
 
             state._fsp--;
@@ -20318,22 +20317,22 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt60=2;
             int LA60_0 = input.LA(1);
 
-            if ( LA60_0 == 67 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA60_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 0) ) {
                 alt60=1;
             }
-            else if ( LA60_0 == 68 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA60_0 == 67 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 1) ) {
                 alt60=1;
             }
-            else if ( LA60_0 == 69 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 2) ) {
+            else if ( LA60_0 == 68 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 2) ) {
                 alt60=1;
             }
-            else if ( LA60_0 == 70 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 3) ) {
+            else if ( LA60_0 == 69 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 3) ) {
                 alt60=1;
             }
-            else if ( LA60_0 == 71 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 4) ) {
+            else if ( LA60_0 == 70 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 4) ) {
                 alt60=1;
             }
-            else if ( LA60_0 == 72 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 5) ) {
+            else if ( LA60_0 == 71 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 5) ) {
                 alt60=1;
             }
             switch (alt60) {
@@ -20379,7 +20378,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6560:1: ( rule__RapServletConfig__UnorderedGroup_2__Impl ( rule__RapServletConfig__UnorderedGroup_2__5 )? )
             // InternalLcDsl.g:6561:2: rule__RapServletConfig__UnorderedGroup_2__Impl ( rule__RapServletConfig__UnorderedGroup_2__5 )?
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_52);
             rule__RapServletConfig__UnorderedGroup_2__Impl();
 
             state._fsp--;
@@ -20388,22 +20387,22 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt61=2;
             int LA61_0 = input.LA(1);
 
-            if ( LA61_0 == 67 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA61_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 0) ) {
                 alt61=1;
             }
-            else if ( LA61_0 == 68 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA61_0 == 67 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 1) ) {
                 alt61=1;
             }
-            else if ( LA61_0 == 69 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 2) ) {
+            else if ( LA61_0 == 68 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 2) ) {
                 alt61=1;
             }
-            else if ( LA61_0 == 70 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 3) ) {
+            else if ( LA61_0 == 69 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 3) ) {
                 alt61=1;
             }
-            else if ( LA61_0 == 71 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 4) ) {
+            else if ( LA61_0 == 70 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 4) ) {
                 alt61=1;
             }
-            else if ( LA61_0 == 72 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 5) ) {
+            else if ( LA61_0 == 71 && getUnorderedGroupHelper().canSelect(grammarAccess.getRapServletConfigAccess().getUnorderedGroup_2(), 5) ) {
                 alt61=1;
             }
             switch (alt61) {
@@ -20487,10 +20486,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt62=2;
             int LA62_0 = input.LA(1);
 
-            if ( LA62_0 == 97 && getUnorderedGroupHelper().canSelect(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 0) ) {
+            if ( LA62_0 == 96 && getUnorderedGroupHelper().canSelect(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 0) ) {
                 alt62=1;
             }
-            else if ( LA62_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 1) ) {
+            else if ( LA62_0 == 72 && getUnorderedGroupHelper().canSelect(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 1) ) {
                 alt62=1;
             }
             switch (alt62) {
@@ -20542,10 +20541,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt63=2;
             int LA63_0 = input.LA(1);
 
-            if ( LA63_0 == 97 && getUnorderedGroupHelper().canSelect(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 0) ) {
+            if ( LA63_0 == 96 && getUnorderedGroupHelper().canSelect(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 0) ) {
                 alt63=1;
             }
-            else if ( LA63_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 1) ) {
+            else if ( LA63_0 == 72 && getUnorderedGroupHelper().canSelect(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 1) ) {
                 alt63=2;
             }
             else {
@@ -20680,7 +20679,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6643:1: ( rule__PluginWithVersionAndStartLevel__UnorderedGroup_1__Impl ( rule__PluginWithVersionAndStartLevel__UnorderedGroup_1__1 )? )
             // InternalLcDsl.g:6644:2: rule__PluginWithVersionAndStartLevel__UnorderedGroup_1__Impl ( rule__PluginWithVersionAndStartLevel__UnorderedGroup_1__1 )?
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_53);
             rule__PluginWithVersionAndStartLevel__UnorderedGroup_1__Impl();
 
             state._fsp--;
@@ -20689,10 +20688,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt64=2;
             int LA64_0 = input.LA(1);
 
-            if ( LA64_0 == 97 && getUnorderedGroupHelper().canSelect(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 0) ) {
+            if ( LA64_0 == 96 && getUnorderedGroupHelper().canSelect(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 0) ) {
                 alt64=1;
             }
-            else if ( LA64_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 1) ) {
+            else if ( LA64_0 == 72 && getUnorderedGroupHelper().canSelect(grammarAccess.getPluginWithVersionAndStartLevelAccess().getUnorderedGroup_1(), 1) ) {
                 alt64=1;
             }
             switch (alt64) {
@@ -20776,10 +20775,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt65=2;
             int LA65_0 = input.LA(1);
 
-            if ( ( LA65_0 == 44 || LA65_0 == 98 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getClearOptionAccess().getUnorderedGroup_2(), 0) ) {
+            if ( ( LA65_0 == 43 || LA65_0 == 97 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getClearOptionAccess().getUnorderedGroup_2(), 0) ) {
                 alt65=1;
             }
-            else if ( LA65_0 == 99 && getUnorderedGroupHelper().canSelect(grammarAccess.getClearOptionAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA65_0 == 98 && getUnorderedGroupHelper().canSelect(grammarAccess.getClearOptionAccess().getUnorderedGroup_2(), 1) ) {
                 alt65=1;
             }
             switch (alt65) {
@@ -20831,10 +20830,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt66=2;
             int LA66_0 = input.LA(1);
 
-            if ( ( LA66_0 == 44 || LA66_0 == 98 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getClearOptionAccess().getUnorderedGroup_2(), 0) ) {
+            if ( ( LA66_0 == 43 || LA66_0 == 97 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getClearOptionAccess().getUnorderedGroup_2(), 0) ) {
                 alt66=1;
             }
-            else if ( LA66_0 == 99 && getUnorderedGroupHelper().canSelect(grammarAccess.getClearOptionAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA66_0 == 98 && getUnorderedGroupHelper().canSelect(grammarAccess.getClearOptionAccess().getUnorderedGroup_2(), 1) ) {
                 alt66=2;
             }
             else {
@@ -20969,7 +20968,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6726:1: ( rule__ClearOption__UnorderedGroup_2__Impl ( rule__ClearOption__UnorderedGroup_2__1 )? )
             // InternalLcDsl.g:6727:2: rule__ClearOption__UnorderedGroup_2__Impl ( rule__ClearOption__UnorderedGroup_2__1 )?
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_54);
             rule__ClearOption__UnorderedGroup_2__Impl();
 
             state._fsp--;
@@ -20978,10 +20977,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt67=2;
             int LA67_0 = input.LA(1);
 
-            if ( ( LA67_0 == 44 || LA67_0 == 98 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getClearOptionAccess().getUnorderedGroup_2(), 0) ) {
+            if ( ( LA67_0 == 43 || LA67_0 == 97 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getClearOptionAccess().getUnorderedGroup_2(), 0) ) {
                 alt67=1;
             }
-            else if ( LA67_0 == 99 && getUnorderedGroupHelper().canSelect(grammarAccess.getClearOptionAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA67_0 == 98 && getUnorderedGroupHelper().canSelect(grammarAccess.getClearOptionAccess().getUnorderedGroup_2(), 1) ) {
                 alt67=1;
             }
             switch (alt67) {
@@ -21065,13 +21064,13 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt68=2;
             int LA68_0 = input.LA(1);
 
-            if ( LA68_0 == 76 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA68_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 0) ) {
                 alt68=1;
             }
-            else if ( LA68_0 == 77 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA68_0 == 76 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 1) ) {
                 alt68=1;
             }
-            else if ( LA68_0 == 78 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 2) ) {
+            else if ( LA68_0 == 77 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 2) ) {
                 alt68=1;
             }
             switch (alt68) {
@@ -21123,13 +21122,13 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt69=3;
             int LA69_0 = input.LA(1);
 
-            if ( LA69_0 == 76 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA69_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 0) ) {
                 alt69=1;
             }
-            else if ( LA69_0 == 77 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA69_0 == 76 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 1) ) {
                 alt69=2;
             }
-            else if ( LA69_0 == 78 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 2) ) {
+            else if ( LA69_0 == 77 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 2) ) {
                 alt69=3;
             }
             else {
@@ -21310,7 +21309,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6824:1: ( rule__MemoryOption__UnorderedGroup_2__Impl ( rule__MemoryOption__UnorderedGroup_2__1 )? )
             // InternalLcDsl.g:6825:2: rule__MemoryOption__UnorderedGroup_2__Impl ( rule__MemoryOption__UnorderedGroup_2__1 )?
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_55);
             rule__MemoryOption__UnorderedGroup_2__Impl();
 
             state._fsp--;
@@ -21319,13 +21318,13 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt70=2;
             int LA70_0 = input.LA(1);
 
-            if ( LA70_0 == 76 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA70_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 0) ) {
                 alt70=1;
             }
-            else if ( LA70_0 == 77 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA70_0 == 76 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 1) ) {
                 alt70=1;
             }
-            else if ( LA70_0 == 78 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 2) ) {
+            else if ( LA70_0 == 77 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 2) ) {
                 alt70=1;
             }
             switch (alt70) {
@@ -21371,7 +21370,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6836:1: ( rule__MemoryOption__UnorderedGroup_2__Impl ( rule__MemoryOption__UnorderedGroup_2__2 )? )
             // InternalLcDsl.g:6837:2: rule__MemoryOption__UnorderedGroup_2__Impl ( rule__MemoryOption__UnorderedGroup_2__2 )?
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_55);
             rule__MemoryOption__UnorderedGroup_2__Impl();
 
             state._fsp--;
@@ -21380,13 +21379,13 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt71=2;
             int LA71_0 = input.LA(1);
 
-            if ( LA71_0 == 76 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 0) ) {
+            if ( LA71_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 0) ) {
                 alt71=1;
             }
-            else if ( LA71_0 == 77 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 1) ) {
+            else if ( LA71_0 == 76 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 1) ) {
                 alt71=1;
             }
-            else if ( LA71_0 == 78 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 2) ) {
+            else if ( LA71_0 == 77 && getUnorderedGroupHelper().canSelect(grammarAccess.getMemoryOptionAccess().getUnorderedGroup_2(), 2) ) {
                 alt71=1;
             }
             switch (alt71) {
@@ -21470,10 +21469,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt72=2;
             int LA72_0 = input.LA(1);
 
-            if ( LA72_0 >= 26 && LA72_0 <= 30 && getUnorderedGroupHelper().canSelect(grammarAccess.getGroupMemberAccess().getUnorderedGroup_0(), 0) ) {
+            if ( LA72_0 >= 25 && LA72_0 <= 29 && getUnorderedGroupHelper().canSelect(grammarAccess.getGroupMemberAccess().getUnorderedGroup_0(), 0) ) {
                 alt72=1;
             }
-            else if ( LA72_0 == 100 && getUnorderedGroupHelper().canSelect(grammarAccess.getGroupMemberAccess().getUnorderedGroup_0(), 1) ) {
+            else if ( LA72_0 == 99 && getUnorderedGroupHelper().canSelect(grammarAccess.getGroupMemberAccess().getUnorderedGroup_0(), 1) ) {
                 alt72=1;
             }
             switch (alt72) {
@@ -21525,10 +21524,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt73=2;
             int LA73_0 = input.LA(1);
 
-            if ( LA73_0 >= 26 && LA73_0 <= 30 && getUnorderedGroupHelper().canSelect(grammarAccess.getGroupMemberAccess().getUnorderedGroup_0(), 0) ) {
+            if ( LA73_0 >= 25 && LA73_0 <= 29 && getUnorderedGroupHelper().canSelect(grammarAccess.getGroupMemberAccess().getUnorderedGroup_0(), 0) ) {
                 alt73=1;
             }
-            else if ( LA73_0 == 100 && getUnorderedGroupHelper().canSelect(grammarAccess.getGroupMemberAccess().getUnorderedGroup_0(), 1) ) {
+            else if ( LA73_0 == 99 && getUnorderedGroupHelper().canSelect(grammarAccess.getGroupMemberAccess().getUnorderedGroup_0(), 1) ) {
                 alt73=2;
             }
             else {
@@ -21663,7 +21662,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6919:1: ( rule__GroupMember__UnorderedGroup_0__Impl ( rule__GroupMember__UnorderedGroup_0__1 )? )
             // InternalLcDsl.g:6920:2: rule__GroupMember__UnorderedGroup_0__Impl ( rule__GroupMember__UnorderedGroup_0__1 )?
             {
-            pushFollow(FOLLOW_58);
+            pushFollow(FOLLOW_56);
             rule__GroupMember__UnorderedGroup_0__Impl();
 
             state._fsp--;
@@ -21672,10 +21671,10 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             int alt74=2;
             int LA74_0 = input.LA(1);
 
-            if ( LA74_0 >= 26 && LA74_0 <= 30 && getUnorderedGroupHelper().canSelect(grammarAccess.getGroupMemberAccess().getUnorderedGroup_0(), 0) ) {
+            if ( LA74_0 >= 25 && LA74_0 <= 29 && getUnorderedGroupHelper().canSelect(grammarAccess.getGroupMemberAccess().getUnorderedGroup_0(), 0) ) {
                 alt74=1;
             }
-            else if ( LA74_0 == 100 && getUnorderedGroupHelper().canSelect(grammarAccess.getGroupMemberAccess().getUnorderedGroup_0(), 1) ) {
+            else if ( LA74_0 == 99 && getUnorderedGroupHelper().canSelect(grammarAccess.getGroupMemberAccess().getUnorderedGroup_0(), 1) ) {
                 alt74=1;
             }
             switch (alt74) {
@@ -21803,7 +21802,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6962:4: 'explicit'
             {
              before(grammarAccess.getLaunchConfigAccess().getExplicitExplicitKeyword_0_0_0()); 
-            match(input,84,FOLLOW_2); 
+            match(input,83,FOLLOW_2); 
              after(grammarAccess.getLaunchConfigAccess().getExplicitExplicitKeyword_0_0_0()); 
 
             }
@@ -21848,7 +21847,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:6981:4: 'manual'
             {
              before(grammarAccess.getLaunchConfigAccess().getManualManualKeyword_0_1_0()); 
-            match(input,85,FOLLOW_2); 
+            match(input,84,FOLLOW_2); 
              after(grammarAccess.getLaunchConfigAccess().getManualManualKeyword_0_1_0()); 
 
             }
@@ -21893,7 +21892,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:7000:4: 'abstract'
             {
              before(grammarAccess.getLaunchConfigAccess().getAbstractAbstractKeyword_0_2_0()); 
-            match(input,86,FOLLOW_2); 
+            match(input,85,FOLLOW_2); 
              after(grammarAccess.getLaunchConfigAccess().getAbstractAbstractKeyword_0_2_0()); 
 
             }
@@ -21938,7 +21937,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:7019:4: 'foreground'
             {
              before(grammarAccess.getLaunchConfigAccess().getForegroundForegroundKeyword_0_3_0()); 
-            match(input,87,FOLLOW_2); 
+            match(input,86,FOLLOW_2); 
              after(grammarAccess.getLaunchConfigAccess().getForegroundForegroundKeyword_0_3_0()); 
 
             }
@@ -21983,7 +21982,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:7038:4: 'no-console'
             {
              before(grammarAccess.getLaunchConfigAccess().getNoConsoleNoConsoleKeyword_0_4_0()); 
-            match(input,88,FOLLOW_2); 
+            match(input,87,FOLLOW_2); 
              after(grammarAccess.getLaunchConfigAccess().getNoConsoleNoConsoleKeyword_0_4_0()); 
 
             }
@@ -22028,7 +22027,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:7057:4: 'no-validate'
             {
              before(grammarAccess.getLaunchConfigAccess().getNoValidateNoValidateKeyword_0_5_0()); 
-            match(input,89,FOLLOW_2); 
+            match(input,88,FOLLOW_2); 
              after(grammarAccess.getLaunchConfigAccess().getNoValidateNoValidateKeyword_0_5_0()); 
 
             }
@@ -22073,7 +22072,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:7076:4: 'sw-install-allowed'
             {
              before(grammarAccess.getLaunchConfigAccess().getSwInstallSupportSwInstallAllowedKeyword_0_6_0()); 
-            match(input,90,FOLLOW_2); 
+            match(input,89,FOLLOW_2); 
              after(grammarAccess.getLaunchConfigAccess().getSwInstallSupportSwInstallAllowedKeyword_0_6_0()); 
 
             }
@@ -22118,7 +22117,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:7095:4: 'replace-env'
             {
              before(grammarAccess.getLaunchConfigAccess().getReplaceEnvReplaceEnvKeyword_0_7_0()); 
-            match(input,91,FOLLOW_2); 
+            match(input,90,FOLLOW_2); 
              after(grammarAccess.getLaunchConfigAccess().getReplaceEnvReplaceEnvKeyword_0_7_0()); 
 
             }
@@ -22163,7 +22162,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:7114:4: 'stop-in-main'
             {
              before(grammarAccess.getLaunchConfigAccess().getStopInMainStopInMainKeyword_0_8_0()); 
-            match(input,92,FOLLOW_2); 
+            match(input,91,FOLLOW_2); 
              after(grammarAccess.getLaunchConfigAccess().getStopInMainStopInMainKeyword_0_8_0()); 
 
             }
@@ -23446,7 +23445,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:7587:4: 'optional'
             {
              before(grammarAccess.getAddPluginAccess().getOptionalOptionalKeyword_0_0()); 
-            match(input,93,FOLLOW_2); 
+            match(input,92,FOLLOW_2); 
              after(grammarAccess.getAddPluginAccess().getOptionalOptionalKeyword_0_0()); 
 
             }
@@ -23532,7 +23531,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:7621:4: 'optional'
             {
              before(grammarAccess.getAddFeatureAccess().getOptionalOptionalKeyword_0_0()); 
-            match(input,93,FOLLOW_2); 
+            match(input,92,FOLLOW_2); 
              after(grammarAccess.getAddFeatureAccess().getOptionalOptionalKeyword_0_0()); 
 
             }
@@ -24065,7 +24064,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:7820:4: '!'
             {
              before(grammarAccess.getRedirectAccess().getNoAppendExclamationMarkKeyword_2_0_3_0()); 
-            match(input,94,FOLLOW_2); 
+            match(input,93,FOLLOW_2); 
              after(grammarAccess.getRedirectAccess().getNoAppendExclamationMarkKeyword_2_0_3_0()); 
 
             }
@@ -24294,21 +24293,21 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TraceEnablement__WhatAssignment_2"
-    // InternalLcDsl.g:7906:1: rule__TraceEnablement__WhatAssignment_2 : ( RULE_TRACE_ID ) ;
+    // InternalLcDsl.g:7906:1: rule__TraceEnablement__WhatAssignment_2 : ( RULE_STRING ) ;
     public final void rule__TraceEnablement__WhatAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLcDsl.g:7910:1: ( ( RULE_TRACE_ID ) )
-            // InternalLcDsl.g:7911:2: ( RULE_TRACE_ID )
+            // InternalLcDsl.g:7910:1: ( ( RULE_STRING ) )
+            // InternalLcDsl.g:7911:2: ( RULE_STRING )
             {
-            // InternalLcDsl.g:7911:2: ( RULE_TRACE_ID )
-            // InternalLcDsl.g:7912:3: RULE_TRACE_ID
+            // InternalLcDsl.g:7911:2: ( RULE_STRING )
+            // InternalLcDsl.g:7912:3: RULE_STRING
             {
-             before(grammarAccess.getTraceEnablementAccess().getWhatTRACE_IDTerminalRuleCall_2_0()); 
-            match(input,RULE_TRACE_ID,FOLLOW_2); 
-             after(grammarAccess.getTraceEnablementAccess().getWhatTRACE_IDTerminalRuleCall_2_0()); 
+             before(grammarAccess.getTraceEnablementAccess().getWhatSTRINGTerminalRuleCall_2_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getTraceEnablementAccess().getWhatSTRINGTerminalRuleCall_2_0()); 
 
             }
 
@@ -24348,7 +24347,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:7929:4: 'system'
             {
              before(grammarAccess.getJavaMainSearchAccess().getSystemSystemKeyword_2_0_0()); 
-            match(input,95,FOLLOW_2); 
+            match(input,94,FOLLOW_2); 
              after(grammarAccess.getJavaMainSearchAccess().getSystemSystemKeyword_2_0_0()); 
 
             }
@@ -24393,7 +24392,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:7948:4: 'inherited'
             {
              before(grammarAccess.getJavaMainSearchAccess().getInheritedInheritedKeyword_2_1_0()); 
-            match(input,96,FOLLOW_2); 
+            match(input,95,FOLLOW_2); 
              after(grammarAccess.getJavaMainSearchAccess().getInheritedInheritedKeyword_2_1_0()); 
 
             }
@@ -24787,7 +24786,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:8102:4: 'autostart'
             {
              before(grammarAccess.getPluginWithVersionAndStartLevelAccess().getAutoStartAutostartKeyword_1_0_0()); 
-            match(input,97,FOLLOW_2); 
+            match(input,96,FOLLOW_2); 
              after(grammarAccess.getPluginWithVersionAndStartLevelAccess().getAutoStartAutostartKeyword_1_0_0()); 
 
             }
@@ -25107,7 +25106,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:8226:4: 'workspace'
             {
              before(grammarAccess.getClearOptionAccess().getWorkspaceWorkspaceKeyword_2_0_0_0_0()); 
-            match(input,44,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getClearOptionAccess().getWorkspaceWorkspaceKeyword_2_0_0_0_0()); 
 
             }
@@ -25152,7 +25151,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:8245:4: 'log'
             {
              before(grammarAccess.getClearOptionAccess().getLogLogKeyword_2_0_0_1_0()); 
-            match(input,98,FOLLOW_2); 
+            match(input,97,FOLLOW_2); 
              after(grammarAccess.getClearOptionAccess().getLogLogKeyword_2_0_0_1_0()); 
 
             }
@@ -25197,7 +25196,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:8264:4: '!'
             {
              before(grammarAccess.getClearOptionAccess().getNoAskClearExclamationMarkKeyword_2_0_1_0()); 
-            match(input,94,FOLLOW_2); 
+            match(input,93,FOLLOW_2); 
              after(grammarAccess.getClearOptionAccess().getNoAskClearExclamationMarkKeyword_2_0_1_0()); 
 
             }
@@ -25242,7 +25241,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:8283:4: 'config'
             {
              before(grammarAccess.getClearOptionAccess().getConfigConfigKeyword_2_1_0()); 
-            match(input,99,FOLLOW_2); 
+            match(input,98,FOLLOW_2); 
              after(grammarAccess.getClearOptionAccess().getConfigConfigKeyword_2_1_0()); 
 
             }
@@ -25562,7 +25561,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:8407:4: 'adopt'
             {
              before(grammarAccess.getGroupMemberAccess().getAdoptAdoptKeyword_0_1_0()); 
-            match(input,100,FOLLOW_2); 
+            match(input,99,FOLLOW_2); 
              after(grammarAccess.getGroupMemberAccess().getAdoptAdoptKeyword_0_1_0()); 
 
             }
@@ -25820,8 +25819,8 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     protected DFA48 dfa48 = new DFA48(this);
     protected DFA49 dfa49 = new DFA49(this);
     static final String dfa_1s = "\12\uffff";
-    static final String dfa_2s = "\1\32\1\61\10\uffff";
-    static final String dfa_3s = "\1\144\1\62\10\uffff";
+    static final String dfa_2s = "\1\31\1\60\10\uffff";
+    static final String dfa_3s = "\1\143\1\61\10\uffff";
     static final String dfa_4s = "\2\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10";
     static final String dfa_5s = "\12\uffff}>";
     static final String[] dfa_6s = {
@@ -25862,8 +25861,8 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
         }
     }
     static final String dfa_7s = "\13\uffff";
-    static final String dfa_8s = "\1\26\12\uffff";
-    static final String dfa_9s = "\1\134\12\uffff";
+    static final String dfa_8s = "\1\25\12\uffff";
+    static final String dfa_9s = "\1\133\12\uffff";
     static final String dfa_10s = "\1\uffff\11\1\1\2";
     static final String dfa_11s = "\1\0\12\uffff}>";
     static final String[] dfa_12s = {
@@ -25914,25 +25913,25 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index24_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA24_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
+                        if ( LA24_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
 
-                        else if ( LA24_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
+                        else if ( LA24_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
 
-                        else if ( LA24_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
+                        else if ( LA24_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
 
-                        else if ( LA24_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
+                        else if ( LA24_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
 
-                        else if ( LA24_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
+                        else if ( LA24_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
 
-                        else if ( LA24_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
+                        else if ( LA24_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
 
-                        else if ( LA24_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
+                        else if ( LA24_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
 
-                        else if ( LA24_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
+                        else if ( LA24_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
 
-                        else if ( LA24_0 == 92 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
+                        else if ( LA24_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
 
-                        else if ( ((LA24_0>=22 && LA24_0<=25)) ) {s = 10;}
+                        else if ( ((LA24_0>=21 && LA24_0<=24)) ) {s = 10;}
 
                          
                         input.seek(index24_0);
@@ -25945,8 +25944,8 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_13s = "\1\124\11\uffff";
-    static final String dfa_14s = "\1\134\11\uffff";
+    static final String dfa_13s = "\1\123\11\uffff";
+    static final String dfa_14s = "\1\133\11\uffff";
     static final String dfa_15s = "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11";
     static final String dfa_16s = "\1\0\11\uffff}>";
     static final String[] dfa_17s = {
@@ -25994,23 +25993,23 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index25_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA25_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
+                        if ( LA25_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
 
-                        else if ( LA25_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
+                        else if ( LA25_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
 
-                        else if ( LA25_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
+                        else if ( LA25_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
 
-                        else if ( LA25_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
+                        else if ( LA25_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
 
-                        else if ( LA25_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
+                        else if ( LA25_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
 
-                        else if ( LA25_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
+                        else if ( LA25_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
 
-                        else if ( LA25_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
+                        else if ( LA25_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
 
-                        else if ( LA25_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
+                        else if ( LA25_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
 
-                        else if ( LA25_0 == 92 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
+                        else if ( LA25_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
 
                          
                         input.seek(index25_0);
@@ -26051,25 +26050,25 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index26_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA26_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
+                        if ( LA26_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
 
-                        else if ( LA26_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
+                        else if ( LA26_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
 
-                        else if ( LA26_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
+                        else if ( LA26_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
 
-                        else if ( LA26_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
+                        else if ( LA26_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
 
-                        else if ( LA26_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
+                        else if ( LA26_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
 
-                        else if ( LA26_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
+                        else if ( LA26_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
 
-                        else if ( LA26_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
+                        else if ( LA26_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
 
-                        else if ( LA26_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
+                        else if ( LA26_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
 
-                        else if ( LA26_0 == 92 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
+                        else if ( LA26_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
 
-                        else if ( ((LA26_0>=22 && LA26_0<=25)) ) {s = 10;}
+                        else if ( ((LA26_0>=21 && LA26_0<=24)) ) {s = 10;}
 
                          
                         input.seek(index26_0);
@@ -26110,25 +26109,25 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index27_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA27_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
+                        if ( LA27_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
 
-                        else if ( LA27_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
+                        else if ( LA27_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
 
-                        else if ( LA27_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
+                        else if ( LA27_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
 
-                        else if ( LA27_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
+                        else if ( LA27_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
 
-                        else if ( LA27_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
+                        else if ( LA27_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
 
-                        else if ( LA27_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
+                        else if ( LA27_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
 
-                        else if ( LA27_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
+                        else if ( LA27_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
 
-                        else if ( LA27_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
+                        else if ( LA27_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
 
-                        else if ( LA27_0 == 92 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
+                        else if ( LA27_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
 
-                        else if ( ((LA27_0>=22 && LA27_0<=25)) ) {s = 10;}
+                        else if ( ((LA27_0>=21 && LA27_0<=24)) ) {s = 10;}
 
                          
                         input.seek(index27_0);
@@ -26169,25 +26168,25 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index28_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA28_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
+                        if ( LA28_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
 
-                        else if ( LA28_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
+                        else if ( LA28_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
 
-                        else if ( LA28_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
+                        else if ( LA28_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
 
-                        else if ( LA28_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
+                        else if ( LA28_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
 
-                        else if ( LA28_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
+                        else if ( LA28_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
 
-                        else if ( LA28_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
+                        else if ( LA28_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
 
-                        else if ( LA28_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
+                        else if ( LA28_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
 
-                        else if ( LA28_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
+                        else if ( LA28_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
 
-                        else if ( LA28_0 == 92 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
+                        else if ( LA28_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
 
-                        else if ( ((LA28_0>=22 && LA28_0<=25)) ) {s = 10;}
+                        else if ( ((LA28_0>=21 && LA28_0<=24)) ) {s = 10;}
 
                          
                         input.seek(index28_0);
@@ -26228,25 +26227,25 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index29_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA29_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
+                        if ( LA29_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
 
-                        else if ( LA29_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
+                        else if ( LA29_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
 
-                        else if ( LA29_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
+                        else if ( LA29_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
 
-                        else if ( LA29_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
+                        else if ( LA29_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
 
-                        else if ( LA29_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
+                        else if ( LA29_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
 
-                        else if ( LA29_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
+                        else if ( LA29_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
 
-                        else if ( LA29_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
+                        else if ( LA29_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
 
-                        else if ( LA29_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
+                        else if ( LA29_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
 
-                        else if ( LA29_0 == 92 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
+                        else if ( LA29_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
 
-                        else if ( ((LA29_0>=22 && LA29_0<=25)) ) {s = 10;}
+                        else if ( ((LA29_0>=21 && LA29_0<=24)) ) {s = 10;}
 
                          
                         input.seek(index29_0);
@@ -26287,25 +26286,25 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index30_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA30_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
+                        if ( LA30_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
 
-                        else if ( LA30_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
+                        else if ( LA30_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
 
-                        else if ( LA30_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
+                        else if ( LA30_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
 
-                        else if ( LA30_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
+                        else if ( LA30_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
 
-                        else if ( LA30_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
+                        else if ( LA30_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
 
-                        else if ( LA30_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
+                        else if ( LA30_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
 
-                        else if ( LA30_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
+                        else if ( LA30_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
 
-                        else if ( LA30_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
+                        else if ( LA30_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
 
-                        else if ( LA30_0 == 92 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
+                        else if ( LA30_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
 
-                        else if ( ((LA30_0>=22 && LA30_0<=25)) ) {s = 10;}
+                        else if ( ((LA30_0>=21 && LA30_0<=24)) ) {s = 10;}
 
                          
                         input.seek(index30_0);
@@ -26346,25 +26345,25 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index31_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA31_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
+                        if ( LA31_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
 
-                        else if ( LA31_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
+                        else if ( LA31_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
 
-                        else if ( LA31_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
+                        else if ( LA31_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
 
-                        else if ( LA31_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
+                        else if ( LA31_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
 
-                        else if ( LA31_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
+                        else if ( LA31_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
 
-                        else if ( LA31_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
+                        else if ( LA31_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
 
-                        else if ( LA31_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
+                        else if ( LA31_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
 
-                        else if ( LA31_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
+                        else if ( LA31_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
 
-                        else if ( LA31_0 == 92 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
+                        else if ( LA31_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
 
-                        else if ( ((LA31_0>=22 && LA31_0<=25)) ) {s = 10;}
+                        else if ( ((LA31_0>=21 && LA31_0<=24)) ) {s = 10;}
 
                          
                         input.seek(index31_0);
@@ -26405,25 +26404,25 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index32_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA32_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
+                        if ( LA32_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
 
-                        else if ( LA32_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
+                        else if ( LA32_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
 
-                        else if ( LA32_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
+                        else if ( LA32_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
 
-                        else if ( LA32_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
+                        else if ( LA32_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
 
-                        else if ( LA32_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
+                        else if ( LA32_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
 
-                        else if ( LA32_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
+                        else if ( LA32_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
 
-                        else if ( LA32_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
+                        else if ( LA32_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
 
-                        else if ( LA32_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
+                        else if ( LA32_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
 
-                        else if ( LA32_0 == 92 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
+                        else if ( LA32_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
 
-                        else if ( ((LA32_0>=22 && LA32_0<=25)) ) {s = 10;}
+                        else if ( ((LA32_0>=21 && LA32_0<=24)) ) {s = 10;}
 
                          
                         input.seek(index32_0);
@@ -26464,25 +26463,25 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index33_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA33_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
+                        if ( LA33_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
 
-                        else if ( LA33_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
+                        else if ( LA33_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
 
-                        else if ( LA33_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
+                        else if ( LA33_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
 
-                        else if ( LA33_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
+                        else if ( LA33_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
 
-                        else if ( LA33_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
+                        else if ( LA33_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
 
-                        else if ( LA33_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
+                        else if ( LA33_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
 
-                        else if ( LA33_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
+                        else if ( LA33_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
 
-                        else if ( LA33_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
+                        else if ( LA33_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
 
-                        else if ( LA33_0 == 92 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
+                        else if ( LA33_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
 
-                        else if ( ((LA33_0>=22 && LA33_0<=25)) ) {s = 10;}
+                        else if ( ((LA33_0>=21 && LA33_0<=24)) ) {s = 10;}
 
                          
                         input.seek(index33_0);
@@ -26497,11 +26496,11 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     }
     static final String dfa_18s = "\21\uffff";
     static final String dfa_19s = "\1\5\20\uffff";
-    static final String dfa_20s = "\1\144\20\uffff";
+    static final String dfa_20s = "\1\143\20\uffff";
     static final String dfa_21s = "\1\uffff\17\1\1\2";
     static final String dfa_22s = "\1\0\20\uffff}>";
     static final String[] dfa_23s = {
-            "\1\20\24\uffff\5\20\15\uffff\1\2\1\uffff\1\3\1\5\1\6\2\20\1\17\4\20\1\7\1\10\1\11\1\12\2\uffff\1\13\1\14\1\20\1\15\1\16\7\uffff\1\1\1\4\3\uffff\1\20\15\uffff\1\20\6\uffff\1\20",
+            "\1\20\23\uffff\5\20\15\uffff\1\2\1\uffff\1\3\1\5\1\6\2\20\1\17\4\20\1\7\1\10\1\11\1\12\2\uffff\1\13\1\14\1\20\1\15\1\16\7\uffff\1\1\1\4\3\uffff\1\20\15\uffff\1\20\6\uffff\1\20",
             "",
             "",
             "",
@@ -26554,37 +26553,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index34_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA34_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA34_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA34_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA34_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA34_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA34_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA34_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA34_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA34_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA34_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA34_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA34_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA34_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA34_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA34_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA34_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA34_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA34_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA34_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA34_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA34_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA34_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA34_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA34_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA34_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA34_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA34_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA34_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA34_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA34_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA34_0==RULE_BLOCK_END||(LA34_0>=26 && LA34_0<=30)||(LA34_0>=49 && LA34_0<=50)||(LA34_0>=52 && LA34_0<=55)||LA34_0==64||LA34_0==79||LA34_0==93||LA34_0==100) ) {s = 16;}
+                        else if ( (LA34_0==RULE_BLOCK_END||(LA34_0>=25 && LA34_0<=29)||(LA34_0>=48 && LA34_0<=49)||(LA34_0>=51 && LA34_0<=54)||LA34_0==63||LA34_0==78||LA34_0==92||LA34_0==99) ) {s = 16;}
 
                          
                         input.seek(index34_0);
@@ -26598,8 +26597,8 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
         }
     }
     static final String dfa_24s = "\20\uffff";
-    static final String dfa_25s = "\1\54\17\uffff";
-    static final String dfa_26s = "\1\113\17\uffff";
+    static final String dfa_25s = "\1\53\17\uffff";
+    static final String dfa_26s = "\1\112\17\uffff";
     static final String dfa_27s = "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17";
     static final String dfa_28s = "\1\0\17\uffff}>";
     static final String[] dfa_29s = {
@@ -26655,35 +26654,35 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index35_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA35_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA35_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA35_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA35_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA35_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA35_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA35_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA35_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA35_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA35_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA35_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA35_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA35_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA35_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA35_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA35_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA35_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA35_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA35_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA35_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA35_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA35_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA35_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA35_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA35_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA35_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA35_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA35_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA35_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA35_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
                          
                         input.seek(index35_0);
@@ -26724,37 +26723,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index36_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA36_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA36_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA36_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA36_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA36_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA36_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA36_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA36_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA36_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA36_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA36_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA36_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA36_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA36_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA36_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA36_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA36_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA36_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA36_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA36_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA36_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA36_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA36_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA36_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA36_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA36_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA36_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA36_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA36_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA36_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA36_0==RULE_BLOCK_END||(LA36_0>=26 && LA36_0<=30)||(LA36_0>=49 && LA36_0<=50)||(LA36_0>=52 && LA36_0<=55)||LA36_0==64||LA36_0==79||LA36_0==93||LA36_0==100) ) {s = 16;}
+                        else if ( (LA36_0==RULE_BLOCK_END||(LA36_0>=25 && LA36_0<=29)||(LA36_0>=48 && LA36_0<=49)||(LA36_0>=51 && LA36_0<=54)||LA36_0==63||LA36_0==78||LA36_0==92||LA36_0==99) ) {s = 16;}
 
                          
                         input.seek(index36_0);
@@ -26795,37 +26794,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index37_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA37_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA37_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA37_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA37_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA37_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA37_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA37_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA37_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA37_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA37_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA37_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA37_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA37_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA37_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA37_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA37_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA37_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA37_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA37_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA37_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA37_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA37_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA37_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA37_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA37_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA37_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA37_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA37_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA37_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA37_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA37_0==RULE_BLOCK_END||(LA37_0>=26 && LA37_0<=30)||(LA37_0>=49 && LA37_0<=50)||(LA37_0>=52 && LA37_0<=55)||LA37_0==64||LA37_0==79||LA37_0==93||LA37_0==100) ) {s = 16;}
+                        else if ( (LA37_0==RULE_BLOCK_END||(LA37_0>=25 && LA37_0<=29)||(LA37_0>=48 && LA37_0<=49)||(LA37_0>=51 && LA37_0<=54)||LA37_0==63||LA37_0==78||LA37_0==92||LA37_0==99) ) {s = 16;}
 
                          
                         input.seek(index37_0);
@@ -26866,37 +26865,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index38_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA38_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA38_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA38_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA38_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA38_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA38_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA38_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA38_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA38_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA38_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA38_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA38_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA38_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA38_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA38_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA38_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA38_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA38_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA38_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA38_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA38_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA38_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA38_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA38_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA38_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA38_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA38_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA38_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA38_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA38_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA38_0==RULE_BLOCK_END||(LA38_0>=26 && LA38_0<=30)||(LA38_0>=49 && LA38_0<=50)||(LA38_0>=52 && LA38_0<=55)||LA38_0==64||LA38_0==79||LA38_0==93||LA38_0==100) ) {s = 16;}
+                        else if ( (LA38_0==RULE_BLOCK_END||(LA38_0>=25 && LA38_0<=29)||(LA38_0>=48 && LA38_0<=49)||(LA38_0>=51 && LA38_0<=54)||LA38_0==63||LA38_0==78||LA38_0==92||LA38_0==99) ) {s = 16;}
 
                          
                         input.seek(index38_0);
@@ -26937,37 +26936,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index39_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA39_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA39_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA39_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA39_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA39_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA39_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA39_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA39_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA39_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA39_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA39_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA39_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA39_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA39_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA39_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA39_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA39_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA39_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA39_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA39_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA39_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA39_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA39_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA39_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA39_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA39_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA39_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA39_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA39_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA39_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA39_0==RULE_BLOCK_END||(LA39_0>=26 && LA39_0<=30)||(LA39_0>=49 && LA39_0<=50)||(LA39_0>=52 && LA39_0<=55)||LA39_0==64||LA39_0==79||LA39_0==93||LA39_0==100) ) {s = 16;}
+                        else if ( (LA39_0==RULE_BLOCK_END||(LA39_0>=25 && LA39_0<=29)||(LA39_0>=48 && LA39_0<=49)||(LA39_0>=51 && LA39_0<=54)||LA39_0==63||LA39_0==78||LA39_0==92||LA39_0==99) ) {s = 16;}
 
                          
                         input.seek(index39_0);
@@ -27008,37 +27007,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index40_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA40_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA40_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA40_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA40_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA40_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA40_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA40_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA40_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA40_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA40_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA40_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA40_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA40_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA40_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA40_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA40_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA40_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA40_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA40_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA40_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA40_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA40_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA40_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA40_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA40_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA40_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA40_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA40_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA40_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA40_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA40_0==RULE_BLOCK_END||(LA40_0>=26 && LA40_0<=30)||(LA40_0>=49 && LA40_0<=50)||(LA40_0>=52 && LA40_0<=55)||LA40_0==64||LA40_0==79||LA40_0==93||LA40_0==100) ) {s = 16;}
+                        else if ( (LA40_0==RULE_BLOCK_END||(LA40_0>=25 && LA40_0<=29)||(LA40_0>=48 && LA40_0<=49)||(LA40_0>=51 && LA40_0<=54)||LA40_0==63||LA40_0==78||LA40_0==92||LA40_0==99) ) {s = 16;}
 
                          
                         input.seek(index40_0);
@@ -27079,37 +27078,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index41_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA41_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA41_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA41_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA41_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA41_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA41_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA41_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA41_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA41_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA41_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA41_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA41_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA41_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA41_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA41_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA41_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA41_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA41_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA41_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA41_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA41_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA41_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA41_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA41_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA41_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA41_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA41_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA41_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA41_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA41_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA41_0==RULE_BLOCK_END||(LA41_0>=26 && LA41_0<=30)||(LA41_0>=49 && LA41_0<=50)||(LA41_0>=52 && LA41_0<=55)||LA41_0==64||LA41_0==79||LA41_0==93||LA41_0==100) ) {s = 16;}
+                        else if ( (LA41_0==RULE_BLOCK_END||(LA41_0>=25 && LA41_0<=29)||(LA41_0>=48 && LA41_0<=49)||(LA41_0>=51 && LA41_0<=54)||LA41_0==63||LA41_0==78||LA41_0==92||LA41_0==99) ) {s = 16;}
 
                          
                         input.seek(index41_0);
@@ -27150,37 +27149,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index42_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA42_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA42_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA42_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA42_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA42_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA42_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA42_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA42_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA42_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA42_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA42_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA42_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA42_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA42_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA42_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA42_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA42_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA42_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA42_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA42_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA42_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA42_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA42_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA42_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA42_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA42_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA42_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA42_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA42_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA42_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA42_0==RULE_BLOCK_END||(LA42_0>=26 && LA42_0<=30)||(LA42_0>=49 && LA42_0<=50)||(LA42_0>=52 && LA42_0<=55)||LA42_0==64||LA42_0==79||LA42_0==93||LA42_0==100) ) {s = 16;}
+                        else if ( (LA42_0==RULE_BLOCK_END||(LA42_0>=25 && LA42_0<=29)||(LA42_0>=48 && LA42_0<=49)||(LA42_0>=51 && LA42_0<=54)||LA42_0==63||LA42_0==78||LA42_0==92||LA42_0==99) ) {s = 16;}
 
                          
                         input.seek(index42_0);
@@ -27221,37 +27220,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index43_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA43_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA43_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA43_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA43_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA43_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA43_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA43_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA43_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA43_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA43_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA43_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA43_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA43_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA43_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA43_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA43_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA43_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA43_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA43_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA43_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA43_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA43_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA43_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA43_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA43_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA43_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA43_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA43_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA43_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA43_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA43_0==RULE_BLOCK_END||(LA43_0>=26 && LA43_0<=30)||(LA43_0>=49 && LA43_0<=50)||(LA43_0>=52 && LA43_0<=55)||LA43_0==64||LA43_0==79||LA43_0==93||LA43_0==100) ) {s = 16;}
+                        else if ( (LA43_0==RULE_BLOCK_END||(LA43_0>=25 && LA43_0<=29)||(LA43_0>=48 && LA43_0<=49)||(LA43_0>=51 && LA43_0<=54)||LA43_0==63||LA43_0==78||LA43_0==92||LA43_0==99) ) {s = 16;}
 
                          
                         input.seek(index43_0);
@@ -27292,37 +27291,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index44_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA44_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA44_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA44_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA44_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA44_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA44_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA44_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA44_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA44_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA44_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA44_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA44_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA44_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA44_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA44_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA44_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA44_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA44_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA44_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA44_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA44_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA44_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA44_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA44_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA44_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA44_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA44_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA44_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA44_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA44_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA44_0==RULE_BLOCK_END||(LA44_0>=26 && LA44_0<=30)||(LA44_0>=49 && LA44_0<=50)||(LA44_0>=52 && LA44_0<=55)||LA44_0==64||LA44_0==79||LA44_0==93||LA44_0==100) ) {s = 16;}
+                        else if ( (LA44_0==RULE_BLOCK_END||(LA44_0>=25 && LA44_0<=29)||(LA44_0>=48 && LA44_0<=49)||(LA44_0>=51 && LA44_0<=54)||LA44_0==63||LA44_0==78||LA44_0==92||LA44_0==99) ) {s = 16;}
 
                          
                         input.seek(index44_0);
@@ -27363,37 +27362,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index45_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA45_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA45_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA45_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA45_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA45_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA45_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA45_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA45_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA45_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA45_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA45_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA45_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA45_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA45_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA45_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA45_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA45_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA45_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA45_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA45_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA45_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA45_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA45_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA45_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA45_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA45_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA45_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA45_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA45_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA45_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA45_0==RULE_BLOCK_END||(LA45_0>=26 && LA45_0<=30)||(LA45_0>=49 && LA45_0<=50)||(LA45_0>=52 && LA45_0<=55)||LA45_0==64||LA45_0==79||LA45_0==93||LA45_0==100) ) {s = 16;}
+                        else if ( (LA45_0==RULE_BLOCK_END||(LA45_0>=25 && LA45_0<=29)||(LA45_0>=48 && LA45_0<=49)||(LA45_0>=51 && LA45_0<=54)||LA45_0==63||LA45_0==78||LA45_0==92||LA45_0==99) ) {s = 16;}
 
                          
                         input.seek(index45_0);
@@ -27434,37 +27433,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index46_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA46_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA46_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA46_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA46_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA46_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA46_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA46_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA46_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA46_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA46_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA46_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA46_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA46_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA46_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA46_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA46_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA46_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA46_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA46_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA46_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA46_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA46_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA46_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA46_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA46_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA46_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA46_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA46_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA46_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA46_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA46_0==RULE_BLOCK_END||(LA46_0>=26 && LA46_0<=30)||(LA46_0>=49 && LA46_0<=50)||(LA46_0>=52 && LA46_0<=55)||LA46_0==64||LA46_0==79||LA46_0==93||LA46_0==100) ) {s = 16;}
+                        else if ( (LA46_0==RULE_BLOCK_END||(LA46_0>=25 && LA46_0<=29)||(LA46_0>=48 && LA46_0<=49)||(LA46_0>=51 && LA46_0<=54)||LA46_0==63||LA46_0==78||LA46_0==92||LA46_0==99) ) {s = 16;}
 
                          
                         input.seek(index46_0);
@@ -27505,37 +27504,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index47_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA47_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA47_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA47_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA47_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA47_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA47_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA47_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA47_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA47_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA47_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA47_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA47_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA47_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA47_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA47_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA47_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA47_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA47_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA47_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA47_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA47_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA47_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA47_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA47_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA47_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA47_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA47_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA47_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA47_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA47_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA47_0==RULE_BLOCK_END||(LA47_0>=26 && LA47_0<=30)||(LA47_0>=49 && LA47_0<=50)||(LA47_0>=52 && LA47_0<=55)||LA47_0==64||LA47_0==79||LA47_0==93||LA47_0==100) ) {s = 16;}
+                        else if ( (LA47_0==RULE_BLOCK_END||(LA47_0>=25 && LA47_0<=29)||(LA47_0>=48 && LA47_0<=49)||(LA47_0>=51 && LA47_0<=54)||LA47_0==63||LA47_0==78||LA47_0==92||LA47_0==99) ) {s = 16;}
 
                          
                         input.seek(index47_0);
@@ -27576,37 +27575,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index48_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA48_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA48_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA48_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA48_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA48_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA48_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA48_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA48_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA48_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA48_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA48_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA48_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA48_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA48_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA48_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA48_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA48_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA48_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA48_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA48_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA48_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA48_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA48_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA48_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA48_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA48_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA48_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA48_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA48_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA48_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA48_0==RULE_BLOCK_END||(LA48_0>=26 && LA48_0<=30)||(LA48_0>=49 && LA48_0<=50)||(LA48_0>=52 && LA48_0<=55)||LA48_0==64||LA48_0==79||LA48_0==93||LA48_0==100) ) {s = 16;}
+                        else if ( (LA48_0==RULE_BLOCK_END||(LA48_0>=25 && LA48_0<=29)||(LA48_0>=48 && LA48_0<=49)||(LA48_0>=51 && LA48_0<=54)||LA48_0==63||LA48_0==78||LA48_0==92||LA48_0==99) ) {s = 16;}
 
                          
                         input.seek(index48_0);
@@ -27647,37 +27646,37 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                         int index49_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( LA49_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
+                        if ( LA49_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
 
-                        else if ( LA49_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
+                        else if ( LA49_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
 
-                        else if ( LA49_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
+                        else if ( LA49_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
 
-                        else if ( LA49_0 == 75 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
+                        else if ( LA49_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
 
-                        else if ( LA49_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
+                        else if ( LA49_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
 
-                        else if ( LA49_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
+                        else if ( LA49_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
 
-                        else if ( LA49_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
+                        else if ( LA49_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
 
-                        else if ( LA49_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
+                        else if ( LA49_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
 
-                        else if ( LA49_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
+                        else if ( LA49_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
 
-                        else if ( LA49_0 == 59 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
+                        else if ( LA49_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
 
-                        else if ( LA49_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
+                        else if ( LA49_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
 
-                        else if ( LA49_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
+                        else if ( LA49_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
 
-                        else if ( LA49_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
+                        else if ( LA49_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
 
-                        else if ( LA49_0 == 66 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
+                        else if ( LA49_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
 
-                        else if ( LA49_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
+                        else if ( LA49_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
 
-                        else if ( (LA49_0==RULE_BLOCK_END||(LA49_0>=26 && LA49_0<=30)||(LA49_0>=49 && LA49_0<=50)||(LA49_0>=52 && LA49_0<=55)||LA49_0==64||LA49_0==79||LA49_0==93||LA49_0==100) ) {s = 16;}
+                        else if ( (LA49_0==RULE_BLOCK_END||(LA49_0>=25 && LA49_0<=29)||(LA49_0>=48 && LA49_0<=49)||(LA49_0>=51 && LA49_0<=54)||LA49_0==63||LA49_0==78||LA49_0==92||LA49_0==99) ) {s = 16;}
 
                          
                         input.seek(index49_0);
@@ -27694,61 +27693,59 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000002L,0x000000001FF00000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000003C00000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000002L,0x000000000FF80000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000001E00000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000020000000000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000080000000010L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0xCF09D00000000000L,0x0000000000000C06L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x00F600007C000020L,0x0000001020000001L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00F600007C000002L,0x0000001020000001L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0002000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0004000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000200000000200L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000202L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0040000000000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000040000000010L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x6784E80000000000L,0x0000000000000603L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x807B00003E000020L,0x0000000810000000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x807B00003E000002L,0x0000000810000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0001000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0002000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000100000000100L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000102L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0020000000000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0040000000000000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x000020007C000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x000000007C000002L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000038000040000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x1000000000000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000000000L,0x0000000040000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000200000000100L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000000000102L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000000000L,0x0000000180000000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000000000L,0x00000000000001F8L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000000380000L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x000010003E000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x000000003E000002L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x000001C000020000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000000000000L,0x00000000C0000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000000000L,0x00000000000000FCL});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x00000000001C0000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000100L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000000000000L,0x0000000200000200L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000080000000000L,0x0000000600000000L});
     public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000100000000000L,0x0000000C00000000L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000000L,0x0000000000007000L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000007F80000000L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000200000000000L,0x0000000000070000L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000000000000L,0x0000000000070000L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000000000L,0x0000000000080000L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000000000002L,0x0000000000080000L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0xCF09D00000000002L,0x0000000000000C06L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000038000040002L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000000002L,0x0000000180000000L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000000000002L,0x00000000000001F8L});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000000002L,0x0000000200000200L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000100000000002L,0x0000000C00000000L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000000000000002L,0x0000000000007000L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x000000007C000002L,0x0000001000000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000000000L,0x0000000000003800L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000003FC0000000L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000100000000000L,0x0000000000038000L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000000000L,0x0000000000038000L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000000000L,0x0000000000040000L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000000000002L,0x0000000000040000L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x6784E80000000002L,0x0000000000000603L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x000001C000020002L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000000000002L,0x00000000C0000000L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000000002L,0x00000000000000FCL});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000000002L,0x0000000100000100L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000080000000002L,0x0000000600000000L});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000000002L,0x0000000000003800L});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x000000003E000002L,0x0000000800000000L});
 
 }

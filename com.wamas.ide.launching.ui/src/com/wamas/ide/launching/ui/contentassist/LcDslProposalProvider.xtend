@@ -162,7 +162,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 		for (s : PDECore.^default.tracingOptionsManager.getTemplateTable(name).keySet) {
 			val n = s.substring(s.indexOf('/') + 1)
 			acceptor.accept(
-				createCompletionProposal(n, new StyledString(n), ih.getImage("doc_section_obj.png"), context))
+				createCompletionProposal("'" + n + "'", new StyledString(n), ih.getImage("doc_section_obj.png"), context))
 		}
 
 		super.completeTraceEnablement_What(model, assignment, context, acceptor)

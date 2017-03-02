@@ -45,7 +45,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		// * 
 		// * How to support different launch config types - some generic attribute support?
 		// * Or really implement support for each type separately (probably the best experience).
-		// * / LCModel:
+		// * /
+		//LCModel:
 		//	configurations+=LaunchConfig*;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -146,89 +147,120 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		// * no-validate = don't validate plugins prior to launch
 		// * sw-install-allowed = allow software installation in eclipse config
 		// * replace-env = replace environment instead of appending variables
-		// * / LaunchConfig:
+		// * /
+		//LaunchConfig:
 		//	(explicit?='explicit'? // All
-		//	& manual?='manual'? // All
-		//	& abstract?='abstract'? // All
-		//	& foreground?='foreground'? // All  
-		//	& noConsole?='no-console'? // All but Groups
-		//	& noValidate?='no-validate'? // Eclipse, RAP
-		//	& swInstallSupport?='sw-install-allowed'? // Eclipse
-		//	& replaceEnv?='replace-env'? // All but Groups
-		//	& stopInMain?='stop-in-main'? // Java
-		//) type=LaunchConfigType 'configuration' name=FQName (':' superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN
-		//	(clears=ClearOption? // Eclipse, RAP (partial)
-		//	& workspace=Workspace? // Eclipse, RAP
-		//	& workingDir=WorkingDir? // All but Groups
-		//	& memory=MemoryOption? // All but Groups
-		//	& mainProject=MainProject? // Java
-		//	& mainType=MainType? // Java
-		//	& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
-		//	& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
-		//	& favorites=Favorites? // All
-		//	& redirect=Redirect? // All but Groups
-		//	& execEnv=ExecutionEnvironment? // All but Groups
-		//	& configIniTemplate=ConfigIniTemplate? // Eclipse
-		//	& javaMainSearch=JavaMainSearch? // Java
-		//	& servletConfig=RapServletConfig? // RAP
-		//	& contentProviderProduct=ContentProviderProduct? // Eclipse, RAP
+		// & manual?='manual'? // All
+		// & abstract?='abstract'? // All
+		// &
+		//	foreground?='foreground'? // All  
+		// & noConsole?='no-console'? // All but Groups
+		// & noValidate?='no-validate'?
+		//	// Eclipse, RAP
+		// & swInstallSupport?='sw-install-allowed'? // Eclipse
+		// & replaceEnv?='replace-env'?
+		//	// All but Groups
+		// & stopInMain?='stop-in-main'? // Java
+		//) type=LaunchConfigType 'configuration' name=FQName (':'
+		//	superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN (clears=ClearOption? // Eclipse, RAP (partial)
+		// &
+		//	workspace=Workspace? // Eclipse, RAP
+		// & workingDir=WorkingDir? // All but Groups
+		// & memory=MemoryOption?
+		//	// All but Groups
+		// & mainProject=MainProject? // Java
+		// & mainType=MainType? // Java
+		// &
+		//	application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
+		// & product=ProductExtPoint?
+		//	// Eclipse 				// TODO: content assist, validation
+		// & favorites=Favorites? // All
+		// & redirect=Redirect?
+		//	// All but Groups
+		// & execEnv=ExecutionEnvironment? // All but Groups
+		// & configIniTemplate=ConfigIniTemplate?
+		//	// Eclipse
+		// & javaMainSearch=JavaMainSearch? // Java
+		// & servletConfig=RapServletConfig? // RAP
+		// &
+		//	contentProviderProduct=ContentProviderProduct? // Eclipse, RAP
 		//) (plugins+=AddPlugin // Eclipse, RAP
-		//	| features+=AddFeature // Eclipse, RAP					// TODO: content assist, validation
-		//	| ignore+=IgnorePlugin // Eclipse, RAP
+		// |
+		//	features+=AddFeature // Eclipse, RAP					// TODO: content assist, validation
+		// | ignore+=IgnorePlugin // Eclipse, RAP
+		//
 		//	| groupMembers+=GroupMember // Groups 					// TODO: content assist, validation, update on rename
-		//	| vmArgs+=VmArgument // All but Groups
-		//	| progArgs+=ProgramArgument // All but Groups
-		//	| envVars+=EnvironmentVariable // All but Groups
-		//	| traces+=TraceEnablement // Eclipse, RAP 				// TODO: content assist, validation
-		//)*
-		//	BLOCK_END;
+		// |
+		//	vmArgs+=VmArgument // All but Groups
+		// | progArgs+=ProgramArgument // All but Groups
+		// | envVars+=EnvironmentVariable
+		//	// All but Groups
+		// | traces+=TraceEnablement // Eclipse, RAP 				// TODO: content assist, validation
+		//)* BLOCK_END;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//(explicit?='explicit'? // All
-		//& manual?='manual'? // All
-		//& abstract?='abstract'? // All
-		//& foreground?='foreground'? // All  
-		//& noConsole?='no-console'? // All but Groups
-		//& noValidate?='no-validate'? // Eclipse, RAP
-		//& swInstallSupport?='sw-install-allowed'? // Eclipse
-		//& replaceEnv?='replace-env'? // All but Groups
-		//& stopInMain?='stop-in-main'? // Java
-		//) type=LaunchConfigType 'configuration' name=FQName (':' superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN
-		//(clears=ClearOption? // Eclipse, RAP (partial)
-		//& workspace=Workspace? // Eclipse, RAP
-		//& workingDir=WorkingDir? // All but Groups
-		//& memory=MemoryOption? // All but Groups
-		//& mainProject=MainProject? // Java
-		//& mainType=MainType? // Java
-		//& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
-		//& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
-		//& favorites=Favorites? // All
-		//& redirect=Redirect? // All but Groups
-		//& execEnv=ExecutionEnvironment? // All but Groups
-		//& configIniTemplate=ConfigIniTemplate? // Eclipse
-		//& javaMainSearch=JavaMainSearch? // Java
-		//& servletConfig=RapServletConfig? // RAP
-		//& contentProviderProduct=ContentProviderProduct? // Eclipse, RAP
+		// & manual?='manual'? // All
+		// & abstract?='abstract'? // All
+		// & foreground?='foreground'?
+		//// All  
+		// & noConsole?='no-console'? // All but Groups
+		// & noValidate?='no-validate'? // Eclipse, RAP
+		// &
+		//swInstallSupport?='sw-install-allowed'? // Eclipse
+		// & replaceEnv?='replace-env'? // All but Groups
+		// &
+		//stopInMain?='stop-in-main'? // Java
+		//) type=LaunchConfigType 'configuration' name=FQName (':'
+		//superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN (clears=ClearOption? // Eclipse, RAP (partial)
+		// & workspace=Workspace?
+		//// Eclipse, RAP
+		// & workingDir=WorkingDir? // All but Groups
+		// & memory=MemoryOption? // All but Groups
+		// &
+		//mainProject=MainProject? // Java
+		// & mainType=MainType? // Java
+		// & application=ApplicationExtPoint?
+		//// Eclipse 		// TODO: content assist, validation
+		// & product=ProductExtPoint?
+		//// Eclipse 				// TODO: content assist, validation
+		// & favorites=Favorites? // All
+		// & redirect=Redirect?
+		//// All but Groups
+		// & execEnv=ExecutionEnvironment? // All but Groups
+		// & configIniTemplate=ConfigIniTemplate?
+		//// Eclipse
+		// & javaMainSearch=JavaMainSearch? // Java
+		// & servletConfig=RapServletConfig? // RAP
+		// &
+		//contentProviderProduct=ContentProviderProduct? // Eclipse, RAP
 		//) (plugins+=AddPlugin // Eclipse, RAP
-		//| features+=AddFeature // Eclipse, RAP					// TODO: content assist, validation
-		//| ignore+=IgnorePlugin // Eclipse, RAP
+		// |
+		//features+=AddFeature // Eclipse, RAP					// TODO: content assist, validation
+		// | ignore+=IgnorePlugin // Eclipse, RAP
+		//
 		//| groupMembers+=GroupMember // Groups 					// TODO: content assist, validation, update on rename
-		//| vmArgs+=VmArgument // All but Groups
-		//| progArgs+=ProgramArgument // All but Groups
-		//| envVars+=EnvironmentVariable // All but Groups
-		//| traces+=TraceEnablement // Eclipse, RAP 				// TODO: content assist, validation
+		// | vmArgs+=VmArgument
+		//// All but Groups
+		// | progArgs+=ProgramArgument // All but Groups
+		// | envVars+=EnvironmentVariable // All but Groups
+		// |
+		//traces+=TraceEnablement // Eclipse, RAP 				// TODO: content assist, validation
 		//)* BLOCK_END
 		public Group getGroup() { return cGroup; }
 		
 		//(explicit?='explicit'? // All
-		//& manual?='manual'? // All
-		//& abstract?='abstract'? // All
-		//& foreground?='foreground'? // All  
-		//& noConsole?='no-console'? // All but Groups
-		//& noValidate?='no-validate'? // Eclipse, RAP
-		//& swInstallSupport?='sw-install-allowed'? // Eclipse
-		//& replaceEnv?='replace-env'? // All but Groups
-		//& stopInMain?='stop-in-main'? // Java
+		// & manual?='manual'? // All
+		// & abstract?='abstract'? // All
+		// & foreground?='foreground'?
+		//// All  
+		// & noConsole?='no-console'? // All but Groups
+		// & noValidate?='no-validate'? // Eclipse, RAP
+		// &
+		//swInstallSupport?='sw-install-allowed'? // Eclipse
+		// & replaceEnv?='replace-env'? // All but Groups
+		// &
+		//stopInMain?='stop-in-main'? // Java
 		//)
 		public UnorderedGroup getUnorderedGroup_0() { return cUnorderedGroup_0; }
 		
@@ -320,25 +352,31 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getBLOCK_BEGINTerminalRuleCall_5() { return cBLOCK_BEGINTerminalRuleCall_5; }
 		
 		//(clears=ClearOption? // Eclipse, RAP (partial)
-		//& workspace=Workspace? // Eclipse, RAP
-		//& workingDir=WorkingDir? // All but Groups
-		//& memory=MemoryOption? // All but Groups
-		//& mainProject=MainProject? // Java
-		//& mainType=MainType? // Java
-		//& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
-		//& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
-		//& favorites=Favorites? // All
-		//& redirect=Redirect? // All but Groups
-		//& execEnv=ExecutionEnvironment? // All but Groups
-		//& configIniTemplate=ConfigIniTemplate? // Eclipse
-		//& javaMainSearch=JavaMainSearch? // Java
-		//& servletConfig=RapServletConfig? // RAP
-		//& contentProviderProduct=ContentProviderProduct? // Eclipse, RAP
+		// & workspace=Workspace? // Eclipse, RAP
+		// & workingDir=WorkingDir?
+		//// All but Groups
+		// & memory=MemoryOption? // All but Groups
+		// & mainProject=MainProject? // Java
+		// & mainType=MainType?
+		//// Java
+		// & application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
+		// &
+		//product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
+		// & favorites=Favorites? // All
+		// &
+		//redirect=Redirect? // All but Groups
+		// & execEnv=ExecutionEnvironment? // All but Groups
+		// &
+		//configIniTemplate=ConfigIniTemplate? // Eclipse
+		// & javaMainSearch=JavaMainSearch? // Java
+		// &
+		//servletConfig=RapServletConfig? // RAP
+		// & contentProviderProduct=ContentProviderProduct? // Eclipse, RAP
 		//)
 		public UnorderedGroup getUnorderedGroup_6() { return cUnorderedGroup_6; }
 		
 		//// things that may appear only once
-		//clears=ClearOption?
+		// clears=ClearOption?
 		public Assignment getClearsAssignment_6_0() { return cClearsAssignment_6_0; }
 		
 		//ClearOption
@@ -429,18 +467,22 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getContentProviderProductContentProviderProductParserRuleCall_6_14_0() { return cContentProviderProductContentProviderProductParserRuleCall_6_14_0; }
 		
 		//(plugins+=AddPlugin // Eclipse, RAP
-		//| features+=AddFeature // Eclipse, RAP					// TODO: content assist, validation
-		//| ignore+=IgnorePlugin // Eclipse, RAP
-		//| groupMembers+=GroupMember // Groups 					// TODO: content assist, validation, update on rename
-		//| vmArgs+=VmArgument // All but Groups
-		//| progArgs+=ProgramArgument // All but Groups
-		//| envVars+=EnvironmentVariable // All but Groups
-		//| traces+=TraceEnablement // Eclipse, RAP 				// TODO: content assist, validation
+		// | features+=AddFeature // Eclipse, RAP					// TODO: content assist, validation
+		// |
+		//ignore+=IgnorePlugin // Eclipse, RAP
+		// | groupMembers+=GroupMember
+		//// Groups 					// TODO: content assist, validation, update on rename
+		// | vmArgs+=VmArgument // All but Groups
+		// |
+		//progArgs+=ProgramArgument // All but Groups
+		// | envVars+=EnvironmentVariable // All but Groups
+		// |
+		//traces+=TraceEnablement // Eclipse, RAP 				// TODO: content assist, validation
 		//)*
 		public Alternatives getAlternatives_7() { return cAlternatives_7; }
 		
 		//// things that may appear multiple times
-		//plugins+=AddPlugin
+		// plugins+=AddPlugin
 		public Assignment getPluginsAssignment_7_0() { return cPluginsAssignment_7_0; }
 		
 		//AddPlugin
@@ -1059,14 +1101,14 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPluginAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cPluginFQNameParserRuleCall_1_0 = (RuleCall)cPluginAssignment_1.eContents().get(0);
 		private final Assignment cWhatAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cWhatTRACE_IDTerminalRuleCall_2_0 = (RuleCall)cWhatAssignment_2.eContents().get(0);
+		private final RuleCall cWhatSTRINGTerminalRuleCall_2_0 = (RuleCall)cWhatAssignment_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//TraceEnablement:
-		//	'trace' plugin=FQName what+=TRACE_ID* ';';
+		//	'trace' plugin=FQName what+=STRING* ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'trace' plugin=FQName what+=TRACE_ID* ';'
+		//'trace' plugin=FQName what+=STRING* ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'trace'
@@ -1078,11 +1120,11 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//FQName
 		public RuleCall getPluginFQNameParserRuleCall_1_0() { return cPluginFQNameParserRuleCall_1_0; }
 		
-		//what+=TRACE_ID*
+		//what+=STRING*
 		public Assignment getWhatAssignment_2() { return cWhatAssignment_2; }
 		
-		//TRACE_ID
-		public RuleCall getWhatTRACE_IDTerminalRuleCall_2_0() { return cWhatTRACE_IDTerminalRuleCall_2_0; }
+		//STRING
+		public RuleCall getWhatSTRINGTerminalRuleCall_2_0() { return cWhatSTRINGTerminalRuleCall_2_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -1169,11 +1211,9 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBLOCK_ENDTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
 		//RapServletConfig:
-		//	'servlet' BLOCK_BEGIN ('path' servletPath=STRING ';' & ('browser' browserMode=BrowserLaunchMode ';')?
-		//	& ('port' serverPort=INT ';')?
-		//	& ('session-timeout' sessionTimeout=INT ';')?
-		//	& ('context-path' contextPath=STRING ';')?
-		//	& ('dev-mode' devMode=BOOLEAN ';')?) BLOCK_END;
+		//	'servlet' BLOCK_BEGIN ('path' servletPath=STRING ';' & ('browser' browserMode=BrowserLaunchMode ';')? & ('port'
+		//	serverPort=INT ';')? & ('session-timeout' sessionTimeout=INT ';')? & ('context-path' contextPath=STRING ';')? &
+		//	('dev-mode' devMode=BOOLEAN ';')?) BLOCK_END;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'servlet' BLOCK_BEGIN ('path' servletPath=STRING ';' & ('browser' browserMode=BrowserLaunchMode ';')? & ('port'
@@ -1989,8 +2029,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cGBGKeyword_7_0 = (Keyword)cGBEnumLiteralDeclaration_7.eContents().get(0);
 		
 		//enum MemoryUnit:
-		//	MB='M' | MB='mb' | MB | MB='m' |
-		//	GB='G' | GB='gb' | GB | GB='g';
+		//	MB='M' | MB='mb' | MB | MB='m' | GB='G' | GB='gb' | GB | GB='g';
 		public EnumRule getRule() { return rule; }
 		
 		//MB='M' | MB='mb' | MB | MB='m' | GB='G' | GB='gb' | GB | GB='g'
@@ -2145,7 +2184,6 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tID;
 	private final TerminalRule tQUALIFIER;
 	private final TerminalRule tVERSION;
-	private final TerminalRule tTRACE_ID;
 	private final TerminalRule tEQ;
 	private final TerminalRule tBLOCK_BEGIN;
 	private final TerminalRule tBLOCK_END;
@@ -2209,7 +2247,6 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.ID");
 		this.tQUALIFIER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.QUALIFIER");
 		this.tVERSION = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.VERSION");
-		this.tTRACE_ID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.TRACE_ID");
 		this.tEQ = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.EQ");
 		this.tBLOCK_BEGIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.BLOCK_BEGIN");
 		this.tBLOCK_END = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.BLOCK_END");
@@ -2254,7 +2291,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	// * 
 	// * How to support different launch config types - some generic attribute support?
 	// * Or really implement support for each type separately (probably the best experience).
-	// * / LCModel:
+	// * /
+	//LCModel:
 	//	configurations+=LaunchConfig*;
 	public LCModelElements getLCModelAccess() {
 		return pLCModel;
@@ -2272,42 +2310,56 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	// * no-validate = don't validate plugins prior to launch
 	// * sw-install-allowed = allow software installation in eclipse config
 	// * replace-env = replace environment instead of appending variables
-	// * / LaunchConfig:
+	// * /
+	//LaunchConfig:
 	//	(explicit?='explicit'? // All
-	//	& manual?='manual'? // All
-	//	& abstract?='abstract'? // All
-	//	& foreground?='foreground'? // All  
-	//	& noConsole?='no-console'? // All but Groups
-	//	& noValidate?='no-validate'? // Eclipse, RAP
-	//	& swInstallSupport?='sw-install-allowed'? // Eclipse
-	//	& replaceEnv?='replace-env'? // All but Groups
-	//	& stopInMain?='stop-in-main'? // Java
-	//) type=LaunchConfigType 'configuration' name=FQName (':' superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN
-	//	(clears=ClearOption? // Eclipse, RAP (partial)
-	//	& workspace=Workspace? // Eclipse, RAP
-	//	& workingDir=WorkingDir? // All but Groups
-	//	& memory=MemoryOption? // All but Groups
-	//	& mainProject=MainProject? // Java
-	//	& mainType=MainType? // Java
-	//	& application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
-	//	& product=ProductExtPoint? // Eclipse 				// TODO: content assist, validation
-	//	& favorites=Favorites? // All
-	//	& redirect=Redirect? // All but Groups
-	//	& execEnv=ExecutionEnvironment? // All but Groups
-	//	& configIniTemplate=ConfigIniTemplate? // Eclipse
-	//	& javaMainSearch=JavaMainSearch? // Java
-	//	& servletConfig=RapServletConfig? // RAP
-	//	& contentProviderProduct=ContentProviderProduct? // Eclipse, RAP
+	// & manual?='manual'? // All
+	// & abstract?='abstract'? // All
+	// &
+	//	foreground?='foreground'? // All  
+	// & noConsole?='no-console'? // All but Groups
+	// & noValidate?='no-validate'?
+	//	// Eclipse, RAP
+	// & swInstallSupport?='sw-install-allowed'? // Eclipse
+	// & replaceEnv?='replace-env'?
+	//	// All but Groups
+	// & stopInMain?='stop-in-main'? // Java
+	//) type=LaunchConfigType 'configuration' name=FQName (':'
+	//	superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN (clears=ClearOption? // Eclipse, RAP (partial)
+	// &
+	//	workspace=Workspace? // Eclipse, RAP
+	// & workingDir=WorkingDir? // All but Groups
+	// & memory=MemoryOption?
+	//	// All but Groups
+	// & mainProject=MainProject? // Java
+	// & mainType=MainType? // Java
+	// &
+	//	application=ApplicationExtPoint? // Eclipse 		// TODO: content assist, validation
+	// & product=ProductExtPoint?
+	//	// Eclipse 				// TODO: content assist, validation
+	// & favorites=Favorites? // All
+	// & redirect=Redirect?
+	//	// All but Groups
+	// & execEnv=ExecutionEnvironment? // All but Groups
+	// & configIniTemplate=ConfigIniTemplate?
+	//	// Eclipse
+	// & javaMainSearch=JavaMainSearch? // Java
+	// & servletConfig=RapServletConfig? // RAP
+	// &
+	//	contentProviderProduct=ContentProviderProduct? // Eclipse, RAP
 	//) (plugins+=AddPlugin // Eclipse, RAP
-	//	| features+=AddFeature // Eclipse, RAP					// TODO: content assist, validation
-	//	| ignore+=IgnorePlugin // Eclipse, RAP
+	// |
+	//	features+=AddFeature // Eclipse, RAP					// TODO: content assist, validation
+	// | ignore+=IgnorePlugin // Eclipse, RAP
+	//
 	//	| groupMembers+=GroupMember // Groups 					// TODO: content assist, validation, update on rename
-	//	| vmArgs+=VmArgument // All but Groups
-	//	| progArgs+=ProgramArgument // All but Groups
-	//	| envVars+=EnvironmentVariable // All but Groups
-	//	| traces+=TraceEnablement // Eclipse, RAP 				// TODO: content assist, validation
-	//)*
-	//	BLOCK_END;
+	// |
+	//	vmArgs+=VmArgument // All but Groups
+	// | progArgs+=ProgramArgument // All but Groups
+	// | envVars+=EnvironmentVariable
+	//	// All but Groups
+	// | traces+=TraceEnablement // Eclipse, RAP 				// TODO: content assist, validation
+	//)* BLOCK_END;
 	public LaunchConfigElements getLaunchConfigAccess() {
 		return pLaunchConfig;
 	}
@@ -2488,7 +2540,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TraceEnablement:
-	//	'trace' plugin=FQName what+=TRACE_ID* ';';
+	//	'trace' plugin=FQName what+=STRING* ';';
 	public TraceEnablementElements getTraceEnablementAccess() {
 		return pTraceEnablement;
 	}
@@ -2508,11 +2560,9 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//RapServletConfig:
-	//	'servlet' BLOCK_BEGIN ('path' servletPath=STRING ';' & ('browser' browserMode=BrowserLaunchMode ';')?
-	//	& ('port' serverPort=INT ';')?
-	//	& ('session-timeout' sessionTimeout=INT ';')?
-	//	& ('context-path' contextPath=STRING ';')?
-	//	& ('dev-mode' devMode=BOOLEAN ';')?) BLOCK_END;
+	//	'servlet' BLOCK_BEGIN ('path' servletPath=STRING ';' & ('browser' browserMode=BrowserLaunchMode ';')? & ('port'
+	//	serverPort=INT ';')? & ('session-timeout' sessionTimeout=INT ';')? & ('context-path' contextPath=STRING ';')? &
+	//	('dev-mode' devMode=BOOLEAN ';')?) BLOCK_END;
 	public RapServletConfigElements getRapServletConfigAccess() {
 		return pRapServletConfig;
 	}
@@ -2726,8 +2776,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum MemoryUnit:
-	//	MB='M' | MB='mb' | MB | MB='m' |
-	//	GB='G' | GB='gb' | GB | GB='g';
+	//	MB='M' | MB='mb' | MB | MB='m' | GB='G' | GB='gb' | GB | GB='g';
 	public MemoryUnitElements getMemoryUnitAccess() {
 		return eMemoryUnit;
 	}
@@ -2786,12 +2835,6 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		return tVERSION;
 	}
 	
-	//terminal TRACE_ID:
-	//	ID ('/' ID)*;
-	public TerminalRule getTRACE_IDRule() {
-		return tTRACE_ID;
-	}
-	
 	//terminal EQ:
 	//	'=';
 	public TerminalRule getEQRule() {
@@ -2811,8 +2854,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal STRING:
-	//	'"' ('\\' . | !('\\' | '"'))* '"' |
-	//	"'" ('\\' . | !('\\' | "'"))* "'";
+	//	'"' ('\\' . | !('\\' | '"'))* '"' | "'" ('\\' . | !('\\' | "'"))* "'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	}
