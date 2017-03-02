@@ -145,7 +145,7 @@ class StandaloneLaunchConfigGenerator {
 		if(clear != null) {
 			copy.setAttribute(IPDELauncherConstants.CONFIG_CLEAR_AREA, clear.config)
 			copy.setAttribute(IPDELauncherConstants.ASKCLEAR, !clear.noAskClear)
-			copy.setAttribute(IPDELauncherConstants.DOCLEAR, clear.workspace)
+			copy.setAttribute(IPDELauncherConstants.DOCLEAR, clear.workspace || clear.log)
 			copy.setAttribute(IPDELauncherConstants.DOCLEAR + "log", clear.log)
 		}
 		
