@@ -1057,26 +1057,26 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cTraceKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cPluginAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPluginPluginWithVersionParserRuleCall_1_0 = (RuleCall)cPluginAssignment_1.eContents().get(0);
+		private final RuleCall cPluginFQNameParserRuleCall_1_0 = (RuleCall)cPluginAssignment_1.eContents().get(0);
 		private final Assignment cWhatAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cWhatTRACE_IDTerminalRuleCall_2_0 = (RuleCall)cWhatAssignment_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//TraceEnablement:
-		//	'trace' plugin=PluginWithVersion what+=TRACE_ID* ';';
+		//	'trace' plugin=FQName what+=TRACE_ID* ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'trace' plugin=PluginWithVersion what+=TRACE_ID* ';'
+		//'trace' plugin=FQName what+=TRACE_ID* ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'trace'
 		public Keyword getTraceKeyword_0() { return cTraceKeyword_0; }
 		
-		//plugin=PluginWithVersion
+		//plugin=FQName
 		public Assignment getPluginAssignment_1() { return cPluginAssignment_1; }
 		
-		//PluginWithVersion
-		public RuleCall getPluginPluginWithVersionParserRuleCall_1_0() { return cPluginPluginWithVersionParserRuleCall_1_0; }
+		//FQName
+		public RuleCall getPluginFQNameParserRuleCall_1_0() { return cPluginFQNameParserRuleCall_1_0; }
 		
 		//what+=TRACE_ID*
 		public Assignment getWhatAssignment_2() { return cWhatAssignment_2; }
@@ -2488,7 +2488,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TraceEnablement:
-	//	'trace' plugin=PluginWithVersion what+=TRACE_ID* ';';
+	//	'trace' plugin=FQName what+=TRACE_ID* ';';
 	public TraceEnablementElements getTraceEnablementAccess() {
 		return pTraceEnablement;
 	}

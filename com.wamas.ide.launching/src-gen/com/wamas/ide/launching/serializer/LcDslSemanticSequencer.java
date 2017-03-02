@@ -725,7 +725,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     TraceEnablement returns TraceEnablement
 	 *
 	 * Constraint:
-	 *     (plugin=PluginWithVersion what+=TRACE_ID*)
+	 *     (plugin=FQName what+=TRACE_ID*)
 	 */
 	protected void sequence_TraceEnablement(ISerializationContext context, TraceEnablement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

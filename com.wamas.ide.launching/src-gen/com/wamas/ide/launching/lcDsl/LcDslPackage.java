@@ -970,7 +970,7 @@ public interface LcDslPackage extends EPackage
   int TRACE_ENABLEMENT = 19;
 
   /**
-   * The feature id for the '<em><b>Plugin</b></em>' containment reference.
+   * The feature id for the '<em><b>Plugin</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -2593,15 +2593,15 @@ public interface LcDslPackage extends EPackage
   EClass getTraceEnablement();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.TraceEnablement#getPlugin <em>Plugin</em>}'.
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.TraceEnablement#getPlugin <em>Plugin</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Plugin</em>'.
+   * @return the meta object for the attribute '<em>Plugin</em>'.
    * @see com.wamas.ide.launching.lcDsl.TraceEnablement#getPlugin()
    * @see #getTraceEnablement()
    * @generated
    */
-  EReference getTraceEnablement_Plugin();
+  EAttribute getTraceEnablement_Plugin();
 
   /**
    * Returns the meta object for the attribute list '{@link com.wamas.ide.launching.lcDsl.TraceEnablement#getWhat <em>What</em>}'.
@@ -3943,12 +3943,12 @@ public interface LcDslPackage extends EPackage
     EClass TRACE_ENABLEMENT = eINSTANCE.getTraceEnablement();
 
     /**
-     * The meta object literal for the '<em><b>Plugin</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Plugin</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TRACE_ENABLEMENT__PLUGIN = eINSTANCE.getTraceEnablement_Plugin();
+    EAttribute TRACE_ENABLEMENT__PLUGIN = eINSTANCE.getTraceEnablement_Plugin();
 
     /**
      * The meta object literal for the '<em><b>What</b></em>' attribute list feature.

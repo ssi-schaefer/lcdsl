@@ -175,7 +175,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(TraceEnablement e) {
-		"trace " + e.plugin.name + " [" + Joiner.on(", ").join(e.what) + "]"
+		"trace " + e.plugin + " [" + Joiner.on(", ").join(e.what) + "]"
 	}
 	
 	def image(TraceEnablement e) {

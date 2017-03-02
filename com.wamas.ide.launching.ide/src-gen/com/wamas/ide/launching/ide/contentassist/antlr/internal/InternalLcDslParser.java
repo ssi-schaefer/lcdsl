@@ -24253,25 +24253,25 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TraceEnablement__PluginAssignment_1"
-    // InternalLcDsl.g:7891:1: rule__TraceEnablement__PluginAssignment_1 : ( rulePluginWithVersion ) ;
+    // InternalLcDsl.g:7891:1: rule__TraceEnablement__PluginAssignment_1 : ( ruleFQName ) ;
     public final void rule__TraceEnablement__PluginAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLcDsl.g:7895:1: ( ( rulePluginWithVersion ) )
-            // InternalLcDsl.g:7896:2: ( rulePluginWithVersion )
+            // InternalLcDsl.g:7895:1: ( ( ruleFQName ) )
+            // InternalLcDsl.g:7896:2: ( ruleFQName )
             {
-            // InternalLcDsl.g:7896:2: ( rulePluginWithVersion )
-            // InternalLcDsl.g:7897:3: rulePluginWithVersion
+            // InternalLcDsl.g:7896:2: ( ruleFQName )
+            // InternalLcDsl.g:7897:3: ruleFQName
             {
-             before(grammarAccess.getTraceEnablementAccess().getPluginPluginWithVersionParserRuleCall_1_0()); 
+             before(grammarAccess.getTraceEnablementAccess().getPluginFQNameParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
-            rulePluginWithVersion();
+            ruleFQName();
 
             state._fsp--;
 
-             after(grammarAccess.getTraceEnablementAccess().getPluginPluginWithVersionParserRuleCall_1_0()); 
+             after(grammarAccess.getTraceEnablementAccess().getPluginFQNameParserRuleCall_1_0()); 
 
             }
 

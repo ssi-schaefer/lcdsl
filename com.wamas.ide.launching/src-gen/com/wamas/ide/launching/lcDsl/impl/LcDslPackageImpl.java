@@ -1242,9 +1242,9 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTraceEnablement_Plugin()
+  public EAttribute getTraceEnablement_Plugin()
   {
-    return (EReference)traceEnablementEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)traceEnablementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1976,7 +1976,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     createEReference(configIniTemplateEClass, CONFIG_INI_TEMPLATE__PATH);
 
     traceEnablementEClass = createEClass(TRACE_ENABLEMENT);
-    createEReference(traceEnablementEClass, TRACE_ENABLEMENT__PLUGIN);
+    createEAttribute(traceEnablementEClass, TRACE_ENABLEMENT__PLUGIN);
     createEAttribute(traceEnablementEClass, TRACE_ENABLEMENT__WHAT);
 
     javaMainSearchEClass = createEClass(JAVA_MAIN_SEARCH);
@@ -2194,7 +2194,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     initEReference(getConfigIniTemplate_Path(), this.getExistingPath(), null, "path", null, 0, 1, ConfigIniTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(traceEnablementEClass, TraceEnablement.class, "TraceEnablement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTraceEnablement_Plugin(), this.getPluginWithVersion(), null, "plugin", null, 0, 1, TraceEnablement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTraceEnablement_Plugin(), ecorePackage.getEString(), "plugin", null, 0, 1, TraceEnablement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTraceEnablement_What(), ecorePackage.getEString(), "what", null, 0, -1, TraceEnablement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(javaMainSearchEClass, JavaMainSearch.class, "JavaMainSearch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

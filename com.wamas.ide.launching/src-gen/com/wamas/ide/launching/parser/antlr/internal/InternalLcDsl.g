@@ -2008,9 +2008,9 @@ ruleTraceEnablement returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTraceEnablementAccess().getPluginPluginWithVersionParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getTraceEnablementAccess().getPluginFQNameParserRuleCall_1_0());
 				}
-				lv_plugin_1_0=rulePluginWithVersion
+				lv_plugin_1_0=ruleFQName
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTraceEnablementRule());
@@ -2019,7 +2019,7 @@ ruleTraceEnablement returns [EObject current=null]
 						$current,
 						"plugin",
 						lv_plugin_1_0,
-						"com.wamas.ide.launching.LcDsl.PluginWithVersion");
+						"com.wamas.ide.launching.LcDsl.FQName");
 					afterParserOrEnumRuleCall();
 				}
 			)

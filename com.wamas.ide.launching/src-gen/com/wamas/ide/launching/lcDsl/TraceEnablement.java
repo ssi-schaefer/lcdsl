@@ -27,30 +27,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface TraceEnablement extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Plugin</b></em>' containment reference.
+   * Returns the value of the '<em><b>Plugin</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Plugin</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Plugin</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Plugin</em>' containment reference.
-   * @see #setPlugin(PluginWithVersion)
+   * @return the value of the '<em>Plugin</em>' attribute.
+   * @see #setPlugin(String)
    * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getTraceEnablement_Plugin()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  PluginWithVersion getPlugin();
+  String getPlugin();
 
   /**
-   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.TraceEnablement#getPlugin <em>Plugin</em>}' containment reference.
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.TraceEnablement#getPlugin <em>Plugin</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Plugin</em>' containment reference.
+   * @param value the new value of the '<em>Plugin</em>' attribute.
    * @see #getPlugin()
    * @generated
    */
-  void setPlugin(PluginWithVersion value);
+  void setPlugin(String value);
 
   /**
    * Returns the value of the '<em><b>What</b></em>' attribute list.

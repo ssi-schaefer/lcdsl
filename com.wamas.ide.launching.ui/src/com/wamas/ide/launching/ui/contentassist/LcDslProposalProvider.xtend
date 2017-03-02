@@ -157,7 +157,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 	override completeTraceEnablement_What(EObject model, Assignment assignment, ContentAssistContext context,
 		ICompletionProposalAcceptor acceptor) {
 		val te = model as TraceEnablement
-		val name = te.plugin.name
+		val name = te.plugin
 
 		for (s : PDECore.^default.tracingOptionsManager.getTemplateTable(name).keySet) {
 			val n = s.substring(s.indexOf('/') + 1)

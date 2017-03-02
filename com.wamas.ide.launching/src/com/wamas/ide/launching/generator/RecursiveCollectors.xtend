@@ -114,7 +114,7 @@ class RecursiveCollectors {
 	}
 	
 	static def collectTracing(LaunchConfig config) {
-		collectFlatList(config, [traces])?.groupBy[plugin.name].mapValues[map[what].flatten]
+		collectFlatList(config, [traces])?.groupBy[plugin].mapValues[map[what].flatten]
 	}
 	
 	static def collectExecEnvPath(LaunchConfig config) {

@@ -135,7 +135,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//ConfigIniTemplate/path"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//TraceEnablement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//TraceEnablement/plugin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//TraceEnablement/plugin"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//TraceEnablement/what"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//JavaMainSearch">

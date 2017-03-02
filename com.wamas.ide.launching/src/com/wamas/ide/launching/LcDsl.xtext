@@ -142,7 +142,7 @@ ConfigIniTemplate:
 ;
 
 TraceEnablement:
-	'trace' plugin=PluginWithVersion (what+=TRACE_ID)* ';'
+	'trace' plugin=FQName (what+=TRACE_ID)* ';'
 ;
 
 JavaMainSearch:

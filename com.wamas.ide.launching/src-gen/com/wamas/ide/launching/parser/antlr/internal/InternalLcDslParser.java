@@ -4949,41 +4949,41 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTraceEnablement"
-    // InternalLcDsl.g:1996:1: ruleTraceEnablement returns [EObject current=null] : (otherlv_0= 'trace' ( (lv_plugin_1_0= rulePluginWithVersion ) ) ( (lv_what_2_0= RULE_TRACE_ID ) )* otherlv_3= ';' ) ;
+    // InternalLcDsl.g:1996:1: ruleTraceEnablement returns [EObject current=null] : (otherlv_0= 'trace' ( (lv_plugin_1_0= ruleFQName ) ) ( (lv_what_2_0= RULE_TRACE_ID ) )* otherlv_3= ';' ) ;
     public final EObject ruleTraceEnablement() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token lv_what_2_0=null;
         Token otherlv_3=null;
-        EObject lv_plugin_1_0 = null;
+        AntlrDatatypeRuleToken lv_plugin_1_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalLcDsl.g:2002:2: ( (otherlv_0= 'trace' ( (lv_plugin_1_0= rulePluginWithVersion ) ) ( (lv_what_2_0= RULE_TRACE_ID ) )* otherlv_3= ';' ) )
-            // InternalLcDsl.g:2003:2: (otherlv_0= 'trace' ( (lv_plugin_1_0= rulePluginWithVersion ) ) ( (lv_what_2_0= RULE_TRACE_ID ) )* otherlv_3= ';' )
+            // InternalLcDsl.g:2002:2: ( (otherlv_0= 'trace' ( (lv_plugin_1_0= ruleFQName ) ) ( (lv_what_2_0= RULE_TRACE_ID ) )* otherlv_3= ';' ) )
+            // InternalLcDsl.g:2003:2: (otherlv_0= 'trace' ( (lv_plugin_1_0= ruleFQName ) ) ( (lv_what_2_0= RULE_TRACE_ID ) )* otherlv_3= ';' )
             {
-            // InternalLcDsl.g:2003:2: (otherlv_0= 'trace' ( (lv_plugin_1_0= rulePluginWithVersion ) ) ( (lv_what_2_0= RULE_TRACE_ID ) )* otherlv_3= ';' )
-            // InternalLcDsl.g:2004:3: otherlv_0= 'trace' ( (lv_plugin_1_0= rulePluginWithVersion ) ) ( (lv_what_2_0= RULE_TRACE_ID ) )* otherlv_3= ';'
+            // InternalLcDsl.g:2003:2: (otherlv_0= 'trace' ( (lv_plugin_1_0= ruleFQName ) ) ( (lv_what_2_0= RULE_TRACE_ID ) )* otherlv_3= ';' )
+            // InternalLcDsl.g:2004:3: otherlv_0= 'trace' ( (lv_plugin_1_0= ruleFQName ) ) ( (lv_what_2_0= RULE_TRACE_ID ) )* otherlv_3= ';'
             {
             otherlv_0=(Token)match(input,51,FOLLOW_6); 
 
             			newLeafNode(otherlv_0, grammarAccess.getTraceEnablementAccess().getTraceKeyword_0());
             		
-            // InternalLcDsl.g:2008:3: ( (lv_plugin_1_0= rulePluginWithVersion ) )
-            // InternalLcDsl.g:2009:4: (lv_plugin_1_0= rulePluginWithVersion )
+            // InternalLcDsl.g:2008:3: ( (lv_plugin_1_0= ruleFQName ) )
+            // InternalLcDsl.g:2009:4: (lv_plugin_1_0= ruleFQName )
             {
-            // InternalLcDsl.g:2009:4: (lv_plugin_1_0= rulePluginWithVersion )
-            // InternalLcDsl.g:2010:5: lv_plugin_1_0= rulePluginWithVersion
+            // InternalLcDsl.g:2009:4: (lv_plugin_1_0= ruleFQName )
+            // InternalLcDsl.g:2010:5: lv_plugin_1_0= ruleFQName
             {
 
-            					newCompositeNode(grammarAccess.getTraceEnablementAccess().getPluginPluginWithVersionParserRuleCall_1_0());
+            					newCompositeNode(grammarAccess.getTraceEnablementAccess().getPluginFQNameParserRuleCall_1_0());
             				
             pushFollow(FOLLOW_22);
-            lv_plugin_1_0=rulePluginWithVersion();
+            lv_plugin_1_0=ruleFQName();
 
             state._fsp--;
 
@@ -4995,7 +4995,7 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
             						current,
             						"plugin",
             						lv_plugin_1_0,
-            						"com.wamas.ide.launching.LcDsl.PluginWithVersion");
+            						"com.wamas.ide.launching.LcDsl.FQName");
             					afterParserOrEnumRuleCall();
             				
 

@@ -7894,9 +7894,9 @@ rule__TraceEnablement__PluginAssignment_1
 	}
 :
 	(
-		{ before(grammarAccess.getTraceEnablementAccess().getPluginPluginWithVersionParserRuleCall_1_0()); }
-		rulePluginWithVersion
-		{ after(grammarAccess.getTraceEnablementAccess().getPluginPluginWithVersionParserRuleCall_1_0()); }
+		{ before(grammarAccess.getTraceEnablementAccess().getPluginFQNameParserRuleCall_1_0()); }
+		ruleFQName
+		{ after(grammarAccess.getTraceEnablementAccess().getPluginFQNameParserRuleCall_1_0()); }
 	)
 ;
 finally {

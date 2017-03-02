@@ -4,18 +4,15 @@
 package com.wamas.ide.launching.lcDsl.impl;
 
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
-import com.wamas.ide.launching.lcDsl.PluginWithVersion;
 import com.wamas.ide.launching.lcDsl.TraceEnablement;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -39,14 +36,24 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 public class TraceEnablementImpl extends MinimalEObjectImpl.Container implements TraceEnablement
 {
   /**
-   * The cached value of the '{@link #getPlugin() <em>Plugin</em>}' containment reference.
+   * The default value of the '{@link #getPlugin() <em>Plugin</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPlugin()
    * @generated
    * @ordered
    */
-  protected PluginWithVersion plugin;
+  protected static final String PLUGIN_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPlugin() <em>Plugin</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPlugin()
+   * @generated
+   * @ordered
+   */
+  protected String plugin = PLUGIN_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getWhat() <em>What</em>}' attribute list.
@@ -84,7 +91,7 @@ public class TraceEnablementImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public PluginWithVersion getPlugin()
+  public String getPlugin()
   {
     return plugin;
   }
@@ -94,37 +101,12 @@ public class TraceEnablementImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPlugin(PluginWithVersion newPlugin, NotificationChain msgs)
+  public void setPlugin(String newPlugin)
   {
-    PluginWithVersion oldPlugin = plugin;
+    String oldPlugin = plugin;
     plugin = newPlugin;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LcDslPackage.TRACE_ENABLEMENT__PLUGIN, oldPlugin, newPlugin);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPlugin(PluginWithVersion newPlugin)
-  {
-    if (newPlugin != plugin)
-    {
-      NotificationChain msgs = null;
-      if (plugin != null)
-        msgs = ((InternalEObject)plugin).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.TRACE_ENABLEMENT__PLUGIN, null, msgs);
-      if (newPlugin != null)
-        msgs = ((InternalEObject)newPlugin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LcDslPackage.TRACE_ENABLEMENT__PLUGIN, null, msgs);
-      msgs = basicSetPlugin(newPlugin, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.TRACE_ENABLEMENT__PLUGIN, newPlugin, newPlugin));
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.TRACE_ENABLEMENT__PLUGIN, oldPlugin, plugin));
   }
 
   /**
@@ -139,22 +121,6 @@ public class TraceEnablementImpl extends MinimalEObjectImpl.Container implements
       what = new EDataTypeEList<String>(String.class, this, LcDslPackage.TRACE_ENABLEMENT__WHAT);
     }
     return what;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case LcDslPackage.TRACE_ENABLEMENT__PLUGIN:
-        return basicSetPlugin(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -187,7 +153,7 @@ public class TraceEnablementImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case LcDslPackage.TRACE_ENABLEMENT__PLUGIN:
-        setPlugin((PluginWithVersion)newValue);
+        setPlugin((String)newValue);
         return;
       case LcDslPackage.TRACE_ENABLEMENT__WHAT:
         getWhat().clear();
@@ -208,7 +174,7 @@ public class TraceEnablementImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case LcDslPackage.TRACE_ENABLEMENT__PLUGIN:
-        setPlugin((PluginWithVersion)null);
+        setPlugin(PLUGIN_EDEFAULT);
         return;
       case LcDslPackage.TRACE_ENABLEMENT__WHAT:
         getWhat().clear();
@@ -228,7 +194,7 @@ public class TraceEnablementImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case LcDslPackage.TRACE_ENABLEMENT__PLUGIN:
-        return plugin != null;
+        return PLUGIN_EDEFAULT == null ? plugin != null : !PLUGIN_EDEFAULT.equals(plugin);
       case LcDslPackage.TRACE_ENABLEMENT__WHAT:
         return what != null && !what.isEmpty();
     }
@@ -246,7 +212,9 @@ public class TraceEnablementImpl extends MinimalEObjectImpl.Container implements
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (what: ");
+    result.append(" (plugin: ");
+    result.append(plugin);
+    result.append(", what: ");
     result.append(what);
     result.append(')');
     return result.toString();
