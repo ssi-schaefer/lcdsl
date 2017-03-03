@@ -11,6 +11,9 @@ import java.util.Map
 import java.util.function.Function
 import org.eclipse.debug.ui.IDebugUIConstants
 import org.eclipse.jdt.launching.JavaRuntime
+import com.wamas.ide.launching.lcDsl.BrowserLaunchMode
+
+import static extension com.wamas.ide.launching.validation.LcDslValidator.*
 
 /**
  * Collects raw values for launch configuration fields, taking into account inheritance
@@ -131,6 +134,50 @@ class RecursiveCollectors {
 	
 	static def collectConfigIniTemplate(LaunchConfig config) {
 		collectFlatObject(config, [configIniTemplate?.path?.name?.value])
+	}
+	
+	static def collectRAPServletPath(LaunchConfig config) {
+		collectFlatObject(config, [servletConfig?.servletPath])
+	}
+	
+	static def collectRAPServletPort(LaunchConfig config) {
+		collectFlatObject(config, [servletConfig?.serverPort])
+	}
+	
+	static def collectRAPSessionTimeout(LaunchConfig config) {
+		collectFlatObject(config, [servletConfig?.sessionTimeout])
+	}
+	
+	static def collectRAPContextPath(LaunchConfig config) {
+		collectFlatObject(config, [servletConfig?.contextPath])
+	}
+	
+	static def collectRAPDevMode(LaunchConfig config) {
+		collectFlatBoolean(config, true, [servletConfig?.devMode])
+	}
+	
+	static def collectRAPBrowserMode(LaunchConfig config) {
+		val o = collectFlatObject(config, [servletConfig?.browserMode])
+		if(o == null)
+			return null;
+			
+		return o.name()
+	}
+	
+	static def collectPlugins(LaunchConfig config) {
+		collectFlatList(config, [plugins?.map[plugin]])
+	}
+	
+	static def collectIgnores(LaunchConfig config) {
+		collectFlatList(config, [ignore?.map[plugin]])
+	}
+	
+	static def collectContentProvider(LaunchConfig config) {
+		collectFlatObject(config, [contentProviderProduct?.product?.name?.expanded])
+	}
+	
+	static def collectFeatures(LaunchConfig config) {
+		collectFlatList(config, [features?.map[feature]])
 	}
 	
 	static def collectExecEnvPath(LaunchConfig config) {

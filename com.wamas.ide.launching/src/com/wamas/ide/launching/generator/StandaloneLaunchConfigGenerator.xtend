@@ -63,32 +63,32 @@ class StandaloneLaunchConfigGenerator {
 				Joiner.on(' ').join(config.collectArguments))
 			copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_VM_ARGUMENTS,
 				Joiner.on(' ').join(config.collectVmArguments))
-			
+
 			val out = config.collectRedirectOutFile
-			if(out != null && !out.trim.empty) {
+			if (out != null && !out.trim.empty) {
 				copy.setAttribute(IDebugUIConstants.ATTR_APPEND_TO_FILE, config.collectRedirectOutAppend)
 				copy.setAttribute(IDebugUIConstants.ATTR_CAPTURE_IN_FILE, out)
 			}
 			copy.setIfAvailable(IDebugUIConstants.ATTR_CAPTURE_STDIN_FILE, config.collectRedirectInFile)
 			copy.setAttribute(IDebugUIConstants.ATTR_CAPTURE_IN_CONSOLE, !config.collectNoConsole)
 			copy.setAttribute("org.eclipse.debug.core.appendEnvironmentVariables", !config.collectReplaceEnv)
-			
+
 			val env = config.collectEnvMap
-			if(env != null && !env.empty) {
+			if (env != null && !env.empty) {
 				copy.setAttribute("org.eclipse.debug.core.environmentVariables", env)
 			}
-			
+
 			copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_JRE_CONTAINER_PATH, config.collectExecEnvPath)
 		}
 
 		copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_WORKING_DIRECTORY, config.collectWorkingDir)
 		copy.setAttribute(IDebugUIConstants.ATTR_LAUNCH_IN_BACKGROUND, !config.collectForeground)
-		
+
 		val favGroups = config.collectFavoriteGroups
-		if(favGroups != null && !favGroups.empty) {
+		if (favGroups != null && !favGroups.empty) {
 			copy.setAttribute(IDebugUIConstants.ATTR_FAVORITE_GROUPS, favGroups)
 		}
-		
+
 		switch (config.type) {
 			case LaunchConfigType.JAVA:
 				generateJava(config, copy)
@@ -137,69 +137,106 @@ class StandaloneLaunchConfigGenerator {
 		copy.setAttribute("org.eclipse.jdt.debug.ui.CONSIDER_INHERITED_MAIN", config.collectJavaMainSearchInherited)
 		copy.setAttribute("org.eclipse.jdt.debug.ui.INCLUDE_EXTERNAL_JARS", config.collectJavaMainSearchSystem)
 	}
-	
+
 	def generateCommonEclipseRap(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
 		copy.setAttribute(IPDELauncherConstants.AUTOMATIC_VALIDATE, !config.collectNoValidate)
-		
+
 		val clear = config.collectClearOptions
-		if(clear != null) {
+		if (clear != null) {
 			copy.setAttribute(IPDELauncherConstants.CONFIG_CLEAR_AREA, clear.config)
 			copy.setAttribute(IPDELauncherConstants.ASKCLEAR, !clear.noAskClear)
 			copy.setAttribute(IPDELauncherConstants.DOCLEAR, clear.workspace || clear.log)
 			copy.setAttribute(IPDELauncherConstants.DOCLEAR + "log", clear.log)
 		}
-		
+
 		val traces = config.collectTracing
-		if(traces != null) {
+		if (traces != null) {
 			copy.setAttribute(IPDELauncherConstants.TRACING, true)
 			copy.setAttribute(IPDELauncherConstants.TRACING_CHECKED, Joiner.on(',').join(traces.keySet))
 			copy.setAttribute(IPDELauncherConstants.TRACING_OPTIONS, traces.mapTraceOptions)
 		}
 	}
-	
+
 	private def mapTraceOptions(Map<String, Iterable<String>> tracing) {
 		val opts = newHashMap
-		
-		for(e : tracing.entrySet) {
-			for(o : e.value) {
+
+		for (e : tracing.entrySet) {
+			for (o : e.value) {
 				opts.put(e.key + "/" + o, Boolean.TRUE.toString)
 			}
 		}
-		
+
 		opts
 	}
 
 	def generateEclipse(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
 		generateCommonEclipseRap(config, copy)
-		
+
 		copy.setIfAvailable(IPDELauncherConstants.LOCATION, config.collectWorkspace)
 		copy.setIfAvailable(IPDELauncherConstants.APPLICATION, config.collectApplication)
 		copy.setIfAvailable(IPDELauncherConstants.PRODUCT, config.collectProduct)
-		
+
 		copy.setAttribute(IPDELauncherConstants.GENERATE_PROFILE, config.collectSwInstall)
-		
+
 		val cfg = config.collectConfigIniTemplate
-		if(cfg != null && !cfg.empty) {
+		if (cfg != null && !cfg.empty) {
 			copy.setAttribute(IPDELauncherConstants.CONFIG_TEMPLATE_LOCATION, cfg)
 			copy.setAttribute(IPDELauncherConstants.CONFIG_GENERATE_DEFAULT, false)
 		}
-		
-		// TODO: add plugin / explicit
-		// TODO: add feature
-		// TODO: add content-provider (product)
-		// TODO: ignore plugin
+
+	// TODO: add plugin / explicit
+	// TODO: add feature
+	// TODO: add content-provider (product)
+	// TODO: ignore plugin
 	}
 
 	def generateRAP(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
 		generateCommonEclipseRap(config, copy)
-		
-		copy.setIfAvailable("org.eclipse.rap.launch.dataLocation", config.collectWorkspace)
-		
-		// TODO: servlet config
-		// TODO: add plugin / explicit
-		// TODO: add feature
-		// TODO: add content-provider (product)
-		// TODO: ignore plugin
+
+		val ws = config.collectWorkspace
+		if (ws != null && !ws.empty) {
+			copy.setAttribute("org.eclipse.rap.launch.dataLocation", ws)
+			copy.setAttribute("org.eclipse.rap.launch.useDefaultDataLocation", false)
+		}
+
+		val cp = config.collectRAPContextPath
+		if (cp != null && !cp.empty) {
+			copy.setAttribute("org.eclipse.rap.launch.contextpath", cp)
+			copy.setAttribute("org.eclipse.rap.launch.useManualContextPath", true)
+		}
+
+		copy.setIfAvailable("org.eclipse.rap.launch.servletPath", config.collectRAPServletPath)
+		copy.setAttribute("org.eclipse.rap.launch.developmentMode", config.collectRAPDevMode)
+
+		val m = config.collectRAPBrowserMode
+		if (m != null) {
+			switch m {
+				case "NONE": {
+					copy.setAttribute("org.eclipse.rap.launch.openBrowser", false)
+				}
+				default: {
+					copy.setAttribute("org.eclipse.rap.launch.browserMode", m)
+					copy.setAttribute("org.eclipse.rap.launch.openBrowser", true)
+				}
+			}
+		}
+
+		val st = config.collectRAPSessionTimeout
+		if (st > 0) {
+			copy.setAttribute("org.eclipse.rap.launch.sessionTimeout", st)
+			copy.setAttribute("org.eclipse.rap.launch.useSessionTimeout", true)
+		}
+
+		val p = config.collectRAPServletPort
+		if (p > 0) {
+			copy.setAttribute("org.eclipse.rap.launch.port", p)
+			copy.setAttribute("org.eclipse.rap.launch.useManualPort", true)
+		}
+
+	// TODO: add plugin / explicit
+	// TODO: add feature
+	// TODO: add content-provider (product)
+	// TODO: ignore plugin
 	}
 
 	def generateGroup(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
