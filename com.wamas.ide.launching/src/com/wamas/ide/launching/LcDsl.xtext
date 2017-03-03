@@ -33,7 +33,7 @@ LCModel:
  * replace-env = replace environment instead of appending variables
  */
 LaunchConfig:
-	((explicit?='explicit')? // All
+	((explicit?='explicit')? // Eclipse, RAP
 		& (manual?='manual')? // All
 		& (abstract?='abstract')? // All
 		& (foreground?='foreground')? // All  

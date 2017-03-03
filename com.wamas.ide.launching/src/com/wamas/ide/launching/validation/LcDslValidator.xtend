@@ -54,6 +54,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 	// map config features to types where this feature is allowed. not mentioned features are allowed on all types.
 	private val allowedFeatures = newHashMap(
 		// modifiers on config
+		LC.launchConfig_Explicit -> #{ECLIPSE, RAP},
 		LC.launchConfig_NoConsole -> #{ECLIPSE, RAP, JAVA},
 		LC.launchConfig_NoValidate -> #{ECLIPSE, RAP},
 		LC.launchConfig_SwInstallSupport -> #{ECLIPSE},
