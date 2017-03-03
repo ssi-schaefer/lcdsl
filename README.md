@@ -1,6 +1,8 @@
 # lcdsl
 Eclipse Launch Configuration DSL (Xtext based)
 
+[![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
+
 LcDsl provides a way of defining Eclipse launch configurations in a textual way. The file extension used is '.lc' It provides some obvious and some non-obvious advantages over the Eclipse launch configuration solution:
 
  * Merge-able text representation
