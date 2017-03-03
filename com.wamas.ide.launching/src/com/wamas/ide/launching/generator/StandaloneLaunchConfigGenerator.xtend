@@ -180,7 +180,12 @@ class StandaloneLaunchConfigGenerator {
 
 		copy.setIfAvailable(IPDELauncherConstants.LOCATION, config.collectWorkspace)
 		copy.setIfAvailable(IPDELauncherConstants.APPLICATION, config.collectApplication)
-		copy.setIfAvailable(IPDELauncherConstants.PRODUCT, config.collectProduct)
+		
+		val prod = config.collectProduct
+		if(prod != null && !prod.empty) {
+			copy.setAttribute(IPDELauncherConstants.PRODUCT, prod)
+			copy.setAttribute(IPDELauncherConstants.USE_PRODUCT, true)
+		}
 
 		copy.setAttribute(IPDELauncherConstants.GENERATE_PROFILE, config.collectSwInstall)
 
