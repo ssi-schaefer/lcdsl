@@ -168,9 +168,8 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 		super.completeTraceEnablement_What(model, assignment, context, acceptor)
 	}
 
-	override complete_JavaMainType(EObject model, RuleCall ruleCall, ContentAssistContext context,
-		ICompletionProposalAcceptor acceptor) {
-		val lc = model as LaunchConfig
+	override completeJavaMainType_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		val lc = model.eContainer as LaunchConfig
 
 		if (lc.mainProject?.project?.name != null && !lc.mainProject.project.name.empty) {
 			// project is set, lookup main types.
@@ -198,8 +197,8 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 				], null)
 			}
 		}
-
-		super.complete_JavaMainType(model, ruleCall, context, acceptor)
+		
+		super.completeJavaMainType_Name(model, assignment, context, acceptor)
 	}
 
 	override completeExecutionEnvironment_Name(EObject model, Assignment assignment, ContentAssistContext context,
