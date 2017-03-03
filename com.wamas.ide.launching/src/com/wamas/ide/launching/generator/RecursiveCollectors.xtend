@@ -11,7 +11,6 @@ import java.util.Map
 import java.util.function.Function
 import org.eclipse.debug.ui.IDebugUIConstants
 import org.eclipse.jdt.launching.JavaRuntime
-import com.wamas.ide.launching.lcDsl.BrowserLaunchMode
 
 import static extension com.wamas.ide.launching.validation.LcDslValidator.*
 

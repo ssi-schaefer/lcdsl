@@ -6,13 +6,20 @@ package com.wamas.ide.launching.ui.labeling
 import com.google.common.base.Joiner
 import com.google.inject.Inject
 import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator
+import com.wamas.ide.launching.lcDsl.AddFeature
 import com.wamas.ide.launching.lcDsl.AddPlugin
 import com.wamas.ide.launching.lcDsl.ApplicationExtPoint
 import com.wamas.ide.launching.lcDsl.ClearOption
 import com.wamas.ide.launching.lcDsl.ConfigIniTemplate
+import com.wamas.ide.launching.lcDsl.ContentProviderProduct
 import com.wamas.ide.launching.lcDsl.EnvironmentVariable
 import com.wamas.ide.launching.lcDsl.ExecutionEnvironment
 import com.wamas.ide.launching.lcDsl.Favorites
+import com.wamas.ide.launching.lcDsl.GroupMember
+import com.wamas.ide.launching.lcDsl.GroupPostLaunchAction
+import com.wamas.ide.launching.lcDsl.GroupPostLaunchDelay
+import com.wamas.ide.launching.lcDsl.GroupPostLaunchRegex
+import com.wamas.ide.launching.lcDsl.GroupPostLaunchWait
 import com.wamas.ide.launching.lcDsl.IgnorePlugin
 import com.wamas.ide.launching.lcDsl.JavaMainSearch
 import com.wamas.ide.launching.lcDsl.LCModel
@@ -34,13 +41,6 @@ import org.eclipse.jface.viewers.StyledString
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
 import static extension com.wamas.ide.launching.validation.LcDslValidator.getExpanded
-import com.wamas.ide.launching.lcDsl.GroupMember
-import com.wamas.ide.launching.lcDsl.GroupPostLaunchAction
-import com.wamas.ide.launching.lcDsl.GroupPostLaunchWait
-import com.wamas.ide.launching.lcDsl.GroupPostLaunchDelay
-import com.wamas.ide.launching.lcDsl.GroupPostLaunchRegex
-import com.wamas.ide.launching.lcDsl.AddFeature
-import com.wamas.ide.launching.lcDsl.ContentProviderProduct
 
 /**
  * Provides labels for EObjects.

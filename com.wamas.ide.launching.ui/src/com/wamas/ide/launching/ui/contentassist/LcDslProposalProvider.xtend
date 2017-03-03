@@ -7,6 +7,8 @@ import com.google.inject.Inject
 import com.wamas.ide.launching.lcDsl.FeatureWithVersion
 import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.PluginWithVersion
+import com.wamas.ide.launching.lcDsl.TraceEnablement
+import com.wamas.ide.launching.validation.LcDslValidator
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.jdt.core.IMethod
@@ -21,14 +23,12 @@ import org.eclipse.jface.viewers.StyledString
 import org.eclipse.pde.core.plugin.IMatchRules
 import org.eclipse.pde.core.plugin.PluginRegistry
 import org.eclipse.pde.internal.core.PDECore
+import org.eclipse.pde.internal.core.TracingOptionsManager
 import org.eclipse.xtext.Assignment
 import org.eclipse.xtext.RuleCall
 import org.eclipse.xtext.ui.IImageHelper
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
-import com.wamas.ide.launching.validation.LcDslValidator
-import org.eclipse.pde.internal.core.TracingOptionsManager
-import com.wamas.ide.launching.lcDsl.TraceEnablement
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist

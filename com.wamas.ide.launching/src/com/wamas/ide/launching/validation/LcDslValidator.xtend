@@ -7,6 +7,8 @@ import com.wamas.ide.launching.generator.LcDslGenerator
 import com.wamas.ide.launching.generator.RecursiveCollectors
 import com.wamas.ide.launching.lcDsl.AddFeature
 import com.wamas.ide.launching.lcDsl.AddPlugin
+import com.wamas.ide.launching.lcDsl.ApplicationExtPoint
+import com.wamas.ide.launching.lcDsl.ContentProviderProduct
 import com.wamas.ide.launching.lcDsl.ExecutionEnvironment
 import com.wamas.ide.launching.lcDsl.ExistingPath
 import com.wamas.ide.launching.lcDsl.Favorites
@@ -14,8 +16,10 @@ import com.wamas.ide.launching.lcDsl.FeatureWithVersion
 import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.LcDslPackage
 import com.wamas.ide.launching.lcDsl.PluginWithVersion
+import com.wamas.ide.launching.lcDsl.ProductExtPoint
 import com.wamas.ide.launching.lcDsl.Project
 import com.wamas.ide.launching.lcDsl.StringWithVariables
+import com.wamas.ide.launching.lcDsl.TraceEnablement
 import java.io.File
 import java.util.List
 import java.util.Set
@@ -34,10 +38,6 @@ import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.xtext.validation.Check
 
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
-import com.wamas.ide.launching.lcDsl.ApplicationExtPoint
-import com.wamas.ide.launching.lcDsl.ProductExtPoint
-import com.wamas.ide.launching.lcDsl.ContentProviderProduct
-import com.wamas.ide.launching.lcDsl.TraceEnablement
 
 /**
  * This class contains custom validation rules. 

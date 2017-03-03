@@ -3,10 +3,8 @@
  */
 package com.wamas.ide.launching.generator
 
-import com.wamas.ide.launching.generator.DependencyResolver.StartLevel
 import com.wamas.ide.launching.lcDsl.LaunchConfig
 import java.io.File
-import java.util.ArrayList
 import java.util.Collection
 import java.util.HashMap
 import java.util.List
