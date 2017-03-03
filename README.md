@@ -120,3 +120,7 @@ Examples for typical `eclipse` and `rap` launch configurations:
         
         plugin com.wamas.test;
     }
+
+## Launch Groups
+
+Launch groups are a new feature of Eclipse Oxygen. LcDsl allows (will allow - not implemented yet) to create groups by using the `group` type and the `member` multi-property. Language support is implemented, but the generator is not quite there yet.
