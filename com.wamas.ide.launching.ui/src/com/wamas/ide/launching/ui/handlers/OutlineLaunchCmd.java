@@ -7,11 +7,11 @@ import org.eclipse.core.commands.ExecutionEvent;
 
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 
-public class EditorGenerateCmd extends AbstractLaunchConfigGeneratorHandler {
+public class OutlineLaunchCmd extends EditorLaunchCmd {
 
     @Override
     protected LaunchConfig getLaunchConfig(ExecutionEvent event) {
-        return getLaunchConfigFromEditor(event);
+        return getLaunchConfigFromOutline(event);
     }
 
 }

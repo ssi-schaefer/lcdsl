@@ -51,17 +51,17 @@ class StandaloneLaunchConfigGenerator {
 
 	def generate(LaunchConfig config) {
 		if (config == null || config.abstract)
-			return;
+			return null;
 
 		if (config.hasError) {
 			Activator.log(IStatus.ERROR, "launch configuration has errors, not generating " + config.name, null)
-			return
+			return null;
 		}
 
 		val copy = reCreateConfig(config)
 		if (copy == null) {
 			Activator.log(IStatus.ERROR, "cannot create launch configuration " + config.name, null)
-			return
+			return null;
 		}
 
 		if (config.type != LaunchConfigType.GROUP) {

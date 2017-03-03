@@ -5,6 +5,8 @@ package com.wamas.ide.launching.ui.handlers;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.jface.viewers.ISelection;
@@ -21,13 +23,21 @@ import com.google.inject.Inject;
 import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 
-public abstract class AbstractLaunchConfigContextHandler extends AbstractHandler {
+public abstract class AbstractLaunchConfigGeneratorHandler extends AbstractHandler {
 
     @Inject
     private EObjectAtOffsetHelper eObjectAtOffsetHelper;
 
     @Inject
     protected StandaloneLaunchConfigGenerator generator;
+
+    @Override
+    public ILaunchConfiguration execute(ExecutionEvent event) throws ExecutionException {
+        LaunchConfig lc = getLaunchConfig(event);
+        return generator.generate(lc);
+    }
+
+    protected abstract LaunchConfig getLaunchConfig(ExecutionEvent event);
 
     protected LaunchConfig getLaunchConfigFromEditor(ExecutionEvent event) {
         XtextEditor activeXtextEditor = EditorUtils.getActiveXtextEditor(event);

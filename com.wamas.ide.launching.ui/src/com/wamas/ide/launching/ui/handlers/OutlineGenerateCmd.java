@@ -4,14 +4,14 @@
 package com.wamas.ide.launching.ui.handlers;
 
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
 
-public class OutlineGenerateCmd extends AbstractLaunchConfigContextHandler {
+import com.wamas.ide.launching.lcDsl.LaunchConfig;
+
+public class OutlineGenerateCmd extends EditorGenerateCmd {
 
     @Override
-    public Object execute(ExecutionEvent event) throws ExecutionException {
-        generator.generate(getLaunchConfigFromOutline(event));
-        return null;
+    protected LaunchConfig getLaunchConfig(ExecutionEvent event) {
+        return getLaunchConfigFromOutline(event);
     }
 
 }
