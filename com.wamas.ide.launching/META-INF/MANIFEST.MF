@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: com.wamas.ide.launching
-Bundle-Vendor: My Company
+Bundle-Name: LcDsl Core
+Bundle-Vendor: SSI Schaefer IT Solutions GmbH
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: com.wamas.ide.launching; singleton:=true
 Bundle-ActivationPolicy: lazy

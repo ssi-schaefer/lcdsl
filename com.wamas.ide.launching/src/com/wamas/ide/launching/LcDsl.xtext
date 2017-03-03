@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) SSI Schaefer IT Solutions
+ */
 grammar com.wamas.ide.launching.LcDsl with org.eclipse.xtext.common.Terminals
 
 generate lcDsl "http://www.wamas.com/ide/launching/LcDsl"
