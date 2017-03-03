@@ -20,10 +20,16 @@ import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
 import org.eclipse.debug.ui.IDebugUIConstants
 import org.eclipse.pde.launching.IPDELauncherConstants
 import java.util.Map
+import org.eclipse.pde.core.plugin.PluginRegistry
 
 class StandaloneLaunchConfigGenerator {
 
-	val launchMgr = DebugPlugin.^default.launchManager
+	private val knownStartLevels = newHashMap(
+		"org.eclipse.osgi" -> "@-1:true",
+		"org.eclipse.equinox.ds" -> "@1:true",
+		"org.eclipse.equinox.common" -> "@2:true"
+	)
+	private val launchMgr = DebugPlugin.^default.launchManager
 
 	public static final String CONFIGURATION_TYPE_RAP = "org.eclipse.rap.ui.launch.RAPLauncher";
 	public static final String CONFIGURATION_TYPE_GROUP = "org.eclipse.debug.core.groups.GroupLaunchConfigurationType";
@@ -150,7 +156,7 @@ class StandaloneLaunchConfigGenerator {
 		}
 
 		val traces = config.collectTracing
-		if (traces != null) {
+		if (traces != null && !traces.empty) {
 			copy.setAttribute(IPDELauncherConstants.TRACING, true)
 			copy.setAttribute(IPDELauncherConstants.TRACING_CHECKED, Joiner.on(',').join(traces.keySet))
 			copy.setAttribute(IPDELauncherConstants.TRACING_OPTIONS, traces.mapTraceOptions)
@@ -184,10 +190,53 @@ class StandaloneLaunchConfigGenerator {
 			copy.setAttribute(IPDELauncherConstants.CONFIG_GENERATE_DEFAULT, false)
 		}
 
-	// TODO: add plugin / explicit
-	// TODO: add feature
-	// TODO: add content-provider (product)
-	// TODO: ignore plugin
+		generateDependenciesEclipseRap(config, copy)
+	}
+	
+	def generateDependenciesEclipseRap(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
+		val ws = newArrayList
+		val tp = newArrayList
+		for(entry : DependencyResolver.findDependencies(config).entrySet) {
+			val pluginId = entry.key.symbolicName
+        	val me = PluginRegistry.findEntry(pluginId);
+        	if (me != null) {
+	            val sizeworkSpace = me.workspaceModels.length;
+	            val sizeInstalled = me.externalModels.length;
+	
+	            if (sizeworkSpace > 0) {
+	                ws.add(pluginId + "@" + entry.value.level + ":" + entry.value.autostart)
+	            } else if (sizeInstalled != 0) {
+	                var sl = knownStartLevels.get(pluginId);
+	                if(sl == null) {
+	                	sl = "@" + entry.value.level + ":" + entry.value.autostart
+	                }
+	
+	                val bestMatch = me.getModel(entry.key);
+	                if (bestMatch == null) {
+	                    // but... how!?
+	                    Activator.log(IStatus.WARNING, "cannot find model for " + pluginId, null)
+	                } else {
+		                val version = bestMatch.bundleDescription.version.toString;
+		                val fullName = pluginId + "*" + version;
+		                tp.add(fullName);
+	                }
+	            }
+	        }
+		}
+		
+		val wsValue = Joiner.on(',').join(ws)
+		val tpValue = Joiner.on(',').join(tp)
+		
+		if(config.type == LaunchConfigType.ECLIPSE) {
+			copy.setAttribute(IPDELauncherConstants.SELECTED_WORKSPACE_PLUGINS, wsValue)
+			copy.setAttribute(IPDELauncherConstants.SELECTED_TARGET_PLUGINS, tpValue)
+		} else if(config.type == LaunchConfigType.RAP) {
+			copy.setAttribute("workspace_bundles", wsValue)
+			copy.setAttribute("target_bundles", tpValue)
+		}
+		
+		copy.setAttribute(IPDELauncherConstants.USE_DEFAULT, false);
+        copy.setAttribute(IPDELauncherConstants.AUTOMATIC_ADD, false);
 	}
 
 	def generateRAP(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
@@ -233,10 +282,7 @@ class StandaloneLaunchConfigGenerator {
 			copy.setAttribute("org.eclipse.rap.launch.useManualPort", true)
 		}
 
-	// TODO: add plugin / explicit
-	// TODO: add feature
-	// TODO: add content-provider (product)
-	// TODO: ignore plugin
+		generateDependenciesEclipseRap(config, copy)
 	}
 
 	def generateGroup(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {

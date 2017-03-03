@@ -25,6 +25,20 @@ class DependencyResolver {
 	static class StartLevel {
 		boolean autostart = false;
 		int level = 0
+		
+		def getAutostart() {
+			if(autostart)
+				"true"
+			else
+				"default"
+		}
+		
+		def getLevel() {
+			if(level == 0)
+				"default"
+			else
+				Integer.toString(level)
+		}
 	}
 
 	static def findDependencies(LaunchConfig config) {

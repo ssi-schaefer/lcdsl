@@ -357,6 +357,15 @@ class LcDslValidator extends AbstractLcDslValidator {
 			idx++;
 		} 
 	}
+	
+	@Check
+	def checkStringVars(StringWithVariables s) {
+		try {
+			s.expanded
+		} catch(CoreException e) {
+			warning(e.message, LC.stringWithVariables_Value)
+		}
+	}
 
 	/** only required for validation/label. raw value must be written into launch configurations to allow expansion at launch time */
 	static def getExpanded(StringWithVariables original) {
