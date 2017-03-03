@@ -3,9 +3,13 @@
  */
 package com.wamas.ide.launching.generator
 
+import com.wamas.ide.launching.generator.DependencyResolver.StartLevel
 import com.wamas.ide.launching.lcDsl.LaunchConfig
 import java.io.File
+import java.util.ArrayList
 import java.util.Collection
+import java.util.HashMap
+import java.util.List
 import java.util.Set
 import org.eclipse.core.resources.IFile
 import org.eclipse.core.resources.ResourcesPlugin
@@ -25,16 +29,16 @@ class DependencyResolver {
 	static class StartLevel {
 		boolean autostart = false;
 		int level = 0
-		
+
 		def getAutostart() {
-			if(autostart)
+			if (autostart)
 				"true"
 			else
 				"default"
 		}
-		
+
 		def getLevel() {
-			if(level == 0)
+			if (level == 0)
 				"default"
 			else
 				Integer.toString(level)
@@ -47,25 +51,31 @@ class DependencyResolver {
 		val ignores = config.collectIgnores
 		val cp = config.collectContentProvider
 
+		val mappedIgnores = ignores.map[getBestPluginMatch(it.name, it.version)?.bundleDescription].filterNull.toList
 		val allBundles = newHashMap()
 
-		// content provider does not support ignores
 		if (cp != null && !cp.empty) {
 			val file = ResourcesPlugin.workspace.root.findFilesForLocationURI(new File(cp).toURI).get(0)
-			allBundles.putAll(file.findBundlesInProduct.toInvertedMap[new StartLevel])
+			val prodBundles = file.findBundlesInProduct
+			allBundles.putAll(prodBundles.toInvertedMap[new StartLevel])
+			
+			// feature may not contain required dependencies
+			resolveAndExpand(config, allBundles, prodBundles, mappedIgnores)
 		}
 
-		// features do not support ignores
 		if (features != null && !features.empty) {
 			for (fwv : features) {
 				val f = getBestFeatureMatch(fwv.name, fwv.version)
 				val ps = f?.feature?.pluginModels?.filterNull
-				if (ps != null && !ps.empty)
+				if (ps != null && !ps.empty) {
 					allBundles.putAll(ps.toInvertedMap[new StartLevel])
+					
+					// feature may not contain required dependencies
+					resolveAndExpand(config, allBundles, ps, mappedIgnores)
+				}
 			}
 		}
 
-		// only dependency resolution supports ignores :)
 		if (plugins != null && !plugins.empty) {
 			val toResolve = newArrayList
 			for (pwv : plugins) {
@@ -81,26 +91,32 @@ class DependencyResolver {
 				}
 			}
 
-			// only if requested
-			if (!config.explicit) {
-				// resolve and add
-				val all = toResolve.findDependencies(
-					ignores.map[getBestPluginMatch(it.name, it.version)?.bundleDescription].filterNull.toList)
-				
-				for(d : all) {
-					if(!allBundles.containsKey(d)) {
-						allBundles.put(d, new StartLevel)
-					}
+			resolveAndExpand(config, allBundles, toResolve, mappedIgnores)
+		}
+
+		allBundles
+	}
+
+	protected def static void resolveAndExpand(LaunchConfig config, HashMap<BundleDescription, StartLevel> allBundles,
+		Iterable<BundleDescription> toResolve, List<BundleDescription> mappedIgnores) {
+		// only if requested
+		if (!config.explicit) {
+			// resolve and add
+			val all = toResolve.findDependencies(mappedIgnores)
+
+			for (d : all) {
+				if (!allBundles.containsKey(d)) {
+					allBundles.put(d, new StartLevel)
 				}
 			}
 		}
-		
-		allBundles
 	}
 
 	static def findBundlesInProduct(IFile product) {
 		val model = new WorkspaceProductModel(product, false)
 		val result = newArrayList
+		
+		model.load
 
 		result.addAll(model.pluginModels)
 		result.addAll(model.featureModels?.filterNull.map[feature.pluginModels].filterNull.flatten)
@@ -121,8 +137,11 @@ class DependencyResolver {
 
 	private static def Iterable<BundleDescription> getPluginModels(IFeature feature) {
 		val result = newArrayList
+
 		for (child : feature.includedFeatures) {
-			result.addAll(child.feature.pluginModels)
+			// features seem to be able to include themselves
+			val childFeature = getBestFeatureMatch(child.id, child.version)
+			result.addAll(childFeature.feature.pluginModels)
 		}
 
 		for (plugin : feature.plugins) {
@@ -130,7 +149,7 @@ class DependencyResolver {
 			if (bundle != null)
 				result.add(bundle.bundleDescription)
 		}
-
+		
 		for (imp : feature.imports) {
 			switch (imp.type) {
 				case IFeatureImport.PLUGIN: {
@@ -180,7 +199,7 @@ class DependencyResolver {
 		list
 	}
 
-	static def findDependencies(Collection<BundleDescription> preselected, Collection<BundleDescription> toIgnore) {
+	static def findDependencies(Iterable<BundleDescription> preselected, Collection<BundleDescription> toIgnore) {
 		val result = newHashSet();
 
 		for (d : preselected) {

@@ -51,8 +51,8 @@ LaunchConfig:
 			& (memory=MemoryOption)? // All but Groups
 			& (mainProject=MainProject)? // Java
 			& (mainType=MainType)? // Java
-			& (application=ApplicationExtPoint)? // Eclipse 		// TODO: content assist, validation
-			& (product=ProductExtPoint)? // Eclipse 				// TODO: content assist, validation
+			& (application=ApplicationExtPoint)? // Eclipse
+			& (product=ProductExtPoint)? // Eclipse
 			& (favorites=Favorites)? // All
 			& (redirect=Redirect)? // All but Groups
 			& (execEnv=ExecutionEnvironment)? // All but Groups
@@ -63,13 +63,13 @@ LaunchConfig:
 		)
 		( // things that may appear multiple times
 			plugins+=AddPlugin // Eclipse, RAP
-			| features+=AddFeature // Eclipse, RAP					// TODO: content assist, validation
+			| features+=AddFeature // Eclipse, RAP
 			| ignore+=IgnorePlugin // Eclipse, RAP
 			| groupMembers+=GroupMember // Groups 					// TODO: content assist, validation, update on rename
 			| vmArgs+=VmArgument // All but Groups
 			| progArgs+=ProgramArgument // All but Groups
 			| envVars+=EnvironmentVariable // All but Groups
-			| traces+=TraceEnablement // Eclipse, RAP 				// TODO: content assist, validation
+			| traces+=TraceEnablement // Eclipse, RAP
 		)*
 	BLOCK_END
 ;
