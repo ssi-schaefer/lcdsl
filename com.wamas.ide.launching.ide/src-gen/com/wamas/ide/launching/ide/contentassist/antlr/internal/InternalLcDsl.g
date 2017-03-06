@@ -1152,6 +1152,27 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__MainProject__Alternatives_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getMainProjectAccess().getSelfAssignment_1_0()); }
+		(rule__MainProject__SelfAssignment_1_0)
+		{ after(grammarAccess.getMainProjectAccess().getSelfAssignment_1_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getMainProjectAccess().getProjectAssignment_1_1()); }
+		(rule__MainProject__ProjectAssignment_1_1)
+		{ after(grammarAccess.getMainProjectAccess().getProjectAssignment_1_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__ClearOption__Alternatives_2_0_0
 	@init {
 		int stackSize = keepStackSize();
@@ -1887,9 +1908,9 @@ rule__MainProject__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getMainProjectAccess().getProjectAssignment_1()); }
-	(rule__MainProject__ProjectAssignment_1)
-	{ after(grammarAccess.getMainProjectAccess().getProjectAssignment_1()); }
+	{ before(grammarAccess.getMainProjectAccess().getAlternatives_1()); }
+	(rule__MainProject__Alternatives_1)
+	{ after(grammarAccess.getMainProjectAccess().getAlternatives_1()); }
 )
 ;
 finally {
@@ -7546,15 +7567,34 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__MainProject__ProjectAssignment_1
+rule__MainProject__SelfAssignment_1_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getMainProjectAccess().getProjectProjectParserRuleCall_1_0()); }
+		{ before(grammarAccess.getMainProjectAccess().getSelfSelfKeyword_1_0_0()); }
+		(
+			{ before(grammarAccess.getMainProjectAccess().getSelfSelfKeyword_1_0_0()); }
+			'self'
+			{ after(grammarAccess.getMainProjectAccess().getSelfSelfKeyword_1_0_0()); }
+		)
+		{ after(grammarAccess.getMainProjectAccess().getSelfSelfKeyword_1_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MainProject__ProjectAssignment_1_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getMainProjectAccess().getProjectProjectParserRuleCall_1_1_0()); }
 		ruleProject
-		{ after(grammarAccess.getMainProjectAccess().getProjectProjectParserRuleCall_1_0()); }
+		{ after(grammarAccess.getMainProjectAccess().getProjectProjectParserRuleCall_1_1_0()); }
 	)
 ;
 finally {

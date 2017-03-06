@@ -556,16 +556,10 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     MainProject returns MainProject
 	 *
 	 * Constraint:
-	 *     project=Project
+	 *     (self?='self' | project=Project)
 	 */
 	protected void sequence_MainProject(ISerializationContext context, MainProject semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, LcDslPackage.Literals.MAIN_PROJECT__PROJECT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LcDslPackage.Literals.MAIN_PROJECT__PROJECT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMainProjectAccess().getProjectProjectParserRuleCall_1_0(), semanticObject.getProject());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

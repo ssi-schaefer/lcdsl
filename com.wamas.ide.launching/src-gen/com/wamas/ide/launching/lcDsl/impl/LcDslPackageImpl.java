@@ -872,9 +872,19 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getMainProject_Self()
+  {
+    return (EAttribute)mainProjectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getMainProject_Project()
   {
-    return (EReference)mainProjectEClass.getEStructuralFeatures().get(0);
+    return (EReference)mainProjectEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1924,6 +1934,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     createEReference(workingDirEClass, WORKING_DIR__WORKING_DIR);
 
     mainProjectEClass = createEClass(MAIN_PROJECT);
+    createEAttribute(mainProjectEClass, MAIN_PROJECT__SELF);
     createEReference(mainProjectEClass, MAIN_PROJECT__PROJECT);
 
     mainTypeEClass = createEClass(MAIN_TYPE);
@@ -2142,6 +2153,7 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     initEReference(getWorkingDir_WorkingDir(), this.getExistingPath(), null, "workingDir", null, 0, 1, WorkingDir.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mainProjectEClass, MainProject.class, "MainProject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMainProject_Self(), ecorePackage.getEBoolean(), "self", null, 0, 1, MainProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMainProject_Project(), this.getProject(), null, "project", null, 0, 1, MainProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mainTypeEClass, MainType.class, "MainType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -86,7 +86,7 @@ WorkingDir:
 ;
 
 MainProject:
-	'project' project=Project ';'
+	'project' (self?='self'|project=Project) ';'
 ;
 
 MainType:

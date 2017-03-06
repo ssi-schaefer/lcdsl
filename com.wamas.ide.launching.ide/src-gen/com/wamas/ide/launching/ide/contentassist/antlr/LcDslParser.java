@@ -36,6 +36,7 @@ public class LcDslParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getLaunchConfigAccess().getAlternatives_7(), "rule__LaunchConfig__Alternatives_7");
+					put(grammarAccess.getMainProjectAccess().getAlternatives_1(), "rule__MainProject__Alternatives_1");
 					put(grammarAccess.getPathAccess().getAlternatives(), "rule__Path__Alternatives");
 					put(grammarAccess.getClearOptionAccess().getAlternatives_2_0_0(), "rule__ClearOption__Alternatives_2_0_0");
 					put(grammarAccess.getGroupPostLaunchActionAccess().getAlternatives(), "rule__GroupPostLaunchAction__Alternatives");
@@ -128,7 +129,8 @@ public class LcDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLaunchConfigAccess().getTracesAssignment_7_7(), "rule__LaunchConfig__TracesAssignment_7_7");
 					put(grammarAccess.getWorkspaceAccess().getWorkspaceAssignment_1(), "rule__Workspace__WorkspaceAssignment_1");
 					put(grammarAccess.getWorkingDirAccess().getWorkingDirAssignment_1(), "rule__WorkingDir__WorkingDirAssignment_1");
-					put(grammarAccess.getMainProjectAccess().getProjectAssignment_1(), "rule__MainProject__ProjectAssignment_1");
+					put(grammarAccess.getMainProjectAccess().getSelfAssignment_1_0(), "rule__MainProject__SelfAssignment_1_0");
+					put(grammarAccess.getMainProjectAccess().getProjectAssignment_1_1(), "rule__MainProject__ProjectAssignment_1_1");
 					put(grammarAccess.getMainTypeAccess().getMainClassAssignment_1(), "rule__MainType__MainClassAssignment_1");
 					put(grammarAccess.getAddPluginAccess().getOptionalAssignment_0(), "rule__AddPlugin__OptionalAssignment_0");
 					put(grammarAccess.getAddPluginAccess().getPluginAssignment_2(), "rule__AddPlugin__PluginAssignment_2");

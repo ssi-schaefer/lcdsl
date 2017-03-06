@@ -247,13 +247,14 @@ class LcDslValidator extends AbstractLcDslValidator {
 
 	@Check
 	def checkMainType(LaunchConfig cfg) {
-		if (cfg.type == JAVA && cfg.mainProject?.project?.name != null && !cfg.mainProject.project.name.empty &&
+		val mainprj = RecursiveCollectors.collectJavaMainProject(cfg)
+		if (cfg.type == JAVA && mainprj != null &&
 			cfg.mainType?.mainClass != null && !cfg.mainType.mainClass.name.empty) {
-			val prj = ResourcesPlugin.workspace.root.getProject(cfg.mainProject.project.name);
+			val prj = ResourcesPlugin.workspace.root.getProject(mainprj);
 			if (prj != null && prj.exists && prj.open) {
 				val jp = JavaCore.create(prj)
 				if (!jp.exists) {
-					error("project " + cfg.mainProject.project.name + " is not a java project",
+					error("project " + mainprj + " is not a java project",
 						LC.launchConfig_MainProject)
 					return
 				}
@@ -261,7 +262,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 				val type = jp.findType(cfg.mainType.mainClass.name, new NullProgressMonitor)
 				if (type == null || !type.exists) {
 					error("main type " + cfg.mainType.mainClass.name + " not found in class-path of " +
-						cfg.mainProject.project.name, LC.launchConfig_MainType)
+						mainprj, LC.launchConfig_MainType)
 					return
 				}
 

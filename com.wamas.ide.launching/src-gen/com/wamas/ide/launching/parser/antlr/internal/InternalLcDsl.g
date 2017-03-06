@@ -1118,26 +1118,43 @@ ruleMainProject returns [EObject current=null]
 		}
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getMainProjectAccess().getProjectProjectParserRuleCall_1_0());
-				}
-				lv_project_1_0=ruleProject
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getMainProjectRule());
+				(
+					lv_self_1_0='self'
+					{
+						newLeafNode(lv_self_1_0, grammarAccess.getMainProjectAccess().getSelfSelfKeyword_1_0_0());
 					}
-					set(
-						$current,
-						"project",
-						lv_project_1_0,
-						"com.wamas.ide.launching.LcDsl.Project");
-					afterParserOrEnumRuleCall();
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getMainProjectRule());
+						}
+						setWithLastConsumed($current, "self", true, "self");
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getMainProjectAccess().getProjectProjectParserRuleCall_1_1_0());
+					}
+					lv_project_2_0=ruleProject
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getMainProjectRule());
+						}
+						set(
+							$current,
+							"project",
+							lv_project_2_0,
+							"com.wamas.ide.launching.LcDsl.Project");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)
-		otherlv_2=';'
+		otherlv_3=';'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getMainProjectAccess().getSemicolonKeyword_2());
+			newLeafNode(otherlv_3, grammarAccess.getMainProjectAccess().getSemicolonKeyword_2());
 		}
 	)
 ;

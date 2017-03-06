@@ -13,6 +13,8 @@ import org.eclipse.debug.ui.IDebugUIConstants
 import org.eclipse.jdt.launching.JavaRuntime
 
 import static com.wamas.ide.launching.validation.LcDslValidator.getExpanded
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.core.runtime.Path
 
 /**
  * Collects raw values for launch configuration fields, taking into account inheritance
@@ -56,7 +58,14 @@ class RecursiveCollectors {
 	}
 
 	static def collectJavaMainProject(LaunchConfig config) {
-		collectFlatObject(config, [mainProject?.project?.name])
+		val prjName = collectFlatObject(config, [mainProject?.project?.name])
+		if(prjName == null) {
+			val s = collectFlatBoolean(config, true, [mainProject?.self])
+			if(s) {
+				return ResourcesPlugin.workspace.root.getFile(new Path(config.eResource.URI.toPlatformString(true)))?.project?.name
+			}
+		}
+		return prjName
 	}
 
 	static def collectJavaStopInMain(LaunchConfig config) {

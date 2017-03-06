@@ -29,6 +29,7 @@ import org.eclipse.xtext.RuleCall
 import org.eclipse.xtext.ui.IImageHelper
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
+import com.wamas.ide.launching.generator.RecursiveCollectors
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -170,10 +171,11 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 
 	override completeJavaMainType_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		val lc = model.eContainer as LaunchConfig
+		val mainprj = RecursiveCollectors.collectJavaMainProject(lc)
 
-		if (lc.mainProject?.project?.name != null && !lc.mainProject.project.name.empty) {
+		if (mainprj != null) {
 			// project is set, lookup main types.
-			val prj = ResourcesPlugin.workspace.root.getProject(lc.mainProject.project.name)
+			val prj = ResourcesPlugin.workspace.root.getProject(mainprj)
 			if (prj != null && prj.exists && prj.open) {
 				val jp = JavaCore.create(prj)
 

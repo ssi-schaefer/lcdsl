@@ -53,7 +53,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
-	
+
 	def image(LCModel m) {
 		"launch_run.gif"
 	}
@@ -76,10 +76,10 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 
 		ss
 	}
-	
+
 	def image(LaunchConfig lc) {
 		val img = DebugPluginImages.getImage(StandaloneLaunchConfigGenerator.getTypeName(lc.type))
-		if(img == null)
+		if (img == null)
 			return "message_warning.gif"
 		img
 	}
@@ -95,7 +95,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 		}
 		builder.toString
 	}
-	
+
 	def image(Redirect r) {
 		"edit_arrow2.gif"
 	}
@@ -103,7 +103,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	def text(Workspace ws) {
 		"workspace " + ws.workspace.name.getExpanded(false)
 	}
-	
+
 	def image(Workspace ws) {
 		"workspace_obj.gif"
 	}
@@ -111,7 +111,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	def text(WorkingDir wd) {
 		"working directory " + wd.workingDir.name.getExpanded(false)
 	}
-	
+
 	def image(WorkingDir wd) {
 		"folder.png"
 	}
@@ -131,37 +131,37 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 
 		ss
 	}
-	
+
 	def image(AddPlugin a) {
-		if(a.optional)
+		if (a.optional)
 			"plugin_obj_opt.png"
 		else
 			"plugin_obj.png"
 	}
-	
+
 	def text(AddFeature a) {
 		val ss = new StyledString("feature " + a.feature.name)
-		if(a.feature.version != null)
+		if (a.feature.version != null)
 			ss.append(' ').append(a.feature.version, StyledString.QUALIFIER_STYLER)
-		
+
 		ss
 	}
-	
+
 	def image(AddFeature a) {
-		if(a.optional)
+		if (a.optional)
 			"feature_obj_opt.png"
 		else
 			"feature_obj.png"
 	}
-	
+
 	def text(ContentProviderProduct p) {
 		"expand content from " + p.product.name.getExpanded(false)
 	}
-	
+
 	def image(ContentProviderProduct p) {
 		"product_xml_obj.png"
 	}
-	
+
 	def text(IgnorePlugin i) {
 		val ss = new StyledString
 		ss.append("ignore ").append(i.plugin.name)
@@ -169,7 +169,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 			ss.append(' ').append(i.plugin.version, StyledString.QUALIFIER_STYLER)
 		ss
 	}
-	
+
 	def image(IgnorePlugin i) {
 		"plugin_obj_ignore.png"
 	}
@@ -177,7 +177,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	def text(TraceEnablement e) {
 		"trace " + e.plugin + " [" + Joiner.on(", ").join(e.what) + "]"
 	}
-	
+
 	def image(TraceEnablement e) {
 		"doc_section_obj.png"
 	}
@@ -185,7 +185,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	def text(ExecutionEnvironment e) {
 		"exec-env " + e.name
 	}
-	
+
 	def image(ExecutionEnvironment e) {
 		"library_obj.png"
 	}
@@ -193,7 +193,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	def text(ApplicationExtPoint e) {
 		"application " + e.name
 	}
-	
+
 	def image(ApplicationExtPoint e) {
 		"start_application.png"
 	}
@@ -201,7 +201,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	def text(ProductExtPoint e) {
 		"product " + e.name
 	}
-	
+
 	def image(ProductExtPoint e) {
 		"product_xml_obj.png"
 	}
@@ -224,7 +224,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 			builder.append("config area")
 		}
 	}
-	
+
 	def image(ClearOption o) {
 		"clear.gif"
 	}
@@ -232,7 +232,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	def text(Favorites f) {
 		"favorite for " + Joiner.on(", ").join(f.types)
 	}
-	
+
 	def image(Favorites f) {
 		"favorite_star.png"
 	}
@@ -240,7 +240,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	def text(ConfigIniTemplate t) {
 		"config.ini template " + t.path.name.getExpanded(false)
 	}
-	
+
 	def image(ConfigIniTemplate t) {
 		"option_obj.gif"
 	}
@@ -258,15 +258,18 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 
 		builder.toString
 	}
-	
+
 	def image(MemoryOption mo) {
 		"memory_view.png"
 	}
 
 	def text(MainProject mp) {
-		"project " + mp.project.name
+		if (mp.self)
+			"project [containing project]"
+		else
+			"project " + mp.project.name
 	}
-	
+
 	def image(MainProject mp) {
 		"showprojects.gif"
 	}
@@ -274,7 +277,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	def text(MainType mt) {
 		"main-class " + mt.mainClass.name
 	}
-	
+
 	def image(MainType mt) {
 		"java_launch.gif"
 	}
@@ -287,7 +290,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 			builder.append(" inherited")
 		builder.toString
 	}
-	
+
 	def image(JavaMainSearch s) {
 		"search.png"
 	}
@@ -295,7 +298,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	def text(VmArgument va) {
 		"vmargs " + Joiner.on(' ').join(va.arguments.map[getExpanded(false)])
 	}
-	
+
 	def image(VmArgument va) {
 		"vm.png"
 	}
@@ -303,7 +306,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	def text(ProgramArgument pa) {
 		"args " + Joiner.on(' ').join(pa.arguments.map[getExpanded(false)])
 	}
-	
+
 	def image(ProgramArgument pa) {
 		"arguments_tab.gif"
 	}
@@ -311,27 +314,27 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	def text(EnvironmentVariable e) {
 		"env " + e.name + "=" + e.value.getExpanded(false)
 	}
-	
+
 	def image(EnvironmentVariable e) {
 		"environment_obj.png"
 	}
-	
+
 	def text(GroupMember m) {
 		val ss = new StyledString(m.member.name)
-		
+
 		ss.append(" [" + m.type, StyledString.QUALIFIER_STYLER)
-		if(m.adopt)
+		if (m.adopt)
 			ss.append(", adopt]", StyledString.QUALIFIER_STYLER)
 		else
 			ss.append("]", StyledString.QUALIFIER_STYLER)
-		
-		if(m.postAction != null) {
+
+		if (m.postAction != null) {
 			ss.append(" [" + m.postAction.text() + "]", StyledString.DECORATIONS_STYLER)
 		}
-		
+
 		ss
 	}
-	
+
 	def text(GroupPostLaunchAction e) {
 		switch e {
 			GroupPostLaunchWait: "wait exit"
@@ -339,11 +342,11 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 			GroupPostLaunchRegex: "wait output: \"" + e.regex + "\""
 		}
 	}
-	
+
 	def image(GroupMember m) {
 		"lgroup_obj.png"
 	}
-	
+
 	def image(StringWithVariables s) {
 		doGetImage(s.eContainer)
 	}

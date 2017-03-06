@@ -83,6 +83,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//WorkingDir/workingDir"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//MainProject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LcDsl.ecore#//MainProject/self"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LcDsl.ecore#//MainProject/project"/>
     </genClasses>
     <genClasses ecoreClass="LcDsl.ecore#//MainType">

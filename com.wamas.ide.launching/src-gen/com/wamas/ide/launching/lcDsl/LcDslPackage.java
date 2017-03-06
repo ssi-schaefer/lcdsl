@@ -487,13 +487,22 @@ public interface LcDslPackage extends EPackage
   int MAIN_PROJECT = 4;
 
   /**
+   * The feature id for the '<em><b>Self</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAIN_PROJECT__SELF = 0;
+
+  /**
    * The feature id for the '<em><b>Project</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAIN_PROJECT__PROJECT = 0;
+  int MAIN_PROJECT__PROJECT = 1;
 
   /**
    * The number of structural features of the '<em>Main Project</em>' class.
@@ -502,7 +511,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAIN_PROJECT_FEATURE_COUNT = 1;
+  int MAIN_PROJECT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.MainTypeImpl <em>Main Type</em>}' class.
@@ -2201,6 +2210,17 @@ public interface LcDslPackage extends EPackage
   EClass getMainProject();
 
   /**
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.MainProject#isSelf <em>Self</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Self</em>'.
+   * @see com.wamas.ide.launching.lcDsl.MainProject#isSelf()
+   * @see #getMainProject()
+   * @generated
+   */
+  EAttribute getMainProject_Self();
+
+  /**
    * Returns the meta object for the containment reference '{@link com.wamas.ide.launching.lcDsl.MainProject#getProject <em>Project</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3615,6 +3635,14 @@ public interface LcDslPackage extends EPackage
      * @generated
      */
     EClass MAIN_PROJECT = eINSTANCE.getMainProject();
+
+    /**
+     * The meta object literal for the '<em><b>Self</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAIN_PROJECT__SELF = eINSTANCE.getMainProject_Self();
 
     /**
      * The meta object literal for the '<em><b>Project</b></em>' containment reference feature.
