@@ -277,9 +277,10 @@ class LcDslValidator extends AbstractLcDslValidator {
 	@Check
 	def checkPathExists(ExistingPath p) {
 		try {
-			val f = new File(p.name.expanded);
+			val x = getExpanded(p.name, false)
+			val f = new File(x);
 			if (!f.exists) {
-				warning("Path " + p.name.expanded + " does not exist", p, LC.path_Name)
+				warning("Path " + x + " does not exist", p, LC.path_Name)
 			}
 		} catch (CoreException e) {
 			warning(e.message, LC.path_Name)
@@ -318,61 +319,61 @@ class LcDslValidator extends AbstractLcDslValidator {
 			}
 		}
 	}
-	
+
 	@Check
 	def checkApplication(ApplicationExtPoint e) {
-		if(!getAllExtensionsOf(e, EXT_APPLICATIONS).toSet.contains(e.name)) {
+		if (!getAllExtensionsOf(e, EXT_APPLICATIONS).toSet.contains(e.name)) {
 			error("application " + e.name + " does not exist", LC.applicationExtPoint_Name)
 		}
 	}
-	
+
 	@Check
 	def checkProduct(ProductExtPoint e) {
-		if(!getAllExtensionsOf(e, EXT_PRODUCTS).toSet.contains(e.name)) {
+		if (!getAllExtensionsOf(e, EXT_PRODUCTS).toSet.contains(e.name)) {
 			error("product " + e.name + " does not exist", LC.productExtPoint_Name)
 		}
 	}
-	
+
 	@Check
 	def checkApplicationProductXor(LaunchConfig c) {
-		if(c.application != null && c.product != null) {
+		if (c.application != null && c.product != null) {
 			error("either application or product can be set, not both", LC.launchConfig_Application)
 		}
 	}
-	
+
 	@Check
 	def checkContentProviderProductFile(ContentProviderProduct p) {
-		if(!p.product.name.expanded.endsWith(".product")) {
+		if (!getExpanded(p.product.name, false).endsWith(".product")) {
 			warning("content provider should reference a .product file", LC.contentProviderProduct_Product)
 		}
 	}
-	
+
 	@Check
 	def checkTracingOptions(TraceEnablement e) {
 		val ok = PDECore.^default.tracingOptionsManager.getTemplateTable(e.plugin).keySet
 		var idx = 0;
-		for(w : e.what) {
-			if(!ok.contains(e.plugin + "/" + w)) {
+		for (w : e.what) {
+			if (!ok.contains(e.plugin + "/" + w)) {
 				error("unsupported trace option for " + e.plugin + ": " + w, LC.traceEnablement_What, idx)
 			}
 			idx++;
-		} 
+		}
 	}
-	
+
 	@Check
 	def checkStringVars(StringWithVariables s) {
 		try {
-			s.expanded
-		} catch(CoreException e) {
+			getExpanded(s, true)
+		} catch (CoreException e) {
 			warning(e.message, LC.stringWithVariables_Value)
 		}
 	}
 
 	/** only required for validation/label. raw value must be written into launch configurations to allow expansion at launch time */
-	static def getExpanded(StringWithVariables original) {
-		return StringVariableManager.^default.performStringSubstitution(original.value, true)
+	static def getExpanded(StringWithVariables original, boolean report) {
+		return StringVariableManager.^default.performStringSubstitution(original.value, report)
 	}
-	
+
 	static def getAllExtensionsOf(EObject model, String ext) {
 		// TODO: possibly filter to plugins that are actually included in the launch configuration...?
 		PluginRegistry.activeModels.map[extensions.extensions.toList].flatten.filter [

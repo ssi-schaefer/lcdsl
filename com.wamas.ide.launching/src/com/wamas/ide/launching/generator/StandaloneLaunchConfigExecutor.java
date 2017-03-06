@@ -25,19 +25,16 @@ public class StandaloneLaunchConfigExecutor {
     /**
      * Starts a launch configuration. The return value is only valid if wait is <code>true</code>
      *
-     * @param launchConf
-     *            the launch configuration
-     * @param build
-     *            whether to perform a build before launch
-     * @param wait
-     *            whether to wait for completion
-     * @param logFile
-     *            an optional {@link File} to write console output to. May be <code>null</code>.
+     * @param launchConf the launch configuration
+     * @param mode the launch mode to use.
+     * @param build whether to perform a build before launch
+     * @param wait whether to wait for completion
+     * @param logFile an optional {@link File} to write console output to. May be <code>null</code>.
      * @return process exit value if wait is <code>true</code>, always 0 if wait is
      *         <code>false</code>. -1 in case waiting was interrupted.
      */
-    public static int launchProcess(ILaunchConfiguration launchConf, boolean debug, boolean build, boolean wait, File logFile) {
-        StandaloneLauncherJob launch = new StandaloneLauncherJob(launchConf, debug, build, wait, logFile);
+    public static int launchProcess(ILaunchConfiguration launchConf, String mode, boolean build, boolean wait, File logFile) {
+        StandaloneLauncherJob launch = new StandaloneLauncherJob(launchConf, mode, build, wait, logFile);
 
         launch.setPriority(Job.SHORT);
         launch.schedule();
@@ -143,7 +140,7 @@ public class StandaloneLaunchConfigExecutor {
         private final ILaunchConfiguration config;
 
         private int result = 0;
-        private final boolean debug;
+        private final String mode;
         private final boolean build;
         private final boolean wait;
 
@@ -155,8 +152,8 @@ public class StandaloneLaunchConfigExecutor {
          *
          * @param config
          *            the {@link ILaunchConfiguration} to start
-         * @param debug
-         *            whether to attach a debugger
+         * @param mode
+         *            the mode in which to launch
          * @param build
          *            whether to build before launch
          * @param wait
@@ -164,13 +161,13 @@ public class StandaloneLaunchConfigExecutor {
          * @param logFile
          *            an optional {@link File} to write console output to. May be <code>null</code>.
          */
-        StandaloneLauncherJob(ILaunchConfiguration config, boolean debug, boolean build, boolean wait, File logFile) {
+        StandaloneLauncherJob(ILaunchConfiguration config, String mode, boolean build, boolean wait, File logFile) {
             super("run " + config.getName());
             this.config = config;
-            this.debug = debug;
             this.build = build;
             this.wait = wait;
             this.logFile = logFile;
+            this.mode = mode;
         }
 
         int getProcessResult() {
@@ -181,7 +178,6 @@ public class StandaloneLaunchConfigExecutor {
         protected IStatus run(IProgressMonitor monitor) {
             try {
                 monitor.beginTask("Launching " + config.getName(), IProgressMonitor.UNKNOWN);
-                String mode = debug ? ILaunchManager.DEBUG_MODE : ILaunchManager.RUN_MODE;
 
                 ILaunch launch = launch(config, mode, monitor, 0, logFile, build, wait);
 

@@ -88,10 +88,10 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 		val builder = new StringBuilder
 		builder.append("redirect")
 		if (r.outFile != null) {
-			builder.append(' ').append(r.outWhich.literal).append(" to ").append(r.outFile.name.expanded)
+			builder.append(' ').append(r.outWhich.literal).append(" to ").append(r.outFile.name.getExpanded(false))
 		}
 		if (r.inFile != null) {
-			builder.append(' ').append(r.inWhich.literal).append(" from ").append(r.inFile.name.expanded)
+			builder.append(' ').append(r.inWhich.literal).append(" from ").append(r.inFile.name.getExpanded(false))
 		}
 		builder.toString
 	}
@@ -101,7 +101,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(Workspace ws) {
-		"workspace " + ws.workspace.name.expanded
+		"workspace " + ws.workspace.name.getExpanded(false)
 	}
 	
 	def image(Workspace ws) {
@@ -109,7 +109,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(WorkingDir wd) {
-		"working directory " + wd.workingDir.name.expanded
+		"working directory " + wd.workingDir.name.getExpanded(false)
 	}
 	
 	def image(WorkingDir wd) {
@@ -155,7 +155,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def text(ContentProviderProduct p) {
-		"expand content from " + p.product.name.expanded
+		"expand content from " + p.product.name.getExpanded(false)
 	}
 	
 	def image(ContentProviderProduct p) {
@@ -238,7 +238,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(ConfigIniTemplate t) {
-		"config.ini template " + t.path.name.expanded
+		"config.ini template " + t.path.name.getExpanded(false)
 	}
 	
 	def image(ConfigIniTemplate t) {
@@ -293,7 +293,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(VmArgument va) {
-		"vmargs " + Joiner.on(' ').join(va.arguments.map[expanded])
+		"vmargs " + Joiner.on(' ').join(va.arguments.map[getExpanded(false)])
 	}
 	
 	def image(VmArgument va) {
@@ -301,7 +301,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(ProgramArgument pa) {
-		"args " + Joiner.on(' ').join(pa.arguments.map[expanded])
+		"args " + Joiner.on(' ').join(pa.arguments.map[getExpanded(false)])
 	}
 	
 	def image(ProgramArgument pa) {
@@ -309,7 +309,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(EnvironmentVariable e) {
-		"env " + e.name + "=" + e.value.expanded
+		"env " + e.name + "=" + e.value.getExpanded(false)
 	}
 	
 	def image(EnvironmentVariable e) {

@@ -1,0 +1,94 @@
+/*
+ * Copyright (c) SSI Schaefer IT Solutions
+ */
+package com.wamas.ide.launchview.model;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Deactivate;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
+import org.osgi.service.component.annotations.ReferencePolicyOption;
+
+import com.wamas.ide.launchview.services.LaunchModel;
+import com.wamas.ide.launchview.services.LaunchObject;
+import com.wamas.ide.launchview.services.LaunchObjectProvider;
+
+@Component(immediate = true)
+public class LaunchViewModel implements LaunchModel {
+
+    public Set<LaunchObjectProvider> providers = new HashSet<>();
+    private static LaunchViewModel service;
+
+    private final List<Runnable> updateListeners = new ArrayList<>();
+    private final Runnable providerUpdateListener = () -> fireUpdate();
+
+    @Override
+    public LaunchObjectContainerModel getModel() {
+        LaunchObjectContainerModel root = new LaunchObjectContainerModel();
+
+        // find all objects from services
+        Set<LaunchObject> allObjects = providers.stream().map(p -> p.getLaunchObjects()).flatMap(o -> o.stream())
+                .collect(Collectors.toCollection(TreeSet::new));
+
+        // create all required type containers
+        allObjects.stream().map(o -> o.getType()).distinct().map(LaunchObjectContainerModel::new).forEach(root::addChild);
+
+        // create all nodes
+        allObjects.stream().map(LaunchObjectModel::new).forEach(m -> root.getContainerFor(m).addChild(m));
+
+        // this is the root :)
+        return root;
+    }
+
+    @Reference(service = LaunchObjectProvider.class, cardinality = ReferenceCardinality.MULTIPLE,
+               policy = ReferencePolicy.DYNAMIC, policyOption = ReferencePolicyOption.GREEDY)
+    public void addLaunchObjectProvider(LaunchObjectProvider service) {
+        providers.add(service);
+        service.addUpdateListener(providerUpdateListener);
+
+        fireUpdate();
+    }
+
+    public void removeLaunchObjectProvider(LaunchObjectProvider service) {
+        providers.remove(service);
+        service.removeUpdateListener(providerUpdateListener);
+
+        fireUpdate();
+    }
+
+    @Activate
+    public void activate() {
+        service = this;
+    }
+
+    @Deactivate
+    public void deactivate() {
+        service = null;
+    }
+
+    public void addUpdateListener(Runnable r) {
+        updateListeners.add(r);
+    }
+
+    public void removeUpdateListener(Runnable r) {
+        updateListeners.remove(r);
+    }
+
+    private void fireUpdate() {
+        updateListeners.forEach(Runnable::run);
+    }
+
+    public static LaunchViewModel getService() {
+        return service;
+    }
+
+}

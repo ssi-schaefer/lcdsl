@@ -56,7 +56,7 @@ class DependencyResolver {
 			val file = ResourcesPlugin.workspace.root.findFilesForLocationURI(new File(cp).toURI).get(0)
 			val prodBundles = file.findBundlesInProduct
 			allBundles.putAll(prodBundles.toInvertedMap[new StartLevel])
-			
+
 			// feature may not contain required dependencies
 			resolveAndExpand(config, allBundles, prodBundles, mappedIgnores)
 		}
@@ -67,7 +67,7 @@ class DependencyResolver {
 				val ps = f?.feature?.pluginModels?.filterNull
 				if (ps != null && !ps.empty) {
 					allBundles.putAll(ps.toInvertedMap[new StartLevel])
-					
+
 					// feature may not contain required dependencies
 					resolveAndExpand(config, allBundles, ps, mappedIgnores)
 				}
@@ -113,7 +113,7 @@ class DependencyResolver {
 	static def findBundlesInProduct(IFile product) {
 		val model = new WorkspaceProductModel(product, false)
 		val result = newArrayList
-		
+
 		model.load
 
 		result.addAll(model.pluginModels)
@@ -137,9 +137,11 @@ class DependencyResolver {
 		val result = newArrayList
 
 		for (child : feature.includedFeatures) {
-			// features seem to be able to include themselves
-			val childFeature = getBestFeatureMatch(child.id, child.version)
-			result.addAll(childFeature.feature.pluginModels)
+			if (child.feature != null) {
+				// features seem to be able to include themselves
+				val childFeature = getBestFeatureMatch(child.id, child.version)
+				result.addAll(childFeature.feature.pluginModels)
+			}
 		}
 
 		for (plugin : feature.plugins) {
@@ -147,7 +149,7 @@ class DependencyResolver {
 			if (bundle != null)
 				result.add(bundle.bundleDescription)
 		}
-		
+
 		for (imp : feature.imports) {
 			switch (imp.type) {
 				case IFeatureImport.PLUGIN: {

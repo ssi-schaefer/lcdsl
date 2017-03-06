@@ -19,10 +19,13 @@ Require-Bundle: com.wamas.ide.launching,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.pde.core,
  org.eclipse.jdt.core,
- org.eclipse.jdt.launching
+ org.eclipse.jdt.launching,
+ com.wamas.ide.launchview,
+ org.eclipse.osgi.services
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.wamas.ide.launching.ui.internal,
  com.wamas.ide.launching.ui.contentassist,
  com.wamas.ide.launching.ui.quickfix
 Bundle-Activator: com.wamas.ide.launching.ui.internal.LaunchingActivator
+Service-Component: OSGI-INF/com.wamas.ide.launching.ui.launchview.LcDslProvider.xml

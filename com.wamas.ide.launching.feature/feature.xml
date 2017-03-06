@@ -5,6 +5,10 @@
       version="0.1.0.qualifier"
       provider-name="SSI Schaefer IT Solutions GmbH">
 
+   <requires>
+      <import feature="com.wamas.ide.launchview.feature" version="0.1.0.qualifier"/>
+   </requires>
+
    <plugin
          id="com.wamas.ide.launching"
          download-size="0"

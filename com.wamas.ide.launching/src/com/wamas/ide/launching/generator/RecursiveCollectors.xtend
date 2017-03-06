@@ -12,7 +12,7 @@ import java.util.function.Function
 import org.eclipse.debug.ui.IDebugUIConstants
 import org.eclipse.jdt.launching.JavaRuntime
 
-import static extension com.wamas.ide.launching.validation.LcDslValidator.*
+import static com.wamas.ide.launching.validation.LcDslValidator.getExpanded
 
 /**
  * Collects raw values for launch configuration fields, taking into account inheritance
@@ -172,7 +172,13 @@ class RecursiveCollectors {
 	}
 	
 	static def collectContentProvider(LaunchConfig config) {
-		collectFlatObject(config, [contentProviderProduct?.product?.name?.expanded])
+		collectFlatObject(config, [
+			val n = contentProviderProduct?.product?.name
+			if(n == null)
+				return null
+				
+			return getExpanded(n, false)
+		])
 	}
 	
 	static def collectFeatures(LaunchConfig config) {
