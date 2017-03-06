@@ -39,9 +39,8 @@ public class DebugCoreLaunchObject implements LaunchObject {
     }
 
     @Override
-    public void launch(ILaunchMode group) {
-        // TODO Auto-generated method stub
-
+    public void launch(ILaunchMode mode) {
+        // TODO: use standalone executor...
     }
 
 }
