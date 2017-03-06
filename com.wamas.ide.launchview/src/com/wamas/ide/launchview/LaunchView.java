@@ -12,6 +12,7 @@ import org.eclipse.debug.core.ILaunchMode;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -101,6 +102,9 @@ public class LaunchView {
         for (ILaunchMode mode : DebugPlugin.getDefault().getLaunchManager().getLaunchModes()) {
             manager.add(new LaunchAction(mode, elements));
         }
+        
+        manager.add(new Separator());
+        manager.add(new TerminateAction(elements));
     }
 
     private void reset() {

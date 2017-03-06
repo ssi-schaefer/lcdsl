@@ -22,6 +22,10 @@ public interface LaunchObject extends Comparable<LaunchObject> {
     public ILaunchConfigurationType getType();
 
     public void launch(ILaunchMode mode);
+    
+    public boolean canTerminate();
+    
+    public void terminate();
 
     @Override
     default int compareTo(LaunchObject o) {

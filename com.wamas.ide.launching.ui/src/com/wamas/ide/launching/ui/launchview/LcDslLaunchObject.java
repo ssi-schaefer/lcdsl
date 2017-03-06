@@ -43,4 +43,15 @@ public class LcDslLaunchObject implements LaunchObject {
         StandaloneLaunchConfigExecutor.launchProcess(generator.generate(cfg), mode.getIdentifier(), true, false, null);
     }
 
+	@Override
+	public boolean canTerminate() {
+		return false; // a "LaunchConfig" never runs. Only the generated ILaunchConfiguration runs (handled elsewhere)
+	}
+
+	@Override
+	public void terminate() {
+		// cannot happen, see canTerminate.
+		throw new UnsupportedOperationException("unexpected operation");
+	}
+
 }

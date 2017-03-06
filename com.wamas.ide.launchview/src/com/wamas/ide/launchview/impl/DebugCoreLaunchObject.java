@@ -4,11 +4,17 @@
 package com.wamas.ide.launchview.impl;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.debug.core.DebugException;
+import org.eclipse.debug.core.DebugPlugin;
+import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchMode;
+import org.eclipse.debug.core.model.IProcess;
 import org.eclipse.jface.viewers.StyledString;
 
 import com.wamas.ide.launchview.Activator;
@@ -48,5 +54,57 @@ public class DebugCoreLaunchObject implements LaunchObject {
     public void launch(ILaunchMode mode) {
         StandaloneLaunchConfigExecutor.launchProcess(config, mode.getIdentifier(), true, false, null);
     }
+
+	@Override
+	public boolean canTerminate() {
+		ILaunch launch = findLaunch();
+		if(launch != null && launch.canTerminate()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void terminate() {
+		// DON'T use Eclipse' mechanism - it's a little broken if shutdown of the processes takes longer than a few seconds.
+		// Instead we start a job that tries to terminate processes. If the job itself is stopped, we give up like Eclipse does.
+		ILaunch launch = findLaunch();
+		if(launch != null && launch.canTerminate()) {
+			Job terminateJob = new Job("Terminate " + config.getName()) {
+				@Override
+				protected IStatus run(IProgressMonitor monitor) {
+					while(true) {
+						if(monitor.isCanceled())
+							return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "cannot terminate " + config.getName());
+						
+						if(launch.isTerminated())
+							return Status.OK_STATUS;
+						
+						for(IProcess p : launch.getProcesses()) {
+							if(!p.isTerminated() && p.canTerminate()) {
+								try {
+									p.terminate();
+								} catch(DebugException e) {
+									// try again next time.
+								}
+							}
+						}
+					}
+				}
+			};
+			
+			terminateJob.setUser(true);
+			terminateJob.schedule();
+		}
+	}
+	
+	private ILaunch findLaunch() {
+		for(ILaunch l : DebugPlugin.getDefault().getLaunchManager().getLaunches()) {
+			if(l.getLaunchConfiguration().getName().equals(config.getName())) {
+				return l;
+			}
+		}
+		return null;
+	}
 
 }
