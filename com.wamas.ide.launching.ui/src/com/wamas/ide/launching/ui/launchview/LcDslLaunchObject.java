@@ -8,9 +8,9 @@ import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchMode;
 import org.eclipse.jface.viewers.StyledString;
 
-import com.wamas.ide.launching.generator.StandaloneLaunchConfigExecutor;
 import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
+import com.wamas.ide.launchview.launcher.StandaloneLaunchConfigExecutor;
 import com.wamas.ide.launchview.services.LaunchObject;
 
 public class LcDslLaunchObject implements LaunchObject {
@@ -22,10 +22,15 @@ public class LcDslLaunchObject implements LaunchObject {
         this.cfg = cfg;
         this.generator = LcDslProvider.getLcDslInjector().getInstance(StandaloneLaunchConfigGenerator.class);
     }
+    
+    @Override
+    public String getId() {
+    	return cfg.getName();
+    }
 
     @Override
     public StyledString getLabel() {
-        return new StyledString(cfg.getName());
+        return new StyledString(cfg.getName()).append(' ').append("[" + cfg.eResource().getURI().lastSegment() + "]", StyledString.QUALIFIER_STYLER);
     }
 
     @Override

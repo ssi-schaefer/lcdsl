@@ -12,6 +12,7 @@ import org.eclipse.debug.core.ILaunchMode;
 import org.eclipse.jface.viewers.StyledString;
 
 import com.wamas.ide.launchview.Activator;
+import com.wamas.ide.launchview.launcher.StandaloneLaunchConfigExecutor;
 import com.wamas.ide.launchview.services.LaunchObject;
 
 public class DebugCoreLaunchObject implements LaunchObject {
@@ -20,6 +21,11 @@ public class DebugCoreLaunchObject implements LaunchObject {
 
     DebugCoreLaunchObject(ILaunchConfiguration config) {
         this.config = config;
+    }
+    
+    @Override
+    public String getId() {
+    	return config.getName();
     }
 
     @Override
@@ -40,7 +46,7 @@ public class DebugCoreLaunchObject implements LaunchObject {
 
     @Override
     public void launch(ILaunchMode mode) {
-        // TODO: use standalone executor...
+        StandaloneLaunchConfigExecutor.launchProcess(config, mode.getIdentifier(), true, false, null);
     }
 
 }

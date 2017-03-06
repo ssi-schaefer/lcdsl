@@ -1,7 +1,7 @@
 /*
  * Copyright (c) SSI Schaefer IT Solutions
  */
-package com.wamas.ide.launching.generator;
+package com.wamas.ide.launchview.launcher;
 
 import java.io.BufferedWriter;
 import java.io.Closeable;
@@ -14,7 +14,7 @@ import org.eclipse.debug.core.IStreamListener;
 import org.eclipse.debug.core.model.IProcess;
 import org.eclipse.debug.core.model.IStreamMonitor;
 
-import com.wamas.ide.launching.Activator;
+import com.wamas.ide.launchview.Activator;
 
 /**
  * Logger that can be attached to a {@linkplain IProcess} and that writes the output to a file.

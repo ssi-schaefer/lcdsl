@@ -21,7 +21,7 @@ public class LaunchObjectContainerModel extends LaunchObjectModel {
     }
 
     LaunchObjectContainerModel(ILaunchConfigurationType type) {
-        super(new StyledString(type.getName()), DebugPluginImages.getImage(type.getIdentifier()));
+        super(type.getName(), DebugPluginImages.getImage(type.getIdentifier()));
         this.type = type;
     }
 

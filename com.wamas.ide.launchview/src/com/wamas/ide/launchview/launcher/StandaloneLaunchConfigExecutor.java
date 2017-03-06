@@ -1,7 +1,7 @@
 /*
  * Copyright (c) SSI Schaefer IT Solutions
  */
-package com.wamas.ide.launching.generator;
+package com.wamas.ide.launchview.launcher;
 
 import java.io.File;
 import java.util.HashSet;
@@ -17,8 +17,7 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.debug.core.model.IProcess;
 
-import com.wamas.ide.launching.Activator;
-import com.wamas.ide.launching.lcDsl.LaunchConfig;
+import com.wamas.ide.launchview.Activator;
 
 public class StandaloneLaunchConfigExecutor {
 

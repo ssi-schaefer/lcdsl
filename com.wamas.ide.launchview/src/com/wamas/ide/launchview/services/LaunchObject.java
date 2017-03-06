@@ -11,6 +11,8 @@ import org.eclipse.swt.graphics.Image;
 
 public interface LaunchObject extends Comparable<LaunchObject> {
 
+	public String getId();
+	
     public StyledString getLabel();
 
     default public Image getImage() {

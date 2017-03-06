@@ -10,25 +10,27 @@ import com.wamas.ide.launchview.services.LaunchObject;
 
 public class LaunchObjectModel implements Comparable<LaunchObjectModel> {
 
-    private final StyledString label;
+    private final String id;
     private final Image image;
 
     private final LaunchObject object;
 
     LaunchObjectModel(LaunchObject obj) {
-        this.label = obj.getLabel();
+        this.id = obj.getId();
         this.image = obj.getImage();
         this.object = obj;
     }
 
-    LaunchObjectModel(StyledString label, Image image) {
-        this.label = label;
+    LaunchObjectModel(String id, Image image) {
+        this.id = id;
         this.image = image;
         this.object = null;
     }
 
     public StyledString getLabel() {
-        return label;
+    	if(object == null)
+    		return new StyledString(id);
+        return object.getLabel();
     }
 
     public Image getImage() {
@@ -41,7 +43,7 @@ public class LaunchObjectModel implements Comparable<LaunchObjectModel> {
 
     @Override
     public String toString() {
-        return getLabel().toString();
+        return id;
     }
 
     @Override
@@ -50,12 +52,12 @@ public class LaunchObjectModel implements Comparable<LaunchObjectModel> {
     }
 
     public String uniqueId() {
-        if (label == null) {
+        if (id == null) {
             return "root";
         } else if (object == null || object.getType() == null) {
-            return label.toString();
+            return id;
         }
-        return object.getType().getName() + "." + label.toString();
+        return object.getType().getName() + "." + id;
     }
 
     @Override

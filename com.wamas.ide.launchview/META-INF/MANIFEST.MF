@@ -17,4 +17,5 @@ Import-Package: javax.annotation;version="1.0.0";resolution:=optional,
 Bundle-ActivationPolicy: lazy
 Service-Component: OSGI-INF/com.wamas.ide.launchview.model.LaunchViewModel.xml,
  OSGI-INF/com.wamas.ide.launchview.impl.DebugCoreProvider.xml
-Export-Package: com.wamas.ide.launchview.services
+Export-Package: com.wamas.ide.launchview.launcher,
+ com.wamas.ide.launchview.services

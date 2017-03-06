@@ -1,7 +1,7 @@
 /*
  * Copyright (c) SSI Schaefer IT Solutions
  */
-package com.wamas.ide.launching.generator;
+package com.wamas.ide.launchview.launcher;
 
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
