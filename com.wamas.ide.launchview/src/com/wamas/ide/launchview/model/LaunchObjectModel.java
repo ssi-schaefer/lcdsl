@@ -52,7 +52,7 @@ public class LaunchObjectModel implements Comparable<LaunchObjectModel> {
     public String uniqueId() {
         if (label == null) {
             return "root";
-        } else if (object == null) {
+        } else if (object == null || object.getType() == null) {
             return label.toString();
         }
         return object.getType().getName() + "." + label.toString();
