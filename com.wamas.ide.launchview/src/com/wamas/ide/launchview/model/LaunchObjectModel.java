@@ -28,8 +28,9 @@ public class LaunchObjectModel implements Comparable<LaunchObjectModel> {
     }
 
     public StyledString getLabel() {
-    	if(object == null)
-    		return new StyledString(id);
+        if (object == null) {
+            return new StyledString(id);
+        }
         return object.getLabel();
     }
 
@@ -43,12 +44,12 @@ public class LaunchObjectModel implements Comparable<LaunchObjectModel> {
 
     @Override
     public String toString() {
-        return id;
+        return uniqueId() + "(" + getObject() + ")";
     }
 
     @Override
     public int compareTo(LaunchObjectModel o) {
-        return getLabel().toString().compareTo(o.getLabel().toString());
+        return uniqueId().compareTo(o.uniqueId());
     }
 
     public String uniqueId() {
@@ -57,7 +58,7 @@ public class LaunchObjectModel implements Comparable<LaunchObjectModel> {
         } else if (object == null || object.getType() == null) {
             return id;
         }
-        return object.getType().getName() + "." + id;
+        return object.getType().getIdentifier() + "." + id;
     }
 
     @Override

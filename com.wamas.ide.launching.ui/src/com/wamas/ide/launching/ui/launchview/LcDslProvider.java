@@ -21,7 +21,6 @@ import org.osgi.service.component.annotations.Deactivate;
 
 import com.google.inject.Injector;
 import com.wamas.ide.launching.generator.LcDslGenerator;
-import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
 import com.wamas.ide.launching.ui.internal.LaunchingActivator;
@@ -59,10 +58,7 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
         for (IEObjectDescription obj : descs) {
             EObject lc = EcoreUtil2.resolve(obj.getEObjectOrProxy(), set);
             if (lc instanceof LaunchConfig) {
-                LaunchConfig config = (LaunchConfig) lc;
-
-                if (!hasLaunchConfiguration(StandaloneLaunchConfigGenerator.getType(manager, config.getType()),
-                        config.getName())) {
+                if (!((LaunchConfig) lc).isAbstract()) {
                     result.add(new LcDslLaunchObject((LaunchConfig) lc));
                 }
             }
@@ -71,17 +67,22 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
         return result;
     }
 
-    private boolean hasLaunchConfiguration(ILaunchConfigurationType type, String name) {
+    ILaunchConfiguration findLaunchConfiguration(ILaunchConfigurationType type, String name) {
         try {
             for (ILaunchConfiguration config : manager.getLaunchConfigurations(type)) {
                 if (config.getName().equals(name)) {
-                    return true;
+                    return config;
                 }
             }
-            return false;
+            return null;
         } catch (Exception e) {
             throw new RuntimeException("cannot fetch existing launch configurations", e);
         }
+    }
+
+    @Override
+    public int getPriority() {
+        return 10; // more prio than the debug core version
     }
 
 }

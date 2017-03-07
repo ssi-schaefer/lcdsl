@@ -8,7 +8,6 @@ import java.util.TreeSet;
 
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.internal.ui.DebugPluginImages;
-import org.eclipse.jface.viewers.StyledString;
 
 public class LaunchObjectContainerModel extends LaunchObjectModel {
 

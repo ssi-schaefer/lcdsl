@@ -11,8 +11,8 @@ import org.eclipse.swt.graphics.Image;
 
 public interface LaunchObject extends Comparable<LaunchObject> {
 
-	public String getId();
-	
+    public String getId();
+
     public StyledString getLabel();
 
     default public Image getImage() {
@@ -22,14 +22,16 @@ public interface LaunchObject extends Comparable<LaunchObject> {
     public ILaunchConfigurationType getType();
 
     public void launch(ILaunchMode mode);
-    
+
     public boolean canTerminate();
-    
+
     public void terminate();
 
     @Override
     default int compareTo(LaunchObject o) {
         return getLabel().toString().compareTo(o.getLabel().toString());
     }
+
+    public void edit();
 
 }

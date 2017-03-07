@@ -10,12 +10,14 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.e4.ui.model.workbench,
  org.eclipse.debug.core,
  org.eclipse.debug.ui,
- org.eclipse.osgi.services
+ org.eclipse.osgi.services,
+ org.eclipse.e4.core.di.annotations
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.annotation;version="1.0.0";resolution:=optional,
  javax.inject;version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Service-Component: OSGI-INF/com.wamas.ide.launchview.model.LaunchViewModel.xml,
  OSGI-INF/com.wamas.ide.launchview.impl.DebugCoreProvider.xml
-Export-Package: com.wamas.ide.launchview.launcher,
+Export-Package: com.wamas.ide.launchview.impl,
+ com.wamas.ide.launchview.launcher,
  com.wamas.ide.launchview.services

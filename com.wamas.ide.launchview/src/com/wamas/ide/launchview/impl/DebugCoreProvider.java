@@ -65,4 +65,9 @@ public class DebugCoreProvider extends AbstractLaunchObjectProvider
         fireUpdate();
     }
 
+    @Override
+    public int getPriority() {
+        return 0;
+    }
+
 }

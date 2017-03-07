@@ -186,7 +186,6 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 				val engine = new SearchEngine()
 
 				engine.search(pattern, #{SearchEngine.defaultSearchParticipant}, scope, [ m |
-					System.err.println(m.element)
 					if (m.element != null && m.element instanceof IMethod) {
 						val ele = m.element as IMethod
 						if (ele.mainMethod) {

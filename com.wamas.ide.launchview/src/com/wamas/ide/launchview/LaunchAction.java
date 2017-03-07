@@ -24,6 +24,7 @@ public class LaunchAction extends Action {
         COMMON_MODE_ICONS.put("run", "icons/launch_run.gif");
         COMMON_MODE_ICONS.put("debug", "icons/debug_exc.gif");
         COMMON_MODE_ICONS.put("profile", "icons/profile_exc.gif");
+        COMMON_MODE_ICONS.put("coverage", "icons/coverage.png");
     }
 
     private final Set<LaunchObjectModel> models;
@@ -60,6 +61,15 @@ public class LaunchAction extends Action {
     public void run() {
         for (LaunchObjectModel m : models) {
             m.getObject().launch(mode);
+
+            if (models.size() > 1) {
+                // PDE has a nasty bug. If launching too fast, it tries to overwrite the last configurations platform.xml
+                try {
+                    Thread.sleep(2_000);
+                } catch (InterruptedException ie) {
+                    // ignored
+                }
+            }
         }
     }
 

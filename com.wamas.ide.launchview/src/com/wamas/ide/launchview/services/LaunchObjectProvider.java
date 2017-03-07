@@ -13,4 +13,6 @@ public interface LaunchObjectProvider {
 
     public void removeUpdateListener(Runnable r);
 
+    public int getPriority();
+
 }
