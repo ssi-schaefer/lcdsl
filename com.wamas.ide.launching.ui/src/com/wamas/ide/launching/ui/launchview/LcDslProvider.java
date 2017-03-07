@@ -19,21 +19,16 @@ import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
 
-import com.google.inject.Injector;
 import com.wamas.ide.launching.generator.LcDslGenerator;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
-import com.wamas.ide.launching.ui.internal.LaunchingActivator;
+import com.wamas.ide.launching.ui.LcDslInjectionHelper;
 import com.wamas.ide.launchview.services.AbstractLaunchObjectProvider;
 import com.wamas.ide.launchview.services.LaunchObject;
 import com.wamas.ide.launchview.services.LaunchObjectProvider;
 
 @Component(service = LaunchObjectProvider.class)
 public class LcDslProvider extends AbstractLaunchObjectProvider implements LaunchObjectProvider {
-
-    public static Injector getLcDslInjector() {
-        return LaunchingActivator.getInstance().getInjector(LaunchingActivator.COM_WAMAS_IDE_LAUNCHING_LCDSL);
-    }
 
     private final ILaunchManager manager = DebugPlugin.getDefault().getLaunchManager();
     private final Runnable generatorListener = () -> fireUpdate();
@@ -50,8 +45,8 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
 
     @Override
     public Set<LaunchObject> getLaunchObjects() {
-        IResourceDescriptions index = getLcDslInjector().getInstance(IResourceDescriptions.class);
-        ResourceSet set = getLcDslInjector().getInstance(ResourceSet.class);
+        IResourceDescriptions index = LcDslInjectionHelper.getLcDslInjector().getInstance(IResourceDescriptions.class);
+        ResourceSet set = LcDslInjectionHelper.getLcDslInjector().getInstance(ResourceSet.class);
 
         Set<LaunchObject> result = new TreeSet<>();
         Iterable<IEObjectDescription> descs = index.getExportedObjectsByType(LcDslPackage.eINSTANCE.getLaunchConfig());

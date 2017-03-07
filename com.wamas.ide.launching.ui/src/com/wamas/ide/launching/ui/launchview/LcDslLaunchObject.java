@@ -19,6 +19,7 @@ import org.eclipse.xtext.ui.editor.IURIEditorOpener;
 
 import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
+import com.wamas.ide.launching.ui.LcDslInjectionHelper;
 import com.wamas.ide.launching.ui.internal.LaunchingActivator;
 import com.wamas.ide.launchview.impl.DebugCoreLaunchObject;
 import com.wamas.ide.launchview.launcher.StandaloneLaunchConfigExecutor;
@@ -34,7 +35,7 @@ public class LcDslLaunchObject implements LaunchObject {
 
     public LcDslLaunchObject(LaunchConfig cfg) {
         this.cfg = cfg;
-        this.generator = LcDslProvider.getLcDslInjector().getInstance(StandaloneLaunchConfigGenerator.class);
+        this.generator = LcDslInjectionHelper.getLcDslInjector().getInstance(StandaloneLaunchConfigGenerator.class);
     }
 
     @Override
@@ -106,7 +107,7 @@ public class LcDslLaunchObject implements LaunchObject {
 
     @Override
     public void edit() {
-        IURIEditorOpener opener = LcDslProvider.getLcDslInjector().getInstance(IURIEditorOpener.class);
+        IURIEditorOpener opener = LcDslInjectionHelper.getLcDslInjector().getInstance(IURIEditorOpener.class);
         opener.open(EcoreUtil2.getPlatformResourceOrNormalizedURI(cfg), true);
     }
 

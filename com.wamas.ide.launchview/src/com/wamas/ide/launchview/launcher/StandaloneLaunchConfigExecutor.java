@@ -7,6 +7,7 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -47,6 +48,24 @@ public class StandaloneLaunchConfigExecutor {
 
         // when waiting this is the real result, when not it's initialized to 0
         return launch.getProcessResult();
+    }
+
+    /**
+     * Launches a process from a launch configuration with the given name.
+     *
+     * @see #launchProcess(ILaunchConfiguration, String, boolean, boolean, File)
+     */
+    public static int launchProcess(String name, String mode, boolean build, boolean wait, File logFile) {
+        try {
+            for (ILaunchConfiguration launchConf : DebugPlugin.getDefault().getLaunchManager().getLaunchConfigurations()) {
+                if (launchConf.getName().equals(name)) {
+                    return launchProcess(launchConf, mode, build, wait, logFile);
+                }
+            }
+        } catch (CoreException e) {
+            throw new RuntimeException(e);
+        }
+        return -1;
     }
 
     /**
