@@ -160,11 +160,9 @@ public class LaunchView {
         tree.getDisplay().syncExec(() -> {
             tree.getViewer().getTree().setRedraw(false);
             try {
-                int selection = tree.getViewer().getTree().getVerticalBar().getSelection();
                 TreePath[] exp = tree.getViewer().getExpandedTreePaths();
                 tree.getViewer().setInput(model.getModel());
                 tree.getViewer().setExpandedTreePaths(exp);
-                tree.getViewer().getTree().getVerticalBar().setSelection(selection);
             } finally {
                 tree.getViewer().getTree().setRedraw(true);
             }
