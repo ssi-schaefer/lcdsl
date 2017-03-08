@@ -36,6 +36,7 @@ import org.eclipse.ui.dialogs.FilteredTree;
 import org.eclipse.ui.dialogs.PatternFilter;
 
 import com.wamas.ide.launchview.model.LaunchObjectContainerModel;
+import com.wamas.ide.launchview.model.LaunchObjectFavoriteContainerModel;
 import com.wamas.ide.launchview.model.LaunchObjectModel;
 import com.wamas.ide.launchview.model.LaunchViewModel;
 
@@ -93,12 +94,19 @@ public class LaunchView {
         viewMenu.setElementId("menu:" + part.getElementId());
         viewMenu.getTags().add("ViewMenu");
 
-        MDirectMenuItem item = MMenuFactory.INSTANCE.createDirectMenuItem();
-        item.setLabel("Refresh");
-        item.setIconURI("platform:/plugin/" + Activator.PLUGIN_ID + "/icons/refresh.gif");
-        item.setObject(new RefreshHandler());
+        MDirectMenuItem refresh = MMenuFactory.INSTANCE.createDirectMenuItem();
+        refresh.setLabel("Refresh");
+        refresh.setIconURI("platform:/plugin/" + Activator.PLUGIN_ID + "/icons/refresh.gif");
+        refresh.setObject(new RefreshHandler());
 
-        viewMenu.getChildren().add(item);
+        MDirectMenuItem terminateAll = MMenuFactory.INSTANCE.createDirectMenuItem();
+        terminateAll.setLabel("Terminate All");
+        terminateAll.setIconURI("platform:/plugin/" + Activator.PLUGIN_ID + "/icons/terminate_all_co.gif");
+        terminateAll.setObject(new TerminateAllHandler());
+
+        viewMenu.getChildren().add(refresh);
+        viewMenu.getChildren().add(MMenuFactory.INSTANCE.createMenuSeparator());
+        viewMenu.getChildren().add(terminateAll);
         part.getMenus().add(viewMenu);
     }
 
@@ -151,6 +159,7 @@ public class LaunchView {
         }
 
         manager.add(new Separator());
+        manager.add(new RelaunchAction(elements));
         manager.add(new TerminateAction(elements));
         manager.add(new Separator());
         manager.add(new EditAction(elements));
@@ -179,6 +188,35 @@ public class LaunchView {
         @Execute
         public void handle() {
             reset();
+        }
+    }
+
+    private final class TerminateAllHandler {
+
+        @Execute
+        public void handle() {
+            LaunchObjectContainerModel root = (LaunchObjectContainerModel) tree.getViewer().getInput();
+            if (root == null) {
+                return;
+            }
+
+            for (LaunchObjectModel container : root.getChildren()) {
+                if (container instanceof LaunchObjectFavoriteContainerModel) {
+                    continue;
+                }
+
+                if (container instanceof LaunchObjectContainerModel) {
+                    for (LaunchObjectModel m : ((LaunchObjectContainerModel) container).getChildren()) {
+                        if (m.getObject() == null) {
+                            continue;
+                        }
+
+                        if (m.getObject().canTerminate()) {
+                            m.getObject().terminate();
+                        }
+                    }
+                }
+            }
         }
     }
 

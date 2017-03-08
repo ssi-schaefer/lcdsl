@@ -291,7 +291,7 @@ class StandaloneLaunchConfigGenerator {
 	}
 
 	def generateGroup(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
-		// TODO: members
+		// TODO: members (attention: generate manual launch configs that are referenced)
 	}
 
 }

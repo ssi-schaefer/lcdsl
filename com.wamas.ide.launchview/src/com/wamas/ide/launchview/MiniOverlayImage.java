@@ -1,12 +1,15 @@
 /*
  * Copyright (c) SSI Schaefer IT Solutions
  */
-package com.wamas.ide.launching.ui.launchview;
+package com.wamas.ide.launchview;
 
 import org.eclipse.jface.resource.CompositeImageDescriptor;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.Point;
 
+/**
+ * Very simple composite image composed of two identically sized (!) images
+ */
 public class MiniOverlayImage extends CompositeImageDescriptor {
 
     private final ImageData data1;
@@ -25,7 +28,7 @@ public class MiniOverlayImage extends CompositeImageDescriptor {
 
     @Override
     protected Point getSize() {
-        return new Point(16, 16);
+        return new Point(data1.width, data1.height);
     }
 
 }

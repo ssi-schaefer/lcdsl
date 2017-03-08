@@ -16,6 +16,9 @@ public interface LaunchObject extends Comparable<LaunchObject> {
     public StyledString getLabel();
 
     default public Image getImage() {
+        if (getType() == null) {
+            return null;
+        }
         return DebugPluginImages.getImage(getType().getIdentifier());
     }
 
@@ -27,11 +30,15 @@ public interface LaunchObject extends Comparable<LaunchObject> {
 
     public void terminate();
 
+    public void relaunch();
+
     @Override
     default int compareTo(LaunchObject o) {
         return getLabel().toString().compareTo(o.getLabel().toString());
     }
 
     public void edit();
+
+    public boolean isFavorite();
 
 }

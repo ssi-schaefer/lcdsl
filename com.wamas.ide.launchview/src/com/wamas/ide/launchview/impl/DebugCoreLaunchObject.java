@@ -3,6 +3,8 @@
  */
 package com.wamas.ide.launchview.impl;
 
+import java.util.Collections;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -14,8 +16,8 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchMode;
-import org.eclipse.debug.core.model.IProcess;
 import org.eclipse.debug.ui.DebugUITools;
+import org.eclipse.debug.ui.IDebugUIConstants;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.ui.PlatformUI;
 
@@ -59,7 +61,7 @@ public class DebugCoreLaunchObject implements LaunchObject {
 
     @Override
     public boolean canTerminate() {
-        ILaunch launch = findLaunch();
+        ILaunch launch = findLaunch(config.getName());
         if (launch != null && launch.canTerminate()) {
             return true;
         }
@@ -70,31 +72,21 @@ public class DebugCoreLaunchObject implements LaunchObject {
     public void terminate() {
         // DON'T use Eclipse' mechanism - it's a little broken if shutdown of the processes takes longer than a few seconds.
         // Instead we start a job that tries to terminate processes. If the job itself is stopped, we give up like Eclipse does.
-        ILaunch launch = findLaunch();
+        ILaunch launch = findLaunch(config.getName());
         if (launch != null && launch.canTerminate()) {
             Job terminateJob = new Job("Terminate " + config.getName()) {
 
                 @Override
                 protected IStatus run(IProgressMonitor monitor) {
-                    while (true) {
-                        if (monitor.isCanceled()) {
-                            return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "cannot terminate " + config.getName());
-                        }
-
-                        if (launch.isTerminated()) {
-                            return Status.OK_STATUS;
-                        }
-
-                        for (IProcess p : launch.getProcesses()) {
-                            if (!p.isTerminated() && p.canTerminate()) {
-                                try {
-                                    p.terminate();
-                                } catch (DebugException e) {
-                                    // try again next time.
-                                }
-                            }
+                    if (!launch.isTerminated()) {
+                        try {
+                            launch.terminate();
+                        } catch (DebugException e) {
+                            // could not terminate - but we cannot do anything anyway... :(
+                            return new Status(IStatus.WARNING, Activator.PLUGIN_ID, "cannot terminate " + config.getName());
                         }
                     }
+                    return Status.OK_STATUS;
                 }
             };
 
@@ -103,12 +95,24 @@ public class DebugCoreLaunchObject implements LaunchObject {
         }
     }
 
-    private ILaunch findLaunch() {
+    @Override
+    public void relaunch() {
+        ILaunch launch = findLaunch(getId());
+        String launchMode = launch.getLaunchMode();
+        try {
+            launch.terminate();
+            StandaloneLaunchConfigExecutor.launchProcess(config, launchMode, true, false, null);
+        } catch (Exception e) {
+            throw new RuntimeException("cannot relaunch " + config.getName(), e);
+        }
+    }
+
+    public static ILaunch findLaunch(String name) {
         for (ILaunch l : DebugPlugin.getDefault().getLaunchManager().getLaunches()) {
             if (l.getLaunchConfiguration() == null) {
                 continue;
             }
-            if (l.getLaunchConfiguration().getName().equals(config.getName())) {
+            if (l.getLaunchConfiguration().getName().equals(name)) {
                 return l;
             }
         }
@@ -120,6 +124,15 @@ public class DebugCoreLaunchObject implements LaunchObject {
         // TODO: This uses "run" mode ALWAYS as the Eclipse infrastructure requires a group to be given.
         DebugUITools.openLaunchConfigurationDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), config,
                 DebugUITools.getLaunchGroup(config, "run").getIdentifier(), null);
+    }
+
+    @Override
+    public boolean isFavorite() {
+        try {
+            return !config.getAttribute(IDebugUIConstants.ATTR_FAVORITE_GROUPS, Collections.emptyList()).isEmpty();
+        } catch (CoreException e) {
+            return false; // oups
+        }
     }
 
 }

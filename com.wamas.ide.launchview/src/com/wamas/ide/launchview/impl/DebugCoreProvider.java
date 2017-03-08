@@ -13,8 +13,10 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.DebugPlugin;
+import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationListener;
+import org.eclipse.debug.core.ILaunchesListener2;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
@@ -26,16 +28,18 @@ import com.wamas.ide.launchview.services.LaunchObjectProvider;
 
 @Component(service = LaunchObjectProvider.class)
 public class DebugCoreProvider extends AbstractLaunchObjectProvider
-        implements LaunchObjectProvider, ILaunchConfigurationListener {
+        implements LaunchObjectProvider, ILaunchConfigurationListener, ILaunchesListener2 {
 
     @Activate
     public void createService() {
         DebugPlugin.getDefault().getLaunchManager().addLaunchConfigurationListener(this);
+        DebugPlugin.getDefault().getLaunchManager().addLaunchListener(this);
     }
 
     @Deactivate
     public void destroyService() {
         DebugPlugin.getDefault().getLaunchManager().removeLaunchConfigurationListener(this);
+        DebugPlugin.getDefault().getLaunchManager().removeLaunchListener(this);
     }
 
     @Override
@@ -68,6 +72,24 @@ public class DebugCoreProvider extends AbstractLaunchObjectProvider
     @Override
     public int getPriority() {
         return 0;
+    }
+
+    @Override
+    public void launchesRemoved(ILaunch[] launches) {
+    }
+
+    @Override
+    public void launchesAdded(ILaunch[] launches) {
+    }
+
+    @Override
+    public void launchesChanged(ILaunch[] launches) {
+        fireUpdate(); // process added, thus can terminate
+    }
+
+    @Override
+    public void launchesTerminated(ILaunch[] launches) {
+        fireUpdate();
     }
 
 }

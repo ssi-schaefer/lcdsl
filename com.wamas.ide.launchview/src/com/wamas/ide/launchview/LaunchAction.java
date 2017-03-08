@@ -34,7 +34,7 @@ public class LaunchAction extends Action {
         this.mode = mode;
         this.models = models;
 
-        setText(mode.getLabel() + " selected");
+        setText(mode.getLabel());
 
         if (COMMON_MODE_ICONS.containsKey(mode.getIdentifier())) {
             setImageDescriptor(

@@ -17,10 +17,12 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.ui.editor.IURIEditorOpener;
 
+import com.wamas.ide.launching.generator.RecursiveCollectors;
 import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.ui.LcDslInjectionHelper;
 import com.wamas.ide.launching.ui.internal.LaunchingActivator;
+import com.wamas.ide.launchview.MiniOverlayImage;
 import com.wamas.ide.launchview.impl.DebugCoreLaunchObject;
 import com.wamas.ide.launchview.launcher.StandaloneLaunchConfigExecutor;
 import com.wamas.ide.launchview.services.LaunchObject;
@@ -30,7 +32,7 @@ public class LcDslLaunchObject implements LaunchObject {
     private final LaunchConfig cfg;
     private final StandaloneLaunchConfigGenerator generator;
 
-    private final ImageRegistry registry = new ImageRegistry();
+    private static final ImageRegistry registry = new ImageRegistry();
     private ILaunchConfiguration cachedGenerated;
 
     public LcDslLaunchObject(LaunchConfig cfg) {
@@ -52,6 +54,10 @@ public class LcDslLaunchObject implements LaunchObject {
     @Override
     public Image getImage() {
         Image undecorated = LaunchObject.super.getImage();
+
+        if (undecorated == null) {
+            return null;
+        }
 
         Image image = registry.get(getType().getIdentifier());
         if (image == null) {
@@ -87,6 +93,11 @@ public class LcDslLaunchObject implements LaunchObject {
         new DebugCoreLaunchObject(findConfig()).terminate();
     }
 
+    @Override
+    public void relaunch() {
+        new DebugCoreLaunchObject(findConfig()).relaunch();
+    }
+
     private ILaunchConfiguration findConfig() {
         if (cachedGenerated != null) {
             return cachedGenerated;
@@ -109,6 +120,11 @@ public class LcDslLaunchObject implements LaunchObject {
     public void edit() {
         IURIEditorOpener opener = LcDslInjectionHelper.getLcDslInjector().getInstance(IURIEditorOpener.class);
         opener.open(EcoreUtil2.getPlatformResourceOrNormalizedURI(cfg), true);
+    }
+
+    @Override
+    public boolean isFavorite() {
+        return !RecursiveCollectors.collectFavoriteGroups(cfg).isEmpty();
     }
 
 }

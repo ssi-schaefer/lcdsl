@@ -43,12 +43,21 @@ public class LaunchViewModel implements LaunchModel {
         Set<LaunchObjectModel> allObjects = providers.stream().map(p -> p.getLaunchObjects())
                 .flatMap(o -> o.stream().map(LaunchObjectModel::new)).collect(Collectors.toCollection(TreeSet::new));
 
+        // create favorite container
+        LaunchObjectFavoriteContainerModel favorites = new LaunchObjectFavoriteContainerModel();
+        root.addChild(favorites);
+
         // create all required type containers
         allObjects.stream().map(o -> o.getObject().getType()).distinct().map(LaunchObjectContainerModel::new)
                 .forEach(root::addChild);
 
         // create all nodes
-        allObjects.stream().forEach(m -> root.getContainerFor(m).addChild(m));
+        allObjects.stream().forEach(m -> {
+            root.getContainerFor(m).addChild(m);
+            if (m.getObject() != null && m.getObject().isFavorite()) {
+                favorites.addChild(m);
+            }
+        });
 
         // this is the root :)
         return root;

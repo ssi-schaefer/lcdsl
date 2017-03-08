@@ -54,7 +54,10 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
             EObject lc = EcoreUtil2.resolve(obj.getEObjectOrProxy(), set);
             if (lc instanceof LaunchConfig) {
                 if (!((LaunchConfig) lc).isAbstract()) {
-                    result.add(new LcDslLaunchObject((LaunchConfig) lc));
+                    LcDslLaunchObject o = new LcDslLaunchObject((LaunchConfig) lc);
+                    if (o.getType() != null) { // otherwise unsupported type
+                        result.add(o);
+                    }
                 }
             }
         }

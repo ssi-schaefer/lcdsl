@@ -8,20 +8,33 @@ import java.util.TreeSet;
 
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.internal.ui.DebugPluginImages;
+import org.eclipse.swt.graphics.Image;
 
 public class LaunchObjectContainerModel extends LaunchObjectModel {
 
-    private final Set<LaunchObjectModel> children = new TreeSet<>();
+    private final Set<LaunchObjectModel> children = new TreeSet<>((a, b) -> {
+        if (a instanceof LaunchObjectFavoriteContainerModel) {
+            return -1;
+        } else if (b instanceof LaunchObjectFavoriteContainerModel) {
+            return 1;
+        }
+
+        return a.compareTo(b);
+    });
     private final ILaunchConfigurationType type;
 
     LaunchObjectContainerModel() {
-        super(null, null);
-        this.type = null;
+        this(null, null);
     }
 
     LaunchObjectContainerModel(ILaunchConfigurationType type) {
         super(type.getName(), DebugPluginImages.getImage(type.getIdentifier()));
         this.type = type;
+    }
+
+    protected LaunchObjectContainerModel(String id, Image image) {
+        super(id, image);
+        this.type = null;
     }
 
     public void addChild(LaunchObjectModel model) {
@@ -41,28 +54,6 @@ public class LaunchObjectContainerModel extends LaunchObjectModel {
             }
         }
         return null;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder b = new StringBuilder();
-
-        if (type != null) {
-            b.append(getLabel() + "{\n");
-        }
-
-        for (LaunchObjectModel c : children) {
-            if (type != null) {
-                b.append("    ");
-            }
-            b.append(c.toString());
-            b.append("\n");
-        }
-        if (type != null) {
-            b.append("}");
-        }
-
-        return b.toString();
     }
 
 }
