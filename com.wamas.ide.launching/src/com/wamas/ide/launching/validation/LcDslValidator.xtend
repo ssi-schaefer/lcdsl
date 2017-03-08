@@ -278,7 +278,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 	@Check
 	def checkPathExists(ExistingPath p) {
 		try {
-			val x = getExpanded(p.name, false)
+			val x = p.name.expanded
 			val f = new File(x);
 			if (!f.exists) {
 				warning("Path " + x + " does not exist", p, LC.path_Name)
@@ -344,7 +344,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 
 	@Check
 	def checkContentProviderProductFile(ContentProviderProduct p) {
-		if (!getExpanded(p.product.name, false).endsWith(".product")) {
+		if (!p.product.name.value.endsWith(".product")) {
 			warning("content provider should reference a .product file", LC.contentProviderProduct_Product)
 		}
 	}
@@ -364,15 +364,15 @@ class LcDslValidator extends AbstractLcDslValidator {
 	@Check
 	def checkStringVars(StringWithVariables s) {
 		try {
-			getExpanded(s, true)
+			StringVariableManager.^default.validateStringVariables(s.value)
 		} catch (CoreException e) {
 			warning(e.message, LC.stringWithVariables_Value)
 		}
 	}
 
 	/** only required for validation/label. raw value must be written into launch configurations to allow expansion at launch time */
-	static def getExpanded(StringWithVariables original, boolean report) {
-		return StringVariableManager.^default.performStringSubstitution(original.value, report)
+	static def getExpanded(StringWithVariables original) {
+		return StringVariableManager.^default.performStringSubstitution(original.value, false)
 	}
 
 	static def getAllExtensionsOf(EObject model, String ext) {

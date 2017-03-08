@@ -40,8 +40,6 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.jface.viewers.StyledString
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
-import static extension com.wamas.ide.launching.validation.LcDslValidator.getExpanded
-
 /**
  * Provides labels for EObjects.
  * 
@@ -88,10 +86,10 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 		val builder = new StringBuilder
 		builder.append("redirect")
 		if (r.outFile != null) {
-			builder.append(' ').append(r.outWhich.literal).append(" to ").append(r.outFile.name.getExpanded(false))
+			builder.append(' ').append(r.outWhich.literal).append(" to ").append(r.outFile.name.value)
 		}
 		if (r.inFile != null) {
-			builder.append(' ').append(r.inWhich.literal).append(" from ").append(r.inFile.name.getExpanded(false))
+			builder.append(' ').append(r.inWhich.literal).append(" from ").append(r.inFile.name.value)
 		}
 		builder.toString
 	}
@@ -101,7 +99,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(Workspace ws) {
-		"workspace " + ws.workspace.name.getExpanded(false)
+		"workspace " + ws.workspace.name.value
 	}
 
 	def image(Workspace ws) {
@@ -109,7 +107,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(WorkingDir wd) {
-		"working directory " + wd.workingDir.name.getExpanded(false)
+		"working directory " + wd.workingDir.name.value
 	}
 
 	def image(WorkingDir wd) {
@@ -155,7 +153,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(ContentProviderProduct p) {
-		"expand content from " + p.product.name.getExpanded(false)
+		"expand content from " + p.product.name.value
 	}
 
 	def image(ContentProviderProduct p) {
@@ -238,7 +236,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(ConfigIniTemplate t) {
-		"config.ini template " + t.path.name.getExpanded(false)
+		"config.ini template " + t.path.name.value
 	}
 
 	def image(ConfigIniTemplate t) {
@@ -296,7 +294,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(VmArgument va) {
-		"vmargs " + Joiner.on(' ').join(va.arguments.map[getExpanded(false)])
+		"vmargs " + Joiner.on(' ').join(va.arguments.map[value])
 	}
 
 	def image(VmArgument va) {
@@ -304,7 +302,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(ProgramArgument pa) {
-		"args " + Joiner.on(' ').join(pa.arguments.map[getExpanded(false)])
+		"args " + Joiner.on(' ').join(pa.arguments.map[value])
 	}
 
 	def image(ProgramArgument pa) {
@@ -312,7 +310,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(EnvironmentVariable e) {
-		"env " + e.name + "=" + e.value.getExpanded(false)
+		"env " + e.name + "=" + e.value.value
 	}
 
 	def image(EnvironmentVariable e) {

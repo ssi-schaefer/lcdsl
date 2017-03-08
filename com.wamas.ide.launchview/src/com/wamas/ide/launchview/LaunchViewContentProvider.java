@@ -30,7 +30,7 @@ public class LaunchViewContentProvider implements ITreeContentProvider {
 
     @Override
     public boolean hasChildren(Object element) {
-        return element instanceof LaunchObjectContainerModel;
+        return (element instanceof LaunchObjectContainerModel && !((LaunchObjectContainerModel) element).getChildren().isEmpty());
     }
 
 }

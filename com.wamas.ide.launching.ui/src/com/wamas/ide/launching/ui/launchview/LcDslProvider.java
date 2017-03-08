@@ -22,7 +22,7 @@ import org.osgi.service.component.annotations.Deactivate;
 import com.wamas.ide.launching.generator.LcDslGenerator;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
-import com.wamas.ide.launching.ui.LcDslInjectionHelper;
+import com.wamas.ide.launching.ui.LcDslHelper;
 import com.wamas.ide.launchview.services.AbstractLaunchObjectProvider;
 import com.wamas.ide.launchview.services.LaunchObject;
 import com.wamas.ide.launchview.services.LaunchObjectProvider;
@@ -45,8 +45,8 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
 
     @Override
     public Set<LaunchObject> getLaunchObjects() {
-        IResourceDescriptions index = LcDslInjectionHelper.getLcDslInjector().getInstance(IResourceDescriptions.class);
-        ResourceSet set = LcDslInjectionHelper.getLcDslInjector().getInstance(ResourceSet.class);
+        IResourceDescriptions index = LcDslHelper.getInjector().getInstance(IResourceDescriptions.class);
+        ResourceSet set = LcDslHelper.getInjector().getInstance(ResourceSet.class);
 
         Set<LaunchObject> result = new TreeSet<>();
         Iterable<IEObjectDescription> descs = index.getExportedObjectsByType(LcDslPackage.eINSTANCE.getLaunchConfig());

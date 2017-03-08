@@ -9,12 +9,12 @@ import com.wamas.ide.launching.lcDsl.LaunchModeType
 import java.util.List
 import java.util.Map
 import java.util.function.Function
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.core.runtime.Path
 import org.eclipse.debug.ui.IDebugUIConstants
 import org.eclipse.jdt.launching.JavaRuntime
 
-import static com.wamas.ide.launching.validation.LcDslValidator.getExpanded
-import org.eclipse.core.resources.ResourcesPlugin
-import org.eclipse.core.runtime.Path
+import static extension com.wamas.ide.launching.validation.LcDslValidator.getExpanded
 
 /**
  * Collects raw values for launch configuration fields, taking into account inheritance
@@ -186,7 +186,7 @@ class RecursiveCollectors {
 			if(n == null)
 				return null
 				
-			return getExpanded(n, false)
+			return n.expanded
 		])
 	}
 	

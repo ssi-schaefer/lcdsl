@@ -30,6 +30,8 @@ import org.eclipse.xtext.ui.IImageHelper
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import com.wamas.ide.launching.generator.RecursiveCollectors
+import org.eclipse.xtext.Keyword
+import com.wamas.ide.launching.services.LcDslGrammarAccess
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -39,6 +41,9 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 
 	@Inject
 	private IImageHelper ih
+
+	@Inject
+	private extension LcDslGrammarAccess ga
 
 	override complete_Project(EObject model, RuleCall ruleCall, ContentAssistContext context,
 		ICompletionProposalAcceptor acceptor) {
@@ -163,52 +168,77 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 		for (s : PDECore.^default.tracingOptionsManager.getTemplateTable(name).keySet) {
 			val n = s.substring(s.indexOf('/') + 1)
 			acceptor.accept(
-				createCompletionProposal("'" + n + "'", new StyledString(n), ih.getImage("doc_section_obj.png"), context))
+				createCompletionProposal("'" + n + "'", new StyledString(n), ih.getImage("doc_section_obj.png"),
+					context))
+			}
+
+			super.completeTraceEnablement_What(model, assignment, context, acceptor)
 		}
 
-		super.completeTraceEnablement_What(model, assignment, context, acceptor)
-	}
+		override completeJavaMainType_Name(EObject model, Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+			val lc = model.eContainer as LaunchConfig
+			val mainprj = RecursiveCollectors.collectJavaMainProject(lc)
 
-	override completeJavaMainType_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		val lc = model.eContainer as LaunchConfig
-		val mainprj = RecursiveCollectors.collectJavaMainProject(lc)
+			if (mainprj != null) {
+				// project is set, lookup main types.
+				val prj = ResourcesPlugin.workspace.root.getProject(mainprj)
+				if (prj != null && prj.exists && prj.open) {
+					val jp = JavaCore.create(prj)
 
-		if (mainprj != null) {
-			// project is set, lookup main types.
-			val prj = ResourcesPlugin.workspace.root.getProject(mainprj)
-			if (prj != null && prj.exists && prj.open) {
-				val jp = JavaCore.create(prj)
+					// source scope for the relevant project
+					val scope = SearchEngine.createJavaSearchScope(#{jp}, IJavaSearchScope.SOURCES)
+					val pattern = SearchPattern.createPattern("main", IJavaSearchConstants.METHOD,
+						IJavaSearchConstants.DECLARATIONS, SearchPattern.R_EXACT_MATCH)
+					val engine = new SearchEngine()
 
-				// source scope for the relevant project
-				val scope = SearchEngine.createJavaSearchScope(#{jp}, IJavaSearchScope.SOURCES)
-				val pattern = SearchPattern.createPattern("main", IJavaSearchConstants.METHOD,
-					IJavaSearchConstants.DECLARATIONS, SearchPattern.R_EXACT_MATCH)
-				val engine = new SearchEngine()
-
-				engine.search(pattern, #{SearchEngine.defaultSearchParticipant}, scope, [ m |
-					if (m.element != null && m.element instanceof IMethod) {
-						val ele = m.element as IMethod
-						if (ele.mainMethod) {
-							val fullName = ele.declaringType.fullyQualifiedName
-							acceptor.accept(
-								createCompletionProposal(fullName, new StyledString(fullName),
-									ih.getImage("java_launch.gif"), context))
+					engine.search(pattern, #{SearchEngine.defaultSearchParticipant}, scope, [ m |
+						if (m.element != null && m.element instanceof IMethod) {
+							val ele = m.element as IMethod
+							if (ele.mainMethod) {
+								val fullName = ele.declaringType.fullyQualifiedName
+								acceptor.accept(
+									createCompletionProposal(fullName, new StyledString(fullName),
+										ih.getImage("java_launch.gif"), context))
+							}
 						}
-					}
-				], null)
+					], null)
+				}
+			}
+
+			super.completeJavaMainType_Name(model, assignment, context, acceptor)
+		}
+
+		override completeExecutionEnvironment_Name(EObject model, Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+			JavaRuntime.getExecutionEnvironmentsManager().getExecutionEnvironments().forEach [
+				acceptor.accept(
+					createCompletionProposal(id, new StyledString(id), ih.getImage("library_obj.png"), context))
+			]
+
+			super.completeExecutionEnvironment_Name(model, assignment, context, acceptor)
+		}
+
+		override protected getKeywordDisplayString(Keyword keyword) {
+			super.getKeywordDisplayString(keyword)
+		}
+
+		override protected getImage(EObject eObject) {
+			switch eObject {
+				case launchConfigAccess.explicitExplicitKeyword_0_0_0,
+				case launchConfigAccess.manualManualKeyword_0_1_0,
+				case launchConfigAccess.abstractAbstractKeyword_0_2_0,
+				case launchConfigAccess.foregroundForegroundKeyword_0_3_0,
+				case launchConfigAccess.noConsoleNoConsoleKeyword_0_4_0,
+				case launchConfigAccess.noValidateNoValidateKeyword_0_5_0,
+				case launchConfigAccess.swInstallSupportSwInstallAllowedKeyword_0_6_0,
+				case launchConfigAccess.replaceEnvReplaceEnvKeyword_0_7_0,
+				case launchConfigAccess.stopInMainStopInMainKeyword_0_8_0: ih.getImage("style_modified.gif")
+				case mainProjectAccess.projectKeyword_0: ih.getImage("showprojects.gif")
+				
+				default: super.getImage(eObject)
 			}
 		}
-		
-		super.completeJavaMainType_Name(model, assignment, context, acceptor)
+
 	}
-
-	override completeExecutionEnvironment_Name(EObject model, Assignment assignment, ContentAssistContext context,
-		ICompletionProposalAcceptor acceptor) {
-		JavaRuntime.getExecutionEnvironmentsManager().getExecutionEnvironments().forEach [
-			acceptor.accept(createCompletionProposal(id, new StyledString(id), ih.getImage("library_obj.png"), context))
-		]
-
-		super.completeExecutionEnvironment_Name(model, assignment, context, acceptor)
-	}
-
-}
+	
