@@ -234,7 +234,28 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 				case launchConfigAccess.swInstallSupportSwInstallAllowedKeyword_0_6_0,
 				case launchConfigAccess.replaceEnvReplaceEnvKeyword_0_7_0,
 				case launchConfigAccess.stopInMainStopInMainKeyword_0_8_0: ih.getImage("style_modified.gif")
+				case workspaceAccess.workspaceKeyword_0: ih.getImage("workspace_obj.gif")
+				case workingDirAccess.workingDirKeyword_0: ih.getImage("folder.png")
 				case mainProjectAccess.projectKeyword_0: ih.getImage("showprojects.gif")
+				case mainTypeAccess.mainClassKeyword_0: ih.getImage("java_launch.gif")
+				case addPluginAccess.optionalOptionalKeyword_0_0,
+				case addFeatureAccess.optionalOptionalKeyword_0_0: ih.getImage("optional.gif")
+				case ignorePluginAccess.ignoreKeyword_0,
+				case addPluginAccess.pluginKeyword_1: ih.getImage("plugin_obj.png")
+				case addFeatureAccess.featureKeyword_1: ih.getImage("featur_obj.png")
+				case contentProviderProductAccess.contentProviderKeyword_0: ih.getImage("product_xml_obj.png")
+				case vmArgumentAccess.vmArgKeyword_1,
+				case programArgumentAccess.argumentKeyword_1: ih.getImage("arguments_tab.gif")
+				case environmentVariableAccess.environmentKeyword_1: ih.getImage("environment_obj.png")
+				case applicationExtPointAccess.applicationKeyword_0: ih.getImage("start_application.png")
+				case productExtPointAccess.productKeyword_0: ih.getImage("product_xml_obj.png")
+				case favoritesAccess.favoriteKeyword_1: ih.getImage("favorite_star.png")
+				case redirectAccess.redirectKeyword_1: ih.getImage("edit_arrow2.gif")
+				case executionEnvironmentAccess.executionEnvironmentKeyword_0: ih.getImage("library_obj.png")
+				case configIniTemplateAccess.configIniTemplateKeyword_0: ih.getImage("option_obj.gif")
+				case traceEnablementAccess.traceKeyword_0: ih.getImage("doc_section_obj.png")
+				case javaMainSearchAccess.searchMainKeyword_1: ih.getImage("search.png")
+				// TODO: continue in grammar with RAP
 				
 				default: super.getImage(eObject)
 			}
