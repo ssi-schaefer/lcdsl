@@ -76,7 +76,10 @@ class StandaloneLaunchConfigGenerator {
 				copy.setAttribute(IDebugUIConstants.ATTR_CAPTURE_IN_FILE, out)
 			}
 			copy.setIfAvailable(IDebugUIConstants.ATTR_CAPTURE_STDIN_FILE, config.collectRedirectInFile)
-			copy.setAttribute(IDebugUIConstants.ATTR_CAPTURE_IN_CONSOLE, !config.collectNoConsole)
+			val capture = !config.collectNoConsole
+			copy.setAttribute(IDebugUIConstants.ATTR_CAPTURE_IN_CONSOLE, capture)
+			copy.setAttribute(DebugPlugin.ATTR_CAPTURE_OUTPUT, capture)
+			
 			copy.setAttribute("org.eclipse.debug.core.appendEnvironmentVariables", !config.collectReplaceEnv)
 
 			val env = config.collectEnvMap

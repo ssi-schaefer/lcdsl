@@ -32,6 +32,9 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import com.wamas.ide.launching.generator.RecursiveCollectors
 import org.eclipse.xtext.Keyword
 import com.wamas.ide.launching.services.LcDslGrammarAccess
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor.Delegate
+import org.eclipse.jface.text.contentassist.ICompletionProposal
+import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -219,8 +222,9 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 			super.completeExecutionEnvironment_Name(model, assignment, context, acceptor)
 		}
 
-		override protected getKeywordDisplayString(Keyword keyword) {
-			super.getKeywordDisplayString(keyword)
+		override completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext,
+			ICompletionProposalAcceptor acceptor) {
+			super.completeKeyword(keyword, contentAssistContext, new DescribingAcceptor(acceptor, keyword, ga))
 		}
 
 		override protected getImage(EObject eObject) {
@@ -242,7 +246,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 				case addFeatureAccess.optionalOptionalKeyword_0_0: ih.getImage("optional.gif")
 				case ignorePluginAccess.ignoreKeyword_0,
 				case addPluginAccess.pluginKeyword_1: ih.getImage("plugin_obj.png")
-				case addFeatureAccess.featureKeyword_1: ih.getImage("featur_obj.png")
+				case addFeatureAccess.featureKeyword_1: ih.getImage("feature_obj.png")
 				case contentProviderProductAccess.contentProviderKeyword_0: ih.getImage("product_xml_obj.png")
 				case vmArgumentAccess.vmArgKeyword_1,
 				case programArgumentAccess.argumentKeyword_1: ih.getImage("arguments_tab.gif")
@@ -255,10 +259,103 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 				case configIniTemplateAccess.configIniTemplateKeyword_0: ih.getImage("option_obj.gif")
 				case traceEnablementAccess.traceKeyword_0: ih.getImage("doc_section_obj.png")
 				case javaMainSearchAccess.searchMainKeyword_1: ih.getImage("search.png")
-				// TODO: continue in grammar with RAP
-				
+				case rapServletConfigAccess.servletKeyword_0,
+				case rapServletConfigAccess.pathKeyword_2_0_0,
+				case rapServletConfigAccess.browserKeyword_2_1_0,
+				case rapServletConfigAccess.portKeyword_2_2_0,
+				case rapServletConfigAccess.sessionTimeoutKeyword_2_3_0,
+				case rapServletConfigAccess.contextPathKeyword_2_4_0,
+				case rapServletConfigAccess.devModeKeyword_2_5_0: ih.getImage("launcher.gif")
+				case pluginWithVersionAndStartLevelAccess.autoStartAutostartKeyword_1_0_0,
+				case pluginWithVersionAndStartLevelAccess.startlevelKeyword_1_1_0: ih.getImage("plugin_obj.png")
+				case clearOptionAccess.clearKeyword_1: ih.getImage("clear.gif")
+				case clearOptionAccess.workspaceWorkspaceKeyword_2_0_0_0_0: ih.getImage("workspace_obj.gif")
+				case clearOptionAccess.logLogKeyword_2_0_0_1_0: ih.getImage("doc_section_obj.png")
+				case clearOptionAccess.configConfigKeyword_2_1_0: ih.getImage("option_obj.gif")
+				case memoryOptionAccess.memoryKeyword_1,
+				case memoryOptionAccess.minKeyword_2_0_0,
+				case memoryOptionAccess.maxKeyword_2_1_0,
+				case memoryOptionAccess.permKeyword_2_2_0: ih.getImage("memory_view.png")
+				case groupMemberAccess.adoptAdoptKeyword_0_1_0,
+				case groupMemberAccess.memberKeyword_1,
+				case groupPostLaunchDelayAccess.delayKeyword_0,
+				case groupPostLaunchRegexAccess.regexKeyword_0,
+				case groupPostLaunchWaitAccess.waitKeyword_1: ih.getImage("lgroup_obj.png")
+				case browserLaunchModeAccess.INTERNALInternalKeyword_0_0,
+				case browserLaunchModeAccess.EXTERNALExternalKeyword_1_0,
+				case browserLaunchModeAccess.NONENoneKeyword_2_0: ih.getImage("launcher.gif")
+				case launchConfigTypeAccess.JAVAJavaKeyword_0_0,
+				case launchConfigTypeAccess.ECLIPSEEclipseKeyword_1_0,
+				case launchConfigTypeAccess.RAPRapKeyword_2_0,
+				case launchConfigTypeAccess.GROUPGroupKeyword_3_0: ih.getImage("launch_run.gif")
+				case launchModeTypeAccess.RUNRunKeyword_0_0,
+				case launchModeTypeAccess.DEBUGDebugKeyword_1_0,
+				case launchModeTypeAccess.PROFILEProfileKeyword_2_0,
+				case launchModeTypeAccess.COVERAGECoverageKeyword_3_0,
+				case launchModeTypeAccess.INHERITInheritKeyword_4_0: ih.getImage("launch_run.gif") // TODO
+				case memoryUnitAccess.MBMbKeyword_1_0,
+				case memoryUnitAccess.MBMBKeyword_2_0,
+				case memoryUnitAccess.MBMKeyword_0_0,
+				case memoryUnitAccess.MBMKeyword_3_0,
+				case memoryUnitAccess.GBGbKeyword_5_0,
+				case memoryUnitAccess.GBGBKeyword_6_0,
+				case memoryUnitAccess.GBGKeyword_4_0,
+				case memoryUnitAccess.GBGKeyword_7_0: ih.getImage("memory_view.png")
+				case outputStreamAccess.STDOUTStdoutKeyword_0_0,
+				case outputStreamAccess.STDERRStderrKeyword_1_0,
+				case outputStreamAccess.BOTHBothOutKeyword_2_0,
+				case inputStreamAccess.STDINStdinKeyword_0: ih.getImage("edit_arrow2.gif")
 				default: super.getImage(eObject)
 			}
+		}
+
+		private static class DescribingAcceptor extends Delegate {
+
+			private Keyword kw
+			private extension LcDslGrammarAccess ga
+
+			new(ICompletionProposalAcceptor delegate, Keyword kw, LcDslGrammarAccess ga) {
+				super(delegate)
+				this.kw = kw;
+				this.ga = ga;
+			}
+
+			override accept(ICompletionProposal p) {
+				switch kw {
+					case launchConfigAccess.explicitExplicitKeyword_0_0_0:
+						p.addDescription(
+							"Explicitly defines all plugins/features to use. Avoids automatic dependency resolution.")
+					case launchConfigAccess.manualManualKeyword_0_1_0:
+						p.addDescription(
+							"Does not automatically generate the Eclipse Launch Configuration on build. However if a launch configuration is manually generated once, it will be updated by the build automatically (until deleted manually again).")
+					case launchConfigAccess.abstractAbstractKeyword_0_2_0:
+						p.addDescription(
+							"Defines a launch configuration that serves as basis for other configurations only.")
+					case launchConfigAccess.foregroundForegroundKeyword_0_3_0:
+						p.addDescription("Disables 'launch in background'")
+					case launchConfigAccess.noConsoleNoConsoleKeyword_0_4_0:
+						p.addDescription("Do not allocate a console for the process when launched")
+					case launchConfigAccess.noValidateNoValidateKeyword_0_5_0:
+						p.addDescription("Do not validate the set of selected plugins prios to launching")
+					case launchConfigAccess.swInstallSupportSwInstallAllowedKeyword_0_6_0:
+						p.addDescription(
+							"Generate a P2 profile for the launch, which allows to install software into the launched application via P2.")
+					case launchConfigAccess.replaceEnvReplaceEnvKeyword_0_7_0:
+						p.addDescription(
+							"Instead of appending environment variables, replace the whole environment of the target process with the defined environment variables.")
+					case launchConfigAccess.stopInMainStopInMainKeyword_0_8_0:
+						p.addDescription("When debugging, always stop on the first line of the configured main.")
+				}
+
+				super.accept(p)
+			}
+
+			private def addDescription(ICompletionProposal proposal, String description) {
+				if (proposal instanceof ConfigurableCompletionProposal) {
+					proposal.additionalProposalInfo = description;
+				}
+			}
+
 		}
 
 	}
