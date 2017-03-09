@@ -23,6 +23,17 @@ Currently, the latest update site is hosted here: `https://mduft.github.io/lcdsl
 
 Ziped P2 repositories are provided for releases.
 
+## Demo
+
+See these videos for a quick glance on what it is all about:
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/62pVrZAqw7c/0.jpg)](http://www.youtube.com/watch?v=62pVrZAqw7c "Plain Java Demo")
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/TrbjY9ltKTI/0.jpg)](http://www.youtube.com/watch?v=TrbjY9ltKTI "Eclipse RCP Demo")
+
+ * https://youtu.be/62pVrZAqw7c
+ * https://youtu.be/TrbjY9ltKTI
+
 ##  General
 
 All launch configurations are built up the same way:
