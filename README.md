@@ -15,6 +15,14 @@ LcDsl provides a way of defining Eclipse launch configurations in a textual way.
     * Use *abstract* launch configurations as templates, allowing for very slick configuration definitions.
  * Support for plain Java, Eclipse, RAP and Launch Group configurations - more on demand.
 
+Currently, the LcDsl repository also provides the `Launch Configuration View` feature. See below for documentation on that.
+
+## Installation
+
+Currently, the latest update site is hosted here: `https://mduft.github.io/lcdsl-latest/` (P2 repository)
+
+Ziped P2 repositories are provided for releases.
+
 ##  General
 
 All launch configurations are built up the same way:
@@ -124,3 +132,7 @@ Examples for typical `eclipse` and `rap` launch configurations:
 ## Launch Groups
 
 Launch groups are a new feature of Eclipse Oxygen. LcDsl allows (will allow - not implemented yet) to create groups by using the `group` type and the `member` multi-property. Language support is implemented, but the generator is not quite there yet.
+
+# Launch Configuration View
+
+The launch configuration view is something that is actually independent of LcDsl itself. It depends on Eclipse platform.debug ONLY. It allows to hook (via OSGi services) launch configuration providers into it. It comes along with a default provider that allows it to handle "normal" Eclipse launch configurations. LcDsl brings along another provider for the view, that allows it to also handle LcDsl specifics.
