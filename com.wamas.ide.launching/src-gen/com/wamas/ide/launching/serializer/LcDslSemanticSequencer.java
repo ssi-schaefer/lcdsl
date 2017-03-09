@@ -315,7 +315,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ExecutionEnvironment returns ExecutionEnvironment
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     name=STRING
 	 */
 	protected void sequence_ExecutionEnvironment(ISerializationContext context, ExecutionEnvironment semanticObject) {
 		if (errorAcceptor != null) {
@@ -323,7 +323,7 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LcDslPackage.Literals.EXECUTION_ENVIRONMENT__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExecutionEnvironmentAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getExecutionEnvironmentAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

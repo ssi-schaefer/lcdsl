@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_EQ", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'stdin'", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'run'", "'debug'", "'profile'", "'coverage'", "'inherit'", "'M'", "'mb'", "'MB'", "'m'", "'G'", "'gb'", "'GB'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'configuration'", "':'", "'workspace'", "';'", "'working-dir'", "'project'", "'main-class'", "'plugin'", "'feature'", "'content-provider'", "'ignore'", "'vm-arg'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'startlevel'", "'clear'", "'memory'", "'min'", "'max'", "'perm'", "'member'", "'delay'", "'regex'", "'wait'", "'.'", "'explicit'", "'manual'", "'abstract'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'self'", "'optional'", "'!'", "'system'", "'inherited'", "'autostart'", "'log'", "'config'", "'adopt'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_EQ", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'stdin'", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'run'", "'debug'", "'profile'", "'coverage'", "'inherit'", "'M'", "'mb'", "'MB'", "'m'", "'G'", "'gb'", "'GB'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'configuration'", "':'", "'workspace'", "';'", "'working-dir'", "'project'", "'main-class'", "'plugin'", "'feature'", "'content-provider'", "'ignore'", "'vm-argument'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'startlevel'", "'clear'", "'memory'", "'min'", "'max'", "'perm'", "'member'", "'delay'", "'regex'", "'wait'", "'.'", "'explicit'", "'manual'", "'abstract'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'self'", "'optional'", "'!'", "'system'", "'inherited'", "'autostart'", "'log'", "'config'", "'adopt'"
     };
     public static final int T__50=50;
     public static final int RULE_VERSION=11;
@@ -7730,21 +7730,21 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VmArgument__Group__1__Impl"
-    // InternalLcDsl.g:2445:1: rule__VmArgument__Group__1__Impl : ( 'vm-arg' ) ;
+    // InternalLcDsl.g:2445:1: rule__VmArgument__Group__1__Impl : ( 'vm-argument' ) ;
     public final void rule__VmArgument__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLcDsl.g:2449:1: ( ( 'vm-arg' ) )
-            // InternalLcDsl.g:2450:1: ( 'vm-arg' )
+            // InternalLcDsl.g:2449:1: ( ( 'vm-argument' ) )
+            // InternalLcDsl.g:2450:1: ( 'vm-argument' )
             {
-            // InternalLcDsl.g:2450:1: ( 'vm-arg' )
-            // InternalLcDsl.g:2451:2: 'vm-arg'
+            // InternalLcDsl.g:2450:1: ( 'vm-argument' )
+            // InternalLcDsl.g:2451:2: 'vm-argument'
             {
-             before(grammarAccess.getVmArgumentAccess().getVmArgKeyword_1()); 
+             before(grammarAccess.getVmArgumentAccess().getVmArgumentKeyword_1()); 
             match(input,52,FOLLOW_2); 
-             after(grammarAccess.getVmArgumentAccess().getVmArgKeyword_1()); 
+             after(grammarAccess.getVmArgumentAccess().getVmArgumentKeyword_1()); 
 
             }
 
@@ -10401,7 +10401,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             // InternalLcDsl.g:3355:1: ( rule__ExecutionEnvironment__Group__0__Impl rule__ExecutionEnvironment__Group__1 )
             // InternalLcDsl.g:3356:2: rule__ExecutionEnvironment__Group__0__Impl rule__ExecutionEnvironment__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_11);
             rule__ExecutionEnvironment__Group__0__Impl();
 
             state._fsp--;
@@ -24311,21 +24311,21 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExecutionEnvironment__NameAssignment_1"
-    // InternalLcDsl.g:7901:1: rule__ExecutionEnvironment__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalLcDsl.g:7901:1: rule__ExecutionEnvironment__NameAssignment_1 : ( RULE_STRING ) ;
     public final void rule__ExecutionEnvironment__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLcDsl.g:7905:1: ( ( RULE_ID ) )
-            // InternalLcDsl.g:7906:2: ( RULE_ID )
+            // InternalLcDsl.g:7905:1: ( ( RULE_STRING ) )
+            // InternalLcDsl.g:7906:2: ( RULE_STRING )
             {
-            // InternalLcDsl.g:7906:2: ( RULE_ID )
-            // InternalLcDsl.g:7907:3: RULE_ID
+            // InternalLcDsl.g:7906:2: ( RULE_STRING )
+            // InternalLcDsl.g:7907:3: RULE_STRING
             {
-             before(grammarAccess.getExecutionEnvironmentAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getExecutionEnvironmentAccess().getNameIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getExecutionEnvironmentAccess().getNameSTRINGTerminalRuleCall_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getExecutionEnvironmentAccess().getNameSTRINGTerminalRuleCall_1_0()); 
 
             }
 

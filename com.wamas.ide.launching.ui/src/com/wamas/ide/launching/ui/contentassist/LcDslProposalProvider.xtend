@@ -216,7 +216,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 			ICompletionProposalAcceptor acceptor) {
 			JavaRuntime.getExecutionEnvironmentsManager().getExecutionEnvironments().forEach [
 				acceptor.accept(
-					createCompletionProposal(id, new StyledString(id), ih.getImage("library_obj.png"), context))
+					createCompletionProposal("'" + id + "'", new StyledString(id), ih.getImage("library_obj.png"), context))
 			]
 
 			super.completeExecutionEnvironment_Name(model, assignment, context, acceptor)
@@ -248,7 +248,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 				case addPluginAccess.pluginKeyword_1: ih.getImage("plugin_obj.png")
 				case addFeatureAccess.featureKeyword_1: ih.getImage("feature_obj.png")
 				case contentProviderProductAccess.contentProviderKeyword_0: ih.getImage("product_xml_obj.png")
-				case vmArgumentAccess.vmArgKeyword_1,
+				case vmArgumentAccess.vmArgumentKeyword_1,
 				case programArgumentAccess.argumentKeyword_1: ih.getImage("arguments_tab.gif")
 				case environmentVariableAccess.environmentKeyword_1: ih.getImage("environment_obj.png")
 				case applicationExtPointAccess.applicationKeyword_0: ih.getImage("start_application.png")
@@ -292,7 +292,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 				case launchModeTypeAccess.DEBUGDebugKeyword_1_0,
 				case launchModeTypeAccess.PROFILEProfileKeyword_2_0,
 				case launchModeTypeAccess.COVERAGECoverageKeyword_3_0,
-				case launchModeTypeAccess.INHERITInheritKeyword_4_0: ih.getImage("launch_run.gif") // TODO
+				case launchModeTypeAccess.INHERITInheritKeyword_4_0: ih.getImage("launch_run.gif")
 				case memoryUnitAccess.MBMbKeyword_1_0,
 				case memoryUnitAccess.MBMBKeyword_2_0,
 				case memoryUnitAccess.MBMKeyword_0_0,
@@ -345,6 +345,8 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 							"Instead of appending environment variables, replace the whole environment of the target process with the defined environment variables.")
 					case launchConfigAccess.stopInMainStopInMainKeyword_0_8_0:
 						p.addDescription("When debugging, always stop on the first line of the configured main.")
+					case ignorePluginAccess.ignoreKeyword_0:
+						p.addDescription("Ignores the given plugin as well as any dependencies of it during automatic dependency resolution. Does not remove an explicitly added plugin (directly or indirectly added - for example through features, ...).")
 				}
 
 				super.accept(p)

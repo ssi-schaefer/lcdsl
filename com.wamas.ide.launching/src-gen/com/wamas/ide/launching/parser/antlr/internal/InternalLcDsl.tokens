@@ -78,7 +78,7 @@
 'system'=53
 'to'=46
 'trace'=51
-'vm-arg'=39
+'vm-argument'=39
 'wait'=75
 'working-dir'=30
 'workspace'=28

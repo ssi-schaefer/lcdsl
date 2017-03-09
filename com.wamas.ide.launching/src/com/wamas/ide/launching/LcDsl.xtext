@@ -110,7 +110,7 @@ IgnorePlugin:
 ;
 
 VmArgument:
-	{VmArgument} 'vm-arg' (arguments+=StringWithVariables)* ';'
+	{VmArgument} 'vm-argument' (arguments+=StringWithVariables)* ';'
 ;
 
 ProgramArgument:
@@ -138,7 +138,7 @@ Redirect:
 ;
 
 ExecutionEnvironment:
-	'execution-environment' name=ID ';'
+	'execution-environment' name=STRING ';'
 ;
 
 ConfigIniTemplate:

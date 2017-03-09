@@ -12,12 +12,14 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.Provider;
 import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator;
 import com.wamas.ide.launching.lcDsl.LCModel;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
@@ -30,11 +32,17 @@ import com.wamas.ide.launchview.launcher.StandaloneLaunchConfigExecutor;
  */
 public class LcDslHelper {
 
+    public static final String MODE_RUN = "run";
+    public static final String MODE_DEBUG = "debug";
+
     @Inject
     private StandaloneLaunchConfigGenerator generator;
 
     @Inject
     private IResourceDescriptions index;
+
+    @Inject
+    private Provider<ResourceSet> rsProvider;
 
     private static LcDslHelper INSTANCE;
 
@@ -107,8 +115,8 @@ public class LcDslHelper {
 
         for (IEObjectDescription o : indexed) {
             if (o.getName().getLastSegment().equals(name)) {
-                EObject obj = o.getEObjectOrProxy();
-                EcoreUtil2.resolveAll(obj);
+                EObject obj = EcoreUtil.resolve(o.getEObjectOrProxy(), rsProvider.get());
+                EcoreUtil.resolveAll(obj);
                 return (LaunchConfig) obj;
             }
         }
@@ -133,7 +141,7 @@ public class LcDslHelper {
      * @return 0 on success, -1 on failure.
      */
     public int launch(LaunchConfig config, String mode) {
-        return launch(config, mode, true, false, null);
+        return launch(config, mode, false, false, null);
     }
 
     /**
@@ -160,7 +168,20 @@ public class LcDslHelper {
      * @return the process exit value, -1 on launch failure.
      */
     public int launchWaitAndRemove(LaunchConfig config, String mode) {
-        return launch(config, mode, true, true, null, true);
+        return launch(config, mode, false, true, null, true);
+    }
+
+    /**
+     * Launches the given {@link LaunchConfig}. Waits for the process to finish and removes the generated
+     * {@link ILaunchConfiguration} afterwards. Writes output to the given log file.
+     *
+     * @param config the configuration to launch
+     * @param mode the mode to use. See {@link ILaunchMode}
+     * @param log the log file to write output to.
+     * @return the process exit value, -1 on launch failure.
+     */
+    public int launchWaitAndRemove(LaunchConfig config, String mode, File log) {
+        return launch(config, mode, false, true, log, true);
     }
 
     private int launch(LaunchConfig config, String mode, boolean build, boolean wait, File log, boolean removeAfterLaunch) {

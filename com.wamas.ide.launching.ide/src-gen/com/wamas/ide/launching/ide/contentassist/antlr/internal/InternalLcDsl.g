@@ -2448,9 +2448,9 @@ rule__VmArgument__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getVmArgumentAccess().getVmArgKeyword_1()); }
-	'vm-arg'
-	{ after(grammarAccess.getVmArgumentAccess().getVmArgKeyword_1()); }
+	{ before(grammarAccess.getVmArgumentAccess().getVmArgumentKeyword_1()); }
+	'vm-argument'
+	{ after(grammarAccess.getVmArgumentAccess().getVmArgumentKeyword_1()); }
 )
 ;
 finally {
@@ -7904,9 +7904,9 @@ rule__ExecutionEnvironment__NameAssignment_1
 	}
 :
 	(
-		{ before(grammarAccess.getExecutionEnvironmentAccess().getNameIDTerminalRuleCall_1_0()); }
-		RULE_ID
-		{ after(grammarAccess.getExecutionEnvironmentAccess().getNameIDTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getExecutionEnvironmentAccess().getNameSTRINGTerminalRuleCall_1_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getExecutionEnvironmentAccess().getNameSTRINGTerminalRuleCall_1_0()); }
 	)
 ;
 finally {

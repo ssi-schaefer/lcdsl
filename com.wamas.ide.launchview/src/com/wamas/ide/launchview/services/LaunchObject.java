@@ -34,7 +34,7 @@ public interface LaunchObject extends Comparable<LaunchObject> {
 
     @Override
     default int compareTo(LaunchObject o) {
-        return getLabel().toString().compareTo(o.getLabel().toString());
+        return getId().compareTo(o.getId());
     }
 
     public void edit();

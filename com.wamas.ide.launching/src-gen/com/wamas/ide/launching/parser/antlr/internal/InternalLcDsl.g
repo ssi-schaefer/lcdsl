@@ -1440,9 +1440,9 @@ ruleVmArgument returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='vm-arg'
+		otherlv_1='vm-argument'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getVmArgumentAccess().getVmArgKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getVmArgumentAccess().getVmArgumentKeyword_1());
 		}
 		(
 			(
@@ -1933,9 +1933,9 @@ ruleExecutionEnvironment returns [EObject current=null]
 		}
 		(
 			(
-				lv_name_1_0=RULE_ID
+				lv_name_1_0=RULE_STRING
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getExecutionEnvironmentAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getExecutionEnvironmentAccess().getNameSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -1945,7 +1945,7 @@ ruleExecutionEnvironment returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_1_0,
-						"com.wamas.ide.launching.LcDsl.ID");
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)

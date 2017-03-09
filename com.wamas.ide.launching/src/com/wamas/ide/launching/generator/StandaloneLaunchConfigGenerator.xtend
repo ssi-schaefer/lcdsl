@@ -21,6 +21,7 @@ import org.eclipse.debug.ui.IDebugUIConstants
 import org.eclipse.pde.launching.IPDELauncherConstants
 import java.util.Map
 import org.eclipse.pde.core.plugin.PluginRegistry
+import com.wamas.ide.launching.services.LcDslPostProcessor
 
 class StandaloneLaunchConfigGenerator {
 
@@ -49,7 +50,9 @@ class StandaloneLaunchConfigGenerator {
 		TYPE_MAP.get(type)
 	}
 
-	def generate(LaunchConfig config) {
+	def generate(LaunchConfig c) {
+		val config = postProcess(c);
+		
 		if (config == null || config.abstract)
 			return null;
 
@@ -110,6 +113,18 @@ class StandaloneLaunchConfigGenerator {
 		}
 
 		copy.doSave
+	}
+	
+	def postProcess(LaunchConfig config) {
+		val processors = Activator.getAllServices(LcDslPostProcessor);
+		if(processors.empty)
+			return config;
+		
+		var processed = config;
+		for(p : processors) {
+			processed = p.apply(processed);
+		}
+		return processed;
 	}
 
 	def setIfAvailable(ILaunchConfigurationWorkingCopy l, String attr, String value) {

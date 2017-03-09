@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLcDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_ID", "RULE_EQ", "RULE_STRING", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'explicit'", "'manual'", "'abstract'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'configuration'", "':'", "'workspace'", "';'", "'working-dir'", "'project'", "'self'", "'main-class'", "'optional'", "'plugin'", "'feature'", "'content-provider'", "'ignore'", "'vm-arg'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'!'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'system'", "'inherited'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'autostart'", "'startlevel'", "'clear'", "'log'", "'config'", "'memory'", "'min'", "'max'", "'perm'", "'adopt'", "'member'", "'delay'", "'regex'", "'wait'", "'.'", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'run'", "'debug'", "'profile'", "'coverage'", "'inherit'", "'M'", "'mb'", "'MB'", "'m'", "'G'", "'gb'", "'GB'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'stdin'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_ID", "RULE_EQ", "RULE_STRING", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'explicit'", "'manual'", "'abstract'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'configuration'", "':'", "'workspace'", "';'", "'working-dir'", "'project'", "'self'", "'main-class'", "'optional'", "'plugin'", "'feature'", "'content-provider'", "'ignore'", "'vm-argument'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'!'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'system'", "'inherited'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'autostart'", "'startlevel'", "'clear'", "'log'", "'config'", "'memory'", "'min'", "'max'", "'perm'", "'adopt'", "'member'", "'delay'", "'regex'", "'wait'", "'.'", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'run'", "'debug'", "'profile'", "'coverage'", "'inherit'", "'M'", "'mb'", "'MB'", "'m'", "'G'", "'gb'", "'GB'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'stdin'"
     };
     public static final int T__50=50;
     public static final int RULE_VERSION=11;
@@ -3544,7 +3544,7 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVmArgument"
-    // InternalLcDsl.g:1428:1: ruleVmArgument returns [EObject current=null] : ( () otherlv_1= 'vm-arg' ( (lv_arguments_2_0= ruleStringWithVariables ) )* otherlv_3= ';' ) ;
+    // InternalLcDsl.g:1428:1: ruleVmArgument returns [EObject current=null] : ( () otherlv_1= 'vm-argument' ( (lv_arguments_2_0= ruleStringWithVariables ) )* otherlv_3= ';' ) ;
     public final EObject ruleVmArgument() throws RecognitionException {
         EObject current = null;
 
@@ -3557,11 +3557,11 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalLcDsl.g:1434:2: ( ( () otherlv_1= 'vm-arg' ( (lv_arguments_2_0= ruleStringWithVariables ) )* otherlv_3= ';' ) )
-            // InternalLcDsl.g:1435:2: ( () otherlv_1= 'vm-arg' ( (lv_arguments_2_0= ruleStringWithVariables ) )* otherlv_3= ';' )
+            // InternalLcDsl.g:1434:2: ( ( () otherlv_1= 'vm-argument' ( (lv_arguments_2_0= ruleStringWithVariables ) )* otherlv_3= ';' ) )
+            // InternalLcDsl.g:1435:2: ( () otherlv_1= 'vm-argument' ( (lv_arguments_2_0= ruleStringWithVariables ) )* otherlv_3= ';' )
             {
-            // InternalLcDsl.g:1435:2: ( () otherlv_1= 'vm-arg' ( (lv_arguments_2_0= ruleStringWithVariables ) )* otherlv_3= ';' )
-            // InternalLcDsl.g:1436:3: () otherlv_1= 'vm-arg' ( (lv_arguments_2_0= ruleStringWithVariables ) )* otherlv_3= ';'
+            // InternalLcDsl.g:1435:2: ( () otherlv_1= 'vm-argument' ( (lv_arguments_2_0= ruleStringWithVariables ) )* otherlv_3= ';' )
+            // InternalLcDsl.g:1436:3: () otherlv_1= 'vm-argument' ( (lv_arguments_2_0= ruleStringWithVariables ) )* otherlv_3= ';'
             {
             // InternalLcDsl.g:1436:3: ()
             // InternalLcDsl.g:1437:4: 
@@ -3576,7 +3576,7 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
 
             otherlv_1=(Token)match(input,39,FOLLOW_16); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getVmArgumentAccess().getVmArgKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getVmArgumentAccess().getVmArgumentKeyword_1());
             		
             // InternalLcDsl.g:1447:3: ( (lv_arguments_2_0= ruleStringWithVariables ) )*
             loop9:
@@ -4776,7 +4776,7 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExecutionEnvironment"
-    // InternalLcDsl.g:1922:1: ruleExecutionEnvironment returns [EObject current=null] : (otherlv_0= 'execution-environment' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ';' ) ;
+    // InternalLcDsl.g:1922:1: ruleExecutionEnvironment returns [EObject current=null] : (otherlv_0= 'execution-environment' ( (lv_name_1_0= RULE_STRING ) ) otherlv_2= ';' ) ;
     public final EObject ruleExecutionEnvironment() throws RecognitionException {
         EObject current = null;
 
@@ -4788,25 +4788,25 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalLcDsl.g:1928:2: ( (otherlv_0= 'execution-environment' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ';' ) )
-            // InternalLcDsl.g:1929:2: (otherlv_0= 'execution-environment' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ';' )
+            // InternalLcDsl.g:1928:2: ( (otherlv_0= 'execution-environment' ( (lv_name_1_0= RULE_STRING ) ) otherlv_2= ';' ) )
+            // InternalLcDsl.g:1929:2: (otherlv_0= 'execution-environment' ( (lv_name_1_0= RULE_STRING ) ) otherlv_2= ';' )
             {
-            // InternalLcDsl.g:1929:2: (otherlv_0= 'execution-environment' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ';' )
-            // InternalLcDsl.g:1930:3: otherlv_0= 'execution-environment' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ';'
+            // InternalLcDsl.g:1929:2: (otherlv_0= 'execution-environment' ( (lv_name_1_0= RULE_STRING ) ) otherlv_2= ';' )
+            // InternalLcDsl.g:1930:3: otherlv_0= 'execution-environment' ( (lv_name_1_0= RULE_STRING ) ) otherlv_2= ';'
             {
-            otherlv_0=(Token)match(input,49,FOLLOW_6); 
+            otherlv_0=(Token)match(input,49,FOLLOW_11); 
 
             			newLeafNode(otherlv_0, grammarAccess.getExecutionEnvironmentAccess().getExecutionEnvironmentKeyword_0());
             		
-            // InternalLcDsl.g:1934:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalLcDsl.g:1935:4: (lv_name_1_0= RULE_ID )
+            // InternalLcDsl.g:1934:3: ( (lv_name_1_0= RULE_STRING ) )
+            // InternalLcDsl.g:1935:4: (lv_name_1_0= RULE_STRING )
             {
-            // InternalLcDsl.g:1935:4: (lv_name_1_0= RULE_ID )
-            // InternalLcDsl.g:1936:5: lv_name_1_0= RULE_ID
+            // InternalLcDsl.g:1935:4: (lv_name_1_0= RULE_STRING )
+            // InternalLcDsl.g:1936:5: lv_name_1_0= RULE_STRING
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_12); 
+            lv_name_1_0=(Token)match(input,RULE_STRING,FOLLOW_12); 
 
-            					newLeafNode(lv_name_1_0, grammarAccess.getExecutionEnvironmentAccess().getNameIDTerminalRuleCall_1_0());
+            					newLeafNode(lv_name_1_0, grammarAccess.getExecutionEnvironmentAccess().getNameSTRINGTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
@@ -4816,7 +4816,7 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
             						current,
             						"name",
             						lv_name_1_0,
-            						"com.wamas.ide.launching.LcDsl.ID");
+            						"org.eclipse.xtext.common.Terminals.STRING");
             				
 
             }
