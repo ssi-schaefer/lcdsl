@@ -58,7 +58,7 @@ All kinds of launch configurations can define certain attributes the same. These
      * `redirect` (not for type 'group'): allows to redirect stdin, stdout/stderr to/from files.
      * `execution-environment` (not for type 'group'): specifies the execution environment to use for the launch
  * multi-properties:
-     * `vm-arg` (not for type 'group'): allows to specify one or more (on the same line) vm arguments
+     * `vm-argument` (not for type 'group'): allows to specify one or more (on the same line) vm arguments
      * `argument` (not for type 'group'): allows to specify command line arguments for the program to launch
      * `environment` (not for type 'group'): allows to specify an environment variable to place into the launches environment.
 
@@ -85,7 +85,7 @@ A typical `java` configuration looks like this:
         	
         memory min=64m max=256m;
         
-        vm-arg '-Dmy.arg=value';
+        vm-argument '-Dmy.arg=value';
         argument 'cmdArg';
     }
 
