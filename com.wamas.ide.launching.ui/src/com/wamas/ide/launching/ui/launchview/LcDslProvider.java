@@ -6,6 +6,8 @@ package com.wamas.ide.launching.ui.launchview;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
@@ -30,8 +32,8 @@ import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
 import com.wamas.ide.launching.ui.LcDslHelper;
 import com.wamas.ide.launching.ui.internal.LaunchingActivator;
+import com.wamas.ide.launching.ui.internal.LcDslInternalHelper;
 import com.wamas.ide.launchview.services.AbstractLaunchObjectProvider;
-import com.wamas.ide.launchview.services.LaunchObject;
 import com.wamas.ide.launchview.services.LaunchObjectProvider;
 
 @Component(service = LaunchObjectProvider.class)
@@ -61,11 +63,11 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
     }
 
     @Override
-    public Set<LaunchObject> getLaunchObjects() {
+    public Set<LcDslLaunchObject> getLaunchObjects() {
         IResourceDescriptions index = LcDslHelper.getInjector().getInstance(IResourceDescriptions.class);
         ResourceSet set = LcDslHelper.getInjector().getInstance(ResourceSet.class);
 
-        Set<LaunchObject> result = new TreeSet<>();
+        Set<LcDslLaunchObject> result = new TreeSet<>();
         Iterable<IEObjectDescription> descs = index.getExportedObjectsByType(LcDslPackage.eINSTANCE.getLaunchConfig());
         for (IEObjectDescription obj : descs) {
             EObject lc = EcoreUtil2.resolve(obj.getEObjectOrProxy(), set);
@@ -116,7 +118,7 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
         hide.setLabel("Hide 'manual' LcDsl configurations");
         hide.setType(ItemType.CHECK);
         hide.setSelected(hideManual);
-        hide.setIconURI("platform:/plugin/" + LcDslHelper.PLUGIN_ID + "/icons/clear.gif");
+        hide.setIconURI("platform:/plugin/" + LcDslInternalHelper.PLUGIN_ID + "/icons/clear.gif");
         hide.setObject(new Object() {
 
             @Execute
@@ -128,8 +130,35 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
 
         });
 
+        MDirectMenuItem cleanup = MMenuFactory.INSTANCE.createDirectMenuItem();
+        cleanup.setLabel("Remove 'manual' LcDsl artifacts");
+        cleanup.setTooltip(
+                "Removes all launch configurations from Eclipse that have been generated from a 'manual' LcDsl launch configuration");
+        cleanup.setIconURI("platform:/plugin/" + LcDslInternalHelper.PLUGIN_ID + "/icons/clear.gif");
+        cleanup.setObject(new Object() {
+
+            @Execute
+            public void cleanup() {
+                for (LcDslLaunchObject lo : getLaunchObjects()) {
+                    if (!lo.getLaunchConfig().isManual()) {
+                        continue;
+                    }
+                    ILaunchConfiguration c = findLaunchConfiguration(lo.getType(), lo.getId());
+                    if (c != null) {
+                        try {
+                            c.delete();
+                        } catch (CoreException e) {
+                            LcDslInternalHelper.log(IStatus.WARNING, "cannot delete generated configuration " + c.getName(), e);
+                        }
+                    }
+                }
+                fireUpdate();
+            }
+        });
+
         menu.getChildren().add(MMenuFactory.INSTANCE.createMenuSeparator());
         menu.getChildren().add(hide);
+        menu.getChildren().add(cleanup);
     }
 
 }

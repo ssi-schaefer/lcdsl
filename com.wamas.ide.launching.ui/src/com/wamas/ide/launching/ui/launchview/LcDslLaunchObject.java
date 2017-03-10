@@ -5,7 +5,6 @@ package com.wamas.ide.launching.ui.launchview;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
@@ -25,6 +24,7 @@ import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.ui.LcDslHelper;
 import com.wamas.ide.launching.ui.internal.LaunchingActivator;
+import com.wamas.ide.launching.ui.internal.LcDslInternalHelper;
 import com.wamas.ide.launchview.impl.DebugCoreLaunchObject;
 import com.wamas.ide.launchview.launcher.StandaloneLaunchConfigExecutor;
 import com.wamas.ide.launchview.services.LaunchObject;
@@ -32,7 +32,7 @@ import com.wamas.ide.launchview.services.LaunchObject;
 public class LcDslLaunchObject implements LaunchObject {
 
     private static final ImageDescriptor NATURE_OVERLAY = LaunchingActivator
-            .imageDescriptorFromPlugin("com.wamas.ide.launching.ui", "icons/nature_overlay.png");
+            .imageDescriptorFromPlugin(LcDslInternalHelper.PLUGIN_ID, "icons/nature_overlay.png");
 
     private final LaunchConfig cfg;
     private final StandaloneLaunchConfigGenerator generator;
@@ -43,6 +43,10 @@ public class LcDslLaunchObject implements LaunchObject {
     public LcDslLaunchObject(LaunchConfig cfg) {
         this.cfg = cfg;
         this.generator = LcDslHelper.getInjector().getInstance(StandaloneLaunchConfigGenerator.class);
+    }
+
+    LaunchConfig getLaunchConfig() {
+        return cfg;
     }
 
     @Override
@@ -116,8 +120,7 @@ public class LcDslLaunchObject implements LaunchObject {
                 }
             }
         } catch (CoreException e) {
-            LaunchingActivator.getInstance().getLog()
-                    .log(new Status(IStatus.WARNING, "com.wamas.ide.launching.ui", "cannot lookup launch configuration", e));
+            LcDslInternalHelper.log(IStatus.WARNING, "cannot lookup launch configuration", e);
         }
         return cachedGenerated;
     }

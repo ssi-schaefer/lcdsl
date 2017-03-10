@@ -69,9 +69,9 @@ class StandaloneLaunchConfigGenerator {
 
 		if (config.type != LaunchConfigType.GROUP) {
 			copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_PROGRAM_ARGUMENTS,
-				Joiner.on(' ').join(config.collectArguments))
+				Joiner.on(' ').join(config.collectArguments.map[quote]))
 			copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_VM_ARGUMENTS,
-				Joiner.on(' ').join(config.collectVmArguments))
+				Joiner.on(' ').join(config.collectVmArguments.map[quote]))
 
 			val out = config.collectRedirectOutFile
 			if (out != null && !out.trim.empty) {
@@ -113,6 +113,13 @@ class StandaloneLaunchConfigGenerator {
 		}
 
 		copy.doSave
+	}
+	
+	def quote(String string) {
+		if(string.contains('"')) {
+			return string; // quoted itself already?
+		}
+		return '"' + string + '"';
 	}
 	
 	def postProcess(LaunchConfig config) {

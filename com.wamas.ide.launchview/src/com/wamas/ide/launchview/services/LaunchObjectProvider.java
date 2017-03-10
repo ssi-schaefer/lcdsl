@@ -16,7 +16,7 @@ public interface LaunchObjectProvider {
     /**
      * @return all {@link LaunchObject}s that this provider contributes to the view
      */
-    public Set<LaunchObject> getLaunchObjects();
+    public Set<? extends LaunchObject> getLaunchObjects();
 
     /**
      * @param r register a {@link Runnable} that should be notified whenever the provider's state changed. The view will react
