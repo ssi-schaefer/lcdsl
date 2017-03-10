@@ -32,6 +32,9 @@ import com.wamas.ide.launchview.launcher.StandaloneLaunchConfigExecutor;
  */
 public class LcDslHelper {
 
+    // actually this has nothing to do here, but the activator is generated...
+    public static final String PLUGIN_ID = "com.wamas.ide.launching.ui";
+
     public static final String MODE_RUN = "run";
     public static final String MODE_DEBUG = "debug";
 

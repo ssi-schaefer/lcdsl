@@ -35,6 +35,10 @@ public class LaunchViewModel implements LaunchModel {
     private final List<Runnable> updateListeners = new ArrayList<>();
     private final Runnable providerUpdateListener = () -> fireUpdate();
 
+    public Set<LaunchObjectProvider> getProviders() {
+        return providers;
+    }
+
     @Override
     public LaunchObjectContainerModel getModel() {
         LaunchObjectContainerModel root = new LaunchObjectContainerModel();

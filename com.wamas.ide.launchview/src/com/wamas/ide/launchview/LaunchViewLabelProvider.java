@@ -6,7 +6,9 @@ package com.wamas.ide.launchview;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.BaseLabelProvider;
+import org.eclipse.jface.viewers.DecorationOverlayIcon;
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.IStyledLabelProvider;
+import org.eclipse.jface.viewers.IDecoration;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.swt.graphics.Image;
 
@@ -15,7 +17,7 @@ import com.wamas.ide.launchview.model.LaunchObjectModel;
 public class LaunchViewLabelProvider extends BaseLabelProvider implements IStyledLabelProvider {
 
     private static final ImageDescriptor ICON_RUNNING = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-            "icons/run_co_16.png");
+            "icons/run_co.gif");
 
     private final ImageRegistry perConfig = new ImageRegistry();
 
@@ -45,7 +47,7 @@ public class LaunchViewLabelProvider extends BaseLabelProvider implements IStyle
     private Image getCachedRunningImage(LaunchObjectModel obj) {
         Image img = perConfig.get(obj.getObject().getId());
         if (img == null) {
-            img = new MiniOverlayImage(obj.getImage().getImageData(), ICON_RUNNING.getImageData()).createImage();
+            img = new DecorationOverlayIcon(obj.getImage(), ICON_RUNNING, IDecoration.TOP_LEFT).createImage();
             perConfig.put(obj.getObject().getId(), img);
         }
         return img;

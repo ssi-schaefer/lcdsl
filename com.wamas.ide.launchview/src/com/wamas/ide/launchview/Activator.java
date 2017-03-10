@@ -1,7 +1,5 @@
 package com.wamas.ide.launchview;
 
-import org.eclipse.core.runtime.ILog;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -59,7 +57,7 @@ public class Activator extends AbstractUIPlugin {
     public static BundleContext getContext() {
         return context;
     }
-    
+
     public static void log(int severity, String message, Throwable t) {
         getDefault().getLog().log(new Status(severity, getContext().getBundle().getSymbolicName(), message, t));
     }

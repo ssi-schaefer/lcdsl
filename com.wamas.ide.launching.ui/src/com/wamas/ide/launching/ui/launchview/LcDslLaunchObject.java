@@ -12,8 +12,11 @@ import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchMode;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.viewers.DecorationOverlayIcon;
+import org.eclipse.jface.viewers.IDecoration;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.ui.editor.IURIEditorOpener;
 
@@ -22,12 +25,14 @@ import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.ui.LcDslHelper;
 import com.wamas.ide.launching.ui.internal.LaunchingActivator;
-import com.wamas.ide.launchview.MiniOverlayImage;
 import com.wamas.ide.launchview.impl.DebugCoreLaunchObject;
 import com.wamas.ide.launchview.launcher.StandaloneLaunchConfigExecutor;
 import com.wamas.ide.launchview.services.LaunchObject;
 
 public class LcDslLaunchObject implements LaunchObject {
+
+    private static final ImageDescriptor NATURE_OVERLAY = LaunchingActivator
+            .imageDescriptorFromPlugin("com.wamas.ide.launching.ui", "icons/nature_overlay.png");
 
     private final LaunchConfig cfg;
     private final StandaloneLaunchConfigGenerator generator;
@@ -61,9 +66,10 @@ public class LcDslLaunchObject implements LaunchObject {
 
         Image image = registry.get(getType().getIdentifier());
         if (image == null) {
-            ImageDescriptor overlay = LaunchingActivator.imageDescriptorFromPlugin("com.wamas.ide.launching.ui",
-                    "icons/lc_ovr.png");
-            image = new MiniOverlayImage(undecorated.getImageData(), overlay.getImageData()).createImage();
+            ImageData blended = undecorated.getImageData();
+            blended.alpha = 128;
+            ImageDescriptor overlay = NATURE_OVERLAY;
+            image = new DecorationOverlayIcon(undecorated, overlay, IDecoration.TOP_RIGHT).createImage();
             registry.put(getType().getIdentifier(), image);
         }
         return image;

@@ -17,6 +17,7 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationListener;
 import org.eclipse.debug.core.ILaunchesListener2;
+import org.eclipse.e4.ui.model.application.ui.menu.MMenu;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
@@ -90,6 +91,11 @@ public class DebugCoreProvider extends AbstractLaunchObjectProvider
     @Override
     public void launchesTerminated(ILaunch[] launches) {
         fireUpdate();
+    }
+
+    @Override
+    public void contributeViewMenu(MMenu menu) {
+        // nothing to contribute for now...
     }
 
 }

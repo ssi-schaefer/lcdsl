@@ -107,6 +107,10 @@ public class LaunchView {
         viewMenu.getChildren().add(refresh);
         viewMenu.getChildren().add(MMenuFactory.INSTANCE.createMenuSeparator());
         viewMenu.getChildren().add(terminateAll);
+
+        // contributions from providers
+        model.getProviders().forEach(p -> p.contributeViewMenu(viewMenu));
+
         part.getMenus().add(viewMenu);
     }
 
