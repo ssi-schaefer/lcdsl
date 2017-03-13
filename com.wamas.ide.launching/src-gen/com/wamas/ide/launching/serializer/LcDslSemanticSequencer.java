@@ -529,20 +529,15 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *             configIniTemplate=ConfigIniTemplate | 
 	 *             javaMainSearch=JavaMainSearch | 
 	 *             servletConfig=RapServletConfig | 
-	 *             contentProviderProduct=ContentProviderProduct
-	 *         )* 
-	 *         plugins+=AddPlugin? 
-	 *         (
-	 *             (
-	 *                 features+=AddFeature | 
-	 *                 ignore+=IgnorePlugin | 
-	 *                 groupMembers+=GroupMember | 
-	 *                 vmArgs+=VmArgument | 
-	 *                 progArgs+=ProgramArgument | 
-	 *                 envVars+=EnvironmentVariable | 
-	 *                 traces+=TraceEnablement
-	 *             )? 
-	 *             plugins+=AddPlugin?
+	 *             contentProviderProduct=ContentProviderProduct | 
+	 *             plugins+=AddPlugin | 
+	 *             features+=AddFeature | 
+	 *             ignore+=IgnorePlugin | 
+	 *             groupMembers+=GroupMember | 
+	 *             vmArgs+=VmArgument | 
+	 *             progArgs+=ProgramArgument | 
+	 *             envVars+=EnvironmentVariable | 
+	 *             traces+=TraceEnablement
 	 *         )*
 	 *     )
 	 */

@@ -35,7 +35,6 @@ public class LcDslParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getLaunchConfigAccess().getAlternatives_7(), "rule__LaunchConfig__Alternatives_7");
 					put(grammarAccess.getMainProjectAccess().getAlternatives_1(), "rule__MainProject__Alternatives_1");
 					put(grammarAccess.getPathAccess().getAlternatives(), "rule__Path__Alternatives");
 					put(grammarAccess.getClearOptionAccess().getAlternatives_2_0_0(), "rule__ClearOption__Alternatives_2_0_0");
@@ -119,14 +118,14 @@ public class LcDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLaunchConfigAccess().getJavaMainSearchAssignment_6_12(), "rule__LaunchConfig__JavaMainSearchAssignment_6_12");
 					put(grammarAccess.getLaunchConfigAccess().getServletConfigAssignment_6_13(), "rule__LaunchConfig__ServletConfigAssignment_6_13");
 					put(grammarAccess.getLaunchConfigAccess().getContentProviderProductAssignment_6_14(), "rule__LaunchConfig__ContentProviderProductAssignment_6_14");
-					put(grammarAccess.getLaunchConfigAccess().getPluginsAssignment_7_0(), "rule__LaunchConfig__PluginsAssignment_7_0");
-					put(grammarAccess.getLaunchConfigAccess().getFeaturesAssignment_7_1(), "rule__LaunchConfig__FeaturesAssignment_7_1");
-					put(grammarAccess.getLaunchConfigAccess().getIgnoreAssignment_7_2(), "rule__LaunchConfig__IgnoreAssignment_7_2");
-					put(grammarAccess.getLaunchConfigAccess().getGroupMembersAssignment_7_3(), "rule__LaunchConfig__GroupMembersAssignment_7_3");
-					put(grammarAccess.getLaunchConfigAccess().getVmArgsAssignment_7_4(), "rule__LaunchConfig__VmArgsAssignment_7_4");
-					put(grammarAccess.getLaunchConfigAccess().getProgArgsAssignment_7_5(), "rule__LaunchConfig__ProgArgsAssignment_7_5");
-					put(grammarAccess.getLaunchConfigAccess().getEnvVarsAssignment_7_6(), "rule__LaunchConfig__EnvVarsAssignment_7_6");
-					put(grammarAccess.getLaunchConfigAccess().getTracesAssignment_7_7(), "rule__LaunchConfig__TracesAssignment_7_7");
+					put(grammarAccess.getLaunchConfigAccess().getPluginsAssignment_6_15(), "rule__LaunchConfig__PluginsAssignment_6_15");
+					put(grammarAccess.getLaunchConfigAccess().getFeaturesAssignment_6_16(), "rule__LaunchConfig__FeaturesAssignment_6_16");
+					put(grammarAccess.getLaunchConfigAccess().getIgnoreAssignment_6_17(), "rule__LaunchConfig__IgnoreAssignment_6_17");
+					put(grammarAccess.getLaunchConfigAccess().getGroupMembersAssignment_6_18(), "rule__LaunchConfig__GroupMembersAssignment_6_18");
+					put(grammarAccess.getLaunchConfigAccess().getVmArgsAssignment_6_19(), "rule__LaunchConfig__VmArgsAssignment_6_19");
+					put(grammarAccess.getLaunchConfigAccess().getProgArgsAssignment_6_20(), "rule__LaunchConfig__ProgArgsAssignment_6_20");
+					put(grammarAccess.getLaunchConfigAccess().getEnvVarsAssignment_6_21(), "rule__LaunchConfig__EnvVarsAssignment_6_21");
+					put(grammarAccess.getLaunchConfigAccess().getTracesAssignment_6_22(), "rule__LaunchConfig__TracesAssignment_6_22");
 					put(grammarAccess.getWorkspaceAccess().getWorkspaceAssignment_1(), "rule__Workspace__WorkspaceAssignment_1");
 					put(grammarAccess.getWorkingDirAccess().getWorkingDirAssignment_1(), "rule__WorkingDir__WorkingDirAssignment_1");
 					put(grammarAccess.getMainProjectAccess().getSelfAssignment_1_0(), "rule__MainProject__SelfAssignment_1_0");

@@ -120,24 +120,23 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cServletConfigRapServletConfigParserRuleCall_6_13_0 = (RuleCall)cServletConfigAssignment_6_13.eContents().get(0);
 		private final Assignment cContentProviderProductAssignment_6_14 = (Assignment)cUnorderedGroup_6.eContents().get(14);
 		private final RuleCall cContentProviderProductContentProviderProductParserRuleCall_6_14_0 = (RuleCall)cContentProviderProductAssignment_6_14.eContents().get(0);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cPluginsAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cPluginsAddPluginParserRuleCall_7_0_0 = (RuleCall)cPluginsAssignment_7_0.eContents().get(0);
-		private final Assignment cFeaturesAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final RuleCall cFeaturesAddFeatureParserRuleCall_7_1_0 = (RuleCall)cFeaturesAssignment_7_1.eContents().get(0);
-		private final Assignment cIgnoreAssignment_7_2 = (Assignment)cAlternatives_7.eContents().get(2);
-		private final RuleCall cIgnoreIgnorePluginParserRuleCall_7_2_0 = (RuleCall)cIgnoreAssignment_7_2.eContents().get(0);
-		private final Assignment cGroupMembersAssignment_7_3 = (Assignment)cAlternatives_7.eContents().get(3);
-		private final RuleCall cGroupMembersGroupMemberParserRuleCall_7_3_0 = (RuleCall)cGroupMembersAssignment_7_3.eContents().get(0);
-		private final Assignment cVmArgsAssignment_7_4 = (Assignment)cAlternatives_7.eContents().get(4);
-		private final RuleCall cVmArgsVmArgumentParserRuleCall_7_4_0 = (RuleCall)cVmArgsAssignment_7_4.eContents().get(0);
-		private final Assignment cProgArgsAssignment_7_5 = (Assignment)cAlternatives_7.eContents().get(5);
-		private final RuleCall cProgArgsProgramArgumentParserRuleCall_7_5_0 = (RuleCall)cProgArgsAssignment_7_5.eContents().get(0);
-		private final Assignment cEnvVarsAssignment_7_6 = (Assignment)cAlternatives_7.eContents().get(6);
-		private final RuleCall cEnvVarsEnvironmentVariableParserRuleCall_7_6_0 = (RuleCall)cEnvVarsAssignment_7_6.eContents().get(0);
-		private final Assignment cTracesAssignment_7_7 = (Assignment)cAlternatives_7.eContents().get(7);
-		private final RuleCall cTracesTraceEnablementParserRuleCall_7_7_0 = (RuleCall)cTracesAssignment_7_7.eContents().get(0);
-		private final RuleCall cBLOCK_ENDTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
+		private final Assignment cPluginsAssignment_6_15 = (Assignment)cUnorderedGroup_6.eContents().get(15);
+		private final RuleCall cPluginsAddPluginParserRuleCall_6_15_0 = (RuleCall)cPluginsAssignment_6_15.eContents().get(0);
+		private final Assignment cFeaturesAssignment_6_16 = (Assignment)cUnorderedGroup_6.eContents().get(16);
+		private final RuleCall cFeaturesAddFeatureParserRuleCall_6_16_0 = (RuleCall)cFeaturesAssignment_6_16.eContents().get(0);
+		private final Assignment cIgnoreAssignment_6_17 = (Assignment)cUnorderedGroup_6.eContents().get(17);
+		private final RuleCall cIgnoreIgnorePluginParserRuleCall_6_17_0 = (RuleCall)cIgnoreAssignment_6_17.eContents().get(0);
+		private final Assignment cGroupMembersAssignment_6_18 = (Assignment)cUnorderedGroup_6.eContents().get(18);
+		private final RuleCall cGroupMembersGroupMemberParserRuleCall_6_18_0 = (RuleCall)cGroupMembersAssignment_6_18.eContents().get(0);
+		private final Assignment cVmArgsAssignment_6_19 = (Assignment)cUnorderedGroup_6.eContents().get(19);
+		private final RuleCall cVmArgsVmArgumentParserRuleCall_6_19_0 = (RuleCall)cVmArgsAssignment_6_19.eContents().get(0);
+		private final Assignment cProgArgsAssignment_6_20 = (Assignment)cUnorderedGroup_6.eContents().get(20);
+		private final RuleCall cProgArgsProgramArgumentParserRuleCall_6_20_0 = (RuleCall)cProgArgsAssignment_6_20.eContents().get(0);
+		private final Assignment cEnvVarsAssignment_6_21 = (Assignment)cUnorderedGroup_6.eContents().get(21);
+		private final RuleCall cEnvVarsEnvironmentVariableParserRuleCall_6_21_0 = (RuleCall)cEnvVarsAssignment_6_21.eContents().get(0);
+		private final Assignment cTracesAssignment_6_22 = (Assignment)cUnorderedGroup_6.eContents().get(22);
+		private final RuleCall cTracesTraceEnablementParserRuleCall_6_22_0 = (RuleCall)cTracesAssignment_6_22.eContents().get(0);
+		private final RuleCall cBLOCK_ENDTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		
 		/// **
 		// * explicit = explicitly defined plug-in list. no auto-resolve of plug-ins.
@@ -173,16 +172,16 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	& javaMainSearch=JavaMainSearch? // Java
 		//	& servletConfig=RapServletConfig? // RAP
 		//	& contentProviderProduct=ContentProviderProduct? // Eclipse, RAP
-		//) (plugins+=AddPlugin // Eclipse, RAP
-		//	| features+=AddFeature // Eclipse, RAP
-		//	| ignore+=IgnorePlugin // Eclipse, RAP
-		//	| groupMembers+=GroupMember // Groups 					// TODO: content assist, validation, update on rename
-		//	| vmArgs+=VmArgument // All but Groups
-		//	| progArgs+=ProgramArgument // All but Groups
-		//	| envVars+=EnvironmentVariable // All but Groups
-		//	| traces+=TraceEnablement // Eclipse, RAP
-		//)*
-		//	BLOCK_END;
+		//	// things that may appear multiple times
+		//	& plugins+=AddPlugin* // Eclipse, RAP
+		//	& features+=AddFeature* // Eclipse, RAP
+		//	& ignore+=IgnorePlugin* // Eclipse, RAP
+		//	& groupMembers+=GroupMember* // Groups 					// TODO: content assist, validation, update on rename
+		//	& vmArgs+=VmArgument* // All but Groups
+		//	& progArgs+=ProgramArgument* // All but Groups
+		//	& envVars+=EnvironmentVariable* // All but Groups
+		//	& traces+=TraceEnablement* // Eclipse, RAP
+		//) BLOCK_END;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//(explicit?='explicit'? // Eclipse, RAP
@@ -210,15 +209,16 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//& javaMainSearch=JavaMainSearch? // Java
 		//& servletConfig=RapServletConfig? // RAP
 		//& contentProviderProduct=ContentProviderProduct? // Eclipse, RAP
-		//) (plugins+=AddPlugin // Eclipse, RAP
-		//| features+=AddFeature // Eclipse, RAP
-		//| ignore+=IgnorePlugin // Eclipse, RAP
-		//| groupMembers+=GroupMember // Groups 					// TODO: content assist, validation, update on rename
-		//| vmArgs+=VmArgument // All but Groups
-		//| progArgs+=ProgramArgument // All but Groups
-		//| envVars+=EnvironmentVariable // All but Groups
-		//| traces+=TraceEnablement // Eclipse, RAP
-		//)* BLOCK_END
+		//// things that may appear multiple times
+		//& plugins+=AddPlugin* // Eclipse, RAP
+		//& features+=AddFeature* // Eclipse, RAP
+		//& ignore+=IgnorePlugin* // Eclipse, RAP
+		//& groupMembers+=GroupMember* // Groups 					// TODO: content assist, validation, update on rename
+		//& vmArgs+=VmArgument* // All but Groups
+		//& progArgs+=ProgramArgument* // All but Groups
+		//& envVars+=EnvironmentVariable* // All but Groups
+		//& traces+=TraceEnablement* // Eclipse, RAP
+		//) BLOCK_END
 		public Group getGroup() { return cGroup; }
 		
 		//(explicit?='explicit'? // Eclipse, RAP
@@ -335,6 +335,15 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//& javaMainSearch=JavaMainSearch? // Java
 		//& servletConfig=RapServletConfig? // RAP
 		//& contentProviderProduct=ContentProviderProduct? // Eclipse, RAP
+		//// things that may appear multiple times
+		//& plugins+=AddPlugin* // Eclipse, RAP
+		//& features+=AddFeature* // Eclipse, RAP
+		//& ignore+=IgnorePlugin* // Eclipse, RAP
+		//& groupMembers+=GroupMember* // Groups 					// TODO: content assist, validation, update on rename
+		//& vmArgs+=VmArgument* // All but Groups
+		//& progArgs+=ProgramArgument* // All but Groups
+		//& envVars+=EnvironmentVariable* // All but Groups
+		//& traces+=TraceEnablement* // Eclipse, RAP
 		//)
 		public UnorderedGroup getUnorderedGroup_6() { return cUnorderedGroup_6; }
 		
@@ -429,68 +438,56 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ContentProviderProduct
 		public RuleCall getContentProviderProductContentProviderProductParserRuleCall_6_14_0() { return cContentProviderProductContentProviderProductParserRuleCall_6_14_0; }
 		
-		//(plugins+=AddPlugin // Eclipse, RAP
-		//| features+=AddFeature // Eclipse, RAP
-		//| ignore+=IgnorePlugin // Eclipse, RAP
-		//| groupMembers+=GroupMember // Groups 					// TODO: content assist, validation, update on rename
-		//| vmArgs+=VmArgument // All but Groups
-		//| progArgs+=ProgramArgument // All but Groups
-		//| envVars+=EnvironmentVariable // All but Groups
-		//| traces+=TraceEnablement // Eclipse, RAP
-		//)*
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
-		
-		//// things that may appear multiple times
-		//plugins+=AddPlugin
-		public Assignment getPluginsAssignment_7_0() { return cPluginsAssignment_7_0; }
+		//plugins+=AddPlugin*
+		public Assignment getPluginsAssignment_6_15() { return cPluginsAssignment_6_15; }
 		
 		//AddPlugin
-		public RuleCall getPluginsAddPluginParserRuleCall_7_0_0() { return cPluginsAddPluginParserRuleCall_7_0_0; }
+		public RuleCall getPluginsAddPluginParserRuleCall_6_15_0() { return cPluginsAddPluginParserRuleCall_6_15_0; }
 		
-		//features+=AddFeature
-		public Assignment getFeaturesAssignment_7_1() { return cFeaturesAssignment_7_1; }
+		//features+=AddFeature*
+		public Assignment getFeaturesAssignment_6_16() { return cFeaturesAssignment_6_16; }
 		
 		//AddFeature
-		public RuleCall getFeaturesAddFeatureParserRuleCall_7_1_0() { return cFeaturesAddFeatureParserRuleCall_7_1_0; }
+		public RuleCall getFeaturesAddFeatureParserRuleCall_6_16_0() { return cFeaturesAddFeatureParserRuleCall_6_16_0; }
 		
-		//ignore+=IgnorePlugin
-		public Assignment getIgnoreAssignment_7_2() { return cIgnoreAssignment_7_2; }
+		//ignore+=IgnorePlugin*
+		public Assignment getIgnoreAssignment_6_17() { return cIgnoreAssignment_6_17; }
 		
 		//IgnorePlugin
-		public RuleCall getIgnoreIgnorePluginParserRuleCall_7_2_0() { return cIgnoreIgnorePluginParserRuleCall_7_2_0; }
+		public RuleCall getIgnoreIgnorePluginParserRuleCall_6_17_0() { return cIgnoreIgnorePluginParserRuleCall_6_17_0; }
 		
-		//groupMembers+=GroupMember
-		public Assignment getGroupMembersAssignment_7_3() { return cGroupMembersAssignment_7_3; }
+		//groupMembers+=GroupMember*
+		public Assignment getGroupMembersAssignment_6_18() { return cGroupMembersAssignment_6_18; }
 		
 		//GroupMember
-		public RuleCall getGroupMembersGroupMemberParserRuleCall_7_3_0() { return cGroupMembersGroupMemberParserRuleCall_7_3_0; }
+		public RuleCall getGroupMembersGroupMemberParserRuleCall_6_18_0() { return cGroupMembersGroupMemberParserRuleCall_6_18_0; }
 		
-		//vmArgs+=VmArgument
-		public Assignment getVmArgsAssignment_7_4() { return cVmArgsAssignment_7_4; }
+		//vmArgs+=VmArgument*
+		public Assignment getVmArgsAssignment_6_19() { return cVmArgsAssignment_6_19; }
 		
 		//VmArgument
-		public RuleCall getVmArgsVmArgumentParserRuleCall_7_4_0() { return cVmArgsVmArgumentParserRuleCall_7_4_0; }
+		public RuleCall getVmArgsVmArgumentParserRuleCall_6_19_0() { return cVmArgsVmArgumentParserRuleCall_6_19_0; }
 		
-		//progArgs+=ProgramArgument
-		public Assignment getProgArgsAssignment_7_5() { return cProgArgsAssignment_7_5; }
+		//progArgs+=ProgramArgument*
+		public Assignment getProgArgsAssignment_6_20() { return cProgArgsAssignment_6_20; }
 		
 		//ProgramArgument
-		public RuleCall getProgArgsProgramArgumentParserRuleCall_7_5_0() { return cProgArgsProgramArgumentParserRuleCall_7_5_0; }
+		public RuleCall getProgArgsProgramArgumentParserRuleCall_6_20_0() { return cProgArgsProgramArgumentParserRuleCall_6_20_0; }
 		
-		//envVars+=EnvironmentVariable
-		public Assignment getEnvVarsAssignment_7_6() { return cEnvVarsAssignment_7_6; }
+		//envVars+=EnvironmentVariable*
+		public Assignment getEnvVarsAssignment_6_21() { return cEnvVarsAssignment_6_21; }
 		
 		//EnvironmentVariable
-		public RuleCall getEnvVarsEnvironmentVariableParserRuleCall_7_6_0() { return cEnvVarsEnvironmentVariableParserRuleCall_7_6_0; }
+		public RuleCall getEnvVarsEnvironmentVariableParserRuleCall_6_21_0() { return cEnvVarsEnvironmentVariableParserRuleCall_6_21_0; }
 		
-		//traces+=TraceEnablement
-		public Assignment getTracesAssignment_7_7() { return cTracesAssignment_7_7; }
+		//traces+=TraceEnablement*
+		public Assignment getTracesAssignment_6_22() { return cTracesAssignment_6_22; }
 		
 		//TraceEnablement
-		public RuleCall getTracesTraceEnablementParserRuleCall_7_7_0() { return cTracesTraceEnablementParserRuleCall_7_7_0; }
+		public RuleCall getTracesTraceEnablementParserRuleCall_6_22_0() { return cTracesTraceEnablementParserRuleCall_6_22_0; }
 		
 		//BLOCK_END
-		public RuleCall getBLOCK_ENDTerminalRuleCall_8() { return cBLOCK_ENDTerminalRuleCall_8; }
+		public RuleCall getBLOCK_ENDTerminalRuleCall_7() { return cBLOCK_ENDTerminalRuleCall_7; }
 	}
 	public class WorkspaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.Workspace");
@@ -2310,16 +2307,16 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	& javaMainSearch=JavaMainSearch? // Java
 	//	& servletConfig=RapServletConfig? // RAP
 	//	& contentProviderProduct=ContentProviderProduct? // Eclipse, RAP
-	//) (plugins+=AddPlugin // Eclipse, RAP
-	//	| features+=AddFeature // Eclipse, RAP
-	//	| ignore+=IgnorePlugin // Eclipse, RAP
-	//	| groupMembers+=GroupMember // Groups 					// TODO: content assist, validation, update on rename
-	//	| vmArgs+=VmArgument // All but Groups
-	//	| progArgs+=ProgramArgument // All but Groups
-	//	| envVars+=EnvironmentVariable // All but Groups
-	//	| traces+=TraceEnablement // Eclipse, RAP
-	//)*
-	//	BLOCK_END;
+	//	// things that may appear multiple times
+	//	& plugins+=AddPlugin* // Eclipse, RAP
+	//	& features+=AddFeature* // Eclipse, RAP
+	//	& ignore+=IgnorePlugin* // Eclipse, RAP
+	//	& groupMembers+=GroupMember* // Groups 					// TODO: content assist, validation, update on rename
+	//	& vmArgs+=VmArgument* // All but Groups
+	//	& progArgs+=ProgramArgument* // All but Groups
+	//	& envVars+=EnvironmentVariable* // All but Groups
+	//	& traces+=TraceEnablement* // Eclipse, RAP
+	//) BLOCK_END;
 	public LaunchConfigElements getLaunchConfigAccess() {
 		return pLaunchConfig;
 	}
