@@ -2,7 +2,7 @@
 <feature
       id="com.wamas.ide.launchview.feature"
       label="Launch View"
-      version="0.1.1.qualifier"
+      version="0.1.2.qualifier"
       provider-name="SSI Schaefer IT Solutions GmbH">
 
    <description>
