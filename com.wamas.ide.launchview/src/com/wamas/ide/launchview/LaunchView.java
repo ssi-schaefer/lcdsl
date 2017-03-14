@@ -68,6 +68,16 @@ public class LaunchView {
         tree = new FilteredTree(parent, SWT.BORDER | SWT.MULTI, new PatternFilter() {
 
             @Override
+            public void setPattern(String pattern) {
+                if (pattern != null && !pattern.isEmpty() && pattern.indexOf("*") != 0 && pattern.indexOf("?") != 0
+                        && pattern.indexOf(".") != 0) {
+                    pattern = "*" + pattern;
+                }
+
+                super.setPattern(pattern);
+            }
+
+            @Override
             protected boolean isLeafMatch(Viewer viewer, Object element) {
                 if (!(element instanceof LaunchObjectModel) || element instanceof LaunchObjectContainerModel) {
                     return false;

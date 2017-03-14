@@ -154,8 +154,14 @@ class StandaloneLaunchConfigGenerator {
 		}
 
 		val lc = launchMgr.getLaunchConfigurations(type).findFirst[l|l.name.equals(config.name)]
+		
+		// TODO: really test this more, if we have negative effects by keeping the original config
+		if(lc != null) {
+			// keep the original configuration so existing launches don't loose their association
+			return lc.getWorkingCopy;
+		}
 
-		lc?.delete
+//		lc?.delete
 
 		return type.newInstance(null, config.name)
 	}
