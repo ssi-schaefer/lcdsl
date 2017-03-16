@@ -14,8 +14,8 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.DecorationOverlayIcon;
 import org.eclipse.jface.viewers.IDecoration;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.ui.editor.IURIEditorOpener;
 
@@ -68,13 +68,20 @@ public class LcDslLaunchObject implements LaunchObject {
             return null;
         }
 
-        Image image = registry.get(getType().getIdentifier());
+        boolean isGenerated = findConfig() != null;
+        String imgid = getType().getIdentifier() + (isGenerated ? "-enabled" : "-disabled");
+
+        Image image = registry.get(imgid);
         if (image == null) {
-            ImageData blended = undecorated.getImageData();
-            blended.alpha = 128;
+            if (!isGenerated) {
+                undecorated = new Image(undecorated.getDevice(), undecorated, SWT.IMAGE_DISABLE);
+            }
             ImageDescriptor overlay = NATURE_OVERLAY;
             image = new DecorationOverlayIcon(undecorated, overlay, IDecoration.TOP_RIGHT).createImage();
-            registry.put(getType().getIdentifier(), image);
+            registry.put(imgid, image);
+            if (!isGenerated) {
+                undecorated.dispose();
+            }
         }
         return image;
     }
