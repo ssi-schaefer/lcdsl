@@ -17508,7 +17508,35 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             {
             // InternalLcDsl.g:5460:2: ( rule__LaunchConfig__UnorderedGroup_0__0 )?
             int alt23=2;
-            alt23 = dfa23.predict(input);
+            int LA23_0 = input.LA(1);
+
+            if ( LA23_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {
+                alt23=1;
+            }
+            else if ( LA23_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {
+                alt23=1;
+            }
+            else if ( LA23_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {
+                alt23=1;
+            }
+            else if ( LA23_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {
+                alt23=1;
+            }
+            else if ( LA23_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {
+                alt23=1;
+            }
+            else if ( LA23_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {
+                alt23=1;
+            }
+            else if ( LA23_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {
+                alt23=1;
+            }
+            else if ( LA23_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {
+                alt23=1;
+            }
+            else if ( LA23_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {
+                alt23=1;
+            }
             switch (alt23) {
                 case 1 :
                     // InternalLcDsl.g:5460:2: rule__LaunchConfig__UnorderedGroup_0__0
@@ -17556,7 +17584,42 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             {
             // InternalLcDsl.g:5474:3: ( ({...}? => ( ( ( rule__LaunchConfig__ExplicitAssignment_0_0 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ManualAssignment_0_1 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__AbstractAssignment_0_2 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ForegroundAssignment_0_3 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__NoConsoleAssignment_0_4 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__NoValidateAssignment_0_5 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__SwInstallSupportAssignment_0_6 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ReplaceEnvAssignment_0_7 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__StopInMainAssignment_0_8 ) ) ) ) )
             int alt24=9;
-            alt24 = dfa24.predict(input);
+            int LA24_0 = input.LA(1);
+
+            if ( LA24_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {
+                alt24=1;
+            }
+            else if ( LA24_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {
+                alt24=2;
+            }
+            else if ( LA24_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {
+                alt24=3;
+            }
+            else if ( LA24_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {
+                alt24=4;
+            }
+            else if ( LA24_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {
+                alt24=5;
+            }
+            else if ( LA24_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {
+                alt24=6;
+            }
+            else if ( LA24_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {
+                alt24=7;
+            }
+            else if ( LA24_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {
+                alt24=8;
+            }
+            else if ( LA24_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {
+                alt24=9;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return ;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 24, 0, input);
+
+                throw nvae;
+            }
             switch (alt24) {
                 case 1 :
                     // InternalLcDsl.g:5475:3: ({...}? => ( ( ( rule__LaunchConfig__ExplicitAssignment_0_0 ) ) ) )
@@ -18021,7 +18084,35 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:5624:2: ( rule__LaunchConfig__UnorderedGroup_0__1 )?
             int alt25=2;
-            alt25 = dfa25.predict(input);
+            int LA25_0 = input.LA(1);
+
+            if ( LA25_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {
+                alt25=1;
+            }
+            else if ( LA25_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {
+                alt25=1;
+            }
+            else if ( LA25_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {
+                alt25=1;
+            }
+            else if ( LA25_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {
+                alt25=1;
+            }
+            else if ( LA25_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {
+                alt25=1;
+            }
+            else if ( LA25_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {
+                alt25=1;
+            }
+            else if ( LA25_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {
+                alt25=1;
+            }
+            else if ( LA25_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {
+                alt25=1;
+            }
+            else if ( LA25_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {
+                alt25=1;
+            }
             switch (alt25) {
                 case 1 :
                     // InternalLcDsl.g:5624:2: rule__LaunchConfig__UnorderedGroup_0__1
@@ -18072,7 +18163,35 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:5636:2: ( rule__LaunchConfig__UnorderedGroup_0__2 )?
             int alt26=2;
-            alt26 = dfa26.predict(input);
+            int LA26_0 = input.LA(1);
+
+            if ( LA26_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {
+                alt26=1;
+            }
+            else if ( LA26_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {
+                alt26=1;
+            }
+            else if ( LA26_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {
+                alt26=1;
+            }
+            else if ( LA26_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {
+                alt26=1;
+            }
+            else if ( LA26_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {
+                alt26=1;
+            }
+            else if ( LA26_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {
+                alt26=1;
+            }
+            else if ( LA26_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {
+                alt26=1;
+            }
+            else if ( LA26_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {
+                alt26=1;
+            }
+            else if ( LA26_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {
+                alt26=1;
+            }
             switch (alt26) {
                 case 1 :
                     // InternalLcDsl.g:5636:2: rule__LaunchConfig__UnorderedGroup_0__2
@@ -18123,7 +18242,35 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:5648:2: ( rule__LaunchConfig__UnorderedGroup_0__3 )?
             int alt27=2;
-            alt27 = dfa27.predict(input);
+            int LA27_0 = input.LA(1);
+
+            if ( LA27_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {
+                alt27=1;
+            }
+            else if ( LA27_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {
+                alt27=1;
+            }
+            else if ( LA27_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {
+                alt27=1;
+            }
+            else if ( LA27_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {
+                alt27=1;
+            }
+            else if ( LA27_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {
+                alt27=1;
+            }
+            else if ( LA27_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {
+                alt27=1;
+            }
+            else if ( LA27_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {
+                alt27=1;
+            }
+            else if ( LA27_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {
+                alt27=1;
+            }
+            else if ( LA27_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {
+                alt27=1;
+            }
             switch (alt27) {
                 case 1 :
                     // InternalLcDsl.g:5648:2: rule__LaunchConfig__UnorderedGroup_0__3
@@ -18174,7 +18321,35 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:5660:2: ( rule__LaunchConfig__UnorderedGroup_0__4 )?
             int alt28=2;
-            alt28 = dfa28.predict(input);
+            int LA28_0 = input.LA(1);
+
+            if ( LA28_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {
+                alt28=1;
+            }
+            else if ( LA28_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {
+                alt28=1;
+            }
+            else if ( LA28_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {
+                alt28=1;
+            }
+            else if ( LA28_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {
+                alt28=1;
+            }
+            else if ( LA28_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {
+                alt28=1;
+            }
+            else if ( LA28_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {
+                alt28=1;
+            }
+            else if ( LA28_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {
+                alt28=1;
+            }
+            else if ( LA28_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {
+                alt28=1;
+            }
+            else if ( LA28_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {
+                alt28=1;
+            }
             switch (alt28) {
                 case 1 :
                     // InternalLcDsl.g:5660:2: rule__LaunchConfig__UnorderedGroup_0__4
@@ -18225,7 +18400,35 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:5672:2: ( rule__LaunchConfig__UnorderedGroup_0__5 )?
             int alt29=2;
-            alt29 = dfa29.predict(input);
+            int LA29_0 = input.LA(1);
+
+            if ( LA29_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {
+                alt29=1;
+            }
+            else if ( LA29_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {
+                alt29=1;
+            }
+            else if ( LA29_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {
+                alt29=1;
+            }
+            else if ( LA29_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {
+                alt29=1;
+            }
+            else if ( LA29_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {
+                alt29=1;
+            }
+            else if ( LA29_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {
+                alt29=1;
+            }
+            else if ( LA29_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {
+                alt29=1;
+            }
+            else if ( LA29_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {
+                alt29=1;
+            }
+            else if ( LA29_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {
+                alt29=1;
+            }
             switch (alt29) {
                 case 1 :
                     // InternalLcDsl.g:5672:2: rule__LaunchConfig__UnorderedGroup_0__5
@@ -18276,7 +18479,35 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:5684:2: ( rule__LaunchConfig__UnorderedGroup_0__6 )?
             int alt30=2;
-            alt30 = dfa30.predict(input);
+            int LA30_0 = input.LA(1);
+
+            if ( LA30_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {
+                alt30=1;
+            }
+            else if ( LA30_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {
+                alt30=1;
+            }
+            else if ( LA30_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {
+                alt30=1;
+            }
+            else if ( LA30_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {
+                alt30=1;
+            }
+            else if ( LA30_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {
+                alt30=1;
+            }
+            else if ( LA30_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {
+                alt30=1;
+            }
+            else if ( LA30_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {
+                alt30=1;
+            }
+            else if ( LA30_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {
+                alt30=1;
+            }
+            else if ( LA30_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {
+                alt30=1;
+            }
             switch (alt30) {
                 case 1 :
                     // InternalLcDsl.g:5684:2: rule__LaunchConfig__UnorderedGroup_0__6
@@ -18327,7 +18558,35 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:5696:2: ( rule__LaunchConfig__UnorderedGroup_0__7 )?
             int alt31=2;
-            alt31 = dfa31.predict(input);
+            int LA31_0 = input.LA(1);
+
+            if ( LA31_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {
+                alt31=1;
+            }
+            else if ( LA31_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {
+                alt31=1;
+            }
+            else if ( LA31_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {
+                alt31=1;
+            }
+            else if ( LA31_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {
+                alt31=1;
+            }
+            else if ( LA31_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {
+                alt31=1;
+            }
+            else if ( LA31_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {
+                alt31=1;
+            }
+            else if ( LA31_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {
+                alt31=1;
+            }
+            else if ( LA31_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {
+                alt31=1;
+            }
+            else if ( LA31_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {
+                alt31=1;
+            }
             switch (alt31) {
                 case 1 :
                     // InternalLcDsl.g:5696:2: rule__LaunchConfig__UnorderedGroup_0__7
@@ -18378,7 +18637,35 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:5708:2: ( rule__LaunchConfig__UnorderedGroup_0__8 )?
             int alt32=2;
-            alt32 = dfa32.predict(input);
+            int LA32_0 = input.LA(1);
+
+            if ( LA32_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {
+                alt32=1;
+            }
+            else if ( LA32_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {
+                alt32=1;
+            }
+            else if ( LA32_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {
+                alt32=1;
+            }
+            else if ( LA32_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {
+                alt32=1;
+            }
+            else if ( LA32_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {
+                alt32=1;
+            }
+            else if ( LA32_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {
+                alt32=1;
+            }
+            else if ( LA32_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {
+                alt32=1;
+            }
+            else if ( LA32_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {
+                alt32=1;
+            }
+            else if ( LA32_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {
+                alt32=1;
+            }
             switch (alt32) {
                 case 1 :
                     // InternalLcDsl.g:5708:2: rule__LaunchConfig__UnorderedGroup_0__8
@@ -18458,7 +18745,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             {
             // InternalLcDsl.g:5732:2: ( rule__LaunchConfig__UnorderedGroup_6__0 )?
             int alt33=2;
-            alt33 = dfa33.predict(input);
+            int LA33_0 = input.LA(1);
+
+            if ( LA33_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt33=1;
+            }
+            else if ( ( LA33_0 >= 25 && LA33_0 <= 29 || LA33_0 == 78 || LA33_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt33=1;
+            }
+            else if ( LA33_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt33=1;
+            }
             switch (alt33) {
                 case 1 :
                     // InternalLcDsl.g:5732:2: rule__LaunchConfig__UnorderedGroup_6__0
@@ -18506,7 +18866,101 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             {
             // InternalLcDsl.g:5746:3: ( ({...}? => ( ( ( rule__LaunchConfig__ClearsAssignment_6_0 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__WorkspaceAssignment_6_1 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__WorkingDirAssignment_6_2 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__MemoryAssignment_6_3 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__MainProjectAssignment_6_4 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__MainTypeAssignment_6_5 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ApplicationAssignment_6_6 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ProductAssignment_6_7 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__FavoritesAssignment_6_8 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__RedirectAssignment_6_9 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ExecEnvAssignment_6_10 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ConfigIniTemplateAssignment_6_11 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__JavaMainSearchAssignment_6_12 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ServletConfigAssignment_6_13 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ContentProviderProductAssignment_6_14 ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__PluginsAssignment_6_15 ) ) ( ( ( rule__LaunchConfig__PluginsAssignment_6_15 )=> rule__LaunchConfig__PluginsAssignment_6_15 )* ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__FeaturesAssignment_6_16 ) ) ( ( ( rule__LaunchConfig__FeaturesAssignment_6_16 )=> rule__LaunchConfig__FeaturesAssignment_6_16 )* ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__IgnoreAssignment_6_17 ) ) ( ( ( rule__LaunchConfig__IgnoreAssignment_6_17 )=> rule__LaunchConfig__IgnoreAssignment_6_17 )* ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__GroupMembersAssignment_6_18 ) ) ( ( ( rule__LaunchConfig__GroupMembersAssignment_6_18 )=> rule__LaunchConfig__GroupMembersAssignment_6_18 )* ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__VmArgsAssignment_6_19 ) ) ( ( ( rule__LaunchConfig__VmArgsAssignment_6_19 )=> rule__LaunchConfig__VmArgsAssignment_6_19 )* ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__ProgArgsAssignment_6_20 ) ) ( ( ( rule__LaunchConfig__ProgArgsAssignment_6_20 )=> rule__LaunchConfig__ProgArgsAssignment_6_20 )* ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__EnvVarsAssignment_6_21 ) ) ( ( ( rule__LaunchConfig__EnvVarsAssignment_6_21 )=> rule__LaunchConfig__EnvVarsAssignment_6_21 )* ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__TracesAssignment_6_22 ) ) ( ( ( rule__LaunchConfig__TracesAssignment_6_22 )=> rule__LaunchConfig__TracesAssignment_6_22 )* ) ) ) ) )
             int alt42=23;
-            alt42 = dfa42.predict(input);
+            int LA42_0 = input.LA(1);
+
+            if ( LA42_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt42=1;
+            }
+            else if ( LA42_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt42=2;
+            }
+            else if ( LA42_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt42=3;
+            }
+            else if ( LA42_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt42=4;
+            }
+            else if ( LA42_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt42=5;
+            }
+            else if ( LA42_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt42=6;
+            }
+            else if ( LA42_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt42=7;
+            }
+            else if ( LA42_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt42=8;
+            }
+            else if ( LA42_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt42=9;
+            }
+            else if ( LA42_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt42=10;
+            }
+            else if ( LA42_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt42=11;
+            }
+            else if ( LA42_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt42=12;
+            }
+            else if ( LA42_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt42=13;
+            }
+            else if ( LA42_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt42=14;
+            }
+            else if ( LA42_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt42=15;
+            }
+            else if ( LA42_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                int LA42_16 = input.LA(2);
+
+                if ( LA42_16 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                    alt42=17;
+                }
+                else if ( LA42_16 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                    alt42=16;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return ;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 42, 16, input);
+
+                    throw nvae;
+                }
+            }
+            else if ( LA42_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt42=16;
+            }
+            else if ( LA42_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt42=17;
+            }
+            else if ( LA42_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt42=18;
+            }
+            else if ( ( LA42_0 >= 25 && LA42_0 <= 29 || LA42_0 == 78 || LA42_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt42=19;
+            }
+            else if ( LA42_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt42=20;
+            }
+            else if ( LA42_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt42=21;
+            }
+            else if ( LA42_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt42=22;
+            }
+            else if ( LA42_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt42=23;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return ;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 42, 0, input);
+
+                throw nvae;
+            }
             switch (alt42) {
                 case 1 :
                     // InternalLcDsl.g:5747:3: ({...}? => ( ( ( rule__LaunchConfig__ClearsAssignment_6_0 ) ) ) )
@@ -19993,7 +20447,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6162:2: ( rule__LaunchConfig__UnorderedGroup_6__1 )?
             int alt43=2;
-            alt43 = dfa43.predict(input);
+            int LA43_0 = input.LA(1);
+
+            if ( LA43_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt43=1;
+            }
+            else if ( ( LA43_0 >= 25 && LA43_0 <= 29 || LA43_0 == 78 || LA43_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt43=1;
+            }
+            else if ( LA43_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt43=1;
+            }
             switch (alt43) {
                 case 1 :
                     // InternalLcDsl.g:6162:2: rule__LaunchConfig__UnorderedGroup_6__1
@@ -20044,7 +20571,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6174:2: ( rule__LaunchConfig__UnorderedGroup_6__2 )?
             int alt44=2;
-            alt44 = dfa44.predict(input);
+            int LA44_0 = input.LA(1);
+
+            if ( LA44_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt44=1;
+            }
+            else if ( ( LA44_0 >= 25 && LA44_0 <= 29 || LA44_0 == 78 || LA44_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt44=1;
+            }
+            else if ( LA44_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt44=1;
+            }
             switch (alt44) {
                 case 1 :
                     // InternalLcDsl.g:6174:2: rule__LaunchConfig__UnorderedGroup_6__2
@@ -20095,7 +20695,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6186:2: ( rule__LaunchConfig__UnorderedGroup_6__3 )?
             int alt45=2;
-            alt45 = dfa45.predict(input);
+            int LA45_0 = input.LA(1);
+
+            if ( LA45_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt45=1;
+            }
+            else if ( ( LA45_0 >= 25 && LA45_0 <= 29 || LA45_0 == 78 || LA45_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt45=1;
+            }
+            else if ( LA45_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt45=1;
+            }
             switch (alt45) {
                 case 1 :
                     // InternalLcDsl.g:6186:2: rule__LaunchConfig__UnorderedGroup_6__3
@@ -20146,7 +20819,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6198:2: ( rule__LaunchConfig__UnorderedGroup_6__4 )?
             int alt46=2;
-            alt46 = dfa46.predict(input);
+            int LA46_0 = input.LA(1);
+
+            if ( LA46_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt46=1;
+            }
+            else if ( ( LA46_0 >= 25 && LA46_0 <= 29 || LA46_0 == 78 || LA46_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt46=1;
+            }
+            else if ( LA46_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt46=1;
+            }
             switch (alt46) {
                 case 1 :
                     // InternalLcDsl.g:6198:2: rule__LaunchConfig__UnorderedGroup_6__4
@@ -20197,7 +20943,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6210:2: ( rule__LaunchConfig__UnorderedGroup_6__5 )?
             int alt47=2;
-            alt47 = dfa47.predict(input);
+            int LA47_0 = input.LA(1);
+
+            if ( LA47_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt47=1;
+            }
+            else if ( ( LA47_0 >= 25 && LA47_0 <= 29 || LA47_0 == 78 || LA47_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt47=1;
+            }
+            else if ( LA47_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt47=1;
+            }
             switch (alt47) {
                 case 1 :
                     // InternalLcDsl.g:6210:2: rule__LaunchConfig__UnorderedGroup_6__5
@@ -20248,7 +21067,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6222:2: ( rule__LaunchConfig__UnorderedGroup_6__6 )?
             int alt48=2;
-            alt48 = dfa48.predict(input);
+            int LA48_0 = input.LA(1);
+
+            if ( LA48_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt48=1;
+            }
+            else if ( ( LA48_0 >= 25 && LA48_0 <= 29 || LA48_0 == 78 || LA48_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt48=1;
+            }
+            else if ( LA48_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt48=1;
+            }
             switch (alt48) {
                 case 1 :
                     // InternalLcDsl.g:6222:2: rule__LaunchConfig__UnorderedGroup_6__6
@@ -20299,7 +21191,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6234:2: ( rule__LaunchConfig__UnorderedGroup_6__7 )?
             int alt49=2;
-            alt49 = dfa49.predict(input);
+            int LA49_0 = input.LA(1);
+
+            if ( LA49_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt49=1;
+            }
+            else if ( ( LA49_0 >= 25 && LA49_0 <= 29 || LA49_0 == 78 || LA49_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt49=1;
+            }
+            else if ( LA49_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt49=1;
+            }
             switch (alt49) {
                 case 1 :
                     // InternalLcDsl.g:6234:2: rule__LaunchConfig__UnorderedGroup_6__7
@@ -20350,7 +21315,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6246:2: ( rule__LaunchConfig__UnorderedGroup_6__8 )?
             int alt50=2;
-            alt50 = dfa50.predict(input);
+            int LA50_0 = input.LA(1);
+
+            if ( LA50_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt50=1;
+            }
+            else if ( ( LA50_0 >= 25 && LA50_0 <= 29 || LA50_0 == 78 || LA50_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt50=1;
+            }
+            else if ( LA50_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt50=1;
+            }
             switch (alt50) {
                 case 1 :
                     // InternalLcDsl.g:6246:2: rule__LaunchConfig__UnorderedGroup_6__8
@@ -20401,7 +21439,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6258:2: ( rule__LaunchConfig__UnorderedGroup_6__9 )?
             int alt51=2;
-            alt51 = dfa51.predict(input);
+            int LA51_0 = input.LA(1);
+
+            if ( LA51_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt51=1;
+            }
+            else if ( ( LA51_0 >= 25 && LA51_0 <= 29 || LA51_0 == 78 || LA51_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt51=1;
+            }
+            else if ( LA51_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt51=1;
+            }
             switch (alt51) {
                 case 1 :
                     // InternalLcDsl.g:6258:2: rule__LaunchConfig__UnorderedGroup_6__9
@@ -20452,7 +21563,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6270:2: ( rule__LaunchConfig__UnorderedGroup_6__10 )?
             int alt52=2;
-            alt52 = dfa52.predict(input);
+            int LA52_0 = input.LA(1);
+
+            if ( LA52_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt52=1;
+            }
+            else if ( ( LA52_0 >= 25 && LA52_0 <= 29 || LA52_0 == 78 || LA52_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt52=1;
+            }
+            else if ( LA52_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt52=1;
+            }
             switch (alt52) {
                 case 1 :
                     // InternalLcDsl.g:6270:2: rule__LaunchConfig__UnorderedGroup_6__10
@@ -20503,7 +21687,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6282:2: ( rule__LaunchConfig__UnorderedGroup_6__11 )?
             int alt53=2;
-            alt53 = dfa53.predict(input);
+            int LA53_0 = input.LA(1);
+
+            if ( LA53_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt53=1;
+            }
+            else if ( ( LA53_0 >= 25 && LA53_0 <= 29 || LA53_0 == 78 || LA53_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt53=1;
+            }
+            else if ( LA53_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt53=1;
+            }
             switch (alt53) {
                 case 1 :
                     // InternalLcDsl.g:6282:2: rule__LaunchConfig__UnorderedGroup_6__11
@@ -20554,7 +21811,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6294:2: ( rule__LaunchConfig__UnorderedGroup_6__12 )?
             int alt54=2;
-            alt54 = dfa54.predict(input);
+            int LA54_0 = input.LA(1);
+
+            if ( LA54_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt54=1;
+            }
+            else if ( ( LA54_0 >= 25 && LA54_0 <= 29 || LA54_0 == 78 || LA54_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt54=1;
+            }
+            else if ( LA54_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt54=1;
+            }
             switch (alt54) {
                 case 1 :
                     // InternalLcDsl.g:6294:2: rule__LaunchConfig__UnorderedGroup_6__12
@@ -20605,7 +21935,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6306:2: ( rule__LaunchConfig__UnorderedGroup_6__13 )?
             int alt55=2;
-            alt55 = dfa55.predict(input);
+            int LA55_0 = input.LA(1);
+
+            if ( LA55_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt55=1;
+            }
+            else if ( ( LA55_0 >= 25 && LA55_0 <= 29 || LA55_0 == 78 || LA55_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt55=1;
+            }
+            else if ( LA55_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt55=1;
+            }
             switch (alt55) {
                 case 1 :
                     // InternalLcDsl.g:6306:2: rule__LaunchConfig__UnorderedGroup_6__13
@@ -20656,7 +22059,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6318:2: ( rule__LaunchConfig__UnorderedGroup_6__14 )?
             int alt56=2;
-            alt56 = dfa56.predict(input);
+            int LA56_0 = input.LA(1);
+
+            if ( LA56_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt56=1;
+            }
+            else if ( ( LA56_0 >= 25 && LA56_0 <= 29 || LA56_0 == 78 || LA56_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt56=1;
+            }
+            else if ( LA56_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt56=1;
+            }
             switch (alt56) {
                 case 1 :
                     // InternalLcDsl.g:6318:2: rule__LaunchConfig__UnorderedGroup_6__14
@@ -20707,7 +22183,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6330:2: ( rule__LaunchConfig__UnorderedGroup_6__15 )?
             int alt57=2;
-            alt57 = dfa57.predict(input);
+            int LA57_0 = input.LA(1);
+
+            if ( LA57_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt57=1;
+            }
+            else if ( ( LA57_0 >= 25 && LA57_0 <= 29 || LA57_0 == 78 || LA57_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt57=1;
+            }
+            else if ( LA57_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt57=1;
+            }
             switch (alt57) {
                 case 1 :
                     // InternalLcDsl.g:6330:2: rule__LaunchConfig__UnorderedGroup_6__15
@@ -20758,7 +22307,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6342:2: ( rule__LaunchConfig__UnorderedGroup_6__16 )?
             int alt58=2;
-            alt58 = dfa58.predict(input);
+            int LA58_0 = input.LA(1);
+
+            if ( LA58_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt58=1;
+            }
+            else if ( ( LA58_0 >= 25 && LA58_0 <= 29 || LA58_0 == 78 || LA58_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt58=1;
+            }
+            else if ( LA58_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt58=1;
+            }
             switch (alt58) {
                 case 1 :
                     // InternalLcDsl.g:6342:2: rule__LaunchConfig__UnorderedGroup_6__16
@@ -20809,7 +22431,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6354:2: ( rule__LaunchConfig__UnorderedGroup_6__17 )?
             int alt59=2;
-            alt59 = dfa59.predict(input);
+            int LA59_0 = input.LA(1);
+
+            if ( LA59_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt59=1;
+            }
+            else if ( ( LA59_0 >= 25 && LA59_0 <= 29 || LA59_0 == 78 || LA59_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt59=1;
+            }
+            else if ( LA59_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt59=1;
+            }
             switch (alt59) {
                 case 1 :
                     // InternalLcDsl.g:6354:2: rule__LaunchConfig__UnorderedGroup_6__17
@@ -20860,7 +22555,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6366:2: ( rule__LaunchConfig__UnorderedGroup_6__18 )?
             int alt60=2;
-            alt60 = dfa60.predict(input);
+            int LA60_0 = input.LA(1);
+
+            if ( LA60_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt60=1;
+            }
+            else if ( ( LA60_0 >= 25 && LA60_0 <= 29 || LA60_0 == 78 || LA60_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt60=1;
+            }
+            else if ( LA60_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt60=1;
+            }
             switch (alt60) {
                 case 1 :
                     // InternalLcDsl.g:6366:2: rule__LaunchConfig__UnorderedGroup_6__18
@@ -20911,7 +22679,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6378:2: ( rule__LaunchConfig__UnorderedGroup_6__19 )?
             int alt61=2;
-            alt61 = dfa61.predict(input);
+            int LA61_0 = input.LA(1);
+
+            if ( LA61_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt61=1;
+            }
+            else if ( ( LA61_0 >= 25 && LA61_0 <= 29 || LA61_0 == 78 || LA61_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt61=1;
+            }
+            else if ( LA61_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt61=1;
+            }
             switch (alt61) {
                 case 1 :
                     // InternalLcDsl.g:6378:2: rule__LaunchConfig__UnorderedGroup_6__19
@@ -20962,7 +22803,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6390:2: ( rule__LaunchConfig__UnorderedGroup_6__20 )?
             int alt62=2;
-            alt62 = dfa62.predict(input);
+            int LA62_0 = input.LA(1);
+
+            if ( LA62_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt62=1;
+            }
+            else if ( ( LA62_0 >= 25 && LA62_0 <= 29 || LA62_0 == 78 || LA62_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt62=1;
+            }
+            else if ( LA62_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt62=1;
+            }
             switch (alt62) {
                 case 1 :
                     // InternalLcDsl.g:6390:2: rule__LaunchConfig__UnorderedGroup_6__20
@@ -21013,7 +22927,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6402:2: ( rule__LaunchConfig__UnorderedGroup_6__21 )?
             int alt63=2;
-            alt63 = dfa63.predict(input);
+            int LA63_0 = input.LA(1);
+
+            if ( LA63_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt63=1;
+            }
+            else if ( ( LA63_0 >= 25 && LA63_0 <= 29 || LA63_0 == 78 || LA63_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt63=1;
+            }
+            else if ( LA63_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt63=1;
+            }
             switch (alt63) {
                 case 1 :
                     // InternalLcDsl.g:6402:2: rule__LaunchConfig__UnorderedGroup_6__21
@@ -21064,7 +23051,80 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.failed) return ;
             // InternalLcDsl.g:6414:2: ( rule__LaunchConfig__UnorderedGroup_6__22 )?
             int alt64=2;
-            alt64 = dfa64.predict(input);
+            int LA64_0 = input.LA(1);
+
+            if ( LA64_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                alt64=1;
+            }
+            else if ( ( LA64_0 >= 25 && LA64_0 <= 29 || LA64_0 == 78 || LA64_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                alt64=1;
+            }
+            else if ( LA64_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                alt64=1;
+            }
             switch (alt64) {
                 case 1 :
                     // InternalLcDsl.g:6414:2: rule__LaunchConfig__UnorderedGroup_6__22
@@ -28582,18 +30642,6 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     }
 
 
-    protected DFA23 dfa23 = new DFA23(this);
-    protected DFA24 dfa24 = new DFA24(this);
-    protected DFA25 dfa25 = new DFA25(this);
-    protected DFA26 dfa26 = new DFA26(this);
-    protected DFA27 dfa27 = new DFA27(this);
-    protected DFA28 dfa28 = new DFA28(this);
-    protected DFA29 dfa29 = new DFA29(this);
-    protected DFA30 dfa30 = new DFA30(this);
-    protected DFA31 dfa31 = new DFA31(this);
-    protected DFA32 dfa32 = new DFA32(this);
-    protected DFA33 dfa33 = new DFA33(this);
-    protected DFA42 dfa42 = new DFA42(this);
     protected DFA34 dfa34 = new DFA34(this);
     protected DFA35 dfa35 = new DFA35(this);
     protected DFA36 dfa36 = new DFA36(this);
@@ -28601,953 +30649,12 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     protected DFA38 dfa38 = new DFA38(this);
     protected DFA39 dfa39 = new DFA39(this);
     protected DFA41 dfa41 = new DFA41(this);
-    protected DFA43 dfa43 = new DFA43(this);
-    protected DFA44 dfa44 = new DFA44(this);
-    protected DFA45 dfa45 = new DFA45(this);
-    protected DFA46 dfa46 = new DFA46(this);
-    protected DFA47 dfa47 = new DFA47(this);
-    protected DFA48 dfa48 = new DFA48(this);
-    protected DFA49 dfa49 = new DFA49(this);
-    protected DFA50 dfa50 = new DFA50(this);
-    protected DFA51 dfa51 = new DFA51(this);
-    protected DFA52 dfa52 = new DFA52(this);
-    protected DFA53 dfa53 = new DFA53(this);
-    protected DFA54 dfa54 = new DFA54(this);
-    protected DFA55 dfa55 = new DFA55(this);
-    protected DFA56 dfa56 = new DFA56(this);
-    protected DFA57 dfa57 = new DFA57(this);
-    protected DFA58 dfa58 = new DFA58(this);
-    protected DFA59 dfa59 = new DFA59(this);
-    protected DFA60 dfa60 = new DFA60(this);
-    protected DFA61 dfa61 = new DFA61(this);
-    protected DFA62 dfa62 = new DFA62(this);
-    protected DFA63 dfa63 = new DFA63(this);
-    protected DFA64 dfa64 = new DFA64(this);
-    static final String dfa_1s = "\13\uffff";
-    static final String dfa_2s = "\1\25\12\uffff";
-    static final String dfa_3s = "\1\133\12\uffff";
-    static final String dfa_4s = "\1\uffff\11\1\1\2";
-    static final String dfa_5s = "\1\0\12\uffff}>";
+    static final String dfa_1s = "\20\uffff";
+    static final String dfa_2s = "\1\5\1\uffff\1\60\1\7\1\13\1\7\2\54\1\11\1\0\1\13\1\54\1\11\1\54\1\uffff\1\54";
+    static final String dfa_3s = "\1\144\1\uffff\1\61\1\7\1\141\1\7\2\141\1\11\1\0\1\141\1\54\1\11\1\141\1\uffff\1\54";
+    static final String dfa_4s = "\1\uffff\1\2\14\uffff\1\1\1\uffff";
+    static final String dfa_5s = "\11\uffff\1\0\6\uffff}>";
     static final String[] dfa_6s = {
-            "\4\12\72\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
-    static final char[] dfa_2 = DFA.unpackEncodedStringToUnsignedChars(dfa_2s);
-    static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
-    static final short[] dfa_4 = DFA.unpackEncodedString(dfa_4s);
-    static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
-    static final short[][] dfa_6 = unpackEncodedStringArray(dfa_6s);
-
-    class DFA23 extends DFA {
-
-        public DFA23(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 23;
-            this.eot = dfa_1;
-            this.eof = dfa_1;
-            this.min = dfa_2;
-            this.max = dfa_3;
-            this.accept = dfa_4;
-            this.special = dfa_5;
-            this.transition = dfa_6;
-        }
-        public String getDescription() {
-            return "5460:2: ( rule__LaunchConfig__UnorderedGroup_0__0 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA23_0 = input.LA(1);
-
-                         
-                        int index23_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA23_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
-
-                        else if ( LA23_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
-
-                        else if ( LA23_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
-
-                        else if ( LA23_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
-
-                        else if ( LA23_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
-
-                        else if ( LA23_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
-
-                        else if ( LA23_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
-
-                        else if ( LA23_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
-
-                        else if ( LA23_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
-
-                        else if ( ((LA23_0>=21 && LA23_0<=24)) ) {s = 10;}
-
-                         
-                        input.seek(index23_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 23, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-    static final String dfa_7s = "\12\uffff";
-    static final String dfa_8s = "\1\123\11\uffff";
-    static final String dfa_9s = "\1\133\11\uffff";
-    static final String dfa_10s = "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11";
-    static final String dfa_11s = "\1\0\11\uffff}>";
-    static final String[] dfa_12s = {
-            "\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] dfa_7 = DFA.unpackEncodedString(dfa_7s);
-    static final char[] dfa_8 = DFA.unpackEncodedStringToUnsignedChars(dfa_8s);
-    static final char[] dfa_9 = DFA.unpackEncodedStringToUnsignedChars(dfa_9s);
-    static final short[] dfa_10 = DFA.unpackEncodedString(dfa_10s);
-    static final short[] dfa_11 = DFA.unpackEncodedString(dfa_11s);
-    static final short[][] dfa_12 = unpackEncodedStringArray(dfa_12s);
-
-    class DFA24 extends DFA {
-
-        public DFA24(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 24;
-            this.eot = dfa_7;
-            this.eof = dfa_7;
-            this.min = dfa_8;
-            this.max = dfa_9;
-            this.accept = dfa_10;
-            this.special = dfa_11;
-            this.transition = dfa_12;
-        }
-        public String getDescription() {
-            return "5474:3: ( ({...}? => ( ( ( rule__LaunchConfig__ExplicitAssignment_0_0 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ManualAssignment_0_1 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__AbstractAssignment_0_2 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ForegroundAssignment_0_3 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__NoConsoleAssignment_0_4 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__NoValidateAssignment_0_5 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__SwInstallSupportAssignment_0_6 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ReplaceEnvAssignment_0_7 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__StopInMainAssignment_0_8 ) ) ) ) )";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA24_0 = input.LA(1);
-
-                         
-                        int index24_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA24_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
-
-                        else if ( LA24_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
-
-                        else if ( LA24_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
-
-                        else if ( LA24_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
-
-                        else if ( LA24_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
-
-                        else if ( LA24_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
-
-                        else if ( LA24_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
-
-                        else if ( LA24_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
-
-                        else if ( LA24_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
-
-                         
-                        input.seek(index24_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 24, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA25 extends DFA {
-
-        public DFA25(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 25;
-            this.eot = dfa_1;
-            this.eof = dfa_1;
-            this.min = dfa_2;
-            this.max = dfa_3;
-            this.accept = dfa_4;
-            this.special = dfa_5;
-            this.transition = dfa_6;
-        }
-        public String getDescription() {
-            return "5624:2: ( rule__LaunchConfig__UnorderedGroup_0__1 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA25_0 = input.LA(1);
-
-                         
-                        int index25_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA25_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
-
-                        else if ( LA25_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
-
-                        else if ( LA25_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
-
-                        else if ( LA25_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
-
-                        else if ( LA25_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
-
-                        else if ( LA25_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
-
-                        else if ( LA25_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
-
-                        else if ( LA25_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
-
-                        else if ( LA25_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
-
-                        else if ( ((LA25_0>=21 && LA25_0<=24)) ) {s = 10;}
-
-                         
-                        input.seek(index25_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 25, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA26 extends DFA {
-
-        public DFA26(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 26;
-            this.eot = dfa_1;
-            this.eof = dfa_1;
-            this.min = dfa_2;
-            this.max = dfa_3;
-            this.accept = dfa_4;
-            this.special = dfa_5;
-            this.transition = dfa_6;
-        }
-        public String getDescription() {
-            return "5636:2: ( rule__LaunchConfig__UnorderedGroup_0__2 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA26_0 = input.LA(1);
-
-                         
-                        int index26_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA26_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
-
-                        else if ( LA26_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
-
-                        else if ( LA26_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
-
-                        else if ( LA26_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
-
-                        else if ( LA26_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
-
-                        else if ( LA26_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
-
-                        else if ( LA26_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
-
-                        else if ( LA26_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
-
-                        else if ( LA26_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
-
-                        else if ( ((LA26_0>=21 && LA26_0<=24)) ) {s = 10;}
-
-                         
-                        input.seek(index26_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 26, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA27 extends DFA {
-
-        public DFA27(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 27;
-            this.eot = dfa_1;
-            this.eof = dfa_1;
-            this.min = dfa_2;
-            this.max = dfa_3;
-            this.accept = dfa_4;
-            this.special = dfa_5;
-            this.transition = dfa_6;
-        }
-        public String getDescription() {
-            return "5648:2: ( rule__LaunchConfig__UnorderedGroup_0__3 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA27_0 = input.LA(1);
-
-                         
-                        int index27_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA27_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
-
-                        else if ( LA27_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
-
-                        else if ( LA27_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
-
-                        else if ( LA27_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
-
-                        else if ( LA27_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
-
-                        else if ( LA27_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
-
-                        else if ( LA27_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
-
-                        else if ( LA27_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
-
-                        else if ( LA27_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
-
-                        else if ( ((LA27_0>=21 && LA27_0<=24)) ) {s = 10;}
-
-                         
-                        input.seek(index27_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 27, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA28 extends DFA {
-
-        public DFA28(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 28;
-            this.eot = dfa_1;
-            this.eof = dfa_1;
-            this.min = dfa_2;
-            this.max = dfa_3;
-            this.accept = dfa_4;
-            this.special = dfa_5;
-            this.transition = dfa_6;
-        }
-        public String getDescription() {
-            return "5660:2: ( rule__LaunchConfig__UnorderedGroup_0__4 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA28_0 = input.LA(1);
-
-                         
-                        int index28_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA28_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
-
-                        else if ( LA28_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
-
-                        else if ( LA28_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
-
-                        else if ( LA28_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
-
-                        else if ( LA28_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
-
-                        else if ( LA28_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
-
-                        else if ( LA28_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
-
-                        else if ( LA28_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
-
-                        else if ( LA28_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
-
-                        else if ( ((LA28_0>=21 && LA28_0<=24)) ) {s = 10;}
-
-                         
-                        input.seek(index28_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 28, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA29 extends DFA {
-
-        public DFA29(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 29;
-            this.eot = dfa_1;
-            this.eof = dfa_1;
-            this.min = dfa_2;
-            this.max = dfa_3;
-            this.accept = dfa_4;
-            this.special = dfa_5;
-            this.transition = dfa_6;
-        }
-        public String getDescription() {
-            return "5672:2: ( rule__LaunchConfig__UnorderedGroup_0__5 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA29_0 = input.LA(1);
-
-                         
-                        int index29_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA29_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
-
-                        else if ( LA29_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
-
-                        else if ( LA29_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
-
-                        else if ( LA29_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
-
-                        else if ( LA29_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
-
-                        else if ( LA29_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
-
-                        else if ( LA29_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
-
-                        else if ( LA29_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
-
-                        else if ( LA29_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
-
-                        else if ( ((LA29_0>=21 && LA29_0<=24)) ) {s = 10;}
-
-                         
-                        input.seek(index29_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 29, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA30 extends DFA {
-
-        public DFA30(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 30;
-            this.eot = dfa_1;
-            this.eof = dfa_1;
-            this.min = dfa_2;
-            this.max = dfa_3;
-            this.accept = dfa_4;
-            this.special = dfa_5;
-            this.transition = dfa_6;
-        }
-        public String getDescription() {
-            return "5684:2: ( rule__LaunchConfig__UnorderedGroup_0__6 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA30_0 = input.LA(1);
-
-                         
-                        int index30_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA30_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
-
-                        else if ( LA30_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
-
-                        else if ( LA30_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
-
-                        else if ( LA30_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
-
-                        else if ( LA30_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
-
-                        else if ( LA30_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
-
-                        else if ( LA30_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
-
-                        else if ( LA30_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
-
-                        else if ( LA30_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
-
-                        else if ( ((LA30_0>=21 && LA30_0<=24)) ) {s = 10;}
-
-                         
-                        input.seek(index30_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 30, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA31 extends DFA {
-
-        public DFA31(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 31;
-            this.eot = dfa_1;
-            this.eof = dfa_1;
-            this.min = dfa_2;
-            this.max = dfa_3;
-            this.accept = dfa_4;
-            this.special = dfa_5;
-            this.transition = dfa_6;
-        }
-        public String getDescription() {
-            return "5696:2: ( rule__LaunchConfig__UnorderedGroup_0__7 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA31_0 = input.LA(1);
-
-                         
-                        int index31_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA31_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
-
-                        else if ( LA31_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
-
-                        else if ( LA31_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
-
-                        else if ( LA31_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
-
-                        else if ( LA31_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
-
-                        else if ( LA31_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
-
-                        else if ( LA31_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
-
-                        else if ( LA31_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
-
-                        else if ( LA31_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
-
-                        else if ( ((LA31_0>=21 && LA31_0<=24)) ) {s = 10;}
-
-                         
-                        input.seek(index31_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 31, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA32 extends DFA {
-
-        public DFA32(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 32;
-            this.eot = dfa_1;
-            this.eof = dfa_1;
-            this.min = dfa_2;
-            this.max = dfa_3;
-            this.accept = dfa_4;
-            this.special = dfa_5;
-            this.transition = dfa_6;
-        }
-        public String getDescription() {
-            return "5708:2: ( rule__LaunchConfig__UnorderedGroup_0__8 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA32_0 = input.LA(1);
-
-                         
-                        int index32_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA32_0 == 83 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 1;}
-
-                        else if ( LA32_0 == 84 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 2;}
-
-                        else if ( LA32_0 == 85 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 3;}
-
-                        else if ( LA32_0 == 86 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 4;}
-
-                        else if ( LA32_0 == 87 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 5;}
-
-                        else if ( LA32_0 == 88 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 6;}
-
-                        else if ( LA32_0 == 89 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 7;}
-
-                        else if ( LA32_0 == 90 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 8;}
-
-                        else if ( LA32_0 == 91 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 9;}
-
-                        else if ( ((LA32_0>=21 && LA32_0<=24)) ) {s = 10;}
-
-                         
-                        input.seek(index32_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 32, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-    static final String dfa_13s = "\32\uffff";
-    static final String dfa_14s = "\1\5\31\uffff";
-    static final String dfa_15s = "\1\144\31\uffff";
-    static final String dfa_16s = "\1\uffff\30\1\1\2";
-    static final String dfa_17s = "\1\0\31\uffff}>";
-    static final String[] dfa_18s = {
-            "\1\31\23\uffff\5\24\15\uffff\1\2\1\uffff\1\3\1\5\1\6\1\21\1\22\1\17\1\23\1\25\1\26\1\27\1\7\1\10\1\11\1\12\2\uffff\1\13\1\14\1\30\1\15\1\16\7\uffff\1\1\1\4\3\uffff\1\24\16\uffff\1\20\6\uffff\1\24",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] dfa_13 = DFA.unpackEncodedString(dfa_13s);
-    static final char[] dfa_14 = DFA.unpackEncodedStringToUnsignedChars(dfa_14s);
-    static final char[] dfa_15 = DFA.unpackEncodedStringToUnsignedChars(dfa_15s);
-    static final short[] dfa_16 = DFA.unpackEncodedString(dfa_16s);
-    static final short[] dfa_17 = DFA.unpackEncodedString(dfa_17s);
-    static final short[][] dfa_18 = unpackEncodedStringArray(dfa_18s);
-
-    class DFA33 extends DFA {
-
-        public DFA33(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 33;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "5732:2: ( rule__LaunchConfig__UnorderedGroup_6__0 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA33_0 = input.LA(1);
-
-                         
-                        int index33_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA33_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA33_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA33_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA33_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA33_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA33_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA33_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA33_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA33_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA33_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA33_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA33_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA33_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA33_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA33_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA33_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA33_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA33_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA33_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA33_0 >= 25 && LA33_0 <= 29 || LA33_0 == 78 || LA33_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA33_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA33_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA33_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA33_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA33_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index33_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 33, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-    static final String dfa_19s = "\31\uffff";
-    static final String dfa_20s = "\1\31\17\uffff\1\60\10\uffff";
-    static final String dfa_21s = "\1\144\17\uffff\1\61\10\uffff";
-    static final String dfa_22s = "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\uffff\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27";
-    static final String dfa_23s = "\1\1\17\uffff\1\0\10\uffff}>";
-    static final String[] dfa_24s = {
-            "\5\24\15\uffff\1\2\1\uffff\1\3\1\5\1\6\1\21\1\22\1\17\1\23\1\25\1\26\1\27\1\7\1\10\1\11\1\12\2\uffff\1\13\1\14\1\30\1\15\1\16\7\uffff\1\1\1\4\3\uffff\1\24\16\uffff\1\20\6\uffff\1\24",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\21\1\22",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] dfa_19 = DFA.unpackEncodedString(dfa_19s);
-    static final char[] dfa_20 = DFA.unpackEncodedStringToUnsignedChars(dfa_20s);
-    static final char[] dfa_21 = DFA.unpackEncodedStringToUnsignedChars(dfa_21s);
-    static final short[] dfa_22 = DFA.unpackEncodedString(dfa_22s);
-    static final short[] dfa_23 = DFA.unpackEncodedString(dfa_23s);
-    static final short[][] dfa_24 = unpackEncodedStringArray(dfa_24s);
-
-    class DFA42 extends DFA {
-
-        public DFA42(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 42;
-            this.eot = dfa_19;
-            this.eof = dfa_19;
-            this.min = dfa_20;
-            this.max = dfa_21;
-            this.accept = dfa_22;
-            this.special = dfa_23;
-            this.transition = dfa_24;
-        }
-        public String getDescription() {
-            return "5746:3: ( ({...}? => ( ( ( rule__LaunchConfig__ClearsAssignment_6_0 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__WorkspaceAssignment_6_1 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__WorkingDirAssignment_6_2 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__MemoryAssignment_6_3 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__MainProjectAssignment_6_4 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__MainTypeAssignment_6_5 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ApplicationAssignment_6_6 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ProductAssignment_6_7 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__FavoritesAssignment_6_8 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__RedirectAssignment_6_9 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ExecEnvAssignment_6_10 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ConfigIniTemplateAssignment_6_11 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__JavaMainSearchAssignment_6_12 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ServletConfigAssignment_6_13 ) ) ) ) | ({...}? => ( ( ( rule__LaunchConfig__ContentProviderProductAssignment_6_14 ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__PluginsAssignment_6_15 ) ) ( ( ( rule__LaunchConfig__PluginsAssignment_6_15 )=> rule__LaunchConfig__PluginsAssignment_6_15 )* ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__FeaturesAssignment_6_16 ) ) ( ( ( rule__LaunchConfig__FeaturesAssignment_6_16 )=> rule__LaunchConfig__FeaturesAssignment_6_16 )* ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__IgnoreAssignment_6_17 ) ) ( ( ( rule__LaunchConfig__IgnoreAssignment_6_17 )=> rule__LaunchConfig__IgnoreAssignment_6_17 )* ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__GroupMembersAssignment_6_18 ) ) ( ( ( rule__LaunchConfig__GroupMembersAssignment_6_18 )=> rule__LaunchConfig__GroupMembersAssignment_6_18 )* ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__VmArgsAssignment_6_19 ) ) ( ( ( rule__LaunchConfig__VmArgsAssignment_6_19 )=> rule__LaunchConfig__VmArgsAssignment_6_19 )* ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__ProgArgsAssignment_6_20 ) ) ( ( ( rule__LaunchConfig__ProgArgsAssignment_6_20 )=> rule__LaunchConfig__ProgArgsAssignment_6_20 )* ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__EnvVarsAssignment_6_21 ) ) ( ( ( rule__LaunchConfig__EnvVarsAssignment_6_21 )=> rule__LaunchConfig__EnvVarsAssignment_6_21 )* ) ) ) ) | ({...}? => ( ( ( ( rule__LaunchConfig__TracesAssignment_6_22 ) ) ( ( ( rule__LaunchConfig__TracesAssignment_6_22 )=> rule__LaunchConfig__TracesAssignment_6_22 )* ) ) ) ) )";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA42_16 = input.LA(1);
-
-                         
-                        int index42_16 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA42_16 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA42_16 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                         
-                        input.seek(index42_16);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA42_0 = input.LA(1);
-
-                         
-                        int index42_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA42_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA42_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA42_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA42_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA42_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA42_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA42_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA42_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA42_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA42_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA42_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA42_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA42_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA42_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA42_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA42_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA42_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA42_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA42_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA42_0 >= 25 && LA42_0 <= 29 || LA42_0 == 78 || LA42_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA42_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA42_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA42_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA42_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                         
-                        input.seek(index42_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 42, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-    static final String dfa_25s = "\20\uffff";
-    static final String dfa_26s = "\1\5\1\uffff\1\60\1\7\1\13\1\7\2\54\1\11\1\0\1\13\1\54\1\11\1\54\1\uffff\1\54";
-    static final String dfa_27s = "\1\144\1\uffff\1\61\1\7\1\141\1\7\2\141\1\11\1\0\1\141\1\54\1\11\1\141\1\uffff\1\54";
-    static final String dfa_28s = "\1\uffff\1\2\14\uffff\1\1\1\uffff";
-    static final String dfa_29s = "\11\uffff\1\0\6\uffff}>";
-    static final String[] dfa_30s = {
             "\1\1\23\uffff\5\1\15\uffff\1\1\1\uffff\3\1\1\3\12\1\2\uffff\5\1\7\uffff\2\1\3\uffff\1\1\16\uffff\1\2\6\uffff\1\1",
             "",
             "\1\3\1\1",
@@ -29566,25 +30673,25 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             "\1\11"
     };
 
-    static final short[] dfa_25 = DFA.unpackEncodedString(dfa_25s);
-    static final char[] dfa_26 = DFA.unpackEncodedStringToUnsignedChars(dfa_26s);
-    static final char[] dfa_27 = DFA.unpackEncodedStringToUnsignedChars(dfa_27s);
-    static final short[] dfa_28 = DFA.unpackEncodedString(dfa_28s);
-    static final short[] dfa_29 = DFA.unpackEncodedString(dfa_29s);
-    static final short[][] dfa_30 = unpackEncodedStringArray(dfa_30s);
+    static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
+    static final char[] dfa_2 = DFA.unpackEncodedStringToUnsignedChars(dfa_2s);
+    static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
+    static final short[] dfa_4 = DFA.unpackEncodedString(dfa_4s);
+    static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
+    static final short[][] dfa_6 = unpackEncodedStringArray(dfa_6s);
 
     class DFA34 extends DFA {
 
         public DFA34(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 34;
-            this.eot = dfa_25;
-            this.eof = dfa_25;
-            this.min = dfa_26;
-            this.max = dfa_27;
-            this.accept = dfa_28;
-            this.special = dfa_29;
-            this.transition = dfa_30;
+            this.eot = dfa_1;
+            this.eof = dfa_1;
+            this.min = dfa_2;
+            this.max = dfa_3;
+            this.accept = dfa_4;
+            this.special = dfa_5;
+            this.transition = dfa_6;
         }
         public String getDescription() {
             return "()* loopback of 5988:7: ( ( rule__LaunchConfig__PluginsAssignment_6_15 )=> rule__LaunchConfig__PluginsAssignment_6_15 )*";
@@ -29616,11 +30723,12 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_31s = "\1\5\1\uffff\1\60\1\7\1\13\1\7\1\54\1\0\1\13\1\uffff";
-    static final String dfa_32s = "\1\144\1\uffff\1\61\1\7\1\122\1\7\1\54\1\0\1\122\1\uffff";
-    static final String dfa_33s = "\1\uffff\1\2\7\uffff\1\1";
-    static final String dfa_34s = "\7\uffff\1\0\2\uffff}>";
-    static final String[] dfa_35s = {
+    static final String dfa_7s = "\12\uffff";
+    static final String dfa_8s = "\1\5\1\uffff\1\60\1\7\1\13\1\7\1\54\1\0\1\13\1\uffff";
+    static final String dfa_9s = "\1\144\1\uffff\1\61\1\7\1\122\1\7\1\54\1\0\1\122\1\uffff";
+    static final String dfa_10s = "\1\uffff\1\2\7\uffff\1\1";
+    static final String dfa_11s = "\7\uffff\1\0\2\uffff}>";
+    static final String[] dfa_12s = {
             "\1\1\23\uffff\5\1\15\uffff\1\1\1\uffff\4\1\1\3\11\1\2\uffff\5\1\7\uffff\2\1\3\uffff\1\1\16\uffff\1\2\6\uffff\1\1",
             "",
             "\1\1\1\3",
@@ -29632,11 +30740,13 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             "\1\6\40\uffff\1\7\45\uffff\1\5",
             ""
     };
-    static final char[] dfa_31 = DFA.unpackEncodedStringToUnsignedChars(dfa_31s);
-    static final char[] dfa_32 = DFA.unpackEncodedStringToUnsignedChars(dfa_32s);
-    static final short[] dfa_33 = DFA.unpackEncodedString(dfa_33s);
-    static final short[] dfa_34 = DFA.unpackEncodedString(dfa_34s);
-    static final short[][] dfa_35 = unpackEncodedStringArray(dfa_35s);
+
+    static final short[] dfa_7 = DFA.unpackEncodedString(dfa_7s);
+    static final char[] dfa_8 = DFA.unpackEncodedStringToUnsignedChars(dfa_8s);
+    static final char[] dfa_9 = DFA.unpackEncodedStringToUnsignedChars(dfa_9s);
+    static final short[] dfa_10 = DFA.unpackEncodedString(dfa_10s);
+    static final short[] dfa_11 = DFA.unpackEncodedString(dfa_11s);
+    static final short[][] dfa_12 = unpackEncodedStringArray(dfa_12s);
 
     class DFA35 extends DFA {
 
@@ -29645,11 +30755,11 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             this.decisionNumber = 35;
             this.eot = dfa_7;
             this.eof = dfa_7;
-            this.min = dfa_31;
-            this.max = dfa_32;
-            this.accept = dfa_33;
-            this.special = dfa_34;
-            this.transition = dfa_35;
+            this.min = dfa_8;
+            this.max = dfa_9;
+            this.accept = dfa_10;
+            this.special = dfa_11;
+            this.transition = dfa_12;
         }
         public String getDescription() {
             return "()* loopback of 6010:7: ( ( rule__LaunchConfig__FeaturesAssignment_6_16 )=> rule__LaunchConfig__FeaturesAssignment_6_16 )*";
@@ -29681,12 +30791,12 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_36s = "\11\uffff";
-    static final String dfa_37s = "\1\5\1\uffff\1\7\1\13\1\7\1\54\1\0\1\13\1\uffff";
-    static final String dfa_38s = "\1\144\1\uffff\1\7\1\122\1\7\1\54\1\0\1\122\1\uffff";
-    static final String dfa_39s = "\1\uffff\1\2\6\uffff\1\1";
-    static final String dfa_40s = "\6\uffff\1\0\2\uffff}>";
-    static final String[] dfa_41s = {
+    static final String dfa_13s = "\11\uffff";
+    static final String dfa_14s = "\1\5\1\uffff\1\7\1\13\1\7\1\54\1\0\1\13\1\uffff";
+    static final String dfa_15s = "\1\144\1\uffff\1\7\1\122\1\7\1\54\1\0\1\122\1\uffff";
+    static final String dfa_16s = "\1\uffff\1\2\6\uffff\1\1";
+    static final String dfa_17s = "\6\uffff\1\0\2\uffff}>";
+    static final String[] dfa_18s = {
             "\1\1\23\uffff\5\1\15\uffff\1\1\1\uffff\6\1\1\2\7\1\2\uffff\5\1\7\uffff\2\1\3\uffff\1\1\16\uffff\1\1\6\uffff\1\1",
             "",
             "\1\3",
@@ -29698,25 +30808,25 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             ""
     };
 
-    static final short[] dfa_36 = DFA.unpackEncodedString(dfa_36s);
-    static final char[] dfa_37 = DFA.unpackEncodedStringToUnsignedChars(dfa_37s);
-    static final char[] dfa_38 = DFA.unpackEncodedStringToUnsignedChars(dfa_38s);
-    static final short[] dfa_39 = DFA.unpackEncodedString(dfa_39s);
-    static final short[] dfa_40 = DFA.unpackEncodedString(dfa_40s);
-    static final short[][] dfa_41 = unpackEncodedStringArray(dfa_41s);
+    static final short[] dfa_13 = DFA.unpackEncodedString(dfa_13s);
+    static final char[] dfa_14 = DFA.unpackEncodedStringToUnsignedChars(dfa_14s);
+    static final char[] dfa_15 = DFA.unpackEncodedStringToUnsignedChars(dfa_15s);
+    static final short[] dfa_16 = DFA.unpackEncodedString(dfa_16s);
+    static final short[] dfa_17 = DFA.unpackEncodedString(dfa_17s);
+    static final short[][] dfa_18 = unpackEncodedStringArray(dfa_18s);
 
     class DFA36 extends DFA {
 
         public DFA36(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 36;
-            this.eot = dfa_36;
-            this.eof = dfa_36;
-            this.min = dfa_37;
-            this.max = dfa_38;
-            this.accept = dfa_39;
-            this.special = dfa_40;
-            this.transition = dfa_41;
+            this.eot = dfa_13;
+            this.eof = dfa_13;
+            this.min = dfa_14;
+            this.max = dfa_15;
+            this.accept = dfa_16;
+            this.special = dfa_17;
+            this.transition = dfa_18;
         }
         public String getDescription() {
             return "()* loopback of 6032:7: ( ( rule__LaunchConfig__IgnoreAssignment_6_17 )=> rule__LaunchConfig__IgnoreAssignment_6_17 )*";
@@ -29748,11 +30858,12 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_42s = "\1\5\1\uffff\6\31\1\7\6\116\1\54\1\7\1\11\1\10\1\54\1\0\3\54\1\uffff";
-    static final String dfa_43s = "\1\144\1\uffff\6\144\1\7\6\116\1\122\1\7\1\11\1\10\1\54\1\0\1\122\2\54\1\uffff";
-    static final String dfa_44s = "\1\uffff\1\2\26\uffff\1\1";
-    static final String dfa_45s = "\24\uffff\1\0\4\uffff}>";
-    static final String[] dfa_46s = {
+    static final String dfa_19s = "\31\uffff";
+    static final String dfa_20s = "\1\5\1\uffff\6\31\1\7\6\116\1\54\1\7\1\11\1\10\1\54\1\0\3\54\1\uffff";
+    static final String dfa_21s = "\1\144\1\uffff\6\144\1\7\6\116\1\122\1\7\1\11\1\10\1\54\1\0\1\122\2\54\1\uffff";
+    static final String dfa_22s = "\1\uffff\1\2\26\uffff\1\1";
+    static final String dfa_23s = "\24\uffff\1\0\4\uffff}>";
+    static final String[] dfa_24s = {
             "\1\1\23\uffff\1\2\1\3\1\4\1\5\1\6\15\uffff\1\1\1\uffff\16\1\2\uffff\5\1\7\uffff\2\1\3\uffff\1\10\16\uffff\1\1\6\uffff\1\7",
             "",
             "\1\11\1\12\1\13\1\14\1\15\60\uffff\1\10\25\uffff\1\16",
@@ -29779,11 +30890,13 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             "\1\24",
             ""
     };
-    static final char[] dfa_42 = DFA.unpackEncodedStringToUnsignedChars(dfa_42s);
-    static final char[] dfa_43 = DFA.unpackEncodedStringToUnsignedChars(dfa_43s);
-    static final short[] dfa_44 = DFA.unpackEncodedString(dfa_44s);
-    static final short[] dfa_45 = DFA.unpackEncodedString(dfa_45s);
-    static final short[][] dfa_46 = unpackEncodedStringArray(dfa_46s);
+
+    static final short[] dfa_19 = DFA.unpackEncodedString(dfa_19s);
+    static final char[] dfa_20 = DFA.unpackEncodedStringToUnsignedChars(dfa_20s);
+    static final char[] dfa_21 = DFA.unpackEncodedStringToUnsignedChars(dfa_21s);
+    static final short[] dfa_22 = DFA.unpackEncodedString(dfa_22s);
+    static final short[] dfa_23 = DFA.unpackEncodedString(dfa_23s);
+    static final short[][] dfa_24 = unpackEncodedStringArray(dfa_24s);
 
     class DFA37 extends DFA {
 
@@ -29792,11 +30905,11 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             this.decisionNumber = 37;
             this.eot = dfa_19;
             this.eof = dfa_19;
-            this.min = dfa_42;
-            this.max = dfa_43;
-            this.accept = dfa_44;
-            this.special = dfa_45;
-            this.transition = dfa_46;
+            this.min = dfa_20;
+            this.max = dfa_21;
+            this.accept = dfa_22;
+            this.special = dfa_23;
+            this.transition = dfa_24;
         }
         public String getDescription() {
             return "()* loopback of 6054:7: ( ( rule__LaunchConfig__GroupMembersAssignment_6_18 )=> rule__LaunchConfig__GroupMembersAssignment_6_18 )*";
@@ -29828,12 +30941,12 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_47s = "\6\uffff";
-    static final String dfa_48s = "\1\5\1\uffff\2\10\1\0\1\uffff";
-    static final String dfa_49s = "\1\144\1\uffff\2\54\1\0\1\uffff";
-    static final String dfa_50s = "\1\uffff\1\2\3\uffff\1\1";
-    static final String dfa_51s = "\4\uffff\1\0\1\uffff}>";
-    static final String[] dfa_52s = {
+    static final String dfa_25s = "\6\uffff";
+    static final String dfa_26s = "\1\5\1\uffff\2\10\1\0\1\uffff";
+    static final String dfa_27s = "\1\144\1\uffff\2\54\1\0\1\uffff";
+    static final String dfa_28s = "\1\uffff\1\2\3\uffff\1\1";
+    static final String dfa_29s = "\4\uffff\1\0\1\uffff}>";
+    static final String[] dfa_30s = {
             "\1\1\23\uffff\5\1\15\uffff\1\1\1\uffff\7\1\1\2\6\1\2\uffff\5\1\7\uffff\2\1\3\uffff\1\1\16\uffff\1\1\6\uffff\1\1",
             "",
             "\1\3\43\uffff\1\4",
@@ -29842,25 +30955,25 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             ""
     };
 
-    static final short[] dfa_47 = DFA.unpackEncodedString(dfa_47s);
-    static final char[] dfa_48 = DFA.unpackEncodedStringToUnsignedChars(dfa_48s);
-    static final char[] dfa_49 = DFA.unpackEncodedStringToUnsignedChars(dfa_49s);
-    static final short[] dfa_50 = DFA.unpackEncodedString(dfa_50s);
-    static final short[] dfa_51 = DFA.unpackEncodedString(dfa_51s);
-    static final short[][] dfa_52 = unpackEncodedStringArray(dfa_52s);
+    static final short[] dfa_25 = DFA.unpackEncodedString(dfa_25s);
+    static final char[] dfa_26 = DFA.unpackEncodedStringToUnsignedChars(dfa_26s);
+    static final char[] dfa_27 = DFA.unpackEncodedStringToUnsignedChars(dfa_27s);
+    static final short[] dfa_28 = DFA.unpackEncodedString(dfa_28s);
+    static final short[] dfa_29 = DFA.unpackEncodedString(dfa_29s);
+    static final short[][] dfa_30 = unpackEncodedStringArray(dfa_30s);
 
     class DFA38 extends DFA {
 
         public DFA38(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 38;
-            this.eot = dfa_47;
-            this.eof = dfa_47;
-            this.min = dfa_48;
-            this.max = dfa_49;
-            this.accept = dfa_50;
-            this.special = dfa_51;
-            this.transition = dfa_52;
+            this.eot = dfa_25;
+            this.eof = dfa_25;
+            this.min = dfa_26;
+            this.max = dfa_27;
+            this.accept = dfa_28;
+            this.special = dfa_29;
+            this.transition = dfa_30;
         }
         public String getDescription() {
             return "()* loopback of 6076:7: ( ( rule__LaunchConfig__VmArgsAssignment_6_19 )=> rule__LaunchConfig__VmArgsAssignment_6_19 )*";
@@ -29892,7 +31005,7 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String[] dfa_53s = {
+    static final String[] dfa_31s = {
             "\1\1\23\uffff\5\1\15\uffff\1\1\1\uffff\10\1\1\2\5\1\2\uffff\5\1\7\uffff\2\1\3\uffff\1\1\16\uffff\1\1\6\uffff\1\1",
             "",
             "\1\3\43\uffff\1\4",
@@ -29900,20 +31013,20 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             "\1\uffff",
             ""
     };
-    static final short[][] dfa_53 = unpackEncodedStringArray(dfa_53s);
+    static final short[][] dfa_31 = unpackEncodedStringArray(dfa_31s);
 
     class DFA39 extends DFA {
 
         public DFA39(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 39;
-            this.eot = dfa_47;
-            this.eof = dfa_47;
-            this.min = dfa_48;
-            this.max = dfa_49;
-            this.accept = dfa_50;
-            this.special = dfa_51;
-            this.transition = dfa_53;
+            this.eot = dfa_25;
+            this.eof = dfa_25;
+            this.min = dfa_26;
+            this.max = dfa_27;
+            this.accept = dfa_28;
+            this.special = dfa_29;
+            this.transition = dfa_31;
         }
         public String getDescription() {
             return "()* loopback of 6098:7: ( ( rule__LaunchConfig__ProgArgsAssignment_6_20 )=> rule__LaunchConfig__ProgArgsAssignment_6_20 )*";
@@ -29945,8 +31058,8 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_54s = "\1\5\1\uffff\1\7\1\10\1\7\1\10\1\0\1\10\1\uffff";
-    static final String[] dfa_55s = {
+    static final String dfa_32s = "\1\5\1\uffff\1\7\1\10\1\7\1\10\1\0\1\10\1\uffff";
+    static final String[] dfa_33s = {
             "\1\1\23\uffff\5\1\15\uffff\1\1\1\uffff\16\1\2\uffff\2\1\1\2\2\1\7\uffff\2\1\3\uffff\1\1\16\uffff\1\1\6\uffff\1\1",
             "",
             "\1\3",
@@ -29957,21 +31070,21 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             "\1\5\43\uffff\1\6\45\uffff\1\4",
             ""
     };
-    static final char[] dfa_54 = DFA.unpackEncodedStringToUnsignedChars(dfa_54s);
-    static final short[][] dfa_55 = unpackEncodedStringArray(dfa_55s);
+    static final char[] dfa_32 = DFA.unpackEncodedStringToUnsignedChars(dfa_32s);
+    static final short[][] dfa_33 = unpackEncodedStringArray(dfa_33s);
 
     class DFA41 extends DFA {
 
         public DFA41(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 41;
-            this.eot = dfa_36;
-            this.eof = dfa_36;
-            this.min = dfa_54;
-            this.max = dfa_38;
-            this.accept = dfa_39;
-            this.special = dfa_40;
-            this.transition = dfa_55;
+            this.eot = dfa_13;
+            this.eof = dfa_13;
+            this.min = dfa_32;
+            this.max = dfa_15;
+            this.accept = dfa_16;
+            this.special = dfa_17;
+            this.transition = dfa_33;
         }
         public String getDescription() {
             return "()* loopback of 6142:7: ( ( rule__LaunchConfig__TracesAssignment_6_22 )=> rule__LaunchConfig__TracesAssignment_6_22 )*";
@@ -29999,1986 +31112,6 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
                 new NoViableAltException(getDescription(), 41, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA43 extends DFA {
-
-        public DFA43(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 43;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6162:2: ( rule__LaunchConfig__UnorderedGroup_6__1 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA43_0 = input.LA(1);
-
-                         
-                        int index43_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA43_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA43_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA43_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA43_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA43_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA43_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA43_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA43_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA43_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA43_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA43_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA43_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA43_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA43_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA43_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA43_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA43_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA43_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA43_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA43_0 >= 25 && LA43_0 <= 29 || LA43_0 == 78 || LA43_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA43_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA43_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA43_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA43_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA43_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index43_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 43, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA44 extends DFA {
-
-        public DFA44(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 44;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6174:2: ( rule__LaunchConfig__UnorderedGroup_6__2 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA44_0 = input.LA(1);
-
-                         
-                        int index44_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA44_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA44_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA44_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA44_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA44_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA44_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA44_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA44_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA44_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA44_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA44_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA44_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA44_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA44_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA44_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA44_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA44_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA44_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA44_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA44_0 >= 25 && LA44_0 <= 29 || LA44_0 == 78 || LA44_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA44_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA44_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA44_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA44_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA44_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index44_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 44, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA45 extends DFA {
-
-        public DFA45(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 45;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6186:2: ( rule__LaunchConfig__UnorderedGroup_6__3 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA45_0 = input.LA(1);
-
-                         
-                        int index45_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA45_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA45_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA45_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA45_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA45_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA45_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA45_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA45_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA45_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA45_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA45_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA45_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA45_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA45_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA45_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA45_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA45_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA45_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA45_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA45_0 >= 25 && LA45_0 <= 29 || LA45_0 == 78 || LA45_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA45_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA45_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA45_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA45_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA45_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index45_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 45, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA46 extends DFA {
-
-        public DFA46(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 46;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6198:2: ( rule__LaunchConfig__UnorderedGroup_6__4 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA46_0 = input.LA(1);
-
-                         
-                        int index46_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA46_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA46_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA46_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA46_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA46_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA46_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA46_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA46_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA46_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA46_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA46_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA46_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA46_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA46_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA46_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA46_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA46_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA46_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA46_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA46_0 >= 25 && LA46_0 <= 29 || LA46_0 == 78 || LA46_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA46_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA46_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA46_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA46_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA46_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index46_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 46, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA47 extends DFA {
-
-        public DFA47(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 47;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6210:2: ( rule__LaunchConfig__UnorderedGroup_6__5 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA47_0 = input.LA(1);
-
-                         
-                        int index47_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA47_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA47_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA47_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA47_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA47_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA47_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA47_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA47_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA47_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA47_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA47_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA47_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA47_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA47_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA47_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA47_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA47_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA47_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA47_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA47_0 >= 25 && LA47_0 <= 29 || LA47_0 == 78 || LA47_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA47_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA47_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA47_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA47_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA47_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index47_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 47, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA48 extends DFA {
-
-        public DFA48(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 48;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6222:2: ( rule__LaunchConfig__UnorderedGroup_6__6 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA48_0 = input.LA(1);
-
-                         
-                        int index48_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA48_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA48_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA48_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA48_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA48_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA48_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA48_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA48_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA48_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA48_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA48_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA48_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA48_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA48_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA48_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA48_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA48_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA48_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA48_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA48_0 >= 25 && LA48_0 <= 29 || LA48_0 == 78 || LA48_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA48_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA48_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA48_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA48_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA48_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index48_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 48, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA49 extends DFA {
-
-        public DFA49(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 49;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6234:2: ( rule__LaunchConfig__UnorderedGroup_6__7 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA49_0 = input.LA(1);
-
-                         
-                        int index49_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA49_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA49_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA49_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA49_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA49_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA49_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA49_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA49_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA49_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA49_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA49_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA49_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA49_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA49_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA49_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA49_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA49_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA49_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA49_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA49_0 >= 25 && LA49_0 <= 29 || LA49_0 == 78 || LA49_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA49_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA49_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA49_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA49_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA49_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index49_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 49, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA50 extends DFA {
-
-        public DFA50(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 50;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6246:2: ( rule__LaunchConfig__UnorderedGroup_6__8 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA50_0 = input.LA(1);
-
-                         
-                        int index50_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA50_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA50_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA50_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA50_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA50_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA50_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA50_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA50_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA50_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA50_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA50_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA50_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA50_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA50_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA50_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA50_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA50_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA50_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA50_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA50_0 >= 25 && LA50_0 <= 29 || LA50_0 == 78 || LA50_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA50_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA50_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA50_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA50_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA50_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index50_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 50, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA51 extends DFA {
-
-        public DFA51(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 51;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6258:2: ( rule__LaunchConfig__UnorderedGroup_6__9 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA51_0 = input.LA(1);
-
-                         
-                        int index51_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA51_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA51_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA51_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA51_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA51_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA51_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA51_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA51_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA51_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA51_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA51_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA51_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA51_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA51_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA51_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA51_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA51_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA51_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA51_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA51_0 >= 25 && LA51_0 <= 29 || LA51_0 == 78 || LA51_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA51_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA51_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA51_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA51_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA51_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index51_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 51, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA52 extends DFA {
-
-        public DFA52(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 52;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6270:2: ( rule__LaunchConfig__UnorderedGroup_6__10 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA52_0 = input.LA(1);
-
-                         
-                        int index52_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA52_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA52_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA52_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA52_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA52_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA52_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA52_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA52_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA52_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA52_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA52_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA52_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA52_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA52_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA52_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA52_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA52_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA52_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA52_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA52_0 >= 25 && LA52_0 <= 29 || LA52_0 == 78 || LA52_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA52_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA52_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA52_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA52_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA52_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index52_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 52, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA53 extends DFA {
-
-        public DFA53(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 53;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6282:2: ( rule__LaunchConfig__UnorderedGroup_6__11 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA53_0 = input.LA(1);
-
-                         
-                        int index53_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA53_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA53_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA53_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA53_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA53_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA53_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA53_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA53_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA53_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA53_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA53_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA53_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA53_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA53_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA53_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA53_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA53_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA53_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA53_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA53_0 >= 25 && LA53_0 <= 29 || LA53_0 == 78 || LA53_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA53_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA53_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA53_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA53_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA53_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index53_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 53, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA54 extends DFA {
-
-        public DFA54(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 54;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6294:2: ( rule__LaunchConfig__UnorderedGroup_6__12 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA54_0 = input.LA(1);
-
-                         
-                        int index54_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA54_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA54_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA54_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA54_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA54_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA54_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA54_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA54_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA54_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA54_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA54_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA54_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA54_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA54_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA54_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA54_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA54_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA54_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA54_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA54_0 >= 25 && LA54_0 <= 29 || LA54_0 == 78 || LA54_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA54_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA54_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA54_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA54_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA54_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index54_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 54, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA55 extends DFA {
-
-        public DFA55(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 55;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6306:2: ( rule__LaunchConfig__UnorderedGroup_6__13 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA55_0 = input.LA(1);
-
-                         
-                        int index55_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA55_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA55_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA55_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA55_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA55_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA55_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA55_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA55_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA55_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA55_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA55_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA55_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA55_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA55_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA55_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA55_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA55_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA55_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA55_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA55_0 >= 25 && LA55_0 <= 29 || LA55_0 == 78 || LA55_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA55_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA55_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA55_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA55_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA55_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index55_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 55, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA56 extends DFA {
-
-        public DFA56(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 56;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6318:2: ( rule__LaunchConfig__UnorderedGroup_6__14 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA56_0 = input.LA(1);
-
-                         
-                        int index56_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA56_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA56_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA56_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA56_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA56_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA56_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA56_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA56_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA56_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA56_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA56_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA56_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA56_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA56_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA56_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA56_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA56_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA56_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA56_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA56_0 >= 25 && LA56_0 <= 29 || LA56_0 == 78 || LA56_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA56_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA56_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA56_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA56_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA56_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index56_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 56, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA57 extends DFA {
-
-        public DFA57(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 57;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6330:2: ( rule__LaunchConfig__UnorderedGroup_6__15 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA57_0 = input.LA(1);
-
-                         
-                        int index57_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA57_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA57_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA57_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA57_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA57_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA57_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA57_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA57_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA57_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA57_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA57_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA57_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA57_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA57_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA57_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA57_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA57_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA57_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA57_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA57_0 >= 25 && LA57_0 <= 29 || LA57_0 == 78 || LA57_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA57_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA57_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA57_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA57_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA57_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index57_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 57, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA58 extends DFA {
-
-        public DFA58(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 58;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6342:2: ( rule__LaunchConfig__UnorderedGroup_6__16 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA58_0 = input.LA(1);
-
-                         
-                        int index58_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA58_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA58_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA58_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA58_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA58_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA58_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA58_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA58_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA58_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA58_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA58_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA58_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA58_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA58_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA58_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA58_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA58_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA58_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA58_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA58_0 >= 25 && LA58_0 <= 29 || LA58_0 == 78 || LA58_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA58_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA58_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA58_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA58_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA58_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index58_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 58, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA59 extends DFA {
-
-        public DFA59(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 59;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6354:2: ( rule__LaunchConfig__UnorderedGroup_6__17 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA59_0 = input.LA(1);
-
-                         
-                        int index59_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA59_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA59_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA59_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA59_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA59_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA59_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA59_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA59_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA59_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA59_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA59_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA59_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA59_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA59_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA59_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA59_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA59_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA59_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA59_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA59_0 >= 25 && LA59_0 <= 29 || LA59_0 == 78 || LA59_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA59_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA59_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA59_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA59_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA59_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index59_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 59, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA60 extends DFA {
-
-        public DFA60(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 60;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6366:2: ( rule__LaunchConfig__UnorderedGroup_6__18 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA60_0 = input.LA(1);
-
-                         
-                        int index60_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA60_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA60_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA60_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA60_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA60_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA60_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA60_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA60_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA60_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA60_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA60_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA60_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA60_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA60_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA60_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA60_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA60_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA60_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA60_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA60_0 >= 25 && LA60_0 <= 29 || LA60_0 == 78 || LA60_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA60_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA60_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA60_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA60_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA60_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index60_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 60, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA61 extends DFA {
-
-        public DFA61(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 61;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6378:2: ( rule__LaunchConfig__UnorderedGroup_6__19 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA61_0 = input.LA(1);
-
-                         
-                        int index61_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA61_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA61_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA61_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA61_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA61_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA61_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA61_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA61_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA61_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA61_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA61_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA61_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA61_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA61_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA61_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA61_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA61_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA61_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA61_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA61_0 >= 25 && LA61_0 <= 29 || LA61_0 == 78 || LA61_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA61_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA61_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA61_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA61_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA61_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index61_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 61, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA62 extends DFA {
-
-        public DFA62(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 62;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6390:2: ( rule__LaunchConfig__UnorderedGroup_6__20 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA62_0 = input.LA(1);
-
-                         
-                        int index62_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA62_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA62_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA62_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA62_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA62_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA62_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA62_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA62_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA62_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA62_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA62_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA62_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA62_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA62_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA62_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA62_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA62_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA62_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA62_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA62_0 >= 25 && LA62_0 <= 29 || LA62_0 == 78 || LA62_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA62_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA62_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA62_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA62_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA62_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index62_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 62, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA63 extends DFA {
-
-        public DFA63(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 63;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6402:2: ( rule__LaunchConfig__UnorderedGroup_6__21 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA63_0 = input.LA(1);
-
-                         
-                        int index63_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA63_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA63_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA63_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA63_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA63_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA63_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA63_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA63_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA63_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA63_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA63_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA63_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA63_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA63_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA63_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA63_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA63_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA63_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA63_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA63_0 >= 25 && LA63_0 <= 29 || LA63_0 == 78 || LA63_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA63_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA63_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA63_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA63_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA63_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index63_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 63, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-
-    class DFA64 extends DFA {
-
-        public DFA64(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 64;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "6414:2: ( rule__LaunchConfig__UnorderedGroup_6__22 )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA64_0 = input.LA(1);
-
-                         
-                        int index64_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA64_0 == 73 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 1;}
-
-                        else if ( LA64_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 2;}
-
-                        else if ( LA64_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 3;}
-
-                        else if ( LA64_0 == 74 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 4;}
-
-                        else if ( LA64_0 == 46 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 5;}
-
-                        else if ( LA64_0 == 47 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 6;}
-
-                        else if ( LA64_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 7;}
-
-                        else if ( LA64_0 == 56 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 8;}
-
-                        else if ( LA64_0 == 57 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 9;}
-
-                        else if ( LA64_0 == 58 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 10;}
-
-                        else if ( LA64_0 == 61 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 11;}
-
-                        else if ( LA64_0 == 62 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 12;}
-
-                        else if ( LA64_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 13;}
-
-                        else if ( LA64_0 == 65 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 14;}
-
-                        else if ( LA64_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 15;}
-
-                        else if ( LA64_0 == 93 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 16;}
-
-                        else if ( LA64_0 == 48 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 17;}
-
-                        else if ( LA64_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 18;}
-
-                        else if ( LA64_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 19;}
-
-                        else if ( ( LA64_0 >= 25 && LA64_0 <= 29 || LA64_0 == 78 || LA64_0 == 100 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 20;}
-
-                        else if ( LA64_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 21;}
-
-                        else if ( LA64_0 == 53 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 22;}
-
-                        else if ( LA64_0 == 54 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 23;}
-
-                        else if ( LA64_0 == 63 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 24;}
-
-                        else if ( (LA64_0==RULE_BLOCK_END) ) {s = 25;}
-
-                         
-                        input.seek(index64_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 64, _s, input);
             error(nvae);
             throw nvae;
         }

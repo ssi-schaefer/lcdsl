@@ -32,6 +32,10 @@ Workflow {
 			validator = {
 				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}
+			parserGenerator = {
+				antlrParam = "-Xmaxinlinedfastates"
+				antlrParam = "30"
+			}
 		}
 	}
 }

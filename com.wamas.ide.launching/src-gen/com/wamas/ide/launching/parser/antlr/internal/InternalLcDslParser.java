@@ -412,7 +412,37 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
             loop2:
             do {
                 int alt2=10;
-                alt2 = dfa2.predict(input);
+                int LA2_0 = input.LA(1);
+
+                if ( LA2_0 == 17 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {
+                    alt2=1;
+                }
+                else if ( LA2_0 == 18 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {
+                    alt2=2;
+                }
+                else if ( LA2_0 == 19 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {
+                    alt2=3;
+                }
+                else if ( LA2_0 == 20 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {
+                    alt2=4;
+                }
+                else if ( LA2_0 == 21 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {
+                    alt2=5;
+                }
+                else if ( LA2_0 == 22 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {
+                    alt2=6;
+                }
+                else if ( LA2_0 == 23 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {
+                    alt2=7;
+                }
+                else if ( LA2_0 == 24 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {
+                    alt2=8;
+                }
+                else if ( LA2_0 == 25 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {
+                    alt2=9;
+                }
+
+
                 switch (alt2) {
             	case 1 :
             	    // InternalLcDsl.g:123:4: ({...}? => ( ({...}? => ( (lv_explicit_1_0= 'explicit' ) ) ) ) )
@@ -1089,7 +1119,91 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
             loop12:
             do {
                 int alt12=24;
-                alt12 = dfa12.predict(input);
+                int LA12_0 = input.LA(1);
+
+                if ( LA12_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {
+                    alt12=1;
+                }
+                else if ( LA12_0 == 28 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {
+                    alt12=2;
+                }
+                else if ( LA12_0 == 30 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {
+                    alt12=3;
+                }
+                else if ( LA12_0 == 67 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {
+                    alt12=4;
+                }
+                else if ( LA12_0 == 31 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {
+                    alt12=5;
+                }
+                else if ( LA12_0 == 33 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {
+                    alt12=6;
+                }
+                else if ( LA12_0 == 42 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {
+                    alt12=7;
+                }
+                else if ( LA12_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {
+                    alt12=8;
+                }
+                else if ( LA12_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {
+                    alt12=9;
+                }
+                else if ( LA12_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {
+                    alt12=10;
+                }
+                else if ( LA12_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {
+                    alt12=11;
+                }
+                else if ( LA12_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {
+                    alt12=12;
+                }
+                else if ( LA12_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {
+                    alt12=13;
+                }
+                else if ( LA12_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {
+                    alt12=14;
+                }
+                else if ( LA12_0 == 37 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {
+                    alt12=15;
+                }
+                else if ( LA12_0 == 34 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {
+                    int LA12_17 = input.LA(2);
+
+                    if ( LA12_17 == 35 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                        alt12=16;
+                    }
+                    else if ( LA12_17 == 36 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                        alt12=17;
+                    }
+
+
+                }
+                else if ( LA12_0 == 35 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {
+                    alt12=16;
+                }
+                else if ( LA12_0 == 36 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {
+                    alt12=17;
+                }
+                else if ( LA12_0 == 38 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {
+                    alt12=18;
+                }
+                else if ( ( LA12_0 >= 71 && LA12_0 <= 72 || LA12_0 >= 84 && LA12_0 <= 88 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {
+                    alt12=19;
+                }
+                else if ( LA12_0 == 39 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {
+                    alt12=20;
+                }
+                else if ( LA12_0 == 40 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {
+                    alt12=21;
+                }
+                else if ( LA12_0 == 41 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {
+                    alt12=22;
+                }
+                else if ( LA12_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {
+                    alt12=23;
+                }
+
+
                 switch (alt12) {
             	case 1 :
             	    // InternalLcDsl.g:412:4: ({...}? => ( ({...}? => ( (lv_clears_17_0= ruleClearOption ) ) ) ) )
@@ -2422,7 +2536,87 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
             	    loop7:
             	    do {
             	        int alt7=2;
-            	        alt7 = dfa7.predict(input);
+            	        switch ( input.LA(1) ) {
+            	        case 84:
+            	            {
+            	            int LA7_2 = input.LA(2);
+
+            	            if ( ((true)) ) {
+            	                alt7=1;
+            	            }
+
+
+            	            }
+            	            break;
+            	        case 85:
+            	            {
+            	            int LA7_3 = input.LA(2);
+
+            	            if ( ((true)) ) {
+            	                alt7=1;
+            	            }
+
+
+            	            }
+            	            break;
+            	        case 86:
+            	            {
+            	            int LA7_4 = input.LA(2);
+
+            	            if ( ((true)) ) {
+            	                alt7=1;
+            	            }
+
+
+            	            }
+            	            break;
+            	        case 87:
+            	            {
+            	            int LA7_5 = input.LA(2);
+
+            	            if ( ((true)) ) {
+            	                alt7=1;
+            	            }
+
+
+            	            }
+            	            break;
+            	        case 88:
+            	            {
+            	            int LA7_6 = input.LA(2);
+
+            	            if ( ((true)) ) {
+            	                alt7=1;
+            	            }
+
+
+            	            }
+            	            break;
+            	        case 71:
+            	            {
+            	            int LA7_7 = input.LA(2);
+
+            	            if ( ((true)) ) {
+            	                alt7=1;
+            	            }
+
+
+            	            }
+            	            break;
+            	        case 72:
+            	            {
+            	            int LA7_8 = input.LA(2);
+
+            	            if ( ((true)) ) {
+            	                alt7=1;
+            	            }
+
+
+            	            }
+            	            break;
+
+            	        }
+
             	        switch (alt7) {
             	    	case 1 :
             	    	    // InternalLcDsl.g:921:10: {...}? => ( (lv_groupMembers_35_0= ruleGroupMember ) )
@@ -10106,394 +10300,6 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
     // Delegated rules
 
 
-    protected DFA2 dfa2 = new DFA2(this);
-    protected DFA12 dfa12 = new DFA12(this);
-    protected DFA7 dfa7 = new DFA7(this);
-    static final String dfa_1s = "\13\uffff";
-    static final String dfa_2s = "\1\21\12\uffff";
-    static final String dfa_3s = "\1\123\12\uffff";
-    static final String dfa_4s = "\1\uffff\1\12\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11";
-    static final String dfa_5s = "\1\0\12\uffff}>";
-    static final String[] dfa_6s = {
-            "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\66\uffff\4\1",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
-    static final char[] dfa_2 = DFA.unpackEncodedStringToUnsignedChars(dfa_2s);
-    static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
-    static final short[] dfa_4 = DFA.unpackEncodedString(dfa_4s);
-    static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
-    static final short[][] dfa_6 = unpackEncodedStringArray(dfa_6s);
-
-    class DFA2 extends DFA {
-
-        public DFA2(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 2;
-            this.eot = dfa_1;
-            this.eof = dfa_1;
-            this.min = dfa_2;
-            this.max = dfa_3;
-            this.accept = dfa_4;
-            this.special = dfa_5;
-            this.transition = dfa_6;
-        }
-        public String getDescription() {
-            return "()* loopback of 122:6: ( ({...}? => ( ({...}? => ( (lv_explicit_1_0= 'explicit' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_manual_2_0= 'manual' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_abstract_3_0= 'abstract' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_foreground_4_0= 'foreground' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_noConsole_5_0= 'no-console' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_noValidate_6_0= 'no-validate' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_swInstallSupport_7_0= 'sw-install-allowed' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_replaceEnv_8_0= 'replace-env' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_stopInMain_9_0= 'stop-in-main' ) ) ) ) ) )*";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA2_0 = input.LA(1);
-
-                         
-                        int index2_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA2_0>=80 && LA2_0<=83)) ) {s = 1;}
-
-                        else if ( LA2_0 == 17 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 0) ) {s = 2;}
-
-                        else if ( LA2_0 == 18 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 1) ) {s = 3;}
-
-                        else if ( LA2_0 == 19 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 2) ) {s = 4;}
-
-                        else if ( LA2_0 == 20 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 3) ) {s = 5;}
-
-                        else if ( LA2_0 == 21 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 4) ) {s = 6;}
-
-                        else if ( LA2_0 == 22 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 5) ) {s = 7;}
-
-                        else if ( LA2_0 == 23 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 6) ) {s = 8;}
-
-                        else if ( LA2_0 == 24 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 7) ) {s = 9;}
-
-                        else if ( LA2_0 == 25 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_0(), 8) ) {s = 10;}
-
-                         
-                        input.seek(index2_0);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 2, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-    static final String dfa_7s = "\32\uffff";
-    static final String dfa_8s = "\1\5\20\uffff\1\43\10\uffff";
-    static final String dfa_9s = "\1\130\20\uffff\1\44\10\uffff";
-    static final String dfa_10s = "\1\uffff\1\30\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\uffff\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27";
-    static final String dfa_11s = "\1\0\20\uffff\1\1\10\uffff}>";
-    static final String[] dfa_12s = {
-            "\1\1\26\uffff\1\3\1\uffff\1\4\1\6\1\uffff\1\7\1\21\1\22\1\23\1\20\1\24\1\26\1\27\1\30\1\10\1\11\1\12\1\13\3\uffff\1\14\1\15\1\31\1\16\2\uffff\1\17\10\uffff\1\2\2\uffff\1\5\3\uffff\2\25\13\uffff\5\25",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\22\1\23",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] dfa_7 = DFA.unpackEncodedString(dfa_7s);
-    static final char[] dfa_8 = DFA.unpackEncodedStringToUnsignedChars(dfa_8s);
-    static final char[] dfa_9 = DFA.unpackEncodedStringToUnsignedChars(dfa_9s);
-    static final short[] dfa_10 = DFA.unpackEncodedString(dfa_10s);
-    static final short[] dfa_11 = DFA.unpackEncodedString(dfa_11s);
-    static final short[][] dfa_12 = unpackEncodedStringArray(dfa_12s);
-
-    class DFA12 extends DFA {
-
-        public DFA12(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 12;
-            this.eot = dfa_7;
-            this.eof = dfa_7;
-            this.min = dfa_8;
-            this.max = dfa_9;
-            this.accept = dfa_10;
-            this.special = dfa_11;
-            this.transition = dfa_12;
-        }
-        public String getDescription() {
-            return "()* loopback of 411:6: ( ({...}? => ( ({...}? => ( (lv_clears_17_0= ruleClearOption ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_workspace_18_0= ruleWorkspace ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_workingDir_19_0= ruleWorkingDir ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_memory_20_0= ruleMemoryOption ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_mainProject_21_0= ruleMainProject ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_mainType_22_0= ruleMainType ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_application_23_0= ruleApplicationExtPoint ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_product_24_0= ruleProductExtPoint ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_favorites_25_0= ruleFavorites ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_redirect_26_0= ruleRedirect ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_execEnv_27_0= ruleExecutionEnvironment ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_configIniTemplate_28_0= ruleConfigIniTemplate ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_javaMainSearch_29_0= ruleJavaMainSearch ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_servletConfig_30_0= ruleRapServletConfig ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_contentProviderProduct_31_0= ruleContentProviderProduct ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_plugins_32_0= ruleAddPlugin ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_features_33_0= ruleAddFeature ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_ignore_34_0= ruleIgnorePlugin ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_groupMembers_35_0= ruleGroupMember ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_vmArgs_36_0= ruleVmArgument ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_progArgs_37_0= ruleProgramArgument ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_envVars_38_0= ruleEnvironmentVariable ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_traces_39_0= ruleTraceEnablement ) ) )+ ) ) )*";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA12_0 = input.LA(1);
-
-                         
-                        int index12_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA12_0==RULE_BLOCK_END) ) {s = 1;}
-
-                        else if ( LA12_0 == 64 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 0) ) {s = 2;}
-
-                        else if ( LA12_0 == 28 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 1) ) {s = 3;}
-
-                        else if ( LA12_0 == 30 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 2) ) {s = 4;}
-
-                        else if ( LA12_0 == 67 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 3) ) {s = 5;}
-
-                        else if ( LA12_0 == 31 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 4) ) {s = 6;}
-
-                        else if ( LA12_0 == 33 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 5) ) {s = 7;}
-
-                        else if ( LA12_0 == 42 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 6) ) {s = 8;}
-
-                        else if ( LA12_0 == 43 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 7) ) {s = 9;}
-
-                        else if ( LA12_0 == 44 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 8) ) {s = 10;}
-
-                        else if ( LA12_0 == 45 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 9) ) {s = 11;}
-
-                        else if ( LA12_0 == 49 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 10) ) {s = 12;}
-
-                        else if ( LA12_0 == 50 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 11) ) {s = 13;}
-
-                        else if ( LA12_0 == 52 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 12) ) {s = 14;}
-
-                        else if ( LA12_0 == 55 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 13) ) {s = 15;}
-
-                        else if ( LA12_0 == 37 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 14) ) {s = 16;}
-
-                        else if ( LA12_0 == 34 && ( getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) || getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) ) {s = 17;}
-
-                        else if ( LA12_0 == 35 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 18;}
-
-                        else if ( LA12_0 == 36 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 19;}
-
-                        else if ( LA12_0 == 38 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 17) ) {s = 20;}
-
-                        else if ( ( LA12_0 >= 71 && LA12_0 <= 72 || LA12_0 >= 84 && LA12_0 <= 88 ) && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 18) ) {s = 21;}
-
-                        else if ( LA12_0 == 39 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 19) ) {s = 22;}
-
-                        else if ( LA12_0 == 40 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 20) ) {s = 23;}
-
-                        else if ( LA12_0 == 41 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 21) ) {s = 24;}
-
-                        else if ( LA12_0 == 51 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 22) ) {s = 25;}
-
-                         
-                        input.seek(index12_0);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA12_17 = input.LA(1);
-
-                         
-                        int index12_17 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( LA12_17 == 35 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 15) ) {s = 18;}
-
-                        else if ( LA12_17 == 36 && getUnorderedGroupHelper().canSelect(grammarAccess.getLaunchConfigAccess().getUnorderedGroup_6(), 16) ) {s = 19;}
-
-                         
-                        input.seek(index12_17);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 12, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-    static final String dfa_13s = "\12\uffff";
-    static final String dfa_14s = "\1\5\1\uffff\7\0\1\uffff";
-    static final String dfa_15s = "\1\130\1\uffff\7\0\1\uffff";
-    static final String dfa_16s = "\1\uffff\1\2\7\uffff\1\1";
-    static final String dfa_17s = "\2\uffff\1\5\1\0\1\1\1\4\1\6\1\2\1\3\1\uffff}>";
-    static final String[] dfa_18s = {
-            "\1\1\26\uffff\1\1\1\uffff\2\1\1\uffff\15\1\3\uffff\4\1\2\uffff\1\1\10\uffff\1\1\2\uffff\1\1\3\uffff\1\7\1\10\13\uffff\1\2\1\3\1\4\1\5\1\6",
-            "",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            ""
-    };
-
-    static final short[] dfa_13 = DFA.unpackEncodedString(dfa_13s);
-    static final char[] dfa_14 = DFA.unpackEncodedStringToUnsignedChars(dfa_14s);
-    static final char[] dfa_15 = DFA.unpackEncodedStringToUnsignedChars(dfa_15s);
-    static final short[] dfa_16 = DFA.unpackEncodedString(dfa_16s);
-    static final short[] dfa_17 = DFA.unpackEncodedString(dfa_17s);
-    static final short[][] dfa_18 = unpackEncodedStringArray(dfa_18s);
-
-    class DFA7 extends DFA {
-
-        public DFA7(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 7;
-            this.eot = dfa_13;
-            this.eof = dfa_13;
-            this.min = dfa_14;
-            this.max = dfa_15;
-            this.accept = dfa_16;
-            this.special = dfa_17;
-            this.transition = dfa_18;
-        }
-        public String getDescription() {
-            return "()+ loopback of 921:9: ({...}? => ( (lv_groupMembers_35_0= ruleGroupMember ) ) )+";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA7_3 = input.LA(1);
-
-                         
-                        int index7_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((true)) ) {s = 9;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index7_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA7_4 = input.LA(1);
-
-                         
-                        int index7_4 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((true)) ) {s = 9;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index7_4);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA7_7 = input.LA(1);
-
-                         
-                        int index7_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((true)) ) {s = 9;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index7_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA7_8 = input.LA(1);
-
-                         
-                        int index7_8 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((true)) ) {s = 9;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index7_8);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA7_5 = input.LA(1);
-
-                         
-                        int index7_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((true)) ) {s = 9;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index7_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA7_2 = input.LA(1);
-
-                         
-                        int index7_2 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((true)) ) {s = 9;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index7_2);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
-                        int LA7_6 = input.LA(1);
-
-                         
-                        int index7_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((true)) ) {s = 9;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index7_6);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 7, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
