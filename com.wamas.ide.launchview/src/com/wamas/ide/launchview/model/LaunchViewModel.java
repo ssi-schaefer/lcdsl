@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
+import org.eclipse.ui.IWorkbench;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
@@ -81,6 +82,18 @@ public class LaunchViewModel implements LaunchModel {
         service.removeUpdateListener(providerUpdateListener);
 
         fireUpdate();
+    }
+
+    @Reference(service = IWorkbench.class, cardinality = ReferenceCardinality.MANDATORY, policy = ReferencePolicy.STATIC,
+               unbind = "unsetWorkbench")
+    public void setWorkbench(IWorkbench svc) {
+        // this reference is just a marker to control startup order.
+        // this is required, otherwise this service activates so early, that the
+        // prompt for the workspace location is no longer shown (as the location
+        // is accessed indirectly before the prompt, which initializes it to a default).
+    }
+
+    public void unsetWorkbench(IWorkbench svc) {
     }
 
     @Activate

@@ -4,5 +4,6 @@
       <provide interface="com.wamas.ide.launchview.services.LaunchModel"/>
    </service>
    <reference bind="addLaunchObjectProvider" cardinality="0..n" interface="com.wamas.ide.launchview.services.LaunchObjectProvider" name="LaunchObjectProvider" policy="dynamic" policy-option="greedy" unbind="removeLaunchObjectProvider"/>
+   <reference bind="setWorkbench" cardinality="1..1" interface="org.eclipse.ui.IWorkbench" name="Workbench" policy="static" unbind="unsetWorkbench"/>
    <implementation class="com.wamas.ide.launchview.model.LaunchViewModel"/>
 </scr:component>
