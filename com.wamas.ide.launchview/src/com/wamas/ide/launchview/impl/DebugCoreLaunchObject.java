@@ -109,7 +109,7 @@ public class DebugCoreLaunchObject implements LaunchObject {
 
     public static ILaunch findLaunch(String name) {
         for (ILaunch l : DebugPlugin.getDefault().getLaunchManager().getLaunches()) {
-            if (l.getLaunchConfiguration() == null) {
+            if (l.getLaunchConfiguration() == null || l.isTerminated()) {
                 continue;
             }
             if (l.getLaunchConfiguration().getName().equals(name)) {
