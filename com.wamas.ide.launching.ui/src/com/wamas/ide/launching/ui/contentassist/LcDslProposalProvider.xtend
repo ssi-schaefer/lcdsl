@@ -238,7 +238,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 				case launchConfigAccess.swInstallSupportSwInstallAllowedKeyword_0_6_0,
 				case launchConfigAccess.replaceEnvReplaceEnvKeyword_0_7_0,
 				case launchConfigAccess.stopInMainStopInMainKeyword_0_8_0,
-				case launchConfigAccess.qualifyQualifiedKeyword_0_9_0: ih.getImage("style_modified.gif")
+				case launchConfigAccess.qualifyQualifiedKeyword_0_9_0_0: ih.getImage("style_modified.gif")
 				case workspaceAccess.workspaceKeyword_0: ih.getImage("workspace_obj.gif")
 				case workingDirAccess.workingDirKeyword_0: ih.getImage("folder.png")
 				case mainProjectAccess.projectKeyword_0: ih.getImage("showprojects.gif")
