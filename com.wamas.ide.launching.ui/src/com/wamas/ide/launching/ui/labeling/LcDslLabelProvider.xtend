@@ -39,6 +39,7 @@ import org.eclipse.debug.internal.ui.DebugPluginImages
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.jface.viewers.StyledString
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 /**
  * Provides labels for EObjects.
@@ -46,6 +47,9 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
 class LcDslLabelProvider extends DefaultEObjectLabelProvider {
+
+	@Inject
+	extension StandaloneLaunchConfigGenerator generator
 
 	@Inject
 	new(AdapterFactoryLabelProvider delegate) {
@@ -57,7 +61,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(LaunchConfig lc) {
-		val ss = new StyledString(lc.name)
+		val ss = new StyledString(lc.fullName)
 
 		val flags = newArrayList()
 
@@ -318,7 +322,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(GroupMember m) {
-		val ss = new StyledString(m.member.name)
+		val ss = new StyledString(m.member.fullName)
 
 		ss.append(" [" + m.type, StyledString.QUALIFIER_STYLER)
 		if (m.adopt)

@@ -45,6 +45,8 @@ public class LcDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMemoryUnitAccess().getAlternatives(), "rule__MemoryUnit__Alternatives");
 					put(grammarAccess.getOutputStreamAccess().getAlternatives(), "rule__OutputStream__Alternatives");
 					put(grammarAccess.getLaunchConfigAccess().getGroup(), "rule__LaunchConfig__Group__0");
+					put(grammarAccess.getLaunchConfigAccess().getGroup_0_9(), "rule__LaunchConfig__Group_0_9__0");
+					put(grammarAccess.getLaunchConfigAccess().getGroup_0_9_1(), "rule__LaunchConfig__Group_0_9_1__0");
 					put(grammarAccess.getLaunchConfigAccess().getGroup_4(), "rule__LaunchConfig__Group_4__0");
 					put(grammarAccess.getWorkspaceAccess().getGroup(), "rule__Workspace__Group__0");
 					put(grammarAccess.getWorkingDirAccess().getGroup(), "rule__WorkingDir__Group__0");
@@ -100,6 +102,8 @@ public class LcDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLaunchConfigAccess().getSwInstallSupportAssignment_0_6(), "rule__LaunchConfig__SwInstallSupportAssignment_0_6");
 					put(grammarAccess.getLaunchConfigAccess().getReplaceEnvAssignment_0_7(), "rule__LaunchConfig__ReplaceEnvAssignment_0_7");
 					put(grammarAccess.getLaunchConfigAccess().getStopInMainAssignment_0_8(), "rule__LaunchConfig__StopInMainAssignment_0_8");
+					put(grammarAccess.getLaunchConfigAccess().getQualifyAssignment_0_9_0(), "rule__LaunchConfig__QualifyAssignment_0_9_0");
+					put(grammarAccess.getLaunchConfigAccess().getQualifierIdAssignment_0_9_1_1(), "rule__LaunchConfig__QualifierIdAssignment_0_9_1_1");
 					put(grammarAccess.getLaunchConfigAccess().getTypeAssignment_1(), "rule__LaunchConfig__TypeAssignment_1");
 					put(grammarAccess.getLaunchConfigAccess().getNameAssignment_3(), "rule__LaunchConfig__NameAssignment_3");
 					put(grammarAccess.getLaunchConfigAccess().getSuperConfigAssignment_4_1(), "rule__LaunchConfig__SuperConfigAssignment_4_1");

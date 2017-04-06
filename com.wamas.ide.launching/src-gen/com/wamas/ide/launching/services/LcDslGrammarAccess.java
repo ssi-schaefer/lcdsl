@@ -78,6 +78,14 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cReplaceEnvReplaceEnvKeyword_0_7_0 = (Keyword)cReplaceEnvAssignment_0_7.eContents().get(0);
 		private final Assignment cStopInMainAssignment_0_8 = (Assignment)cUnorderedGroup_0.eContents().get(8);
 		private final Keyword cStopInMainStopInMainKeyword_0_8_0 = (Keyword)cStopInMainAssignment_0_8.eContents().get(0);
+		private final Group cGroup_0_9 = (Group)cUnorderedGroup_0.eContents().get(9);
+		private final Assignment cQualifyAssignment_0_9_0 = (Assignment)cGroup_0_9.eContents().get(0);
+		private final Keyword cQualifyQualifiedKeyword_0_9_0_0 = (Keyword)cQualifyAssignment_0_9_0.eContents().get(0);
+		private final Group cGroup_0_9_1 = (Group)cGroup_0_9.eContents().get(1);
+		private final RuleCall cBRACKET_OPENTerminalRuleCall_0_9_1_0 = (RuleCall)cGroup_0_9_1.eContents().get(0);
+		private final Assignment cQualifierIdAssignment_0_9_1_1 = (Assignment)cGroup_0_9_1.eContents().get(1);
+		private final RuleCall cQualifierIdSTRINGTerminalRuleCall_0_9_1_1_0 = (RuleCall)cQualifierIdAssignment_0_9_1_1.eContents().get(0);
+		private final RuleCall cBRACKET_CLOSETerminalRuleCall_0_9_1_2 = (RuleCall)cGroup_0_9_1.eContents().get(2);
 		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cTypeLaunchConfigTypeEnumRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
 		private final Keyword cConfigurationKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -156,6 +164,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	& swInstallSupport?='sw-install-allowed'? // Eclipse
 		//	& replaceEnv?='replace-env'? // All but Groups
 		//	& stopInMain?='stop-in-main'? // Java
+		//	& (qualify?='qualified' (BRACKET_OPEN qualifierId=STRING BRACKET_CLOSE)?)? // All - naming
 		//) type=LaunchConfigType 'configuration' name=FQName (':' superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN
 		//	(clears=ClearOption? // Eclipse, RAP (partial)
 		//	& workspace=Workspace? // Eclipse, RAP
@@ -193,6 +202,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//& swInstallSupport?='sw-install-allowed'? // Eclipse
 		//& replaceEnv?='replace-env'? // All but Groups
 		//& stopInMain?='stop-in-main'? // Java
+		//& (qualify?='qualified' (BRACKET_OPEN qualifierId=STRING BRACKET_CLOSE)?)? // All - naming
 		//) type=LaunchConfigType 'configuration' name=FQName (':' superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN
 		//(clears=ClearOption? // Eclipse, RAP (partial)
 		//& workspace=Workspace? // Eclipse, RAP
@@ -230,6 +240,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		//& swInstallSupport?='sw-install-allowed'? // Eclipse
 		//& replaceEnv?='replace-env'? // All but Groups
 		//& stopInMain?='stop-in-main'? // Java
+		//& (qualify?='qualified' (BRACKET_OPEN qualifierId=STRING BRACKET_CLOSE)?)? // All - naming
 		//)
 		public UnorderedGroup getUnorderedGroup_0() { return cUnorderedGroup_0; }
 		
@@ -286,6 +297,30 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'stop-in-main'
 		public Keyword getStopInMainStopInMainKeyword_0_8_0() { return cStopInMainStopInMainKeyword_0_8_0; }
+		
+		//(qualify?='qualified' (BRACKET_OPEN qualifierId=STRING BRACKET_CLOSE)?)?
+		public Group getGroup_0_9() { return cGroup_0_9; }
+		
+		//qualify?='qualified'
+		public Assignment getQualifyAssignment_0_9_0() { return cQualifyAssignment_0_9_0; }
+		
+		//'qualified'
+		public Keyword getQualifyQualifiedKeyword_0_9_0_0() { return cQualifyQualifiedKeyword_0_9_0_0; }
+		
+		//(BRACKET_OPEN qualifierId=STRING BRACKET_CLOSE)?
+		public Group getGroup_0_9_1() { return cGroup_0_9_1; }
+		
+		//BRACKET_OPEN
+		public RuleCall getBRACKET_OPENTerminalRuleCall_0_9_1_0() { return cBRACKET_OPENTerminalRuleCall_0_9_1_0; }
+		
+		//qualifierId=STRING
+		public Assignment getQualifierIdAssignment_0_9_1_1() { return cQualifierIdAssignment_0_9_1_1; }
+		
+		//STRING
+		public RuleCall getQualifierIdSTRINGTerminalRuleCall_0_9_1_1_0() { return cQualifierIdSTRINGTerminalRuleCall_0_9_1_1_0; }
+		
+		//BRACKET_CLOSE
+		public RuleCall getBRACKET_CLOSETerminalRuleCall_0_9_1_2() { return cBRACKET_CLOSETerminalRuleCall_0_9_1_2; }
 		
 		//type=LaunchConfigType
 		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
@@ -2158,6 +2193,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tEQ;
 	private final TerminalRule tBLOCK_BEGIN;
 	private final TerminalRule tBLOCK_END;
+	private final TerminalRule tBRACKET_OPEN;
+	private final TerminalRule tBRACKET_CLOSE;
 	
 	private final Grammar grammar;
 	
@@ -2221,6 +2258,8 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.tEQ = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.EQ");
 		this.tBLOCK_BEGIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.BLOCK_BEGIN");
 		this.tBLOCK_END = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.BLOCK_END");
+		this.tBRACKET_OPEN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.BRACKET_OPEN");
+		this.tBRACKET_CLOSE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.BRACKET_CLOSE");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -2291,6 +2330,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	& swInstallSupport?='sw-install-allowed'? // Eclipse
 	//	& replaceEnv?='replace-env'? // All but Groups
 	//	& stopInMain?='stop-in-main'? // Java
+	//	& (qualify?='qualified' (BRACKET_OPEN qualifierId=STRING BRACKET_CLOSE)?)? // All - naming
 	//) type=LaunchConfigType 'configuration' name=FQName (':' superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN
 	//	(clears=ClearOption? // Eclipse, RAP (partial)
 	//	& workspace=Workspace? // Eclipse, RAP
@@ -2811,6 +2851,18 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	'}';
 	public TerminalRule getBLOCK_ENDRule() {
 		return tBLOCK_END;
+	}
+	
+	//terminal BRACKET_OPEN:
+	//	'(';
+	public TerminalRule getBRACKET_OPENRule() {
+		return tBRACKET_OPEN;
+	}
+	
+	//terminal BRACKET_CLOSE:
+	//	')';
+	public TerminalRule getBRACKET_CLOSERule() {
+		return tBRACKET_CLOSE;
 	}
 	
 	//terminal STRING:

@@ -51,6 +51,8 @@ All kinds of launch configurations can define certain attributes the same. These
     * `foreground`: launches the launch configuration in foreground.
     * `no-console` (not for type 'group'): don't allocate a console for the launch.
     * `replace-env` (not for type 'group'): don't append to the environment when defining new variables, but replace it as a whole.
+    * `qualified`: qualifies the name of the launch configuration with the project name the file is contained in. This allows to copy the project and have all copied launch configurations automatically receive the project name as prefix (means that the now two launch configurations don't collide).
+    * `qualified("NAME")`: qualifies the launch configuration by prefixing it with NAME.
  * single-properties:
      * `working-dir`: specifies the working directory for the launch
      * `memory`: allows to specify various memory aspects (min, max, maxPermSize) without the need to wring `vm-arg`s.

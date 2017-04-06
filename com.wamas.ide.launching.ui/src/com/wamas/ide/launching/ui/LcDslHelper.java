@@ -95,7 +95,7 @@ public class LcDslHelper {
         LCModel model = loadModel(file);
 
         for (LaunchConfig c : model.getConfigurations()) {
-            if (c.getName().equals(name)) {
+            if (generator.fullName(c).equals(name)) {
                 return c;
             }
         }

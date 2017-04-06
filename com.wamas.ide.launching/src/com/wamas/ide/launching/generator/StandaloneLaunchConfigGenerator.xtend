@@ -22,8 +22,13 @@ import org.eclipse.pde.launching.IPDELauncherConstants
 import java.util.Map
 import org.eclipse.pde.core.plugin.PluginRegistry
 import com.wamas.ide.launching.services.LcDslPostProcessor
+import com.google.inject.Inject
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 class StandaloneLaunchConfigGenerator {
+
+	@Inject
+	extension IQualifiedNameProvider qnp
 
 	private val knownStartLevels = newHashMap(
 		"org.eclipse.osgi" -> "@-1:true",
@@ -49,6 +54,10 @@ class StandaloneLaunchConfigGenerator {
 	static def getTypeName(LaunchConfigType type) {
 		TYPE_MAP.get(type)
 	}
+	
+	def fullName(LaunchConfig c) {
+		c.fullyQualifiedName.toString
+	}
 
 	def generate(LaunchConfig c) {
 		val config = postProcess(c);
@@ -57,14 +66,18 @@ class StandaloneLaunchConfigGenerator {
 			return null;
 
 		if (config.hasError) {
-			Activator.log(IStatus.ERROR, "launch configuration has errors, not generating " + config.name, null)
+			Activator.log(IStatus.ERROR, "launch configuration has errors, not generating " + config.fullName, null)
 			return null;
 		}
 
 		val copy = reCreateConfig(config)
 		if (copy == null) {
-			Activator.log(IStatus.ERROR, "cannot create launch configuration " + config.name, null)
+			Activator.log(IStatus.ERROR, "cannot create launch configuration " + config.fullName, null)
 			return null;
+		}
+		
+		if(Activator.isDebug) {
+			Activator.log(IStatus.INFO, "generating " + config.fullName, null);
 		}
 
 		if (config.type != LaunchConfigType.GROUP) {
@@ -129,7 +142,7 @@ class StandaloneLaunchConfigGenerator {
 		
 		var processed = config;
 		for(p : processors) {
-			processed = p.apply(processed);
+			processed = p.apply(processed.fullName, processed);
 		}
 		return processed;
 	}
@@ -153,7 +166,7 @@ class StandaloneLaunchConfigGenerator {
 			return null;
 		}
 
-		val lc = launchMgr.getLaunchConfigurations(type).findFirst[l|l.name.equals(config.name)]
+		val lc = launchMgr.getLaunchConfigurations(type).findFirst[l|l.name.equals(config.fullName)]
 		
 		if(lc != null) {
 			// keep the original configuration so existing launches don't loose their association
@@ -162,7 +175,7 @@ class StandaloneLaunchConfigGenerator {
 			return wc;
 		}
 
-		return type.newInstance(null, config.name)
+		return type.newInstance(null, config.fullName)
 	}
 
 	def generateJava(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {

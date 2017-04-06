@@ -51,12 +51,12 @@ public class LcDslLaunchObject implements LaunchObject {
 
     @Override
     public String getId() {
-        return cfg.getName();
+        return generator.fullName(cfg);
     }
 
     @Override
     public StyledString getLabel() {
-        return new StyledString(cfg.getName()).append(' ').append("[" + cfg.eResource().getURI().lastSegment() + "]",
+        return new StyledString(generator.fullName(cfg)).append(' ').append("[" + cfg.eResource().getURI().lastSegment() + "]",
                 StyledString.QUALIFIER_STYLER);
     }
 
@@ -121,7 +121,7 @@ public class LcDslLaunchObject implements LaunchObject {
         }
         try {
             for (ILaunchConfiguration config : DebugPlugin.getDefault().getLaunchManager().getLaunchConfigurations(getType())) {
-                if (config.getName().equals(cfg.getName())) {
+                if (config.getName().equals(generator.fullName(cfg))) {
                     cachedGenerated = config;
                     break;
                 }

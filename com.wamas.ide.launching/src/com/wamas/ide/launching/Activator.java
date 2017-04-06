@@ -17,6 +17,9 @@ import org.osgi.framework.ServiceReference;
 
 public class Activator implements BundleActivator {
 
+    public static final String PLUGIN_ID = "com.wamas.ide.launching";
+    public static final String DEBUG = PLUGIN_ID + "/debug";
+
     private static BundleContext ctx;
 
     @Override
@@ -49,6 +52,10 @@ public class Activator implements BundleActivator {
 
     public static void log(int severity, String message, Throwable t) {
         getLog().log(new Status(severity, ctx.getBundle().getSymbolicName(), message, t));
+    }
+
+    public static boolean isDebug() {
+        return Boolean.parseBoolean(Platform.getDebugOption(DEBUG));
     }
 
 }

@@ -45,6 +45,7 @@ LaunchConfig:
 		& (swInstallSupport?='sw-install-allowed')? // Eclipse
 		& (replaceEnv?='replace-env')? // All but Groups
 		& (stopInMain?='stop-in-main')? // Java
+		& (qualify?='qualified' (BRACKET_OPEN qualifierId=STRING BRACKET_CLOSE)?)? // All - naming
 	) type=LaunchConfigType 'configuration' name=FQName 
 	(':' superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN
 		( // things that may appear only once
@@ -267,3 +268,6 @@ terminal VERSION: INT (('.' INT) (('.' INT) ('.' QUALIFIER)?)?)?;
 terminal EQ: '=';
 terminal BLOCK_BEGIN: '{';
 terminal BLOCK_END: '}';
+terminal BRACKET_OPEN: '(';
+terminal BRACKET_CLOSE: ')';
+

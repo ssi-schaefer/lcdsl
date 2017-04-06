@@ -30,6 +30,10 @@ public class LcDslSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getBLOCK_BEGINToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getBLOCK_ENDRule())
 			return getBLOCK_ENDToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getBRACKET_CLOSERule())
+			return getBRACKET_CLOSEToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getBRACKET_OPENRule())
+			return getBRACKET_OPENToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getEQRule())
 			return getEQToken(semanticObject, ruleCall, node);
 		return "";
@@ -51,6 +55,24 @@ public class LcDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "}";
+	}
+	
+	/**
+	 * terminal BRACKET_CLOSE: ')';
+	 */
+	protected String getBRACKET_CLOSEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return ")";
+	}
+	
+	/**
+	 * terminal BRACKET_OPEN: '(';
+	 */
+	protected String getBRACKET_OPENToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "(";
 	}
 	
 	/**

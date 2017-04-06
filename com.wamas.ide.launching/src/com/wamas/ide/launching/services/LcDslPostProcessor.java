@@ -20,9 +20,10 @@ public interface LcDslPostProcessor {
      * Attention: post processors MUST make sure to create a copy of the objects changed to avoid problems with editor
      * representations, etc. The passed in launch config MAY be the real object backed by the actual files on disk.
      *
+     * @param name
      * @param lc the launch configuration - copy if appropriate!
      * @return a post processes launch configuration if required.
      */
-    public LaunchConfig apply(LaunchConfig lc);
+    public LaunchConfig apply(String name, LaunchConfig lc);
 
 }

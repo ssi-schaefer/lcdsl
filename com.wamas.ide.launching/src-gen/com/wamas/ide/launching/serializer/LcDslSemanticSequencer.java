@@ -501,16 +501,19 @@ public class LcDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 * Constraint:
 	 *     (
 	 *         (
-	 *             explicit?='explicit' | 
-	 *             manual?='manual' | 
-	 *             abstract?='abstract' | 
-	 *             foreground?='foreground' | 
-	 *             noConsole?='no-console' | 
-	 *             noValidate?='no-validate' | 
-	 *             swInstallSupport?='sw-install-allowed' | 
-	 *             replaceEnv?='replace-env' | 
-	 *             stopInMain?='stop-in-main'
-	 *         )* 
+	 *             (
+	 *                 explicit?='explicit' | 
+	 *                 manual?='manual' | 
+	 *                 abstract?='abstract' | 
+	 *                 foreground?='foreground' | 
+	 *                 noConsole?='no-console' | 
+	 *                 noValidate?='no-validate' | 
+	 *                 swInstallSupport?='sw-install-allowed' | 
+	 *                 replaceEnv?='replace-env' | 
+	 *                 stopInMain?='stop-in-main'
+	 *             )? 
+	 *             (qualify?='qualified' qualifierId=STRING?)?
+	 *         )+ 
 	 *         type=LaunchConfigType 
 	 *         name=FQName 
 	 *         superConfig=[LaunchConfig|FQName]? 

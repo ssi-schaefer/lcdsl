@@ -48,7 +48,7 @@ class LcDslGenerator extends AbstractGenerator {
 
 		// always generate if the launch config is already there to update it, regardless of 'manual' mode.
 		for (lc : DebugPlugin.^default.launchManager.launchConfigurations) {
-			if (lc.name.equals(config.name))
+			if (lc.name.equals(config.fullName))
 				return true
 		}
 

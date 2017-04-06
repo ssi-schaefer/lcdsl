@@ -63,6 +63,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isSwInstallSupport <em>Sw Install Support</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isReplaceEnv <em>Replace Env</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isStopInMain <em>Stop In Main</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#isQualify <em>Qualify</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getQualifierId <em>Qualifier Id</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.impl.LaunchConfigImpl#getSuperConfig <em>Super Config</em>}</li>
@@ -274,6 +276,46 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
    * @ordered
    */
   protected boolean stopInMain = STOP_IN_MAIN_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isQualify() <em>Qualify</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isQualify()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean QUALIFY_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isQualify() <em>Qualify</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isQualify()
+   * @generated
+   * @ordered
+   */
+  protected boolean qualify = QUALIFY_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getQualifierId() <em>Qualifier Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getQualifierId()
+   * @generated
+   * @ordered
+   */
+  protected static final String QUALIFIER_ID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getQualifierId() <em>Qualifier Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getQualifierId()
+   * @generated
+   * @ordered
+   */
+  protected String qualifierId = QUALIFIER_ID_EDEFAULT;
 
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -781,6 +823,52 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
     stopInMain = newStopInMain;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__STOP_IN_MAIN, oldStopInMain, stopInMain));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isQualify()
+  {
+    return qualify;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setQualify(boolean newQualify)
+  {
+    boolean oldQualify = qualify;
+    qualify = newQualify;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__QUALIFY, oldQualify, qualify));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getQualifierId()
+  {
+    return qualifierId;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setQualifierId(String newQualifierId)
+  {
+    String oldQualifierId = qualifierId;
+    qualifierId = newQualifierId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LcDslPackage.LAUNCH_CONFIG__QUALIFIER_ID, oldQualifierId, qualifierId));
   }
 
   /**
@@ -1792,6 +1880,10 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return isReplaceEnv();
       case LcDslPackage.LAUNCH_CONFIG__STOP_IN_MAIN:
         return isStopInMain();
+      case LcDslPackage.LAUNCH_CONFIG__QUALIFY:
+        return isQualify();
+      case LcDslPackage.LAUNCH_CONFIG__QUALIFIER_ID:
+        return getQualifierId();
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         return getType();
       case LcDslPackage.LAUNCH_CONFIG__NAME:
@@ -1886,6 +1978,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return;
       case LcDslPackage.LAUNCH_CONFIG__STOP_IN_MAIN:
         setStopInMain((Boolean)newValue);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__QUALIFY:
+        setQualify((Boolean)newValue);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__QUALIFIER_ID:
+        setQualifierId((String)newValue);
         return;
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         setType((LaunchConfigType)newValue);
@@ -2014,6 +2112,12 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
       case LcDslPackage.LAUNCH_CONFIG__STOP_IN_MAIN:
         setStopInMain(STOP_IN_MAIN_EDEFAULT);
         return;
+      case LcDslPackage.LAUNCH_CONFIG__QUALIFY:
+        setQualify(QUALIFY_EDEFAULT);
+        return;
+      case LcDslPackage.LAUNCH_CONFIG__QUALIFIER_ID:
+        setQualifierId(QUALIFIER_ID_EDEFAULT);
+        return;
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         setType(TYPE_EDEFAULT);
         return;
@@ -2124,6 +2228,10 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
         return replaceEnv != REPLACE_ENV_EDEFAULT;
       case LcDslPackage.LAUNCH_CONFIG__STOP_IN_MAIN:
         return stopInMain != STOP_IN_MAIN_EDEFAULT;
+      case LcDslPackage.LAUNCH_CONFIG__QUALIFY:
+        return qualify != QUALIFY_EDEFAULT;
+      case LcDslPackage.LAUNCH_CONFIG__QUALIFIER_ID:
+        return QUALIFIER_ID_EDEFAULT == null ? qualifierId != null : !QUALIFIER_ID_EDEFAULT.equals(qualifierId);
       case LcDslPackage.LAUNCH_CONFIG__TYPE:
         return type != TYPE_EDEFAULT;
       case LcDslPackage.LAUNCH_CONFIG__NAME:
@@ -2209,6 +2317,10 @@ public class LaunchConfigImpl extends MinimalEObjectImpl.Container implements La
     result.append(replaceEnv);
     result.append(", stopInMain: ");
     result.append(stopInMain);
+    result.append(", qualify: ");
+    result.append(qualify);
+    result.append(", qualifierId: ");
+    result.append(qualifierId);
     result.append(", type: ");
     result.append(type);
     result.append(", name: ");

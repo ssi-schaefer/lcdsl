@@ -28,6 +28,7 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
 
 import com.wamas.ide.launching.generator.LcDslGenerator;
+import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
 import com.wamas.ide.launching.ui.LcDslHelper;
@@ -42,6 +43,7 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
     private final ILaunchManager manager = DebugPlugin.getDefault().getLaunchManager();
     private final Runnable generatorListener = () -> fireUpdate();
     private boolean hideManual = true;
+    private StandaloneLaunchConfigGenerator generator;
 
     private static final String HIDE_PREF = "lcdsl.hideManual";
 
@@ -51,6 +53,7 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
 
         getPreferenceStore().setDefault(HIDE_PREF, true);
         hideManual = getPreferenceStore().getBoolean(HIDE_PREF);
+        generator = LcDslHelper.getInjector().getInstance(StandaloneLaunchConfigGenerator.class);
     }
 
     private IPreferenceStore getPreferenceStore() {
@@ -83,7 +86,7 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
                 }
 
                 // only hide manual if there is no other object it would be (properly) hiding
-                if (hideManual && l.isManual() && findLaunchConfiguration(o.getType(), l.getName()) == null) {
+                if (hideManual && l.isManual() && findLaunchConfiguration(o.getType(), generator.fullName(l)) == null) {
                     continue;
                 }
 

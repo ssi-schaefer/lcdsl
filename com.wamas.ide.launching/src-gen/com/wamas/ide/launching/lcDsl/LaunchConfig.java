@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isSwInstallSupport <em>Sw Install Support</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isReplaceEnv <em>Replace Env</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isStopInMain <em>Stop In Main</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isQualify <em>Qualify</em>}</li>
+ *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getQualifierId <em>Qualifier Id</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getType <em>Type</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getName <em>Name</em>}</li>
  *   <li>{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getSuperConfig <em>Super Config</em>}</li>
@@ -292,6 +294,58 @@ public interface LaunchConfig extends EObject
    * @generated
    */
   void setStopInMain(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Qualify</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Qualify</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Qualify</em>' attribute.
+   * @see #setQualify(boolean)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_Qualify()
+   * @model
+   * @generated
+   */
+  boolean isQualify();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isQualify <em>Qualify</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Qualify</em>' attribute.
+   * @see #isQualify()
+   * @generated
+   */
+  void setQualify(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Qualifier Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Qualifier Id</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Qualifier Id</em>' attribute.
+   * @see #setQualifierId(String)
+   * @see com.wamas.ide.launching.lcDsl.LcDslPackage#getLaunchConfig_QualifierId()
+   * @model
+   * @generated
+   */
+  String getQualifierId();
+
+  /**
+   * Sets the value of the '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getQualifierId <em>Qualifier Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Qualifier Id</em>' attribute.
+   * @see #getQualifierId()
+   * @generated
+   */
+  void setQualifierId(String value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.

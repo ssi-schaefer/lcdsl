@@ -178,13 +178,31 @@ public interface LcDslPackage extends EPackage
   int LAUNCH_CONFIG__STOP_IN_MAIN = 8;
 
   /**
+   * The feature id for the '<em><b>Qualify</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAUNCH_CONFIG__QUALIFY = 9;
+
+  /**
+   * The feature id for the '<em><b>Qualifier Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAUNCH_CONFIG__QUALIFIER_ID = 10;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__TYPE = 9;
+  int LAUNCH_CONFIG__TYPE = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -193,7 +211,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__NAME = 10;
+  int LAUNCH_CONFIG__NAME = 12;
 
   /**
    * The feature id for the '<em><b>Super Config</b></em>' reference.
@@ -202,7 +220,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__SUPER_CONFIG = 11;
+  int LAUNCH_CONFIG__SUPER_CONFIG = 13;
 
   /**
    * The feature id for the '<em><b>Clears</b></em>' containment reference.
@@ -211,7 +229,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__CLEARS = 12;
+  int LAUNCH_CONFIG__CLEARS = 14;
 
   /**
    * The feature id for the '<em><b>Workspace</b></em>' containment reference.
@@ -220,7 +238,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__WORKSPACE = 13;
+  int LAUNCH_CONFIG__WORKSPACE = 15;
 
   /**
    * The feature id for the '<em><b>Working Dir</b></em>' containment reference.
@@ -229,7 +247,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__WORKING_DIR = 14;
+  int LAUNCH_CONFIG__WORKING_DIR = 16;
 
   /**
    * The feature id for the '<em><b>Memory</b></em>' containment reference.
@@ -238,7 +256,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__MEMORY = 15;
+  int LAUNCH_CONFIG__MEMORY = 17;
 
   /**
    * The feature id for the '<em><b>Main Project</b></em>' containment reference.
@@ -247,7 +265,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__MAIN_PROJECT = 16;
+  int LAUNCH_CONFIG__MAIN_PROJECT = 18;
 
   /**
    * The feature id for the '<em><b>Main Type</b></em>' containment reference.
@@ -256,7 +274,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__MAIN_TYPE = 17;
+  int LAUNCH_CONFIG__MAIN_TYPE = 19;
 
   /**
    * The feature id for the '<em><b>Application</b></em>' containment reference.
@@ -265,7 +283,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__APPLICATION = 18;
+  int LAUNCH_CONFIG__APPLICATION = 20;
 
   /**
    * The feature id for the '<em><b>Product</b></em>' containment reference.
@@ -274,7 +292,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__PRODUCT = 19;
+  int LAUNCH_CONFIG__PRODUCT = 21;
 
   /**
    * The feature id for the '<em><b>Favorites</b></em>' containment reference.
@@ -283,7 +301,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__FAVORITES = 20;
+  int LAUNCH_CONFIG__FAVORITES = 22;
 
   /**
    * The feature id for the '<em><b>Redirect</b></em>' containment reference.
@@ -292,7 +310,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__REDIRECT = 21;
+  int LAUNCH_CONFIG__REDIRECT = 23;
 
   /**
    * The feature id for the '<em><b>Exec Env</b></em>' containment reference.
@@ -301,7 +319,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__EXEC_ENV = 22;
+  int LAUNCH_CONFIG__EXEC_ENV = 24;
 
   /**
    * The feature id for the '<em><b>Config Ini Template</b></em>' containment reference.
@@ -310,7 +328,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__CONFIG_INI_TEMPLATE = 23;
+  int LAUNCH_CONFIG__CONFIG_INI_TEMPLATE = 25;
 
   /**
    * The feature id for the '<em><b>Java Main Search</b></em>' containment reference.
@@ -319,7 +337,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__JAVA_MAIN_SEARCH = 24;
+  int LAUNCH_CONFIG__JAVA_MAIN_SEARCH = 26;
 
   /**
    * The feature id for the '<em><b>Servlet Config</b></em>' containment reference.
@@ -328,7 +346,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__SERVLET_CONFIG = 25;
+  int LAUNCH_CONFIG__SERVLET_CONFIG = 27;
 
   /**
    * The feature id for the '<em><b>Content Provider Product</b></em>' containment reference.
@@ -337,7 +355,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__CONTENT_PROVIDER_PRODUCT = 26;
+  int LAUNCH_CONFIG__CONTENT_PROVIDER_PRODUCT = 28;
 
   /**
    * The feature id for the '<em><b>Plugins</b></em>' containment reference list.
@@ -346,7 +364,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__PLUGINS = 27;
+  int LAUNCH_CONFIG__PLUGINS = 29;
 
   /**
    * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -355,7 +373,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__FEATURES = 28;
+  int LAUNCH_CONFIG__FEATURES = 30;
 
   /**
    * The feature id for the '<em><b>Ignore</b></em>' containment reference list.
@@ -364,7 +382,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__IGNORE = 29;
+  int LAUNCH_CONFIG__IGNORE = 31;
 
   /**
    * The feature id for the '<em><b>Group Members</b></em>' containment reference list.
@@ -373,7 +391,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__GROUP_MEMBERS = 30;
+  int LAUNCH_CONFIG__GROUP_MEMBERS = 32;
 
   /**
    * The feature id for the '<em><b>Vm Args</b></em>' containment reference list.
@@ -382,7 +400,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__VM_ARGS = 31;
+  int LAUNCH_CONFIG__VM_ARGS = 33;
 
   /**
    * The feature id for the '<em><b>Prog Args</b></em>' containment reference list.
@@ -391,7 +409,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__PROG_ARGS = 32;
+  int LAUNCH_CONFIG__PROG_ARGS = 34;
 
   /**
    * The feature id for the '<em><b>Env Vars</b></em>' containment reference list.
@@ -400,7 +418,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__ENV_VARS = 33;
+  int LAUNCH_CONFIG__ENV_VARS = 35;
 
   /**
    * The feature id for the '<em><b>Traces</b></em>' containment reference list.
@@ -409,7 +427,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG__TRACES = 34;
+  int LAUNCH_CONFIG__TRACES = 36;
 
   /**
    * The number of structural features of the '<em>Launch Config</em>' class.
@@ -418,7 +436,7 @@ public interface LcDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAUNCH_CONFIG_FEATURE_COUNT = 35;
+  int LAUNCH_CONFIG_FEATURE_COUNT = 37;
 
   /**
    * The meta object id for the '{@link com.wamas.ide.launching.lcDsl.impl.WorkspaceImpl <em>Workspace</em>}' class.
@@ -1870,6 +1888,28 @@ public interface LcDslPackage extends EPackage
    * @generated
    */
   EAttribute getLaunchConfig_StopInMain();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#isQualify <em>Qualify</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Qualify</em>'.
+   * @see com.wamas.ide.launching.lcDsl.LaunchConfig#isQualify()
+   * @see #getLaunchConfig()
+   * @generated
+   */
+  EAttribute getLaunchConfig_Qualify();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getQualifierId <em>Qualifier Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Qualifier Id</em>'.
+   * @see com.wamas.ide.launching.lcDsl.LaunchConfig#getQualifierId()
+   * @see #getLaunchConfig()
+   * @generated
+   */
+  EAttribute getLaunchConfig_QualifierId();
 
   /**
    * Returns the meta object for the attribute '{@link com.wamas.ide.launching.lcDsl.LaunchConfig#getType <em>Type</em>}'.
@@ -3381,6 +3421,22 @@ public interface LcDslPackage extends EPackage
      * @generated
      */
     EAttribute LAUNCH_CONFIG__STOP_IN_MAIN = eINSTANCE.getLaunchConfig_StopInMain();
+
+    /**
+     * The meta object literal for the '<em><b>Qualify</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LAUNCH_CONFIG__QUALIFY = eINSTANCE.getLaunchConfig_Qualify();
+
+    /**
+     * The meta object literal for the '<em><b>Qualifier Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LAUNCH_CONFIG__QUALIFIER_ID = eINSTANCE.getLaunchConfig_QualifierId();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
