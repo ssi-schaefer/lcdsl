@@ -15,6 +15,8 @@ import org.eclipse.debug.ui.IDebugUIConstants
 import org.eclipse.jdt.launching.JavaRuntime
 
 import static extension com.wamas.ide.launching.validation.LcDslValidator.getExpanded
+import static extension com.wamas.ide.launching.validation.LcDslValidator.mapSaveSuperConfig
+import com.wamas.ide.launching.validation.LcDslValidator
 
 /**
  * Collects raw values for launch configuration fields, taking into account inheritance
@@ -31,7 +33,7 @@ class RecursiveCollectors {
 	static def mapToFavoriteType(LaunchModeType t) {
 		favoriteGroupMap.get(t)
 	}
-
+	
 	static def List<String> collectArguments(LaunchConfig config) {
 		collectFlatList(config, [progArgs?.map[arguments?.map[value]]?.flatten])
 	}
@@ -215,8 +217,8 @@ class RecursiveCollectors {
 	private static def Map<String, String> collectFlatEnvMap(LaunchConfig config) {
 		val o = newHashMap()
 		
-		if(config.superConfig != null) {
-			o.putAll(collectFlatEnvMap(config.superConfig))
+		if(config.mapSaveSuperConfig != null) {
+			o.putAll(collectFlatEnvMap(config.mapSaveSuperConfig))
 		}
 		
 		o.putAll(config.envVars.envVarsToMap)
@@ -242,8 +244,8 @@ class RecursiveCollectors {
 		if (o != null)
 			return o
 
-		if (config.superConfig != null)
-			return collectFlatObject(config.superConfig, extractor)
+		if (config.mapSaveSuperConfig != null)
+			return collectFlatObject(config.mapSaveSuperConfig, extractor)
 
 		return null;
 	}
@@ -254,8 +256,8 @@ class RecursiveCollectors {
 	private static def <T> List<T> collectFlatList(LaunchConfig config, Function<LaunchConfig, ? extends Iterable<T>> extractor) {
 		var result = newArrayList()
 
-		if (config.superConfig != null) {
-			result.addAll(collectFlatList(config.superConfig, extractor))
+		if (config.mapSaveSuperConfig != null) {
+			result.addAll(collectFlatList(config.mapSaveSuperConfig, extractor))
 		}
 
 		val v = extractor.apply(config)
@@ -277,8 +279,8 @@ class RecursiveCollectors {
 		if (o != null && o == expected)
 			return true
 
-		if (config.superConfig != null)
-			return collectFlatBoolean(config.superConfig, expected, extractor)
+		if (config.mapSaveSuperConfig != null)
+			return collectFlatBoolean(config.mapSaveSuperConfig, expected, extractor)
 
 		return false;
 	}

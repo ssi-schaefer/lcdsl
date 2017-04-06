@@ -103,6 +103,13 @@ class LcDslValidator extends AbstractLcDslValidator {
 			#{LC.launchConfig_GroupMembers}
 		}
 	)
+	
+	static def mapSaveSuperConfig(LaunchConfig config) {
+		if(LcDslValidator.checkCircle(config, config.superConfig))
+			return null
+		
+		return config.superConfig
+	}
 
 	@Check
 	def checkSpecifics(LaunchConfig lc) {
@@ -164,10 +171,10 @@ class LcDslValidator extends AbstractLcDslValidator {
 			}
 		}
 
-		if (lc.superConfig == null)
+		if (lc.mapSaveSuperConfig == null)
 			return false
 
-		return lc.superConfig.isFeatureSetRecursive(feature)
+		return lc.mapSaveSuperConfig.isFeatureSetRecursive(feature)
 	}
 
 	def List<String> simpleNames(Set<? extends EStructuralFeature> features) {
@@ -184,6 +191,17 @@ class LcDslValidator extends AbstractLcDslValidator {
 		if (lc.superConfig != null && lc.superConfig.type != lc.type) {
 			error("Super launch configuration has a different type", LC.launchConfig_SuperConfig)
 		}
+		
+		if(checkCircle(lc, lc.superConfig)) {
+			error("Circular inheritance found", LC.launchConfig_SuperConfig)
+		}
+	}
+	
+	static def boolean checkCircle(LaunchConfig config, LaunchConfig superConfig) {
+		if(config.equals(superConfig))
+			return true
+		
+		return checkCircle(config, superConfig.superConfig)
 	}
 
 	@Check
