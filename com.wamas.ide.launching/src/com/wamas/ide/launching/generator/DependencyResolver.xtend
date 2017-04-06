@@ -53,12 +53,15 @@ class DependencyResolver {
 		val allBundles = newHashMap()
 
 		if (cp != null && !cp.empty) {
-			val file = ResourcesPlugin.workspace.root.findFilesForLocationURI(new File(cp).toURI).get(0)
-			val prodBundles = file.findBundlesInProduct
-			allBundles.putAll(prodBundles.toInvertedMap[new StartLevel])
-
-			// feature may not contain required dependencies
-			resolveAndExpand(config, allBundles, prodBundles, mappedIgnores)
+			val files = ResourcesPlugin.workspace.root.findFilesForLocationURI(new File(cp).toURI)
+			if(files != null && files.length > 0) {
+				val file = files.get(0)
+				val prodBundles = file.findBundlesInProduct
+				allBundles.putAll(prodBundles.toInvertedMap[new StartLevel])
+	
+				// feature may not contain required dependencies
+				resolveAndExpand(config, allBundles, prodBundles, mappedIgnores)
+			}
 		}
 
 		if (features != null && !features.empty) {
