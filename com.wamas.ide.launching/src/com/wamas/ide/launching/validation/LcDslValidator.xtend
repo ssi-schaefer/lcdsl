@@ -198,6 +198,9 @@ class LcDslValidator extends AbstractLcDslValidator {
 	}
 	
 	static def boolean checkCircle(LaunchConfig config, LaunchConfig superConfig) {
+		if(superConfig == null)
+			return false
+		
 		if(config.equals(superConfig))
 			return true
 		
