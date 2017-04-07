@@ -216,7 +216,7 @@ any resulting litigation.
    </license>
 
    <plugin
-         id="com.wamas.ide.launchview"
+         id="org.eclipse.debug.ui.launchview"
          download-size="0"
          install-size="0"
          version="0.0.0"

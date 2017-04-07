@@ -12,6 +12,8 @@ import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchManager;
+import org.eclipse.debug.ui.launchview.services.AbstractLaunchObjectProvider;
+import org.eclipse.debug.ui.launchview.services.LaunchObjectProvider;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.menu.ItemType;
 import org.eclipse.e4.ui.model.application.ui.menu.MDirectMenuItem;
@@ -34,8 +36,6 @@ import com.wamas.ide.launching.lcDsl.LcDslPackage;
 import com.wamas.ide.launching.ui.LcDslHelper;
 import com.wamas.ide.launching.ui.internal.LaunchingActivator;
 import com.wamas.ide.launching.ui.internal.LcDslInternalHelper;
-import com.wamas.ide.launchview.services.AbstractLaunchObjectProvider;
-import com.wamas.ide.launchview.services.LaunchObjectProvider;
 
 @Component(service = LaunchObjectProvider.class)
 public class LcDslProvider extends AbstractLaunchObjectProvider implements LaunchObjectProvider {

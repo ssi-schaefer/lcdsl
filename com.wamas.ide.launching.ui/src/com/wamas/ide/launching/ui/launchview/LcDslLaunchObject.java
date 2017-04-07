@@ -9,6 +9,9 @@ import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchMode;
+import org.eclipse.debug.ui.launchview.impl.DebugCoreLaunchObject;
+import org.eclipse.debug.ui.launchview.launcher.StandaloneLaunchConfigExecutor;
+import org.eclipse.debug.ui.launchview.services.LaunchObject;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.DecorationOverlayIcon;
@@ -25,9 +28,6 @@ import com.wamas.ide.launching.lcDsl.LaunchConfig;
 import com.wamas.ide.launching.ui.LcDslHelper;
 import com.wamas.ide.launching.ui.internal.LaunchingActivator;
 import com.wamas.ide.launching.ui.internal.LcDslInternalHelper;
-import com.wamas.ide.launchview.impl.DebugCoreLaunchObject;
-import com.wamas.ide.launchview.launcher.StandaloneLaunchConfigExecutor;
-import com.wamas.ide.launchview.services.LaunchObject;
 
 public class LcDslLaunchObject implements LaunchObject {
 
