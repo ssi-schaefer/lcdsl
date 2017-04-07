@@ -14,6 +14,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchMode;
 import org.eclipse.e4.core.di.annotations.Execute;
+import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.menu.MDirectMenuItem;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenu;
@@ -95,6 +96,11 @@ public class LaunchView {
         createRefreshMenu(part);
 
         reset();
+    }
+
+    @Focus
+    public void onFocus() {
+        tree.getViewer().getControl().setFocus();
     }
 
     private void createRefreshMenu(MPart part) {
