@@ -12,8 +12,11 @@ import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchManager;
+import org.eclipse.debug.ui.launchview.LaunchView;
 import org.eclipse.debug.ui.launchview.services.AbstractLaunchObjectProvider;
+import org.eclipse.debug.ui.launchview.services.LaunchObject;
 import org.eclipse.debug.ui.launchview.services.LaunchObjectProvider;
+import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.menu.ItemType;
 import org.eclipse.e4.ui.model.application.ui.menu.MDirectMenuItem;
@@ -116,7 +119,7 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
     }
 
     @Override
-    public void contributeViewMenu(MMenu menu) {
+    public void contributeViewMenu(LaunchView view, MMenu menu) {
         MDirectMenuItem hide = MMenuFactory.INSTANCE.createDirectMenuItem();
         hide.setLabel("Hide 'manual' LcDsl configurations");
         hide.setType(ItemType.CHECK);
@@ -161,6 +164,60 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
 
         menu.getChildren().add(MMenuFactory.INSTANCE.createMenuSeparator());
         menu.getChildren().add(hide);
+        menu.getChildren().add(cleanup);
+    }
+
+    @Override
+    public void contributeContextMenu(LaunchView view, MMenu menu) {
+        // (re-)generate launch configurations
+        MDirectMenuItem generate = MMenuFactory.INSTANCE.createDirectMenuItem();
+        generate.setLabel("(Re-)generate Eclipse launch configuration");
+        generate.setTooltip("Generates the Eclipse launch configuration from this LcDsl launch configuration");
+        generate.setIconURI("platform:/plugin/" + LcDslInternalHelper.PLUGIN_ID + "/icons/launch_run.gif");
+        generate.setObject(new Object() {
+
+            @Execute
+            public void generate() {
+                for (LaunchObject e : view.getSelectedElements()) {
+                    LcDslLaunchObject o = (LcDslLaunchObject) e;
+                    LcDslHelper.getInstance().generate(o.getLaunchConfig());
+                }
+
+                fireUpdate();
+            }
+
+            @CanExecute
+            public boolean isEnabled() {
+                return view.getSelectedElements().stream().allMatch(e -> e instanceof LcDslLaunchObject);
+            }
+        });
+
+        // cleanup existing launch configurations
+        MDirectMenuItem cleanup = MMenuFactory.INSTANCE.createDirectMenuItem();
+        cleanup.setLabel("Remove generated launch configuration");
+        cleanup.setTooltip(
+                "Removes the launch configuration from Eclipse that has been generated from this LcDsl launch configuration");
+        cleanup.setIconURI("platform:/plugin/" + LcDslInternalHelper.PLUGIN_ID + "/icons/clear.gif");
+        cleanup.setObject(new Object() {
+
+            @Execute
+            public void cleanup() throws CoreException {
+                for (LaunchObject e : view.getSelectedElements()) {
+                    findLaunchConfiguration(e.getType(), e.getId()).delete();
+                }
+
+                fireUpdate();
+            }
+
+            @CanExecute
+            public boolean isEnabled() {
+                return view.getSelectedElements().stream()
+                        .allMatch(e -> e instanceof LcDslLaunchObject && findLaunchConfiguration(e.getType(), e.getId()) != null);
+            }
+        });
+
+        menu.getChildren().add(MMenuFactory.INSTANCE.createMenuSeparator());
+        menu.getChildren().add(generate);
         menu.getChildren().add(cleanup);
     }
 
