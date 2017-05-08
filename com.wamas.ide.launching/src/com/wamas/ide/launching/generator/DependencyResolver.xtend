@@ -43,7 +43,7 @@ class DependencyResolver {
 		}
 	}
 
-	static def findDependencies(LaunchConfig config) {
+	static def findDependencies(LaunchConfig config, boolean addAll) {
 		val plugins = config.collectPlugins
 		val features = config.collectFeatures
 		val ignores = config.collectIgnores
@@ -60,7 +60,7 @@ class DependencyResolver {
 				allBundles.putAll(prodBundles.toInvertedMap[new StartLevel])
 	
 				// feature may not contain required dependencies
-				resolveAndExpand(config, allBundles, prodBundles, mappedIgnores)
+				resolveAndExpand(config, allBundles, prodBundles, mappedIgnores, addAll)
 			}
 		}
 
@@ -72,7 +72,7 @@ class DependencyResolver {
 					allBundles.putAll(ps.toInvertedMap[new StartLevel])
 
 					// feature may not contain required dependencies
-					resolveAndExpand(config, allBundles, ps, mappedIgnores)
+					resolveAndExpand(config, allBundles, ps, mappedIgnores, addAll)
 				}
 			}
 		}
@@ -92,18 +92,18 @@ class DependencyResolver {
 				}
 			}
 
-			resolveAndExpand(config, allBundles, toResolve, mappedIgnores)
+			resolveAndExpand(config, allBundles, toResolve, mappedIgnores, addAll)
 		}
 
 		allBundles
 	}
 
 	protected def static void resolveAndExpand(LaunchConfig config, HashMap<BundleDescription, StartLevel> allBundles,
-		Iterable<BundleDescription> toResolve, List<BundleDescription> mappedIgnores) {
+		Iterable<BundleDescription> toResolve, List<BundleDescription> mappedIgnores, boolean addAll) {
 		// only if requested
 		if (!config.explicit) {
 			// resolve and add
-			val all = toResolve.findDependencies(mappedIgnores)
+			val all = toResolve.findDependencies(mappedIgnores, addAll)
 
 			for (d : all) {
 				if (!allBundles.containsKey(d)) {
@@ -113,7 +113,7 @@ class DependencyResolver {
 		}
 	}
 
-	static def findBundlesInProduct(IFile product) {
+	private static def findBundlesInProduct(IFile product) {
 		val model = new WorkspaceProductModel(product, false)
 		val result = newArrayList
 
@@ -202,36 +202,36 @@ class DependencyResolver {
 		list
 	}
 
-	static def findDependencies(Iterable<BundleDescription> preselected, Collection<BundleDescription> toIgnore) {
+	private static def findDependencies(Iterable<BundleDescription> preselected, Collection<BundleDescription> toIgnore, boolean addAll) {
 		val result = newHashSet();
 
 		for (d : preselected) {
-			addDependenciesRecursive(d, result, toIgnore);
+			addDependenciesRecursive(d, result, toIgnore, addAll);
 		}
 
 		return result;
 	}
 
-	static def void addDependenciesRecursive(BundleDescription desc, Set<BundleDescription> targets,
-		Collection<BundleDescription> toIgnore) {
+	private static def void addDependenciesRecursive(BundleDescription desc, Set<BundleDescription> targets,
+		Collection<BundleDescription> toIgnore, boolean addAll) {
 		if (targets.contains(desc) || toIgnore.contains(desc)) {
 			return;
 		}
 
 		targets.add(desc);
 
-		val directDeps = findDirectDependencies(desc);
-		directDeps.forEach[it.addDependenciesRecursive(targets, toIgnore)];
+		val directDeps = findDirectDependencies(desc, addAll);
+		directDeps.forEach[it.addDependenciesRecursive(targets, toIgnore, addAll)];
 	}
 
-	static def findDirectDependencies(BundleDescription desc) {
+	private static def findDirectDependencies(BundleDescription desc, boolean addAll) {
 		val result = newHashSet();
 
 		// add all fragments that can be resolved
 		for (frag : desc.getFragments()) {
-			if (frag.isResolved()) {
+			// Note: add all fragments, also unresolved, so that update sites contain fragments for all platforms
+			if(frag.resolved || addAll)
 				result.add(frag);
-			}
 		}
 
 		// add all explicit dependencies

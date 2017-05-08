@@ -244,7 +244,7 @@ class StandaloneLaunchConfigGenerator {
 	def generateDependenciesEclipseRap(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
 		val ws = newArrayList
 		val tp = newArrayList
-		for(entry : DependencyResolver.findDependencies(config).entrySet) {
+		for(entry : DependencyResolver.findDependencies(config, false).entrySet) {
 			val pluginId = entry.key.symbolicName
         	val me = PluginRegistry.findEntry(pluginId);
         	if (me != null) {
