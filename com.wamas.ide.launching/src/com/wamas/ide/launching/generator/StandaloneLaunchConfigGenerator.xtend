@@ -304,6 +304,8 @@ class StandaloneLaunchConfigGenerator {
 
 		copy.setIfAvailable("org.eclipse.rap.launch.servletPath", config.collectRAPServletPath)
 		copy.setAttribute("org.eclipse.rap.launch.developmentMode", config.collectRAPDevMode)
+		
+		copy.setAttribute("useCustomFeatures", false);
 
 		val m = config.collectRAPBrowserMode
 		if (m != null) {
