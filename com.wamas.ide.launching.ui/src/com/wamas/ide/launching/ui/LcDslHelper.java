@@ -6,6 +6,7 @@ package com.wamas.ide.launching.ui;
 import java.io.File;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchMode;
 import org.eclipse.debug.ui.launchview.launcher.StandaloneLaunchConfigExecutor;
@@ -138,10 +139,9 @@ public class LcDslHelper {
      *
      * @param config the configuration to launch
      * @param mode the mode to use. See {@link ILaunchMode}
-     * @return 0 on success, -1 on failure.
      */
-    public int launch(LaunchConfig config, String mode) {
-        return launch(config, mode, false, false, null);
+    public void launch(LaunchConfig config, String mode) {
+        launch(config, mode, false, false, null);
     }
 
     /**
@@ -153,10 +153,9 @@ public class LcDslHelper {
      * @param wait whether to wait for the process to finish
      * @param log a log file to write console output to or <code>null</code>. This has no effect on the presence of the console in
      *            the console view.
-     * @return 0 on successful launch (if wait is false), the process exit value (if wait is true), -1 on launch failure.
      */
-    public int launch(LaunchConfig config, String mode, boolean build, boolean wait, File log) {
-        return launch(config, mode, build, wait, log, false);
+    public void launch(LaunchConfig config, String mode, boolean build, boolean wait, File log) {
+        launch(config, mode, build, wait, log, false);
     }
 
     /**
@@ -165,10 +164,9 @@ public class LcDslHelper {
      *
      * @param config the configuration to launch
      * @param mode the mode to use. See {@link ILaunchMode}
-     * @return the process exit value, -1 on launch failure.
      */
-    public int launchWaitAndRemove(LaunchConfig config, String mode) {
-        return launch(config, mode, false, true, null, true);
+    public void launchWaitAndRemove(LaunchConfig config, String mode) {
+        launch(config, mode, false, true, null, true);
     }
 
     /**
@@ -178,29 +176,29 @@ public class LcDslHelper {
      * @param config the configuration to launch
      * @param mode the mode to use. See {@link ILaunchMode}
      * @param log the log file to write output to.
-     * @return the process exit value, -1 on launch failure.
      */
-    public int launchWaitAndRemove(LaunchConfig config, String mode, File log) {
-        return launch(config, mode, false, true, log, true);
+    public void launchWaitAndRemove(LaunchConfig config, String mode, File log) {
+        launch(config, mode, false, true, log, true);
     }
 
-    private int launch(LaunchConfig config, String mode, boolean build, boolean wait, File log, boolean removeAfterLaunch) {
+    private void launch(LaunchConfig config, String mode, boolean build, boolean wait, File log, boolean removeAfterLaunch) {
         ILaunchConfiguration c = generate(config);
         if (c == null) {
-            return -1;
+            throw new RuntimeException("Cannot generate " + config.getName());
         }
 
         try {
             try {
-                return StandaloneLaunchConfigExecutor.launchProcess(c, mode, build, wait, log);
+                if (StandaloneLaunchConfigExecutor.launchProcess(c, mode, build, wait, log) != 0) {
+                    throw new RuntimeException("Failed to run " + config.getName());
+                }
             } finally {
                 if (removeAfterLaunch) {
                     c.delete();
                 }
             }
-        } catch (Exception e) {
-            // TODO log it
-            return -1;
+        } catch (CoreException e) {
+            throw new RuntimeException("Internal error when running " + config.getName(), e);
         }
     }
 
