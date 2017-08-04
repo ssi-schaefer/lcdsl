@@ -9,6 +9,7 @@ import java.util.Collection
 import java.util.HashMap
 import java.util.List
 import java.util.Set
+import org.apache.log4j.Logger
 import org.eclipse.core.resources.IFile
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.osgi.service.resolver.BundleDescription
@@ -23,6 +24,8 @@ import org.eclipse.pde.internal.core.product.WorkspaceProductModel
 import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
 
 class DependencyResolver {
+
+	private static val log = Logger.getLogger(DependencyResolver)
 
 	static class StartLevel {
 		boolean autostart = false;
@@ -53,6 +56,7 @@ class DependencyResolver {
 		val allBundles = newHashMap()
 
 		if (cp !== null && !cp.empty) {
+			log.info("collecting from " + cp)
 			val files = ResourcesPlugin.workspace.root.findFilesForLocationURI(new File(cp).toURI)
 			if(files !== null && files.length > 0) {
 				val file = files.get(0)
@@ -66,6 +70,7 @@ class DependencyResolver {
 
 		if (features !== null && !features.empty) {
 			for (fwv : features) {
+				log.info("top-level feature " + fwv)
 				val f = getBestFeatureMatch(fwv.name, fwv.version)
 				val ps = f?.feature?.pluginModels?.filterNull
 				if (ps !== null && !ps.empty) {
@@ -80,6 +85,7 @@ class DependencyResolver {
 		if (plugins !== null && !plugins.empty) {
 			val toResolve = newArrayList
 			for (pwv : plugins) {
+				log.info("top-level plugin " + pwv)
 				val sl = new StartLevel
 
 				sl.autostart = pwv.autoStart
@@ -143,13 +149,17 @@ class DependencyResolver {
 			if (child.feature !== null) {
 				// features seem to be able to include themselves
 				val childFeature = getBestFeatureMatch(child.id, child.version)
-				result.addAll(childFeature.feature.pluginModels)
+				if(childFeature !== null) {
+					result.addAll(childFeature.feature.pluginModels)
+				} else if(!child.optional) {
+					log.warn("non-optional feature " + child.id + " (" + child.version + ") missing");
+				}
 			}
 		}
 
 		for (plugin : feature.plugins) {
 			val bundle = getBestPluginMatch(plugin.id, plugin.version)
-			if (bundle != null)
+			if (bundle !== null)
 				result.add(bundle.bundleDescription)
 		}
 
@@ -174,7 +184,13 @@ class DependencyResolver {
 
 	private def static getBestFeatureMatch(String id, String version) {
 		val manager = PDECore.^default.featureModelManager
-		manager.findFeatureModel(id, version)
+		val model = manager.findFeatureModel(id, version)
+		
+		if(model === null) {
+			log.info("cannot find feature " + id + " (" + version + ")")
+		}
+		
+		model
 	}
 
 	private static def getBestPluginMatch(String id, String version) {
