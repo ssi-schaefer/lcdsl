@@ -52,9 +52,9 @@ class DependencyResolver {
 		val mappedIgnores = ignores.map[getBestPluginMatch(it.name, it.version)?.bundleDescription].filterNull.toList
 		val allBundles = newHashMap()
 
-		if (cp != null && !cp.empty) {
+		if (cp !== null && !cp.empty) {
 			val files = ResourcesPlugin.workspace.root.findFilesForLocationURI(new File(cp).toURI)
-			if(files != null && files.length > 0) {
+			if(files !== null && files.length > 0) {
 				val file = files.get(0)
 				val prodBundles = file.findBundlesInProduct
 				allBundles.putAll(prodBundles.toInvertedMap[new StartLevel])
@@ -64,11 +64,11 @@ class DependencyResolver {
 			}
 		}
 
-		if (features != null && !features.empty) {
+		if (features !== null && !features.empty) {
 			for (fwv : features) {
 				val f = getBestFeatureMatch(fwv.name, fwv.version)
 				val ps = f?.feature?.pluginModels?.filterNull
-				if (ps != null && !ps.empty) {
+				if (ps !== null && !ps.empty) {
 					allBundles.putAll(ps.toInvertedMap[new StartLevel])
 
 					// feature may not contain required dependencies
@@ -77,7 +77,7 @@ class DependencyResolver {
 			}
 		}
 
-		if (plugins != null && !plugins.empty) {
+		if (plugins !== null && !plugins.empty) {
 			val toResolve = newArrayList
 			for (pwv : plugins) {
 				val sl = new StartLevel
@@ -86,7 +86,7 @@ class DependencyResolver {
 				sl.level = pwv.startLevel
 
 				val desc = getBestPluginMatch(pwv.plugin.name, pwv.plugin.version)
-				if (desc != null) {
+				if (desc !== null) {
 					toResolve.add(desc.bundleDescription)
 					allBundles.put(desc.bundleDescription, sl)
 				}
@@ -130,7 +130,7 @@ class DependencyResolver {
 		val features = pm.product.features;
 		for (f : features) {
 			val model = getBestFeatureMatch(f.id, f.version);
-			if (model != null)
+			if (model !== null)
 				list.add(model);
 		}
 		list
@@ -140,7 +140,7 @@ class DependencyResolver {
 		val result = newArrayList
 
 		for (child : feature.includedFeatures) {
-			if (child.feature != null) {
+			if (child.feature !== null) {
 				// features seem to be able to include themselves
 				val childFeature = getBestFeatureMatch(child.id, child.version)
 				result.addAll(childFeature.feature.pluginModels)
@@ -157,12 +157,12 @@ class DependencyResolver {
 			switch (imp.type) {
 				case IFeatureImport.PLUGIN: {
 					val bundle = getBestPluginMatch(imp.id, imp.version)
-					if (bundle != null)
+					if (bundle !== null)
 						result.add(bundle.bundleDescription)
 				}
 				case IFeatureImport.FEATURE: {
 					val f = getBestFeatureMatch(imp.id, imp.version)
-					if (f != null) {
+					if (f !== null) {
 						result.addAll(f.feature.pluginModels)
 					}
 				}
@@ -181,7 +181,7 @@ class DependencyResolver {
 		// TODO: check version matching for ranges, ...
 		var bundle = PluginRegistry.findModel(id, version, IMatchRules.PERFECT, null)
 
-		if (bundle == null) {
+		if (bundle === null) {
 			bundle = PluginRegistry.findModel(id, null, IMatchRules.NONE, null)
 		}
 
@@ -195,7 +195,7 @@ class DependencyResolver {
 		for (p : plugins) {
 			val bundle = getBestPluginMatch(p.id, p.version)
 
-			if (bundle != null)
+			if (bundle !== null)
 				list.add(bundle.bundleDescription)
 		}
 

@@ -42,7 +42,7 @@ class RecursiveCollectors {
 		var result = newArrayList
 
 		val mem = config.memory
-		if (mem != null) {
+		if (mem !== null) {
 			if (mem.min > 0)
 				result.add("-Xms" + mem.min + mem.minUnit.literal)
 			if (mem.max > 0)
@@ -61,7 +61,7 @@ class RecursiveCollectors {
 
 	static def collectJavaMainProject(LaunchConfig config) {
 		val prjName = collectFlatObject(config, [mainProject?.project?.name])
-		if(prjName == null) {
+		if(prjName === null) {
 			val s = collectFlatBoolean(config, true, [mainProject?.self])
 			if(s) {
 				return ResourcesPlugin.workspace.root.getFile(new Path(config.eResource.URI.toPlatformString(true)))?.project?.name
@@ -92,7 +92,7 @@ class RecursiveCollectors {
 	
 	static def collectRedirectOutAppend(LaunchConfig config) {
 		collectFlatBoolean(config, false, [
-			if(redirect == null)
+			if(redirect === null)
 				return true
 			redirect.noAppend
 		])
@@ -185,7 +185,7 @@ class RecursiveCollectors {
 	static def collectContentProvider(LaunchConfig config) {
 		collectFlatObject(config, [
 			val n = contentProviderProduct?.product?.name
-			if(n == null)
+			if(n === null)
 				return null
 				
 			return n.expanded
@@ -198,7 +198,7 @@ class RecursiveCollectors {
 	
 	static def collectExecEnvPath(LaunchConfig config) {
 		val e = collectFlatObject(config, [execEnv?.name])
-		if(e != null && !e.empty) {
+		if(e !== null && !e.empty) {
 			return JavaRuntime.newJREContainerPath(JavaRuntime.getExecutionEnvironmentsManager().getEnvironment(e))?.toPortableString
 		}
 		null
@@ -217,7 +217,7 @@ class RecursiveCollectors {
 	private static def Map<String, String> collectFlatEnvMap(LaunchConfig config) {
 		val o = newHashMap()
 		
-		if(config.mapSaveSuperConfig != null) {
+		if(config.mapSaveSuperConfig !== null) {
 			o.putAll(collectFlatEnvMap(config.mapSaveSuperConfig))
 		}
 		
@@ -228,7 +228,7 @@ class RecursiveCollectors {
 	private static def Map<String, String> envVarsToMap(Iterable<EnvironmentVariable> vars) {
 		val r = newHashMap()
 		
-		if(vars != null && !vars.empty) {
+		if(vars !== null && !vars.empty) {
 			vars.forEach[r.put(name, value.value)]
 		}
 		
@@ -241,7 +241,7 @@ class RecursiveCollectors {
 	private static def <T> T collectFlatObject(LaunchConfig config, Function<LaunchConfig, T> extractor) {
 		val o = extractor.apply(config)
 
-		if (o != null)
+		if (o !== null)
 			return o
 
 		if (config.mapSaveSuperConfig != null)
@@ -256,12 +256,12 @@ class RecursiveCollectors {
 	private static def <T> List<T> collectFlatList(LaunchConfig config, Function<LaunchConfig, ? extends Iterable<T>> extractor) {
 		var result = newArrayList()
 
-		if (config.mapSaveSuperConfig != null) {
+		if (config.mapSaveSuperConfig !== null) {
 			result.addAll(collectFlatList(config.mapSaveSuperConfig, extractor))
 		}
 
 		val v = extractor.apply(config)
-		if(v != null)
+		if(v !== null)
 			result.addAll(v)
 			
 		result
@@ -276,10 +276,10 @@ class RecursiveCollectors {
 		Function<LaunchConfig, Boolean> extractor) {
 		val o = extractor.apply(config)
 
-		if (o != null && o == expected)
+		if (o !== null && o == expected)
 			return true
 
-		if (config.mapSaveSuperConfig != null)
+		if (config.mapSaveSuperConfig !== null)
 			return collectFlatBoolean(config.mapSaveSuperConfig, expected, extractor)
 
 		return false;

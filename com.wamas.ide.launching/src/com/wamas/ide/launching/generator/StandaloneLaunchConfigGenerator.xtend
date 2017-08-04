@@ -24,6 +24,12 @@ import org.eclipse.pde.core.plugin.PluginRegistry
 import com.wamas.ide.launching.services.LcDslPostProcessor
 import com.google.inject.Inject
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.eclipse.debug.internal.core.groups.GroupLaunchElement
+import com.wamas.ide.launching.lcDsl.GroupPostLaunchAction
+import com.wamas.ide.launching.lcDsl.GroupPostLaunchDelay
+import com.wamas.ide.launching.lcDsl.GroupPostLaunchWait
+import com.wamas.ide.launching.lcDsl.GroupPostLaunchRegex
+import org.eclipse.debug.internal.core.groups.GroupLaunchConfigurationDelegate
 
 class StandaloneLaunchConfigGenerator {
 
@@ -62,7 +68,7 @@ class StandaloneLaunchConfigGenerator {
 	def generate(LaunchConfig c) {
 		val config = postProcess(c);
 		
-		if (config == null || config.abstract)
+		if (config === null || config.abstract)
 			return null;
 
 		if (config.hasError) {
@@ -71,7 +77,7 @@ class StandaloneLaunchConfigGenerator {
 		}
 
 		val copy = reCreateConfig(config)
-		if (copy == null) {
+		if (copy === null) {
 			Activator.log(IStatus.ERROR, "cannot create launch configuration " + config.fullName, null)
 			return null;
 		}
@@ -87,7 +93,7 @@ class StandaloneLaunchConfigGenerator {
 				Joiner.on(' ').join(config.collectVmArguments.map[quote]))
 
 			val out = config.collectRedirectOutFile
-			if (out != null && !out.trim.empty) {
+			if (out !== null && !out.trim.empty) {
 				copy.setAttribute(IDebugUIConstants.ATTR_APPEND_TO_FILE, config.collectRedirectOutAppend)
 				copy.setAttribute(IDebugUIConstants.ATTR_CAPTURE_IN_FILE, out)
 			}
@@ -99,7 +105,7 @@ class StandaloneLaunchConfigGenerator {
 			copy.setAttribute("org.eclipse.debug.core.appendEnvironmentVariables", !config.collectReplaceEnv)
 
 			val env = config.collectEnvMap
-			if (env != null && !env.empty) {
+			if (env !== null && !env.empty) {
 				copy.setAttribute("org.eclipse.debug.core.environmentVariables", env)
 			}
 
@@ -110,7 +116,7 @@ class StandaloneLaunchConfigGenerator {
 		copy.setAttribute(IDebugUIConstants.ATTR_LAUNCH_IN_BACKGROUND, !config.collectForeground)
 
 		val favGroups = config.collectFavoriteGroups
-		if (favGroups != null && !favGroups.empty) {
+		if (favGroups !== null && !favGroups.empty) {
 			copy.setAttribute(IDebugUIConstants.ATTR_FAVORITE_GROUPS, favGroups)
 		}
 
@@ -148,7 +154,7 @@ class StandaloneLaunchConfigGenerator {
 	}
 
 	def setIfAvailable(ILaunchConfigurationWorkingCopy l, String attr, String value) {
-		if (value != null && !value.trim.empty) {
+		if (value !== null && !value.trim.empty) {
 			l.setAttribute(attr, value.trim)
 		}
 	}
@@ -161,14 +167,14 @@ class StandaloneLaunchConfigGenerator {
 	def reCreateConfig(LaunchConfig config) {
 		val type = getType(launchMgr, config.type)
 
-		if (type == null) {
+		if (type === null) {
 			Activator.log(IStatus.ERROR, "unsupported launch configuration type " + config.type.literal, null);
 			return null;
 		}
 
 		val lc = launchMgr.getLaunchConfigurations(type).findFirst[l|l.name.equals(config.fullName)]
 		
-		if(lc != null) {
+		if(lc !== null) {
 			// keep the original configuration so existing launches don't loose their association
 			val wc = lc.getWorkingCopy;
 			wc.attributes = null; // still clear out ALL attributes to start fresh
@@ -191,7 +197,7 @@ class StandaloneLaunchConfigGenerator {
 		copy.setAttribute(IPDELauncherConstants.AUTOMATIC_VALIDATE, !config.collectNoValidate)
 
 		val clear = config.collectClearOptions
-		if (clear != null) {
+		if (clear !== null) {
 			copy.setAttribute(IPDELauncherConstants.CONFIG_CLEAR_AREA, clear.config)
 			copy.setAttribute(IPDELauncherConstants.ASKCLEAR, !clear.noAskClear)
 			copy.setAttribute(IPDELauncherConstants.DOCLEAR, clear.workspace || clear.log)
@@ -199,7 +205,7 @@ class StandaloneLaunchConfigGenerator {
 		}
 
 		val traces = config.collectTracing
-		if (traces != null && !traces.empty) {
+		if (traces !== null && !traces.empty) {
 			copy.setAttribute(IPDELauncherConstants.TRACING, true)
 			copy.setAttribute(IPDELauncherConstants.TRACING_CHECKED, Joiner.on(',').join(traces.keySet))
 			copy.setAttribute(IPDELauncherConstants.TRACING_OPTIONS, traces.mapTraceOptions)
@@ -225,7 +231,7 @@ class StandaloneLaunchConfigGenerator {
 		copy.setIfAvailable(IPDELauncherConstants.APPLICATION, config.collectApplication)
 		
 		val prod = config.collectProduct
-		if(prod != null && !prod.empty) {
+		if(prod !== null && !prod.empty) {
 			copy.setAttribute(IPDELauncherConstants.PRODUCT, prod)
 			copy.setAttribute(IPDELauncherConstants.USE_PRODUCT, true)
 		}
@@ -233,7 +239,7 @@ class StandaloneLaunchConfigGenerator {
 		copy.setAttribute(IPDELauncherConstants.GENERATE_PROFILE, config.collectSwInstall)
 
 		val cfg = config.collectConfigIniTemplate
-		if (cfg != null && !cfg.empty) {
+		if (cfg !== null && !cfg.empty) {
 			copy.setAttribute(IPDELauncherConstants.CONFIG_TEMPLATE_LOCATION, cfg)
 			copy.setAttribute(IPDELauncherConstants.CONFIG_GENERATE_DEFAULT, false)
 		}
@@ -247,7 +253,7 @@ class StandaloneLaunchConfigGenerator {
 		for(entry : DependencyResolver.findDependencies(config, false).entrySet) {
 			val pluginId = entry.key.symbolicName
         	val me = PluginRegistry.findEntry(pluginId);
-        	if (me != null) {
+        	if (me !== null) {
 	            val sizeworkSpace = me.workspaceModels.length;
 	            val sizeInstalled = me.externalModels.length;
 	
@@ -255,12 +261,12 @@ class StandaloneLaunchConfigGenerator {
 	                ws.add(pluginId + "@" + entry.value.level + ":" + entry.value.autostart)
 	            } else if (sizeInstalled != 0) {
 	                var sl = knownStartLevels.get(pluginId);
-	                if(sl == null) {
+	                if(sl === null) {
 	                	sl = "@" + entry.value.level + ":" + entry.value.autostart
 	                }
 	
 	                val bestMatch = me.getModel(entry.key);
-	                if (bestMatch == null) {
+	                if (bestMatch === null) {
 	                    // but... how!?
 	                    Activator.log(IStatus.WARNING, "cannot find model for " + pluginId, null)
 	                } else {
@@ -291,13 +297,13 @@ class StandaloneLaunchConfigGenerator {
 		generateCommonEclipseRap(config, copy)
 
 		val ws = config.collectWorkspace
-		if (ws != null && !ws.empty) {
+		if (ws !== null && !ws.empty) {
 			copy.setAttribute("org.eclipse.rap.launch.dataLocation", ws)
 			copy.setAttribute("org.eclipse.rap.launch.useDefaultDataLocation", false)
 		}
 
 		val cp = config.collectRAPContextPath
-		if (cp != null && !cp.empty) {
+		if (cp !== null && !cp.empty) {
 			copy.setAttribute("org.eclipse.rap.launch.contextpath", cp)
 			copy.setAttribute("org.eclipse.rap.launch.useManualContextPath", true)
 		}
@@ -308,7 +314,7 @@ class StandaloneLaunchConfigGenerator {
 		copy.setAttribute("useCustomFeatures", false);
 
 		val m = config.collectRAPBrowserMode
-		if (m != null) {
+		if (m !== null) {
 			switch m {
 				case "NONE": {
 					copy.setAttribute("org.eclipse.rap.launch.openBrowser", false)
@@ -336,7 +342,38 @@ class StandaloneLaunchConfigGenerator {
 	}
 
 	def generateGroup(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
-		// TODO: members (attention: generate manual launch configs that are referenced)
+		val l = config.groupMembers.map[
+			val m = new GroupLaunchElement;
+			
+			m.name = it.member.name;
+			m.setAction(it.postAction)
+			m.mode = it.type.literal
+			m.adoptIfRunning = it.adopt
+			
+			m
+		]
+		
+		GroupLaunchConfigurationDelegate.storeLaunchElements(copy, l);
+	}
+	
+	def void setAction(GroupLaunchElement m, GroupPostLaunchAction a) {
+		if(a === null) {
+			return;
+		}
+		
+		switch a {
+			GroupPostLaunchDelay: {
+					m.action = GroupLaunchElement.GroupElementPostLaunchAction.DELAY
+					m.actionParam = a.delay
+				}
+			GroupPostLaunchWait: {
+					m.action = GroupLaunchElement.GroupElementPostLaunchAction.WAIT_FOR_TERMINATION
+				}
+			GroupPostLaunchRegex: {
+					m.action= GroupLaunchElement.GroupElementPostLaunchAction.OUTPUT_REGEXP
+					m.actionParam = a.regex
+			}
+		}
 	}
 
 }

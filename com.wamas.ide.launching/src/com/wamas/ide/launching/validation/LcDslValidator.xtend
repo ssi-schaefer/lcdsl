@@ -122,7 +122,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 				// not allowed to have it, check
 				val e = lc.eGet(feature)
 
-				if (e != null) {
+				if (e !== null) {
 					// it is set, check for empty collection
 					if (e instanceof EList<?>) {
 						if (!e.empty) {
@@ -142,7 +142,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 			return
 
 		val required = requiredFeatures.get(lc.type)
-		if (required == null) {
+		if (required === null) {
 			error("unsupported launch configuration type - validation not implemented", LC.launchConfig_Type)
 		} else {
 			for (alternatives : required) {
@@ -162,7 +162,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 
 	def boolean isFeatureSetRecursive(LaunchConfig lc, EStructuralFeature feature) {
 		val e = lc.eGet(feature)
-		if (e != null) {
+		if (e !== null) {
 			if (e instanceof EList<?>) {
 				if (!e.empty)
 					return true
@@ -171,7 +171,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 			}
 		}
 
-		if (lc.mapSaveSuperConfig == null)
+		if (lc.mapSaveSuperConfig === null)
 			return false
 
 		return lc.mapSaveSuperConfig.isFeatureSetRecursive(feature)
@@ -188,7 +188,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 	@Check
 	def checkInheritance(LaunchConfig lc) {
 		// check that inheriting from another config of same type only
-		if (lc.superConfig != null && lc.superConfig.type != lc.type) {
+		if (lc.superConfig !== null && lc.superConfig.type != lc.type) {
 			error("Super launch configuration has a different type", LC.launchConfig_SuperConfig)
 		}
 		
@@ -198,7 +198,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 	}
 	
 	static def boolean checkCircle(LaunchConfig config, LaunchConfig superConfig) {
-		if(superConfig == null)
+		if(superConfig === null)
 			return false
 		
 		if(config.equals(superConfig))
@@ -210,7 +210,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 	@Check
 	def checkProjectExists(Project p) {
 		val prj = ResourcesPlugin.workspace.root.getProject(p.name);
-		if (prj == null || !prj.exists) {
+		if (prj === null || !prj.exists) {
 			warning("Project " + p.name + " does not exist in the workspace", p, LC.project_Name)
 		} else if (!prj.open) {
 			warning("Project " + p.name + " is closed", p, LC.project_Name)
@@ -219,7 +219,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 
 	@Check
 	def checkPluginExists(PluginWithVersion p) {
-		if (p.name == null)
+		if (p.name === null)
 			return;
 
 		// used in PluginWithVersionAndStartlevel -> AddPlugin
@@ -231,8 +231,8 @@ class LcDslValidator extends AbstractLcDslValidator {
 
 		val bundle = PluginRegistry.findModel(p.name, p.version, IMatchRules.PERFECT, null)
 
-		if (bundle == null) {
-			if (PluginRegistry.findModel(p.name, null, IMatchRules.NONE, null) != null) {
+		if (bundle === null) {
+			if (PluginRegistry.findModel(p.name, null, IMatchRules.NONE, null) !== null) {
 				warning("Bundle " + p.name + " does not exist in version " + p.version, p,
 					LC.pluginWithVersion_Version);
 			} else {
@@ -244,7 +244,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 
 	@Check
 	def checkFeatureExists(FeatureWithVersion f) {
-		if (f.name == null)
+		if (f.name === null)
 			return;
 
 		// feature used directly (different to plugin)
@@ -255,8 +255,8 @@ class LcDslValidator extends AbstractLcDslValidator {
 
 		val mgr = PDECore.^default.featureModelManager
 		val feature = mgr.findFeatureModel(f.name, f.version)
-		if (feature == null) {
-			if (mgr.findFeatureModel(f.name) != null) {
+		if (feature === null) {
+			if (mgr.findFeatureModel(f.name) !== null) {
 				warning("Feature " + f.name + " does not exists in version " + f.version, f,
 					LC.featureWithVersion_Version)
 			} else {
@@ -269,10 +269,10 @@ class LcDslValidator extends AbstractLcDslValidator {
 	@Check
 	def checkMainType(LaunchConfig cfg) {
 		val mainprj = RecursiveCollectors.collectJavaMainProject(cfg)
-		if (cfg.type == JAVA && mainprj != null &&
-			cfg.mainType?.mainClass != null && !cfg.mainType.mainClass.name.empty) {
+		if (cfg.type == JAVA && mainprj !== null &&
+			cfg.mainType?.mainClass !== null && !cfg.mainType.mainClass.name.empty) {
 			val prj = ResourcesPlugin.workspace.root.getProject(mainprj);
-			if (prj != null && prj.exists && prj.open) {
+			if (prj !== null && prj.exists && prj.open) {
 				val jp = JavaCore.create(prj)
 				if (!jp.exists) {
 					error("project " + mainprj + " is not a java project",
@@ -281,7 +281,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 				}
 
 				val type = jp.findType(cfg.mainType.mainClass.name, new NullProgressMonitor)
-				if (type == null || !type.exists) {
+				if (type === null || !type.exists) {
 					error("main type " + cfg.mainType.mainClass.name + " not found in class-path of " +
 						mainprj, LC.launchConfig_MainType)
 					return
@@ -319,16 +319,16 @@ class LcDslValidator extends AbstractLcDslValidator {
 
 	@Check
 	def checkExecutionEnvironment(ExecutionEnvironment e) {
-		if (e.name == null || e.name.empty)
+		if (e.name === null || e.name.empty)
 			return
 
 		val exe = JavaRuntime.getExecutionEnvironmentsManager().getEnvironment(e.name);
-		if (exe == null) {
+		if (exe === null) {
 			error("cannot find execution environment " + e.name, LC.executionEnvironment_Name)
 		} else if (exe.compatibleVMs.empty) {
 			error("no compatible VMs available in the current configuration for " + e.name,
 				LC.executionEnvironment_Name)
-		} else if (exe.defaultVM == null) {
+		} else if (exe.defaultVM === null) {
 			warning("no default VM configured for execution environment " + e.name, LC.executionEnvironment_Name)
 		}
 	}
@@ -336,7 +336,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 	@Check
 	def checkFavorites(Favorites f) {
 		for (t : f.types) {
-			if (RecursiveCollectors.mapToFavoriteType(t) == null) {
+			if (RecursiveCollectors.mapToFavoriteType(t) === null) {
 				error(t.literal + " is not a valid favorite type", LC.favorites_Types)
 			}
 		}
@@ -358,7 +358,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 
 	@Check
 	def checkApplicationProductXor(LaunchConfig c) {
-		if (c.application != null && c.product != null) {
+		if (c.application !== null && c.product !== null) {
 			error("either application or product can be set, not both", LC.launchConfig_Application)
 		}
 	}

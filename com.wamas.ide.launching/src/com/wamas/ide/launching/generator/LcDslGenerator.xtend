@@ -56,7 +56,7 @@ class LcDslGenerator extends AbstractGenerator {
 	}
 
 	def static boolean isTypeSupported(LaunchConfig config) {
-		StandaloneLaunchConfigGenerator.getType(DebugPlugin.^default.launchManager, config.type) != null
+		StandaloneLaunchConfigGenerator.getType(DebugPlugin.^default.launchManager, config.type) !== null
 	}
 
 	def static addListener(Runnable r) {
