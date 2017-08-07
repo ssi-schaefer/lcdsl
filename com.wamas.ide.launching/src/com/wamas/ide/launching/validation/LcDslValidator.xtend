@@ -38,6 +38,7 @@ import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.xtext.validation.Check
 
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
+import com.wamas.ide.launching.lcDsl.GroupMember
 
 /**
  * This class contains custom validation rules. 
@@ -401,6 +402,30 @@ class LcDslValidator extends AbstractLcDslValidator {
 		PluginRegistry.activeModels.map[extensions.extensions.toList].flatten.filter [
 			point.equals(ext)
 		].map[pluginModel.bundleDescription.symbolicName + "." + id]
+	}
+	
+	@Check
+	def checkGroupCircle(LaunchConfig lc) {
+		// check that inheriting from another config of same type only
+		for(member : lc.groupMembers) {
+			if(checkGroupCircle(lc, member)) {
+				error("Circular group dependency found", LC.launchConfig_SuperConfig)
+			}
+		}
+	}
+	
+	static def boolean checkGroupCircle(LaunchConfig config, GroupMember member) {
+		if(member.member.equals(config)) {
+			return true
+		}
+		
+		for(m : member.member.groupMembers) {
+			if(checkGroupCircle(config, m)) {
+				return true;
+			}
+		}
+		
+		return false 
 	}
 
 }

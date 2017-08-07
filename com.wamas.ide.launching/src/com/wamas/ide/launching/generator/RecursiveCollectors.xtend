@@ -260,6 +260,10 @@ class RecursiveCollectors {
 			favorites?.types?.map[favoriteGroupMap.get(it)]
 		])
 	}
+	
+	static def collectGroupMembers(LaunchConfig config) {
+		collectFlatList(config, [groupMembers])
+	}
 
 	static def collectEnvMap(LaunchConfig config) {
 		collectFlatEnvMap(config)

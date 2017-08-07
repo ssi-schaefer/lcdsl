@@ -30,6 +30,7 @@ import com.wamas.ide.launching.lcDsl.GroupPostLaunchDelay
 import com.wamas.ide.launching.lcDsl.GroupPostLaunchWait
 import com.wamas.ide.launching.lcDsl.GroupPostLaunchRegex
 import org.eclipse.debug.internal.core.groups.GroupLaunchConfigurationDelegate
+import org.eclipse.debug.core.ILaunchConfiguration
 
 class StandaloneLaunchConfigGenerator {
 
@@ -65,7 +66,7 @@ class StandaloneLaunchConfigGenerator {
 		c.fullyQualifiedName.toString
 	}
 
-	def generate(LaunchConfig c) {
+	def ILaunchConfiguration generate(LaunchConfig c) {
 		val config = postProcess(c);
 		
 		if (config === null || config.abstract)
@@ -342,13 +343,15 @@ class StandaloneLaunchConfigGenerator {
 	}
 
 	def generateGroup(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
-		val l = config.groupMembers.map[
+		val l = config.collectGroupMembers.map[
 			val m = new GroupLaunchElement;
 			
 			m.name = it.member.name;
 			m.setAction(it.postAction)
 			m.mode = it.type.literal
 			m.adoptIfRunning = it.adopt
+			
+			generate(it.member)
 			
 			m
 		]

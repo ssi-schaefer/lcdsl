@@ -35,6 +35,7 @@ Export-Package: com.wamas.ide.launching.lcDsl,
  com.wamas.ide.launching.serializer,
  com.wamas.ide.launching.lcDsl.util,
  com.wamas.ide.launching.parser.antlr,
- com.wamas.ide.launching.validation
+ com.wamas.ide.launching.validation,
+ com.wamas.ide.launching.formatting2
 Import-Package: org.apache.log4j
 Bundle-Activator: com.wamas.ide.launching.Activator
