@@ -3,6 +3,7 @@
  */
 package com.wamas.ide.launching.formatting2
 
+import com.google.inject.Inject
 import com.wamas.ide.launching.lcDsl.AddFeature
 import com.wamas.ide.launching.lcDsl.AddPlugin
 import com.wamas.ide.launching.lcDsl.EnvironmentVariable
@@ -13,11 +14,16 @@ import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.ProgramArgument
 import com.wamas.ide.launching.lcDsl.TraceEnablement
 import com.wamas.ide.launching.lcDsl.VmArgument
+import com.wamas.ide.launching.services.LcDslGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
+import org.apache.commons.logging.impl.ServletContextCleaner
+import com.wamas.ide.launching.lcDsl.RapServletConfig
 
 class LcDslFormatter extends AbstractFormatter2 {
 	
+	@Inject extension LcDslGrammarAccess
+
 	def dispatch void format(LCModel lCModel, extension IFormattableDocument document) {
 		for (LaunchConfig launchConfig : lCModel.getConfigurations()) {
 			launchConfig.format;
@@ -26,8 +32,13 @@ class LcDslFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(LaunchConfig launchConfig, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc.
-		launchConfig.regionFor.keyword("{").append[newLine]
-		launchConfig.regionFor.keyword("}").prepend[newLine]
+		val open = launchConfig.regionFor.ruleCall(launchConfigAccess.BLOCK_BEGINTerminalRuleCall_5)
+		val close = launchConfig.regionFor.ruleCall(launchConfigAccess.BLOCK_ENDTerminalRuleCall_7)
+		
+		open.append[newLine]
+		close.prepend[newLine]
+		
+		interior(open, close)[indent]
 		 
 		launchConfig.getClears.format;
 		launchConfig.getWorkspace.format;
@@ -69,6 +80,14 @@ class LcDslFormatter extends AbstractFormatter2 {
 			traceEnablement.format;
 		}
 	}
-	
-	// TODO: implement for Workspace, WorkingDir, MainProject, MainType, AddPlugin, AddFeature, ContentProviderProduct, IgnorePlugin, VmArgument, ProgramArgument, EnvironmentVariable, Redirect, ConfigIniTemplate, ExistingPath, AnyPath, PluginWithVersionAndStartLevel, GroupMember
+
+	def dispatch void format(RapServletConfig cfg, extension IFormattableDocument document) {
+		val open = cfg.regionFor.ruleCall(rapServletConfigAccess.BLOCK_BEGINTerminalRuleCall_1)
+		val close = cfg.regionFor.ruleCall(rapServletConfigAccess.BLOCK_ENDTerminalRuleCall_3)
+		
+		open.append[newLine]
+		close.prepend[newLine]
+		
+		interior(open, close)[indent]
+	}
 }
