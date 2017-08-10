@@ -18,11 +18,11 @@
       <genEnumLiterals ecoreEnumLiteral="LcDsl.ecore#//LaunchConfigType/GROUP"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="LcDsl.ecore#//LaunchModeType">
+      <genEnumLiterals ecoreEnumLiteral="LcDsl.ecore#//LaunchModeType/INHERIT"/>
       <genEnumLiterals ecoreEnumLiteral="LcDsl.ecore#//LaunchModeType/RUN"/>
       <genEnumLiterals ecoreEnumLiteral="LcDsl.ecore#//LaunchModeType/DEBUG"/>
       <genEnumLiterals ecoreEnumLiteral="LcDsl.ecore#//LaunchModeType/PROFILE"/>
       <genEnumLiterals ecoreEnumLiteral="LcDsl.ecore#//LaunchModeType/COVERAGE"/>
-      <genEnumLiterals ecoreEnumLiteral="LcDsl.ecore#//LaunchModeType/INHERIT"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="LcDsl.ecore#//MemoryUnit">
       <genEnumLiterals ecoreEnumLiteral="LcDsl.ecore#//MemoryUnit/MB"/>

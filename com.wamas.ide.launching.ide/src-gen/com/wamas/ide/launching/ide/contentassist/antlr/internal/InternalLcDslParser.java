@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_BRACKET_OPEN", "RULE_BRACKET_CLOSE", "RULE_EQ", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'stdin'", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'run'", "'debug'", "'profile'", "'coverage'", "'inherit'", "'M'", "'mb'", "'MB'", "'m'", "'G'", "'gb'", "'GB'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'configuration'", "':'", "'workspace'", "';'", "'working-dir'", "'project'", "'main-class'", "'plugin'", "'feature'", "'content-provider'", "'ignore'", "'vm-argument'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'startlevel'", "'clear'", "'memory'", "'min'", "'max'", "'perm'", "'member'", "'delay'", "'regex'", "'wait'", "'.'", "'explicit'", "'manual'", "'abstract'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'qualified'", "'self'", "'optional'", "'!'", "'system'", "'inherited'", "'autostart'", "'log'", "'config'", "'adopt'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_BRACKET_OPEN", "RULE_BRACKET_CLOSE", "RULE_EQ", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'stdin'", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'inherit'", "'run'", "'debug'", "'profile'", "'coverage'", "'M'", "'mb'", "'MB'", "'m'", "'G'", "'gb'", "'GB'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'configuration'", "':'", "'workspace'", "';'", "'working-dir'", "'project'", "'main-class'", "'plugin'", "'feature'", "'content-provider'", "'ignore'", "'vm-argument'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'startlevel'", "'clear'", "'memory'", "'min'", "'max'", "'perm'", "'member'", "'delay'", "'regex'", "'wait'", "'.'", "'explicit'", "'manual'", "'abstract'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'qualified'", "'self'", "'optional'", "'!'", "'system'", "'inherited'", "'autostart'", "'log'", "'config'", "'adopt'"
     };
     public static final int T__50=50;
     public static final int RULE_VERSION=13;
@@ -4315,13 +4315,13 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LaunchModeType__Alternatives"
-    // InternalLcDsl.g:1227:1: rule__LaunchModeType__Alternatives : ( ( ( 'run' ) ) | ( ( 'debug' ) ) | ( ( 'profile' ) ) | ( ( 'coverage' ) ) | ( ( 'inherit' ) ) );
+    // InternalLcDsl.g:1227:1: rule__LaunchModeType__Alternatives : ( ( ( 'inherit' ) ) | ( ( 'run' ) ) | ( ( 'debug' ) ) | ( ( 'profile' ) ) | ( ( 'coverage' ) ) );
     public final void rule__LaunchModeType__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLcDsl.g:1231:1: ( ( ( 'run' ) ) | ( ( 'debug' ) ) | ( ( 'profile' ) ) | ( ( 'coverage' ) ) | ( ( 'inherit' ) ) )
+            // InternalLcDsl.g:1231:1: ( ( ( 'inherit' ) ) | ( ( 'run' ) ) | ( ( 'debug' ) ) | ( ( 'profile' ) ) | ( ( 'coverage' ) ) )
             int alt7=5;
             switch ( input.LA(1) ) {
             case 27:
@@ -4359,23 +4359,23 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
 
             switch (alt7) {
                 case 1 :
-                    // InternalLcDsl.g:1232:2: ( ( 'run' ) )
+                    // InternalLcDsl.g:1232:2: ( ( 'inherit' ) )
                     {
-                    // InternalLcDsl.g:1232:2: ( ( 'run' ) )
-                    // InternalLcDsl.g:1233:3: ( 'run' )
+                    // InternalLcDsl.g:1232:2: ( ( 'inherit' ) )
+                    // InternalLcDsl.g:1233:3: ( 'inherit' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_0()); 
+                       before(grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_0()); 
                     }
-                    // InternalLcDsl.g:1234:3: ( 'run' )
-                    // InternalLcDsl.g:1234:4: 'run'
+                    // InternalLcDsl.g:1234:3: ( 'inherit' )
+                    // InternalLcDsl.g:1234:4: 'inherit'
                     {
                     match(input,27,FOLLOW_2); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_0()); 
+                       after(grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_0()); 
                     }
 
                     }
@@ -4384,23 +4384,23 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalLcDsl.g:1238:2: ( ( 'debug' ) )
+                    // InternalLcDsl.g:1238:2: ( ( 'run' ) )
                     {
-                    // InternalLcDsl.g:1238:2: ( ( 'debug' ) )
-                    // InternalLcDsl.g:1239:3: ( 'debug' )
+                    // InternalLcDsl.g:1238:2: ( ( 'run' ) )
+                    // InternalLcDsl.g:1239:3: ( 'run' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_1()); 
+                       before(grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_1()); 
                     }
-                    // InternalLcDsl.g:1240:3: ( 'debug' )
-                    // InternalLcDsl.g:1240:4: 'debug'
+                    // InternalLcDsl.g:1240:3: ( 'run' )
+                    // InternalLcDsl.g:1240:4: 'run'
                     {
                     match(input,28,FOLLOW_2); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_1()); 
+                       after(grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_1()); 
                     }
 
                     }
@@ -4409,23 +4409,23 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalLcDsl.g:1244:2: ( ( 'profile' ) )
+                    // InternalLcDsl.g:1244:2: ( ( 'debug' ) )
                     {
-                    // InternalLcDsl.g:1244:2: ( ( 'profile' ) )
-                    // InternalLcDsl.g:1245:3: ( 'profile' )
+                    // InternalLcDsl.g:1244:2: ( ( 'debug' ) )
+                    // InternalLcDsl.g:1245:3: ( 'debug' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_2()); 
+                       before(grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_2()); 
                     }
-                    // InternalLcDsl.g:1246:3: ( 'profile' )
-                    // InternalLcDsl.g:1246:4: 'profile'
+                    // InternalLcDsl.g:1246:3: ( 'debug' )
+                    // InternalLcDsl.g:1246:4: 'debug'
                     {
                     match(input,29,FOLLOW_2); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_2()); 
+                       after(grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_2()); 
                     }
 
                     }
@@ -4434,23 +4434,23 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalLcDsl.g:1250:2: ( ( 'coverage' ) )
+                    // InternalLcDsl.g:1250:2: ( ( 'profile' ) )
                     {
-                    // InternalLcDsl.g:1250:2: ( ( 'coverage' ) )
-                    // InternalLcDsl.g:1251:3: ( 'coverage' )
+                    // InternalLcDsl.g:1250:2: ( ( 'profile' ) )
+                    // InternalLcDsl.g:1251:3: ( 'profile' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_3()); 
+                       before(grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_3()); 
                     }
-                    // InternalLcDsl.g:1252:3: ( 'coverage' )
-                    // InternalLcDsl.g:1252:4: 'coverage'
+                    // InternalLcDsl.g:1252:3: ( 'profile' )
+                    // InternalLcDsl.g:1252:4: 'profile'
                     {
                     match(input,30,FOLLOW_2); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_3()); 
+                       after(grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_3()); 
                     }
 
                     }
@@ -4459,23 +4459,23 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalLcDsl.g:1256:2: ( ( 'inherit' ) )
+                    // InternalLcDsl.g:1256:2: ( ( 'coverage' ) )
                     {
-                    // InternalLcDsl.g:1256:2: ( ( 'inherit' ) )
-                    // InternalLcDsl.g:1257:3: ( 'inherit' )
+                    // InternalLcDsl.g:1256:2: ( ( 'coverage' ) )
+                    // InternalLcDsl.g:1257:3: ( 'coverage' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_4()); 
+                       before(grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_4()); 
                     }
-                    // InternalLcDsl.g:1258:3: ( 'inherit' )
-                    // InternalLcDsl.g:1258:4: 'inherit'
+                    // InternalLcDsl.g:1258:3: ( 'coverage' )
+                    // InternalLcDsl.g:1258:4: 'coverage'
                     {
                     match(input,31,FOLLOW_2); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_4()); 
+                       after(grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_4()); 
                     }
 
                     }

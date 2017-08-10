@@ -244,7 +244,7 @@ enum LaunchConfigType:
 ;
 
 enum LaunchModeType:
-	RUN = "run" | DEBUG = "debug" | PROFILE = "profile" | COVERAGE = "coverage" | INHERIT = "inherit"
+	INHERIT = "inherit" | RUN = "run" | DEBUG = "debug" | PROFILE = "profile" | COVERAGE = "coverage"
 ;
 
 enum MemoryUnit:

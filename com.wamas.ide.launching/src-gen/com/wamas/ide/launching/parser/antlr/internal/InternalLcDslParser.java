@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLcDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BRACKET_OPEN", "RULE_STRING", "RULE_BRACKET_CLOSE", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_ID", "RULE_EQ", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'explicit'", "'manual'", "'abstract'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'qualified'", "'configuration'", "':'", "'workspace'", "';'", "'working-dir'", "'project'", "'self'", "'main-class'", "'optional'", "'plugin'", "'feature'", "'content-provider'", "'ignore'", "'vm-argument'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'!'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'system'", "'inherited'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'autostart'", "'startlevel'", "'clear'", "'log'", "'config'", "'memory'", "'min'", "'max'", "'perm'", "'adopt'", "'member'", "'delay'", "'regex'", "'wait'", "'.'", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'run'", "'debug'", "'profile'", "'coverage'", "'inherit'", "'M'", "'mb'", "'MB'", "'m'", "'G'", "'gb'", "'GB'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'stdin'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BRACKET_OPEN", "RULE_STRING", "RULE_BRACKET_CLOSE", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_ID", "RULE_EQ", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'explicit'", "'manual'", "'abstract'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'qualified'", "'configuration'", "':'", "'workspace'", "';'", "'working-dir'", "'project'", "'self'", "'main-class'", "'optional'", "'plugin'", "'feature'", "'content-provider'", "'ignore'", "'vm-argument'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'!'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'system'", "'inherited'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'autostart'", "'startlevel'", "'clear'", "'log'", "'config'", "'memory'", "'min'", "'max'", "'perm'", "'adopt'", "'member'", "'delay'", "'regex'", "'wait'", "'.'", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'inherit'", "'run'", "'debug'", "'profile'", "'coverage'", "'M'", "'mb'", "'MB'", "'m'", "'G'", "'gb'", "'GB'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'stdin'"
     };
     public static final int T__50=50;
     public static final int RULE_VERSION=13;
@@ -9874,7 +9874,7 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLaunchModeType"
-    // InternalLcDsl.g:3693:1: ruleLaunchModeType returns [Enumerator current=null] : ( (enumLiteral_0= 'run' ) | (enumLiteral_1= 'debug' ) | (enumLiteral_2= 'profile' ) | (enumLiteral_3= 'coverage' ) | (enumLiteral_4= 'inherit' ) ) ;
+    // InternalLcDsl.g:3693:1: ruleLaunchModeType returns [Enumerator current=null] : ( (enumLiteral_0= 'inherit' ) | (enumLiteral_1= 'run' ) | (enumLiteral_2= 'debug' ) | (enumLiteral_3= 'profile' ) | (enumLiteral_4= 'coverage' ) ) ;
     public final Enumerator ruleLaunchModeType() throws RecognitionException {
         Enumerator current = null;
 
@@ -9888,10 +9888,10 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalLcDsl.g:3699:2: ( ( (enumLiteral_0= 'run' ) | (enumLiteral_1= 'debug' ) | (enumLiteral_2= 'profile' ) | (enumLiteral_3= 'coverage' ) | (enumLiteral_4= 'inherit' ) ) )
-            // InternalLcDsl.g:3700:2: ( (enumLiteral_0= 'run' ) | (enumLiteral_1= 'debug' ) | (enumLiteral_2= 'profile' ) | (enumLiteral_3= 'coverage' ) | (enumLiteral_4= 'inherit' ) )
+            // InternalLcDsl.g:3699:2: ( ( (enumLiteral_0= 'inherit' ) | (enumLiteral_1= 'run' ) | (enumLiteral_2= 'debug' ) | (enumLiteral_3= 'profile' ) | (enumLiteral_4= 'coverage' ) ) )
+            // InternalLcDsl.g:3700:2: ( (enumLiteral_0= 'inherit' ) | (enumLiteral_1= 'run' ) | (enumLiteral_2= 'debug' ) | (enumLiteral_3= 'profile' ) | (enumLiteral_4= 'coverage' ) )
             {
-            // InternalLcDsl.g:3700:2: ( (enumLiteral_0= 'run' ) | (enumLiteral_1= 'debug' ) | (enumLiteral_2= 'profile' ) | (enumLiteral_3= 'coverage' ) | (enumLiteral_4= 'inherit' ) )
+            // InternalLcDsl.g:3700:2: ( (enumLiteral_0= 'inherit' ) | (enumLiteral_1= 'run' ) | (enumLiteral_2= 'debug' ) | (enumLiteral_3= 'profile' ) | (enumLiteral_4= 'coverage' ) )
             int alt38=5;
             switch ( input.LA(1) ) {
             case 87:
@@ -9928,15 +9928,15 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
 
             switch (alt38) {
                 case 1 :
-                    // InternalLcDsl.g:3701:3: (enumLiteral_0= 'run' )
+                    // InternalLcDsl.g:3701:3: (enumLiteral_0= 'inherit' )
                     {
-                    // InternalLcDsl.g:3701:3: (enumLiteral_0= 'run' )
-                    // InternalLcDsl.g:3702:4: enumLiteral_0= 'run'
+                    // InternalLcDsl.g:3701:3: (enumLiteral_0= 'inherit' )
+                    // InternalLcDsl.g:3702:4: enumLiteral_0= 'inherit'
                     {
                     enumLiteral_0=(Token)match(input,87,FOLLOW_2); 
 
-                    				current = grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_0, grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_0());
+                    				current = grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_0());
                     			
 
                     }
@@ -9945,15 +9945,15 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalLcDsl.g:3709:3: (enumLiteral_1= 'debug' )
+                    // InternalLcDsl.g:3709:3: (enumLiteral_1= 'run' )
                     {
-                    // InternalLcDsl.g:3709:3: (enumLiteral_1= 'debug' )
-                    // InternalLcDsl.g:3710:4: enumLiteral_1= 'debug'
+                    // InternalLcDsl.g:3709:3: (enumLiteral_1= 'run' )
+                    // InternalLcDsl.g:3710:4: enumLiteral_1= 'run'
                     {
                     enumLiteral_1=(Token)match(input,88,FOLLOW_2); 
 
-                    				current = grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_1, grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_1());
+                    				current = grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_1());
                     			
 
                     }
@@ -9962,15 +9962,15 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalLcDsl.g:3717:3: (enumLiteral_2= 'profile' )
+                    // InternalLcDsl.g:3717:3: (enumLiteral_2= 'debug' )
                     {
-                    // InternalLcDsl.g:3717:3: (enumLiteral_2= 'profile' )
-                    // InternalLcDsl.g:3718:4: enumLiteral_2= 'profile'
+                    // InternalLcDsl.g:3717:3: (enumLiteral_2= 'debug' )
+                    // InternalLcDsl.g:3718:4: enumLiteral_2= 'debug'
                     {
                     enumLiteral_2=(Token)match(input,89,FOLLOW_2); 
 
-                    				current = grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_2, grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_2());
+                    				current = grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_2, grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_2());
                     			
 
                     }
@@ -9979,15 +9979,15 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalLcDsl.g:3725:3: (enumLiteral_3= 'coverage' )
+                    // InternalLcDsl.g:3725:3: (enumLiteral_3= 'profile' )
                     {
-                    // InternalLcDsl.g:3725:3: (enumLiteral_3= 'coverage' )
-                    // InternalLcDsl.g:3726:4: enumLiteral_3= 'coverage'
+                    // InternalLcDsl.g:3725:3: (enumLiteral_3= 'profile' )
+                    // InternalLcDsl.g:3726:4: enumLiteral_3= 'profile'
                     {
                     enumLiteral_3=(Token)match(input,90,FOLLOW_2); 
 
-                    				current = grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_3, grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_3());
+                    				current = grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_3, grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_3());
                     			
 
                     }
@@ -9996,15 +9996,15 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalLcDsl.g:3733:3: (enumLiteral_4= 'inherit' )
+                    // InternalLcDsl.g:3733:3: (enumLiteral_4= 'coverage' )
                     {
-                    // InternalLcDsl.g:3733:3: (enumLiteral_4= 'inherit' )
-                    // InternalLcDsl.g:3734:4: enumLiteral_4= 'inherit'
+                    // InternalLcDsl.g:3733:3: (enumLiteral_4= 'coverage' )
+                    // InternalLcDsl.g:3734:4: enumLiteral_4= 'coverage'
                     {
                     enumLiteral_4=(Token)match(input,91,FOLLOW_2); 
 
-                    				current = grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_4, grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_4());
+                    				current = grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_4, grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_4());
                     			
 
                     }

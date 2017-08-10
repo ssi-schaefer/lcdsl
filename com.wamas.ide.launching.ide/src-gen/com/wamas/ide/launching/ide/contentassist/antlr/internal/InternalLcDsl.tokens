@@ -19,8 +19,8 @@
 'configuration'=43
 'content-provider'=52
 'context-path'=72
-'coverage'=30
-'debug'=28
+'coverage'=31
+'debug'=29
 'delay'=81
 'dev-mode'=73
 'eclipse'=24
@@ -36,7 +36,7 @@
 'gb'=37
 'group'=26
 'ignore'=53
-'inherit'=31
+'inherit'=27
 'inherited'=99
 'internal'=20
 'java'=23
@@ -58,14 +58,14 @@
 'plugin'=50
 'port'=70
 'product'=58
-'profile'=29
+'profile'=30
 'project'=48
 'qualified'=94
 'rap'=25
 'redirect'=60
 'regex'=82
 'replace-env'=92
-'run'=27
+'run'=28
 'search-main'=66
 'self'=95
 'servlet'=67

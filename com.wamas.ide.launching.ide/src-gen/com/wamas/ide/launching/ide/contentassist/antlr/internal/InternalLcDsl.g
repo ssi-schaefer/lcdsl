@@ -1230,33 +1230,33 @@ rule__LaunchModeType__Alternatives
 	}
 :
 	(
-		{ before(grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_0()); }
-		('run')
-		{ after(grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_1()); }
-		('debug')
-		{ after(grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_1()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_2()); }
-		('profile')
-		{ after(grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_2()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_3()); }
-		('coverage')
-		{ after(grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_3()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_4()); }
+		{ before(grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_0()); }
 		('inherit')
-		{ after(grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_4()); }
+		{ after(grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_1()); }
+		('run')
+		{ after(grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_2()); }
+		('debug')
+		{ after(grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_2()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_3()); }
+		('profile')
+		{ after(grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_3()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_4()); }
+		('coverage')
+		{ after(grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_4()); }
 	)
 ;
 finally {

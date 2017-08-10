@@ -3699,42 +3699,42 @@ ruleLaunchModeType returns [Enumerator current=null]
 }:
 	(
 		(
-			enumLiteral_0='run'
+			enumLiteral_0='inherit'
 			{
-				$current = grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_0());
+				$current = grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
-			enumLiteral_1='debug'
+			enumLiteral_1='run'
 			{
-				$current = grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_1());
+				$current = grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getLaunchModeTypeAccess().getRUNEnumLiteralDeclaration_1());
 			}
 		)
 		    |
 		(
-			enumLiteral_2='profile'
+			enumLiteral_2='debug'
 			{
-				$current = grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_2());
+				$current = grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getLaunchModeTypeAccess().getDEBUGEnumLiteralDeclaration_2());
 			}
 		)
 		    |
 		(
-			enumLiteral_3='coverage'
+			enumLiteral_3='profile'
 			{
-				$current = grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_3());
+				$current = grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getLaunchModeTypeAccess().getPROFILEEnumLiteralDeclaration_3());
 			}
 		)
 		    |
 		(
-			enumLiteral_4='inherit'
+			enumLiteral_4='coverage'
 			{
-				$current = grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_4, grammarAccess.getLaunchModeTypeAccess().getINHERITEnumLiteralDeclaration_4());
+				$current = grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getLaunchModeTypeAccess().getCOVERAGEEnumLiteralDeclaration_4());
 			}
 		)
 	)

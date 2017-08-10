@@ -2317,11 +2317,11 @@ public class LcDslPackageImpl extends EPackageImpl implements LcDslPackage
     addEEnumLiteral(launchConfigTypeEEnum, LaunchConfigType.GROUP);
 
     initEEnum(launchModeTypeEEnum, LaunchModeType.class, "LaunchModeType");
+    addEEnumLiteral(launchModeTypeEEnum, LaunchModeType.INHERIT);
     addEEnumLiteral(launchModeTypeEEnum, LaunchModeType.RUN);
     addEEnumLiteral(launchModeTypeEEnum, LaunchModeType.DEBUG);
     addEEnumLiteral(launchModeTypeEEnum, LaunchModeType.PROFILE);
     addEEnumLiteral(launchModeTypeEEnum, LaunchModeType.COVERAGE);
-    addEEnumLiteral(launchModeTypeEEnum, LaunchModeType.INHERIT);
 
     initEEnum(memoryUnitEEnum, MemoryUnit.class, "MemoryUnit");
     addEEnumLiteral(memoryUnitEEnum, MemoryUnit.MB);

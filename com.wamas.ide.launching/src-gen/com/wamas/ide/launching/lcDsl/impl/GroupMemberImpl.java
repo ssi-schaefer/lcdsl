@@ -44,7 +44,7 @@ public class GroupMemberImpl extends MinimalEObjectImpl.Container implements Gro
    * @generated
    * @ordered
    */
-  protected static final LaunchModeType TYPE_EDEFAULT = LaunchModeType.RUN;
+  protected static final LaunchModeType TYPE_EDEFAULT = LaunchModeType.INHERIT;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

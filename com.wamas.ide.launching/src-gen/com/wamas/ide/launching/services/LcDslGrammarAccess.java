@@ -1963,53 +1963,53 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class LaunchModeTypeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.LaunchModeType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cRUNEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cRUNRunKeyword_0_0 = (Keyword)cRUNEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cDEBUGEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cDEBUGDebugKeyword_1_0 = (Keyword)cDEBUGEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cPROFILEEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cPROFILEProfileKeyword_2_0 = (Keyword)cPROFILEEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cCOVERAGEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cCOVERAGECoverageKeyword_3_0 = (Keyword)cCOVERAGEEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cINHERITEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cINHERITInheritKeyword_4_0 = (Keyword)cINHERITEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cINHERITEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cINHERITInheritKeyword_0_0 = (Keyword)cINHERITEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cRUNEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cRUNRunKeyword_1_0 = (Keyword)cRUNEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cDEBUGEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cDEBUGDebugKeyword_2_0 = (Keyword)cDEBUGEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cPROFILEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cPROFILEProfileKeyword_3_0 = (Keyword)cPROFILEEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cCOVERAGEEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cCOVERAGECoverageKeyword_4_0 = (Keyword)cCOVERAGEEnumLiteralDeclaration_4.eContents().get(0);
 		
 		//enum LaunchModeType:
-		//	RUN="run" | DEBUG="debug" | PROFILE="profile" | COVERAGE="coverage" | INHERIT="inherit";
+		//	INHERIT="inherit" | RUN="run" | DEBUG="debug" | PROFILE="profile" | COVERAGE="coverage";
 		public EnumRule getRule() { return rule; }
 		
-		//RUN="run" | DEBUG="debug" | PROFILE="profile" | COVERAGE="coverage" | INHERIT="inherit"
+		//INHERIT="inherit" | RUN="run" | DEBUG="debug" | PROFILE="profile" | COVERAGE="coverage"
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//RUN="run"
-		public EnumLiteralDeclaration getRUNEnumLiteralDeclaration_0() { return cRUNEnumLiteralDeclaration_0; }
-		
-		//"run"
-		public Keyword getRUNRunKeyword_0_0() { return cRUNRunKeyword_0_0; }
-		
-		//DEBUG="debug"
-		public EnumLiteralDeclaration getDEBUGEnumLiteralDeclaration_1() { return cDEBUGEnumLiteralDeclaration_1; }
-		
-		//"debug"
-		public Keyword getDEBUGDebugKeyword_1_0() { return cDEBUGDebugKeyword_1_0; }
-		
-		//PROFILE="profile"
-		public EnumLiteralDeclaration getPROFILEEnumLiteralDeclaration_2() { return cPROFILEEnumLiteralDeclaration_2; }
-		
-		//"profile"
-		public Keyword getPROFILEProfileKeyword_2_0() { return cPROFILEProfileKeyword_2_0; }
-		
-		//COVERAGE="coverage"
-		public EnumLiteralDeclaration getCOVERAGEEnumLiteralDeclaration_3() { return cCOVERAGEEnumLiteralDeclaration_3; }
-		
-		//"coverage"
-		public Keyword getCOVERAGECoverageKeyword_3_0() { return cCOVERAGECoverageKeyword_3_0; }
-		
 		//INHERIT="inherit"
-		public EnumLiteralDeclaration getINHERITEnumLiteralDeclaration_4() { return cINHERITEnumLiteralDeclaration_4; }
+		public EnumLiteralDeclaration getINHERITEnumLiteralDeclaration_0() { return cINHERITEnumLiteralDeclaration_0; }
 		
 		//"inherit"
-		public Keyword getINHERITInheritKeyword_4_0() { return cINHERITInheritKeyword_4_0; }
+		public Keyword getINHERITInheritKeyword_0_0() { return cINHERITInheritKeyword_0_0; }
+		
+		//RUN="run"
+		public EnumLiteralDeclaration getRUNEnumLiteralDeclaration_1() { return cRUNEnumLiteralDeclaration_1; }
+		
+		//"run"
+		public Keyword getRUNRunKeyword_1_0() { return cRUNRunKeyword_1_0; }
+		
+		//DEBUG="debug"
+		public EnumLiteralDeclaration getDEBUGEnumLiteralDeclaration_2() { return cDEBUGEnumLiteralDeclaration_2; }
+		
+		//"debug"
+		public Keyword getDEBUGDebugKeyword_2_0() { return cDEBUGDebugKeyword_2_0; }
+		
+		//PROFILE="profile"
+		public EnumLiteralDeclaration getPROFILEEnumLiteralDeclaration_3() { return cPROFILEEnumLiteralDeclaration_3; }
+		
+		//"profile"
+		public Keyword getPROFILEProfileKeyword_3_0() { return cPROFILEProfileKeyword_3_0; }
+		
+		//COVERAGE="coverage"
+		public EnumLiteralDeclaration getCOVERAGEEnumLiteralDeclaration_4() { return cCOVERAGEEnumLiteralDeclaration_4; }
+		
+		//"coverage"
+		public Keyword getCOVERAGECoverageKeyword_4_0() { return cCOVERAGECoverageKeyword_4_0; }
 	}
 	public class MemoryUnitElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.wamas.ide.launching.LcDsl.MemoryUnit");
@@ -2763,7 +2763,7 @@ public class LcDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum LaunchModeType:
-	//	RUN="run" | DEBUG="debug" | PROFILE="profile" | COVERAGE="coverage" | INHERIT="inherit";
+	//	INHERIT="inherit" | RUN="run" | DEBUG="debug" | PROFILE="profile" | COVERAGE="coverage";
 	public LaunchModeTypeElements getLaunchModeTypeAccess() {
 		return eLaunchModeType;
 	}

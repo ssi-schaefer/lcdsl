@@ -228,11 +228,11 @@
     <eLiterals name="GROUP" value="3" literal="group"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="LaunchModeType">
-    <eLiterals name="RUN" literal="run"/>
-    <eLiterals name="DEBUG" value="1" literal="debug"/>
-    <eLiterals name="PROFILE" value="2" literal="profile"/>
-    <eLiterals name="COVERAGE" value="3" literal="coverage"/>
-    <eLiterals name="INHERIT" value="4" literal="inherit"/>
+    <eLiterals name="INHERIT" literal="inherit"/>
+    <eLiterals name="RUN" value="1" literal="run"/>
+    <eLiterals name="DEBUG" value="2" literal="debug"/>
+    <eLiterals name="PROFILE" value="3" literal="profile"/>
+    <eLiterals name="COVERAGE" value="4" literal="coverage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MemoryUnit">
     <eLiterals name="MB" literal="M"/>

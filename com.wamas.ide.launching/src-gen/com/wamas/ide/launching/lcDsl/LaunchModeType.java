@@ -21,6 +21,16 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum LaunchModeType implements Enumerator
 {
   /**
+   * The '<em><b>INHERIT</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #INHERIT_VALUE
+   * @generated
+   * @ordered
+   */
+  INHERIT(0, "INHERIT", "inherit"),
+
+  /**
    * The '<em><b>RUN</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -28,7 +38,7 @@ public enum LaunchModeType implements Enumerator
    * @generated
    * @ordered
    */
-  RUN(0, "RUN", "run"),
+  RUN(1, "RUN", "run"),
 
   /**
    * The '<em><b>DEBUG</b></em>' literal object.
@@ -38,7 +48,7 @@ public enum LaunchModeType implements Enumerator
    * @generated
    * @ordered
    */
-  DEBUG(1, "DEBUG", "debug"),
+  DEBUG(2, "DEBUG", "debug"),
 
   /**
    * The '<em><b>PROFILE</b></em>' literal object.
@@ -48,7 +58,7 @@ public enum LaunchModeType implements Enumerator
    * @generated
    * @ordered
    */
-  PROFILE(2, "PROFILE", "profile"),
+  PROFILE(3, "PROFILE", "profile"),
 
   /**
    * The '<em><b>COVERAGE</b></em>' literal object.
@@ -58,77 +68,7 @@ public enum LaunchModeType implements Enumerator
    * @generated
    * @ordered
    */
-  COVERAGE(3, "COVERAGE", "coverage"),
-
-  /**
-   * The '<em><b>INHERIT</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #INHERIT_VALUE
-   * @generated
-   * @ordered
-   */
-  INHERIT(4, "INHERIT", "inherit");
-
-  /**
-   * The '<em><b>RUN</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>RUN</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #RUN
-   * @model literal="run"
-   * @generated
-   * @ordered
-   */
-  public static final int RUN_VALUE = 0;
-
-  /**
-   * The '<em><b>DEBUG</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>DEBUG</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #DEBUG
-   * @model literal="debug"
-   * @generated
-   * @ordered
-   */
-  public static final int DEBUG_VALUE = 1;
-
-  /**
-   * The '<em><b>PROFILE</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>PROFILE</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #PROFILE
-   * @model literal="profile"
-   * @generated
-   * @ordered
-   */
-  public static final int PROFILE_VALUE = 2;
-
-  /**
-   * The '<em><b>COVERAGE</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>COVERAGE</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #COVERAGE
-   * @model literal="coverage"
-   * @generated
-   * @ordered
-   */
-  public static final int COVERAGE_VALUE = 3;
+  COVERAGE(4, "COVERAGE", "coverage");
 
   /**
    * The '<em><b>INHERIT</b></em>' literal value.
@@ -143,7 +83,67 @@ public enum LaunchModeType implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int INHERIT_VALUE = 4;
+  public static final int INHERIT_VALUE = 0;
+
+  /**
+   * The '<em><b>RUN</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>RUN</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #RUN
+   * @model literal="run"
+   * @generated
+   * @ordered
+   */
+  public static final int RUN_VALUE = 1;
+
+  /**
+   * The '<em><b>DEBUG</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>DEBUG</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #DEBUG
+   * @model literal="debug"
+   * @generated
+   * @ordered
+   */
+  public static final int DEBUG_VALUE = 2;
+
+  /**
+   * The '<em><b>PROFILE</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>PROFILE</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #PROFILE
+   * @model literal="profile"
+   * @generated
+   * @ordered
+   */
+  public static final int PROFILE_VALUE = 3;
+
+  /**
+   * The '<em><b>COVERAGE</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>COVERAGE</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #COVERAGE
+   * @model literal="coverage"
+   * @generated
+   * @ordered
+   */
+  public static final int COVERAGE_VALUE = 4;
 
   /**
    * An array of all the '<em><b>Launch Mode Type</b></em>' enumerators.
@@ -154,11 +154,11 @@ public enum LaunchModeType implements Enumerator
   private static final LaunchModeType[] VALUES_ARRAY =
     new LaunchModeType[]
     {
+      INHERIT,
       RUN,
       DEBUG,
       PROFILE,
       COVERAGE,
-      INHERIT,
     };
 
   /**
@@ -223,11 +223,11 @@ public enum LaunchModeType implements Enumerator
   {
     switch (value)
     {
+      case INHERIT_VALUE: return INHERIT;
       case RUN_VALUE: return RUN;
       case DEBUG_VALUE: return DEBUG;
       case PROFILE_VALUE: return PROFILE;
       case COVERAGE_VALUE: return COVERAGE;
-      case INHERIT_VALUE: return INHERIT;
     }
     return null;
   }
