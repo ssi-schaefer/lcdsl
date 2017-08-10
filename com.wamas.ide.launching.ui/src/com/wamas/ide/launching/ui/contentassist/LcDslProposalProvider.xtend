@@ -289,11 +289,11 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 				case launchConfigTypeAccess.ECLIPSEEclipseKeyword_1_0,
 				case launchConfigTypeAccess.RAPRapKeyword_2_0,
 				case launchConfigTypeAccess.GROUPGroupKeyword_3_0: ih.getImage("launch_run.gif")
-				case launchModeTypeAccess.RUNRunKeyword_0_0,
-				case launchModeTypeAccess.DEBUGDebugKeyword_1_0,
-				case launchModeTypeAccess.PROFILEProfileKeyword_2_0,
-				case launchModeTypeAccess.COVERAGECoverageKeyword_3_0,
-				case launchModeTypeAccess.INHERITInheritKeyword_4_0: ih.getImage("launch_run.gif")
+				case launchModeTypeAccess.RUNRunKeyword_1_0,
+				case launchModeTypeAccess.DEBUGDebugKeyword_2_0,
+				case launchModeTypeAccess.PROFILEProfileKeyword_3_0,
+				case launchModeTypeAccess.COVERAGECoverageKeyword_4_0,
+				case launchModeTypeAccess.INHERITInheritKeyword_0_0: ih.getImage("launch_run.gif")
 				case memoryUnitAccess.MBMbKeyword_1_0,
 				case memoryUnitAccess.MBMBKeyword_2_0,
 				case memoryUnitAccess.MBMKeyword_0_0,
