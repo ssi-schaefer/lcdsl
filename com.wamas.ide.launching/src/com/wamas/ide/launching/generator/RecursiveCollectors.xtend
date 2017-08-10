@@ -188,15 +188,15 @@ class RecursiveCollectors {
 		val rawPlugins = collectHierarchicalMap(config, 0, [plugins?.map[plugin]])
 
 		// now remove ignores where there is a 'plugin' with a lower hierarchy number
-		rawIgnores.filter [ level, ignore |
-			for (entry : rawPlugins.filter[pl, p|pl <= level].entrySet) {
-				val p = entry.value.plugin
+		rawIgnores.filter [ ignore, level |
+			for (entry : rawPlugins.filter[p, pl|pl <= level].entrySet) {
+				val p = entry.key.plugin
 				if (p.matches(ignore)) {
 					return false;
 				}
 			}
 			true
-		].values
+		].keySet
 	}
 
 	/**
@@ -217,7 +217,7 @@ class RecursiveCollectors {
 		return va.compareTo(vb) >= 0;
 	}
 
-	private static def <T> Map<Integer, T> collectHierarchicalMap(LaunchConfig config, int level,
+	private static def <T> Map<T, Integer> collectHierarchicalMap(LaunchConfig config, int level,
 		Function<LaunchConfig, ? extends Iterable<T>> extractor) {
 		val result = newHashMap()
 
@@ -227,7 +227,7 @@ class RecursiveCollectors {
 
 		val v = extractor.apply(config)
 		if (v !== null)
-			v.forEach[result.put(level, it)]
+			v.forEach[result.put(it, level)]
 
 		result
 	}
