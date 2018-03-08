@@ -13,6 +13,7 @@ import com.wamas.ide.launching.lcDsl.ExecutionEnvironment
 import com.wamas.ide.launching.lcDsl.ExistingPath
 import com.wamas.ide.launching.lcDsl.Favorites
 import com.wamas.ide.launching.lcDsl.FeatureWithVersion
+import com.wamas.ide.launching.lcDsl.GroupMember
 import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.LcDslPackage
 import com.wamas.ide.launching.lcDsl.PluginWithVersion
@@ -26,11 +27,9 @@ import java.util.Set
 import org.eclipse.core.internal.variables.StringVariableManager
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.core.runtime.CoreException
-import org.eclipse.core.runtime.NullProgressMonitor
 import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EStructuralFeature
-import org.eclipse.jdt.core.JavaCore
 import org.eclipse.jdt.launching.JavaRuntime
 import org.eclipse.pde.core.plugin.IMatchRules
 import org.eclipse.pde.core.plugin.PluginRegistry
@@ -38,7 +37,6 @@ import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.xtext.validation.Check
 
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
-import com.wamas.ide.launching.lcDsl.GroupMember
 
 /**
  * This class contains custom validation rules. 
@@ -267,35 +265,37 @@ class LcDslValidator extends AbstractLcDslValidator {
 		}
 	}
 
-	@Check
-	def checkMainType(LaunchConfig cfg) {
-		val mainprj = RecursiveCollectors.collectJavaMainProject(cfg)
-		if (cfg.type == JAVA && mainprj !== null &&
-			cfg.mainType?.mainClass !== null && !cfg.mainType.mainClass.name.empty) {
-			val prj = ResourcesPlugin.workspace.root.getProject(mainprj);
-			if (prj !== null && prj.exists && prj.open) {
-				val jp = JavaCore.create(prj)
-				if (!jp.exists) {
-					error("project " + mainprj + " is not a java project",
-						LC.launchConfig_MainProject)
-					return
-				}
-
-				val type = jp.findType(cfg.mainType.mainClass.name, new NullProgressMonitor)
-				if (type === null || !type.exists) {
-					error("main type " + cfg.mainType.mainClass.name + " not found in class-path of " +
-						mainprj, LC.launchConfig_MainType)
-					return
-				}
-
-				if (!type.methods.exists[mainMethod]) {
-					error("type " + cfg.mainType.mainClass.name + " does not contain a main method",
-						LC.launchConfig_MainType)
-					return
-				}
-			}
-		}
-	}
+// TODO: this check is extremely expensive in headless builds where there is no java index already prepared
+//       for each project. in this case the findType call will trigger creation of the java index.
+//	@Check
+//	def checkMainType(LaunchConfig cfg) {
+//		val mainprj = RecursiveCollectors.collectJavaMainProject(cfg)
+//		if (cfg.type == JAVA && mainprj !== null &&
+//			cfg.mainType?.mainClass !== null && !cfg.mainType.mainClass.name.empty) {
+//			val prj = ResourcesPlugin.workspace.root.getProject(mainprj);
+//			if (prj !== null && prj.exists && prj.open) {
+//				val jp = JavaCore.create(prj)
+//				if (!jp.exists) {
+//					error("project " + mainprj + " is not a java project",
+//						LC.launchConfig_MainProject)
+//					return
+//				}
+//
+//				val type = jp.findType(cfg.mainType.mainClass.name, new NullProgressMonitor)
+//				if (type === null || !type.exists) {
+//					error("main type " + cfg.mainType.mainClass.name + " not found in class-path of " +
+//						mainprj, LC.launchConfig_MainType)
+//					return
+//				}
+//
+//				if (!type.methods.exists[mainMethod]) {
+//					error("type " + cfg.mainType.mainClass.name + " does not contain a main method",
+//						LC.launchConfig_MainType)
+//					return
+//				}
+//			}
+//		}
+//	}
 
 	@Check
 	def checkPathExists(ExistingPath p) {
