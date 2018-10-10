@@ -63,7 +63,7 @@ class StandaloneLaunchConfigGenerator {
 	}
 	
 	def fullName(LaunchConfig c) {
-		c.fullyQualifiedName.toString
+		c.fullyQualifiedName?.toString
 	}
 
 	def ILaunchConfiguration generate(LaunchConfig c) {
@@ -72,7 +72,7 @@ class StandaloneLaunchConfigGenerator {
 		if (config === null || config.abstract)
 			return null;
 
-		if (config.hasError) {
+		if (config.hasError || config.fullName == null) {
 			Activator.log(IStatus.ERROR, "launch configuration has errors, not generating " + config.fullName, null)
 			return null;
 		}
