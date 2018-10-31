@@ -47,7 +47,7 @@ All kinds of launch configurations can define certain attributes the same. These
 
  * modifiers:
     * `manual`: launch configuration is not generated on save, but only explicitly by right clicking the configuration in the editor or the outline view.
-    * `abstract`: defines an abstract configuration which can be used to define certain things in a reusable way.
+    * `abstract`: defines an abstract configuration which can be used to define certain things in a reusable way. An abstract configuration can be used by adding a `:` and its name after the name of the inheriting configuration. 
     * `foreground`: launches the launch configuration in foreground.
     * `no-console` (not for type 'group'): don't allocate a console for the launch.
     * `replace-env` (not for type 'group'): don't append to the environment when defining new variables, but replace it as a whole.
@@ -63,6 +63,9 @@ All kinds of launch configurations can define certain attributes the same. These
      * `vm-argument` (not for type 'group'): allows to specify one or more (on the same line) vm arguments
      * `argument` (not for type 'group'): allows to specify command line arguments for the program to launch
      * `environment` (not for type 'group'): allows to specify an environment variable to place into the launches environment.
+
+Multiple Arguments have to be quoted each, key and value separately to work properly:
+        vm-argument '-os' '${target.os}'
 
 For all the above, check content assist to get an idea of the supported values and the exact syntax.
 
