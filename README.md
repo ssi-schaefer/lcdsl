@@ -46,7 +46,7 @@ All launch configurations are built up the same way:
 All kinds of launch configurations can define certain attributes the same. These are:
 
  * modifiers:
-    * `manual`: launch configuration is not generated on save, but only explicitly by right clicking the configuration in the editor or the outline view.
+	* `manual`: launch configuration is not generated on save, but only explicitly by right clicking the configuration in the editor or the outline view.
     * `abstract`: defines an abstract configuration which can be used to define certain things in a reusable way. An abstract configuration can be used by adding a `:` and its name after the name of the inheriting configuration. 
     * `foreground`: launches the launch configuration in foreground.
     * `no-console` (not for type 'group'): don't allocate a console for the launch.
@@ -54,15 +54,15 @@ All kinds of launch configurations can define certain attributes the same. These
     * `qualified`: qualifies the name of the launch configuration with the project name the file is contained in. This allows to copy the project and have all copied launch configurations automatically receive the project name as prefix (means that the now two launch configurations don't collide).
     * `qualified("NAME")`: qualifies the launch configuration by prefixing it with NAME.
  * single-properties:
-     * `working-dir`: specifies the working directory for the launch
-     * `memory`: allows to specify various memory aspects (min, max, maxPermSize) without the need to wring `vm-arg`s.
-     * `favorite`: allows to specify launch groups where this launch should appear as favortite (`run`, `debug`, `profile`, ...)
-     * `redirect` (not for type 'group'): allows to redirect stdin, stdout/stderr to/from files.
-     * `execution-environment` (not for type 'group'): specifies the execution environment to use for the launch
+	* `working-dir`: specifies the working directory for the launch
+	* `memory`: allows to specify various memory aspects (min, max, maxPermSize) without the need to wring `vm-arg`s.
+	* `favorite`: allows to specify launch groups where this launch should appear as favortite (`run`, `debug`, `profile`, ...)
+	* `redirect` (not for type 'group'): allows to redirect stdin, stdout/stderr to/from files.
+	* `execution-environment` (not for type 'group'): specifies the execution environment to use for the launch
  * multi-properties:
-     * `vm-argument` (not for type 'group'): allows to specify one or more (on the same line) vm arguments
-     * `argument` (not for type 'group'): allows to specify command line arguments for the program to launch
-     * `environment` (not for type 'group'): allows to specify an environment variable to place into the launches environment.
+	* `vm-argument` (not for type 'group'): allows to specify one or more (on the same line) vm arguments
+	* `argument` (not for type 'group'): allows to specify command line arguments for the program to launch
+	* `environment` (not for type 'group'): allows to specify an environment variable to place into the launches environment.
 
 Multiple Arguments have to be quoted each, key and value separately to work properly:
         vm-argument '-os' '${target.os}'
