@@ -65,7 +65,7 @@ All kinds of launch configurations can define certain attributes the same. These
 	* `environment` (not for type 'group'): allows to specify an environment variable to place into the launches environment.
 
 Multiple Arguments have to be quoted each, key and value separately to work properly:
-        vm-argument '-os' '${target.os}'
+        `vm-argument '-os' '${target.os}'`
 
 For all the above, check content assist to get an idea of the supported values and the exact syntax.
 
