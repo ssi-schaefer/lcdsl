@@ -4,33 +4,37 @@
 package com.wamas.ide.launching.generator
 
 import com.google.common.base.Joiner
+import com.google.inject.Inject
 import com.wamas.ide.launching.Activator
+import com.wamas.ide.launching.lcDsl.GroupPostLaunchAction
+import com.wamas.ide.launching.lcDsl.GroupPostLaunchDelay
+import com.wamas.ide.launching.lcDsl.GroupPostLaunchRegex
+import com.wamas.ide.launching.lcDsl.GroupPostLaunchWait
 import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.LaunchConfigType
+import com.wamas.ide.launching.services.LcDslPostProcessor
+import java.io.File
+import java.util.Map
+import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.core.runtime.IStatus
 import org.eclipse.debug.core.DebugPlugin
+import org.eclipse.debug.core.ILaunchConfiguration
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy
 import org.eclipse.debug.core.ILaunchManager
+import org.eclipse.debug.internal.core.groups.GroupLaunchConfigurationDelegate
+import org.eclipse.debug.internal.core.groups.GroupLaunchElement
+import org.eclipse.debug.ui.IDebugUIConstants
 import org.eclipse.emf.common.util.Diagnostic
 import org.eclipse.emf.ecore.util.Diagnostician
 import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants
+import org.eclipse.pde.core.plugin.PluginRegistry
+import org.eclipse.pde.internal.core.product.WorkspaceProductModel
+import org.eclipse.pde.launching.IPDELauncherConstants
 import org.eclipse.pde.ui.launcher.EclipseLaunchShortcut
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
-import org.eclipse.debug.ui.IDebugUIConstants
-import org.eclipse.pde.launching.IPDELauncherConstants
-import java.util.Map
-import org.eclipse.pde.core.plugin.PluginRegistry
-import com.wamas.ide.launching.services.LcDslPostProcessor
-import com.google.inject.Inject
-import org.eclipse.xtext.naming.IQualifiedNameProvider
-import org.eclipse.debug.internal.core.groups.GroupLaunchElement
-import com.wamas.ide.launching.lcDsl.GroupPostLaunchAction
-import com.wamas.ide.launching.lcDsl.GroupPostLaunchDelay
-import com.wamas.ide.launching.lcDsl.GroupPostLaunchWait
-import com.wamas.ide.launching.lcDsl.GroupPostLaunchRegex
-import org.eclipse.debug.internal.core.groups.GroupLaunchConfigurationDelegate
-import org.eclipse.debug.core.ILaunchConfiguration
+import org.eclipse.pde.core.plugin.TargetPlatform
 
 class StandaloneLaunchConfigGenerator {
 
@@ -88,9 +92,22 @@ class StandaloneLaunchConfigGenerator {
 		}
 
 		if (config.type != LaunchConfigType.GROUP) {
-			copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_PROGRAM_ARGUMENTS,
+			var additionalProgramArgs = "";
+			var additionalVMArgs = "";
+
+			val model = config.loadProduct
+			if (model !==null) {
+				val os = TargetPlatform.getOS();
+				val arch = TargetPlatform.getOSArch();
+				val launcherArguments = model.product.launcherArguments
+
+				additionalProgramArgs = launcherArguments.getCompleteProgramArguments(os, arch) + ' '
+				additionalVMArgs = launcherArguments.getCompleteVMArguments(os, arch) + ' '
+			}
+
+			copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_PROGRAM_ARGUMENTS, additionalProgramArgs +
 				Joiner.on(' ').join(config.collectArguments.map[quote]))
-			copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_VM_ARGUMENTS,
+			copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_VM_ARGUMENTS, additionalVMArgs +
 				Joiner.on(' ').join(config.collectVmArguments.map[quote]))
 
 			val out = config.collectRedirectOutFile
@@ -134,7 +151,26 @@ class StandaloneLaunchConfigGenerator {
 
 		copy.doSave
 	}
-	
+
+	private def loadProduct(LaunchConfig  config) {
+		val cp = config.collectContentProvider
+		if (cp === null || cp.empty) {
+			return null
+		}
+
+		val file = new File(cp)
+		val wsFiles = ResourcesPlugin.workspace.root.findFilesForLocationURI(file.toURI)
+
+		if (wsFiles === null || wsFiles.length <= 0) {
+			return null
+		}
+
+		val model = new WorkspaceProductModel(wsFiles.get(0), false)
+		model.load
+
+		return model;
+	}
+
 	def quote(String string) {
 		if(string.contains('"')) {
 			return string; // quoted itself already?
