@@ -108,7 +108,7 @@ Eclipse and RAP launch configurations share a lot of configuration options, that
      * `application`: id of the application to launch. Only valid if no `product` is set
      * `product`: id of the product to launch. Only valid if no `application` is set
      * `config-ini-template`: use the given file as config.ini template.
-     * `content-provider`: allows to specify the absolute path to a *.product* file. This file is read and all declared dependencies (features, plugins) are expanded as if they were declared using `plugin` and `feature` directives. There is no way to apply `ignore` to any of the features/pluings originating from the *.product*.
+     * `content-provider`: allows to specify the absolute path to a *.product* file (Hint: you can use variables like `${workspace_loc}`). This file is read and all declared dependencies (features, plugins) are expanded as if they were declared using `plugin` and `feature` directives. There is no way to apply `ignore` to any of the features/pluings originating from the *.product*. Additionally, arguments and VM arguments are applied as well, as if written directly in the launch configuration.
      * `servlet {}` (not for type 'eclipse'):
          * `path`: servlet path
          * `browser`: use internal, external or no browser at all on launch
