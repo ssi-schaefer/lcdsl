@@ -337,7 +337,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 					case launchConfigAccess.noConsoleNoConsoleKeyword_0_4_0:
 						p.addDescription("Do not allocate a console for the process when launched")
 					case launchConfigAccess.noValidateNoValidateKeyword_0_5_0:
-						p.addDescription("Do not validate the set of selected plugins prios to launching")
+						p.addDescription("Do not validate the set of selected plugins prior to launching")
 					case launchConfigAccess.swInstallSupportSwInstallAllowedKeyword_0_6_0:
 						p.addDescription(
 							"Generate a P2 profile for the launch, which allows to install software into the launched application via P2.")
