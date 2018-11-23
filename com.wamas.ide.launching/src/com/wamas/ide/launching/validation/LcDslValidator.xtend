@@ -401,7 +401,10 @@ class LcDslValidator extends AbstractLcDslValidator {
 		// TODO: possibly filter to plugins that are actually included in the launch configuration...?
 		PluginRegistry.activeModels.map[extensions.extensions.toList].flatten.filter [
 			point.equals(ext)
-		].map[pluginModel.bundleDescription.symbolicName + "." + id]
+		].map[
+			// if the id contains a '.' the bundle name should not be prepended
+			if(id.contains('.')) { id } else { pluginModel.bundleDescription.symbolicName + "." + id }
+		]
 	}
 	
 	@Check
