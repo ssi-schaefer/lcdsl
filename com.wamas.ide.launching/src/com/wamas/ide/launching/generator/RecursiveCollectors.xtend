@@ -43,7 +43,7 @@ class RecursiveCollectors {
 	static def List<String> collectVmArguments(LaunchConfig config) {
 		var result = newArrayList
 
-		val mem = config.memory
+		val mem = collectFlatObject(config, [memory])
 		if (mem !== null) {
 			if (mem.min > 0)
 				result.add("-Xms" + mem.min + mem.minUnit.literal)
