@@ -6,6 +6,7 @@ package com.wamas.ide.launching.naming;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 
@@ -32,11 +33,25 @@ public class LcDslQualifiedNameProvider extends DefaultDeclarativeQualifiedNameP
     }
 
     protected QualifiedName qualifiedName(PluginWithVersion plugin) {
+        QualifiedName containerName = qualifiedName(findLc(plugin));
+
         if (plugin.getVersion() == null) {
-            return QualifiedName.create(plugin.getName());
+            return containerName.append(plugin.getName());
         } else {
-            return QualifiedName.create(plugin.getName(), plugin.getVersion());
+            return containerName.append(plugin.getName()).append(plugin.getVersion());
         }
+    }
+
+    private LaunchConfig findLc(EObject contained) {
+        if (contained.eContainer() instanceof LaunchConfig) {
+            return (LaunchConfig) contained.eContainer();
+        }
+
+        if (contained.eContainer() == null) {
+            return null;
+        }
+
+        return findLc(contained.eContainer());
     }
 
 }

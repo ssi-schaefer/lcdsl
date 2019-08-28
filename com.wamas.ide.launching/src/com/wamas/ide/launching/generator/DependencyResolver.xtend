@@ -37,7 +37,7 @@ class DependencyResolver {
 			else
 				"default"
 		}
-
+		
 		def getLevel() {
 			if (level == 0)
 				"default"

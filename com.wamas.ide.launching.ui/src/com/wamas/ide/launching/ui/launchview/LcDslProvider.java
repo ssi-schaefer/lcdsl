@@ -35,6 +35,7 @@ import org.osgi.service.component.annotations.Deactivate;
 import com.wamas.ide.launching.generator.LcDslGenerator;
 import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
+import com.wamas.ide.launching.lcDsl.LaunchConfigType;
 import com.wamas.ide.launching.lcDsl.LcDslPackage;
 import com.wamas.ide.launching.ui.LcDslHelper;
 import com.wamas.ide.launching.ui.internal.LaunchingActivator;
@@ -216,9 +217,41 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
             }
         });
 
+        MDirectMenuItem showDeps = MMenuFactory.INSTANCE.createDirectMenuItem();
+        showDeps.setLabel("Show actual dependencies...");
+        showDeps.setTooltip("Show a list of expanded, resolved dependencies as generated into the launch configuration");
+        showDeps.setIconURI("platform:/plugin/" + LcDslInternalHelper.PLUGIN_ID + "/icons/plugin_obj.png");
+        showDeps.setObject(new Object() {
+
+            @Execute
+            public void show() {
+                new LcDslDependenciesDialog(null,
+                        ((LcDslLaunchObject) view.getSelectedElements().iterator().next()).getLaunchConfig()).open();
+            }
+
+            @CanExecute
+            public boolean isEnabled() {
+                if (view.getSelectedElements().size() != 1) {
+                    return false;
+                }
+
+                LaunchObject selected = view.getSelectedElements().iterator().next();
+                if (selected instanceof LcDslLaunchObject) {
+                    LcDslLaunchObject lo = (LcDslLaunchObject) selected;
+                    if (lo.getLaunchConfig().getType() == LaunchConfigType.ECLIPSE
+                            || lo.getLaunchConfig().getType() == LaunchConfigType.RAP) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        });
+
         menu.getChildren().add(MMenuFactory.INSTANCE.createMenuSeparator());
         menu.getChildren().add(generate);
         menu.getChildren().add(cleanup);
+        menu.getChildren().add(showDeps);
     }
 
 }
