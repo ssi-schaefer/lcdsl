@@ -11,6 +11,7 @@ import org.eclipse.xtext.naming.QualifiedName;
 
 import com.google.common.base.Splitter;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
+import com.wamas.ide.launching.lcDsl.PluginWithVersion;
 
 public class LcDslQualifiedNameProvider extends DefaultDeclarativeQualifiedNameProvider {
 
@@ -28,6 +29,14 @@ public class LcDslQualifiedNameProvider extends DefaultDeclarativeQualifiedNameP
         }
 
         return QualifiedName.create(config.getName());
+    }
+
+    protected QualifiedName qualifiedName(PluginWithVersion plugin) {
+        if (plugin.getVersion() == null) {
+            return QualifiedName.create(plugin.getName());
+        } else {
+            return QualifiedName.create(plugin.getName(), plugin.getVersion());
+        }
     }
 
 }
