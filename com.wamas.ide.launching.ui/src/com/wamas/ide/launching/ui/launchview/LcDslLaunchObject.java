@@ -11,7 +11,7 @@ import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchMode;
 import org.eclipse.debug.ui.launchview.internal.impl.DebugCoreLaunchObject;
 import org.eclipse.debug.ui.launchview.launcher.StandaloneLaunchConfigExecutor;
-import org.eclipse.debug.ui.launchview.services.LaunchObject;
+import org.eclipse.debug.ui.launchview.services.ILaunchObject;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.DecorationOverlayIcon;
@@ -29,7 +29,7 @@ import com.wamas.ide.launching.ui.LcDslHelper;
 import com.wamas.ide.launching.ui.internal.LaunchingActivator;
 import com.wamas.ide.launching.ui.internal.LcDslInternalHelper;
 
-public class LcDslLaunchObject implements LaunchObject {
+public class LcDslLaunchObject implements ILaunchObject {
 
     private static final ImageDescriptor NATURE_OVERLAY = LaunchingActivator
             .imageDescriptorFromPlugin(LcDslInternalHelper.PLUGIN_ID, "icons/nature_overlay.png");
@@ -62,7 +62,7 @@ public class LcDslLaunchObject implements LaunchObject {
 
     @Override
     public Image getImage() {
-        Image undecorated = LaunchObject.super.getImage();
+        Image undecorated = ILaunchObject.super.getImage();
 
         if (undecorated == null) {
             return null;

@@ -5,6 +5,7 @@ package com.wamas.ide.launching.ui.launchview;
 
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Supplier;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
@@ -13,9 +14,8 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.debug.ui.launchview.services.AbstractLaunchObjectProvider;
-import org.eclipse.debug.ui.launchview.services.LaunchObject;
-import org.eclipse.debug.ui.launchview.services.LaunchObjectProvider;
-import org.eclipse.debug.ui.launchview.services.LaunchView;
+import org.eclipse.debug.ui.launchview.services.ILaunchObject;
+import org.eclipse.debug.ui.launchview.services.ILaunchObjectProvider;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.menu.ItemType;
@@ -41,8 +41,8 @@ import com.wamas.ide.launching.ui.LcDslHelper;
 import com.wamas.ide.launching.ui.internal.LaunchingActivator;
 import com.wamas.ide.launching.ui.internal.LcDslInternalHelper;
 
-@Component(service = LaunchObjectProvider.class)
-public class LcDslProvider extends AbstractLaunchObjectProvider implements LaunchObjectProvider {
+@Component(service = ILaunchObjectProvider.class)
+public class LcDslProvider extends AbstractLaunchObjectProvider implements ILaunchObjectProvider {
 
     private final ILaunchManager manager = DebugPlugin.getDefault().getLaunchManager();
     private final Runnable generatorListener = () -> fireUpdate();
@@ -120,7 +120,7 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
     }
 
     @Override
-    public void contributeViewMenu(LaunchView view, MMenu menu) {
+    public void contributeViewMenu(Supplier<Set<ILaunchObject>> selected, MMenu menu) {
         MDirectMenuItem hide = MMenuFactory.INSTANCE.createDirectMenuItem();
         hide.setLabel("Hide 'manual' LcDsl configurations");
         hide.setType(ItemType.CHECK);
@@ -169,7 +169,7 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
     }
 
     @Override
-    public void contributeContextMenu(LaunchView view, MMenu menu) {
+    public void contributeContextMenu(Supplier<Set<ILaunchObject>> selected, MMenu menu) {
         // (re-)generate launch configurations
         MDirectMenuItem generate = MMenuFactory.INSTANCE.createDirectMenuItem();
         generate.setLabel("(Re-)generate Eclipse launch configuration");
@@ -179,7 +179,7 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
 
             @Execute
             public void generate() {
-                for (LaunchObject e : view.getSelectedElements()) {
+                for (ILaunchObject e : selected.get()) {
                     LcDslLaunchObject o = (LcDslLaunchObject) e;
                     LcDslHelper.getInstance().generate(o.getLaunchConfig());
                 }
@@ -189,7 +189,7 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
 
             @CanExecute
             public boolean isEnabled() {
-                return view.getSelectedElements().stream().allMatch(e -> e instanceof LcDslLaunchObject);
+                return selected.get().stream().allMatch(e -> e instanceof LcDslLaunchObject);
             }
         });
 
@@ -203,7 +203,7 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
 
             @Execute
             public void cleanup() throws CoreException {
-                for (LaunchObject e : view.getSelectedElements()) {
+                for (ILaunchObject e : selected.get()) {
                     findLaunchConfiguration(e.getType(), e.getId()).delete();
                 }
 
@@ -212,7 +212,7 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
 
             @CanExecute
             public boolean isEnabled() {
-                return view.getSelectedElements().stream()
+                return selected.get().stream()
                         .allMatch(e -> e instanceof LcDslLaunchObject && findLaunchConfiguration(e.getType(), e.getId()) != null);
             }
         });
@@ -225,19 +225,19 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements Launc
 
             @Execute
             public void show() {
-                new LcDslDependenciesDialog(null,
-                        ((LcDslLaunchObject) view.getSelectedElements().iterator().next()).getLaunchConfig()).open();
+                new LcDslDependenciesDialog(null, ((LcDslLaunchObject) selected.get().iterator().next()).getLaunchConfig())
+                        .open();
             }
 
             @CanExecute
             public boolean isEnabled() {
-                if (view.getSelectedElements().size() != 1) {
+                if (selected.get().size() != 1) {
                     return false;
                 }
 
-                LaunchObject selected = view.getSelectedElements().iterator().next();
-                if (selected instanceof LcDslLaunchObject) {
-                    LcDslLaunchObject lo = (LcDslLaunchObject) selected;
+                ILaunchObject sel = selected.get().iterator().next();
+                if (sel instanceof LcDslLaunchObject) {
+                    LcDslLaunchObject lo = (LcDslLaunchObject) sel;
                     if (lo.getLaunchConfig().getType() == LaunchConfigType.ECLIPSE
                             || lo.getLaunchConfig().getType() == LaunchConfigType.RAP) {
                         return true;
