@@ -37,6 +37,7 @@ import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.xtext.validation.Check
 
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
+import com.wamas.ide.launching.lcDsl.IgnorePlugin
 
 /**
  * This class contains custom validation rules. 
@@ -226,6 +227,8 @@ class LcDslValidator extends AbstractLcDslValidator {
 		if (container instanceof AddPlugin) {
 			if (container.optional)
 				return;
+		} else if (p.eContainer instanceof IgnorePlugin) {
+			return;
 		}
 
 		val bundle = PluginRegistry.findModel(p.name, p.version, IMatchRules.PERFECT, null)
