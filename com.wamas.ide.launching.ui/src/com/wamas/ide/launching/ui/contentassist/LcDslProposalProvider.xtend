@@ -47,7 +47,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 
 	@Inject
 	private extension LcDslGrammarAccess ga
-
+	
 	override complete_Project(EObject model, RuleCall ruleCall, ContentAssistContext context,
 		ICompletionProposalAcceptor acceptor) {
 		for (prj : ResourcesPlugin.workspace.root.projects) {
@@ -59,6 +59,12 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 		}
 
 		super.complete_Project(model, ruleCall, context, acceptor)
+	}
+	
+	override completeLaunchConfig_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		acceptor.accept(createCompletionProposal("MyConfiguration", new StyledString("MyConfiguration"), ih.getImage("start_application.png"), context));
+		
+		super.completeLaunchConfig_Name(model, assignment, context, acceptor);
 	}
 
 	override completePluginWithVersion_Name(EObject model, Assignment assignment, ContentAssistContext context,
