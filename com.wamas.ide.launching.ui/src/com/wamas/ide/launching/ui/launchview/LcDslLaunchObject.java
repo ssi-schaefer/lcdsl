@@ -9,14 +9,17 @@ import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchMode;
+import org.eclipse.debug.ui.launchview.internal.Activator;
+import org.eclipse.debug.ui.launchview.internal.LaunchViewMessages;
 import org.eclipse.debug.ui.launchview.internal.impl.DebugCoreLaunchObject;
-import org.eclipse.debug.ui.launchview.launcher.StandaloneLaunchConfigExecutor;
+import org.eclipse.debug.ui.launchview.internal.launcher.StandaloneLaunchConfigExecutor;
 import org.eclipse.debug.ui.launchview.services.ILaunchObject;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.DecorationOverlayIcon;
 import org.eclipse.jface.viewers.IDecoration;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.EcoreUtil2;
@@ -141,6 +144,19 @@ public class LcDslLaunchObject implements ILaunchObject {
     @Override
     public boolean isFavorite() {
         return !RecursiveCollectors.collectFavoriteGroups(cfg).isEmpty();
+    }
+
+    @Override
+    public int compareTo(ILaunchObject o) {
+        if (getId() == null) {
+            Activator.log(IStatus.WARNING, NLS.bind(LaunchViewMessages.LaunchObject_ErrorNoId, this), null);
+            if (o.getId() == null) {
+                return 0;
+            }
+            return 1;
+        }
+
+        return getId().compareTo(o.getId());
     }
 
 }

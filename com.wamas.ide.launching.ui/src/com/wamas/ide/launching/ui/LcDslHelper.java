@@ -9,7 +9,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchMode;
-import org.eclipse.debug.ui.launchview.launcher.StandaloneLaunchConfigExecutor;
+import org.eclipse.debug.ui.launchview.internal.launcher.StandaloneLaunchConfigExecutor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
