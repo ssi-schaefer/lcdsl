@@ -21,6 +21,7 @@ import com.wamas.ide.launching.lcDsl.PluginWithVersion
 import com.wamas.ide.launching.lcDsl.ProductExtPoint
 import com.wamas.ide.launching.lcDsl.Project
 import com.wamas.ide.launching.lcDsl.StringWithVariables
+import com.wamas.ide.launching.lcDsl.TestRunnerType
 import com.wamas.ide.launching.lcDsl.TraceEnablement
 import java.io.File
 import java.util.List
@@ -31,6 +32,11 @@ import org.eclipse.core.runtime.CoreException
 import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.jdt.core.Flags
+import org.eclipse.jdt.core.IJavaProject
+import org.eclipse.jdt.core.IPackageFragment
+import org.eclipse.jdt.core.IPackageFragmentRoot
+import org.eclipse.jdt.core.JavaCore
 import org.eclipse.jdt.launching.JavaRuntime
 import org.eclipse.pde.core.plugin.IMatchRules
 import org.eclipse.pde.core.plugin.PluginRegistry
@@ -54,40 +60,51 @@ class LcDslValidator extends AbstractLcDslValidator {
 	// map config features to types where this feature is allowed. not mentioned features are allowed on all types.
 	val allowedFeatures = newHashMap(
 		// modifiers on config
-		LC.launchConfig_Explicit -> #{ECLIPSE, RAP},
-		LC.launchConfig_NoConsole -> #{ECLIPSE, RAP, JAVA},
-		LC.launchConfig_NoValidate -> #{ECLIPSE, RAP},
+		LC.launchConfig_Explicit -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_NoConsole -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_NoValidate -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
 		LC.launchConfig_SwInstallSupport -> #{ECLIPSE},
-		LC.launchConfig_ReplaceEnv -> #{ECLIPSE, RAP, JAVA},
+		LC.launchConfig_ReplaceEnv -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
 		LC.launchConfig_StopInMain -> #{JAVA},
+		LC.launchConfig_KeepRunning -> #{SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_RunInUiThread -> #{JUNIT_PLUGIN},
 		// single appearance features
-		LC.launchConfig_Clears -> #{ECLIPSE, RAP},
-		LC.launchConfig_Workspace -> #{ECLIPSE, RAP},
-		LC.launchConfig_WorkingDir -> #{ECLIPSE, RAP, JAVA},
-		LC.launchConfig_Memory -> #{ECLIPSE, RAP, JAVA},
+		LC.launchConfig_Clears -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_Workspace -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_WorkingDir -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_Memory -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
 		LC.launchConfig_MainProject -> #{JAVA},
 		LC.launchConfig_MainType -> #{JAVA},
-		LC.launchConfig_Application -> #{ECLIPSE},
-		LC.launchConfig_Product -> #{ECLIPSE},
-		LC.launchConfig_Redirect -> #{ECLIPSE, RAP, JAVA},
-		LC.launchConfig_ExecEnv -> #{ECLIPSE, RAP, JAVA},
-		LC.launchConfig_ConfigIniTemplate -> #{ECLIPSE},
+		LC.launchConfig_Application -> #{ECLIPSE, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_Product -> #{ECLIPSE, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_Redirect -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_ExecEnv -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_ConfigIniTemplate -> #{ECLIPSE, SWTBOT, JUNIT_PLUGIN},
 		LC.launchConfig_JavaMainSearch -> #{JAVA},
 		LC.launchConfig_ServletConfig -> #{RAP},
-		LC.launchConfig_ContentProviderProduct -> #{ECLIPSE, RAP},
+		LC.launchConfig_ContentProviderProduct -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_Test -> #{SWTBOT, JUNIT_PLUGIN},
 		// multi appearance features
-		LC.launchConfig_Plugins -> #{ECLIPSE, RAP},
-		LC.launchConfig_Features -> #{ECLIPSE, RAP},
-		LC.launchConfig_Ignore -> #{ECLIPSE, RAP},
+		LC.launchConfig_Plugins -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_Features -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_Ignore -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
 		LC.launchConfig_GroupMembers -> #{GROUP},
-		LC.launchConfig_VmArgs -> #{ECLIPSE, RAP, JAVA},
-		LC.launchConfig_ProgArgs -> #{ECLIPSE, RAP, JAVA},
-		LC.launchConfig_EnvVars -> #{ECLIPSE, RAP, JAVA},
-		LC.launchConfig_Traces -> #{ECLIPSE, RAP}
+		LC.launchConfig_VmArgs -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_ProgArgs -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_EnvVars -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_Traces -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN}
 	)
 
 	val requiredFeatures = newHashMap(
 		ECLIPSE -> #{
+			#{LC.launchConfig_Application, LC.launchConfig_Product},
+			#{LC.launchConfig_Plugins, LC.launchConfig_Features, LC.launchConfig_ContentProviderProduct}
+		},
+		SWTBOT -> #{
+			#{LC.launchConfig_Application, LC.launchConfig_Product},
+			#{LC.launchConfig_Plugins, LC.launchConfig_Features, LC.launchConfig_ContentProviderProduct}
+		},
+		JUNIT_PLUGIN -> #{
 			#{LC.launchConfig_Application, LC.launchConfig_Product},
 			#{LC.launchConfig_Plugins, LC.launchConfig_Features, LC.launchConfig_ContentProviderProduct}
 		},
@@ -310,6 +327,115 @@ class LcDslValidator extends AbstractLcDslValidator {
 			}
 		} catch (CoreException e) {
 			warning(e.message, LC.path_Name)
+		}
+	}
+
+	@Check
+	def checkTestContainer(LaunchConfig cfg) {
+		val resource = RecursiveCollectors.collectTestContainerResource(cfg)
+		if (resource === null) {
+			error("Test container is not a Java project, source folder or package" + cfg.test?.container, cfg.test, LC.testConfig_Container)
+			return
+		}
+
+		// must be Java project, source folder or package
+		val javaElement = JavaCore.create(resource);
+		if (!(javaElement instanceof IJavaProject) && !(javaElement instanceof IPackageFragmentRoot) && !(javaElement instanceof IPackageFragment)) {
+			error("Test container is not a Java project, source folder or package" + resource.fullPath, cfg.test, LC.testConfig_Container)
+		}
+	}
+
+	@Check
+	def checkTestClass(LaunchConfig cfg) {
+		val className = cfg.test?.class_
+		if (className === null) {
+			return 
+		}
+
+		val javaProject = findJavaProject(cfg)
+		if (javaProject === null) {
+			return 
+		}
+
+		val type = javaProject.findType(className)
+		if (type === null) {
+			error("Test class " + className + " must point to an existing class in project " + javaProject, cfg.test, LC.testConfig_Class)
+		} else if (!Flags.isPublic(type.flags)) {
+			error("Test class " + className + " must be public.", cfg.test, LC.testConfig_Class)
+		} else if (type.methods.stream().filter([method | Flags.isPublic(method.flags)]).flatMap([method | method.annotations.stream]).noneMatch([annotation | annotation.elementName.equals("Test")])) {
+			error("Test class " + className + " must at least have one method annotated with @Test.", cfg.test, LC.testConfig_Class)
+		}
+	}
+
+	private def IJavaProject findJavaProject(LaunchConfig cfg) {
+		val resource = RecursiveCollectors.collectTestContainerResource(cfg)
+		if (resource === null) {
+			return null
+		}
+
+		val javaElement = JavaCore.create(resource);
+		if (javaElement === null) {
+			return null
+		}
+
+		if (javaElement instanceof IJavaProject) {
+			return javaElement;
+		}
+
+		if (javaElement instanceof IPackageFragmentRoot) {
+			return javaElement.parent as IJavaProject;
+		}
+
+		if (javaElement instanceof IPackageFragment) {
+			return javaElement.parent.parent as IJavaProject;
+		}
+
+		return null;
+	}
+
+	@Check
+	def checkTestMethod(LaunchConfig cfg) {
+		val methodName = cfg.test?.method;
+		if (methodName === null) {
+			return 
+		}
+
+		val javaProject = findJavaProject(cfg)
+		if (javaProject === null) {
+			return 
+		}
+
+		val className = cfg.test?.class_;
+		if (className === null) {
+			error("Test method requires a test class to be set", cfg.test, LC.testConfig_Method)
+		} else {
+			val type = javaProject.findType(className)
+			if (type === null) {
+				return
+			}
+
+			if (type.methods.stream().noneMatch([method| method.elementName.equals(methodName)])) {
+				error("Test method " + methodName + " does not exist in class " + className, cfg.test, LC.testConfig_Method)
+			} else if (type.methods.stream().filter([method|method.elementName.equals(methodName)]).noneMatch([method | Flags.isPublic(method.flags)])) {
+				error("Test method " + methodName + "  in class " + className + " must be public", cfg.test, LC.testConfig_Method)
+			} else if (type.methods.stream().filter([method|method.elementName.equals(methodName)]).flatMap([method | method.annotations.stream]).noneMatch([annotation | annotation.elementName.equals("Test")])) {
+				error("Test method " + methodName + "  in class " + className + " does not have a @Test annotation", cfg.test, LC.testConfig_Method)
+			}
+		}
+	}
+
+	@Check
+	def checkTestTagsOnlyJUnit5(LaunchConfig cfg) {
+		val testRunner = cfg.test?.runner
+		val testExcludeTags = cfg.test?.excludeTags
+		val testIncludeTags = cfg.test?.includeTags
+
+		if (testExcludeTags !== null && testRunner !== TestRunnerType.JUNIT5) {
+			warning("Exclude tags are only supported by JUnit5", cfg.test, LC.testConfig_ExcludeTags)
+		}
+
+		if (testIncludeTags !== null && testRunner !== TestRunnerType.JUNIT5) {
+			warning("Include tags are only supported by JUnit5", cfg.test, LC.testConfig_IncludeTags)
 		}
 	}
 

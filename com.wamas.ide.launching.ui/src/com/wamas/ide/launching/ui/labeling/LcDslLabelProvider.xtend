@@ -39,6 +39,8 @@ import org.eclipse.debug.internal.ui.DebugPluginImages
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.jface.viewers.StyledString
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import com.wamas.ide.launching.lcDsl.TestConfig
+import com.wamas.ide.launching.lcDsl.LaunchConfigType
 
 /**
  * Provides labels for EObjects.
@@ -70,6 +72,10 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 			flags.add("manual")
 		if (lc.stopInMain)
 			flags.add("stop-in-main")
+		if (lc.keepRunning)
+			flags.add("keep-running")
+		if (lc.runInUiThread)
+			flags.add("run-in-ui-thread")
 
 		if (!flags.empty) {
 			ss.append(" [" + Joiner.on(", ").join(flags) + "]", StyledString.DECORATIONS_STYLER)
@@ -350,5 +356,18 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 
 	def image(StringWithVariables s) {
 		doGetImage(s.eContainer)
+	}
+
+	def text(TestConfig testConfig) {
+		"test [runner, " + testConfig.runner + ", container " + testConfig.container + ", class " + testConfig.class_ + ", method " + testConfig.method + "]";
+	}
+
+	def image(TestConfig testConfig) {
+		val launchConfig = testConfig.eContainer as LaunchConfig
+		if (launchConfig.type === LaunchConfigType.SWTBOT) {
+			return "test_config_swtbot.png"
+		}
+
+		return "test_config_junit_plugin.png";
 	}
 }

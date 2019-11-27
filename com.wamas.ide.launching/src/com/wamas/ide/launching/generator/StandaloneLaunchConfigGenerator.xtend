@@ -37,6 +37,10 @@ import org.eclipse.pde.ui.launcher.EclipseLaunchShortcut
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
+import org.eclipse.pde.core.plugin.TargetPlatform
+import org.eclipse.jdt.internal.junit.launcher.JUnitLaunchConfigurationConstants
+import org.eclipse.jdt.internal.junit.launcher.TestKindRegistry
+import org.eclipse.debug.internal.core.LaunchConfiguration
 
 class StandaloneLaunchConfigGenerator {
 
@@ -51,11 +55,15 @@ class StandaloneLaunchConfigGenerator {
 	val launchMgr = DebugPlugin.^default.launchManager
 
 	public static final String CONFIGURATION_TYPE_RAP = "org.eclipse.rap.ui.launch.RAPLauncher";
+	public static final String CONFIGURATION_TYPE_SWTBOT = "org.eclipse.swtbot.eclipse.ui.launcher.JunitLaunchConfig";
+	public static final String CONFIGURATION_TYPE_JUNIT = "org.eclipse.pde.ui.JunitLaunchConfig";	
 	public static final String CONFIGURATION_TYPE_GROUP = "org.eclipse.debug.core.groups.GroupLaunchConfigurationType";
 
 	static val TYPE_MAP = newHashMap(
 		LaunchConfigType.JAVA -> IJavaLaunchConfigurationConstants.ID_JAVA_APPLICATION,
 		LaunchConfigType.ECLIPSE -> EclipseLaunchShortcut.CONFIGURATION_TYPE,
+		LaunchConfigType.SWTBOT -> CONFIGURATION_TYPE_SWTBOT,
+		LaunchConfigType.JUNIT_PLUGIN -> CONFIGURATION_TYPE_JUNIT,
 		LaunchConfigType.RAP -> CONFIGURATION_TYPE_RAP,
 		LaunchConfigType.GROUP -> CONFIGURATION_TYPE_GROUP
 	)
@@ -149,6 +157,10 @@ class StandaloneLaunchConfigGenerator {
 				generateGroup(config, copy)
 			case RAP:
 				generateRAP(config, copy)
+			case SWTBOT:
+				generateSWTBotJUnitPlugin(config, copy)
+			case JUNIT_PLUGIN:
+				generatJUnitPlugin(config, copy)
 		}
 
 		copy.doSave
@@ -268,7 +280,7 @@ class StandaloneLaunchConfigGenerator {
 
 		copy.setIfAvailable(IPDELauncherConstants.LOCATION, config.collectWorkspace)
 		copy.setIfAvailable(IPDELauncherConstants.APPLICATION, config.collectApplication)
-		
+
 		val prod = config.collectProduct
 		if(prod !== null && !prod.empty) {
 			copy.setAttribute(IPDELauncherConstants.PRODUCT, prod)
@@ -285,7 +297,7 @@ class StandaloneLaunchConfigGenerator {
 
 		generateDependenciesEclipseRap(config, copy)
 	}
-	
+
 	def generateDependenciesEclipseRap(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
 		val ws = newArrayList
 		val tp = newArrayList
@@ -322,7 +334,7 @@ class StandaloneLaunchConfigGenerator {
 		val wsValue = Joiner.on(',').join(ws)
 		val tpValue = Joiner.on(',').join(tp)
 		
-		if(config.type == LaunchConfigType.ECLIPSE) {
+		if(config.type == LaunchConfigType.ECLIPSE || config.type == LaunchConfigType.SWTBOT || config.type == LaunchConfigType.JUNIT_PLUGIN) {
 			copy.setAttribute(IPDEConstants.LAUNCHER_PDE_VERSION, "3.3");
 			copy.setAttribute(IPDELauncherConstants.SELECTED_WORKSPACE_BUNDLES, new TreeSet<String>(ws))
 			copy.setAttribute(IPDELauncherConstants.SELECTED_TARGET_BUNDLES, new TreeSet<String>(ntp))
@@ -332,7 +344,7 @@ class StandaloneLaunchConfigGenerator {
 		}
 		
 		copy.setAttribute(IPDELauncherConstants.USE_DEFAULT, false);
-        copy.setAttribute(IPDELauncherConstants.AUTOMATIC_ADD, false);
+		copy.setAttribute(IPDELauncherConstants.AUTOMATIC_ADD, false);
 	}
 
 	def generateRAP(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
@@ -418,6 +430,30 @@ class StandaloneLaunchConfigGenerator {
 					m.actionParam = a.regex
 			}
 		}
+	}
+
+	def generatJUnitPlugin(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
+		generateSWTBotJUnitPlugin(config, copy)
+
+		copy.setAttribute(IPDELauncherConstants.RUN_IN_UI_THREAD, config.collectTestRunUiThread)
+	}
+
+	def generateSWTBotJUnitPlugin(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
+		generateEclipse(config, copy)
+
+		copy.mappedResources = config.collectTestResources
+
+		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_PROJECT_NAME, config.collectTestProject)
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_RUNNER_KIND, config.collectTestKind)
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_KEEPRUNNING, config.collectTestKeepRunning)
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_CONTAINER, config.collectTestContainer)
+		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, config.collectTestMainType)
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_NAME, config.collectTestName)
+
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_EXCLUDE_TAGS, config.collectTestExcludeTags)
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_HAS_EXCLUDE_TAGS, config.collectTestHasExcludeTags)
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_INCLUDE_TAGS, config.collectTestIncludeTags)
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_HAS_INCLUDE_TAGS, config.collectTestHasIncludeTags)
 	}
 
 }

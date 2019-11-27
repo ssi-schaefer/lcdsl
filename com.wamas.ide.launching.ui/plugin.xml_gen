@@ -26,11 +26,11 @@
 		<handler
 			class="com.wamas.ide.launching.ui.LcDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
 			commandId="com.wamas.ide.launching.LcDsl.validate">
-		<activeWhen>
-			<reference
+			<activeWhen>
+				<reference
 					definitionId="com.wamas.ide.launching.LcDsl.Editor.opened">
-			</reference>
-		</activeWhen>
+				</reference>
+			</activeWhen>
 		</handler>
 		<!-- copy qualified name -->
 		<handler
@@ -119,38 +119,38 @@
 	</extension>
 	<extension
 		point="org.eclipse.ui.commands">
-	<command
+		<command
 			description="Trigger expensive validation"
 			id="com.wamas.ide.launching.LcDsl.validate"
 			name="Validate">
-	</command>
-	<!-- copy qualified name -->
-	<command
+		</command>
+		<!-- copy qualified name -->
+		<command
 			id="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 			categoryId="org.eclipse.ui.category.edit"
 			description="Copy the qualified name for the selected element"
 			name="Copy Qualified Name">
-	</command>
-	<command
+		</command>
+		<command
 			id="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName"
 			categoryId="org.eclipse.ui.category.edit"
 			description="Copy the qualified name for the selected element"
 			name="Copy Qualified Name">
-	</command>
+		</command>
 	</extension>
 	<extension point="org.eclipse.ui.menus">
 		<menuContribution
 			locationURI="popup:#TextEditorContext?after=group.edit">
-			 <command
-				 commandId="com.wamas.ide.launching.LcDsl.validate"
-				 style="push"
-				 tooltip="Trigger expensive validation">
-			<visibleWhen checkEnabled="false">
-				<reference
-					definitionId="com.wamas.ide.launching.LcDsl.Editor.opened">
-				</reference>
-			</visibleWhen>
-		</command>
+			<command
+				commandId="com.wamas.ide.launching.LcDsl.validate"
+				style="push"
+				tooltip="Trigger expensive validation">
+				<visibleWhen checkEnabled="false">
+					<reference
+						definitionId="com.wamas.ide.launching.LcDsl.Editor.opened">
+					</reference>
+				</visibleWhen>
+			</command>
 		</menuContribution>
 		<!-- copy qualified name -->
 		<menuContribution locationURI="popup:#TextEditorContext?after=copy">
@@ -203,6 +203,15 @@
 				</reference>
 			</activeWhen>
 		</handler>
+	</extension>
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type
+			base-type="org.eclipse.core.runtime.text"
+			file-extensions="lc"
+			id="com.wamas.ide.launching.LcDsl.contenttype"
+			name="LcDsl File"
+			priority="normal">
+		</content-type>
 	</extension>
 	<!-- adding resource factories -->
 	<extension
@@ -291,7 +300,7 @@
 	<!-- Quick Outline -->
 	<extension
 		point="org.eclipse.ui.handlers">
-		<handler 
+		<handler
 			class="com.wamas.ide.launching.ui.LcDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
 			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
 			<activeWhen>
@@ -351,7 +360,7 @@
 	</extension>
 	<!-- Rename Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
-		<handler 
+		<handler
 			class="com.wamas.ide.launching.ui.LcDslExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
 			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
 			<activeWhen>
@@ -388,12 +397,18 @@
 			class="com.wamas.ide.launching.ui.LcDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="lc">
 		</viewer>
+		<contentTypeBinding
+			contentTypeId="com.wamas.ide.launching.LcDsl.contenttype"
+			contentViewerId="com.wamas.ide.launching.LcDsl.compare.contentViewers" />
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
 		<viewer id="com.wamas.ide.launching.LcDsl.compare.contentMergeViewers"
 			class="com.wamas.ide.launching.ui.LcDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="lc" label="LcDsl Compare">
 		</viewer>
+		<contentTypeBinding
+			contentTypeId="com.wamas.ide.launching.LcDsl.contenttype"
+			contentMergeViewerId="com.wamas.ide.launching.LcDsl.compare.contentMergeViewers" />
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
 		<provider id="com.wamas.ide.launching.LcDsl.editors.documentProviders"

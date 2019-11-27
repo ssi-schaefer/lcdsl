@@ -36,43 +36,46 @@ LCModel:
  * replace-env = replace environment instead of appending variables
  */
 LaunchConfig:
-	((explicit?='explicit')? // Eclipse, RAP
+	((explicit?='explicit')? // Eclipse, JUnit-Plugin, SWTBot, RAP
 		& (manual?='manual')? // All
 		& (abstract?='abstract')? // All
 		& (foreground?='foreground')? // All  
 		& (noConsole?='no-console')? // All but Groups
-		& (noValidate?='no-validate')? // Eclipse, RAP
-		& (swInstallSupport?='sw-install-allowed')? // Eclipse
+		& (noValidate?='no-validate')? // Eclipse, JUnit-Plugin, SWTBot, RAP
+		& (swInstallSupport?='sw-install-allowed')? // Eclipse, JUnit-Plugin, SWTBot
 		& (replaceEnv?='replace-env')? // All but Groups
 		& (stopInMain?='stop-in-main')? // Java
+		& (keepRunning?='keep-running')? // JUnit-Plugin, SWTBot
+		& (runInUiThread?='run-in-ui-thread')? // JUnit-Plugin
 		& (qualify?='qualified' (BRACKET_OPEN qualifierId=STRING BRACKET_CLOSE)?)? // All - naming
 	) type=LaunchConfigType 'configuration' name=FQName 
 	(':' superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN
 		( // things that may appear only once
-			(clears=ClearOption)? // Eclipse, RAP (partial)
-			& (workspace=Workspace)? // Eclipse, RAP
+			(clears=ClearOption)? // Eclipse, JUnit-Plugin, SWTBot, RAP (partial)
+			& (workspace=Workspace)? // Eclipse, JUnit-Plugin, SWTBot, RAP
 			& (workingDir=WorkingDir)? // All but Groups
 			& (memory=MemoryOption)? // All but Groups
-			& (mainProject=MainProject)? // Java
+			& (mainProject=MainProject)? // Java, JUnit-Plugin, SWTBot
 			& (mainType=MainType)? // Java
-			& (application=ApplicationExtPoint)? // Eclipse
-			& (product=ProductExtPoint)? // Eclipse
+			& (application=ApplicationExtPoint)? // Eclipse, JUnit-Plugin, SWTBot
+			& (product=ProductExtPoint)? // Eclipse, JUnit-Plugin, SWTBot
 			& (favorites=Favorites)? // All
 			& (redirect=Redirect)? // All but Groups
 			& (execEnv=ExecutionEnvironment)? // All but Groups
-			& (configIniTemplate=ConfigIniTemplate)? // Eclipse
+			& (configIniTemplate=ConfigIniTemplate)? // Eclipse, JUnit-Plugin, SWTBot
 			& (javaMainSearch=JavaMainSearch)? // Java
 			& (servletConfig=RapServletConfig)? // RAP
-			& (contentProviderProduct=ContentProviderProduct)? // Eclipse, RAP
+			& (contentProviderProduct=ContentProviderProduct)? // Eclipse, JUnit-Plugin, SWTBot, RAP
+			& (test=TestConfig)? // JUnit-Plugin, SWTBot
 			// things that may appear multiple times
-			& (plugins+=AddPlugin)* // Eclipse, RAP
-			& (features+=AddFeature)* // Eclipse, RAP
-			& (ignore+=IgnorePlugin)* // Eclipse, RAP
+			& (plugins+=AddPlugin)* // Eclipse, JUnit-Plugin, SWTBot, RAP
+			& (features+=AddFeature)* // Eclipse, JUnit-Plugin, SWTBot, RAP
+			& (ignore+=IgnorePlugin)* // Eclipse, JUnit-Plugin, SWTBot, RAP
 			& (groupMembers+=GroupMember)* // Groups 					// TODO: content assist, validation, update on rename
 			& (vmArgs+=VmArgument)* // All but Groups
 			& (progArgs+=ProgramArgument)* // All but Groups
 			& (envVars+=EnvironmentVariable)* // All but Groups
-			& (traces+=TraceEnablement)* // Eclipse, RAP
+			& (traces+=TraceEnablement)* // Eclipse, JUnit-Plugin, SWTBot, RAP
 		)
 	BLOCK_END
 ;
@@ -169,9 +172,11 @@ RapServletConfig:
 Path:
 	ExistingPath|AnyPath // TODO: content assist? is it possible?
 ;
+
 ExistingPath:
 	name = StringWithVariables
 ;
+
 AnyPath:
 	name = StringWithVariables
 ;
@@ -228,6 +233,19 @@ StringWithVariables:
 	value=STRING
 ;
 
+TestConfig:
+	{TestConfig} 'test' BLOCK_BEGIN
+		(
+			('runner' runner=TestRunnerType ';')?
+			& ('container' container=STRING ';')?
+			& ('class' class=FQName ';')?
+			& ('method' method=STRING ';')?
+			& ('exclude-tags' excludeTags=Tags ';')?
+			& ('include-tags' includeTags=Tags ';')?
+		)
+	BLOCK_END
+;
+
 /**
  * A possibly fully qualified name (separated by '.').
  */
@@ -235,12 +253,16 @@ FQName:
 	ID ('.' ID)*
 ;
 
+Tags:
+	ID (',' ID)*
+;
+
 enum BrowserLaunchMode:
 	INTERNAL='internal' | EXTERNAL = 'external' | NONE = 'none'
 ;
 
 enum LaunchConfigType:
-	JAVA = "java" | ECLIPSE = "eclipse" | RAP = "rap" | GROUP = "group"
+	JAVA = "java" | ECLIPSE = "eclipse" | RAP = "rap" | GROUP = "group" | SWTBOT = "swtbot" | JUNIT_PLUGIN = "junit-plugin"
 ;
 
 enum LaunchModeType:
@@ -258,6 +280,10 @@ enum OutputStream:
 
 enum InputStream:
 	STDIN = "stdin"
+;
+
+enum TestRunnerType:
+	JUNIT4 = "junit4" | JUNIT5 = "junit5" | JUNIT3 = "junit3"
 ;
 
 terminal INT returns ecore::EInt: ('0'..'9')+;

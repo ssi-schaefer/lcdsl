@@ -22,6 +22,7 @@ import org.eclipse.pde.internal.core.iproduct.IProductModel
 import org.eclipse.pde.internal.core.product.WorkspaceProductModel
 
 import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
+import com.wamas.ide.launching.lcDsl.LaunchConfigType
 
 class DependencyResolver {
 
@@ -99,6 +100,14 @@ class DependencyResolver {
 			}
 
 			resolveAndExpand(config, allBundles, toResolve, mappedIgnores, addAll)
+		}
+
+		// add the plugin of the test project it self, if not yet present
+		if (config.type == LaunchConfigType.SWTBOT || config.type == LaunchConfigType.JUNIT_PLUGIN) {
+			val project = RecursiveCollectors.collectTestContainerResource(config)?.project
+			val testBundleDescription = PDECore.^default.modelManager.findModel(project)?.bundleDescription
+
+			allBundles.putIfAbsent(testBundleDescription, new StartLevel)
 		}
 
 		allBundles

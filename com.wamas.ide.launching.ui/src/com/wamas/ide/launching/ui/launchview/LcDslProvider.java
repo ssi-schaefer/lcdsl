@@ -239,7 +239,9 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements ILaun
                 if (sel instanceof LcDslLaunchObject) {
                     LcDslLaunchObject lo = (LcDslLaunchObject) sel;
                     if (lo.getLaunchConfig().getType() == LaunchConfigType.ECLIPSE
-                            || lo.getLaunchConfig().getType() == LaunchConfigType.RAP) {
+                            || lo.getLaunchConfig().getType() == LaunchConfigType.RAP
+                            || lo.getLaunchConfig().getType() == LaunchConfigType.SWTBOT
+                            || lo.getLaunchConfig().getType() == LaunchConfigType.JUNIT_PLUGIN) {
                         return true;
                     }
                 }
