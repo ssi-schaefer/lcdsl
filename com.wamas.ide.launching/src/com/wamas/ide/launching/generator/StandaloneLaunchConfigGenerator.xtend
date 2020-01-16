@@ -35,6 +35,8 @@ import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
 import org.eclipse.pde.core.plugin.TargetPlatform
+import java.util.TreeSet
+import org.eclipse.pde.internal.launching.IPDEConstants
 
 class StandaloneLaunchConfigGenerator {
 
@@ -287,6 +289,7 @@ class StandaloneLaunchConfigGenerator {
 	def generateDependenciesEclipseRap(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
 		val ws = newArrayList
 		val tp = newArrayList
+		val ntp = newArrayList
 		for(entry : DependencyResolver.findDependencies(config, false).entrySet) {
 			val pluginId = entry.key.symbolicName
         	val me = PluginRegistry.findEntry(pluginId);
@@ -310,6 +313,7 @@ class StandaloneLaunchConfigGenerator {
 		                val version = bestMatch.bundleDescription.version.toString;
 		                val fullName = pluginId + "*" + version;
 		                tp.add(fullName);
+		                ntp.add(fullName + sl);
 	                }
 	            }
 	        }
@@ -319,8 +323,9 @@ class StandaloneLaunchConfigGenerator {
 		val tpValue = Joiner.on(',').join(tp)
 		
 		if(config.type == LaunchConfigType.ECLIPSE) {
-			copy.setAttribute(IPDELauncherConstants.SELECTED_WORKSPACE_PLUGINS, wsValue)
-			copy.setAttribute(IPDELauncherConstants.SELECTED_TARGET_PLUGINS, tpValue)
+			copy.setAttribute(IPDEConstants.LAUNCHER_PDE_VERSION, "3.3");
+			copy.setAttribute(IPDELauncherConstants.SELECTED_WORKSPACE_BUNDLES, new TreeSet<String>(ws))
+			copy.setAttribute(IPDELauncherConstants.SELECTED_TARGET_BUNDLES, new TreeSet<String>(ntp))
 		} else if(config.type == LaunchConfigType.RAP) {
 			copy.setAttribute("workspace_bundles", wsValue)
 			copy.setAttribute("target_bundles", tpValue)
