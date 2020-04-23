@@ -12,13 +12,13 @@ import com.wamas.ide.launching.lcDsl.IgnorePlugin
 import com.wamas.ide.launching.lcDsl.LCModel
 import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.ProgramArgument
+import com.wamas.ide.launching.lcDsl.RapServletConfig
 import com.wamas.ide.launching.lcDsl.TraceEnablement
 import com.wamas.ide.launching.lcDsl.VmArgument
 import com.wamas.ide.launching.services.LcDslGrammarAccess
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
-import org.apache.commons.logging.impl.ServletContextCleaner
-import com.wamas.ide.launching.lcDsl.RapServletConfig
 
 class LcDslFormatter extends AbstractFormatter2 {
 	
@@ -35,8 +35,8 @@ class LcDslFormatter extends AbstractFormatter2 {
 		val open = launchConfig.regionFor.ruleCall(launchConfigAccess.BLOCK_BEGINTerminalRuleCall_5)
 		val close = launchConfig.regionFor.ruleCall(launchConfigAccess.BLOCK_ENDTerminalRuleCall_7)
 		
-		open.append[newLine]
-		close.prepend[newLine]
+		open.append[setNewLines(1,1,2)]
+		close.prepend[setNewLines(1,1,2)]
 		
 		interior(open, close)[indent]
 		 
@@ -81,13 +81,20 @@ class LcDslFormatter extends AbstractFormatter2 {
 		}
 	}
 
+	override dispatch void format(EObject it, extension IFormattableDocument document) {
+		regionForEObject.allSemanticRegions.last.append[setNewLines(1,1,2)]
+	}
+
 	def dispatch void format(RapServletConfig cfg, extension IFormattableDocument document) {
 		val open = cfg.regionFor.ruleCall(rapServletConfigAccess.BLOCK_BEGINTerminalRuleCall_1)
 		val close = cfg.regionFor.ruleCall(rapServletConfigAccess.BLOCK_ENDTerminalRuleCall_3)
 		
-		open.append[newLine]
-		close.prepend[newLine]
+		open.append[setNewLines(1,1,2)]
+		close.prepend[setNewLines(1,1,2)]
 		
 		interior(open, close)[indent]
+		
+		cfg.regionForEObject.allSemanticRegions.last.append[setNewLines(1,1,2)]
+		cfg.allRegionsFor.keywords(";").forEach[append[setNewLines(1,1,2)]]
 	}
 }
