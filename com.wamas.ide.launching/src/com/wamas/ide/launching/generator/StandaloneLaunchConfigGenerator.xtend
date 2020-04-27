@@ -15,6 +15,7 @@ import com.wamas.ide.launching.lcDsl.LaunchConfigType
 import com.wamas.ide.launching.services.LcDslPostProcessor
 import java.io.File
 import java.util.Map
+import java.util.TreeSet
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.core.runtime.IStatus
 import org.eclipse.debug.core.DebugPlugin
@@ -28,27 +29,26 @@ import org.eclipse.emf.common.util.Diagnostic
 import org.eclipse.emf.ecore.util.Diagnostician
 import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants
 import org.eclipse.pde.core.plugin.PluginRegistry
+import org.eclipse.pde.core.plugin.TargetPlatform
 import org.eclipse.pde.internal.core.product.WorkspaceProductModel
+import org.eclipse.pde.internal.launching.IPDEConstants
 import org.eclipse.pde.launching.IPDELauncherConstants
 import org.eclipse.pde.ui.launcher.EclipseLaunchShortcut
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
-import org.eclipse.pde.core.plugin.TargetPlatform
-import java.util.TreeSet
-import org.eclipse.pde.internal.launching.IPDEConstants
 
 class StandaloneLaunchConfigGenerator {
 
 	@Inject
 	extension IQualifiedNameProvider qnp
 
-	private val knownStartLevels = newHashMap(
+	val knownStartLevels = newHashMap(
 		"org.eclipse.osgi" -> "@-1:true",
 		"org.eclipse.equinox.ds" -> "@1:true",
 		"org.eclipse.equinox.common" -> "@2:true"
 	)
-	private val launchMgr = DebugPlugin.^default.launchManager
+	val launchMgr = DebugPlugin.^default.launchManager
 
 	public static final String CONFIGURATION_TYPE_RAP = "org.eclipse.rap.ui.launch.RAPLauncher";
 	public static final String CONFIGURATION_TYPE_GROUP = "org.eclipse.debug.core.groups.GroupLaunchConfigurationType";
@@ -78,7 +78,7 @@ class StandaloneLaunchConfigGenerator {
 		if (config === null || config.abstract)
 			return null;
 
-		if (config.hasError || config.fullName == null) {
+		if (config.hasError || config.fullName === null) {
 			Activator.log(IStatus.ERROR, "launch configuration has errors, not generating " + config.fullName, null)
 			return null;
 		}

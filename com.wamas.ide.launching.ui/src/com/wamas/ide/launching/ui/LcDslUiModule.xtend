@@ -3,10 +3,10 @@
  */
 package com.wamas.ide.launching.ui
 
+import com.wamas.ide.launching.ui.hyperlink.LcDslHyperlinkHelper
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 import org.eclipse.xtext.generator.IShouldGenerate
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper
-import com.wamas.ide.launching.ui.hyperlink.LcDslHyperlinkHelper
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.

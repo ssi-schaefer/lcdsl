@@ -3,7 +3,6 @@
  */
 package com.wamas.ide.launching
 
-
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */

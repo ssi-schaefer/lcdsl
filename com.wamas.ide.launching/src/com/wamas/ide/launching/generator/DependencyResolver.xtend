@@ -25,7 +25,7 @@ import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
 
 class DependencyResolver {
 
-	private static val log = Logger.getLogger(DependencyResolver)
+	static val log = Logger.getLogger(DependencyResolver)
 
 	static class StartLevel {
 		boolean autostart = false;

@@ -43,15 +43,15 @@ import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
 class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 
 	@Inject
-	private IImageHelper ih
+	IImageHelper ih
 
 	@Inject
-	private extension LcDslGrammarAccess ga
+	extension LcDslGrammarAccess ga
 	
 	override complete_Project(EObject model, RuleCall ruleCall, ContentAssistContext context,
 		ICompletionProposalAcceptor acceptor) {
 		for (prj : ResourcesPlugin.workspace.root.projects) {
-			if (prj != null && prj.exists && prj.open && JavaProject.hasJavaNature(prj)) {
+			if (prj !== null && prj.exists && prj.open && JavaProject.hasJavaNature(prj)) {
 				acceptor.accept(
 					createCompletionProposal(prj.name, new StyledString(prj.name), ih.getImage("showprojects.gif"),
 						context))
@@ -92,7 +92,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 		val pv = model as PluginWithVersion
 		val models = PluginRegistry.findModels(pv.name, null, IMatchRules.NONE, null)
 
-		if (models != null && !models.empty) {
+		if (models !== null && !models.empty) {
 			for (m : models) {
 				val ver = m.bundleDescription.version.toString
 				acceptor.accept(
@@ -129,7 +129,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 		val f = model as FeatureWithVersion
 		val models = PDECore.^default.featureModelManager.findFeatureModels(f.name)
 
-		if (models != null && !models.empty) {
+		if (models !== null && !models.empty) {
 			for (m : models) {
 				val ver = m.feature.version
 				acceptor.accept(
@@ -189,10 +189,10 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 			val lc = model.eContainer as LaunchConfig
 			val mainprj = RecursiveCollectors.collectJavaMainProject(lc)
 
-			if (mainprj != null) {
+			if (mainprj !== null) {
 				// project is set, lookup main types.
 				val prj = ResourcesPlugin.workspace.root.getProject(mainprj)
-				if (prj != null && prj.exists && prj.open) {
+				if (prj !== null && prj.exists && prj.open) {
 					val jp = JavaCore.create(prj)
 
 					// source scope for the relevant project
@@ -202,7 +202,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 					val engine = new SearchEngine()
 
 					engine.search(pattern, #{SearchEngine.defaultSearchParticipant}, scope, [ m |
-						if (m.element != null && m.element instanceof IMethod) {
+						if (m.element !== null && m.element instanceof IMethod) {
 							val ele = m.element as IMethod
 							if (ele.mainMethod) {
 								val fullName = ele.declaringType.fullyQualifiedName
@@ -318,8 +318,8 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 
 		private static class DescribingAcceptor extends Delegate {
 
-			private Keyword kw
-			private extension LcDslGrammarAccess ga
+			Keyword kw
+			extension LcDslGrammarAccess ga
 
 			new(ICompletionProposalAcceptor delegate, Keyword kw, LcDslGrammarAccess ga) {
 				super(delegate)

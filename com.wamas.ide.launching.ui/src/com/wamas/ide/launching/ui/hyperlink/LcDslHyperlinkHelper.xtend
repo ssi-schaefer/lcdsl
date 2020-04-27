@@ -5,25 +5,23 @@ package com.wamas.ide.launching.ui.hyperlink
 
 import com.google.inject.Inject
 import com.google.inject.Provider
-import com.wamas.ide.launching.lcDsl.LcDslPackage
+import com.wamas.ide.launching.lcDsl.FeatureWithVersion
 import com.wamas.ide.launching.lcDsl.Path
+import com.wamas.ide.launching.lcDsl.PluginWithVersion
 import com.wamas.ide.launching.lcDsl.StringWithVariables
+import java.io.File
 import org.eclipse.core.internal.variables.StringVariableManager
+import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.jface.text.IRegion
 import org.eclipse.jface.text.Region
+import org.eclipse.pde.core.plugin.IMatchRules
+import org.eclipse.pde.core.plugin.PluginRegistry
+import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 import org.eclipse.xtext.resource.EObjectAtOffsetHelper
 import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.ui.editor.hyperlinking.HyperlinkHelper
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkAcceptor
-import java.io.File
-import org.eclipse.core.resources.ResourcesPlugin
-import com.wamas.ide.launching.lcDsl.PluginWithVersion
-import org.eclipse.pde.core.plugin.PluginRegistry
-import org.eclipse.pde.core.plugin.IMatchRules
-import org.eclipse.pde.internal.ui.editor.plugin.ManifestEditor
-import com.wamas.ide.launching.lcDsl.FeatureWithVersion
-import org.eclipse.pde.internal.core.PDECore
 
 class LcDslHyperlinkHelper extends HyperlinkHelper {
 

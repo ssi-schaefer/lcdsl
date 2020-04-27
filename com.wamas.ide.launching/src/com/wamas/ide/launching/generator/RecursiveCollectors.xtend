@@ -6,6 +6,7 @@ package com.wamas.ide.launching.generator
 import com.wamas.ide.launching.lcDsl.EnvironmentVariable
 import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.LaunchModeType
+import com.wamas.ide.launching.lcDsl.PluginWithVersion
 import java.util.List
 import java.util.Map
 import java.util.function.Function
@@ -13,12 +14,10 @@ import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.core.runtime.Path
 import org.eclipse.debug.ui.IDebugUIConstants
 import org.eclipse.jdt.launching.JavaRuntime
+import org.osgi.framework.Version
 
 import static extension com.wamas.ide.launching.validation.LcDslValidator.getExpanded
 import static extension com.wamas.ide.launching.validation.LcDslValidator.mapSaveSuperConfig
-import com.wamas.ide.launching.validation.LcDslValidator
-import com.wamas.ide.launching.lcDsl.PluginWithVersion
-import org.osgi.framework.Version
 
 /**
  * Collects raw values for launch configuration fields, taking into account inheritance
@@ -299,7 +298,7 @@ class RecursiveCollectors {
 		if (o !== null)
 			return o
 
-		if (config.mapSaveSuperConfig != null)
+		if (config.mapSaveSuperConfig !== null)
 			return collectFlatObject(config.mapSaveSuperConfig, extractor)
 
 		return null;
