@@ -3,7 +3,6 @@
  */
 package com.wamas.ide.launching.ide
 
-
 /**
  * Use this class to register ide components.
  */

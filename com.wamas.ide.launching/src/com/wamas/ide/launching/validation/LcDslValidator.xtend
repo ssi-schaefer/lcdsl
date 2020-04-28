@@ -14,6 +14,7 @@ import com.wamas.ide.launching.lcDsl.ExistingPath
 import com.wamas.ide.launching.lcDsl.Favorites
 import com.wamas.ide.launching.lcDsl.FeatureWithVersion
 import com.wamas.ide.launching.lcDsl.GroupMember
+import com.wamas.ide.launching.lcDsl.IgnorePlugin
 import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.LcDslPackage
 import com.wamas.ide.launching.lcDsl.PluginWithVersion
@@ -37,7 +38,6 @@ import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.xtext.validation.Check
 
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
-import com.wamas.ide.launching.lcDsl.IgnorePlugin
 
 /**
  * This class contains custom validation rules. 
@@ -46,13 +46,13 @@ import com.wamas.ide.launching.lcDsl.IgnorePlugin
  */
 class LcDslValidator extends AbstractLcDslValidator {
 
-	public static final val EXT_APPLICATIONS = "org.eclipse.core.runtime.applications"
-	public static final val EXT_PRODUCTS = "org.eclipse.core.runtime.products"
+	public static val EXT_APPLICATIONS = "org.eclipse.core.runtime.applications"
+	public static val EXT_PRODUCTS = "org.eclipse.core.runtime.products"
 
-	private LcDslPackage LC = LcDslPackage.eINSTANCE
+	LcDslPackage LC = LcDslPackage.eINSTANCE
 
 	// map config features to types where this feature is allowed. not mentioned features are allowed on all types.
-	private val allowedFeatures = newHashMap(
+	val allowedFeatures = newHashMap(
 		// modifiers on config
 		LC.launchConfig_Explicit -> #{ECLIPSE, RAP},
 		LC.launchConfig_NoConsole -> #{ECLIPSE, RAP, JAVA},
@@ -86,7 +86,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 		LC.launchConfig_Traces -> #{ECLIPSE, RAP}
 	)
 
-	private val requiredFeatures = newHashMap(
+	val requiredFeatures = newHashMap(
 		ECLIPSE -> #{
 			#{LC.launchConfig_Application, LC.launchConfig_Product},
 			#{LC.launchConfig_Plugins, LC.launchConfig_Features, LC.launchConfig_ContentProviderProduct}

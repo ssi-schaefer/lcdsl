@@ -39,7 +39,6 @@ import org.eclipse.debug.internal.ui.DebugPluginImages
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.jface.viewers.StyledString
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
-import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 /**
  * Provides labels for EObjects.
@@ -81,7 +80,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 
 	def image(LaunchConfig lc) {
 		val img = DebugPluginImages.getImage(StandaloneLaunchConfigGenerator.getTypeName(lc.type))
-		if (img == null)
+		if (img === null)
 			return "message_warning.gif"
 		img
 	}
@@ -89,10 +88,10 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	def text(Redirect r) {
 		val builder = new StringBuilder
 		builder.append("redirect")
-		if (r.outFile != null) {
+		if (r.outFile !== null) {
 			builder.append(' ').append(r.outWhich.literal).append(" to ").append(r.outFile.name.value)
 		}
-		if (r.inFile != null) {
+		if (r.inFile !== null) {
 			builder.append(' ').append(r.inWhich.literal).append(" from ").append(r.inFile.name.value)
 		}
 		builder.toString
@@ -122,7 +121,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 		val p = a.plugin
 		val ss = new StyledString
 		ss.append("plugin ").append(p.plugin.name)
-		if (p.plugin.version != null)
+		if (p.plugin.version !== null)
 			ss.append(' ').append(p.plugin.version, StyledString.QUALIFIER_STYLER)
 
 		if (p.autoStart)
@@ -143,7 +142,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 
 	def text(AddFeature a) {
 		val ss = new StyledString("feature " + a.feature.name)
-		if (a.feature.version != null)
+		if (a.feature.version !== null)
 			ss.append(' ').append(a.feature.version, StyledString.QUALIFIER_STYLER)
 
 		ss
@@ -167,7 +166,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 	def text(IgnorePlugin i) {
 		val ss = new StyledString
 		ss.append("ignore ").append(i.plugin.name)
-		if (i.plugin.version != null)
+		if (i.plugin.version !== null)
 			ss.append(' ').append(i.plugin.version, StyledString.QUALIFIER_STYLER)
 		ss
 	}
@@ -330,7 +329,7 @@ class LcDslLabelProvider extends DefaultEObjectLabelProvider {
 		else
 			ss.append("]", StyledString.QUALIFIER_STYLER)
 
-		if (m.postAction != null) {
+		if (m.postAction !== null) {
 			ss.append(" [" + m.postAction.text() + "]", StyledString.DECORATIONS_STYLER)
 		}
 

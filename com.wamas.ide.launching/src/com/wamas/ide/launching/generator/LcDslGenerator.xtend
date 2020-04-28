@@ -4,15 +4,15 @@
 package com.wamas.ide.launching.generator
 
 import com.google.inject.Inject
+import com.wamas.ide.launching.Activator
 import com.wamas.ide.launching.lcDsl.LaunchConfig
+import java.util.List
+import org.eclipse.core.runtime.IStatus
+import org.eclipse.debug.core.DebugPlugin
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.eclipse.debug.core.DebugPlugin
-import java.util.List
-import com.wamas.ide.launching.Activator
-import org.eclipse.core.runtime.IStatus
 
 /**
  * Generates code from your model files on save.
@@ -24,7 +24,7 @@ class LcDslGenerator extends AbstractGenerator {
 	@Inject
 	extension StandaloneLaunchConfigGenerator generator
 
-	private static List<Runnable> listeners = newArrayList
+	static List<Runnable> listeners = newArrayList
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for (x : resource.allContents.filter(typeof(LaunchConfig)).toIterable) {

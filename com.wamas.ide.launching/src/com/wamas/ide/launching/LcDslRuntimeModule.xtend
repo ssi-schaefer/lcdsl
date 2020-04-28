@@ -3,8 +3,8 @@
  */
 package com.wamas.ide.launching
 
-import org.eclipse.xtext.naming.IQualifiedNameProvider
 import com.wamas.ide.launching.naming.LcDslQualifiedNameProvider
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.resource.impl.SimpleResourceDescriptionsBasedContainerManager
 
 /**
