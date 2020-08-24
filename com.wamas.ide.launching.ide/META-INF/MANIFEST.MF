@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: LcDsl IDE Support
 Bundle-Vendor: SSI Schaefer IT Solutions GmbH
-Bundle-Version: 0.1.2.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-SymbolicName: com.wamas.ide.launching.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.wamas.ide.launching,
