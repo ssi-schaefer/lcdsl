@@ -13,7 +13,7 @@ import org.eclipse.debug.ui.launchview.internal.Activator;
 import org.eclipse.debug.ui.launchview.internal.LaunchViewMessages;
 import org.eclipse.debug.ui.launchview.internal.impl.DebugCoreLaunchObject;
 import org.eclipse.debug.ui.launchview.internal.launcher.StandaloneLaunchConfigExecutor;
-import org.eclipse.debug.ui.launchview.services.ILaunchObject;
+import org.eclipse.debug.ui.launchview.internal.services.ILaunchObject;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.DecorationOverlayIcon;
