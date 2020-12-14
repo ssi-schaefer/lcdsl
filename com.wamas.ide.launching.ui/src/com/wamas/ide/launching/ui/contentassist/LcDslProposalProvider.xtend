@@ -4,14 +4,31 @@
 package com.wamas.ide.launching.ui.contentassist
 
 import com.google.inject.Inject
+import com.wamas.ide.launching.generator.RecursiveCollectors
 import com.wamas.ide.launching.lcDsl.FeatureWithVersion
 import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.PluginWithVersion
 import com.wamas.ide.launching.lcDsl.TraceEnablement
+import com.wamas.ide.launching.services.LcDslGrammarAccess
 import com.wamas.ide.launching.validation.LcDslValidator
+import java.util.stream.Stream
+import javax.swing.plaf.synth.Region
+import org.eclipse.core.resources.IContainer
+import org.eclipse.core.resources.IFile
+import org.eclipse.core.resources.IResource
 import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.core.runtime.IPath
+import org.eclipse.core.runtime.NullProgressMonitor
+import org.eclipse.core.runtime.Path
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.jdt.core.Flags
+import org.eclipse.jdt.core.ICompilationUnit
+import org.eclipse.jdt.core.IJavaElement
+import org.eclipse.jdt.core.IJavaProject
 import org.eclipse.jdt.core.IMethod
+import org.eclipse.jdt.core.IPackageFragment
+import org.eclipse.jdt.core.IPackageFragmentRoot
+import org.eclipse.jdt.core.IType
 import org.eclipse.jdt.core.JavaCore
 import org.eclipse.jdt.core.search.IJavaSearchConstants
 import org.eclipse.jdt.core.search.IJavaSearchScope
@@ -19,22 +36,21 @@ import org.eclipse.jdt.core.search.SearchEngine
 import org.eclipse.jdt.core.search.SearchPattern
 import org.eclipse.jdt.internal.core.JavaProject
 import org.eclipse.jdt.launching.JavaRuntime
+import org.eclipse.jface.text.contentassist.ICompletionProposal
 import org.eclipse.jface.viewers.StyledString
 import org.eclipse.pde.core.plugin.IMatchRules
 import org.eclipse.pde.core.plugin.PluginRegistry
 import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.pde.internal.core.TracingOptionsManager
 import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.Keyword
 import org.eclipse.xtext.RuleCall
 import org.eclipse.xtext.ui.IImageHelper
+import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
-import com.wamas.ide.launching.generator.RecursiveCollectors
-import org.eclipse.xtext.Keyword
-import com.wamas.ide.launching.services.LcDslGrammarAccess
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor.Delegate
-import org.eclipse.jface.text.contentassist.ICompletionProposal
-import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
+import java.util.stream.Collectors
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -228,9 +244,143 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 			super.completeExecutionEnvironment_Name(model, assignment, context, acceptor)
 		}
 
-		override completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext,
-			ICompletionProposalAcceptor acceptor) {
+		override completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext, ICompletionProposalAcceptor acceptor) {
 			super.completeKeyword(keyword, contentAssistContext, new DescribingAcceptor(acceptor, keyword, ga))
+		}
+		
+		override completeTestConfig_Container(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+			val lc = model.eContainer as LaunchConfig
+			val testContainer = RecursiveCollectors.collectTestContainerPlain(lc)
+	
+			if (testContainer === null) {
+				addAllProjects(acceptor, context)
+			} else {
+				var resource = findExistingContainerResource(new Path(testContainer) as IPath)
+				if (resource === null) {
+					addAllProjects(acceptor, context)
+				} else if (resource instanceof IContainer) {
+					resource.members.stream().filter([childResource | isJavaTestContainer(childResource)]).map([project | project.fullPath]).map([fullPath | fullPath.toString]).forEach [path |
+						acceptor.accept(createCompletionProposal("'" + path, new StyledString(path), ih.getImage("test_container.png"), context))
+					]
+				}
+			}
+
+			super.completeTestConfig_Container(model, assignment, context, acceptor)
+		}
+
+		private def void addAllProjects(ICompletionProposalAcceptor acceptor, ContentAssistContext context) {
+			ResourcesPlugin.workspace.root.projects.stream().filter([project | isJavaTestContainer(project)]).map([project | project.fullPath]).map([fullPath | fullPath.toString]).forEach [path |
+				acceptor.accept(createCompletionProposal("'" + path + "'", new StyledString(path), ih.getImage("test_container.png"), context))
+			]
+		}
+
+		private def IResource findExistingContainerResource(IPath path) {
+			val resource = ResourcesPlugin.workspace.root.findMember(path)
+			if (resource !== null) {
+				return resource;
+			}
+
+			val parentPath = path.removeLastSegments(1);
+			if (parentPath === path) {
+				return null;
+			}
+
+			return findExistingContainerResource(parentPath);
+		}
+
+		private def boolean isJavaTestContainer(IResource resource) {
+			val javaElement = JavaCore.create(resource)
+
+			return isJavaContainer(javaElement) && containsTestClasses(javaElement, true) 
+		}
+
+		private def boolean isJavaContainer(IJavaElement javaElement) {
+			val elementType = javaElement?.elementType
+
+			return IJavaElement.JAVA_PROJECT === elementType || IJavaElement.PACKAGE_FRAGMENT_ROOT === elementType || IJavaElement.PACKAGE_FRAGMENT === elementType 
+		}
+
+		private def boolean containsTestClasses(IJavaElement javaElement, boolean testChildPackages) {
+			if (!javaElement.exists) {
+				return false;
+			}
+
+			if (javaElement instanceof IJavaProject) {
+				return javaElement.allPackageFragmentRoots.stream().anyMatch([p | containsTestClasses(p, false)])
+			} else if (javaElement instanceof IPackageFragmentRoot) {
+				return javaElement.children.stream().anyMatch([p | containsTestClasses(p, false)])
+			} else if (javaElement instanceof IPackageFragment) {
+				if (testChildPackages) {
+					val javaElementRoot = javaElement.parent as IPackageFragmentRoot
+					return javaElementRoot.children.stream.filter([p | p.elementName.startsWith(javaElement.elementName)]).map([p | p as IPackageFragment])
+							.anyMatch([p | containsTestClasses(p)])
+				} else {
+					return containsTestClasses(javaElement)
+				}
+			}
+
+			return false
+		}
+
+		private def boolean containsTestClasses(IPackageFragment javaElement) {
+			javaElement.compilationUnits.stream
+					.flatMap([unit | unit.allTypes.stream])
+					.anyMatch([type | type.methods.stream().anyMatch([method  | isTestMethod(method)])])
+		}
+
+		override completeTestConfig_Class(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+			val lc = model.eContainer as LaunchConfig
+			val resource = RecursiveCollectors.collectTestContainerResource(lc);
+
+			if (resource !== null) {
+				val javaElement = JavaCore.create(resource)
+				val allClassNames = findAllTestClasses(javaElement)
+
+				allClassNames.forEach [ className |
+					acceptor.accept(createCompletionProposal(className, new StyledString(className), ih.getImage("test_class.png"), context))
+				]
+
+			}
+
+			super.completeTestConfig_Class(model, assignment, context, acceptor)
+		}
+
+		private def Stream<String> findAllTestClasses(IJavaElement javaElement) {
+			if (javaElement instanceof IJavaProject) {
+				return findAllTestClasses(javaElement.allPackageFragmentRoots.stream().flatMap([root | root.children.stream]).map([p | p as IPackageFragment]))
+			} else if (javaElement instanceof IPackageFragmentRoot) {
+				return findAllTestClasses(javaElement.children.stream.map([p | p as IPackageFragment]))
+			} else if (javaElement instanceof IPackageFragment) {
+				val javaElementRoot = javaElement.parent as IPackageFragmentRoot
+				return findAllTestClasses(javaElementRoot.children.stream.filter([p | p.elementName.startsWith(javaElement.elementName)]).map([p | p as IPackageFragment]))
+			}
+
+			return Stream.empty
+		}
+
+		private def Stream<String> findAllTestClasses(Stream<IPackageFragment> stream) {
+			stream.flatMap([p | p.compilationUnits.stream]).flatMap([unit | unit.allTypes.stream]).filter([type | type.methods.stream().anyMatch([method  | isTestMethod(method)])]).map([type | type.fullyQualifiedName])
+		}
+
+		override completeTestConfig_Method(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+			val lc = model.eContainer as LaunchConfig
+			val className = RecursiveCollectors.collectTestMainType(lc)
+			val project = RecursiveCollectors.collectTestContainerResource(lc)?.project
+
+			if (project !== null && className !== null) {
+				val javaProject = JavaCore.create(project)
+
+				val type = javaProject.findType(className)
+				type.methods.stream().filter([method  | isTestMethod(method)]).map([method | method.elementName]).forEach [ name |
+					acceptor.accept(createCompletionProposal("'" + name + "'", new StyledString(name), ih.getImage("test_method.png"), context))
+				]
+			}
+
+			super.completeTestConfig_Method(model, assignment, context, acceptor)
+		}
+
+		private def boolean isTestMethod(IMethod method) {
+			return Flags.isPublic(method.flags) && method.annotations.stream().anyMatch([a | a.elementName.equals("Test")])
 		}
 
 		override protected getImage(EObject eObject) {
@@ -244,7 +394,9 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 				case launchConfigAccess.swInstallSupportSwInstallAllowedKeyword_0_6_0,
 				case launchConfigAccess.replaceEnvReplaceEnvKeyword_0_7_0,
 				case launchConfigAccess.stopInMainStopInMainKeyword_0_8_0,
-				case launchConfigAccess.qualifyQualifiedKeyword_0_9_0_0: ih.getImage("style_modified.gif")
+				case launchConfigAccess.keepRunningKeepRunningKeyword_0_9_0,
+				case launchConfigAccess.runInUiThreadRunInUiThreadKeyword_0_10_0,
+				case launchConfigAccess.qualifyQualifiedKeyword_0_11_0_0: ih.getImage("style_modified.gif")
 				case workspaceAccess.workspaceKeyword_0: ih.getImage("workspace_obj.gif")
 				case workingDirAccess.workingDirKeyword_0: ih.getImage("folder.png")
 				case mainProjectAccess.projectKeyword_0: ih.getImage("showprojects.gif")
@@ -294,7 +446,9 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 				case launchConfigTypeAccess.JAVAJavaKeyword_0_0,
 				case launchConfigTypeAccess.ECLIPSEEclipseKeyword_1_0,
 				case launchConfigTypeAccess.RAPRapKeyword_2_0,
-				case launchConfigTypeAccess.GROUPGroupKeyword_3_0: ih.getImage("launch_run.gif")
+				case launchConfigTypeAccess.GROUPGroupKeyword_3_0,
+				case launchConfigTypeAccess.SWTBOTSwtbotKeyword_4_0,
+				case launchConfigTypeAccess.JUNIT_PLUGINJunitPluginKeyword_5_0 : ih.getImage("launch_run.gif")
 				case launchModeTypeAccess.RUNRunKeyword_1_0,
 				case launchModeTypeAccess.DEBUGDebugKeyword_2_0,
 				case launchModeTypeAccess.PROFILEProfileKeyword_3_0,
@@ -312,6 +466,13 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 				case outputStreamAccess.STDERRStderrKeyword_1_0,
 				case outputStreamAccess.BOTHBothOutKeyword_2_0,
 				case inputStreamAccess.STDINStdinKeyword_0: ih.getImage("edit_arrow2.gif")
+				case testConfigAccess.testKeyword_1: ih.getImage("test_config_junit_plugin.png")
+				case testConfigAccess.runnerKeyword_3_0_0: ih.getImage("test_runner.png")
+				case testConfigAccess.containerKeyword_3_1_0: ih.getImage("test_container.png")
+				case testConfigAccess.classKeyword_3_2_0: ih.getImage("test_class.png")
+				case testConfigAccess.methodKeyword_3_3_0: ih.getImage("test_method.gif")
+				case testConfigAccess.excludeTagsKeyword_3_4_0: ih.getImage("test_exclude_tags.png")
+				case testConfigAccess.includeTagsKeyword_3_5_0: ih.getImage("test_include_tags.png")
 				default: super.getImage(eObject)
 			}
 		}

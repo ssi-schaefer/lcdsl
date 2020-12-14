@@ -13,7 +13,7 @@ LcDsl provides a way of defining Eclipse launch configurations in a textual way.
     * Let LcDsl calculate dependencies automatically for you. Or don't, and define everything statically.
     * Influence the dependency calculation that LcDsl can do by telling it to ignore dependency subtrees.
     * Use *abstract* launch configurations as templates, allowing for very slick configuration definitions.
- * Support for plain Java, Eclipse, RAP and Launch Group configurations - more on demand.
+ * Support for plain Java, Eclipse, RAP, JUnit Plug-in, SWTBot and Launch Group configurations - more on demand.
 
 Currently, the LcDsl repository also provides the `Launch Configuration View` feature. See below for documentation on that.
 
@@ -94,14 +94,16 @@ A typical `java` configuration looks like this:
         argument 'cmdArg';
     }
 
-## Eclipse, RAP
+## Eclipse, RAP, JUnit Plug-in, SWTBot
 
-Eclipse and RAP launch configurations share a lot of configuration options, that is why they are described in the same chapter. The following attributes are added for these types:
+Eclipse, RAP, JUnit Plug-in and SWTBot launch configurations share a lot of configuration options, that is why they are described in the same chapter. The following attributes are added for these types:
 
  * modifiers:
      * `explicit`: usually LcDsl will automatically add required dependencies of the specifies plugins to the launch. This modifier tells it to not do so.
      * `no-validate`: don't validate (check for missing/invalid) plugins before launching
-     * `sw-install-allowed` (not for type 'rap'): allow software installion via P2 in the launch
+     * `sw-install-allowed` (not for type 'rap'): allow software installation via P2 in the launch
+     * `keep-running` (only for type 'junit-plugin' and 'swtbot'): keep JUnit running after a test run when debugging
+     * `run-in-ui-thread` (only for type 'junit-plugin'): run JUnit test in UI thread
  * single-properties:
      * `clear`: allows to clear (and force clear without confirmation) workspace/log and configuration area
      * `workspace`: specifies the workspace directory to use.
@@ -109,20 +111,27 @@ Eclipse and RAP launch configurations share a lot of configuration options, that
      * `product`: id of the product to launch. Only valid if no `application` is set
      * `config-ini-template`: use the given file as config.ini template.
      * `content-provider`: allows to specify the absolute path to a *.product* file (Hint: you can use variables like `${workspace_loc}`). This file is read and all declared dependencies (features, plugins) are expanded as if they were declared using `plugin` and `feature` directives. There is no way to apply `ignore` to any of the features/pluings originating from the *.product*. Additionally, arguments and VM arguments are applied as well, as if written directly in the launch configuration.
-     * `servlet {}` (not for type 'eclipse'):
+     * `servlet {}` (only for type 'rap'):
          * `path`: servlet path
          * `browser`: use internal, external or no browser at all on launch
          * `port`: port to use for the web server
          * `session-timeout`: session timeout to use
          * `context-path`: use this as additional context path
          * `dev-mode`: enable RAP developer mode
+     * `test {}` (only for types 'junit-plugin' and 'swtbot'):
+         * `runner`: test runner (JUnit3, JUnit4 or JUnit5 (default))
+         * `container`: project, package or source folder which contains tests (the project containing the .lc file if not specified). If the container points to a plugin project, the plugin will be added to the dependency list as well.
+         * `class`: If specified only tests within this class will be executed, otherwise all tests of the container will be executed.
+         * `method`: If specified only this test will be executed, otherwise all tests of the class will executed.
+         * `exclude-tags` (only for runner 'junit5'): tags which are used to exclude certain tests
+         * `include-tags` (only for runner 'junit5'): tags which are used to include certain tests
  * multi-properties
      * `plugin`: adds a plugin to the launch configuration. may specify also version, startlevel and autostart property. Dependencies of the given plugin are added automatically to the launch unless `explcit` modifier is given.
      * `feature`: same as `plugin` but for features - no startlevel support though.
      * `ignore`: specify a plugin symbolic name to ignore during automatic dependency resolution. this plugin will not be taken into account, and thus also it's direct and indirect dependencies will not be added (unless some other plugin requires the same ones).
      * `trace`: allows to specify trace options per plugin.
 
-Examples for typical `eclipse` and `rap` launch configurations:
+Examples for typical `eclipse`, `rap`, `junit-plugin` and `swtbot` launch configurations:
 
     eclipse configuration LcEclipseMain {
         workspace "${workspace_loc}/../runtime-MyWorkspace";
@@ -143,6 +152,27 @@ Examples for typical `eclipse` and `rap` launch configurations:
         }
         
         plugin com.wamas.test;
+    }
+
+    junit-plugin configuration LcSWTBotMain {
+        application com.wamas.test.demo;
+        feature com.wamas.test.demo.feature;
+        test {
+            runner junit5;
+            container '/com.wamas.test.demo.tests';
+            exclude-tags long-running,ui-required;
+        }
+    }
+
+    swtbot configuration LcSWTBotMain {
+        application com.wamas.test.demo;
+        plugin com.wamas.test.demo.plugin;
+        test {
+            runner junit4;
+            container '/com.wamas.test.demo.swtbottests';
+            class com.wamas.test.demo.swtbottests.MainTest;
+            method 'testMain';
+        }
     }
 
 ## Launch Groups

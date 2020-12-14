@@ -7,12 +7,20 @@ import com.wamas.ide.launching.lcDsl.EnvironmentVariable
 import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.LaunchModeType
 import com.wamas.ide.launching.lcDsl.PluginWithVersion
+import com.wamas.ide.launching.lcDsl.TestRunnerType
 import java.util.List
 import java.util.Map
 import java.util.function.Function
 import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.core.runtime.IPath
 import org.eclipse.core.runtime.Path
 import org.eclipse.debug.ui.IDebugUIConstants
+import org.eclipse.jdt.core.IJavaElement
+import org.eclipse.jdt.core.IJavaModel
+import org.eclipse.jdt.core.IJavaProject
+import org.eclipse.jdt.core.IPackageFragmentRoot
+import org.eclipse.jdt.core.JavaCore
+import org.eclipse.jdt.internal.junit.launcher.TestKindRegistry
 import org.eclipse.jdt.launching.JavaRuntime
 import org.osgi.framework.Version
 
@@ -170,7 +178,7 @@ class RecursiveCollectors {
 
 	static def collectRAPBrowserMode(LaunchConfig config) {
 		val o = collectFlatObject(config, [servletConfig?.browserMode])
-		if (o == null)
+		if (o === null)
 			return null;
 
 		return o.name()
@@ -205,8 +213,8 @@ class RecursiveCollectors {
 		if (a.name != b.name) {
 			return false
 		}
-		
-		if(a.version === null || b.version === null) {
+
+		if (a.version === null || b.version === null) {
 			return b.version === null // matches if b has no version but a does
 		}
 
@@ -259,13 +267,118 @@ class RecursiveCollectors {
 			favorites?.types?.map[favoriteGroupMap.get(it)]
 		])
 	}
-	
+
 	static def collectGroupMembers(LaunchConfig config) {
 		collectFlatList(config, [groupMembers])
 	}
 
 	static def collectEnvMap(LaunchConfig config) {
 		collectFlatEnvMap(config)
+	}
+
+	static def collectTestProject(LaunchConfig config) {
+		collectTestContainerResource(config)?.project?.name
+	}
+
+	static def collectTestKind(LaunchConfig config) {
+		val testRunner = collectFlatObject(config, [test?.runner])
+		switch testRunner {
+			case JUNIT3: TestKindRegistry.JUNIT3_TEST_KIND_ID
+			case JUNIT4: TestKindRegistry.JUNIT4_TEST_KIND_ID
+			case JUNIT5: TestKindRegistry.JUNIT5_TEST_KIND_ID
+			default: TestKindRegistry.JUNIT5_TEST_KIND_ID
+		}
+	}
+
+	static def collectTestKeepRunning(LaunchConfig config) {
+		collectFlatObject(config, [keepRunning])
+	}
+
+	static def collectTestRunUiThread(LaunchConfig config) {
+		collectFlatObject(config, [runInUiThread])
+	}
+
+	static def collectTestContainerPlain(LaunchConfig config) {
+		collectFlatObject(config, [test?.container])
+	}
+
+	static def collectTestContainer(LaunchConfig config) {
+		if (config.collectTestMainType !== null) {
+			return "";
+		}
+
+		val testContainerResource = collectTestContainerResource(config)
+		var javaElement = JavaCore.create(testContainerResource)
+		var testContainer = ""
+
+		while (javaElement !== null && !(javaElement instanceof IJavaModel)) {
+			testContainer = collectTestContainer(javaElement) + testContainer
+			javaElement = javaElement.parent
+		}
+
+		return testContainer
+	}
+
+	private static def collectTestContainer(IJavaElement javaElement) {
+		if (javaElement instanceof IJavaProject) {
+			return '=' + javaElement.elementName
+		}
+
+		if (javaElement instanceof IPackageFragmentRoot) {
+			return IPath.SEPARATOR + javaElement.elementName
+		}
+
+		// must be IPackageFragment
+		if (javaElement.parent instanceof IPackageFragmentRoot) {
+			return '<'  + javaElement.elementName
+		}
+		
+		return '.' + javaElement.elementName
+	}
+	
+	static def collectTestResources(LaunchConfig config) {
+		#[collectTestContainerResource(config)]
+	}
+
+	static def collectTestContainerResource(LaunchConfig config) {
+		val containerPath = collectTestContainerPlain(config)
+		if (containerPath === null) {
+			return ResourcesPlugin.workspace.root.findMember(config.eResource.URI.toPlatformString(true))?.project
+		}
+
+		return ResourcesPlugin.workspace.root.findMember(containerPath)
+	}
+
+	static def collectTestMainType(LaunchConfig config) {
+		return collectFlatObject(config, [test?.class_])
+	}
+
+	static def collectTestName(LaunchConfig config) {
+		collectFlatObject(config, [test?.method])
+	}
+
+	static def collectTestExcludeTags(LaunchConfig config) {
+		collectFlatObject(config, [test?.excludeTags])
+	}
+
+	static def collectTestHasExcludeTags(LaunchConfig config) {
+		if (config.test?.runner === TestRunnerType.JUNIT5) {
+			return collectFlatObject(config, [test?.excludeTags]) !== null
+		}
+
+		return false;
+	}
+
+	static def collectTestIncludeTags(LaunchConfig config) {
+		collectFlatObject(config, [test?.includeTags])
+	}
+
+	static def collectTestHasIncludeTags(LaunchConfig config) {
+		if (config.test?.runner === TestRunnerType.JUNIT5) {
+			return collectFlatObject(config, [test?.includeTags]) !== null
+		}
+
+		return false;
 	}
 
 	private static def Map<String, String> collectFlatEnvMap(LaunchConfig config) {
