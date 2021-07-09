@@ -47,10 +47,15 @@ class StandaloneLaunchConfigGenerator {
 	@Inject
 	extension IQualifiedNameProvider qnp
 
+	// also see org.eclipse.pde.internal.ui.editor.product.PluginConfigurationSection.getBundlesWithStartLevels()
+	// for a list of known default start-levels which should be present.
 	val knownStartLevels = newHashMap(
 		"org.eclipse.osgi" -> "@-1:true",
-		"org.eclipse.equinox.ds" -> "@1:true",
-		"org.eclipse.equinox.common" -> "@2:true"
+		"org.apache.felix.scr" -> "@2:true",
+		"org.eclipse.core.runtime" -> "@0:true",
+		"org.eclipse.equinox.common" -> "@2:true",
+		"org.eclipse.equinox.event" -> "@2:true",
+		"org.eclipse.equinox.simpleconfigurator" -> "@1:true"
 	)
 	val launchMgr = DebugPlugin.^default.launchManager
 
