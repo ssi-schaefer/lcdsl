@@ -18,7 +18,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.DecorationOverlayIcon;
 import org.eclipse.jface.viewers.IDecoration;
-import org.eclipse.jface.viewers.StyledString; 
+import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
@@ -59,8 +59,8 @@ public class LcDslLaunchObject implements ILaunchObject {
 
     @Override
     public StyledString getLabel() {
-        return new StyledString(generator.fullName(cfg)).append(' ').append("[" + cfg.eResource().getURI().lastSegment() + "]",
-                StyledString.QUALIFIER_STYLER);
+        return new StyledString(getId() == null ? "" : getId()).append(' ')
+                .append("[" + cfg.eResource().getURI().lastSegment() + "]", StyledString.QUALIFIER_STYLER);
     }
 
     @Override
@@ -124,7 +124,7 @@ public class LcDslLaunchObject implements ILaunchObject {
         }
         try {
             for (ILaunchConfiguration config : DebugPlugin.getDefault().getLaunchManager().getLaunchConfigurations(getType())) {
-                if (config.getName().equals(generator.fullName(cfg))) {
+                if (config.getName().equals(getId())) {
                     cachedGenerated = config;
                     break;
                 }

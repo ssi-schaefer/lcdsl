@@ -91,7 +91,12 @@ class StandaloneLaunchConfigGenerator {
 		if (config === null || config.abstract)
 			return null;
 
-		if (config.hasError || config.fullName === null) {
+		if (config.fullName === null) {
+			// FIXME config.fullName is null => we need to catch that earlier to get the configs name for the error message.
+			Activator.log(IStatus.ERROR, "Some launch configuration was not build correctly", null)
+			return null;		
+		}
+		if (config.hasError) {
 			Activator.log(IStatus.ERROR, "launch configuration has errors, not generating " + config.fullName, null)
 			return null;
 		}

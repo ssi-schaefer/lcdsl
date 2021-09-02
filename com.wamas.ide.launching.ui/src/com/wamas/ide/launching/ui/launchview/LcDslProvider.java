@@ -85,6 +85,9 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements ILaun
                 }
 
                 LcDslLaunchObject o = new LcDslLaunchObject((LaunchConfig) lc);
+                if (o.getId() == null) {
+                    continue;
+                }
                 if (o.getType() == null) { // unsupported type
                     continue;
                 }
