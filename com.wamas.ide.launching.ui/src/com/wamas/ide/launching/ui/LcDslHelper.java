@@ -189,8 +189,9 @@ public class LcDslHelper {
 
         try {
             try {
-                if (StandaloneLaunchConfigExecutor.launchProcess(c, mode, build, wait, log) != 0) {
-                    throw new RuntimeException("Failed to run " + config.getName());
+                int exitCode = StandaloneLaunchConfigExecutor.launchProcess(c, mode, build, wait, log);
+                if (exitCode != 0) {
+                    throw new RuntimeException("Process " + config.getName() + " did exit with error " + exitCode);
                 }
             } finally {
                 if (removeAfterLaunch) {
