@@ -9,7 +9,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchMode;
-import org.eclipse.debug.ui.launchview.internal.launcher.StandaloneLaunchConfigExecutor;
+import org.eclipse.debug.ui.launchview.LaunchConfigurationViewPlugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -189,7 +189,7 @@ public class LcDslHelper {
 
         try {
             try {
-                int exitCode = StandaloneLaunchConfigExecutor.launchProcess(c, mode, build, wait, log);
+                int exitCode = LaunchConfigurationViewPlugin.getDefault().getExecutor().launchProcess(c, mode, build, wait, log);
                 if (exitCode != 0) {
                     throw new RuntimeException("Process " + config.getName() + " did exit with error " + exitCode);
                 }

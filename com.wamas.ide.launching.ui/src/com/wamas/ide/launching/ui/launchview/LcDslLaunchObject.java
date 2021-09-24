@@ -4,21 +4,23 @@
 package com.wamas.ide.launching.ui.launchview;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.DebugPlugin;
+import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchMode;
-import org.eclipse.debug.ui.launchview.internal.LaunchViewMessages;
-import org.eclipse.debug.ui.launchview.internal.impl.DebugCoreLaunchObject;
-import org.eclipse.debug.ui.launchview.internal.launcher.StandaloneLaunchConfigExecutor;
-import org.eclipse.debug.ui.launchview.internal.services.ILaunchObject;
+import org.eclipse.debug.ui.launchview.LaunchConfigurationViewPlugin;
+import org.eclipse.debug.ui.launchview.services.ILaunchObject;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.DecorationOverlayIcon;
 import org.eclipse.jface.viewers.IDecoration;
 import org.eclipse.jface.viewers.StyledString;
-import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.EcoreUtil2;
@@ -96,7 +98,8 @@ public class LcDslLaunchObject implements ILaunchObject {
 
     @Override
     public void launch(ILaunchMode mode) {
-        StandaloneLaunchConfigExecutor.launchProcess(generator.generate(cfg), mode.getIdentifier(), true, false, null);
+        LaunchConfigurationViewPlugin.getDefault().getExecutor().launchProcess(generator.generate(cfg), mode.getIdentifier(),
+                true, false, null);
     }
 
     @Override
@@ -105,17 +108,67 @@ public class LcDslLaunchObject implements ILaunchObject {
         if (generated == null) {
             return false;
         }
-        return new DebugCoreLaunchObject(generated).canTerminate();
+        ILaunch launch = findLaunch(generated.getName());
+        if (launch != null && launch.canTerminate()) {
+            return true;
+        }
+        return false;
     }
 
     @Override
     public void terminate() {
-        new DebugCoreLaunchObject(findConfig()).terminate();
+        ILaunchConfiguration config = findConfig();
+        // DON'T use Eclipse' mechanism - it's a little broken if shutdown of
+        // the processes takes longer than a few seconds.
+        // Instead we start a job that tries to terminate processes. If the job
+        // itself is stopped, we give up like Eclipse does.
+        ILaunch launch = findLaunch(config.getName());
+        if (launch != null && launch.canTerminate()) {
+            Job terminateJob = new Job("Terminate " + config.getName()) {
+
+                @Override
+                protected IStatus run(IProgressMonitor monitor) {
+                    if (!launch.isTerminated()) {
+                        try {
+                            launch.terminate();
+                        } catch (DebugException e) {
+                            // could not terminate - but we cannot do anything
+                            // anyway... :(
+                            return new Status(IStatus.WARNING, Activator.PLUGIN_ID, "Cannot terminate " + config.getName());
+                        }
+                    }
+                    return Status.OK_STATUS;
+                }
+            };
+
+            terminateJob.setUser(true);
+            terminateJob.schedule();
+        }
     }
 
     @Override
     public void relaunch() {
-        new DebugCoreLaunchObject(findConfig()).relaunch();
+        ILaunchConfiguration config = findConfig();
+        ILaunch launch = findLaunch(config.getName());
+        String launchMode = launch.getLaunchMode();
+        try {
+            launch.terminate();
+            LaunchConfigurationViewPlugin.getDefault().getExecutor().launchProcess(config, launchMode, true, false, null);
+        } catch (Exception e) {
+            throw new RuntimeException("Cannot relaunch " + config.getName(), e);
+        }
+    }
+
+    private static ILaunch findLaunch(String name) {
+        for (ILaunch l : DebugPlugin.getDefault().getLaunchManager().getLaunches()) {
+            if (l.getLaunchConfiguration() == null || l.isTerminated()) {
+                continue;
+            }
+            if (l.getLaunchConfiguration().getName().equals(name)) {
+                return l;
+            }
+        }
+        return null;
     }
 
     private ILaunchConfiguration findConfig() {
@@ -149,7 +202,7 @@ public class LcDslLaunchObject implements ILaunchObject {
     @Override
     public int compareTo(ILaunchObject o) {
         if (getId() == null) {
-            Activator.log(IStatus.WARNING, NLS.bind(LaunchViewMessages.LaunchObject_ErrorNoId, this), null);
+            Activator.log(IStatus.WARNING, "LaunchObject with null id: " + this, null);
             if (o.getId() == null) {
                 return 0;
             }
