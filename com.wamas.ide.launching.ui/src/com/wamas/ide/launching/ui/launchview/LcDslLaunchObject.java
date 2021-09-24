@@ -9,7 +9,6 @@ import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchMode;
-import org.eclipse.debug.ui.launchview.internal.Activator;
 import org.eclipse.debug.ui.launchview.internal.LaunchViewMessages;
 import org.eclipse.debug.ui.launchview.internal.impl.DebugCoreLaunchObject;
 import org.eclipse.debug.ui.launchview.internal.launcher.StandaloneLaunchConfigExecutor;
@@ -25,6 +24,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.ui.editor.IURIEditorOpener;
 
+import com.wamas.ide.launching.Activator;
 import com.wamas.ide.launching.generator.RecursiveCollectors;
 import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
