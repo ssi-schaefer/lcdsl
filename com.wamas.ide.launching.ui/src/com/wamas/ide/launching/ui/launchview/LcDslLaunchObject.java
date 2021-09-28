@@ -98,8 +98,8 @@ public class LcDslLaunchObject implements ILaunchObject {
 
     @Override
     public void launch(ILaunchMode mode) {
-        LaunchConfigurationViewPlugin.getDefault().getExecutor().launchProcess(generator.generate(cfg), mode.getIdentifier(),
-                true, false, null);
+        LaunchConfigurationViewPlugin.getExecutor().launchProcess(generator.generate(cfg), mode.getIdentifier(), true, false,
+                null);
     }
 
     @Override
@@ -153,7 +153,7 @@ public class LcDslLaunchObject implements ILaunchObject {
         String launchMode = launch.getLaunchMode();
         try {
             launch.terminate();
-            LaunchConfigurationViewPlugin.getDefault().getExecutor().launchProcess(config, launchMode, true, false, null);
+            LaunchConfigurationViewPlugin.getExecutor().launchProcess(config, launchMode, true, false, null);
         } catch (Exception e) {
             throw new RuntimeException("Cannot relaunch " + config.getName(), e);
         }

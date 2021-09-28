@@ -189,7 +189,7 @@ public class LcDslHelper {
 
         try {
             try {
-                int exitCode = LaunchConfigurationViewPlugin.getDefault().getExecutor().launchProcess(c, mode, build, wait, log);
+                int exitCode = LaunchConfigurationViewPlugin.getExecutor().launchProcess(c, mode, build, wait, log);
                 if (exitCode != 0) {
                     throw new RuntimeException("Process " + config.getName() + " did exit with error " + exitCode);
                 }
