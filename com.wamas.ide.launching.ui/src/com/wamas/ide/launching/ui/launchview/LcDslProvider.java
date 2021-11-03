@@ -3,6 +3,8 @@
  */
 package com.wamas.ide.launching.ui.launchview;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Supplier;
@@ -13,7 +15,6 @@ import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchManager;
-import org.eclipse.debug.ui.launchview.services.AbstractLaunchObjectProvider;
 import org.eclipse.debug.ui.launchview.services.ILaunchObject;
 import org.eclipse.debug.ui.launchview.services.ILaunchObjectProvider;
 import org.eclipse.e4.core.di.annotations.CanExecute;
@@ -42,12 +43,13 @@ import com.wamas.ide.launching.ui.internal.LaunchingActivator;
 import com.wamas.ide.launching.ui.internal.LcDslInternalHelper;
 
 @Component(service = ILaunchObjectProvider.class)
-public class LcDslProvider extends AbstractLaunchObjectProvider implements ILaunchObjectProvider {
+public class LcDslProvider implements ILaunchObjectProvider {
 
     private final ILaunchManager manager = DebugPlugin.getDefault().getLaunchManager();
     private final Runnable generatorListener = () -> fireUpdate();
     private boolean hideManual = true;
     private StandaloneLaunchConfigGenerator generator;
+    private final List<Runnable> updateListeners = new ArrayList<>();
 
     private static final String HIDE_PREF = "lcdsl.hideManual";
 
@@ -257,6 +259,21 @@ public class LcDslProvider extends AbstractLaunchObjectProvider implements ILaun
         menu.getChildren().add(generate);
         menu.getChildren().add(cleanup);
         menu.getChildren().add(showDeps);
+    }
+
+    @Override
+    public void addUpdateListener(Runnable r) {
+        updateListeners.add(r);
+    }
+
+    @Override
+    public void removeUpdateListener(Runnable r) {
+        updateListeners.remove(r);
+    }
+
+    protected void fireUpdate() {
+        // prevent multiple updates in short row somehow?
+        updateListeners.forEach(Runnable::run);
     }
 
 }
