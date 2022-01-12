@@ -366,7 +366,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 		} else if (!Flags.isPublic(type.flags)) {
 			error("Test class " + className + " must be public.", cfg.test, LC.testConfig_Class)
 		} else if (type.methods.stream().filter([method | Flags.isPublic(method.flags)]).flatMap([method | method.annotations.stream]).noneMatch([annotation | TEST_ANNOTATION_NAMES.contains(annotation.elementName)])) {
-			error("Test class " + className + " must at least have one method annotated with @Test.", cfg.test, LC.testConfig_Class)
+			error("Test class " + className + " must at least have one method annotated with one annotation out of " + TEST_ANNOTATION_NAMES, cfg.test, LC.testConfig_Class)
 		}
 	}
 
@@ -422,7 +422,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 			} else if (type.methods.stream().filter([method|method.elementName.equals(methodName)]).noneMatch([method | Flags.isPublic(method.flags)])) {
 				error("Test method " + methodName + "  in class " + className + " must be public", cfg.test, LC.testConfig_Method)
 			} else if (type.methods.stream().filter([method|method.elementName.equals(methodName)]).flatMap([method | method.annotations.stream]).noneMatch([annotation | TEST_ANNOTATION_NAMES.contains(annotation.elementName)])) {
-				error("Test method " + methodName + "  in class " + className + " does not have a @Test annotation", cfg.test, LC.testConfig_Method)
+				error("Test method " + methodName + "  in class " + className + " does not have at least one annotation out of " + TEST_ANNOTATION_NAMES, cfg.test, LC.testConfig_Method)
 			}
 		}
 	}
