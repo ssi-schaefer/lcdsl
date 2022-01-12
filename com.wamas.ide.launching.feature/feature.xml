@@ -2,7 +2,7 @@
 <feature
       id="com.wamas.ide.launching.feature"
       label="Launch Configuration DSL"
-      version="0.3.0.qualifier"
+      version="0.4.0.qualifier"
       provider-name="SSI Schaefer IT Solutions GmbH">
 
    <description>
@@ -215,9 +215,9 @@ after the cause of action arose. Each party waives its rights to a jury trial in
 any resulting litigation.
    </license>
 
-   <includes
-         id="com.wamas.ide.launchview.feature"
-         version="0.0.0"/>
+   <requires>
+      <import plugin="org.eclipse.debug.ui.launchview"/>
+   </requires>
 
    <plugin
          id="com.wamas.ide.launching"
