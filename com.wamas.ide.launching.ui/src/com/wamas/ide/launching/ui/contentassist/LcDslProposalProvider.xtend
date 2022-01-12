@@ -12,23 +12,18 @@ import com.wamas.ide.launching.lcDsl.TraceEnablement
 import com.wamas.ide.launching.services.LcDslGrammarAccess
 import com.wamas.ide.launching.validation.LcDslValidator
 import java.util.stream.Stream
-import javax.swing.plaf.synth.Region
 import org.eclipse.core.resources.IContainer
-import org.eclipse.core.resources.IFile
 import org.eclipse.core.resources.IResource
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.core.runtime.IPath
-import org.eclipse.core.runtime.NullProgressMonitor
 import org.eclipse.core.runtime.Path
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.jdt.core.Flags
-import org.eclipse.jdt.core.ICompilationUnit
 import org.eclipse.jdt.core.IJavaElement
 import org.eclipse.jdt.core.IJavaProject
 import org.eclipse.jdt.core.IMethod
 import org.eclipse.jdt.core.IPackageFragment
 import org.eclipse.jdt.core.IPackageFragmentRoot
-import org.eclipse.jdt.core.IType
 import org.eclipse.jdt.core.JavaCore
 import org.eclipse.jdt.core.search.IJavaSearchConstants
 import org.eclipse.jdt.core.search.IJavaSearchScope
@@ -50,7 +45,6 @@ import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor.Delegate
-import java.util.stream.Collectors
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -380,7 +374,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 		}
 
 		private def boolean isTestMethod(IMethod method) {
-			return Flags.isPublic(method.flags) && method.annotations.stream().anyMatch([a | a.elementName.equals("Test")])
+			return Flags.isPublic(method.flags) && method.annotations.stream().anyMatch([annotation | LcDslValidator.TEST_ANNOTATION_NAMES.contains(annotation.elementName)])
 		}
 
 		override protected getImage(EObject eObject) {
