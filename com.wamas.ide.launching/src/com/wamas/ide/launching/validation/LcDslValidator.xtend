@@ -44,6 +44,7 @@ import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.xtext.validation.Check
 
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
+import org.eclipse.jdt.core.IAnnotation
 
 /**
  * This class contains custom validation rules. 
@@ -54,6 +55,8 @@ class LcDslValidator extends AbstractLcDslValidator {
 
 	public static val EXT_APPLICATIONS = "org.eclipse.core.runtime.applications"
 	public static val EXT_PRODUCTS = "org.eclipse.core.runtime.products"
+
+	public static final List<String> TEST_ANNOTATION_NAMES = List.of("Test", "ParameterizedTest", "TestTemplate", "TestFactory")
 
 	LcDslPackage LC = LcDslPackage.eINSTANCE
 
@@ -362,8 +365,8 @@ class LcDslValidator extends AbstractLcDslValidator {
 			error("Test class " + className + " must point to an existing class in project " + javaProject, cfg.test, LC.testConfig_Class)
 		} else if (!Flags.isPublic(type.flags)) {
 			error("Test class " + className + " must be public.", cfg.test, LC.testConfig_Class)
-		} else if (type.methods.stream().filter([method | Flags.isPublic(method.flags)]).flatMap([method | method.annotations.stream]).noneMatch([annotation | annotation.elementName.equals("Test")])) {
-			error("Test class " + className + " must at least have one method annotated with @Test.", cfg.test, LC.testConfig_Class)
+		} else if (type.methods.stream().filter([method | Flags.isPublic(method.flags)]).flatMap([method | method.annotations.stream]).noneMatch([annotation | TEST_ANNOTATION_NAMES.contains(annotation.elementName)])) {
+			error("Test class " + className + " must at least have one method annotated with one annotation out of " + TEST_ANNOTATION_NAMES, cfg.test, LC.testConfig_Class)
 		}
 	}
 
@@ -418,8 +421,8 @@ class LcDslValidator extends AbstractLcDslValidator {
 				error("Test method " + methodName + " does not exist in class " + className, cfg.test, LC.testConfig_Method)
 			} else if (type.methods.stream().filter([method|method.elementName.equals(methodName)]).noneMatch([method | Flags.isPublic(method.flags)])) {
 				error("Test method " + methodName + "  in class " + className + " must be public", cfg.test, LC.testConfig_Method)
-			} else if (type.methods.stream().filter([method|method.elementName.equals(methodName)]).flatMap([method | method.annotations.stream]).noneMatch([annotation | annotation.elementName.equals("Test")])) {
-				error("Test method " + methodName + "  in class " + className + " does not have a @Test annotation", cfg.test, LC.testConfig_Method)
+			} else if (type.methods.stream().filter([method|method.elementName.equals(methodName)]).flatMap([method | method.annotations.stream]).noneMatch([annotation | TEST_ANNOTATION_NAMES.contains(annotation.elementName)])) {
+				error("Test method " + methodName + "  in class " + className + " does not have at least one annotation out of " + TEST_ANNOTATION_NAMES, cfg.test, LC.testConfig_Method)
 			}
 		}
 	}
