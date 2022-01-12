@@ -2175,10 +2175,10 @@ public class InternalLcDslLexer extends Lexer {
         try {
             int _type = T__116;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalLcDsl.g:108:8: ( 'junit4' )
-            // InternalLcDsl.g:108:10: 'junit4'
+            // InternalLcDsl.g:108:8: ( 'junit5' )
+            // InternalLcDsl.g:108:10: 'junit5'
             {
-            match("junit4"); 
+            match("junit5"); 
 
 
             }
@@ -2196,10 +2196,10 @@ public class InternalLcDslLexer extends Lexer {
         try {
             int _type = T__117;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalLcDsl.g:109:8: ( 'junit5' )
-            // InternalLcDsl.g:109:10: 'junit5'
+            // InternalLcDsl.g:109:8: ( 'junit4' )
+            // InternalLcDsl.g:109:10: 'junit4'
             {
-            match("junit5"); 
+            match("junit4"); 
 
 
             }
@@ -4196,7 +4196,7 @@ public class InternalLcDslLexer extends Lexer {
             "\2\55\1\uffff\12\55\7\uffff\32\55\3\uffff\2\55\1\uffff\32\55",
             "\2\55\1\uffff\12\55\7\uffff\32\55\3\uffff\2\55\1\uffff\32\55",
             "",
-            "\1\u019a\5\uffff\1\u019d\1\u019b\1\u019c",
+            "\1\u019a\5\uffff\1\u019d\1\u019c\1\u019b",
             "\2\55\1\uffff\12\55\7\uffff\32\55\3\uffff\2\55\1\uffff\32\55",
             "\1\u019f",
             "\1\u01a0",

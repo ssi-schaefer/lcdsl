@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalLcDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_BRACKET_OPEN", "RULE_BRACKET_CLOSE", "RULE_EQ", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'stdin'", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'swtbot'", "'junit-plugin'", "'inherit'", "'run'", "'debug'", "'profile'", "'coverage'", "'M'", "'mb'", "'MB'", "'m'", "'G'", "'gb'", "'GB'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'junit4'", "'junit5'", "'junit3'", "'configuration'", "':'", "'workspace'", "';'", "'working-dir'", "'project'", "'main-class'", "'plugin'", "'feature'", "'content-provider'", "'ignore'", "'vm-argument'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'startlevel'", "'clear'", "'memory'", "'min'", "'max'", "'perm'", "'member'", "'delay'", "'regex'", "'wait'", "'test'", "'runner'", "'container'", "'class'", "'method'", "'exclude-tags'", "'include-tags'", "'.'", "','", "'explicit'", "'manual'", "'abstract'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'keep-running'", "'run-in-ui-thread'", "'qualified'", "'self'", "'optional'", "'!'", "'system'", "'inherited'", "'autostart'", "'log'", "'config'", "'adopt'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_BRACKET_OPEN", "RULE_BRACKET_CLOSE", "RULE_EQ", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'stdin'", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'swtbot'", "'junit-plugin'", "'inherit'", "'run'", "'debug'", "'profile'", "'coverage'", "'M'", "'mb'", "'MB'", "'m'", "'G'", "'gb'", "'GB'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'junit5'", "'junit4'", "'junit3'", "'configuration'", "':'", "'workspace'", "';'", "'working-dir'", "'project'", "'main-class'", "'plugin'", "'feature'", "'content-provider'", "'ignore'", "'vm-argument'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'startlevel'", "'clear'", "'memory'", "'min'", "'max'", "'perm'", "'member'", "'delay'", "'regex'", "'wait'", "'test'", "'runner'", "'container'", "'class'", "'method'", "'exclude-tags'", "'include-tags'", "'.'", "','", "'explicit'", "'manual'", "'abstract'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'keep-running'", "'run-in-ui-thread'", "'qualified'", "'self'", "'optional'", "'!'", "'system'", "'inherited'", "'autostart'", "'log'", "'config'", "'adopt'"
     };
     public static final int T__50=50;
     public static final int RULE_VERSION=13;
@@ -5199,13 +5199,13 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TestRunnerType__Alternatives"
-    // InternalLcDsl.g:1428:1: rule__TestRunnerType__Alternatives : ( ( ( 'junit4' ) ) | ( ( 'junit5' ) ) | ( ( 'junit3' ) ) );
+    // InternalLcDsl.g:1428:1: rule__TestRunnerType__Alternatives : ( ( ( 'junit5' ) ) | ( ( 'junit4' ) ) | ( ( 'junit3' ) ) );
     public final void rule__TestRunnerType__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLcDsl.g:1432:1: ( ( ( 'junit4' ) ) | ( ( 'junit5' ) ) | ( ( 'junit3' ) ) )
+            // InternalLcDsl.g:1432:1: ( ( ( 'junit5' ) ) | ( ( 'junit4' ) ) | ( ( 'junit3' ) ) )
             int alt10=3;
             switch ( input.LA(1) ) {
             case 45:
@@ -5233,23 +5233,23 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
 
             switch (alt10) {
                 case 1 :
-                    // InternalLcDsl.g:1433:2: ( ( 'junit4' ) )
+                    // InternalLcDsl.g:1433:2: ( ( 'junit5' ) )
                     {
-                    // InternalLcDsl.g:1433:2: ( ( 'junit4' ) )
-                    // InternalLcDsl.g:1434:3: ( 'junit4' )
+                    // InternalLcDsl.g:1433:2: ( ( 'junit5' ) )
+                    // InternalLcDsl.g:1434:3: ( 'junit5' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getTestRunnerTypeAccess().getJUNIT4EnumLiteralDeclaration_0()); 
+                       before(grammarAccess.getTestRunnerTypeAccess().getJUNIT5EnumLiteralDeclaration_0()); 
                     }
-                    // InternalLcDsl.g:1435:3: ( 'junit4' )
-                    // InternalLcDsl.g:1435:4: 'junit4'
+                    // InternalLcDsl.g:1435:3: ( 'junit5' )
+                    // InternalLcDsl.g:1435:4: 'junit5'
                     {
                     match(input,45,FOLLOW_2); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getTestRunnerTypeAccess().getJUNIT4EnumLiteralDeclaration_0()); 
+                       after(grammarAccess.getTestRunnerTypeAccess().getJUNIT5EnumLiteralDeclaration_0()); 
                     }
 
                     }
@@ -5258,23 +5258,23 @@ public class InternalLcDslParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalLcDsl.g:1439:2: ( ( 'junit5' ) )
+                    // InternalLcDsl.g:1439:2: ( ( 'junit4' ) )
                     {
-                    // InternalLcDsl.g:1439:2: ( ( 'junit5' ) )
-                    // InternalLcDsl.g:1440:3: ( 'junit5' )
+                    // InternalLcDsl.g:1439:2: ( ( 'junit4' ) )
+                    // InternalLcDsl.g:1440:3: ( 'junit4' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getTestRunnerTypeAccess().getJUNIT5EnumLiteralDeclaration_1()); 
+                       before(grammarAccess.getTestRunnerTypeAccess().getJUNIT4EnumLiteralDeclaration_1()); 
                     }
-                    // InternalLcDsl.g:1441:3: ( 'junit5' )
-                    // InternalLcDsl.g:1441:4: 'junit5'
+                    // InternalLcDsl.g:1441:3: ( 'junit4' )
+                    // InternalLcDsl.g:1441:4: 'junit4'
                     {
                     match(input,46,FOLLOW_2); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getTestRunnerTypeAccess().getJUNIT5EnumLiteralDeclaration_1()); 
+                       after(grammarAccess.getTestRunnerTypeAccess().getJUNIT4EnumLiteralDeclaration_1()); 
                     }
 
                     }
