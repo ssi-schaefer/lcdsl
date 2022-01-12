@@ -313,7 +313,7 @@ class StandaloneLaunchConfigGenerator {
 		val tp = newArrayList
 		val ntp = newArrayList
 		for(entry : DependencyResolver.findDependencies(config, false).entrySet) {
-			val pluginId = entry.key.symbolicName
+			val pluginId = entry?.key?.symbolicName
         	val me = PluginRegistry.findEntry(pluginId);
         	if (me !== null) {
 	            val sizeworkSpace = me.workspaceModels.length;
