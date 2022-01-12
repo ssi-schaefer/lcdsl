@@ -29,8 +29,16 @@ class DependencyResolver {
 	static val log = Logger.getLogger(DependencyResolver)
 
 	static class StartLevel {
-		boolean autostart = false;
-		int level = 0
+
+		static val DEFAULT = new StartLevel(false, 0)
+
+		val boolean autostart
+		val int level
+
+		new(boolean autostart, int level) {
+			this.autostart = autostart;
+			this.level = level;
+		}
 
 		def getAutostart() {
 			if (autostart)
@@ -38,7 +46,7 @@ class DependencyResolver {
 			else
 				"default"
 		}
-		
+
 		def getLevel() {
 			if (level == 0)
 				"default"
@@ -59,11 +67,11 @@ class DependencyResolver {
 		if (cp !== null && !cp.empty) {
 			log.info("collecting from " + cp)
 			val files = ResourcesPlugin.workspace.root.findFilesForLocationURI(new File(cp).toURI)
-			if(files !== null && files.length > 0) {
+			if (files !== null && files.length > 0) {
 				val file = files.get(0)
 				val prodBundles = file.findBundlesInProduct
-				allBundles.putAll(prodBundles.toInvertedMap[new StartLevel])
-	
+				allBundles.putAll(prodBundles.toInvertedMap[StartLevel.DEFAULT])
+				// TODO get start level from product
 				// feature may not contain required dependencies
 				resolveAndExpand(config, allBundles, prodBundles, mappedIgnores, addAll)
 			}
@@ -75,7 +83,7 @@ class DependencyResolver {
 				val f = getBestFeatureMatch(fwv.name, fwv.version)
 				val ps = f?.feature?.pluginModels?.filterNull
 				if (ps !== null && !ps.empty) {
-					allBundles.putAll(ps.toInvertedMap[new StartLevel])
+					allBundles.putAll(ps.toInvertedMap[StartLevel.DEFAULT])
 
 					// feature may not contain required dependencies
 					resolveAndExpand(config, allBundles, ps, mappedIgnores, addAll)
@@ -87,10 +95,7 @@ class DependencyResolver {
 			val toResolve = newArrayList
 			for (pwv : plugins) {
 				log.info("top-level plugin " + pwv)
-				val sl = new StartLevel
-
-				sl.autostart = pwv.autoStart
-				sl.level = pwv.startLevel
+				val sl = new StartLevel(pwv.autoStart, pwv.startLevel)
 
 				val desc = getBestPluginMatch(pwv.plugin.name, pwv.plugin.version)
 				if (desc !== null) {
@@ -107,7 +112,24 @@ class DependencyResolver {
 			val project = RecursiveCollectors.collectTestContainerResource(config)?.project
 			val testBundleDescription = PDECore.^default.modelManager.findModel(project)?.bundleDescription
 
-			allBundles.putIfAbsent(testBundleDescription, new StartLevel)
+			allBundles.putIfAbsent(testBundleDescription, StartLevel.DEFAULT)
+		}
+
+		if (cp !== null && !cp.empty) {
+			log.info("collecting plugin start level and autostart from " + cp)
+			val files = ResourcesPlugin.workspace.root.findFilesForLocationURI(new File(cp).toURI)
+			if (files !== null && files.length > 0) {
+				val file = files.get(0)
+				val pluginConfigurations = file.findPluginConfigurationsInProduct
+
+				for (pc : pluginConfigurations) {
+					allBundles.entrySet.stream
+						.filter([e | e.key.symbolicName.equals(pc.id)])
+						.findFirst
+						.filter([e | e.value == StartLevel.DEFAULT])
+						.ifPresent([e | e.value = new StartLevel(pc.autoStart, pc.startLevel)])
+				}
+			}
 		}
 
 		allBundles
@@ -122,7 +144,7 @@ class DependencyResolver {
 
 			for (d : all) {
 				if (!allBundles.containsKey(d)) {
-					allBundles.put(d, new StartLevel)
+					allBundles.put(d, StartLevel.DEFAULT)
 				}
 			}
 		}
@@ -138,6 +160,15 @@ class DependencyResolver {
 		result.addAll(model.featureModels?.filterNull.map[feature.pluginModels].filterNull.flatten)
 
 		result.filterNull
+	}
+
+	private static def findPluginConfigurationsInProduct(IFile product) {
+		val model = new WorkspaceProductModel(product, false)
+		val result = newArrayList
+
+		model.load
+
+		model.product.pluginConfigurations
 	}
 
 	private static def getFeatureModels(IProductModel pm) {
@@ -158,9 +189,9 @@ class DependencyResolver {
 			if (child.feature !== null) {
 				// features seem to be able to include themselves
 				val childFeature = getBestFeatureMatch(child.id, child.version)
-				if(childFeature !== null) {
+				if (childFeature !== null) {
 					result.addAll(childFeature.feature.pluginModels)
-				} else if(!child.optional) {
+				} else if (!child.optional) {
 					log.warn("non-optional feature " + child.id + " (" + child.version + ") missing");
 				}
 			}
@@ -194,11 +225,11 @@ class DependencyResolver {
 	private def static getBestFeatureMatch(String id, String version) {
 		val manager = PDECore.^default.featureModelManager
 		val model = manager.findFeatureModel(id, version)
-		
-		if(model === null) {
+
+		if (model === null) {
 			log.info("cannot find feature " + id + " (" + version + ")")
 		}
-		
+
 		model
 	}
 
@@ -227,7 +258,8 @@ class DependencyResolver {
 		list
 	}
 
-	private static def findDependencies(Iterable<BundleDescription> preselected, Collection<BundleDescription> toIgnore, boolean addAll) {
+	private static def findDependencies(Iterable<BundleDescription> preselected, Collection<BundleDescription> toIgnore,
+		boolean addAll) {
 		val result = newHashSet();
 
 		for (d : preselected) {
@@ -255,7 +287,7 @@ class DependencyResolver {
 		// add all fragments that can be resolved
 		for (frag : desc.getFragments()) {
 			// Note: add all fragments, also unresolved, so that update sites contain fragments for all platforms
-			if(frag.resolved || addAll)
+			if (frag.resolved || addAll)
 				result.add(frag);
 		}
 
