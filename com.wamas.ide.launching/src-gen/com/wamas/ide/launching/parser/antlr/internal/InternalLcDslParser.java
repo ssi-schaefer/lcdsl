@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLcDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BRACKET_OPEN", "RULE_STRING", "RULE_BRACKET_CLOSE", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_ID", "RULE_EQ", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'explicit'", "'manual'", "'abstract'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'keep-running'", "'run-in-ui-thread'", "'qualified'", "'configuration'", "':'", "'workspace'", "';'", "'working-dir'", "'project'", "'self'", "'main-class'", "'optional'", "'plugin'", "'feature'", "'content-provider'", "'ignore'", "'vm-argument'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'!'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'system'", "'inherited'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'autostart'", "'startlevel'", "'clear'", "'log'", "'config'", "'memory'", "'min'", "'max'", "'perm'", "'adopt'", "'member'", "'delay'", "'regex'", "'wait'", "'test'", "'runner'", "'container'", "'class'", "'method'", "'exclude-tags'", "'include-tags'", "'.'", "','", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'swtbot'", "'junit-plugin'", "'inherit'", "'run'", "'debug'", "'profile'", "'coverage'", "'M'", "'mb'", "'MB'", "'m'", "'G'", "'gb'", "'GB'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'stdin'", "'junit4'", "'junit5'", "'junit3'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BRACKET_OPEN", "RULE_STRING", "RULE_BRACKET_CLOSE", "RULE_BLOCK_BEGIN", "RULE_BLOCK_END", "RULE_ID", "RULE_EQ", "RULE_INT", "RULE_BOOLEAN", "RULE_VERSION", "RULE_QUALIFIER", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'explicit'", "'manual'", "'abstract'", "'foreground'", "'no-console'", "'no-validate'", "'sw-install-allowed'", "'replace-env'", "'stop-in-main'", "'keep-running'", "'run-in-ui-thread'", "'qualified'", "'configuration'", "':'", "'workspace'", "';'", "'working-dir'", "'project'", "'self'", "'main-class'", "'optional'", "'plugin'", "'feature'", "'content-provider'", "'ignore'", "'vm-argument'", "'argument'", "'environment'", "'application'", "'product'", "'favorite'", "'redirect'", "'to'", "'!'", "'from'", "'execution-environment'", "'config-ini-template'", "'trace'", "'search-main'", "'system'", "'inherited'", "'servlet'", "'path'", "'browser'", "'port'", "'session-timeout'", "'context-path'", "'dev-mode'", "'autostart'", "'startlevel'", "'clear'", "'log'", "'config'", "'memory'", "'min'", "'max'", "'perm'", "'adopt'", "'member'", "'delay'", "'regex'", "'wait'", "'test'", "'runner'", "'container'", "'class'", "'method'", "'exclude-tags'", "'include-tags'", "'.'", "','", "'internal'", "'external'", "'none'", "'java'", "'eclipse'", "'rap'", "'group'", "'swtbot'", "'junit-plugin'", "'inherit'", "'run'", "'debug'", "'profile'", "'coverage'", "'M'", "'mb'", "'MB'", "'m'", "'G'", "'gb'", "'GB'", "'g'", "'stdout'", "'stderr'", "'both-out'", "'stdin'", "'junit5'", "'junit4'", "'junit3'"
     };
     public static final int T__50=50;
     public static final int RULE_VERSION=13;
@@ -11456,7 +11456,7 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTestRunnerType"
-    // InternalLcDsl.g:4279:1: ruleTestRunnerType returns [Enumerator current=null] : ( (enumLiteral_0= 'junit4' ) | (enumLiteral_1= 'junit5' ) | (enumLiteral_2= 'junit3' ) ) ;
+    // InternalLcDsl.g:4279:1: ruleTestRunnerType returns [Enumerator current=null] : ( (enumLiteral_0= 'junit5' ) | (enumLiteral_1= 'junit4' ) | (enumLiteral_2= 'junit3' ) ) ;
     public final Enumerator ruleTestRunnerType() throws RecognitionException {
         Enumerator current = null;
 
@@ -11468,10 +11468,10 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalLcDsl.g:4285:2: ( ( (enumLiteral_0= 'junit4' ) | (enumLiteral_1= 'junit5' ) | (enumLiteral_2= 'junit3' ) ) )
-            // InternalLcDsl.g:4286:2: ( (enumLiteral_0= 'junit4' ) | (enumLiteral_1= 'junit5' ) | (enumLiteral_2= 'junit3' ) )
+            // InternalLcDsl.g:4285:2: ( ( (enumLiteral_0= 'junit5' ) | (enumLiteral_1= 'junit4' ) | (enumLiteral_2= 'junit3' ) ) )
+            // InternalLcDsl.g:4286:2: ( (enumLiteral_0= 'junit5' ) | (enumLiteral_1= 'junit4' ) | (enumLiteral_2= 'junit3' ) )
             {
-            // InternalLcDsl.g:4286:2: ( (enumLiteral_0= 'junit4' ) | (enumLiteral_1= 'junit5' ) | (enumLiteral_2= 'junit3' ) )
+            // InternalLcDsl.g:4286:2: ( (enumLiteral_0= 'junit5' ) | (enumLiteral_1= 'junit4' ) | (enumLiteral_2= 'junit3' ) )
             int alt43=3;
             switch ( input.LA(1) ) {
             case 116:
@@ -11498,15 +11498,15 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
 
             switch (alt43) {
                 case 1 :
-                    // InternalLcDsl.g:4287:3: (enumLiteral_0= 'junit4' )
+                    // InternalLcDsl.g:4287:3: (enumLiteral_0= 'junit5' )
                     {
-                    // InternalLcDsl.g:4287:3: (enumLiteral_0= 'junit4' )
-                    // InternalLcDsl.g:4288:4: enumLiteral_0= 'junit4'
+                    // InternalLcDsl.g:4287:3: (enumLiteral_0= 'junit5' )
+                    // InternalLcDsl.g:4288:4: enumLiteral_0= 'junit5'
                     {
                     enumLiteral_0=(Token)match(input,116,FOLLOW_2); 
 
-                    				current = grammarAccess.getTestRunnerTypeAccess().getJUNIT4EnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_0, grammarAccess.getTestRunnerTypeAccess().getJUNIT4EnumLiteralDeclaration_0());
+                    				current = grammarAccess.getTestRunnerTypeAccess().getJUNIT5EnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getTestRunnerTypeAccess().getJUNIT5EnumLiteralDeclaration_0());
                     			
 
                     }
@@ -11515,15 +11515,15 @@ public class InternalLcDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalLcDsl.g:4295:3: (enumLiteral_1= 'junit5' )
+                    // InternalLcDsl.g:4295:3: (enumLiteral_1= 'junit4' )
                     {
-                    // InternalLcDsl.g:4295:3: (enumLiteral_1= 'junit5' )
-                    // InternalLcDsl.g:4296:4: enumLiteral_1= 'junit5'
+                    // InternalLcDsl.g:4295:3: (enumLiteral_1= 'junit4' )
+                    // InternalLcDsl.g:4296:4: enumLiteral_1= 'junit4'
                     {
                     enumLiteral_1=(Token)match(input,117,FOLLOW_2); 
 
-                    				current = grammarAccess.getTestRunnerTypeAccess().getJUNIT5EnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_1, grammarAccess.getTestRunnerTypeAccess().getJUNIT5EnumLiteralDeclaration_1());
+                    				current = grammarAccess.getTestRunnerTypeAccess().getJUNIT4EnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getTestRunnerTypeAccess().getJUNIT4EnumLiteralDeclaration_1());
                     			
 
                     }

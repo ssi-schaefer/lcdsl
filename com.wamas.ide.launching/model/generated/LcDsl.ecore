@@ -261,8 +261,8 @@
     <eLiterals name="STDIN" literal="stdin"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TestRunnerType">
-    <eLiterals name="JUNIT4" literal="junit4"/>
-    <eLiterals name="JUNIT5" value="1" literal="junit5"/>
+    <eLiterals name="JUNIT5" literal="junit5"/>
+    <eLiterals name="JUNIT4" value="1" literal="junit4"/>
     <eLiterals name="JUNIT3" value="2" literal="junit3"/>
   </eClassifiers>
 </ecore:EPackage>

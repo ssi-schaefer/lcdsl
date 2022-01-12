@@ -283,7 +283,7 @@ enum InputStream:
 ;
 
 enum TestRunnerType:
-	JUNIT4 = "junit4" | JUNIT5 = "junit5" | JUNIT3 = "junit3"
+	JUNIT5 = "junit5" | JUNIT4 = "junit4" | JUNIT3 = "junit3"
 ;
 
 terminal INT returns ecore::EInt: ('0'..'9')+;
