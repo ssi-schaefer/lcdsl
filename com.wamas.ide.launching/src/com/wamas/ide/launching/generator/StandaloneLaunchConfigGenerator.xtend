@@ -195,8 +195,12 @@ class StandaloneLaunchConfigGenerator {
 		return model;
 	}
 
+ /**  command line arguments need to be quoted with single or double quote if they contain a space **/
 	def quote(String string) {
-		if(string.contains('"')) {
+		if (!string.contains(' ')) {
+			return string
+		}
+		if (string.contains('"')) {
 			return string; // quoted itself already?
 		}
 		return '"' + string + '"';
