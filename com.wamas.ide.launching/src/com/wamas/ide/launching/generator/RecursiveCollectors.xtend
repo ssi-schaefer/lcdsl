@@ -69,11 +69,15 @@ class RecursiveCollectors {
 	}
 
 	static def collectJavaMainProject(LaunchConfig config) {
+		collectJavaMainProject(config, config.eResource)
+	}
+	
+	static def collectJavaMainProject(LaunchConfig config, org.eclipse.emf.ecore.resource.Resource eResource) {
 		val prjName = collectFlatObject(config, [mainProject?.project?.name])
 		if (prjName === null) {
 			val s = collectFlatBoolean(config, true, [mainProject?.self])
 			if (s) {
-				return ResourcesPlugin.workspace.root.getFile(new Path(config.eResource.URI.toPlatformString(true)))?.
+				return ResourcesPlugin.workspace.root.getFile(new Path(eResource.URI.toPlatformString(true)))?.
 					project?.name
 			}
 		}
@@ -276,8 +280,8 @@ class RecursiveCollectors {
 		collectFlatEnvMap(config)
 	}
 
-	static def collectTestProject(LaunchConfig config) {
-		collectTestContainerResource(config)?.project?.name
+	static def collectTestProject(LaunchConfig config, org.eclipse.emf.ecore.resource.Resource eResource) {
+		collectTestContainerResource(config, eResource)?.project?.name
 	}
 
 	static def collectTestKind(LaunchConfig config) {
@@ -302,12 +306,12 @@ class RecursiveCollectors {
 		collectFlatObject(config, [test?.container])
 	}
 
-	static def collectTestContainer(LaunchConfig config) {
+	static def collectTestContainer(LaunchConfig config, org.eclipse.emf.ecore.resource.Resource eResource) {
 		if (config.collectTestMainType !== null) {
 			return "";
 		}
 
-		val testContainerResource = collectTestContainerResource(config)
+		val testContainerResource = collectTestContainerResource(config, eResource)
 		var javaElement = JavaCore.create(testContainerResource)
 		var testContainer = ""
 
@@ -336,14 +340,18 @@ class RecursiveCollectors {
 		return '.' + javaElement.elementName
 	}
 	
-	static def collectTestResources(LaunchConfig config) {
-		#[collectTestContainerResource(config)]
+	static def collectTestResources(LaunchConfig config, org.eclipse.emf.ecore.resource.Resource eResource) {
+		#[collectTestContainerResource(config, eResource)]
 	}
 
 	static def collectTestContainerResource(LaunchConfig config) {
+		collectTestContainerResource(config, config.eResource)
+	}
+	
+	static def collectTestContainerResource(LaunchConfig config, org.eclipse.emf.ecore.resource.Resource eResource) {
 		val containerPath = collectTestContainerPlain(config)
 		if (containerPath === null) {
-			return ResourcesPlugin.workspace.root.findMember(config.eResource.URI.toPlatformString(true))?.project
+			return ResourcesPlugin.workspace.root.findMember(eResource.URI.toPlatformString(true))?.project
 		}
 
 		return ResourcesPlugin.workspace.root.findMember(containerPath)

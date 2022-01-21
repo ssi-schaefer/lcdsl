@@ -160,7 +160,7 @@ class StandaloneLaunchConfigGenerator {
 
 		switch (config.type) {
 			case LaunchConfigType.JAVA:
-				generateJava(config, copy)
+				generateJava(c.eResource, config, copy)
 			case ECLIPSE:
 				generateEclipse(config, copy)
 			case GROUP:
@@ -168,9 +168,9 @@ class StandaloneLaunchConfigGenerator {
 			case RAP:
 				generateRAP(config, copy)
 			case SWTBOT:
-				generateSWTBotJUnitPlugin(config, copy)
+				generateSWTBotJUnitPlugin(c.eResource, config, copy)
 			case JUNIT_PLUGIN:
-				generatJUnitPlugin(config, copy)
+				generatJUnitPlugin(c.eResource, config, copy)
 		}
 
 		copy.doSave
@@ -245,9 +245,9 @@ class StandaloneLaunchConfigGenerator {
 		return type.newInstance(null, config.fullName)
 	}
 
-	def generateJava(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
+	def generateJava(org.eclipse.emf.ecore.resource.Resource eResource, LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
 		copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, config.collectJavaMainType)
-		copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_PROJECT_NAME, config.collectJavaMainProject)
+		copy.setIfAvailable(IJavaLaunchConfigurationConstants.ATTR_PROJECT_NAME, config.collectJavaMainProject(eResource))
 		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_STOP_IN_MAIN, config.collectJavaStopInMain)
 
 		copy.setAttribute("org.eclipse.jdt.debug.ui.CONSIDER_INHERITED_MAIN", config.collectJavaMainSearchInherited)
@@ -442,21 +442,21 @@ class StandaloneLaunchConfigGenerator {
 		}
 	}
 
-	def generatJUnitPlugin(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
-		generateSWTBotJUnitPlugin(config, copy)
+	def generatJUnitPlugin(org.eclipse.emf.ecore.resource.Resource eResource, LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
+		generateSWTBotJUnitPlugin(eResource, config, copy)
 
 		copy.setAttribute(IPDELauncherConstants.RUN_IN_UI_THREAD, config.collectTestRunUiThread)
 	}
 
-	def generateSWTBotJUnitPlugin(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
+	def generateSWTBotJUnitPlugin(org.eclipse.emf.ecore.resource.Resource eResource, LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
 		generateEclipse(config, copy)
 
-		copy.mappedResources = config.collectTestResources
+		copy.mappedResources = config.collectTestResources(eResource)
 
-		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_PROJECT_NAME, config.collectTestProject)
+		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_PROJECT_NAME, config.collectTestProject(eResource))
 		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_RUNNER_KIND, config.collectTestKind)
 		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_KEEPRUNNING, config.collectTestKeepRunning)
-		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_CONTAINER, config.collectTestContainer)
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_CONTAINER, config.collectTestContainer(eResource))
 		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, config.collectTestMainType)
 		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_NAME, config.collectTestName)
 
