@@ -535,7 +535,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 			point.equals(ext)
 		].map[
 			// if the id contains a '.' the bundle name should not be prepended
-			if(id.contains('.')) { id } else { pluginModel.bundleDescription.symbolicName + "." + id }
+			if(id === null || id.contains('.') || pluginModel.bundleDescription===null) { id } else { pluginModel.bundleDescription.symbolicName + "." + id }
 		]
 	}
 	
