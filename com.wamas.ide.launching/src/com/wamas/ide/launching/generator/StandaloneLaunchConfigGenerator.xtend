@@ -52,7 +52,7 @@ class StandaloneLaunchConfigGenerator {
 	val knownStartLevels = newHashMap(
 		"org.eclipse.osgi" -> "@-1:true",
 		"org.apache.felix.scr" -> "@2:true",
-		"org.eclipse.core.runtime" -> "@0:true",
+		"org.eclipse.core.runtime" -> "@default:true",
 		"org.eclipse.equinox.common" -> "@2:true",
 		"org.eclipse.equinox.event" -> "@2:true",
 		"org.eclipse.equinox.simpleconfigurator" -> "@1:true"
