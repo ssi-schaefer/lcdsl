@@ -209,7 +209,9 @@ class LcDslValidator extends AbstractLcDslValidator {
 	def checkInheritance(LaunchConfig lc) {
 		// check that inheriting from another config of same type only
 		if (lc.superConfig !== null && lc.superConfig.type != lc.type) {
-			error("Super launch configuration has a different type", LC.launchConfig_SuperConfig)
+			error(
+				"Super launch configuration has a different type: '" + lc.superConfig?.type + "'" +
+					" but this configuration has type '" + lc.type + "'", LC.launchConfig_SuperConfig)
 		}
 		
 		if(checkCircle(lc, lc.superConfig)) {
