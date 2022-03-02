@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.IResourceDescriptions;
+import org.eclipse.xtext.ui.resource.IResourceSetProvider;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -31,6 +32,7 @@ import com.wamas.ide.launching.ui.internal.LaunchingActivator;
 /**
  * Provides programmatic access to launch configuration loading and generation
  */
+@SuppressWarnings("restriction")
 public class LcDslHelper {
 
     public static final String MODE_RUN = "run";
@@ -72,7 +74,7 @@ public class LcDslHelper {
      * @throws RuntimeException in case of an error
      */
     public LCModel loadModel(IFile file) {
-        ResourceSet rs = getInjector().getInstance(ResourceSet.class);
+        ResourceSet rs = getInjector().getInstance(IResourceSetProvider.class).get(file.getProject());
         Resource r = rs.getResource(URI.createFileURI(file.getLocation().toFile().getAbsolutePath()), true);
 
         if (r == null || r.getContents().isEmpty() || r.getContents().size() != 1) {
