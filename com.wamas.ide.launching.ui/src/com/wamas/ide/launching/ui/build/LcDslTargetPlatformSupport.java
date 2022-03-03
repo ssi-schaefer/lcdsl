@@ -179,9 +179,11 @@ public class LcDslTargetPlatformSupport implements IStorage2UriMapperContributio
 							String fileName = String.valueOf(path.getFileName());
 							if (fileName.endsWith(".lc")) {
 								Path relative = installFile.relativize(path);
-								URI resolved = URI.createFileURI(relative.toFile().getAbsolutePath());
-								URI target = URI.createURI("target:/" + bundleName + "/" + version + "/" + relative,
-										true);
+								URI resolved = URI.createFileURI(path.toFile().getAbsolutePath());
+								URI target = URI.createURI("target:/" + bundleName + "/" + version, true);
+								for(Path segment: relative) {
+									target = target.appendSegment(URI.encodeSegment(segment.toString(), true));
+								}
 								mappings.add(Map.entry(target, resolved));
 							}
 						});
@@ -196,7 +198,7 @@ public class LcDslTargetPlatformSupport implements IStorage2UriMapperContributio
 							ZipEntry entry = enumeration.nextElement();
 							String name = entry.getName();
 							if (name.endsWith(".lc")) {
-								URI resolved = URI.createURI("archive:" + archive + "!/" + name);
+								URI resolved = URI.createURI("archive:" + archive + "!/" + name, true);
 								URI target = URI.createURI("target:/" + bundleName + "/" + version + "/" + name, true);
 								mappings.add(Map.entry(target, resolved));
 							}
