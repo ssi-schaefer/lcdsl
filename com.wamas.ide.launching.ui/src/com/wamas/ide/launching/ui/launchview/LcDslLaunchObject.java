@@ -98,8 +98,10 @@ public class LcDslLaunchObject implements ILaunchObject {
 
     @Override
     public void launch(ILaunchMode mode) {
-        LaunchConfigurationViewPlugin.getExecutor().launchProcess(generator.generate(cfg), mode.getIdentifier(), true, false,
-                null);
+        ILaunchConfiguration generated = generator.generate(cfg);
+        if (generated != null) {
+			LaunchConfigurationViewPlugin.getExecutor().launchProcess(generated, mode.getIdentifier(), true, false, null);
+        }
     }
 
     @Override

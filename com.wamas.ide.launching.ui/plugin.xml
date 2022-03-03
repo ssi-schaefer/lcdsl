@@ -460,4 +460,11 @@
 			class="com.wamas.ide.launching.ui.LcDslExecutableExtensionFactory:com.wamas.ide.launching.ui.handlers.OutlineGenerateCmd"
 			commandId="com.wamas.ide.launching.ui.OutlineGenerateCmd"/>
 	</extension>
+	
+	  <extension
+        point="org.eclipse.xtext.ui.shared.sharedStateContributingModule">
+     <module
+           class="com.wamas.ide.launching.ui.build.LcDslContributions">
+     </module>
+  </extension>
 </plugin>

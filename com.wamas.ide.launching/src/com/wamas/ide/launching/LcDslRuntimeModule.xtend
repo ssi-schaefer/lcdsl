@@ -5,6 +5,7 @@ package com.wamas.ide.launching
 
 import com.wamas.ide.launching.naming.LcDslQualifiedNameProvider
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.resource.impl.SimpleResourceDescriptionsBasedContainerManager
 
 /**
@@ -18,6 +19,10 @@ class LcDslRuntimeModule extends AbstractLcDslRuntimeModule {
 
 	override bindIContainer$Manager() {
 		SimpleResourceDescriptionsBasedContainerManager
+	}
+	
+	override Class<? extends XtextResource> bindXtextResource() {
+		return LcDslResource;
 	}
 
 }

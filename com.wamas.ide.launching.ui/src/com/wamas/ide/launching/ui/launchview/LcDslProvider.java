@@ -9,6 +9,9 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Supplier;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.debug.core.DebugPlugin;
@@ -29,10 +32,16 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.IResourceDescriptions;
+import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
+import org.eclipse.xtext.ui.resource.IResourceSetInitializer;
+import org.eclipse.xtext.ui.resource.IResourceSetProvider;
+import org.eclipse.xtext.ui.shared.contribution.ISharedStateContributionRegistry;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
 
+import com.google.common.collect.ImmutableList;
+import com.google.inject.Injector;
 import com.wamas.ide.launching.generator.LcDslGenerator;
 import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
@@ -42,6 +51,7 @@ import com.wamas.ide.launching.ui.LcDslHelper;
 import com.wamas.ide.launching.ui.internal.LaunchingActivator;
 import com.wamas.ide.launching.ui.internal.LcDslInternalHelper;
 
+@SuppressWarnings("restriction")
 @Component(service = ILaunchObjectProvider.class)
 public class LcDslProvider implements ILaunchObjectProvider {
 
@@ -73,13 +83,26 @@ public class LcDslProvider implements ILaunchObjectProvider {
 
     @Override
     public Set<LcDslLaunchObject> getLaunchObjects() {
-        IResourceDescriptions index = LcDslHelper.getInjector().getInstance(IResourceDescriptions.class);
-        ResourceSet set = LcDslHelper.getInjector().getInstance(ResourceSet.class);
+        Injector injector = LcDslHelper.getInjector();
+		IResourceDescriptions index = injector.getInstance(IResourceDescriptions.class);
+        ResourceSet resourceSet = injector.getInstance(IResourceSetProvider.class).get(null);
+        ISharedStateContributionRegistry contributionRegistry = injector.getInstance(ISharedStateContributionRegistry.class) ;
+        ImmutableList<? extends IResourceSetInitializer> initializers = contributionRegistry.getContributedInstances(IResourceSetInitializer.class);
+        IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+        for(IProject project: root.getProjects()) {
+        	if (project.isAccessible()) {
+		        for(IResourceSetInitializer initializer: initializers) {
+		        	initializer.initialize(resourceSet, project);
+		        }
+        	}
+        }
+        
+        resourceSet.getLoadOptions().put(ResourceDescriptionsProvider.PERSISTED_DESCRIPTIONS, true);
 
         Set<LcDslLaunchObject> result = new TreeSet<>();
         Iterable<IEObjectDescription> descs = index.getExportedObjectsByType(LcDslPackage.eINSTANCE.getLaunchConfig());
         for (IEObjectDescription obj : descs) {
-            EObject lc = EcoreUtil2.resolve(obj.getEObjectOrProxy(), set);
+            EObject lc = EcoreUtil2.resolve(obj.getEObjectOrProxy(), resourceSet);
             if (lc instanceof LaunchConfig) {
                 LaunchConfig l = (LaunchConfig) lc;
                 if (l.isAbstract()) {
@@ -124,7 +147,7 @@ public class LcDslProvider implements ILaunchObjectProvider {
         return 10; // more prio than the debug core version
     }
 
-    @Override
+	@Override
     public void contributeViewMenu(Supplier<Set<ILaunchObject>> selected, MMenu menu) {
         MDirectMenuItem hide = MMenuFactory.INSTANCE.createDirectMenuItem();
         hide.setLabel("Hide 'manual' LcDsl configurations");

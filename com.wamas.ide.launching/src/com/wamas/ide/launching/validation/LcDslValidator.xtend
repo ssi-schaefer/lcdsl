@@ -339,7 +339,8 @@ class LcDslValidator extends AbstractLcDslValidator {
 	def checkTestContainer(LaunchConfig cfg) {
 		val resource = RecursiveCollectors.collectTestContainerResource(cfg)
 		if (resource === null) {
-			error("Test container is not a Java project, source folder or package" + cfg.test?.container, cfg.test, LC.testConfig_Container)
+			if (cfg.eResource.URI.isPlatform)
+				error("Test container is not a Java project, source folder or package" + cfg.test?.container, cfg.test, LC.testConfig_Container)
 			return
 		}
 
