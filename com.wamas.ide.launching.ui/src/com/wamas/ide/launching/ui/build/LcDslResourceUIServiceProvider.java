@@ -26,8 +26,9 @@ public class LcDslResourceUIServiceProvider extends DefaultResourceUIServiceProv
 		// Don't build jar entries from classpath but process them from the TP instead
 		if (storage instanceof IJarEntryResource && uri.isPlatformResource()) {
 			PluginModelManager modelManager = PDECore.getDefault().getModelManager();
-			IPluginModelBase model = modelManager.findModel(uri.segment(1));
-			if (model != null) {
+			String bundleName = uri.segment(1);
+			IPluginModelBase model = modelManager.findModel(bundleName);
+			if (model != null || ".org.eclipse.jdt.core.external.folders".equals(bundleName)) {
 				return false;
 			}
 		}

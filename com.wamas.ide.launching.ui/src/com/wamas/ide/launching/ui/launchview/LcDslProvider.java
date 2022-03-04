@@ -9,9 +9,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Supplier;
 
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.debug.core.DebugPlugin;
@@ -33,14 +30,11 @@ import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
-import org.eclipse.xtext.ui.resource.IResourceSetInitializer;
 import org.eclipse.xtext.ui.resource.IResourceSetProvider;
-import org.eclipse.xtext.ui.shared.contribution.ISharedStateContributionRegistry;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
 
-import com.google.common.collect.ImmutableList;
 import com.google.inject.Injector;
 import com.wamas.ide.launching.generator.LcDslGenerator;
 import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator;
@@ -86,17 +80,6 @@ public class LcDslProvider implements ILaunchObjectProvider {
         Injector injector = LcDslHelper.getInjector();
 		IResourceDescriptions index = injector.getInstance(IResourceDescriptions.class);
         ResourceSet resourceSet = injector.getInstance(IResourceSetProvider.class).get(null);
-        ISharedStateContributionRegistry contributionRegistry = injector.getInstance(ISharedStateContributionRegistry.class) ;
-        ImmutableList<? extends IResourceSetInitializer> initializers = contributionRegistry.getContributedInstances(IResourceSetInitializer.class);
-        IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-        for(IProject project: root.getProjects()) {
-        	if (project.isAccessible()) {
-		        for(IResourceSetInitializer initializer: initializers) {
-		        	initializer.initialize(resourceSet, project);
-		        }
-        	}
-        }
-        
         resourceSet.getLoadOptions().put(ResourceDescriptionsProvider.PERSISTED_DESCRIPTIONS, true);
 
         Set<LcDslLaunchObject> result = new TreeSet<>();

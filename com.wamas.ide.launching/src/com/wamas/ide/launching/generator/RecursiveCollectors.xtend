@@ -351,7 +351,11 @@ class RecursiveCollectors {
 	static def collectTestContainerResource(LaunchConfig config, org.eclipse.emf.ecore.resource.Resource eResource) {
 		val containerPath = collectTestContainerPlain(config)
 		if (containerPath === null) {
-			return ResourcesPlugin.workspace.root.findMember(eResource.URI.toPlatformString(true))?.project
+			val uri = eResource.URI
+			if (uri.isPlatformResource) {
+				return ResourcesPlugin.workspace.root.findMember(uri.toPlatformString(true))?.project	
+			}
+			return null
 		}
 
 		return ResourcesPlugin.workspace.root.findMember(containerPath)
