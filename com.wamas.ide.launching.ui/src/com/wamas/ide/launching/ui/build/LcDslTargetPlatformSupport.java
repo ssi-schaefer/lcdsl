@@ -306,8 +306,10 @@ public class LcDslTargetPlatformSupport implements IStorage2UriMapperContributio
 	public void modelsChanged(PluginModelDelta delta) {
 		lock.writeLock().lock();
 		try {
+			Set<String> defer = new HashSet<>();
 			for (ModelEntry removed : delta.getRemovedEntries()) {
 				removed(removed);
+				defer.add(removed.getId());
 			}
 			boolean didAdd = false;
 			for (ModelEntry changed : delta.getChangedEntries()) {
@@ -325,10 +327,13 @@ public class LcDslTargetPlatformSupport implements IStorage2UriMapperContributio
 				if (added.hasExternalModels()) {
 					addNow(added.getModel());
 					didAdd = true;
+				} else {
+					defer.add(added.getId());
+					didAdd = true;
 				}
 			}
 			if (didAdd) {
-				touchAnyProject();
+				touchAnyProject(defer);
 			}
 		} finally {
 			lock.writeLock().unlock();
@@ -437,23 +442,34 @@ public class LcDslTargetPlatformSupport implements IStorage2UriMapperContributio
 			uriMap.clear();
 			uriMap.putAll(newContent);
 			if (!difference.areEqual()) {
-				touchAnyProject();
+				touchAnyProject(Set.of());
 			}
 		} finally {
 			lock.writeLock().unlock();
 		}
 	}
 
-	private void touchAnyProject() {
+	private void touchAnyProject(Set<String> butNot) {
 		Job touchJob = Job.createSystem("Touch project after target platform change", new ICoreRunnable() {
 			@Override
 			public void run(IProgressMonitor monitor) throws CoreException {
 				IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+				IProject candidate = null;
 				for (IProject p : root.getProjects()) {
 					if (XtextProjectHelper.hasBuilder(p)) {
-						p.touch(monitor);
-						return;
+						if (butNot.contains(p.getName())) {
+							if (candidate == null) {
+								candidate = p;
+							}
+						} else {
+							p.touch(monitor);
+							return;
+						}
 					}
+				}
+				if (candidate != null) {
+					candidate.touch(monitor);
+					return;
 				}
 			}
 		});
