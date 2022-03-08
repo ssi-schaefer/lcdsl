@@ -23,6 +23,9 @@ import org.eclipse.pde.internal.core.product.WorkspaceProductModel
 
 import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
 import com.wamas.ide.launching.lcDsl.LaunchConfigType
+import org.eclipse.pde.internal.core.TargetPlatformHelper
+import org.eclipse.pde.internal.core.PDEState
+import org.eclipse.pde.core.plugin.IPluginModelBase
 
 class DependencyResolver {
 
@@ -54,12 +57,16 @@ class DependencyResolver {
 				Integer.toString(level)
 		}
 	}
-
+	// see org.eclipse.pde.internal.ui.util.SourcePluginFilter.test(IPluginModelBase)
+	static def isNotSourceBundle(PDEState pdeState, BundleDescription description) {
+		return pdeState.getBundleSourceEntry(description.getBundleId()) === null;
+	}
 	static def findDependencies(LaunchConfig config, boolean addAll) {
 		val plugins = config.collectPlugins
 		val features = config.collectFeatures
 		val ignores = config.collectIgnores
 		val cp = config.collectContentProvider
+		val fState=TargetPlatformHelper.getPDEState();
 
 		val mappedIgnores = ignores.map[getBestPluginMatch(it.name, it.version)?.bundleDescription].filterNull.toList
 		val allBundles = newHashMap()
@@ -73,7 +80,7 @@ class DependencyResolver {
 				allBundles.putAll(prodBundles.toInvertedMap[StartLevel.DEFAULT])
 				// TODO get start level from product
 				// feature may not contain required dependencies
-				resolveAndExpand(config, allBundles, prodBundles, mappedIgnores, addAll)
+				resolveAndExpand(config, allBundles, prodBundles, mappedIgnores, addAll, fState)
 			}
 		}
 
@@ -81,12 +88,12 @@ class DependencyResolver {
 			for (fwv : features) {
 				log.info("top-level feature " + fwv)
 				val f = getBestFeatureMatch(fwv.name, fwv.version)
-				val ps = f?.feature?.pluginModels?.filterNull
+				val ps = f?.feature?.pluginModels?.filterNull?.filter[description|isNotSourceBundle(fState,description)]
 				if (ps !== null && !ps.empty) {
 					allBundles.putAll(ps.toInvertedMap[StartLevel.DEFAULT])
 
 					// feature may not contain required dependencies
-					resolveAndExpand(config, allBundles, ps, mappedIgnores, addAll)
+					resolveAndExpand(config, allBundles, ps, mappedIgnores, addAll, fState)
 				}
 			}
 		}
@@ -104,7 +111,7 @@ class DependencyResolver {
 				}
 			}
 
-			resolveAndExpand(config, allBundles, toResolve, mappedIgnores, addAll)
+			resolveAndExpand(config, allBundles, toResolve, mappedIgnores, addAll, fState)
 		}
 
 		// add the plugin of the test project it self, if not yet present
@@ -136,14 +143,14 @@ class DependencyResolver {
 	}
 
 	protected def static void resolveAndExpand(LaunchConfig config, HashMap<BundleDescription, StartLevel> allBundles,
-		Iterable<BundleDescription> toResolve, List<BundleDescription> mappedIgnores, boolean addAll) {
+		Iterable<BundleDescription> toResolve, List<BundleDescription> mappedIgnores, boolean addAll, PDEState fState) {
 		// only if requested
 		if (!config.explicit) {
 			// resolve and add
 			val all = toResolve.findDependencies(mappedIgnores, addAll)
 
 			for (d : all) {
-				if (!allBundles.containsKey(d)) {
+				if (!allBundles.containsKey(d) && isNotSourceBundle(fState,d)) {
 					allBundles.put(d, StartLevel.DEFAULT)
 				}
 			}
