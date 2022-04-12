@@ -404,16 +404,6 @@ public class LcDslTargetPlatformSupport implements IStorage2UriMapperContributio
 	}
 
 	@Override
-	public void addInterestingProjects(IProject thisProject, Set<IProject> result) {
-		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		for (IProject project : root.getProjects()) {
-			if (!project.equals(thisProject) && XtextProjectHelper.hasBuilder(project)) {
-				result.add(project);
-			}
-		}
-	}
-
-	@Override
 	public void stateResolved(StateDelta delta) {
 		// nothing to do
 	}
