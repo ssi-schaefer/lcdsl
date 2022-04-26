@@ -3,6 +3,7 @@ package com.wamas.ide.launching.ui.build;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 import org.eclipse.core.resources.IEncodedStorage;
 import org.eclipse.core.runtime.CoreException;
@@ -12,55 +13,75 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.URIConverter;
 
 public class UriBasedStorage implements IEncodedStorage {
-	
-	final URI platform;
-	private final URI resolved;
 
-	UriBasedStorage(URI platform, URI resolved) {
-		this.platform = platform;
-		this.resolved = resolved;
-	}
+    final URI platform;
+    private final URI resolved;
 
-	@Override
-	public <T> T getAdapter(Class<T> adapter) {
-		return null;
-	}
+    UriBasedStorage(URI platform, URI resolved) {
+        this.platform = platform;
+        this.resolved = resolved;
+    }
 
-	@Override
-	public InputStream getContents() throws CoreException {
-		try {
-			return URIConverter.INSTANCE.createInputStream(resolved);
-		} catch (IOException e) {
-			throw new CoreException(Status.error(e.getMessage(), e));
-		}
-	}
+    @Override
+    public <T> T getAdapter(Class<T> adapter) {
+        return null;
+    }
 
-	@Override
-	public IPath getFullPath() {
-		return null;
-	}
+    @Override
+    public InputStream getContents() throws CoreException {
+        try {
+            return URIConverter.INSTANCE.createInputStream(resolved);
+        } catch (IOException e) {
+            throw new CoreException(Status.error(e.getMessage(), e));
+        }
+    }
 
-	@Override
-	public String getName() {
-		return platform.lastSegment();
-	}
+    @Override
+    public IPath getFullPath() {
+        return null;
+    }
 
-	@Override
-	public boolean isReadOnly() {
-		return true;
-	}
+    @Override
+    public String getName() {
+        return platform.lastSegment();
+    }
 
-	@Override
-	public String getCharset() throws CoreException {
-		return StandardCharsets.UTF_8.name();
-	}
-	
-	public URI getPlatform() {
-		return platform;
-	}
-	
-	public URI getResolved() {
-		return resolved;
-	}
-	
+    @Override
+    public boolean isReadOnly() {
+        return true;
+    }
+
+    @Override
+    public String getCharset() throws CoreException {
+        return StandardCharsets.UTF_8.name();
+    }
+
+    public URI getPlatform() {
+        return platform;
+    }
+
+    public URI getResolved() {
+        return resolved;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(platform, resolved);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        UriBasedStorage other = (UriBasedStorage) obj;
+        return Objects.equals(platform, other.platform) && Objects.equals(resolved, other.resolved);
+    }
+
 }
