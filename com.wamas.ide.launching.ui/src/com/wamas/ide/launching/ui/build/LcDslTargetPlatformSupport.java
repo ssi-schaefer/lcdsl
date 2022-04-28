@@ -20,6 +20,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -76,6 +77,7 @@ import com.google.common.base.Suppliers;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
 import com.google.common.collect.SortedMapDifference;
+import com.google.common.util.concurrent.Futures;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
@@ -97,7 +99,7 @@ public class LcDslTargetPlatformSupport
      * Lexicographically sorted to be able to query for all URIs from a given bundle
      * by prefix.
      */
-    private final SortedMap<URI, URI> uriMap = createSortedUriMap();
+    private final CompletableFuture<SortedMap<URI, URI>> uriMap = new CompletableFuture<>();
     private Set<URI> uris = Collections.emptySet();
 
     private Set<URI> pendingUpdated = new HashSet<>();
@@ -186,22 +188,33 @@ public class LcDslTargetPlatformSupport
 
     @Override
     public void initializeCache() {
-        // TODO consider storing the known URIs per bundle memento
-        lock.writeLock().lock();
-        try {
+        CompletableFuture.supplyAsync(() -> {
+            SortedMap<URI, URI> uriMap = createSortedUriMap();
+
             PluginModelManager modelManager = PDECore.getDefault().getModelManager();
             modelManager.addPluginModelListener(this);
             modelManager.addStateDeltaListener(this);
             IPluginModelBase[] tpModels = modelManager.getExternalModels();
 
-            uriMap.putAll(Arrays.stream(tpModels).parallel().flatMap(this::added)
+            uriMap.putAll(Arrays.stream(tpModels).parallel().flatMap(LcDslTargetPlatformSupport::added)
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, this::error, this::createSortedUriMap)));
-            uris = new HashSet<>(uriMap.keySet());
-            // Refine and only schedule URIs that differ
-            pendingUpdated.addAll(uriMap.keySet());
-        } finally {
-            lock.writeLock().unlock();
-        }
+            return uriMap;
+        }).whenComplete((map, throwable) -> {
+            if (throwable == null) {
+                // TODO consider storing the known URIs per bundle memento
+                lock.writeLock().lock();
+                try {
+                    uris = new HashSet<>(map.keySet());
+                    // Refine and only schedule URIs that differ
+                    pendingUpdated.addAll(map.keySet());
+                } finally {
+                    lock.writeLock().unlock();
+                }
+                uriMap.complete(map);
+            } else {
+                this.uriMap.completeExceptionally(throwable);
+            }
+        });
     }
 
     Set<URI> uris() {
@@ -217,11 +230,11 @@ public class LcDslTargetPlatformSupport
         throw new IllegalStateException("Unexpected duplicates");
     }
 
-    private Stream<? extends Entry<URI, URI>> added(IPluginModelBase modelEntry) {
+    private static Stream<? extends Entry<URI, URI>> added(IPluginModelBase modelEntry) {
         return added(modelEntry, false);
     }
 
-    private Stream<? extends Entry<URI, URI>> added(IPluginModelBase modelEntry, boolean force) {
+    private static Stream<? extends Entry<URI, URI>> added(IPluginModelBase modelEntry, boolean force) {
         IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
         String installLocation = modelEntry.getInstallLocation();
         if (installLocation != null) {
@@ -323,9 +336,10 @@ public class LcDslTargetPlatformSupport
             }
 
             private URI getResolved(URI uri) {
+                SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
                 lock.readLock().lock();
                 try {
-                    return uriMap.get(uri);
+                    return map.get(uri);
                 } finally {
                     lock.readLock().unlock();
                 }
@@ -377,9 +391,10 @@ public class LcDslTargetPlatformSupport
     public Iterable<Pair<IStorage, IProject>> getStorages(URI uri) {
         // generally speaking, the entire target platform is available to all projects,
         // so we announce them under a placeholder project
+        SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
         lock.readLock().lock();
         try {
-            URI resolved = uriMap.get(uri);
+            URI resolved = map.get(uri);
             if (resolved != null) {
                 UriBasedStorage storage = new UriBasedStorage(uri, resolved);
                 IProject placeholder = ResourcesPlugin.getWorkspace().getRoot().getProject("__PLACEHOLDER__");
@@ -401,11 +416,12 @@ public class LcDslTargetPlatformSupport
 
     @Override
     public void modelsChanged(PluginModelDelta delta) {
+        SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
         lock.writeLock().lock();
         try {
             Set<String> defer = new HashSet<>();
             for (ModelEntry removed : delta.getRemovedEntries()) {
-                removed(removed);
+                removed(removed, map);
                 defer.add(removed.getId());
             }
             boolean didAdd = false;
@@ -413,16 +429,16 @@ public class LcDslTargetPlatformSupport
                 if (changed.hasExternalModels()) {
                     IPluginModelBase model = changed.getModel();
                     if (Arrays.asList(changed.getWorkspaceModels()).contains(model)) {
-                        removed(changed);
+                        removed(changed, map);
                     } else {
                         didAdd = true;
-                        addNow(model);
+                        addNow(model, map);
                     }
                 }
             }
             for (ModelEntry added : delta.getAddedEntries()) {
                 if (added.hasExternalModels()) {
-                    addNow(added.getModel());
+                    addNow(added.getModel(), map);
                     didAdd = true;
                 } else {
                     defer.add(added.getId());
@@ -432,21 +448,21 @@ public class LcDslTargetPlatformSupport
             if (didAdd) {
                 touchAnyProject(defer);
             }
-            uris = new HashSet<>(uriMap.keySet());
+            uris = new HashSet<>(map.keySet());
         } finally {
             lock.writeLock().unlock();
         }
     }
 
-    private void addNow(IPluginModelBase model) {
+    private void addNow(IPluginModelBase model, SortedMap<URI, URI> map) {
         added(model, true).forEach(entry -> {
-            uriMap.put(entry.getKey(), entry.getValue());
+            map.put(entry.getKey(), entry.getValue());
             pendingUpdated.add(entry.getKey());
         });
     }
 
-    private void removed(ModelEntry entry) {
-        Map<URI, URI> uris = all(entry);
+    private void removed(ModelEntry entry, SortedMap<URI, URI> map) {
+        Map<URI, URI> uris = all(entry, map);
         if (!uris.isEmpty()) {
             ToBeBuilt toBeBuilt = new ToBeBuilt();
             toBeBuilt.getToBeDeleted().addAll(uris.keySet());
@@ -456,7 +472,7 @@ public class LcDslTargetPlatformSupport
         }
     }
 
-    private Map<URI, URI> all(ModelEntry entry) {
+    private Map<URI, URI> all(ModelEntry entry, SortedMap<URI, URI> map) {
         IPluginModelBase model = entry.getModel();
         String id = entry.getId();
         URI low;
@@ -468,14 +484,20 @@ public class LcDslTargetPlatformSupport
         }
 
         URI high = low.trimSegments(1).appendSegment(String.valueOf(Character.MAX_VALUE));
-        return uriMap.subMap(low, high);
+        return map.subMap(low, high);
     }
 
     @Override
     public void removeProject(ToBeBuilt toBeBuilt, IProject project, IProgressMonitor monitor) {
         // Looks like a clean build was triggered - assume that we want to rebuild the
         // configurations from the TP
-        pendingUpdated.addAll(uriMap.keySet());
+        SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
+        lock.readLock().lock();
+        try {
+            pendingUpdated.addAll(map.keySet());
+        } finally {
+            lock.readLock().unlock();
+        }
     }
 
     @Override
@@ -510,12 +532,13 @@ public class LcDslTargetPlatformSupport
     public void stateChanged(State newState) {
         TreeMap<URI, URI> newContent = Arrays
                 .stream(PDECore.getDefault().getModelManager().getExternalModelManager().getAllModels()).parallel()
-                .flatMap(this::added)
+                .flatMap(LcDslTargetPlatformSupport::added)
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, this::error, this::createSortedUriMap));
 
+        SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
         lock.writeLock().lock();
         try {
-            SortedMapDifference<URI, URI> difference = Maps.difference(uriMap, newContent);
+            SortedMapDifference<URI, URI> difference = Maps.difference(map, newContent);
             if (!difference.entriesOnlyOnLeft().isEmpty()) {
                 Map<String, ToBeBuilt> partitioned = new HashMap<>();
                 difference.entriesOnlyOnLeft().keySet().forEach(uri -> {
@@ -527,9 +550,9 @@ public class LcDslTargetPlatformSupport
 
             pendingUpdated.addAll(difference.entriesDiffering().keySet());
             pendingUpdated.addAll(difference.entriesOnlyOnRight().keySet());
-            uriMap.clear();
-            uriMap.putAll(newContent);
-            uris = new HashSet<>(uriMap.keySet());
+            map.clear();
+            map.putAll(newContent);
+            uris = new HashSet<>(map.keySet());
             if (!difference.areEqual()) {
                 touchAnyProject(Set.of());
             }
