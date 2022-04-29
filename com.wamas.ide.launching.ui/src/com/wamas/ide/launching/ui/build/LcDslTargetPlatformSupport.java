@@ -76,6 +76,7 @@ import org.eclipse.xtext.xbase.lib.util.ReflectExtensions;
 import com.google.common.base.Suppliers;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import com.google.common.collect.SortedMapDifference;
 import com.google.common.util.concurrent.Futures;
 import com.google.inject.Inject;
@@ -96,16 +97,20 @@ public class LcDslTargetPlatformSupport
 
     private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock(true);
     /**
-     * Lexicographically sorted to be able to query for all URIs from a given bundle
+     * Asynchronously supplied, lexicographically sorted to be able to query for all URIs from a given bundle
      * by prefix.
+     * The idea is to keep the contained URIs available in the Xtext index at all times.
      */
     private final CompletableFuture<SortedMap<URI, URI>> uriMap = new CompletableFuture<>();
     private Set<URI> uris = Collections.emptySet();
 
+    /**
+     * Scheduled URIs for the next build to come.
+     */
     private Set<URI> pendingUpdated = new HashSet<>();
     private Set<URI> pendingUpdatedCheckpoint;
 
-    private TreeMap<URI, URI> createSortedUriMap() {
+    private static TreeMap<URI, URI> createSortedUriMap() {
         return new TreeMap<>(Comparator.comparing(Object::toString));
     }
 
@@ -189,16 +194,14 @@ public class LcDslTargetPlatformSupport
     @Override
     public void initializeCache() {
         CompletableFuture.supplyAsync(() -> {
-            SortedMap<URI, URI> uriMap = createSortedUriMap();
-
             PluginModelManager modelManager = PDECore.getDefault().getModelManager();
             modelManager.addPluginModelListener(this);
             modelManager.addStateDeltaListener(this);
-            IPluginModelBase[] tpModels = modelManager.getExternalModels();
 
-            uriMap.putAll(Arrays.stream(tpModels).parallel().flatMap(LcDslTargetPlatformSupport::added)
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, this::error, this::createSortedUriMap)));
-            return uriMap;
+            return Arrays.stream(modelManager.getExternalModels()).parallel().flatMap(LcDslTargetPlatformSupport::added)
+                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, this::error,
+                            LcDslTargetPlatformSupport::createSortedUriMap));
+
         }).whenComplete((map, throwable) -> {
             if (throwable == null) {
                 // TODO consider storing the known URIs per bundle memento
@@ -339,7 +342,7 @@ public class LcDslTargetPlatformSupport
                 SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
                 lock.readLock().lock();
                 try {
-                    return map.get(uri);
+                    return map.getOrDefault(uri, uri);
                 } finally {
                     lock.readLock().unlock();
                 }
@@ -391,6 +394,8 @@ public class LcDslTargetPlatformSupport
     public Iterable<Pair<IStorage, IProject>> getStorages(URI uri) {
         // generally speaking, the entire target platform is available to all projects,
         // so we announce them under a placeholder project
+        // Since these storages are not associated with any real project, they'll be scheduled
+        // for removal on each full build. We have to compensate for that in #updateProject
         SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
         lock.readLock().lock();
         try {
@@ -490,19 +495,30 @@ public class LcDslTargetPlatformSupport
     @Override
     public void removeProject(ToBeBuilt toBeBuilt, IProject project, IProgressMonitor monitor) {
         // Looks like a clean build was triggered - assume that we want to rebuild the
-        // configurations from the TP
+        // configurations from the TP. Make sure that we still keep the URIs from the TP known
+        // to the Xtext index.
         SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
-        lock.readLock().lock();
+        lock.writeLock().lock();
         try {
             pendingUpdated.addAll(map.keySet());
+            toBeBuilt.getToBeDeleted().removeAll(map.keySet());
         } finally {
-            lock.readLock().unlock();
+            lock.writeLock().unlock();
         }
     }
 
     @Override
     public void updateProject(ToBeBuilt toBeBuilt, IProject project, IProgressMonitor monitor) throws CoreException {
-        // nothing to do
+        // A full build was triggered for a project
+        SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
+        lock.writeLock().lock();
+        try {
+            // Make sure that we don't remove target:/ URIs automagically from the Xtext index
+            // but only if they are no longer managed from here
+            toBeBuilt.getToBeDeleted().removeAll(Sets.filter(map.keySet(), uri -> !project.getName().equals(uri.segment(1))));
+        } finally {
+            lock.writeLock().unlock();
+        }
     }
 
     @Override
@@ -532,8 +548,8 @@ public class LcDslTargetPlatformSupport
     public void stateChanged(State newState) {
         TreeMap<URI, URI> newContent = Arrays
                 .stream(PDECore.getDefault().getModelManager().getExternalModelManager().getAllModels()).parallel()
-                .flatMap(LcDslTargetPlatformSupport::added)
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, this::error, this::createSortedUriMap));
+                .flatMap(LcDslTargetPlatformSupport::added).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        this::error, LcDslTargetPlatformSupport::createSortedUriMap));
 
         SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
         lock.writeLock().lock();
