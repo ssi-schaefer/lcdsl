@@ -41,6 +41,7 @@ import org.eclipse.pde.core.plugin.TargetPlatform
 import org.eclipse.jdt.internal.junit.launcher.JUnitLaunchConfigurationConstants
 import org.eclipse.jdt.internal.junit.launcher.TestKindRegistry
 import org.eclipse.debug.internal.core.LaunchConfiguration
+import org.eclipse.emf.ecore.InternalEObject
 
 class StandaloneLaunchConfigGenerator {
 
@@ -92,8 +93,8 @@ class StandaloneLaunchConfigGenerator {
 			return null;
 
 		if (config.fullName === null) {
-			// FIXME config.fullName is null => we need to catch that earlier to get the configs name for the error message.
-			Activator.log(IStatus.ERROR, "Some launch configuration was not build correctly", null)
+			// happend for group configuration with error inside
+			Activator.log(IStatus.ERROR, "Launch configuration was not build correctly: "+(config as InternalEObject).eProxyURI(), null)
 			return null;		
 		}
 		if (config.hasError) {
@@ -418,6 +419,10 @@ class StandaloneLaunchConfigGenerator {
 			m.mode = it.type.literal
 			m.adoptIfRunning = it.adopt
 			
+			if (it.member.fullName === null) {
+				// "Launch configuration Group has Errors: "+copy.name
+				return null;		
+			}
 			generate(it.member)
 			
 			m
