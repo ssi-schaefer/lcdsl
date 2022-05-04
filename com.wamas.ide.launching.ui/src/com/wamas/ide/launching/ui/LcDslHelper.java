@@ -22,7 +22,6 @@ import org.eclipse.xtext.ui.resource.IResourceSetProvider;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.google.inject.Provider;
 import com.wamas.ide.launching.generator.StandaloneLaunchConfigGenerator;
 import com.wamas.ide.launching.lcDsl.LCModel;
 import com.wamas.ide.launching.lcDsl.LaunchConfig;
@@ -45,7 +44,7 @@ public class LcDslHelper {
     private IResourceDescriptions index;
 
     @Inject
-    private Provider<ResourceSet> rsProvider;
+    private IResourceSetProvider resourceSetProvider;
 
     private static LcDslHelper INSTANCE;
 
@@ -74,7 +73,7 @@ public class LcDslHelper {
      * @throws RuntimeException in case of an error
      */
     public LCModel loadModel(IFile file) {
-        ResourceSet rs = getInjector().getInstance(IResourceSetProvider.class).get(file.getProject());
+        ResourceSet rs = resourceSetProvider.get(file.getProject());
         Resource r = rs.getResource(URI.createFileURI(file.getLocation().toFile().getAbsolutePath()), true);
 
         if (r == null || r.getContents().isEmpty() || r.getContents().size() != 1) {
@@ -118,7 +117,7 @@ public class LcDslHelper {
 
         for (IEObjectDescription o : indexed) {
             if (o.getName().getLastSegment().equals(name)) {
-                EObject obj = EcoreUtil.resolve(o.getEObjectOrProxy(), rsProvider.get());
+                EObject obj = EcoreUtil.resolve(o.getEObjectOrProxy(), resourceSetProvider.get(null));
                 EcoreUtil.resolveAll(obj);
                 return (LaunchConfig) obj;
             }
