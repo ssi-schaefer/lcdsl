@@ -193,10 +193,8 @@ public class LcDslTargetPlatformSupport
 
     @Override
     public void initializeCache() {
+        PluginModelManager modelManager = PDECore.getDefault().getModelManager();
         CompletableFuture.supplyAsync(() -> {
-            PluginModelManager modelManager = PDECore.getDefault().getModelManager();
-            modelManager.addPluginModelListener(this);
-            modelManager.addStateDeltaListener(this);
 
             return Arrays.stream(modelManager.getExternalModels()).parallel().flatMap(LcDslTargetPlatformSupport::added)
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, this::error,
@@ -217,6 +215,8 @@ public class LcDslTargetPlatformSupport
             } else {
                 this.uriMap.completeExceptionally(throwable);
             }
+            modelManager.addPluginModelListener(this);
+            modelManager.addStateDeltaListener(this);
         });
     }
 
@@ -421,6 +421,9 @@ public class LcDslTargetPlatformSupport
 
     @Override
     public void modelsChanged(PluginModelDelta delta) {
+        if (!uriMap.isDone()) {
+            return;
+        }
         SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
         lock.writeLock().lock();
         try {
@@ -494,6 +497,9 @@ public class LcDslTargetPlatformSupport
 
     @Override
     public void removeProject(ToBeBuilt toBeBuilt, IProject project, IProgressMonitor monitor) {
+        if (!uriMap.isDone()) {
+            return;
+        }
         // Looks like a clean build was triggered - assume that we want to rebuild the
         // configurations from the TP. Make sure that we still keep the URIs from the TP known
         // to the Xtext index.
@@ -509,6 +515,9 @@ public class LcDslTargetPlatformSupport
 
     @Override
     public void updateProject(ToBeBuilt toBeBuilt, IProject project, IProgressMonitor monitor) throws CoreException {
+        if (!uriMap.isDone()) {
+            return;
+        }
         // A full build was triggered for a project
         SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
         lock.writeLock().lock();
@@ -546,11 +555,13 @@ public class LcDslTargetPlatformSupport
 
     @Override
     public void stateChanged(State newState) {
+        if (!uriMap.isDone()) {
+            return;
+        }
         TreeMap<URI, URI> newContent = Arrays
                 .stream(PDECore.getDefault().getModelManager().getExternalModelManager().getAllModels()).parallel()
                 .flatMap(LcDslTargetPlatformSupport::added).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
                         this::error, LcDslTargetPlatformSupport::createSortedUriMap));
-
         SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
         lock.writeLock().lock();
         try {
