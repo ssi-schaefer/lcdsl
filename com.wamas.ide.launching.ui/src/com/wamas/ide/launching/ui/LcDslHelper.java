@@ -4,9 +4,15 @@
 package com.wamas.ide.launching.ui;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchMode;
 import org.eclipse.debug.ui.launchview.LaunchConfigurationViewPlugin;
@@ -34,6 +40,8 @@ import com.wamas.ide.launching.ui.internal.LaunchingActivator;
 @SuppressWarnings("restriction")
 public class LcDslHelper {
 
+    /** Controls how many lines of logfile are appended in case of error **/
+    public static int TAIL_LINES = Integer.getInteger("LcDslHelper.tailLines", 40);
     public static final String MODE_RUN = "run";
     public static final String MODE_DEBUG = "debug";
 
@@ -192,7 +200,23 @@ public class LcDslHelper {
             try {
                 int exitCode = LaunchConfigurationViewPlugin.getExecutor().launchProcess(c, mode, build, wait, log);
                 if (exitCode != 0) {
-                    throw new RuntimeException("Process " + config.getName() + " did exit with error " + exitCode);
+                    if (TAIL_LINES > 0 && log != null && log.exists()) {
+                        try {
+                            String encoding = c.getAttribute(DebugPlugin.ATTR_CONSOLE_ENCODING, "UTF-8");
+                            List<String> lines = Files.readAllLines(log.toPath(), Charset.forName(encoding));
+                            String tail = lines.stream().skip(Math.max(0, lines.size() - TAIL_LINES)).map(s -> "> " + s)
+                                    .collect(Collectors.joining("\n"));
+                            RuntimeException e = new RuntimeException(
+                                    "Process " + config.getName() + " did exit with error " + exitCode);
+                            e.addSuppressed(new Throwable("Logfile tail appended.\n--------- last " + TAIL_LINES
+                                    + " lines of LogFile:\n" + tail + "\n--------- logfile end."));
+                            throw e;
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    throw new RuntimeException(
+                            "Process " + config.getName() + " did exit with error " + exitCode + ". Logfile does not exist.");
                 }
             } finally {
                 if (removeAfterLaunch) {
