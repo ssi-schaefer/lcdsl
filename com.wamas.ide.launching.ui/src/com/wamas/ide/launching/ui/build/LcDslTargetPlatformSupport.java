@@ -299,7 +299,7 @@ public class LcDslTargetPlatformSupport
 
             @Override
             public boolean canHandle(URI uri) {
-                return "target".equals(uri.scheme());
+                return getResolved(uri) != null;
             }
 
             @Override
@@ -342,7 +342,7 @@ public class LcDslTargetPlatformSupport
                 SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
                 lock.readLock().lock();
                 try {
-                    return map.getOrDefault(uri, uri);
+                    return map.get(uri);
                 } finally {
                     lock.readLock().unlock();
                 }
