@@ -14,9 +14,11 @@ import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -72,6 +74,7 @@ import org.eclipse.xtext.ui.shared.internal.ListenerRegistrar;
 import org.eclipse.xtext.util.Pair;
 import org.eclipse.xtext.util.Tuples;
 import org.eclipse.xtext.xbase.lib.util.ReflectExtensions;
+import org.osgi.framework.Version;
 
 import com.google.common.base.Suppliers;
 import com.google.common.collect.ImmutableList;
@@ -429,25 +432,30 @@ public class LcDslTargetPlatformSupport
         try {
             Set<String> defer = new HashSet<>();
             for (ModelEntry removed : delta.getRemovedEntries()) {
-                removed(removed, map);
-                defer.add(removed.getId());
+                if (removed(removed.getModel(), removed.getId(), map)) {
+                    defer.add(removed.getId());
+                }
             }
             boolean didAdd = false;
             for (ModelEntry changed : delta.getChangedEntries()) {
                 if (changed.hasExternalModels()) {
                     IPluginModelBase model = changed.getModel();
                     if (Arrays.asList(changed.getWorkspaceModels()).contains(model)) {
-                        removed(changed, map);
+                        for (IPluginModelBase external : changed.getExternalModels()) {
+                            removed(external, changed.getId(), map);
+                        }
                     } else {
-                        didAdd = true;
-                        addNow(model, map);
+                        if (addNow(model, map)) {
+                            didAdd = true;
+                        }
                     }
                 }
             }
             for (ModelEntry added : delta.getAddedEntries()) {
                 if (added.hasExternalModels()) {
-                    addNow(added.getModel(), map);
-                    didAdd = true;
+                    if (addNow(added.getModel(), map)) {
+                        didAdd = true;
+                    }
                 } else {
                     defer.add(added.getId());
                     didAdd = true;
@@ -462,30 +470,36 @@ public class LcDslTargetPlatformSupport
         }
     }
 
-    private void addNow(IPluginModelBase model, SortedMap<URI, URI> map) {
-        added(model, true).forEach(entry -> {
-            map.put(entry.getKey(), entry.getValue());
-            pendingUpdated.add(entry.getKey());
-        });
+    private boolean addNow(IPluginModelBase model, SortedMap<URI, URI> map) {
+        boolean result = false;
+        Iterator<? extends Entry<URI, URI>> iter = added(model, true).iterator();
+        while (iter.hasNext()) {
+            Entry<URI, URI> entry = iter.next();
+            if (!Objects.equals(map.put(entry.getKey(), entry.getValue()), entry.getValue())) {
+                pendingUpdated.add(entry.getKey());
+                result = true;
+            }
+        }
+        return result;
     }
 
-    private void removed(ModelEntry entry, SortedMap<URI, URI> map) {
-        Map<URI, URI> uris = all(entry, map);
+    private boolean removed(IPluginModelBase model, String id, SortedMap<URI, URI> map) {
+        Map<URI, URI> uris = all(model, id, map);
         if (!uris.isEmpty()) {
             ToBeBuilt toBeBuilt = new ToBeBuilt();
             toBeBuilt.getToBeDeleted().addAll(uris.keySet());
             pendingUpdated.removeAll(uris.keySet());
-            anyBuildScheduler.get().accept(entry.getId(), toBeBuilt);
+            anyBuildScheduler.get().accept(id, toBeBuilt);
             uris.clear();
+            return true;
         }
+        return false;
     }
 
-    private Map<URI, URI> all(ModelEntry entry, SortedMap<URI, URI> map) {
-        IPluginModelBase model = entry.getModel();
-        String id = entry.getId();
+    private Map<URI, URI> all(IPluginModelBase model, String id, SortedMap<URI, URI> map) {
         URI low;
-        if (model != null) {
-            String version = model.getBundleDescription().getVersion().toString();
+        if (model != null && model.getBundleDescription() != null) {
+            Version version = model.getBundleDescription().getVersion();
             low = URI.createURI("target:/" + id + "/" + version + "/", true);
         } else {
             low = URI.createURI("target:/" + id + "/", true);
@@ -506,8 +520,10 @@ public class LcDslTargetPlatformSupport
         SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
         lock.writeLock().lock();
         try {
-            pendingUpdated.addAll(map.keySet());
-            toBeBuilt.getToBeDeleted().removeAll(map.keySet());
+            if (!map.isEmpty()) {
+                pendingUpdated.addAll(map.keySet());
+                toBeBuilt.getToBeDeleted().removeAll(map.keySet());
+            }
         } finally {
             lock.writeLock().unlock();
         }
@@ -522,9 +538,11 @@ public class LcDslTargetPlatformSupport
         SortedMap<URI, URI> map = Futures.getUnchecked(uriMap);
         lock.writeLock().lock();
         try {
-            // Make sure that we don't remove target:/ URIs automagically from the Xtext index
-            // but only if they are no longer managed from here
-            toBeBuilt.getToBeDeleted().removeAll(Sets.filter(map.keySet(), uri -> !project.getName().equals(uri.segment(1))));
+            if (!map.isEmpty()) {
+                // Make sure that we don't remove target:/ URIs automagically from the Xtext index
+                // but only if they are no longer managed from here
+                toBeBuilt.getToBeDeleted().removeAll(Sets.filter(map.keySet(), uri -> !project.getName().equals(uri.segment(1))));
+            }
         } finally {
             lock.writeLock().unlock();
         }
