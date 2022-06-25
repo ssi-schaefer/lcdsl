@@ -25,7 +25,7 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.core.runtime,
  org.eclipse.debug.ui,
  org.eclipse.jdt.junit.core
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: com.wamas.ide.launching.lcDsl,
  com.wamas.ide.launching.services,
  com.wamas.ide.launching.scoping,
@@ -40,3 +40,4 @@ Export-Package: com.wamas.ide.launching.lcDsl,
  com.wamas.ide.launching.formatting2
 Import-Package: org.apache.log4j
 Bundle-Activator: com.wamas.ide.launching.Activator
+Automatic-Module-Name: com.wamas.ide.launching
