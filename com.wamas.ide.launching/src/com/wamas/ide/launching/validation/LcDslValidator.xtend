@@ -422,8 +422,6 @@ class LcDslValidator extends AbstractLcDslValidator {
 
 			if (type.methods.stream().noneMatch([method| method.elementName.equals(methodName)])) {
 				error("Test method " + methodName + " does not exist in class " + className, cfg.test, LC.testConfig_Method)
-			} else if (type.methods.stream().filter([method|method.elementName.equals(methodName)]).noneMatch([method | Flags.isPublic(method.flags)])) {
-				error("Test method " + methodName + "  in class " + className + " must be public", cfg.test, LC.testConfig_Method)
 			} else if (type.methods.stream().filter([method|method.elementName.equals(methodName)]).flatMap([method | method.annotations.stream]).noneMatch([annotation | TEST_ANNOTATION_NAMES.contains(annotation.elementName)])) {
 				error("Test method " + methodName + "  in class " + className + " does not have at least one annotation out of " + TEST_ANNOTATION_NAMES, cfg.test, LC.testConfig_Method)
 			}
