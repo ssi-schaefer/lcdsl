@@ -27,10 +27,11 @@ Require-Bundle: com.wamas.ide.launching,
  org.eclipse.core.variables,
  org.eclipse.pde.ui
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: com.wamas.ide.launching.ui,
  com.wamas.ide.launching.ui.contentassist,
  com.wamas.ide.launching.ui.internal,
  com.wamas.ide.launching.ui.quickfix
 Bundle-Activator: com.wamas.ide.launching.ui.internal.LaunchingActivator
 Service-Component: OSGI-INF/com.wamas.ide.launching.ui.launchview.LcDslProvider.xml
+Automatic-Module-Name: com.wamas.ide.launching.ui
