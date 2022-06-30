@@ -45,6 +45,7 @@ import org.eclipse.xtext.validation.Check
 
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
 import org.eclipse.jdt.core.IAnnotation
+import org.eclipse.jdt.core.IType
 
 /**
  * This class contains custom validation rules. 
@@ -366,11 +367,19 @@ class LcDslValidator extends AbstractLcDslValidator {
 		val type = javaProject.findType(className)
 		if (type === null) {
 			error("Test class " + className + " must point to an existing class in project " + javaProject, cfg.test, LC.testConfig_Class)
-		} else if (!Flags.isPublic(type.flags)) {
-			error("Test class " + className + " must be public.", cfg.test, LC.testConfig_Class)
-		} else if (type.methods.stream().filter([method | Flags.isPublic(method.flags)]).flatMap([method | method.annotations.stream]).noneMatch([annotation | TEST_ANNOTATION_NAMES.contains(annotation.elementName)])) {
-			error("Test class " + className + " must at least have one method annotated with one annotation out of " + TEST_ANNOTATION_NAMES, cfg.test, LC.testConfig_Class)
+		} else if (Flags.isPrivate(type.flags)) {
+			error("Test class " + className + " must not be private.", cfg.test, LC.testConfig_Class)
+		} else if (!hasTestMethod(type) && !hasNestedTest(type)) {
+			error("Test class " + className + " must at least have one method annotated with one annotation out of " + TEST_ANNOTATION_NAMES + " or must contain a nested test.", cfg.test, LC.testConfig_Class)
 		}
+	}
+	
+	private def boolean hasTestMethod(IType type) {
+		return type.methods.stream().filter([method | Flags.isPublic(method.flags)]).flatMap([method | method.annotations.stream]).anyMatch([annotation | TEST_ANNOTATION_NAMES.contains(annotation.elementName)])		
+	}
+
+	private def boolean hasNestedTest(IType type) {
+		return type.types.stream().flatMap([nestedType | nestedType.annotations.stream]).anyMatch([annotation | annotation.elementName.equals("Nested")]);
 	}
 
 	private def IJavaProject findJavaProject(LaunchConfig cfg) {
