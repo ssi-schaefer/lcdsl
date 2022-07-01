@@ -44,7 +44,6 @@ import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.xtext.validation.Check
 
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
-import org.eclipse.jdt.core.IAnnotation
 import org.eclipse.jdt.core.IType
 
 /**

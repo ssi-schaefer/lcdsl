@@ -37,10 +37,7 @@ import org.eclipse.pde.ui.launcher.EclipseLaunchShortcut
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
-import org.eclipse.pde.core.plugin.TargetPlatform
 import org.eclipse.jdt.internal.junit.launcher.JUnitLaunchConfigurationConstants
-import org.eclipse.jdt.internal.junit.launcher.TestKindRegistry
-import org.eclipse.debug.internal.core.LaunchConfiguration
 import org.eclipse.emf.ecore.InternalEObject
 
 class StandaloneLaunchConfigGenerator {

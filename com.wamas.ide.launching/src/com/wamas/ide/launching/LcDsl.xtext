@@ -286,8 +286,10 @@ enum TestRunnerType:
 	JUNIT5 = "junit5" | JUNIT4 = "junit4" | JUNIT3 = "junit3"
 ;
 
+@Override 
 terminal INT returns ecore::EInt: ('0'..'9')+;
 terminal BOOLEAN returns ecore::EBoolean: ('true' | 'false');
+@Override 
 terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('.'? ('a'..'z'|'A'..'Z'|'^'|'_'|'-'|'0'..'9'))*;
 terminal QUALIFIER: ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9')*;
 terminal VERSION: INT (('.' INT) (('.' INT) ('.' QUALIFIER)?)?)?;
