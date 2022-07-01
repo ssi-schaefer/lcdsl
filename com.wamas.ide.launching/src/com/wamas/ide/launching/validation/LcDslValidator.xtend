@@ -374,7 +374,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 	}
 	
 	private def boolean hasTestMethod(IType type) {
-		return type.methods.stream().filter([method | Flags.isPublic(method.flags)]).flatMap([method | method.annotations.stream]).anyMatch([annotation | TEST_ANNOTATION_NAMES.contains(annotation.elementName)])		
+		return type.methods.stream().filter([method | !Flags.isPrivate(method.flags)]).flatMap([method | method.annotations.stream]).anyMatch([annotation | TEST_ANNOTATION_NAMES.contains(annotation.elementName)])
 	}
 
 	private def boolean hasNestedTest(IType type) {
