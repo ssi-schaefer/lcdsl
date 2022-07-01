@@ -1,0 +1,3 @@
+ValidatorConfiguration.is_project_specific=true
+eclipse.preferences.version=1
+org.eclipse.xtext.xbase.validation.IssueCodes.null_safe_feature_call_on_primitive_valued_feature=ignore

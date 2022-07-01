@@ -25,7 +25,6 @@ import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
 import com.wamas.ide.launching.lcDsl.LaunchConfigType
 import org.eclipse.pde.internal.core.TargetPlatformHelper
 import org.eclipse.pde.internal.core.PDEState
-import org.eclipse.pde.core.plugin.IPluginModelBase
 
 class DependencyResolver {
 
@@ -171,7 +170,6 @@ class DependencyResolver {
 
 	private static def findPluginConfigurationsInProduct(IFile product) {
 		val model = new WorkspaceProductModel(product, false)
-		val result = newArrayList
 
 		model.load
 
