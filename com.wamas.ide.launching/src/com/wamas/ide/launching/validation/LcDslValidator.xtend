@@ -368,17 +368,24 @@ class LcDslValidator extends AbstractLcDslValidator {
 			error("Test class " + className + " must point to an existing class in project " + javaProject, cfg.test, LC.testConfig_Class)
 		} else if (Flags.isPrivate(type.flags)) {
 			error("Test class " + className + " must not be private.", cfg.test, LC.testConfig_Class)
-		} else if (!hasTestMethod(type) && !hasNestedTest(type)) {
-			error("Test class " + className + " must at least have one method annotated with one annotation out of " + TEST_ANNOTATION_NAMES + " or must contain a nested test.", cfg.test, LC.testConfig_Class)
+		} else if (!hasTestMethod(type) && !hasNestedTest(type) && !isNestedTest(type)) {
+			error("Test class " + className + " must at least have one method annotated with one annotation out of " + TEST_ANNOTATION_NAMES + ", must contain a nested test or be itself a nested test.", cfg.test, LC.testConfig_Class)
 		}
 	}
 	
+	private def isNestedTest(IType type) {
+		!Flags.isPrivate(type.flags) && type.annotations
+			.map [ it.elementName ]
+			.exists [ it == "Nested" || it == "org.junit.jupiter.api.Nested" ]
+	}
+
 	private def boolean hasTestMethod(IType type) {
-		return type.methods.stream().filter([method | Flags.isPublic(method.flags)]).flatMap([method | method.annotations.stream]).anyMatch([annotation | TEST_ANNOTATION_NAMES.contains(annotation.elementName)])		
+		return type.methods.stream().filter([method | !Flags.isPrivate(method.flags)]).flatMap([method | method.annotations.stream]).anyMatch([annotation | TEST_ANNOTATION_NAMES.contains(annotation.elementName)])
 	}
 
 	private def boolean hasNestedTest(IType type) {
-		return type.types.stream().flatMap([nestedType | nestedType.annotations.stream]).anyMatch([annotation | annotation.elementName.equals("Nested")]);
+		type.types
+			.exists [ it.isNestedTest ]
 	}
 
 	private def IJavaProject findJavaProject(LaunchConfig cfg) {
