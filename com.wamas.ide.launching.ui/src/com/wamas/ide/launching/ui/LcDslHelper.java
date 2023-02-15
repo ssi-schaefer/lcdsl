@@ -197,8 +197,9 @@ public class LcDslHelper {
         }
 
         try {
+            int exitCode = 0;
             try {
-                int exitCode = LaunchConfigurationViewPlugin.getExecutor().launchProcess(c, mode, build, wait, log);
+                exitCode = LaunchConfigurationViewPlugin.getExecutor().launchProcess(c, mode, build, wait, log);
                 if (exitCode != 0) {
                     if (TAIL_LINES > 0 && log != null && log.exists()) {
                         try {
@@ -219,6 +220,10 @@ public class LcDslHelper {
                             "Process " + config.getName() + " did exit with error " + exitCode + ". Logfile does not exist.");
                 }
             } finally {
+                if (exitCode == 13) { // bad luck launching the application
+                    // keep the logs around, which are stored within the generated configuration
+                    removeAfterLaunch = false;
+                }
                 if (removeAfterLaunch) {
                     c.delete();
                 }
