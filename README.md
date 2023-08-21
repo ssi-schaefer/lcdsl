@@ -177,7 +177,17 @@ Examples for typical `eclipse`, `rap`, `junit-plugin` and `swtbot` launch config
 
 ## Launch Groups
 
-Launch groups are a new feature of Eclipse Oxygen. LcDsl allows (will allow - not implemented yet) to create groups by using the `group` type and the `member` multi-property. Language support is implemented, but the generator is not quite there yet.
+LcDsl allows to create Launch groups by using the `group` type and the `member` multi-property.
+Example:
+
+    group configuration MyGroup1 {
+        adopt run member MyLaunchConfig1; // Launch Mode "Run" is used
+        adopt inherit member MyLaunchConfig2; // Launch Mode "inherit" is used
+        adopt run member MyLaunchConfig3 delay 2; // Two seconds post launch action
+        adopt run member MyLaunchConfig4 wait; // Wait until terminated
+        adopt run member MyLaunchConfig4 regex "Started"; // Wait until regular expression is found in console output
+        adopt run member MyGroup2; // launch another group
+    }
 
 # Launch Configuration View
 
