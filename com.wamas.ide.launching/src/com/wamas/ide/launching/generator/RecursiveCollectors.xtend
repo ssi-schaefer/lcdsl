@@ -267,9 +267,12 @@ class RecursiveCollectors {
 	}
 
 	static def collectFavoriteGroups(LaunchConfig config) {
-		collectFlatList(config, [
-			favorites?.types?.map[favoriteGroupMap.get(it)]
-		])
+		var result = newArrayList()
+		val v = config?.favorites?.types?.map[favoriteGroupMap.get(it)];
+		if (v !== null) {
+			result.addAll(v)
+		}
+		result
 	}
 
 	static def collectGroupMembers(LaunchConfig config) {
