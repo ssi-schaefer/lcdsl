@@ -24,6 +24,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
+import java.util.function.Predicate;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -149,7 +150,8 @@ public class DependencyManager {
 
     /**
      * Returns a {@link Set} of bundle descriptions of the given
-     * {@link IPluginModelBase}s and all of their required dependencies.
+     * {@link IPluginModelBase}s and all of their required dependencies,
+     * filtering for bundles that are fully resolved.
      * <p>
      * The set includes the descriptions of the given bundle descriptions as
      * well as all transitively computed explicit and optional (if requested)
@@ -165,6 +167,31 @@ public class DependencyManager {
      * @return a set of bundle descriptions
      */
     public static Set<BundleDescription> findRequirementsClosure(Collection<BundleDescription> bundles, Options... options) {
+        return findRequirementsClosure(bundles, BundleDescription::isResolved, options);
+    }
+
+    /**
+     * Returns a {@link Set} of bundle descriptions of the given
+     * {@link IPluginModelBase}s and all of their required dependencies,
+     * allowing the user to provide some filter for bundles to include.
+     * <p>
+     * The set includes the descriptions of the given bundle descriptions as
+     * well as all transitively computed explicit and optional (if requested)
+     * dependencies. So it is the self-contained closure for all required
+     * dependencies of the given set of plug-ins.
+     * </p>
+     *
+     * @param bundles
+     *            the group of {@link BundleDescription}s to compute
+     *            dependencies for.
+     * @param bundleFilter
+     *            user filter returning false to omit some bundle
+     * @param options
+     *            the specified {@link Options} for computing the closure
+     * @return a set of bundle descriptions
+     */
+    public static Set<BundleDescription> findRequirementsClosure(Collection<BundleDescription> bundles,
+            Predicate<BundleDescription> bundleFilter, Options... options) {
 
         Set<Options> optionSet = Set.of(options);
         boolean includeOptional = optionSet.contains(Options.INCLUDE_OPTIONAL_DEPENDENCIES);
@@ -174,12 +201,16 @@ public class DependencyManager {
             throw new AssertionError("Cannot combine INCLUDE_ALL_FRAGMENTS and INCLUDE_NON_TEST_FRAGMENTS"); //$NON-NLS-1$
         }
 
+        if (bundleFilter == null) {
+            bundleFilter = b -> true;
+        }
+
         Set<BundleDescription> closure = new HashSet<>(bundles.size() * 4 / 3 + 1);
         Queue<BundleDescription> pending = new ArrayDeque<>(bundles.size());
 
         // initialize with given bundles
         for (BundleDescription bundle : bundles) {
-            addNewRequiredBundle(bundle, closure, pending);
+            addNewRequiredBundle(bundle, bundleFilter, closure, pending);
         }
 
         // perform exhaustive iterative bfs for required wires
@@ -195,7 +226,7 @@ public class DependencyManager {
                 // A fragment's host is already required by a wire
                 for (BundleDescription fragment : bundle.getFragments()) {
                     if (includeAllFragments || !isTestWorkspaceProject(fragment)) {
-                        addNewRequiredBundle(fragment, closure, pending);
+                        addNewRequiredBundle(fragment, bundleFilter, closure, pending);
                     }
                 }
             }
@@ -213,16 +244,16 @@ public class DependencyManager {
                 // fragments contribute new packages to their host's API.
                 if (provider instanceof BundleDescription && (includeOptional || !isOptional(wire.getRequirement()))) {
                     BundleDescription requiredBundle = (BundleDescription) provider;
-                    addNewRequiredBundle(requiredBundle, closure, pending);
+                    addNewRequiredBundle(requiredBundle, bundleFilter, closure, pending);
                 }
             }
         }
         return closure;
     }
 
-    private static void addNewRequiredBundle(BundleDescription bundle, Set<BundleDescription> requiredBundles,
-            Queue<BundleDescription> pending) {
-        if (bundle != null && bundle.isResolved() && !bundle.isRemovalPending() && requiredBundles.add(bundle)) {
+    private static void addNewRequiredBundle(BundleDescription bundle, Predicate<BundleDescription> filter,
+            Set<BundleDescription> requiredBundles, Queue<BundleDescription> pending) {
+        if (bundle != null && filter.test(bundle) && !bundle.isRemovalPending() && requiredBundles.add(bundle)) {
             pending.add(bundle);
         }
     }
