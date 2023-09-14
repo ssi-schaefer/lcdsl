@@ -16,10 +16,7 @@
 package com.wamas.ide.launching.generator;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Queue;
@@ -27,19 +24,11 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.osgi.service.resolver.BundleDescription;
-import org.eclipse.osgi.service.resolver.State;
 import org.eclipse.pde.core.plugin.IPluginModelBase;
 import org.eclipse.pde.core.plugin.PluginRegistry;
-import org.eclipse.pde.core.target.ITargetPlatformService;
-import org.eclipse.pde.core.target.NameVersionDescriptor;
 import org.eclipse.pde.internal.core.ClasspathComputer;
-import org.eclipse.pde.internal.core.PDECore;
-import org.eclipse.pde.internal.core.PDEPreferencesManager;
-import org.eclipse.pde.internal.core.TargetPlatformHelper;
 import org.osgi.framework.Constants;
-import org.osgi.framework.Version;
 import org.osgi.framework.wiring.BundleRequirement;
 import org.osgi.framework.wiring.BundleRevision;
 import org.osgi.framework.wiring.BundleWire;
@@ -73,101 +62,6 @@ public class DependencyManager {
          * not be combined with {@link #INCLUDE_ALL_FRAGMENTS}).
          */
         INCLUDE_NON_TEST_FRAGMENTS;
-    }
-
-    /**
-     * Returns a {@link Set} of bundle descriptions of the given
-     * {@link IPluginModelBase}s and all of their required dependencies
-     * (including optional) and fragments.
-     * <p>
-     * The set includes the descriptions of the given model bases as well as all
-     * transitively computed explicit, implicit (defined in the target-platform)
-     * and optional dependencies. So it is the self-contained closure for all
-     * required dependencies of the given set of plug-ins plus the implicit
-     * dependencies defined in the target platform.
-     * </p>
-     *
-     * @param plugins
-     *            the collection of {@link IPluginModelBase}s to compute
-     *            dependencies for
-     * @return a set of bundle descriptions
-     */
-    public static Set<BundleDescription> getSelfAndDependencies(Collection<IPluginModelBase> plugins) {
-        Collection<NameVersionDescriptor> implicit = getImplicitDependencies();
-        List<BundleDescription> bundles = mergeBundleDescriptions(plugins, implicit, TargetPlatformHelper.getState());
-        return findRequirementsClosure(bundles, Options.INCLUDE_OPTIONAL_DEPENDENCIES, Options.INCLUDE_ALL_FRAGMENTS);
-    }
-
-    /**
-     * Returns a {@link Set} of bundle descriptions for all required
-     * dependencies of the given objects from the given {@link State}.
-     * <p>
-     * The set includes the descriptions of all transitively computed explicit
-     * dependencies. The set does not include the descriptions of the given
-     * objects and only includes optional dependencies if requested.
-     * </p>
-     *
-     * @param plugins
-     *            the group of {@link IPluginModelBase}s to compute dependencies
-     *            for.
-     * @param implicit
-     *            the array of additional implicit dependencies to add to the
-     *            {@link Set}
-     * @param state
-     *            the {@link State} to compute the dependencies in
-     * @param options
-     *            the specified {@link Options} for computing the closure
-     * @return a set of bundle descriptions
-     */
-    public static Set<BundleDescription> getDependencies(Collection<IPluginModelBase> plugins,
-            Collection<NameVersionDescriptor> implicit, State state, Options... options) {
-        List<BundleDescription> bundles = mergeBundleDescriptions(plugins, implicit, state);
-        Set<BundleDescription> closure = findRequirementsClosure(bundles, options);
-        plugins.forEach(p -> closure.remove(p.getBundleDescription()));
-        return closure;
-    }
-
-    /**
-     * Returns a {@link Set} of bundle descriptions for all required
-     * dependencies of the given {@link IPluginModelBase}s.
-     * <p>
-     * The set includes the descriptions of the transitively computed explicit,
-     * implicit (defined in the target-platform) and optional (if requested)
-     * dependencies. The set does not include the descriptions of the given
-     * objects.
-     * </p>
-     *
-     * @param plugins
-     *            selected the group of {@link IPluginModelBase}s to compute
-     *            dependencies for.
-     * @param options
-     *            the specified {@link Options} for computing the closure
-     * @return a set of bundle descriptions
-     */
-    public static Set<BundleDescription> getDependencies(Collection<IPluginModelBase> plugins, Options... options) {
-        return getDependencies(plugins, getImplicitDependencies(), TargetPlatformHelper.getState(), options);
-    }
-
-    /**
-     * Returns a {@link Set} of bundle descriptions of the given
-     * {@link IPluginModelBase}s and all of their required dependencies,
-     * filtering for bundles that are fully resolved.
-     * <p>
-     * The set includes the descriptions of the given bundle descriptions as
-     * well as all transitively computed explicit and optional (if requested)
-     * dependencies. So it is the self-contained closure for all required
-     * dependencies of the given set of plug-ins.
-     * </p>
-     *
-     * @param bundles
-     *            the group of {@link BundleDescription}s to compute
-     *            dependencies for.
-     * @param options
-     *            the specified {@link Options} for computing the closure
-     * @return a set of bundle descriptions
-     */
-    public static Set<BundleDescription> findRequirementsClosure(Collection<BundleDescription> bundles, Options... options) {
-        return findRequirementsClosure(bundles, BundleDescription::isResolved, options);
     }
 
     /**
@@ -272,43 +166,5 @@ public class DependencyManager {
             } // test-fragments are usually not part of the target-platform
         }
         return false;
-    }
-
-    /**
-     * Computes the set of implicit dependencies from the
-     * {@link PDEPreferencesManager}.
-     *
-     * @return a set of bundle ids
-     */
-    private static Collection<NameVersionDescriptor> getImplicitDependencies() {
-        try {
-            ITargetPlatformService service = PDECore.getDefault().acquireService(ITargetPlatformService.class);
-            if (service != null) {
-                NameVersionDescriptor[] implicit = service.getWorkspaceTargetDefinition().getImplicitDependencies();
-                if (implicit != null) {
-                    return Arrays.asList(implicit);
-                }
-            }
-        } catch (CoreException e) {
-            PDECore.log(e);
-        }
-        return Collections.emptyList();
-    }
-
-    private static List<BundleDescription> mergeBundleDescriptions(Collection<IPluginModelBase> plugins,
-            Collection<NameVersionDescriptor> descriptors, State state) {
-        List<BundleDescription> bundles = new ArrayList<>();
-        for (IPluginModelBase plugin : plugins) {
-            if (plugin != null) {
-                bundles.add(plugin.getBundleDescription());
-            }
-        }
-        for (NameVersionDescriptor descriptor : descriptors) {
-            String versionStr = descriptor.getVersion();
-            Version version = versionStr != null ? Version.parseVersion(versionStr) : null;
-            BundleDescription bundle = state.getBundle(descriptor.getId(), version);
-            bundles.add(bundle);
-        }
-        return bundles;
     }
 }
