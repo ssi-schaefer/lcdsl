@@ -45,15 +45,20 @@ class StandaloneLaunchConfigGenerator {
 	@Inject
 	extension IQualifiedNameProvider qnp
 
-	// also see org.eclipse.pde.internal.ui.editor.product.PluginConfigurationSection.getBundlesWithStartLevels()
-	// for a list of known default start-levels which should be present.
+	// The list of start-levels for well known bundles is collected per Eclipse 2023-06 (4.28) from:
+	// - org.eclipse.pde.internal.ui.editor.product.PluginConfigurationSection.getBundlesWithStartLevels()
+	// - org.eclipse.pde.internal.launching.launcher.BundleLauncherHelper.AUTO_STARTED_BUNDLE_LEVELS
+	// - https://github.com/eclipse-pde/eclipse.pde/discussions/754
+	// Maintaining a copy here, since PDE maintains them on a recommendation level only.
 	val knownStartLevels = newHashMap(
-		"org.eclipse.osgi" -> "@-1:true",
-		"org.apache.felix.scr" -> "@2:true",
-		"org.eclipse.core.runtime" -> "@default:true",
+		"org.eclipse.equinox.ds" -> "@1:true", // obsolete
+		"org.eclipse.equinox.simpleconfigurator" -> "@1:true",
 		"org.eclipse.equinox.common" -> "@2:true",
 		"org.eclipse.equinox.event" -> "@2:true",
-		"org.eclipse.equinox.simpleconfigurator" -> "@1:true"
+		"org.eclipse.osgi" -> "@1:true",
+		"org.eclipse.core.runtime" -> "@default:true",
+		"org.apache.felix.scr" -> "@2:true",
+		"org.apache.aries.spifly.dynamic.bundle" -> "@2:true"
 	)
 	val launchMgr = DebugPlugin.^default.launchManager
 

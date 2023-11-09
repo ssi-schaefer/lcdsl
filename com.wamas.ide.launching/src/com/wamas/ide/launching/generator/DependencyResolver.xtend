@@ -4,11 +4,12 @@
 package com.wamas.ide.launching.generator
 
 import com.wamas.ide.launching.lcDsl.LaunchConfig
+import com.wamas.ide.launching.lcDsl.LaunchConfigType
 import java.io.File
 import java.util.Collection
 import java.util.HashMap
 import java.util.List
-import java.util.Set
+import java.util.function.Predicate
 import org.apache.log4j.Logger
 import org.eclipse.core.resources.IFile
 import org.eclipse.core.resources.ResourcesPlugin
@@ -16,15 +17,14 @@ import org.eclipse.osgi.service.resolver.BundleDescription
 import org.eclipse.pde.core.plugin.IMatchRules
 import org.eclipse.pde.core.plugin.PluginRegistry
 import org.eclipse.pde.internal.core.PDECore
+import org.eclipse.pde.internal.core.PDEState
+import org.eclipse.pde.internal.core.TargetPlatformHelper
 import org.eclipse.pde.internal.core.ifeature.IFeature
 import org.eclipse.pde.internal.core.ifeature.IFeatureImport
 import org.eclipse.pde.internal.core.iproduct.IProductModel
 import org.eclipse.pde.internal.core.product.WorkspaceProductModel
 
 import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
-import com.wamas.ide.launching.lcDsl.LaunchConfigType
-import org.eclipse.pde.internal.core.TargetPlatformHelper
-import org.eclipse.pde.internal.core.PDEState
 
 class DependencyResolver {
 
@@ -265,48 +265,12 @@ class DependencyResolver {
 
 	private static def findDependencies(Iterable<BundleDescription> preselected, Collection<BundleDescription> toIgnore,
 		boolean addAll) {
-		val result = newHashSet();
-
-		for (d : preselected) {
-			addDependenciesRecursive(d, result, toIgnore, addAll);
-		}
-
-		return result;
-	}
-
-	private static def void addDependenciesRecursive(BundleDescription desc, Set<BundleDescription> targets,
-		Collection<BundleDescription> toIgnore, boolean addAll) {
-		if (targets.contains(desc) || toIgnore.contains(desc)) {
-			return;
-		}
-
-		targets.add(desc);
-
-		val directDeps = findDirectDependencies(desc, addAll);
-		directDeps.forEach[it.addDependenciesRecursive(targets, toIgnore, addAll)];
-	}
-
-	private static def findDirectDependencies(BundleDescription desc, boolean addAll) {
-		val result = newHashSet();
-
-		// add all fragments that can be resolved
-		for (frag : desc.getFragments()) {
-			// Note: add all fragments, also unresolved, so that update sites contain fragments for all platforms
-			if (frag.resolved || addAll)
-				result.add(frag);
-		}
-
-		// add all explicit dependencies
-		for (dep : desc.getResolvedRequires()) {
-			result.add(dep);
-		}
-
-		// add all package imports that could be resolved
-		for (dep : desc.getResolvedImports()) {
-			result.add(dep.getExporter());
-		}
-
-		return result;
+		var Predicate<BundleDescription> filter = [!toIgnore.contains(it)]
+		if (!addAll) filter = filter.and([resolved])
+		val result = DependencyManager.findRequirementsClosure(preselected.toList, filter,
+			DependencyManager.Options.INCLUDE_OPTIONAL_DEPENDENCIES, DependencyManager.Options.INCLUDE_NON_TEST_FRAGMENTS
+		)
+		return result
 	}
 
 }
