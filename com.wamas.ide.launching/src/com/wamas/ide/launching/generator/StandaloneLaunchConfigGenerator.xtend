@@ -347,17 +347,15 @@ class StandaloneLaunchConfigGenerator {
 	            }
 	        }
 		}
-		
-		val wsValue = Joiner.on(',').join(ws)
-		val tpValue = Joiner.on(',').join(tp)
-		
-		if(config.type == LaunchConfigType.ECLIPSE || config.type == LaunchConfigType.SWTBOT || config.type == LaunchConfigType.JUNIT_PLUGIN) {
+
+		if(config.type == LaunchConfigType.ECLIPSE
+			|| config.type == LaunchConfigType.SWTBOT
+			|| config.type == LaunchConfigType.JUNIT_PLUGIN
+			|| config.type == LaunchConfigType.RAP
+		) {
 			copy.setAttribute(IPDEConstants.LAUNCHER_PDE_VERSION, "3.3");
 			copy.setAttribute(IPDELauncherConstants.SELECTED_WORKSPACE_BUNDLES, new TreeSet<String>(ws))
 			copy.setAttribute(IPDELauncherConstants.SELECTED_TARGET_BUNDLES, new TreeSet<String>(ntp))
-		} else if(config.type == LaunchConfigType.RAP) {
-			copy.setAttribute("workspace_bundles", wsValue)
-			copy.setAttribute("target_bundles", tpValue)
 		}
 		
 		copy.setAttribute(IPDELauncherConstants.USE_DEFAULT, false);
@@ -409,7 +407,19 @@ class StandaloneLaunchConfigGenerator {
 			copy.setAttribute("org.eclipse.rap.launch.useManualPort", true)
 		}
 
+		copy.ensureVMArgs("-Declipse.ignoreApp=true", "-Dosgi.noShutdown=true")
+
 		generateDependenciesEclipseRap(config, copy)
+	}
+
+	def ensureVMArgs(ILaunchConfigurationWorkingCopy copy, String...args) {
+		var vmargs = copy.getAttribute(IJavaLaunchConfigurationConstants.ATTR_VM_ARGUMENTS, "").trim
+		for (arg: args) {
+			if (!(" " + vmargs + " ").contains(" " + arg + " ")) {
+				vmargs += " " + arg
+			}
+		}
+		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_VM_ARGUMENTS, vmargs.trim)
 	}
 
 	def generateGroup(LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
