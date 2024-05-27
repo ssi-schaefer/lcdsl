@@ -2,7 +2,7 @@
 <feature
       id="com.wamas.ide.launching.feature"
       label="Launch Configuration DSL"
-      version="0.5.0.qualifier"
+      version="0.6.0.qualifier"
       provider-name="SSI Schaefer IT Solutions GmbH">
 
    <description>
@@ -221,23 +221,14 @@ any resulting litigation.
 
    <plugin
          id="com.wamas.ide.launching"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+         version="0.0.0"/>
 
    <plugin
          id="com.wamas.ide.launching.ide"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+         version="0.0.0"/>
 
    <plugin
          id="com.wamas.ide.launching.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+         version="0.0.0"/>
 
 </feature>
