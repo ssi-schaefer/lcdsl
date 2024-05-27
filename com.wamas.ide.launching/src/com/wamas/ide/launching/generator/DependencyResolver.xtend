@@ -119,6 +119,7 @@ class DependencyResolver {
 			val testBundleDescription = PDECore.^default.modelManager.findModel(project)?.bundleDescription
 
 			allBundles.putIfAbsent(testBundleDescription, StartLevel.DEFAULT)
+			resolveAndExpand(config, allBundles, #[testBundleDescription], mappedIgnores, addAll, fState)
 		}
 
 		if (cp !== null && !cp.empty) {
