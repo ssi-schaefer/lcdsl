@@ -53,6 +53,12 @@
       storageURI="scope://Workspace"/>
   <setupTask
       xsi:type="setup.p2:P2Task">
+    <requirement
+        name="org.eclipse.xtext.sdk.feature.group"/>
+    <requirement
+        name="org.eclipse.tea.lcdsl.library_feature.feature.group"/>
+    <repository
+        url="https://download.eclipse.org/tea/releases"/>
     <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
   </setupTask>
   <setupTask
