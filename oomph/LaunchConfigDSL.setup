@@ -119,7 +119,7 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.lcdsl"
-        value="=https://raw.githubusercontent.com/ssi-schaefer/lcdsl/master/com.wamas.ide.launching/setup/LaunchConfigDSL.setup->${git.clone.lcdsl.location|uri}/com.wamas.ide.launching/setup/LaunchConfigDSL.setup"
+        value="=https://raw.githubusercontent.com/ssi-schaefer/lcdsl/master/com.wamas.ide.launching/oomph/LaunchConfigDSL.setup->${git.clone.lcdsl.location|uri}/com.wamas.ide.launching/oomph/LaunchConfigDSL.setup"
         vm="true">
       <description>Set an Oomph redirection system property to redirect the logical location of this setup to its physical location in the Git clone.</description>
     </setupTask>
@@ -129,7 +129,7 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.lcdsl"
-        value="=https://raw.githubusercontent.com/ssi-schaefer/lcdsl/playground/com.wamas.ide.launching/setup/LaunchConfigDSL.setup->${git.clone.lcdsl.location|uri}/com.wamas.ide.launching/setup/LaunchConfigDSL.setup"
+        value="=https://raw.githubusercontent.com/ssi-schaefer/lcdsl/playground/com.wamas.ide.launching/oomph/LaunchConfigDSL.setup->${git.clone.lcdsl.location|uri}/com.wamas.ide.launching/oomph/LaunchConfigDSL.setup"
         vm="true">
       <description>Set an Oomph redirection system property to redirect the logical location of this setup to its physical location in the Git clone.</description>
     </setupTask>
