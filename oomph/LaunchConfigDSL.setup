@@ -59,6 +59,8 @@
         name="org.eclipse.tea.lcdsl.library_feature.feature.group"/>
     <repository
         url="https://download.eclipse.org/tea/releases"/>
+    <repository
+        url="https://github.com/ssi-schaefer/lcdsl/releases/latest/download"/>
     <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
   </setupTask>
   <setupTask
