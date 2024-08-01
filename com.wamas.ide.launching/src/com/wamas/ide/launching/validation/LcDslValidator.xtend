@@ -45,6 +45,7 @@ import org.eclipse.xtext.validation.Check
 
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
 import org.eclipse.jdt.core.IType
+import java.util.regex.Pattern
 
 /**
  * This class contains custom validation rules. 
@@ -325,8 +326,18 @@ class LcDslValidator extends AbstractLcDslValidator {
 	@Check
 	def checkPathExists(ExistingPath p) {
 		try {
+			val value = p.name.value
+			if(value.blank){
+				warning("No path entered", p, LC.path_Name)
+				return
+			}
+			
+			if(containsVariablePattern(value)){
+				return
+			}
+			
 			val x = p.name.expanded
-			val f = new File(x);
+			val f = new File(x)
 			if (!f.exists) {
 				warning("Path " + x + " does not exist", p, LC.path_Name)
 			}
@@ -334,6 +345,12 @@ class LcDslValidator extends AbstractLcDslValidator {
 			warning(e.message, LC.path_Name)
 		}
 	}
+	
+	def containsVariablePattern(String value) {
+        val pattern = '\\$\\{([^}]+)\\}'
+        val matcher = Pattern.compile(pattern).matcher(value)        
+        return matcher.find ? true : false
+    }
 
 	@Check
 	def checkTestContainer(LaunchConfig cfg) {
