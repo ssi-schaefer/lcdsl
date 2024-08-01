@@ -325,6 +325,11 @@ class LcDslValidator extends AbstractLcDslValidator {
 	@Check
 	def checkPathExists(ExistingPath p) {
 		try {
+			val value = p.name.value;
+			if(value.startsWith('${') && value.endsWith('}')){
+				return
+			}
+			
 			val x = p.name.expanded
 			val f = new File(x);
 			if (!f.exists) {
