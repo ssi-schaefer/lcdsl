@@ -10,6 +10,7 @@ import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.PluginWithVersion
 import com.wamas.ide.launching.lcDsl.TraceEnablement
 import com.wamas.ide.launching.services.LcDslGrammarAccess
+import com.wamas.ide.launching.validation.InternalApiCalls
 import com.wamas.ide.launching.validation.LcDslValidator
 import java.util.stream.Stream
 import org.eclipse.core.resources.IContainer
@@ -184,7 +185,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 		val te = model as TraceEnablement
 		val name = te.plugin
 
-		for (s : PDECore.^default.tracingOptionsManager.getTemplateTable(name).keySet) {
+		for (s : InternalApiCalls.pdeCoreGetTemplateTable(name).keySet) {
 			val n = s.substring(s.indexOf('/') + 1)
 			acceptor.accept(
 				createCompletionProposal("'" + n + "'", new StyledString(n), ih.getImage("doc_section_obj.png"),

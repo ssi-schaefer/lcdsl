@@ -521,7 +521,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 
 	@Check
 	def checkTracingOptions(TraceEnablement e) {
-		val ok = PDECore.^default.tracingOptionsManager.getTemplateTable(e.plugin).keySet
+		val ok = InternalApiCalls.pdeCoreGetTemplateTable(e.plugin).keySet
 		var idx = 0;
 		for (w : e.what) {
 			if (!ok.contains(e.plugin + "/" + w)) {
