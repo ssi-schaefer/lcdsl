@@ -2,7 +2,7 @@
 <feature
       id="com.wamas.ide.launching.feature"
       label="Launch Configuration DSL"
-      version="0.6.0.qualifier"
+      version="0.7.0.qualifier"
       provider-name="SSI Schaefer IT Solutions GmbH">
 
    <description>
