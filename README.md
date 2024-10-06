@@ -21,7 +21,7 @@ Currently, the LcDsl repository also provides the `Launch Configuration View` fe
 
 Currently, the latest update site is hosted here: `https://mduft.github.io/lcdsl-latest/` (P2 repository)
 
-Ziped P2 repositories are provided for releases.
+Zipped P2 repositories are provided for releases.
 
 ## Demo
 
@@ -46,25 +46,25 @@ All launch configurations are built up the same way:
 All kinds of launch configurations can define certain attributes the same. These are:
 
  * modifiers:
-	* `manual`: launch configuration is not generated on save, but only explicitly by right clicking the configuration in the editor or the outline view.
-    * `abstract`: defines an abstract configuration which can be used to define certain things in a reusable way. An abstract configuration can be used by adding a `:` and its name after the name of the inheriting configuration. 
+    * `manual`: launch configuration is not generated on save, but only explicitly by right clicking the configuration in the editor or the outline view.
+    * `abstract`: defines an abstract configuration which can be used to define certain things in a reusable way. An abstract configuration can be used by adding a `:` and its name after the name of the inheriting configuration.
     * `foreground`: launches the launch configuration in foreground.
     * `no-console` (not for type 'group'): don't allocate a console for the launch.
     * `replace-env` (not for type 'group'): don't append to the environment when defining new variables, but replace it as a whole.
     * `qualified`: qualifies the name of the launch configuration with the project name the file is contained in. This allows to copy the project and have all copied launch configurations automatically receive the project name as prefix (means that the now two launch configurations don't collide).
     * `qualified("NAME")`: qualifies the launch configuration by prefixing it with NAME.
- * single-properties:
+ * single-valued properties:
 	* `working-dir`: specifies the working directory for the launch
 	* `memory`: allows to specify various memory aspects (min, max, maxPermSize) without the need to wring `vm-arg`s.
-	* `favorite`: allows to specify launch groups where this launch should appear as favortite (`run`, `debug`, `profile`, ...)
+	* `favorite`: allows to specify launch groups where this launch should appear as favorite (`run`, `debug`, `profile`, ...)
 	* `redirect` (not for type 'group'): allows to redirect stdin, stdout/stderr to/from files.
 	* `execution-environment` (not for type 'group'): specifies the execution environment to use for the launch
- * multi-properties:
+ * multi-valued properties:
 	* `vm-argument` (not for type 'group'): allows to specify one or more (on the same line) vm arguments
 	* `argument` (not for type 'group'): allows to specify command line arguments for the program to launch
 	* `environment` (not for type 'group'): allows to specify an environment variable to place into the launches environment.
 
-Multiple Arguments have to be quoted each, key and value separately, but may be written in one line:  
+Multiple Arguments have to be quoted each, key and value separately, but may be written in one line:
 `vm-argument '-os' '${target.os}'`
 
 For all the above, check content assist to get an idea of the supported values and the exact syntax.
@@ -80,16 +80,16 @@ The configuration type `java` has these attributes on top:
  * single-properties:
      * `project`: specifies the project that contains the main class of the program to run
      * `main-class`: specifies the class in `project` that contains the `main` method to execute. Content assist for this attribute is available once `project` is set for the launch.
-     * `search-main`: allows to extend the search path for the main class to inherited methods and system libraries that the `project` dependes on.
+     * `search-main`: allows to extend the search path for the main class to inherited methods and system libraries that the `project` depends on.
 
 A typical `java` configuration looks like this:
 
     java configuration LcJavaMain {
         project com.wamas.test;
         main-class com.wamas.test.JavaMain;
-        	
+
         memory min=64m max=256m;
-        
+
         vm-argument '-Dmy.arg=value';
         argument 'cmdArg';
     }
@@ -136,12 +136,12 @@ Examples for typical `eclipse`, `rap`, `junit-plugin` and `swtbot` launch config
     eclipse configuration LcEclipseMain {
         workspace "${workspace_loc}/../runtime-MyWorkspace";
         application com.wamas.test.demo;
-        
+
         clear workspace! config;
         memory min=64M max=256M;
-        
+
         plugin com.wamas.test;
-        
+
         environment DISPLAY=":0";
     }
 
@@ -150,7 +150,7 @@ Examples for typical `eclipse`, `rap`, `junit-plugin` and `swtbot` launch config
             path '/test';
             port 8081;
         }
-        
+
         plugin com.wamas.test;
     }
 
@@ -189,6 +189,10 @@ Example:
         adopt run member MyGroup2; // launch another group
     }
 
-# Launch Configuration View
+## Launch Configuration View
 
 The launch configuration view is something that is actually independent of LcDsl itself. It depends on Eclipse platform.debug ONLY. It allows to hook (via OSGi services) launch configuration providers into it. It comes along with a default provider that allows it to handle "normal" Eclipse launch configurations. LcDsl brings along another provider for the view, that allows it to also handle LcDsl specifics.
+
+# Development
+
+To set up a development environment, run the standard Eclipse Oomph installer, and select *GitHub Projects > Launch Config DSL* on the second page.
