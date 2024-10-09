@@ -9,15 +9,15 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 /**
  * TODO: The language is still missing some things that could be set:
- * 
+ *
  * Java:
  *   - additional classpath entries (low prio)
  *   - additional source lookup (low prio)
- * 
+ *
  * Eclipse,Rap:
  *   - config location (low prio)
  *   - default start level & autostart
- * 
+ *
  * How to support different launch config types - some generic attribute support?
  * Or really implement support for each type separately (probably the best experience).
  */
@@ -39,7 +39,7 @@ LaunchConfig:
 	((explicit?='explicit')? // Eclipse, JUnit-Plugin, SWTBot, RAP
 		& (manual?='manual')? // All
 		& (abstract?='abstract')? // All
-		& (foreground?='foreground')? // All  
+		& (foreground?='foreground')? // All
 		& (noConsole?='no-console')? // All but Groups
 		& (noValidate?='no-validate')? // Eclipse, JUnit-Plugin, SWTBot, RAP
 		& (swInstallSupport?='sw-install-allowed')? // Eclipse, JUnit-Plugin, SWTBot
@@ -48,7 +48,7 @@ LaunchConfig:
 		& (keepRunning?='keep-running')? // JUnit-Plugin, SWTBot
 		& (runInUiThread?='run-in-ui-thread')? // JUnit-Plugin
 		& (qualify?='qualified' (BRACKET_OPEN qualifierId=STRING BRACKET_CLOSE)?)? // All - naming
-	) type=LaunchConfigType 'configuration' name=FQName 
+	) type=LaunchConfigType 'configuration' name=FQName
 	(':' superConfig=[LaunchConfig|FQName])? BLOCK_BEGIN
 		( // things that may appear only once
 			(clears=ClearOption)? // Eclipse, JUnit-Plugin, SWTBot, RAP (partial)
@@ -270,8 +270,8 @@ enum LaunchModeType:
 ;
 
 enum MemoryUnit:
-	MB = 'M' | MB = 'mb' | MB = 'MB' | MB = 'm' |
-	GB = 'G' | GB = 'gb' | GB = 'GB' | GB = 'g' 
+	MB = 'M' |
+	GB = 'G'
 ;
 
 enum OutputStream:
@@ -286,10 +286,10 @@ enum TestRunnerType:
 	JUNIT5 = "junit5" | JUNIT4 = "junit4" | JUNIT3 = "junit3"
 ;
 
-@Override 
+@Override
 terminal INT returns ecore::EInt: ('0'..'9')+;
 terminal BOOLEAN returns ecore::EBoolean: ('true' | 'false');
-@Override 
+@Override
 terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('.'? ('a'..'z'|'A'..'Z'|'^'|'_'|'-'|'0'..'9'))*;
 terminal QUALIFIER: ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9')*;
 terminal VERSION: INT (('.' INT) (('.' INT) ('.' QUALIFIER)?)?)?;

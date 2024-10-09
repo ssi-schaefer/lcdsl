@@ -8,7 +8,6 @@ import org.eclipse.xtext.ui.shared.contribution.IEagerContribution;
 
 import com.google.inject.Binder;
 
-@SuppressWarnings("restriction")
 public class LcDslContributions implements com.google.inject.Module {
 
     @Override

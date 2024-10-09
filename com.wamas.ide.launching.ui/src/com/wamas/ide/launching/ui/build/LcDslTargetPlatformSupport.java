@@ -90,7 +90,6 @@ import com.google.inject.Singleton;
  * make an explicit dependency on the contributing plug-in from the target
  * platform.
  */
-@SuppressWarnings("restriction")
 @Singleton
 public class LcDslTargetPlatformSupport
         implements IStorage2UriMapperContribution, IResourceSetInitializer, IToBeBuiltComputerContribution,

@@ -34,7 +34,6 @@ import com.wamas.ide.launching.ui.LcDslHelper;
 import com.wamas.ide.launching.ui.internal.LaunchingActivator;
 import com.wamas.ide.launching.ui.internal.LcDslInternalHelper;
 
-@SuppressWarnings("restriction")
 public class LcDslLaunchObject implements ILaunchObject {
 
     private static final ImageDescriptor NATURE_OVERLAY = LaunchingActivator

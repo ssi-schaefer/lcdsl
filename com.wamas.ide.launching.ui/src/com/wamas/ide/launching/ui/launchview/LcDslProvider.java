@@ -45,7 +45,6 @@ import com.wamas.ide.launching.ui.LcDslHelper;
 import com.wamas.ide.launching.ui.internal.LaunchingActivator;
 import com.wamas.ide.launching.ui.internal.LcDslInternalHelper;
 
-@SuppressWarnings("restriction")
 @Component(service = ILaunchObjectProvider.class)
 public class LcDslProvider implements ILaunchObjectProvider {
 
