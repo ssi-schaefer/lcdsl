@@ -25,6 +25,7 @@
     <!--
     <tycho-snapshots>https://repo.eclipse.org/content/repositories/tycho-snapshots/</tycho-snapshots>
      -->
+    <unofficialSuffix>'-UNOFFICIAL'</unofficialSuffix>
   </properties>
 
   <pluginRepositories>
@@ -53,6 +54,7 @@
   </pluginRepositories>
 
   <build>
+    <finalName>foobar</finalName>
     <pluginManagement>
       <plugins>
         <plugin>
@@ -261,12 +263,12 @@
             <repository>
               <id>eclipse</id>
               <layout>p2</layout>
-              <url>http://download.eclipse.org/releases/2024-12</url>
+              <url>http://download.eclipse.org/releases/2024-06</url>
             </repository>
             <repository>
               <id>cbi-targetplatform-dsl-mirror</id>
               <layout>p2</layout>
-              <url>https://download.eclipse.org/cbi/updates/tpd/release/3.0.0</url>
+              <url>https://download.eclipse.org/cbi/updates/tpd/release/</url>
             </repository>
           </repositories>
           <dependencies>
@@ -285,7 +287,7 @@
             <applicationArg>target-platforms/default.tpd</applicationArg>
           </applicationArgs>
         </configuration>
-      </plugin>
+        </plugin>
     </plugins>
   </build>
 
@@ -327,6 +329,7 @@
               <timestampProvider>jgit</timestampProvider>
               <jgit.ignore>pom.xml .gitignore .launchers/**</jgit.ignore>
               <jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
+              <format>yyyyMMddHHmm${unofficialSuffix}</format>
             </configuration>
           </plugin>
         </plugins>
