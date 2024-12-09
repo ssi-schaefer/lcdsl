@@ -1,11 +1,9 @@
 target "Default (clean build) Target Platform"
 
-// include "testing/4.32-2024-06.tpd" with source requirements environment JavaSE-17
-
 with source requirements
-environment JavaSE-17
+environment JavaSE-11
 
-location "https://download.eclipse.org/eclipse/updates/4.32" {
+location "https://download.eclipse.org/releases/2022-12/202212071000/" {
 	// required to start UI tests in workbench - not a dependency per se
 	// org.eclipse.pde.junit.runtime
 	// org.eclipse.jdt.junit4.runtime

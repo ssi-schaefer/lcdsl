@@ -3,9 +3,4 @@
    <feature id="com.wamas.ide.launching.feature" version="0.0.0">
       <category name="releng"/>
    </feature>
-   <category-def name="releng" label="Eclipse CBI Release Engineering tools">
-      <description>
-         Eclipse CBI Release Engineering tools
-      </description>
-   </category-def>
 </site>
