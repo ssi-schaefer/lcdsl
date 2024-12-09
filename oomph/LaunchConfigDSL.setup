@@ -116,6 +116,9 @@
     </workingSet>
     <description>The dynamic working sets for ${scope.project.label}</description>
   </setupTask>
+  <setupTask
+      xsi:type="launching:LaunchTask"
+      launcher="GenerateLcDsl.mwe2"/>
   <stream name="master"
       label="Master">
     <setupTask

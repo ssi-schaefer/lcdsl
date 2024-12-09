@@ -7,3 +7,14 @@
 *.ser
 Thumbs.db
 *.swp
+
+**/src/gen
+**/target/*
+/com.wamas.ide.launching/model
+*.rej
+*.bak
+*.xtendbin
+/build.log
+/repository
+# tycho creates temporary files outside the maven target directory
+.tycho*
