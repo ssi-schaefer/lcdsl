@@ -126,6 +126,16 @@
       <description>Set an Oomph redirection system property to redirect the logical location of this setup to its physical location in the Git clone.</description>
     </setupTask>
   </stream>
+  <stream name="playground"
+      label="Playground">
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Doomph.redirection.lcdsl"
+        value="=https://raw.githubusercontent.com/ssi-schaefer/lcdsl/playground/oomph/LaunchConfigDSL.setup->${git.clone.lcdsl.location|uri}/oomph/LaunchConfigDSL.setup"
+        vm="true">
+      <description>Set an Oomph redirection system property to redirect the logical location of this setup to its physical location in the Git clone.</description>
+    </setupTask>
+  </stream>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']"/>
