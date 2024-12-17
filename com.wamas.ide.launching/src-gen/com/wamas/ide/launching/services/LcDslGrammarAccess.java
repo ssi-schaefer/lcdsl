@@ -2349,6 +2349,11 @@ public class LcDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final EnumLiteralDeclaration cGBEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
 		private final Keyword cGBGKeyword_7_0 = (Keyword)cGBEnumLiteralDeclaration_7.eContents().get(0);
 		
+		//// Not sure how to (easily) fix the grammar warnings here:
+		//// Having multiple string values for the same enum value
+		//// makes a difference in the Xtext generated parser code.
+		//// This allows to accept various unit declarations in the .lc file,
+		//// while generating only 'M' or 'G' into the launch config.
 		//enum MemoryUnit:
 		//    MB = 'M' | MB = 'mb' | MB = 'MB' | MB = 'm' |
 		//    GB = 'G' | GB = 'gb' | GB = 'GB' | GB = 'g'
@@ -3220,6 +3225,11 @@ public class LcDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getLaunchModeTypeAccess().getRule();
 	}
 	
+	//// Not sure how to (easily) fix the grammar warnings here:
+	//// Having multiple string values for the same enum value
+	//// makes a difference in the Xtext generated parser code.
+	//// This allows to accept various unit declarations in the .lc file,
+	//// while generating only 'M' or 'G' into the launch config.
 	//enum MemoryUnit:
 	//    MB = 'M' | MB = 'mb' | MB = 'MB' | MB = 'm' |
 	//    GB = 'G' | GB = 'gb' | GB = 'GB' | GB = 'g'
