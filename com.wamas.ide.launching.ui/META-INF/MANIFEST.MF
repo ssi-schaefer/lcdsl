@@ -27,7 +27,7 @@ Require-Bundle: com.wamas.ide.launching,
  org.eclipse.core.variables,
  org.eclipse.pde.ui
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Export-Package: com.wamas.ide.launching.ui,
  com.wamas.ide.launching.ui.contentassist,
  com.wamas.ide.launching.ui.internal,
