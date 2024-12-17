@@ -14,7 +14,6 @@ import org.apache.log4j.Logger
 import org.eclipse.core.resources.IFile
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.osgi.service.resolver.BundleDescription
-import org.eclipse.pde.core.plugin.IMatchRules
 import org.eclipse.pde.core.plugin.PluginRegistry
 import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.pde.internal.core.PDEState
@@ -25,6 +24,7 @@ import org.eclipse.pde.internal.core.iproduct.IProductModel
 import org.eclipse.pde.internal.core.product.WorkspaceProductModel
 
 import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
+import org.eclipse.pde.core.plugin.VersionMatchRule
 
 class DependencyResolver {
 
@@ -241,10 +241,10 @@ class DependencyResolver {
 
 	private static def getBestPluginMatch(String id, String version) {
 		// TODO: check version matching for ranges, ...
-		var bundle = PluginRegistry.findModel(id, version, IMatchRules.PERFECT, null)
+		var bundle = PluginRegistry.findModels(id, version, VersionMatchRule.PERFECT).findFirst.orElse(null)
 
 		if (bundle === null) {
-			bundle = PluginRegistry.findModel(id, null, IMatchRules.NONE, null)
+			bundle = PluginRegistry.findModels(id, null, VersionMatchRule.COMPATIBLE).findFirst.orElse(null)
 		}
 
 		bundle

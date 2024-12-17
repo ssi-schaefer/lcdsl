@@ -14,7 +14,6 @@ import org.eclipse.core.internal.variables.StringVariableManager
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.jface.text.IRegion
 import org.eclipse.jface.text.Region
-import org.eclipse.pde.core.plugin.IMatchRules
 import org.eclipse.pde.core.plugin.PluginRegistry
 import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils
@@ -22,6 +21,7 @@ import org.eclipse.xtext.resource.EObjectAtOffsetHelper
 import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.ui.editor.hyperlinking.HyperlinkHelper
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkAcceptor
+import org.eclipse.pde.core.plugin.VersionMatchRule
 
 class LcDslHyperlinkHelper extends HyperlinkHelper {
 
@@ -67,7 +67,7 @@ class LcDslHyperlinkHelper extends HyperlinkHelper {
 
 		if (eObject instanceof PluginWithVersion) {
 			val p = eObject as PluginWithVersion
-			val bundle = PluginRegistry.findModel(p.name, p.version, IMatchRules.PERFECT, null)
+			val bundle = PluginRegistry.findModels(p.name, p.version, VersionMatchRule.PERFECT).findFirst.orElse(null)
 
 			if(bundle === null) {
 				return;

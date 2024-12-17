@@ -38,7 +38,6 @@ import org.eclipse.jdt.core.IPackageFragment
 import org.eclipse.jdt.core.IPackageFragmentRoot
 import org.eclipse.jdt.core.JavaCore
 import org.eclipse.jdt.launching.JavaRuntime
-import org.eclipse.pde.core.plugin.IMatchRules
 import org.eclipse.pde.core.plugin.PluginRegistry
 import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.xtext.validation.Check
@@ -46,6 +45,7 @@ import org.eclipse.xtext.validation.Check
 import static com.wamas.ide.launching.lcDsl.LaunchConfigType.*
 import org.eclipse.jdt.core.IType
 import java.util.regex.Pattern
+import org.eclipse.pde.core.plugin.VersionMatchRule
 
 /**
  * This class contains custom validation rules. 
@@ -254,10 +254,10 @@ class LcDslValidator extends AbstractLcDslValidator {
 			return;
 		}
 
-		val bundle = PluginRegistry.findModel(p.name, p.version, IMatchRules.PERFECT, null)
+		val bundle = PluginRegistry.findModels(p.name, p.version, VersionMatchRule.PERFECT).findFirst
 
-		if (bundle === null) {
-			if (PluginRegistry.findModel(p.name, null, IMatchRules.NONE, null) !== null) {
+		if (bundle.empty) {
+			if (!PluginRegistry.findModels(p.name, null, VersionMatchRule.COMPATIBLE).findFirst.empty) {
 				warning("Bundle " + p.name + " does not exist in version " + p.version, p,
 					LC.pluginWithVersion_Version);
 			} else {
