@@ -2,14 +2,14 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: LcDsl IDE Support
 Bundle-Vendor: SSI Schaefer IT Solutions GmbH
-Bundle-Version: 0.7.0.qualifier
+Bundle-Version: 0.8.0.qualifier
 Bundle-SymbolicName: com.wamas.ide.launching.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.wamas.ide.launching,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: com.wamas.ide.launching.ide.contentassist.antlr,
  com.wamas.ide.launching.ide.contentassist.antlr.internal
 Automatic-Module-Name: com.wamas.ide.launching.ide

@@ -37,7 +37,6 @@ import com.wamas.ide.launching.ui.internal.LaunchingActivator;
 /**
  * Provides programmatic access to launch configuration loading and generation
  */
-@SuppressWarnings("restriction")
 public class LcDslHelper {
 
     /** Controls how many lines of logfile are appended in case of error **/

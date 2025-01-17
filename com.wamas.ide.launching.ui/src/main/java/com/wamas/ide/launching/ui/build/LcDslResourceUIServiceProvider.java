@@ -12,7 +12,6 @@ import org.eclipse.xtext.ui.resource.DefaultResourceUIServiceProvider;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-@SuppressWarnings("restriction")
 @Singleton
 public class LcDslResourceUIServiceProvider extends DefaultResourceUIServiceProvider {
 
@@ -20,7 +19,7 @@ public class LcDslResourceUIServiceProvider extends DefaultResourceUIServiceProv
 	public LcDslResourceUIServiceProvider(IResourceServiceProvider delegate) {
 		super(delegate);
 	}
-	
+
 	@Override
 	public boolean canBuild(URI uri, IStorage storage) {
 		// Don't build jar entries from classpath but process them from the TP instead
@@ -34,6 +33,6 @@ public class LcDslResourceUIServiceProvider extends DefaultResourceUIServiceProv
 		}
 		return super.canBuild(uri, storage);
 	}
-	
-	
+
+
 }

@@ -16,7 +16,6 @@ import com.google.common.collect.ImmutableList;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
-@SuppressWarnings("restriction")
 public class LcDslResourceSetProvider implements IResourceSetProvider {
 
     @Inject

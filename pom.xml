@@ -6,12 +6,12 @@
 
   <groupId>com.wamas.ide.launching</groupId>
   <artifactId>com.wamas.ide.launching-parent</artifactId>
-  <version>0.7.0-SNAPSHOT</version>
+  <version>0.8.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
     <maven.version.ignore>.*[a-zA-Z]+.*</maven.version.ignore>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <tycho-version>4.0.10</tycho-version>
