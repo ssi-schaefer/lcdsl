@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Default (clean build) Target Platform" sequenceNumber="1736960105">
+<target name="Default (clean build) Target Platform" sequenceNumber="1739784335">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.platform.feature.group" version="4.25.0.v20220831-1800"/>
-      <unit id="org.eclipse.pde.core" version="3.15.300.v20220822-0845"/>
-      <unit id="org.eclipse.equinox.p2.core" version="2.9.200.v20220817-1208"/>
-      <unit id="org.eclipse.equinox.p2.repository" version="2.6.200.v20220819-1949"/>
-      <unit id="org.eclipse.equinox.p2.metadata" version="2.6.300.v20220817-1208"/>
-      <unit id="org.eclipse.jdt.launching" version="3.19.700.v20220730-1850"/>
-      <unit id="org.eclipse.osgi.services" version="3.11.0.v20220618-0838"/>
-      <repository location="https://download.eclipse.org/releases/2022-09/202209141001/"/>
+      <unit id="org.eclipse.platform.feature.group" version="4.32.0.v20240601-0610"/>
+      <unit id="org.eclipse.pde.core" version="3.18.100.v20240531-0649"/>
+      <unit id="org.eclipse.equinox.p2.core" version="2.12.0.v20240515-1919"/>
+      <unit id="org.eclipse.equinox.p2.repository" version="2.9.100.v20240511-1722"/>
+      <unit id="org.eclipse.equinox.p2.metadata" version="2.9.100.v20240416-0654"/>
+      <unit id="org.eclipse.jdt.launching" version="3.22.0.v20240424-1830"/>
+      <unit id="org.eclipse.osgi.services" version="3.12.100.v20240327-0645"/>
+      <repository location="https://download.eclipse.org/releases/2024-06/202406121000/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="de.itemis.xtext.antlr.sdk.feature.group" version="2.1.1.v201405091103"/>
