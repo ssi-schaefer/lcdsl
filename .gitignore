@@ -11,6 +11,12 @@ Thumbs.db
 
 **/src/gen
 **/target/*
+!**/target/generated-sources
+**/target/generated-sources/*
+!**/target/generated-sources/xtend
+**/target/generated-sources/xtend/*
+!**/target/generated-sources/xtend/.gitignore
+
 /com.wamas.ide.launching/model
 *.rej
 *.bak
