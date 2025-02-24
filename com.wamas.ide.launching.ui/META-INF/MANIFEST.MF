@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: LcDsl IDE UI
 Bundle-Vendor: SSI Schaefer IT Solutions GmbH
-Bundle-Version: 0.8.0.qualifier
+Bundle-Version: 0.9.0.qualifier
 Bundle-SymbolicName: com.wamas.ide.launching.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.wamas.ide.launching,
@@ -20,7 +20,6 @@ Require-Bundle: com.wamas.ide.launching,
  org.eclipse.pde.core,
  org.eclipse.jdt.core,
  org.eclipse.jdt.launching,
- org.eclipse.osgi.services,
  org.eclipse.e4.ui.model.workbench,
  org.eclipse.e4.core.di.annotations,
  org.eclipse.debug.ui.launchview;bundle-version="1.0.0",

@@ -34,7 +34,6 @@ import org.eclipse.jdt.internal.core.JavaProject
 import org.eclipse.jdt.launching.JavaRuntime
 import org.eclipse.jface.text.contentassist.ICompletionProposal
 import org.eclipse.jface.viewers.StyledString
-import org.eclipse.pde.core.plugin.IMatchRules
 import org.eclipse.pde.core.plugin.PluginRegistry
 import org.eclipse.pde.internal.core.PDECore
 import org.eclipse.pde.internal.core.TracingOptionsManager
@@ -46,6 +45,7 @@ import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor.Delegate
+import org.eclipse.pde.core.plugin.VersionMatchRule
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -101,15 +101,15 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 	override completePluginWithVersion_Version(EObject model, Assignment assignment, ContentAssistContext context,
 		ICompletionProposalAcceptor acceptor) {
 		val pv = model as PluginWithVersion
-		val models = PluginRegistry.findModels(pv.name, null, IMatchRules.NONE, null)
+		val models = PluginRegistry.findModels(pv.name, null, VersionMatchRule.COMPATIBLE)
 
-		if (models !== null && !models.empty) {
-			for (m : models) {
+		models.forEach(
+			m | {
 				val ver = m.bundleDescription.version.toString
 				acceptor.accept(
 					createCompletionProposal(ver, new StyledString(ver), ih.getImage("plugin_obj.png"), context))
 			}
-		}
+		)
 
 		super.completePluginWithVersion_Version(model, assignment, context, acceptor)
 	}
