@@ -82,7 +82,7 @@ class LcDslFormatter extends AbstractFormatter2 {
 	}
 
 	override dispatch void format(EObject it, extension IFormattableDocument document) {
-		regionForEObject.allSemanticRegions.last.append[setNewLines(1,1,2)]
+		regionForEObject.allSemanticRegions.lastOrNull.append[setNewLines(1,1,2)]
 	}
 
 	def dispatch void format(RapServletConfig cfg, extension IFormattableDocument document) {
@@ -94,7 +94,7 @@ class LcDslFormatter extends AbstractFormatter2 {
 		
 		interior(open, close)[indent]
 		
-		cfg.regionForEObject.allSemanticRegions.last.append[setNewLines(1,1,2)]
+		cfg.regionForEObject.allSemanticRegions.lastOrNull.append[setNewLines(1,1,2)]
 		cfg.allRegionsFor.keywords(";").forEach[append[setNewLines(1,1,2)]]
 	}
 }
