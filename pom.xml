@@ -6,16 +6,16 @@
 
   <groupId>com.wamas.ide.launching</groupId>
   <artifactId>com.wamas.ide.launching-parent</artifactId>
-  <version>0.8.0-SNAPSHOT</version>
+  <version>0.9.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
     <maven.version.ignore>.*[a-zA-Z]+.*</maven.version.ignore>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <tycho-version>4.0.10</tycho-version>
-    <xtext-version>2.35.0</xtext-version>
+    <tycho-version>4.0.11</tycho-version>
+    <xtext-version>2.38.0</xtext-version>
     <unofficialSuffix>'-UNOFFICIAL'</unofficialSuffix>
   </properties>
 
@@ -83,7 +83,7 @@
                 <rules>
                   <banDuplicatePomDependencyVersions/>
                   <requireJavaVersion>
-                    <version>[11,)</version>
+                    <version>[21,)</version>
                   </requireJavaVersion>
                   <requireMavenVersion>
                     <version>3.9.0</version>
@@ -234,7 +234,7 @@
             <repository>
               <id>eclipse</id>
               <layout>p2</layout>
-              <url>https://download.eclipse.org/releases/2024-06/202406121000/</url>
+              <url>https://download.eclipse.org/releases/2024-09/202409111000/</url>
             </repository>
             <repository>
               <id>cbi-targetplatform-dsl-mirror</id>
