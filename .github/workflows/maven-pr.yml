@@ -41,4 +41,4 @@ jobs:
       with:
         name: p2-repository
         path: com.wamas.ide.launching.update/target/repository/
-      retention-days: 7
+        retention-days: 7
