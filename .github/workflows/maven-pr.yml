@@ -30,7 +30,10 @@ jobs:
       with:
         maven-version: 3.9.6
     - name: Build with Maven
-      run: "mvn -B package --file pom.xml -DunofficialSuffix=\"'-PR${{ PR_NUMBER }}'\""
+      run: "
+        env
+        mvn -B package --file pom.xml -DunofficialSuffix=\"'-PR${PR_NUMBER}'\"
+        "
       env:
         PR_NUMBER: ${{ github.event.number }}
     - name: Archive Build Artifacts
