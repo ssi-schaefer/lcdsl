@@ -49,7 +49,7 @@ location "https://download.eclipse.org/cbi/updates/license/2.0.2.v20181016-2210"
 	org.eclipse.license.feature.group
 }
 
-location "https://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.35.0" {
+location "https://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.36.0" {
 	// do not depend on org.eclipse.xtext.sdk.feature.group to avoid dependency to draw2d
 	org.eclipse.xtext.ui.feature.group
 	org.eclipse.xtext.xtext.ui.feature.group
