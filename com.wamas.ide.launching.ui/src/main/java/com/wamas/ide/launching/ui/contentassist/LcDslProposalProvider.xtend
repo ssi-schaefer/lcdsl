@@ -290,7 +290,7 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 		}
 
 		private def boolean isJavaContainer(IJavaElement javaElement) {
-			val elementType = javaElement?.elementType
+			val elementType = javaElement === null ? false : javaElement.elementType
 
 			return IJavaElement.JAVA_PROJECT === elementType || IJavaElement.PACKAGE_FRAGMENT_ROOT === elementType || IJavaElement.PACKAGE_FRAGMENT === elementType 
 		}

@@ -75,7 +75,7 @@ class RecursiveCollectors {
 	static def collectJavaMainProject(LaunchConfig config, org.eclipse.emf.ecore.resource.Resource eResource) {
 		val prjName = collectFlatObject(config, [mainProject?.project?.name])
 		if (prjName === null) {
-			val s = collectFlatBoolean(config, true, [mainProject?.self])
+			val s = collectFlatBoolean(config, true, [mainProject === null ? false : mainProject.self])
 			if (s) {
 				return ResourcesPlugin.workspace.root.getFile(new Path(eResource.URI.toPlatformString(true)))?.
 					project?.name
@@ -89,11 +89,11 @@ class RecursiveCollectors {
 	}
 
 	static def collectJavaMainSearchInherited(LaunchConfig config) {
-		collectFlatBoolean(config, true, [javaMainSearch?.inherited])
+		collectFlatBoolean(config, true, [javaMainSearch === null ? false : javaMainSearch.inherited])
 	}
 
 	static def collectJavaMainSearchSystem(LaunchConfig config) {
-		collectFlatBoolean(config, true, [javaMainSearch?.system])
+		collectFlatBoolean(config, true, [javaMainSearch === null ? false : javaMainSearch.system])
 	}
 
 	static def collectWorkingDir(LaunchConfig config) {
@@ -165,11 +165,11 @@ class RecursiveCollectors {
 	}
 
 	static def collectRAPServletPort(LaunchConfig config) {
-		collectFlatObject(config, [servletConfig?.serverPort])
+		collectFlatObject(config, [servletConfig === null ? 0 : servletConfig.serverPort])
 	}
 
 	static def collectRAPSessionTimeout(LaunchConfig config) {
-		collectFlatObject(config, [servletConfig?.sessionTimeout])
+		collectFlatObject(config, [servletConfig === null ? 0 : servletConfig.sessionTimeout])
 	}
 
 	static def collectRAPContextPath(LaunchConfig config) {
@@ -177,7 +177,7 @@ class RecursiveCollectors {
 	}
 
 	static def collectRAPDevMode(LaunchConfig config) {
-		collectFlatBoolean(config, true, [servletConfig?.devMode])
+		collectFlatBoolean(config, true, [servletConfig === null ? false : servletConfig.devMode])
 	}
 
 	static def collectRAPBrowserMode(LaunchConfig config) {
