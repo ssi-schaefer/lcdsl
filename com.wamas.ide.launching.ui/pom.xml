@@ -5,7 +5,7 @@
   <parent>
     <artifactId>com.wamas.ide.launching-parent</artifactId>
     <groupId>com.wamas.ide.launching</groupId>
-    <version>0.9.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>com.wamas.ide.launching.ui</artifactId>
   <packaging>eclipse-plugin</packaging>
