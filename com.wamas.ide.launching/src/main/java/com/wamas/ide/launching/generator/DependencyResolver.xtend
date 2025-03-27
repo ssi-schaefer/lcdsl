@@ -7,12 +7,14 @@ import com.wamas.ide.launching.lcDsl.LaunchConfig
 import com.wamas.ide.launching.lcDsl.LaunchConfigType
 import java.io.File
 import java.util.Collection
-import java.util.HashMap
 import java.util.List
+import java.util.Map
 import java.util.function.Predicate
+import java.util.stream.Collectors
 import org.apache.log4j.Logger
 import org.eclipse.core.resources.IFile
 import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.pde.core.plugin.VersionMatchRule
 import org.eclipse.osgi.service.resolver.BundleDescription
 import org.eclipse.pde.core.plugin.PluginRegistry
 import org.eclipse.pde.internal.core.PDECore
@@ -24,7 +26,6 @@ import org.eclipse.pde.internal.core.iproduct.IProductModel
 import org.eclipse.pde.internal.core.product.WorkspaceProductModel
 
 import static extension com.wamas.ide.launching.generator.RecursiveCollectors.*
-import org.eclipse.pde.core.plugin.VersionMatchRule
 
 class DependencyResolver {
 
@@ -68,7 +69,7 @@ class DependencyResolver {
 		val fState=TargetPlatformHelper.getPDEState();
 
 		val mappedIgnores = ignores.map[getBestPluginMatch(it.name, it.version)?.bundleDescription].filterNull.toList
-		val allBundles = newHashMap()
+		var Map<BundleDescription, StartLevel> allBundles = newHashMap()
 
 		if (cp !== null && !cp.empty) {
 			log.info("collecting from " + cp)
@@ -122,6 +123,9 @@ class DependencyResolver {
 			resolveAndExpand(config, allBundles, #[testBundleDescription], mappedIgnores, addAll, fState)
 		}
 
+		// remove unresolved plugins (that might happen when using Maven targets and adding platform filter on the fly)
+		allBundles = allBundles.entrySet.stream.filter(e | e.key.isResolved).collect(Collectors.toMap([e | e.key], [e | e.value]));
+
 		if (cp !== null && !cp.empty) {
 			log.info("collecting plugin start level and autostart from " + cp)
 			val files = ResourcesPlugin.workspace.root.findFilesForLocationURI(new File(cp).toURI)
@@ -142,7 +146,7 @@ class DependencyResolver {
 		allBundles
 	}
 
-	protected def static void resolveAndExpand(LaunchConfig config, HashMap<BundleDescription, StartLevel> allBundles,
+	protected def static void resolveAndExpand(LaunchConfig config, Map<BundleDescription, StartLevel> allBundles,
 		Iterable<BundleDescription> toResolve, List<BundleDescription> mappedIgnores, boolean addAll, PDEState fState) {
 		// only if requested
 		if (!config.explicit) {
@@ -166,7 +170,7 @@ class DependencyResolver {
 		result.addAll(model.pluginModels)
 		result.addAll(model.featureModels?.filterNull.map[feature.pluginModels].filterNull.flatten)
 
-		result.filterNull
+		result.filterNull.filter[resolved]
 	}
 
 	private static def findPluginConfigurationsInProduct(IFile product) {

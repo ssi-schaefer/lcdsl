@@ -375,7 +375,11 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 		}
 
 		private def boolean isTestMethod(IMethod method) {
-			return Flags.isPublic(method.flags) && method.annotations.stream().anyMatch([annotation | LcDslValidator.TEST_ANNOTATION_NAMES.contains(annotation.elementName)])
+			return isPublicOrDefaultVisible(method)  && method.annotations.stream().anyMatch([annotation | LcDslValidator.TEST_ANNOTATION_NAMES.contains(annotation.elementName)])
+		}
+		
+		protected def boolean isPublicOrDefaultVisible(IMethod method) {
+			return Flags.isPublic(method.flags) || Flags.isPackageDefault(method.flags) 
 		}
 
 		override protected getImage(EObject eObject) {
