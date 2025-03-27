@@ -8,3 +8,20 @@
 Thumbs.db
 *.swp
 *.xml_gen
+
+**/src/gen
+**/target/*
+!**/target/generated-sources
+**/target/generated-sources/*
+!**/target/generated-sources/xtend
+**/target/generated-sources/xtend/*
+!**/target/generated-sources/xtend/.gitignore
+
+/com.wamas.ide.launching/model
+*.rej
+*.bak
+*.xtendbin
+/build.log
+/repository
+# tycho creates temporary files outside the maven target directory
+.tycho*
