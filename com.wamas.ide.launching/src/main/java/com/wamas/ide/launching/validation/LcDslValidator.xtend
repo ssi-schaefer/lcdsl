@@ -257,7 +257,7 @@ class LcDslValidator extends AbstractLcDslValidator {
 		val bundle = PluginRegistry.findModels(p.name, p.version, VersionMatchRule.PERFECT).findFirst
 
 		if (bundle.empty) {
-			if (!PluginRegistry.findModels(p.name, null, VersionMatchRule.COMPATIBLE).findFirst.empty) {
+			if (PluginRegistry.findModels(p.name, null, VersionMatchRule.COMPATIBLE).findFirst.present) {
 				warning("Bundle " + p.name + " does not exist in version " + p.version, p,
 					LC.pluginWithVersion_Version);
 			} else {
