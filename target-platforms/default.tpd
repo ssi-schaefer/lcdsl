@@ -1,0 +1,77 @@
+target "Default (clean build) Target Platform"
+
+with source requirements
+environment JavaSE-21
+
+location "https://download.eclipse.org/releases/2024-09/202409111000/" {
+	org.apache.commons.logging
+
+	// required to start UI tests in workbench - not a dependency per se
+	// org.eclipse.pde.junit.runtime
+	// org.eclipse.jdt.junit4.runtime
+	org.eclipse.platform.feature.group
+
+	org.eclipse.pde.core
+
+	org.eclipse.equinox.p2.core
+	org.eclipse.equinox.p2.repository
+	org.eclipse.equinox.p2.metadata
+
+	org.eclipse.jdt.launching
+
+	org.eclipse.osgi.services
+}
+
+// Required for xcore source generation
+location "https://download.eclipse.org/modeling/emf/emf/builds/release/2.38.0" {
+	org.eclipse.emf.ecore.xcore
+}
+
+// Required for launching mwe2 workflow (main class org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher)
+location "https://download.eclipse.org/modeling/emft/mwe/updates/releases/2.19.0" {
+	org.eclipse.emf.mwe2.launch
+}
+
+// Required for grammar generation (during mwe2 run)
+location "https://download.itemis.de/updates/releases/2.1.1" {
+	de.itemis.xtext.antlr.sdk.feature.group
+}
+
+// for grammar debugging purposes, very helpful views
+//location "https://xtexttools.libutzki.de/" {
+//	de.libutzki.xtext.nodemodeloutline.feature.feature.group
+//	de.libutzki.xtext.semanticmodeloutline.feature.feature.group
+//}
+
+location "https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/release/4.32.0" {
+	com.google.gson
+}
+
+location "https://download.eclipse.org/cbi/updates/license/2.0.2.v20181016-2210" {
+	org.eclipse.license.feature.group
+}
+
+location "https://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.36.0" {
+	// do not depend on org.eclipse.xtext.sdk.feature.group to avoid dependency to draw2d
+	org.eclipse.xtext.ui.feature.group
+	org.eclipse.xtext.xtext.ui.feature.group
+	org.eclipse.xtext.runtime.feature.group
+
+	org.eclipse.xtext.testing
+
+	org.eclipse.xtext.xbase.testing
+	org.eclipse.xtext.xbase.ui.testing
+
+	org.objectweb.asm
+}
+
+location "https://download.eclipse.org/modeling/emf/emf/builds/release/2.38.0" {
+	org.eclipse.emf.ecore
+	org.eclipse.emf.ecore.xcore.lib
+}
+
+// required for resolving dependencies of Xtext
+location "https://download.eclipse.org/modeling/emft/mwe/updates/releases/2.19.0" {
+	org.eclipse.emf.mwe.core
+	org.eclipse.emf.mwe2.lib
+}
