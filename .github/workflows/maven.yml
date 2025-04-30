@@ -33,12 +33,13 @@ jobs:
       run: mvn -B package --file pom.xml -DunofficialSuffix=
     - name: Arrange P2 Repsository
       run: |
+        set -xe # trace, exit on error
         cd com.wamas.ide.launching.update/target/repository/
-        mv plugins/* .
-        mv features/* .
-        sed -i 's/\/plugins\//\//g' artifacts.xml
-        sed -i 's/\/binary\//\//g' artifacts.xml
-        sed -i 's/\/features\//\//g' artifacts.xml
+        mv plugins/*.jar .
+        mv features/*.jar .
+        sed -i 's,/plugins/,/,g' artifacts.xml
+        sed -i 's,/binary/,/,g' artifacts.xml
+        sed -i 's,/features/,/,g' artifacts.xml
         rm -r plugins features
     - name: Archive Build Artifacts
       uses: actions/upload-artifact@v4

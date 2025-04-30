@@ -1,9 +1,0 @@
-#!/bin/bash
-mvn clean install -DunofficialSuffix=
-cd com.wamas.ide.launching.update/target/repository/
-mv plugins/* .
-mv features/* .
-sed -i 's/\/plugins\//\//g' artifacts.xml
-sed -i 's/\/binary\//\//g' artifacts.xml
-sed -i 's/\/features\//\//g' artifacts.xml
-rm -r plugins features
