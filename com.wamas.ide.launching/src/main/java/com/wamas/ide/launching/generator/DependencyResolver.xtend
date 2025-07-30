@@ -68,7 +68,7 @@ class DependencyResolver {
 		val cp = config.collectContentProvider
 		val fState=TargetPlatformHelper.getPDEState();
 
-		val mappedIgnores = ignores.map[getBestPluginMatch(it.name, it.version)?.bundleDescription].filterNull.toList
+		val mappedIgnores = ignores.map[getExactPluginMatch(it.name, it.version)?.bundleDescription].filterNull.toList
 		var Map<BundleDescription, StartLevel> allBundles = newHashMap()
 
 		if (cp !== null && !cp.empty) {
@@ -252,6 +252,10 @@ class DependencyResolver {
 		}
 
 		bundle
+	}
+
+	private static def getExactPluginMatch(String id, String version) {
+		PluginRegistry.findModels(id, version, VersionMatchRule.PERFECT).findFirst.orElse(null)
 	}
 
 	private static def getPluginModels(IProductModel pm) {
