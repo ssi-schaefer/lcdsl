@@ -57,13 +57,7 @@
     <requirement
         name="org.eclipse.xtext.sdk.feature.group"/>
     <requirement
-        name="org.eclipse.tea.lcdsl.library_feature.feature.group"/>
-    <requirement
         name="org.eclipse.cbi.targetplatform-feature.feature.group"/>
-    <repository
-        url="https://download.eclipse.org/tea/releases"/>
-    <repository
-        url="https://github.com/ssi-schaefer/lcdsl/releases/latest/download"/>
     <repository
         url="https://download.eclipse.org/cbi/tpd/3.0.0-SNAPSHOT"/>
     <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
