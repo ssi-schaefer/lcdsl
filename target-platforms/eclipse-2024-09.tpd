@@ -1,4 +1,4 @@
-target "Default (clean build) Target Platform"
+target "Eclipse 2024-09 Target Platform"
 
 with source requirements
 environment JavaSE-21
