@@ -139,7 +139,7 @@
           <version>${tycho-version}</version>
           <configuration>
             <target>
-              <file>${basedir}/../target-platforms/default.target</file>
+              <file>${basedir}/../target-platforms/eclipse-2024-09.target</file>
             </target>
             <environments>
               <environment>
@@ -258,7 +258,7 @@
           <applicationArgs>
             <applicationArg>-application</applicationArg>
             <applicationArg>org.eclipse.cbi.targetplatform.tpd.converter</applicationArg>
-            <applicationArg>target-platforms/default.tpd</applicationArg>
+            <applicationArg>target-platforms/eclipse-2024-09.tpd</applicationArg>
           </applicationArgs>
         </configuration>
         </plugin>
