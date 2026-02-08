@@ -64,14 +64,16 @@ class StandaloneLaunchConfigGenerator {
 
 	public static final String CONFIGURATION_TYPE_RAP = "org.eclipse.rap.ui.launch.RAPLauncher";
 	public static final String CONFIGURATION_TYPE_SWTBOT = "org.eclipse.swtbot.eclipse.ui.launcher.JunitLaunchConfig";
-	public static final String CONFIGURATION_TYPE_JUNIT = "org.eclipse.pde.ui.JunitLaunchConfig";	
+	public static final String CONFIGURATION_TYPE_JUNIT_PLUGIN = "org.eclipse.pde.ui.JunitLaunchConfig";	
+	public static final String CONFIGURATION_TYPE_JUNIT = "org.eclipse.jdt.junit.launchconfig";	
 	public static final String CONFIGURATION_TYPE_GROUP = "org.eclipse.debug.core.groups.GroupLaunchConfigurationType";
 
 	static val TYPE_MAP = newHashMap(
 		LaunchConfigType.JAVA -> IJavaLaunchConfigurationConstants.ID_JAVA_APPLICATION,
 		LaunchConfigType.ECLIPSE -> EclipseLaunchShortcut.CONFIGURATION_TYPE,
 		LaunchConfigType.SWTBOT -> CONFIGURATION_TYPE_SWTBOT,
-		LaunchConfigType.JUNIT_PLUGIN -> CONFIGURATION_TYPE_JUNIT,
+		LaunchConfigType.JUNIT_PLUGIN -> CONFIGURATION_TYPE_JUNIT_PLUGIN,
+		LaunchConfigType.JUNIT -> CONFIGURATION_TYPE_JUNIT,
 		LaunchConfigType.RAP -> CONFIGURATION_TYPE_RAP,
 		LaunchConfigType.GROUP -> CONFIGURATION_TYPE_GROUP
 	)
@@ -174,6 +176,8 @@ class StandaloneLaunchConfigGenerator {
 				generateSWTBotJUnitPlugin(c.eResource, config, copy)
 			case JUNIT_PLUGIN:
 				generatJUnitPlugin(c.eResource, config, copy)
+			case JUNIT:
+				generatJUnit(c.eResource, config, copy)
 		}
 
 		copy.doSave
@@ -461,6 +465,23 @@ class StandaloneLaunchConfigGenerator {
 					m.actionParam = a.regex
 			}
 		}
+	}
+
+	def generatJUnit(org.eclipse.emf.ecore.resource.Resource eResource, LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
+
+		copy.mappedResources = config.collectTestResources(eResource)
+
+		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_PROJECT_NAME, config.collectTestProject(eResource))
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_RUNNER_KIND, config.collectTestKind)
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_KEEPRUNNING, config.collectTestKeepRunning)
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_CONTAINER, config.collectTestContainer(eResource))
+		copy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, config.collectTestMainType)
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_NAME, config.collectTestName)
+
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_EXCLUDE_TAGS, config.collectTestExcludeTags)
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_HAS_EXCLUDE_TAGS, config.collectTestHasExcludeTags)
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_INCLUDE_TAGS, config.collectTestIncludeTags)
+		copy.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_HAS_INCLUDE_TAGS, config.collectTestHasIncludeTags)
 	}
 
 	def generatJUnitPlugin(org.eclipse.emf.ecore.resource.Resource eResource, LaunchConfig config, ILaunchConfigurationWorkingCopy copy) {
