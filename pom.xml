@@ -13,8 +13,8 @@
     <maven.compiler.release>21</maven.compiler.release>
     <maven.version.ignore>.*[a-zA-Z]+.*</maven.version.ignore>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <tycho-version>4.0.11</tycho-version>
-    <xtext-version>2.36.0</xtext-version>
+    <tycho-version>4.0.13</tycho-version>
+    <xtext-version>2.41.0</xtext-version>
     <unofficialSuffix>'-UNOFFICIAL'</unofficialSuffix>
   </properties>
 
@@ -139,7 +139,7 @@
           <version>${tycho-version}</version>
           <configuration>
             <target>
-              <file>${basedir}/../target-platforms/eclipse-2024-09.target</file>
+              <file>${basedir}/../target-platforms/eclipse-2025-12.target</file>
             </target>
             <environments>
               <environment>
