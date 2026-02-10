@@ -262,7 +262,7 @@ enum BrowserLaunchMode:
 ;
 
 enum LaunchConfigType:
-	JAVA = "java" | ECLIPSE = "eclipse" | RAP = "rap" | GROUP = "group" | SWTBOT = "swtbot" | JUNIT_PLUGIN = "junit-plugin"
+	JAVA = "java" | ECLIPSE = "eclipse" | RAP = "rap" | GROUP = "group" | JUNIT = "junit" | SWTBOT = "swtbot" | JUNIT_PLUGIN = "junit-plugin"
 ;
 
 enum LaunchModeType:

@@ -64,39 +64,39 @@ class LcDslValidator extends AbstractLcDslValidator {
 	// map config features to types where this feature is allowed. not mentioned features are allowed on all types.
 	val allowedFeatures = newHashMap(
 		// modifiers on config
-		LC.launchConfig_Explicit -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_NoConsole -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_NoValidate -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_Explicit -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_NoConsole -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_NoValidate -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN, JUNIT},
 		LC.launchConfig_SwInstallSupport -> #{ECLIPSE},
-		LC.launchConfig_ReplaceEnv -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_ReplaceEnv -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN, JUNIT},
 		LC.launchConfig_StopInMain -> #{JAVA},
-		LC.launchConfig_KeepRunning -> #{SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_RunInUiThread -> #{JUNIT_PLUGIN},
+		LC.launchConfig_KeepRunning -> #{SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_RunInUiThread -> #{JUNIT_PLUGIN, JUNIT},
 		// single appearance features
-		LC.launchConfig_Clears -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_Workspace -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_WorkingDir -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_Memory -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_MainProject -> #{JAVA},
+		LC.launchConfig_Clears -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_Workspace -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_WorkingDir -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_Memory -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_MainProject -> #{JAVA, JUNIT},
 		LC.launchConfig_MainType -> #{JAVA},
-		LC.launchConfig_Application -> #{ECLIPSE, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_Product -> #{ECLIPSE, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_Redirect -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_ExecEnv -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_ConfigIniTemplate -> #{ECLIPSE, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_Application -> #{ECLIPSE, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_Product -> #{ECLIPSE, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_Redirect -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_ExecEnv -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_ConfigIniTemplate -> #{ECLIPSE, SWTBOT, JUNIT_PLUGIN, JUNIT},
 		LC.launchConfig_JavaMainSearch -> #{JAVA},
 		LC.launchConfig_ServletConfig -> #{RAP},
-		LC.launchConfig_ContentProviderProduct -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_Test -> #{SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_ContentProviderProduct -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_Test -> #{SWTBOT, JUNIT_PLUGIN, JUNIT},
 		// multi appearance features
-		LC.launchConfig_Plugins -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_Features -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_Ignore -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN},
+		LC.launchConfig_Plugins -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_Features -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_Ignore -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN, JUNIT},
 		LC.launchConfig_GroupMembers -> #{GROUP},
-		LC.launchConfig_VmArgs -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_ProgArgs -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_EnvVars -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN},
-		LC.launchConfig_Traces -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN}
+		LC.launchConfig_VmArgs -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_ProgArgs -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_EnvVars -> #{ECLIPSE, RAP, JAVA, SWTBOT, JUNIT_PLUGIN, JUNIT},
+		LC.launchConfig_Traces -> #{ECLIPSE, RAP, SWTBOT, JUNIT_PLUGIN, JUNIT}
 	)
 
 	val requiredFeatures = newHashMap(
@@ -111,6 +111,9 @@ class LcDslValidator extends AbstractLcDslValidator {
 		JUNIT_PLUGIN -> #{
 			#{LC.launchConfig_Application, LC.launchConfig_Product},
 			#{LC.launchConfig_Plugins, LC.launchConfig_Features, LC.launchConfig_ContentProviderProduct}
+		},
+		JUNIT -> #{
+			#{LC.launchConfig_MainProject}
 		},
 		RAP -> #{
 			#{LC.launchConfig_ServletConfig},

@@ -446,8 +446,9 @@ class LcDslProposalProvider extends AbstractLcDslProposalProvider {
 				case launchConfigTypeAccess.ECLIPSEEclipseKeyword_1_0,
 				case launchConfigTypeAccess.RAPRapKeyword_2_0,
 				case launchConfigTypeAccess.GROUPGroupKeyword_3_0,
-				case launchConfigTypeAccess.SWTBOTSwtbotKeyword_4_0,
-				case launchConfigTypeAccess.JUNIT_PLUGINJunitPluginKeyword_5_0 : ih.getImage("launch_run.gif")
+				case launchConfigTypeAccess.SWTBOTSwtbotKeyword_5_0,
+				case launchConfigTypeAccess.JUNITJunitKeyword_4_0,
+				case launchConfigTypeAccess.JUNIT_PLUGINJunitPluginKeyword_6_0 : ih.getImage("launch_run.gif")
 				case launchModeTypeAccess.RUNRunKeyword_1_0,
 				case launchModeTypeAccess.DEBUGDebugKeyword_2_0,
 				case launchModeTypeAccess.PROFILEProfileKeyword_3_0,

@@ -251,6 +251,7 @@ public class LcDslProvider implements ILaunchObjectProvider {
                     if (lo.getLaunchConfig().getType() == LaunchConfigType.ECLIPSE
                             || lo.getLaunchConfig().getType() == LaunchConfigType.RAP
                             || lo.getLaunchConfig().getType() == LaunchConfigType.SWTBOT
+                            || lo.getLaunchConfig().getType() == LaunchConfigType.JUNIT
                             || lo.getLaunchConfig().getType() == LaunchConfigType.JUNIT_PLUGIN) {
                         return true;
                     }

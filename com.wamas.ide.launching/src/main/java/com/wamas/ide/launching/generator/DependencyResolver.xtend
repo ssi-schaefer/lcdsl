@@ -115,7 +115,7 @@ class DependencyResolver {
 		}
 
 		// add the plugin of the test project it self, if not yet present
-		if (config.type == LaunchConfigType.SWTBOT || config.type == LaunchConfigType.JUNIT_PLUGIN) {
+		if (config.type == LaunchConfigType.SWTBOT || config.type == LaunchConfigType.JUNIT_PLUGIN || config.type == LaunchConfigType.JUNIT) {
 			val project = RecursiveCollectors.collectTestContainerResource(config)?.project
 			val testBundleDescription = PDECore.^default.modelManager.findModel(project)?.bundleDescription
 
