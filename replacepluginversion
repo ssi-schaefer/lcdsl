@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# This script can be used to change the version of an Eclipse plugin by replacing the
+# version in the MANIFEST.MF, feature.xml and pom.xml files.
+# It requires the location of the project's root directory and the desired version as parameters.
+# Suffixes such as .qualifier or .SNAPSHOT are appended automatically.
+# Afterwards, the commit/Gerrit change needs to be created manually.
+
+set -e -u;
+
+if [ $# -ne 1 ] && [ $# -ne 2 ];
+then
+  echo "Usage: /replacepluginversion <version> [plugin-root]";
+  echo "Example: /replacepluginversion 1.0.0 someEclipsePlugin/";
+  echo "Example: /replacepluginversion 1.0.0 # Uses the current directory";
+  exit 1;
+fi
+
+NEW_VERSION=$1;
+PLUGIN_REPO=${2:-.};
+
+if [ ! -d "$PLUGIN_REPO" ]; then
+  echo "Eclipse plugin directory $PLUGIN_REPO does not exist.";
+  exit 1;
+fi
+
+cd "$PLUGIN_REPO";
+
+find . -not -path "./.git/*" -not -path "*/target/*" -name "MANIFEST.MF" -exec sed -i -e "0,/Bundle-Version: [a-zA-Z0-9._\\-]\+/{s//Bundle-Version: $NEW_VERSION.qualifier/g}" {} \;
+find . -not -path "./.git/*" -not -path "*/target/*" -name "feature.xml" -type f -exec sed -i -e "0,/version=\"[a-zA-Z0-9._\\-]\+.qualifier\"/{s//version=\"$NEW_VERSION.qualifier\"/g}" {} \;
+find . -not -path "./.git/*" -not -path "*/target/*" -name "pom.xml" -type f -exec sed -i -e "0,/<version>[a-zA-Z0-9._\\-]\+</{s//<version>$NEW_VERSION-SNAPSHOT</g}" {} \;
+
+echo "Replaced all plugin versions in the project. Now you can create a commit.";
