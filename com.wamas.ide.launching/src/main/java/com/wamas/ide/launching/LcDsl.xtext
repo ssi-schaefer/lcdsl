@@ -288,7 +288,7 @@ enum InputStream:
 ;
 
 enum TestRunnerType:
-	JUNIT5 = "junit5" | JUNIT4 = "junit4" | JUNIT3 = "junit3"
+	JUNIT6 = "junit6" |JUNIT5 = "junit5" | JUNIT4 = "junit4" | JUNIT3 = "junit3"
 ;
 
 @Override 

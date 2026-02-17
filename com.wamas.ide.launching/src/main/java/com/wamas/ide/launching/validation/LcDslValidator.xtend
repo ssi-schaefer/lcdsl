@@ -464,17 +464,17 @@ class LcDslValidator extends AbstractLcDslValidator {
 	}
 
 	@Check
-	def checkTestTagsOnlyJUnit5(LaunchConfig cfg) {
+	def checkTestTagsOnlyJUnit5AndAbove(LaunchConfig cfg) {
 		val testRunner = cfg.test?.runner
 		val testExcludeTags = cfg.test?.excludeTags
 		val testIncludeTags = cfg.test?.includeTags
 
-		if (testExcludeTags !== null && testRunner !== TestRunnerType.JUNIT5) {
-			warning("Exclude tags are only supported by JUnit5", cfg.test, LC.testConfig_ExcludeTags)
+		if (testExcludeTags !== null && testRunner !== TestRunnerType.JUNIT5 && testRunner !== TestRunnerType.JUNIT6) {
+			warning("Exclude tags are only supported by JUnit5 and above", cfg.test, LC.testConfig_ExcludeTags)
 		}
 
-		if (testIncludeTags !== null && testRunner !== TestRunnerType.JUNIT5) {
-			warning("Include tags are only supported by JUnit5", cfg.test, LC.testConfig_IncludeTags)
+		if (testIncludeTags !== null && testRunner !== TestRunnerType.JUNIT5 && testRunner !== TestRunnerType.JUNIT6) {
+			warning("Include tags are only supported by JUnit5 and above", cfg.test, LC.testConfig_IncludeTags)
 		}
 	}
 

@@ -293,7 +293,8 @@ class RecursiveCollectors {
 			case JUNIT3: TestKindRegistry.JUNIT3_TEST_KIND_ID
 			case JUNIT4: TestKindRegistry.JUNIT4_TEST_KIND_ID
 			case JUNIT5: TestKindRegistry.JUNIT5_TEST_KIND_ID
-			default: TestKindRegistry.JUNIT5_TEST_KIND_ID
+			case JUNIT6: TestKindRegistry.JUNIT6_TEST_KIND_ID
+			default: TestKindRegistry.JUNIT6_TEST_KIND_ID
 		}
 	}
 
@@ -377,7 +378,7 @@ class RecursiveCollectors {
 	}
 
 	static def collectTestHasExcludeTags(LaunchConfig config) {
-		if (config.test?.runner === TestRunnerType.JUNIT5) {
+		if (config.test?.runner === TestRunnerType.JUNIT5 || config.test?.runner === TestRunnerType.JUNIT6) {
 			return collectFlatObject(config, [test?.excludeTags]) !== null
 		}
 
@@ -389,7 +390,7 @@ class RecursiveCollectors {
 	}
 
 	static def collectTestHasIncludeTags(LaunchConfig config) {
-		if (config.test?.runner === TestRunnerType.JUNIT5) {
+		if (config.test?.runner === TestRunnerType.JUNIT5 || config.test?.runner === TestRunnerType.JUNIT6) {
 			return collectFlatObject(config, [test?.includeTags]) !== null
 		}
 
