@@ -119,12 +119,12 @@ Eclipse, RAP, JUnit Plug-in and SWTBot launch configurations share a lot of conf
          * `context-path`: use this as additional context path
          * `dev-mode`: enable RAP developer mode
      * `test {}` (only for types 'junit-plugin' and 'swtbot'):
-         * `runner`: test runner (JUnit3, JUnit4 or JUnit5 (default))
+         * `runner`: test runner (JUnit3, JUnit4 or JUnit5, JUnit6 (default))
          * `container`: project, package or source folder which contains tests (the project containing the .lc file if not specified). If the container points to a plugin project, the plugin will be added to the dependency list as well.
          * `class`: If specified only tests within this class will be executed, otherwise all tests of the container will be executed.
          * `method`: If specified only this test will be executed, otherwise all tests of the class will executed.
-         * `exclude-tags` (only for runner 'junit5'): tags which are used to exclude certain tests
-         * `include-tags` (only for runner 'junit5'): tags which are used to include certain tests
+         * `exclude-tags` (only for runner 'junit5' or newer): tags which are used to exclude certain tests
+         * `include-tags` (only for runner 'junit5' or newer): tags which are used to include certain tests
  * multi-properties
      * `plugin`: adds a plugin to the launch configuration. may specify also version, startlevel and autostart property. Dependencies of the given plugin are added automatically to the launch unless `explcit` modifier is given.
      * `feature`: same as `plugin` but for features - no startlevel support though.
