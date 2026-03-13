@@ -4,8 +4,6 @@ with source requirements
 environment JavaSE-21
 
 location "https://download.eclipse.org/releases/2025-12/202512101000/" {
-	org.apache.commons.logging
-
 	// required to start UI tests in workbench - not a dependency per se
 	// org.eclipse.pde.junit.runtime
 	// org.eclipse.jdt.junit4.runtime
