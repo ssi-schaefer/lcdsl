@@ -3,7 +3,7 @@
 BuilderConfiguration.is_project_specific=true
 autobuilding=true
 eclipse.preferences.version=1
-generateGeneratedAnnotation=true
+generateGeneratedAnnotation=false
 generateSuppressWarnings=true
 generatedAnnotationComment=
 includeDateInGenerated=false
