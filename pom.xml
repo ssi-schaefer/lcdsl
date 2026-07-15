@@ -190,7 +190,7 @@
           <version>${xtext-version}</version>
         </plugin>
         <plugin>
-          <groupId>org.eclipse.xtend</groupId>
+          <groupId>org.eclipse.xtext</groupId>
           <artifactId>xtend-maven-plugin</artifactId>
           <version>${xtext-version}</version>
           <executions>
