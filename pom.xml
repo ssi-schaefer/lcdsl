@@ -242,7 +242,7 @@
             <repository>
               <id>cbi-targetplatform-dsl-mirror</id>
               <layout>p2</layout>
-              <url>https://download.eclipse.org/cbi/updates/tpd/release/3.0.0/</url>
+              <url>https://download.eclipse.org/cbi/updates/tpd/nightly</url>
             </repository>
           </repositories>
           <dependencies>
